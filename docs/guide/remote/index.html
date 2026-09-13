@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Remote - D-Pad, Transport, Inputs &amp; System Controls | AVR Maestro</title>
+<meta name="description" content="AVR Maestro's virtual remote for Denon and Marantz: a full D-pad and transport, a live header showing input, sound mode and the channels in use, an input grid with on-receiver renaming and custom icons from your own images, Quick/Smart Select recall, and direct system controls. Plus desktop keyboard shortcuts on Mac and Windows for transport and volume." />
+<meta name="keywords" content="Denon virtual remote app, Marantz remote app, AV receiver remote app, rename inputs Denon, reorder sources receiver, custom input icons receiver app, change input icon Denon Marantz, Quick Select app, Smart Select app, receiver D-pad app, Denon keyboard shortcuts, Marantz app keyboard shortcuts, AV receiver keyboard control, media keys receiver app" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/guide/remote/" />
+<meta property="og:title" content="The Remote - AVR Maestro" />
+<meta property="og:description" content="A full virtual remote with D-pad, transport, a live channel header, renamable inputs, Quick/Smart Select and system controls." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://avrmaestro.com/guide/remote/" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:image" content="https://avrmaestro.com/screenshots/remote-main.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The Remote - AVR Maestro" />
+<meta name="twitter:description" content="D-pad, transport, renamable inputs, Quick/Smart Select and system controls." />
+<meta name="twitter:image" content="https://avrmaestro.com/screenshots/remote-main.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="../../assets/favicon-48.png" />
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="../../assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I rename and reorder my receiver's inputs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. In AVR Maestro you can rename inputs (for example to Nvidia Shield, Xbox, PS5) and drag to reorder them. Open the source list, tap a tile to edit, and tap a source to rename it. The new name is written to the receiver itself, so it shows up immediately in AVR Maestro, in the manufacturer's own app and in every other client - and it works on older chassis too. The order saves per receiver everywhere in the app."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I give my inputs custom icons?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Long-press an input tile, pick any image - PNG, JPG, ICO, WebP and more - position it in a passport-style cropper, and save. The custom icon shows on the input tiles and the Home dashboard, and it is carried inside your settings backup so it survives a move to a new phone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can the virtual remote control?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Main Remote has a command bar (Power, Info, Setup, Option, Back), a D-pad, transport controls and a volume bar, with a live header showing the input, sound mode and the IN/OUT channels in use. A System page exposes direct controls like HDMI output, dimmer, triggers, ECO, sleep timer, CEC and more - anything your receiver doesn't support is hidden."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does AVR Maestro have keyboard shortcuts on desktop?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. On the Mac and Windows apps you can drive transport and volume straight from the keyboard. Use Cmd on macOS or Ctrl on Windows: Space for Play/Pause, . (period) for Stop, Left and Right for previous and next track, Up and Down for volume, and M to toggle mute. Your keyboard's dedicated media keys - play, pause, next, previous, stop, volume up, volume down and mute - work too. Shortcuts never fire while a text field has focus, so typing a receiver name or IP address is never interrupted."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "User Guide",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Remote",
+      "item": "https://avrmaestro.com/guide/remote/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="../../assets/avr-maestro-icon.png" alt="AVR Maestro icon" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m">
+      <a href="/">Home</a>
+      <a href="/guide/">User Guide</a>
+      <a href="/receivers/">Receivers</a>
+      <a href="/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/best-denon-marantz-app/">Why switch</a>
+      <a href="/#top" class="cta">Download</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero split">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="/">Home</a> &rsaquo; <a href="/guide/">User Guide</a> &rsaquo; Remote</div>
+      <div class="eyebrow">The remote</div>
+      <h1>A real <span class="g">remote</span>, plus the live picture</h1>
+      <p>Full D-pad and transport control with a live header that shows the input, sound mode, and the actual channels in use - so you always know what your Denon or Marantz is doing. Four pages: swipe or tap the page tabs.</p>
+    </div>
+    <div class="hero-shot"><img alt="AVR Maestro main remote" src="../../screenshots/remote-main.png" /></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="feat rev">
+      <div class="shots"><img alt="Input grid" src="../../screenshots/remote-inputs.png" /></div>
+      <div>
+        <div class="eyebrow">Four pages</div>
+        <h2>Everything, without the physical remote</h2>
+        <ul>
+          <li><b>Main Remote:</b> command bar (Power / Info / Setup / Option / Back), D-pad, transport, and a volume bar - with a live header showing input, sound mode and the IN/OUT channels in use.</li>
+          <li><b>Inputs:</b> the full source grid. <b>Rename and reorder</b> sources to match your gear - open the source list, tap a tile to edit, tap a source to rename it, drag to reorder. Renames are written to the <b>receiver itself</b>, so they show immediately here, in the manufacturer's app and in every other client - older chassis included. The order saves per receiver.</li>
+          <li><b>Quick / Smart Select:</b> tap a slot to recall the receiver's saved scene; long-press to <b>Rename</b> or <b>Save current state</b> (a wizard lets you pick exactly which settings to capture). Slot renames are saved on the receiver too, so they follow you to every other app.</li>
+          <li><b>System:</b> direct controls - HDMI output, dimmer/illumination, triggers, ECO, auto standby, sleep timer, CEC, HDMI audio out, speaker preset, picture/video mode, all-zone stereo, auto lip sync, audio delay, input mode. Unsupported items are hidden.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="feat">
+      <div>
+        <div class="eyebrow">Volume, your way</div>
+        <h2>Read the volume in <span class="g">dB or a relative scale</span></h2>
+        <p class="lead">The Main Remote's volume bar shows the master volume live, and the header chip mirrors it. Prefer the receiver's own numbers over decibels? In Settings you can switch the volume readout between <b>absolute dB</b> (for example -62.5 dB) and the <b>relative scale</b> - both the header chip and the volume bar follow your choice, so the whole Remote speaks the units you think in.</p>
+      </div>
+      <div class="shots"><img alt="The Main Remote volume readout shown in dB" src="../../screenshots/remote-volume-display.png" /></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Press and hold</div>
+      <h2>The volume buttons <span class="g">ramp</span>, like the ones on the remote</h2>
+      <p class="lead">Tap the plus or minus and the volume moves one step. Hold it and it keeps moving, smoothly, until you let go - the way the physical remote behaves and the way your hand expects. Release and the receiver lands exactly on the step you stopped on, never past it.</p>
+      <p class="lead">Underneath, the app is coalescing: it accumulates where you are heading and paces what it actually puts on the wire, so a long hold does not flood a receiver that answers slowly. Small moves are smooth too - a change of a few decibels ramps rather than jumping.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Signal, live</div>
+      <h2>What is coming in, and what is <span class="g">coming out</span></h2>
+      <p class="lead">The Remote header carries a compact channel strip: the incoming signal on one row, what your receiver is driving on the other, with every speaker the receiver names. A stereo track over the network shows two channels in and a full upmix out.</p>
+    </div>
+    <div class="gallery">
+      <figure><img alt="The Remote header showing input and output channels during Dolby Atmos playback" src="../../screenshots/remote-main.png" /><figcaption>Dolby Atmos in, 7.2.4 out</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Custom input icons</div>
+      <h2>Give every input <span class="g">its own icon</span></h2>
+      <p class="lead">Your Shield, your HTPC and your Blu-ray player can each wear their real face on the input tiles - from any image you have. It has its own guide now.</p>
+    </div>
+    <p style="text-align:center;margin:0"><a class="cta" href="/guide/custom-icons/">Read the Custom Input Icons guide &rarr;</a></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Desktop</div>
+      <h2>Keyboard shortcuts on <span class="g">Mac &amp; Windows</span></h2>
+      <p class="lead">On the Mac App Store and Microsoft Store builds you can drive playback and volume straight from the keyboard - no reaching for the mouse. Use <b>Cmd</b> on macOS or <b>Ctrl</b> on Windows, and your keyboard's dedicated media keys work too. Nothing fires while you're typing in a text field, so renaming an input or entering an IP is never interrupted.</p>
+    </div>
+    <table class="t">
+      <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td>Cmd + Space / Ctrl + Space</td><td>Play / Pause</td></tr>
+        <tr><td>Cmd + . / Ctrl + . (period)</td><td>Stop</td></tr>
+        <tr><td>Cmd + Right / Ctrl + Right</td><td>Next track</td></tr>
+        <tr><td>Cmd + Left / Ctrl + Left</td><td>Previous track</td></tr>
+        <tr><td>Cmd + Up / Ctrl + Up</td><td>Volume up</td></tr>
+        <tr><td>Cmd + Down / Ctrl + Down</td><td>Volume down</td></tr>
+        <tr><td>Cmd + M / Ctrl + M</td><td>Toggle mute</td></tr>
+        <tr><td>Media keys: Play, Pause, Play/Pause, Stop</td><td>The matching transport action</td></tr>
+        <tr><td>Media keys: Next Track, Previous Track</td><td>Skip to next / previous track</td></tr>
+        <tr><td>Media keys: Volume Up, Volume Down, Mute</td><td>Volume up, volume down, mute</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Common questions</div>
+      <h2>Remote FAQ</h2>
+    </div>
+    <details open><summary>Can I rename and reorder my inputs?</summary><div class="body">Yes - open the source list, tap a tile to edit, tap a source to rename it, drag to reorder. Rename them to "Nvidia Shield", "Xbox", "PS5" - the new name is written to the receiver itself, so it shows immediately in AVR Maestro, in the manufacturer's app and in every other client, older chassis included. The order saves per receiver everywhere.</div></details>
+    <details><summary>Can I give my inputs custom icons?</summary><div class="body">Yes - long-press an input tile, pick any image (PNG, JPG, ICO, WebP and more), position it in the passport-style cropper and save. See the full <a href="/guide/custom-icons/">Custom Input Icons guide</a> for the walkthrough.</div></details>
+    <details><summary>What does the virtual remote control?</summary><div class="body">A command bar (Power/Info/Setup/Option/Back), D-pad, transport and volume, with a live header showing input, sound mode and the channels in use. The System page adds direct controls (HDMI output, dimmer, triggers, ECO, sleep, CEC and more); unsupported items are hidden.</div></details>
+    <details><summary>What is Quick / Smart Select?</summary><div class="body">Denon Quick Select / Marantz Smart Select are the receiver's own saved-scene slots. Tap to recall; long-press to rename or save the current state with a capture wizard.</div></details>
+    <details><summary>Does AVR Maestro have keyboard shortcuts on desktop?</summary><div class="body">Yes - on Mac and Windows you can drive transport and volume from the keyboard. Use <b>Cmd</b> on macOS or <b>Ctrl</b> on Windows: Space for Play/Pause, . (period) for Stop, Left/Right for previous/next track, Up/Down for volume, and M to mute. Your dedicated media keys (play, pause, next, previous, stop, volume, mute) work too. Shortcuts pause while you're typing in a text field.</div></details>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Put the remote in your pocket</h2>
+    <p class="lead" style="margin:0 auto 24px">One-time purchase, no ads, no subscriptions. Connect in under a minute.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Get it on Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Download on the App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Download on the Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Get it on the Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/guide/">Back to the full User Guide &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/">Home</a>
+      <a href="/guide/">User Guide</a>
+      <a href="/receivers/">Receivers</a>
+      <a href="/best-denon-marantz-app/">Why switch</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro is an independent app by MiyaraHub Technologies LLC and is not affiliated with, endorsed by, or sponsored by Denon, Marantz, D&amp;M Holdings or Sound United. Denon, Marantz, HEOS, Audyssey and Dirac Live are trademarks of their respective owners.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+</body>
+</html>
