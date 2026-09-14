@@ -133,10 +133,37 @@
 
     <div class="lockrow" style="margin-top:28px">
       <div>
+        <div class="eyebrow">Not just scenes</div>
+        <h2>Speaker Presets, Dirac and Audyssey, too</h2>
+        <p>Turn on <b>Sync Advanced Controls</b> and the app publishes a script for far more than your scenes: every Speaker Preset, every Dirac Live filter slot, each Audyssey curve. A full sync on a Cinema 30 lands over seventy scripts, so a dashboard button or a voice command can load a Dirac filter or switch the room curve the same way it recalls a scene.</p>
+      </div>
+      <img alt="AVR Maestro's Home Assistant screen with Sync Advanced Controls turned on" src="../../screenshots/ha-app-controls.png" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">It reads, not only writes</div>
+        <h2>Home Assistant can see what is active</h2>
+        <p>A script can be run but never read, so early dashboards could switch the Audyssey curve or the Dirac slot with no way to show which one was on. The readings the app already holds - the live surround mode, the active Dirac filter, the speaker preset, the dimmer and dozens more - now publish as attributes on the receiver's status sensor, so a tile can light up for the setting that is actually running.</p>
+      </div>
+      <img alt="AVR Maestro publishing Speaker Preset, Dirac Live and Audyssey control scripts to Home Assistant" src="../../screenshots/ha-sync-advanced.png" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Every room</div>
+        <h2>Your other zones, from the same dashboard</h2>
+        <p>Power, volume and mute for Zone 2 and Zone 3 publish as their own scripts, so a patio or a second room answers a dashboard or a voice assistant the way the main zone always has. Only the zones your receiver actually reports get buttons, so a two-zone receiver never grows a Zone 3.</p>
+      </div>
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
         <div class="eyebrow">If you synced with an older build</div>
         <h2>Your script IDs change once</h2>
         <p>Scripts used to be named after the scene <em>and</em> the receiver, so renaming either one left the old script behind and quietly created a second. They are now named after the scene and the receiver's MAC address, which is what makes a rename update the same script instead of forking it.</p>
         <p>The first sync after that change replaces the old scripts with the new ones. <b>Anything you built on the old IDs needs repointing once</b> - a dashboard button, an automation, a voice alias. Open the script in Home Assistant to find its new entity ID.</p>
+        <p>Entities now read from the receiver too - <code>cinema30</code> rather than thirty-two characters of machine identifier - so the list is legible and autocomplete finds them. Ids from earlier versions keep working.</p>
       </div>
     </div>
   </div>

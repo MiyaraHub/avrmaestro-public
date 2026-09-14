@@ -489,19 +489,19 @@ apex_config:
       <h2>If a tile never lights up</h2>
     </div>
     <p class="lead">Before assuming you built it wrong: some of them cannot light up, and it is worth knowing which.</p>
-    <p class="lead">A tile can only show its state if Home Assistant can read it. Home Assistant reads your receiver through the Denon AVR integration, and that publishes a specific list.</p>
+    <p class="lead">A tile can only show its state if Home Assistant can read it, and it reads your receiver from two places. The Denon AVR integration publishes the basics on the media player entity. AVR Maestro publishes the rest: it creates a <b>Status Bridge</b> sensor, <code>sensor.avr_maestro_your_receiver</code>, and writes the readings it already holds onto it as attributes.</p>
     <table class="t">
-      <thead><tr><th>Home Assistant can see</th><th>Home Assistant cannot see</th></tr></thead>
+      <thead><tr><th>On the media player entity</th><th>On the Status Bridge sensor</th></tr></thead>
       <tbody>
         <tr><td>Power</td><td>Audyssey MultEQ curve</td></tr>
-        <tr><td>Selected source</td><td>Dynamic Volume setting</td></tr>
+        <tr><td>Selected source</td><td>Dynamic Volume and reference level</td></tr>
         <tr><td>Surround mode</td><td>Which Dirac slot is loaded</td></tr>
-        <tr><td>Volume and mute</td><td>Front panel dimmer level</td></tr>
-        <tr><td>Dynamic EQ, sometimes</td><td>Eco mode, speaker preset, virtualizer</td></tr>
+        <tr><td>Volume and mute</td><td>Front panel dimmer, Eco mode</td></tr>
+        <tr><td>Dynamic EQ, sometimes</td><td>Speaker preset, tone, and dozens more</td></tr>
       </tbody>
     </table>
-    <p class="lead">Everything in the right-hand column is <em>readable from the receiver</em> - it answers when asked, over the same protocol AVR Maestro uses to draw its own screens. It just is not published to Home Assistant, so a dashboard has nowhere to read it from. Those buttons work perfectly; they cannot show you which one is active.</p>
-    <p class="lead">Measured on the receiver this was built on: <b>twenty of sixty controls can show their state, and forty cannot</b>. Publishing the other forty is on the roadmap, and it is the difference between a wall of buttons and a control surface.</p>
+    <p class="lead">Both columns are readable now. Take a media player value from <code>states['media_player.your_receiver'].attributes</code>, and a Status Bridge value with <code>state_attr('sensor.avr_maestro_your_receiver','dirac_slot')</code>, so a tile lights up for the setting that is actually active instead of only firing the script that changes it.</p>
+    <p class="lead">Measured on the receiver this was built on: the media player entity carries about twenty of the sixty controls, and the Status Bridge sensor publishes roughly forty more. Between the two, a dashboard can read nearly everything it can change - the difference between a wall of buttons and a control surface.</p>
     <div class="note"><b>If a value can mean two things, say so.</b> Dynamic EQ arrives as <code>true</code>, <code>false</code>, or not at all. Treating "not at all" as "off" puts a confident wrong answer on your wall.</div>
 <pre class="code">icon_color: >-
   {% set d = state_attr('media_player.your_receiver','dynamic_eq') %}
