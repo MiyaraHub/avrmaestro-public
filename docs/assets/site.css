@@ -301,3 +301,14 @@ details.more{border:1px solid var(--edge-2);border-radius:var(--radius-sm);paddi
 details.more summary{cursor:pointer;color:var(--signal);font-weight:600;font-family:var(--disp);
   letter-spacing:.4px}
 details.more[open] summary{margin-bottom:10px}
+
+/* The screenshot grid, wherever it is used. It was scoped to #screenshots on
+ * the home page and nowhere else, so the Languages section and guide page
+ * rendered every shot at its full 1324px (2026-09-20). */
+.shots-grid { column-count: 3; column-gap: 16px; margin-top: 8px; }
+.shots-grid .shot { position: relative; display: block; width: 100%; margin: 0 0 16px; padding: 0; border: 0; background: none; cursor: pointer; break-inside: avoid; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+.shots-grid .shot img { width: 100%; display: block; border-radius: 12px; transition: transform .5s ease; }
+.shots-grid .shot:hover img { transform: scale(1.03); }
+.shots-grid .shot-plat { position: absolute; top: 10px; left: 10px; font-family: var(--mono); font-size: .68rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--vfd); background: rgba(8,9,11,.72); border: 1px solid var(--edge-2); padding: 4px 9px; border-radius: 6px; }
+@media (max-width: 900px) { .shots-grid { column-count: 2; } }
+@media (max-width: 560px) { .shots-grid { column-count: 1; } }
