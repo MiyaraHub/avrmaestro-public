@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ro" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ecranul Acasă &amp; widgeturi pentru redarea curentă - AVR Maestro</title>
+<meta name="description" content="Ecranul Acasă din AVR Maestro: un card de stare fixat plus widgeturi pe care le adăugați, eliminați și reordonați pentru volum, sursă, mod de sunet, zone, Audyssey/Dirac și HEOS." />
+<meta name="keywords" content="AVR Maestro home screen, customizable receiver app home, AV receiver widgets, now playing HEOS app, receiver volume widget, Denon Marantz home screen" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/ro/guide/home/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="ro_RO" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Ecranul Acasă &amp; widgeturi pentru redarea curentă - AVR Maestro" />
+<meta property="og:description" content="Ecranul Acasă din AVR Maestro: un card de stare fixat plus widgeturi pe care le adăugați, eliminați și reordonați pentru volum, sursă, mod de sunet, zone, Audyssey/Dirac și HEOS." />
+<meta property="og:url" content="https://avrmaestro.com/ro/guide/home/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Ecranul Acasă &amp; widgeturi pentru redarea curentă - AVR Maestro" />
+<meta name="twitter:description" content="Ecranul Acasă din AVR Maestro: un card de stare fixat plus widgeturi pe care le adăugați, eliminați și reordonați pentru volum, sursă, mod de sunet, zone, Audyssey/Dirac și HEOS." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro este o aplicație independentă pentru controlul receiverelor AV Denon și Marantz prin rețeaua dumneavoastră locală.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "ro"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home/#article",
+      "headline": "Ecranul Acasă: baza dumneavoastră, după preferințele dumneavoastră",
+      "description": "Ecranul Acasă din AVR Maestro: un card de stare fixat plus widgeturi pe care le adăugați, eliminați și reordonați pentru volum, sursă, mod de sunet, zone, Audyssey/Dirac și HEOS.",
+      "image": "https://avrmaestro.com/screenshots/dashboard.png",
+      "datePublished": "2026-07-03",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "ro"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Pot personaliza ecranul Acasă?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Da - atingeți Personalizează ecranul Acasă, apoi trageți pentru a reordona, atingeți cercul roșu pentru a elimina, Adaugă pentru mai multe widgeturi, Resetează pentru valorile implicite, Gata pentru a termina. Cardurile se estompează în timpul editării, ca să nu schimbați o setare din greșeală."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pot redenumi zonele, inclusiv zona principală?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Da - apăsați lung numele zonei pe ecranul Acasă. Numele este scris chiar pe receiver, deci apare în aplicația producătorului și în orice alt client, și funcționează și pe șasiurile mai vechi."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Arată ce se redă?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Da, pentru sursele care expun metadate - coperta albumului, piesa/artistul/postul și comenzile de redare. Atingeți Lansează HEOS pentru a naviga; AVR Maestro preia din nou afișajul redării curente imediat ce începe redarea."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Acasă",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Ghid de utilizare",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Ecranul Acasă",
+      "item": "https://avrmaestro.com/guide/home/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/ro/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Meniu" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Căutați în ghid..." data-i18n-empty="Niciun rezultat pentru" data-i18n-language="Limbă">
+      <a href="/ro/">Acasă</a>
+      <a href="/ro/guide/">Ghid de utilizare</a>
+      <a href="/ro/receivers/">Receivere</a>
+      <a href="/ro/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ro/best-denon-marantz-app/">De ce să treceți la el</a>
+      <a href="/ro/#top" class="cta">Descarcă</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero split">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="/ro/">Acasă</a> &rsaquo; <a href="/ro/guide/">Ghid de utilizare</a> &rsaquo; Ecranul principal</div>
+      <div class="eyebrow">Ecranul Acasă</div>
+      <h1>Ecranul Acasă: <span class="g">baza dumneavoastră</span>, după preferințele dumneavoastră</h1>
+      <p>Un card de stare a dispozitivului rămâne fixat în partea de sus - model, conexiune, alimentare - cu o grilă personalizabilă de widgeturi dedesubt. Adăugați, eliminați și reordonați cardurile astfel încât ecranul Acasă să arate exact ce vă interesează.</p>
+    </div>
+    <div class="hero-shot"><img alt="Ecranul Acasă AVR Maestro" src="/screenshots/dashboard.png" width="1324" height="2644" fetchpriority="high" /></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="feat rev">
+      <div class="shots"><img alt="Personalizați ecranul Acasă" src="/screenshots/dashboard-customize.png" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <div class="eyebrow">Faceți-l al dumneavoastră</div>
+        <h2>Personalizați în câteva secunde</h2>
+        <p class="lead">Atingeți pictograma <b>Personalizează ecranul Acasă</b> (sus, în stânga) pentru a intra în modul de editare:</p>
+        <ul>
+          <li><b>Trageți</b> un card pentru a-l reordona.</li>
+          <li>Atingeți cercul roșu pentru a <b>elimina</b> un card.</li>
+          <li><b>Adaugă</b> deschide o listă cu widgeturile pe care nu le aveți încă.</li>
+          <li><b>Resetează</b> restabilește valorile implicite; <b>Gata</b> închide editarea.</li>
+        </ul>
+        <div class="note">Cardurile sunt estompate în timpul editării, ca să nu schimbați din greșeală o setare a receiverului. Widgeturile se afișează doar când receiverul expune funcția respectivă.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Dați nume camerelor</div>
+      <h2>„Living”, nu „MAIN ZONE”</h2>
+      <p class="lead"><b>Apăsați lung numele zonei</b> de pe ecranul Acasă pentru a redenumi orice zonă - <b>inclusiv zona principală</b>. Numele este scris pe <b>receiverul însuși</b>, nu doar în aplicație, deci apare în aplicația proprie a producătorului și în orice alt client, și funcționează și pe șasiurile mai vechi. Redenumiți o singură dată, iar toate controalele din casă vor ști cum se numește camera.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Widgeturile</div>
+      <h2>Tot ce puteți fixa</h2>
+    </div>
+    <table class="t">
+      <thead><tr><th>Widget</th><th>Ce face</th></tr></thead>
+      <tbody>
+        <tr><td>Volum</td><td>Glisor cu afișaj în dB, mute și 8 presetări de volum salvate.</td></tr>
+        <tr><td>Sursă</td><td>Deschide selectorul de intrări; apăsați lung plăcile pentru a le reordona. Sursele redenumite și pictogramele personalizate setate în grila de intrări din Telecomandă apar și aici.</td></tr>
+        <tr><td>Mod de sunet</td><td>Modul surround curent; atingeți pentru un selector grupat.</td></tr>
+        <tr><td>Redare curentă</td><td>Coperta albumului, informații despre piesă și comenzi de redare pentru sursele HEOS.</td></tr>
+        <tr><td>Zone</td><td>Stare compactă Zona 2 / Zona 3 + comenzi rapide, inclusiv sloturile Smart Select sau Quick Select ale zonei - atingeți un slot pentru a-l rechema, apăsați lung pentru a salva în el starea curentă a zonei.</td></tr>
+        <tr><td>Smart Select / Quick Select</td><td>Sloturile de memorie proprii ale receiverului, denumite așa cum le numește receiverul: Smart Select la Marantz, Quick Select la Denon. Sloturile redenumite sunt salvate pe receiver, deci numele dumneavoastră apar în fiecare aplicație.</td></tr>
+        <tr><td>Speaker Preset</td><td>Comutator Preset 1 / 2 - apare doar pe receivere care expun mai multe presetări.</td></tr>
+        <tr><td>Audyssey / Dirac</td><td>Starea calibrării dintr-o privire + acces rapid la setare.</td></tr>
+        <tr><td>Niveluri canale / subwoofer</td><td>Instantanee ale nivelurilor pe canal și ale subwooferului, cu butoane de reglaj - numărul de subwoofere urmează configurația reală a receiverului.</td></tr>
+        <tr><td>ECO, Sleep, DRC, Restorer, Video, Room Size, LFE</td><td>Comutatoare și selectoare dintr-o atingere, fiecare afișat doar când este acceptat.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Controale de sunet</div>
+      <h2>Comutatoare rapide în Sunet</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Graphic EQ:</b> porniți sau opriți Graphic EQ al receiverului din Sunet, Funcții audio. Disponibil doar când nici Dirac Live, nici Audyssey nu rulează corecția camerei - aplicația respectă regula proprie a receiverului.</li>
+      <li><b>Subwoofer:</b> dezactivați sunetul sau activați subwooferul din Sunet, Funcții audio, fără a intra în configurarea difuzoarelor. Apare doar pe receivere care îl raportează și îl acceptă.</li>
+      <li><b>Restaurare audio:</b> restauratorul de audio comprimat al receiverului - <b>Restorer</b> la Denon, <b>M-DAX</b> la Marantz - ca un comutator în Sunet, Ton, chiar lângă Filtrul DAC. Readuceți viața în fișierele MP3 și în sursele de streaming fără a naviga prin meniul de pe ecran.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Redare curentă &amp; HEOS</div>
+      <h2>Vedeți și controlați ce se redă</h2>
+      <p class="lead">Când sursa activă expune metadate, cardul Redare curentă afișează coperta albumului, informații despre piesă / artist / post și comenzile de redare (redare / pauză / următoarea / anterioara).</p>
+    </div>
+    <p style="color:var(--mut);max-width:70ch">Pentru a naviga prin muzică - posturi, cozi de redare, servicii de streaming, camere HEOS - atingeți <b>Lansează HEOS</b> pe cardul Redare curentă. AVR Maestro deschide aplicația oficială HEOS pentru navigare; imediat ce redarea începe acolo, AVR Maestro preia din nou afișajul redării curente, comenzile de redare și widgeturile. Sursele analogice, optice/coaxiale și cele cu HDMI passthrough nu raportează metadate, așa că cardul rămâne gol pentru ele.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Întrebări frecvente</div>
+      <h2>Întrebări frecvente despre ecranul Acasă</h2>
+    </div>
+    <details open><summary>Pot personaliza ecranul Acasă?</summary><div class="body">Da - atingeți Personalizează ecranul Acasă, apoi trageți pentru a reordona, atingeți cercul roșu pentru a elimina, Adaugă pentru mai multe widgeturi, Resetează pentru valorile implicite, Gata pentru a termina. Cardurile se estompează în timpul editării, ca să nu schimbați o setare din greșeală.</div></details>
+    <details><summary>Pot redenumi zonele, inclusiv zona principală?</summary><div class="body">Da - apăsați lung numele zonei pe ecranul Acasă. Numele este scris chiar pe receiver, deci apare în aplicația producătorului și în orice alt client, și funcționează și pe șasiurile mai vechi.</div></details>
+    <details><summary>Arată ce se redă?</summary><div class="body">Da, pentru sursele care expun metadate - coperta albumului, piesa/artistul/postul și comenzile de redare. Atingeți Lansează HEOS pentru a naviga; AVR Maestro preia din nou afișajul redării curente imediat ce începe redarea.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Mai multe din ghid</div>
+      <h2>Alte ghiduri AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/ro/guide/getting-started/">Primii pași</a> &middot; <a href="/ro/guide/scenes/">Scene</a> &middot; <a href="/ro/guide/custom-icons/">Pictograme personalizate</a> &middot; <a href="/ro/guide/sound/">Sunet</a> &middot; <a href="/ro/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/ro/guide/speakers/">Difuzoare</a> &middot; <a href="/ro/guide/locked-controls/">De ce este blocat un control</a> &middot; <a href="/ro/guide/assistant/">Asistentul</a> &middot; <a href="/ro/guide/home-automation/">Automatizare Locuință</a> &middot; <a href="/ro/guide/home-assistant-dashboard/">Panou Home Assistant</a> &middot; <a href="/ro/guide/multi-zone/">Zone</a> &middot; <a href="/ro/guide/remote/">Telecomandă</a> &middot; <a href="/ro/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/ro/guide/on-screen-display/">Afișaj pe ecran</a> &middot; <a href="/ro/guide/settings/">Setări</a> &middot; <a href="/ro/guide/languages/">Limbi</a> &middot; <a href="/ro/guide/volume/">Comenzi de volum</a> &middot; <a href="/ro/guide/backup/">Copie de rezervă &amp; restaurare</a> &middot; <a href="/ro/guide/now-playing/">Se redă acum &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Construiți ecranul Acasă pe care îl doriți</h2>
+    <p class="lead" style="margin:0 auto 24px">Achiziție unică, fără reclame, fără abonamente. Conectați-vă în mai puțin de un minut.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Descărcați de pe Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Descărcați din App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Descărcați din Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Descărcați din Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/ro/guide/">Înapoi la Ghidul complet de utilizare &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/ro/">Acasă</a>
+      <a href="/ro/guide/">Ghid de utilizare</a>
+      <a href="/ro/guide/getting-started/">Primii pași</a>
+      <a href="/ro/receivers/">Receivere</a>
+      <a href="/ro/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ro/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/ro/best-denon-marantz-app/">De ce să treceți la el</a>
+      <a href="/ro/help/">Ajutor</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro este o aplicație independentă creată de MiyaraHub Technologies LLC și nu este afiliată, susținută sau sponsorizată de Denon, Marantz, D&amp;M Holdings, Sound United sau de orice altă companie menționată pe această pagină. Denon, Marantz, HEOS, Audyssey și Dirac Live sunt mărci comerciale ale proprietarilor respectivi, utilizate aici exclusiv pentru identificare.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Volumgrense, oppstartsnivå &amp; demping - AVR Maestro</title>
+<meta name="description" content="Sett en volumgrense for din Denon eller Marantz, velg oppstartsnivå, bestem hvor mye Demp senker lyden, og les volumet som 0 til 98 eller i desibel." />
+<meta name="keywords" content="Denon volume limit app, Marantz power on level, AVR mute level -20 dB, receiver volume in decibels app, Denon volume scale absolute relative, protect speakers volume limit" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/nb/guide/volume/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/volume/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/volume/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/volume/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/volume/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/volume/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/volume/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/volume/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/volume/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/volume/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/volume/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/volume/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/volume/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/volume/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/volume/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/volume/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/volume/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/volume/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/volume/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/volume/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/volume/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/volume/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/volume/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/volume/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/volume/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/volume/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/volume/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/volume/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/volume/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/volume/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/volume/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/volume/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="nb_NO" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Volumgrense, oppstartsnivå &amp; demping - AVR Maestro" />
+<meta property="og:description" content="Sett en volumgrense for din Denon eller Marantz, velg oppstartsnivå, bestem hvor mye Demp senker lyden, og les volumet som 0 til 98 eller i desibel." />
+<meta property="og:url" content="https://avrmaestro.com/nb/guide/volume/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Volumgrense, oppstartsnivå &amp; demping - AVR Maestro" />
+<meta name="twitter:description" content="Sett en volumgrense for din Denon eller Marantz, velg oppstartsnivå, bestem hvor mye Demp senker lyden, og les volumet som 0 til 98 eller i desibel." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro er en uavhengig app for å styre Denon- og Marantz-AV-mottakere over det lokale nettverket ditt.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "nb"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/volume/#article",
+      "headline": "Volumkontroller: et tak, et oppstartsnivå og en demping som gjør det du vil",
+      "description": "Sett en volumgrense for din Denon eller Marantz, velg oppstartsnivå, bestem hvor mye Demp senker lyden, og les volumet som 0 til 98 eller i desibel.",
+      "image": "https://avrmaestro.com/screenshots/volume-controls.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/volume/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "nb"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/volume/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Gjelder volumgrensen også den fysiske fjernkontrollen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Grensen er en innstilling i mottakeren, ikke i appen, så den begrenser alle veier: appen, den medfølgende fjernkontrollen, dreieknappen på frontpanelet og enhver annen kontroller på nettverket ditt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Gjelder disse innstillingene for Sone 2 og Sone 3?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Volumkontroller gjelder hovedsonen. Hver sone har sitt eget volum, og sin egen strøm og inngang, i Soner-fanen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hvorfor viser appen 0 til 98 når anmeldelser oppgir desibel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Det er to visninger av samme dreieknapp. Bytt Volumskala til -79.5 til 18.0 dB, så samsvarer visningen med måten kalibreringsnivåer vanligvis oppgis på, der 0.0 dB er referanse."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan jeg bruke volumknappene på telefonen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, på Android og på iPhone. Så lenge AVR Maestro er i forgrunnen styrer enhetens volumknapper mottakeren direkte, ett steg per trykk og en rampe mens du holder; en bryter under Innstillinger, Lyd gir enheten knappene tilbake."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Hjem",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Brukerguide",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Volumkontroller",
+      "item": "https://avrmaestro.com/guide/volume/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/nb/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Meny" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Søk i guiden..." data-i18n-empty="Ingen treff for" data-i18n-language="Språk">
+      <a href="/nb/">Hjem</a>
+      <a href="/nb/guide/">Brukerguide</a>
+      <a href="/nb/receivers/">Mottakere</a>
+      <a href="/nb/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/nb/best-denon-marantz-app/">Hvorfor bytte</a>
+      <a href="/nb/#top" class="cta">Last ned</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/nb/">Hjem</a> &rsaquo; <a href="/nb/guide/">Brukerveiledning</a> &rsaquo; Volumkontroller</div>
+    <div class="eyebrow">Innstillinger &rsaquo; Volumkontroller</div>
+    <h1>Volumkontroller: et tak, et oppstartsnivå og <span class="g">en demping som gjør det du vil</span></h1>
+    <p>Fire innstillinger som til sammen bestemmer hvor høyt mottakeren noen gang kan bli, hva den gjør når den våkner, og hvor langt Demp senker lyden. De ligger i mottakeren, så de gjelder enten du bruker appen, den fysiske fjernkontrollen eller frontpanelet.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Hvor du finner det</div>
+        <h2>Innstillinger &rsaquo; Volumkontroller</h2>
+        <p class="lead">Åpne <b>Innstillinger</b> og bla til <b>Volumkontroller</b> - «Volumgrense, oppstartsnivå og demping». Alt på denne siden skrives rett til mottakeren, så det overlever at du lukker appen og gjelder uansett hvordan du styrer den.</p>
+      </div>
+      <img alt="Siden Volumkontroller med volumskala, grense, oppstartsnivå og demponivå" src="/screenshots/volume-controls.png" width="1324" height="2644" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Én om gangen</div>
+      <h2>Hva hver innstilling gjør</h2>
+    </div>
+
+    <h3 style="margin-top:26px">Volumskala</h3>
+    <p class="lead">Hvordan volumet leses, både på skjermen og på mottakerens eget display. <b>0 - 98</b> er den relative skalaen de fleste kjenner; <b>-79.5 til 18.0 dB</b> er den absolutte skalaen, der 0.0 dB er referansenivå. Hvis du noen gang har sett en anmeldelse oppgi «-15 dB» og lurt på hvordan det passer med dreieknappen din, er dette bryteren som svarer.</p>
+
+    <h3 style="margin-top:26px">Volumgrense</h3>
+    <p class="lead">Et hardt tak. Når den er satt, går <b>ingenting</b> forbi den - ikke appen, ikke den fysiske fjernkontrollen, ikke dreieknappen på frontpanelet, fordi grensen ligger i mottakeren og ikke i appen. Det åpenbare bruksområdet er å beskytte høyttalere eller et rom fullt av folk mot et feiltrykk, og det er innstillingen du bør ty til før du gir fjernkontrollen til en gjest. <b>Av</b> fjerner taket.</p>
+
+    <h3 style="margin-top:26px">Oppstartsnivå</h3>
+    <p class="lead"><b>Bruk siste volum</b> er på som standard: mottakeren våkner med volumet den hadde da du slo den av. Slå den av, så kan du låse et fast nivå i stedet, slik at en sen økt på høyt volum aldri blir en ubehagelig overraskelse neste morgen.</p>
+
+    <h3 style="margin-top:26px">Demponivå</h3>
+    <p class="lead">Hvor langt Demp senker volumet. <b>Full</b> gjør det stille. <b>-40 dB</b> og <b>-20 dB</b> demper i stedet, noe som er det beste valget når du vil snakke sammen over en film uten å miste tråden.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Andre steder i appen</div>
+      <h2>Kontrollene du bruker hver dag</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Hjem-oversikten</b> har hovedvolum, demping og strøm for hovedsonen.</li>
+      <li><b>Fjernkontroll-fanen</b> gir deg en volumvippe ved siden av styrekorset og avspillingstastene, med nivået vist underveis. <a href="/nb/guide/remote/">Guide for fjernkontroll &rarr;</a></li>
+      <li><b>Hver pluss- og minusknapp for volum</b> - på Hjem-oversikten, sonekortene og Fjernkontroll-fanen - flytter ett steg ved et trykk og fortsetter å stepe mens du holder, slik den fysiske fjernkontrollen gjør. Slipp, så stopper den innen ett steg.</li>
+      <li><b>Telefonens volumknapper</b>, på Android og iPhone, styrer mottakeren mens appen er foran, så du kan justere uten å se. Å holde en inne gir også en rampe.</li>
+      <li><b>Hver sone</b> har sitt eget volum, uavhengig av hovedsonen. <a href="/nb/guide/multi-zone/">Guide for soner &rarr;</a></li>
+      <li><b>Scener</b> kan fange Hovedvolum, så når du henter frem en, settes nivået sammen med alt annet. <a href="/nb/guide/scenes/">Guide for scener &rarr;</a></li>
+      <li><b>Volumvisningen på skjermen</b> på TV-en din kan flyttes eller slås helt av. <a href="/nb/guide/on-screen-display/">Guide for skjermmeny &rarr;</a></li>
+    </ul>
+    <div class="note">Volumendringer tidsstyres med vilje i stedet for å sendes én per piksel, så når du holder vippen eller sveiper glideren, går det jevnt opp og ned i stedet for å oversvømme mottakeren med kommandoer den ville køet opp og brukt for sent.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Vanlige spørsmål</div>
+      <h2>Vanlige spørsmål om volum</h2>
+    </div>
+    <details open><summary>Gjelder volumgrensen også den fysiske fjernkontrollen?</summary><div class="body">Ja. Grensen er en innstilling i mottakeren, ikke i appen, så den begrenser alle veier: appen, den medfølgende fjernkontrollen, dreieknappen på frontpanelet og enhver annen kontroller på nettverket ditt.</div></details>
+    <details><summary>Gjelder disse innstillingene for Sone 2 og Sone 3?</summary><div class="body">Volumkontroller gjelder hovedsonen. Hver sone har sitt eget volum, og sin egen strøm og inngang, i Soner-fanen.</div></details>
+    <details><summary>Hvorfor viser appen 0 til 98 når anmeldelser oppgir desibel?</summary><div class="body">Det er to visninger av samme dreieknapp. Bytt Volumskala til -79.5 til 18.0 dB, så samsvarer visningen med måten kalibreringsnivåer vanligvis oppgis på, der 0.0 dB er referanse.</div></details>
+    <details><summary>Kan jeg bruke volumknappene på telefonen?</summary><div class="body">Ja, på Android og på iPhone. Så lenge AVR Maestro er i forgrunnen styrer enhetens volumknapper mottakeren direkte, ett steg per trykk og en rampe mens du holder; en bryter under Innstillinger, Lyd gir enheten knappene tilbake.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Mer av guiden</div>
+      <h2>Andre AVR Maestro-guider</h2>
+    </div>
+    <p class="lead"><a href="/nb/guide/getting-started/">Kom i gang</a> &middot; <a href="/nb/guide/home/">Startskjerm</a> &middot; <a href="/nb/guide/scenes/">Scener</a> &middot; <a href="/nb/guide/custom-icons/">Egendefinerte ikoner</a> &middot; <a href="/nb/guide/sound/">Lyd</a> &middot; <a href="/nb/guide/graphic-eq/">Grafisk EQ</a> &middot; <a href="/nb/guide/speakers/">Høyttalere</a> &middot; <a href="/nb/guide/locked-controls/">Hvorfor en kontroll er låst</a> &middot; <a href="/nb/guide/assistant/">Assistenten</a> &middot; <a href="/nb/guide/home-automation/">Hjemmeautomatisering</a> &middot; <a href="/nb/guide/home-assistant-dashboard/">Home Assistant-dashbord</a> &middot; <a href="/nb/guide/multi-zone/">Soner</a> &middot; <a href="/nb/guide/remote/">Fjernkontroll</a> &middot; <a href="/nb/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/nb/guide/on-screen-display/">Skjermmeny</a> &middot; <a href="/nb/guide/settings/">Innstillinger</a> &middot; <a href="/nb/guide/languages/">Språk</a> &middot; <a href="/nb/guide/backup/">Sikkerhetskopi &amp; gjenoppretting</a> &middot; <a href="/nb/guide/now-playing/">Spilles nå &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Sett taket én gang, slapp av etterpå</h2>
+    <p class="lead" style="margin:0 auto 24px">Engangskjøp, ingen reklame, ingen abonnement. Koble til på under et minutt.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Hent den på Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Last ned på App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Last ned på Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Hent den på Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/nb/guide/">Tilbake til hele brukerguiden &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/nb/">Hjem</a>
+      <a href="/nb/guide/">Brukerguide</a>
+      <a href="/nb/guide/getting-started/">Kom i gang</a>
+      <a href="/nb/receivers/">Mottakere</a>
+      <a href="/nb/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/nb/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/nb/best-denon-marantz-app/">Hvorfor bytte</a>
+      <a href="/nb/help/">Hjelp</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro er en uavhengig app fra MiyaraHub Technologies LLC og er ikke tilknyttet, anbefalt av eller sponset av Denon, Marantz, D&amp;M Holdings, Sound United eller andre selskaper som er nevnt på denne siden. Denon, Marantz, HEOS, Audyssey og Dirac Live er varemerker som tilhører sine respektive eiere, og brukes her kun for identifikasjon.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fi" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ohjaa vyöhykkeitä 2 &amp; 3 puhelimestasi - AVR Maestro</title>
+<meta name="description" content="Vyöhykkeen 2 ja vyöhykkeen 3 itsenäinen ohjaus Denon- ja Marantz-vastaanottimissa: virta, tulo, äänenvoimakkuus, mykistys, vyöhykkeen Smart Select / Quick Select, vyöhykkeiden nimeäminen ja vyöhykekohtainen nyt soi." />
+<meta name="keywords" content="multi-zone receiver control app, Zone 2 control app, Zone 3 control app, Denon multi-zone app, Marantz multi-zone, whole house audio receiver app, second zone control, zone quick select, zone smart select, rename zones Denon Marantz" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/fi/guide/multi-zone/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/multi-zone/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/multi-zone/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/multi-zone/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/multi-zone/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/multi-zone/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/multi-zone/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/multi-zone/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/multi-zone/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/multi-zone/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/multi-zone/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/multi-zone/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/multi-zone/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/multi-zone/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/multi-zone/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/multi-zone/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/multi-zone/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/multi-zone/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/multi-zone/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/multi-zone/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/multi-zone/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/multi-zone/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/multi-zone/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/multi-zone/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/multi-zone/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/multi-zone/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/multi-zone/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/multi-zone/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/multi-zone/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/multi-zone/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/multi-zone/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/multi-zone/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="fi_FI" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Ohjaa vyöhykkeitä 2 &amp; 3 puhelimestasi - AVR Maestro" />
+<meta property="og:description" content="Vyöhykkeen 2 ja vyöhykkeen 3 itsenäinen ohjaus Denon- ja Marantz-vastaanottimissa: virta, tulo, äänenvoimakkuus, mykistys, vyöhykkeen Smart Select / Quick Select, vyöhykkeiden nimeäminen ja vyöhykekohtainen nyt soi." />
+<meta property="og:url" content="https://avrmaestro.com/fi/guide/multi-zone/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Ohjaa vyöhykkeitä 2 &amp; 3 puhelimestasi - AVR Maestro" />
+<meta name="twitter:description" content="Vyöhykkeen 2 ja vyöhykkeen 3 itsenäinen ohjaus Denon- ja Marantz-vastaanottimissa: virta, tulo, äänenvoimakkuus, mykistys, vyöhykkeen Smart Select / Quick Select, vyöhykkeiden nimeäminen ja vyöhykekohtainen nyt soi." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro on itsenäinen sovellus Denon- ja Marantz-AV-vastaanottimien ohjaamiseen paikallisverkossa.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "fi"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/multi-zone/#article",
+      "headline": "Monivyöhyke: hallitse koko kotia",
+      "description": "Vyöhykkeen 2 ja vyöhykkeen 3 itsenäinen ohjaus Denon- ja Marantz-vastaanottimissa: virta, tulo, äänenvoimakkuus, mykistys, vyöhykkeen Smart Select / Quick Select, vyöhykkeiden nimeäminen ja vyöhykekohtainen nyt soi.",
+      "image": "https://avrmaestro.com/screenshots/zones.png",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/multi-zone/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "fi"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/multi-zone/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Voinko ohjata vyöhykettä 2 ja vyöhykettä 3 puhelimestani?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kyllä - monivyöhykevastaanottimissa jokaisella vyöhykkeellä on oma virtansa, äänenvoimakkuutensa, mykistyksensä, tulonsa ja pika-äänenvoimakkuuden esiasetuksensa, täysin erillään päävyöhykkeestä, ja ne synkronoituvat reaaliajassa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Voinko käyttää Smart Selectiä tai Quick Selectiä vyöhykkeellä?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kyllä - jokaisen vyöhykkeen kortilla on vyöhykkeen omat paikat, nimettynä niin kuin vastaanottimesi ne nimeää: Smart Select Marantzissa, Quick Select Denonissa. Kutsu paikka napauttamalla; tallenna vyöhykkeen nykyinen tila siihen painamalla pitkään, suoraan kortilta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Voinko nimetä vyöhykkeeni uudelleen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kyllä - paina vyöhykkeen nimeä pitkään Koti-näkymässä, niin voit nimetä minkä tahansa vyöhykkeen, päävyöhyke mukaan lukien. Nimi kirjoitetaan itse vastaanottimeen, joten se näkyy valmistajan sovelluksessa ja kaikissa muissa asiakkaissa, myös vanhemmissa runkomalleissa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Näyttääkö jokainen vyöhyke, mitä siinä soi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kyllä - kun vyöhyke on päällä, sen kortti näyttää kyseisen vyöhykkeen reaaliaikaisen HEOS-nyt soi -virran toisto-ohjaimineen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Voiko Tilanne asettaa vyöhykkeeni?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kyllä - Tilanne voi tallentaa ja palauttaa vyöhykkeen 2/3 virran, tulon ja äänenvoimakkuuden muun asetuksesi mukana."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Etusivu",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Käyttöopas",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Monivyöhyke",
+      "item": "https://avrmaestro.com/guide/multi-zone/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/fi/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Valikko" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Hae oppaasta..." data-i18n-empty="Ei osumia haulle" data-i18n-language="Kieli">
+      <a href="/fi/">Etusivu</a>
+      <a href="/fi/guide/">Käyttöopas</a>
+      <a href="/fi/receivers/">Vastaanottimet</a>
+      <a href="/fi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/fi/best-denon-marantz-app/">Miksi vaihtaa</a>
+      <a href="/fi/#top" class="cta">Lataa</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero split">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="/fi/">Etusivu</a> &rsaquo; <a href="/fi/guide/">Käyttöopas</a> &rsaquo; Monivyöhyke</div>
+      <div class="eyebrow">Monivyöhyke</div>
+      <h1>Monivyöhyke: hallitse <span class="g">koko kotia</span></h1>
+      <p>Itsenäinen virta, tulo ja äänenvoimakkuus vyöhykkeille 2 ja 3 monivyöhykkeisissä Denon- ja Marantz-vastaanottimissa - ja Tilanteet voivat tallentaa ja palauttaa myös vyöhykkeiden tilan. Musiikkia keittiössä, elokuva kotiteatterissa, kaikki yhdestä sovelluksesta.</p>
+    </div>
+    <div class="hero-shot"><img alt="Monivyöhykeohjaus AVR Maestrossa" src="/screenshots/zones.png" width="1324" height="2644" fetchpriority="high" /></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Miten vyöhykkeet toimivat</div>
+      <h2>Jokainen vyöhyke täysin itsenäinen</h2>
+      <p class="lead">Jokaisella vyöhykkeellä on oma virtansa, äänenvoimakkuutensa, mykistyksensä, tulonsa ja pika-äänenvoimakkuuden esiasetuksensa, täysin erillään päävyöhykkeestä.</p>
+    </div>
+    <div class="grid">
+      <div class="gcard"><div class="ic">&#128268;</div><h3>Itsenäinen virta</h3><p>Kytke vyöhyke 2 tai vyöhyke 3 päälle ja pois koskematta päävyöhykkeeseen.</p></div>
+      <div class="gcard"><div class="ic">&#127925;</div><h3>Oma lähde &amp; äänenvoimakkuus</h3><p>Eri tulo ja äänenvoimakkuus jokaiselle vyöhykkeelle sekä pika-äänenvoimakkuuden esiasetuspainikkeet - esiasetukset nousevat oletuksena pehmeästi (Asetukset, Ääni: Asteittainen / Suora).</p></div>
+      <div class="gcard"><div class="ic">&#9889;</div><h3>Vyöhykkeen Smart Select / Quick Select</h3><p>Vyöhykkeen omat Smart Select- tai Quick Select -paikat suoraan kortilla - kutsu paikka napauttamalla, tallenna vyöhykkeen nykyinen tila siihen painamalla pitkään.</p></div>
+      <div class="gcard"><div class="ic">&#9997;&#65039;</div><h3>Nimeä mikä tahansa vyöhyke</h3><p>Paina vyöhykkeen nimeä pitkään Koti-näkymässä - päävyöhyke mukaan lukien. Nimi tallentuu itse vastaanottimeen, joten kaikki sovellukset ovat siitä samaa mieltä.</p></div>
+      <div class="gcard"><div class="ic">&#128260;</div><h3>Reaaliaikainen synkronointi</h3><p>Muuta vyöhykettä vastaanottimen paneelista tai kaukosäätimestä, ja sovellus päivittyy sekunnin sisällä.</p></div>
+      <div class="gcard"><div class="ic">&#127911;</div><h3>Vyöhykekohtainen nyt soi</h3><p>Kun vyöhyke on päällä, sen kortti näyttää kyseisen vyöhykkeen reaaliaikaisen HEOS-virran toisto-ohjaimineen.</p></div>
+      <div class="gcard"><div class="ic">&#127917;</div><h3>Tilanteet tallentavat</h3><p><a href="/fi/guide/scenes/">Tilanne</a> voi tallentaa ja palauttaa vyöhykkeen 2/3 tilan kaiken muun mukana.</p></div>
+      <div class="gcard"><div class="ic">&#128241;</div><h3>Koti-näkymässä</h3><p>Kompakti Vyöhykkeet-widget antaa tilannekatsauksen ja pikaohjaimet aloitusnäytöllä.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Vyöhykkeen käynnistys ja sen ohjaaminen jonnekin</h2>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(1,1fr);max-width:320px;margin:0 0 26px">
+      <figure><img alt="Vyöhykkeet-välilehti, jossa Patio on vyöhyke 2 ja ZONE3 vyöhyke 3, kummallakin oma virtaohjain" src="/screenshots/zones.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Yksi kortti jokaista vastaanottimen ilmoittamaa vyöhykettä kohden</figcaption></figure>
+    </div>
+    <ul class="plain">
+      <li><b>1. Avaa Vyöhykkeet-välilehti.</b> Jokainen vastaanottimesi ilmoittama vyöhyke saa kortin. Vastaanotin, jossa on yksi vyöhyke, ei saa välilehteä.</li>
+      <li><b>2. Kytke vyöhyke päälle</b> kortin virtaohjaimella. Päävyöhykkeessä ei muutu mikään.</li>
+      <li><b>3. Valitse sen lähde.</b> Luettelo on vastaanottimesi oma, nimillä, jotka olet mahdollisesti vaihtanut, ja vyöhyke voi olla aivan eri tulolla kuin päähuone.</li>
+      <li><b>4. Aseta sen äänenvoimakkuus.</b> Vyöhykkeellä on oma tasonsa ja oma mykistyksensä, ja pika-äänenvoimakkuuspainikkeet kutsuvat tasoja, jotka olet asettanut kyseiselle vyöhykkeelle. Esiasetukset nousevat pehmeästi, ellet vaihda Suoraan kohdassa Asetukset, Ääni.</li>
+      <li><b>5. Valinnainen: tallenna se.</b> Paina pitkään yhtä vyöhykkeen omaa Smart Select- tai Quick Select -paikkaa tallentaaksesi kaiken, mitä vyöhyke tekee juuri nyt, ja napauta sitä myöhemmin palauttaaksesi sen.</li>
+    </ul>
+    <p class="lead" style="margin-top:20px">Nimeä vyöhyke painamalla sen nimeä pitkään Koti-näkymässä. Nimi kirjoitetaan vastaanottimeen, joten etupaneeli ja kaikki muut sovellukset ovat sovelluksen kanssa samaa mieltä.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Hyvä tietää</div>
+      <h2>Miksi päävyöhykkeen virran katkaiseminen ei sammuta muita huoneitasi</h2>
+    </div>
+    <p class="lead">Denon- ja Marantz-vastaanottimissa on kaksi erilaista virtakomentoa, ja ero on tärkeä, jos musiikkia soi jossain muualla talossa.</p>
+    <p class="lead">Koko järjestelmän valmiustilakomento sammuttaa koko rungon, ja vastaanotin vie muut vyöhykkeet mukanaan - Cinema 30:ssä mitattuna runko ilmoittaa vyöhykkeen 2 olevan pois päältä millisekunti valmiustilakomennon perillemenon jälkeen. Siksi AVR Maestron päävirtaohjain lähettää tarkoituksella <b>päävyöhykkeen</b> komennon. Sammuta kotiteatteri sovelluksesta, ja keittiössä musiikki jatkuu.</p>
+    <p class="lead">Se toimii myös toisinpäin: päävyöhykkeen kytkeminen päälle kylmästä vastaanottimesta herättää ensin rungon, joten vastaanotinta ei tarvitse käynnistää erikseen ennen sovelluksen käyttöä.</p>
+    <div class="note">Jos vyöhyke sammuu itsestään päävyöhykkeen muuttuessa, se johtuu vastaanottimen omasta asetuksesta eikä sovelluksesta. Joissakin malleissa on virtalukitusasetus vyöhykevalikossa.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Usein kysyttyä</div>
+      <h2>Monivyöhykettä koskevat usein kysytyt kysymykset</h2>
+    </div>
+    <details open><summary>Voinko ohjata vyöhykettä 2 ja vyöhykettä 3 puhelimestani?</summary><div class="body">Kyllä - monivyöhykevastaanottimissa jokaisella vyöhykkeellä on oma virtansa, äänenvoimakkuutensa, mykistyksensä, tulonsa ja pika-äänenvoimakkuuden esiasetuksensa, täysin erillään päävyöhykkeestä, ja ne synkronoituvat reaaliajassa.</div></details>
+    <details><summary>Voinko käyttää Smart Selectiä tai Quick Selectiä vyöhykkeellä?</summary><div class="body">Kyllä - jokaisen vyöhykkeen kortilla on vyöhykkeen omat paikat, nimettynä niin kuin vastaanottimesi ne nimeää: Smart Select Marantzissa, Quick Select Denonissa. Kutsu paikka napauttamalla; tallenna vyöhykkeen nykyinen tila siihen painamalla pitkään, suoraan kortilta.</div></details>
+    <details><summary>Voinko nimetä vyöhykkeeni uudelleen?</summary><div class="body">Kyllä - paina vyöhykkeen nimeä pitkään Koti-näkymässä, niin voit nimetä minkä tahansa vyöhykkeen, päävyöhyke mukaan lukien. Nimi kirjoitetaan itse vastaanottimeen, joten se näkyy valmistajan sovelluksessa ja kaikissa muissa asiakkaissa, myös vanhemmissa runkomalleissa.</div></details>
+    <details><summary>Näyttääkö jokainen vyöhyke, mitä siinä soi?</summary><div class="body">Kyllä - kun vyöhyke on päällä, sen kortti näyttää kyseisen vyöhykkeen reaaliaikaisen HEOS-nyt soi -virran toisto-ohjaimineen.</div></details>
+    <details><summary>Voiko Tilanne asettaa vyöhykkeeni?</summary><div class="body">Kyllä - <a href="/fi/guide/scenes/">Tilanne</a> voi tallentaa ja palauttaa vyöhykkeen 2/3 virran, tulon ja äänenvoimakkuuden muun asetuksesi mukana.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Lisää oppaasta</div>
+      <h2>Muut AVR Maestro -oppaat</h2>
+    </div>
+    <p class="lead"><a href="/fi/guide/getting-started/">Aloitus</a> &middot; <a href="/fi/guide/home/">Kotinäyttö</a> &middot; <a href="/fi/guide/scenes/">Kohtaukset</a> &middot; <a href="/fi/guide/custom-icons/">Omat kuvakkeet</a> &middot; <a href="/fi/guide/sound/">Ääni</a> &middot; <a href="/fi/guide/graphic-eq/">Graafinen taajuuskorjain</a> &middot; <a href="/fi/guide/speakers/">Kaiuttimet</a> &middot; <a href="/fi/guide/locked-controls/">Miksi säädin on lukittu</a> &middot; <a href="/fi/guide/assistant/">Avustaja</a> &middot; <a href="/fi/guide/home-automation/">Kodin automaatio</a> &middot; <a href="/fi/guide/home-assistant-dashboard/">Home Assistant -kojelauta</a> &middot; <a href="/fi/guide/remote/">Kaukosäädin</a> &middot; <a href="/fi/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/fi/guide/on-screen-display/">Kuvaruutunäyttö</a> &middot; <a href="/fi/guide/settings/">Asetukset</a> &middot; <a href="/fi/guide/languages/">Kielet</a> &middot; <a href="/fi/guide/volume/">Äänenvoimakkuuden hallinta</a> &middot; <a href="/fi/guide/backup/">Varmuuskopiointi &amp; palautus</a> &middot; <a href="/fi/guide/now-playing/">Nyt soi &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Ota jokainen huone hallintaan</h2>
+    <p class="lead" style="margin:0 auto 24px">Kertaostos, ei mainoksia, ei tilauksia. Yhdistä alle minuutissa.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Lataa Google Playsta" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Lataa App Storesta" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Lataa Mac App Storesta" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Hanki Microsoft Storesta" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/fi/guide/">Takaisin koko käyttöoppaaseen &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/fi/">Etusivu</a>
+      <a href="/fi/guide/">Käyttöopas</a>
+      <a href="/fi/guide/getting-started/">Aloitus</a>
+      <a href="/fi/receivers/">Vastaanottimet</a>
+      <a href="/fi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/fi/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/fi/best-denon-marantz-app/">Miksi vaihtaa</a>
+      <a href="/fi/help/">Ohje</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro on MiyaraHub Technologies LLC:n itsenäinen sovellus, eikä Denon, Marantz, D&amp;M Holdings, Sound United tai mikään muu tällä sivulla mainittu yritys ole sen kanssa sidoksissa, tue sitä tai sponsoroi sitä. Denon, Marantz, HEOS, Audyssey ja Dirac Live ovat omistajiensa tavaramerkkejä, joita käytetään tässä vain tunnistamiseen.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

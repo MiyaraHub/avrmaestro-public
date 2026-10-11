@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="hi" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>अपने फ़ोन से ज़ोन 2 &amp; ज़ोन 3 कंट्रोल करें - AVR Maestro</title>
+<meta name="description" content="Denon और Marantz रिसीवर पर ज़ोन 2 और ज़ोन 3 का अलग-अलग कंट्रोल: पावर, इनपुट, वॉल्यूम, म्यूट, Zone Smart Select / Quick Select, ज़ोन का नाम बदलना और हर ज़ोन का अभी बज रहा है।" />
+<meta name="keywords" content="multi-zone receiver control app, Zone 2 control app, Zone 3 control app, Denon multi-zone app, Marantz multi-zone, whole house audio receiver app, second zone control, zone quick select, zone smart select, rename zones Denon Marantz" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/hi/guide/multi-zone/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/multi-zone/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/multi-zone/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/multi-zone/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/multi-zone/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/multi-zone/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/multi-zone/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/multi-zone/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/multi-zone/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/multi-zone/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/multi-zone/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/multi-zone/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/multi-zone/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/multi-zone/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/multi-zone/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/multi-zone/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/multi-zone/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/multi-zone/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/multi-zone/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/multi-zone/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/multi-zone/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/multi-zone/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/multi-zone/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/multi-zone/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/multi-zone/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/multi-zone/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/multi-zone/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/multi-zone/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/multi-zone/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/multi-zone/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/multi-zone/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/multi-zone/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="hi_IN" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="अपने फ़ोन से ज़ोन 2 &amp; ज़ोन 3 कंट्रोल करें - AVR Maestro" />
+<meta property="og:description" content="Denon और Marantz रिसीवर पर ज़ोन 2 और ज़ोन 3 का अलग-अलग कंट्रोल: पावर, इनपुट, वॉल्यूम, म्यूट, Zone Smart Select / Quick Select, ज़ोन का नाम बदलना और हर ज़ोन का अभी बज रहा है।" />
+<meta property="og:url" content="https://avrmaestro.com/hi/guide/multi-zone/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="अपने फ़ोन से ज़ोन 2 &amp; ज़ोन 3 कंट्रोल करें - AVR Maestro" />
+<meta name="twitter:description" content="Denon और Marantz रिसीवर पर ज़ोन 2 और ज़ोन 3 का अलग-अलग कंट्रोल: पावर, इनपुट, वॉल्यूम, म्यूट, Zone Smart Select / Quick Select, ज़ोन का नाम बदलना और हर ज़ोन का अभी बज रहा है।" />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro एक स्वतंत्र ऐप है, जो आपके लोकल नेटवर्क पर Denon और Marantz AV रिसीवर को कंट्रोल करता है।",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "hi"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/multi-zone/#article",
+      "headline": "मल्टी-ज़ोन: पूरा घर संभालें",
+      "description": "Denon और Marantz रिसीवर पर ज़ोन 2 और ज़ोन 3 का अलग-अलग कंट्रोल: पावर, इनपुट, वॉल्यूम, म्यूट, Zone Smart Select / Quick Select, ज़ोन का नाम बदलना और हर ज़ोन का अभी बज रहा है।",
+      "image": "https://avrmaestro.com/screenshots/zones.png",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/multi-zone/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "hi"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/multi-zone/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "क्या मैं अपने फ़ोन से ज़ोन 2 और ज़ोन 3 कंट्रोल कर सकता हूं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "जी हां - मल्टी-ज़ोन रिसीवर पर हर ज़ोन का अपना पावर, वॉल्यूम, म्यूट, इनपुट और क्विक-वॉल्यूम प्रीसेट होता है, जो मुख्य ज़ोन से पूरी तरह अलग है, और लाइव सिंक रहता है।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या मैं किसी ज़ोन में Smart Select या Quick Select इस्तेमाल कर सकता हूं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "जी हां - हर ज़ोन कार्ड पर उस ज़ोन के अपने स्लॉट होते हैं, उसी नाम से जिससे आपका रिसीवर उन्हें बुलाता है: Marantz पर Smart Select, Denon पर Quick Select। किसी स्लॉट को चलाने के लिए उस पर टैप करें; ज़ोन की मौजूदा स्थिति उसमें सहेजने के लिए दबाकर रखें, सीधे कार्ड से।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या मैं अपने ज़ोन का नाम बदल सकता हूं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "जी हां - होम स्क्रीन पर ज़ोन के नाम को देर तक दबाएं और किसी भी ज़ोन का नाम बदलें, मुख्य ज़ोन का भी। नाम रिसीवर में ही लिखा जाता है, इसलिए वह निर्माता के ऐप और हर दूसरे क्लाइंट में दिखता है, पुराने चेसिस पर भी।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या हर ज़ोन दिखाता है कि क्या बज रहा है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "जी हां - जब कोई ज़ोन चालू होता है, तो उसका कार्ड उस ज़ोन की लाइव HEOS अभी-बज-रहा-है स्ट्रीम को ट्रांसपोर्ट कंट्रोल के साथ दिखाता है।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या कोई सीन मेरे ज़ोन सेट कर सकता है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "जी हां - एक सीन आपके बाकी सेटअप के साथ ज़ोन 2/3 की पावर, इनपुट और वॉल्यूम को कैप्चर और बहाल कर सकता है।"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "होम",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "उपयोगकर्ता गाइड",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "मल्टी-ज़ोन",
+      "item": "https://avrmaestro.com/guide/multi-zone/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/hi/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="मेन्यू" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="गाइड में खोजें..." data-i18n-empty="कोई परिणाम नहीं मिला:" data-i18n-language="भाषा">
+      <a href="/hi/">होम</a>
+      <a href="/hi/guide/">उपयोगकर्ता गाइड</a>
+      <a href="/hi/receivers/">रिसीवर</a>
+      <a href="/hi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hi/best-denon-marantz-app/">बदलाव क्यों करें</a>
+      <a href="/hi/#top" class="cta">डाउनलोड करें</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero split">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="/hi/">होम</a> &rsaquo; <a href="/hi/guide/">उपयोगकर्ता गाइड</a> &rsaquo; मल्टी-ज़ोन</div>
+      <div class="eyebrow">मल्टी-ज़ोन</div>
+      <h1>मल्टी-ज़ोन: <span class="g">पूरा घर</span> संभालें</h1>
+      <p>मल्टी-ज़ोन Denon और Marantz रिसीवर पर ज़ोन 2 और ज़ोन 3 के लिए अलग-अलग पावर, इनपुट और वॉल्यूम - और सीन ज़ोन की स्थिति को भी कैप्चर और बहाल कर सकते हैं। रसोई में संगीत, थिएटर में फ़िल्म, सब एक ही ऐप से।</p>
+    </div>
+    <div class="hero-shot"><img alt="AVR Maestro में मल्टी-ज़ोन कंट्रोल" src="/screenshots/zones.png" width="1324" height="2644" fetchpriority="high" /></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ज़ोन कैसे काम करते हैं</div>
+      <h2>हर ज़ोन, पूरी तरह स्वतंत्र</h2>
+      <p class="lead">हर ज़ोन को अपना पावर, वॉल्यूम, म्यूट, इनपुट और क्विक-वॉल्यूम प्रीसेट मिलता है, जो मुख्य ज़ोन से पूरी तरह अलग है।</p>
+    </div>
+    <div class="grid">
+      <div class="gcard"><div class="ic">&#128268;</div><h3>अलग पावर</h3><p>मुख्य ज़ोन को छुए बिना ज़ोन 2 या ज़ोन 3 को चालू और बंद करें।</p></div>
+      <div class="gcard"><div class="ic">&#127925;</div><h3>अपना सोर्स &amp; वॉल्यूम</h3><p>हर ज़ोन का अलग इनपुट और वॉल्यूम, क्विक-वॉल्यूम प्रीसेट चिप्स के साथ - प्रीसेट डिफ़ॉल्ट रूप से धीरे-धीरे बदलते हैं (सेटिंग, ऑडियो: Gradual / Direct)।</p></div>
+      <div class="gcard"><div class="ic">&#9889;</div><h3>Zone Smart Select / Quick Select</h3><p>ज़ोन के अपने Smart Select या Quick Select स्लॉट, सीधे कार्ड पर - स्लॉट चलाने के लिए उस पर टैप करें, ज़ोन की मौजूदा स्थिति उसमें सहेजने के लिए दबाकर रखें।</p></div>
+      <div class="gcard"><div class="ic">&#9997;&#65039;</div><h3>किसी भी ज़ोन का नाम बदलें</h3><p>होम स्क्रीन पर ज़ोन के नाम को देर तक दबाएं - मुख्य ज़ोन भी। नाम रिसीवर में ही सहेजा जाता है, इसलिए हर ऐप में वही नाम दिखता है।</p></div>
+      <div class="gcard"><div class="ic">&#128260;</div><h3>लाइव सिंक</h3><p>रिसीवर के पैनल या रिमोट से कोई ज़ोन बदलें और ऐप एक सेकंड के भीतर अपडेट हो जाता है।</p></div>
+      <div class="gcard"><div class="ic">&#127911;</div><h3>हर ज़ोन का अभी बज रहा है</h3><p>जब कोई ज़ोन चालू होता है, तो उसका कार्ड उस ज़ोन की लाइव HEOS स्ट्रीम ट्रांसपोर्ट के साथ दिखाता है।</p></div>
+      <div class="gcard"><div class="ic">&#127917;</div><h3>सीन में कैप्चर होता है</h3><p>एक <a href="/hi/guide/scenes/">सीन</a> बाकी सब कुछ के साथ ज़ोन 2/3 की स्थिति को कैप्चर और बहाल कर सकता है।</p></div>
+      <div class="gcard"><div class="ic">&#128241;</div><h3>होम स्क्रीन पर</h3><p>एक कॉम्पैक्ट Zones विजेट होम स्क्रीन पर एक नज़र में स्थिति और क्विक कंट्रोल देता है।</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>ज़ोन चालू करना और उसे कहीं और लगाना</h2>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(1,1fr);max-width:320px;margin:0 0 26px">
+      <figure><img alt="Zones टैब, जिसमें Patio ज़ोन 2 के रूप में और ZONE3 ज़ोन 3 के रूप में सूचीबद्ध है, हर एक का अपना पावर कंट्रोल" src="/screenshots/zones.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>रिसीवर जितने ज़ोन घोषित करता है, हर एक के लिए एक कार्ड</figcaption></figure>
+    </div>
+    <ul class="plain">
+      <li><b>1. Zones टैब खोलें।</b> आपके रिसीवर का घोषित किया हुआ हर ज़ोन एक कार्ड पाता है। जिस रिसीवर में एक ही ज़ोन है, उसमें यह टैब नहीं होता।</li>
+      <li><b>2. ज़ोन चालू करें</b> उसके कार्ड पर दिए पावर कंट्रोल से। मुख्य ज़ोन में कुछ नहीं बदलता।</li>
+      <li><b>3. उसका सोर्स चुनें।</b> सूची आपके रिसीवर की अपनी है, आपके बदले हुए नामों के साथ, और कोई ज़ोन मुख्य कमरे से बिल्कुल अलग इनपुट पर रह सकता है।</li>
+      <li><b>4. उसका वॉल्यूम सेट करें।</b> ज़ोन का अपना लेवल और अपना म्यूट होता है, और क्विक-वॉल्यूम चिप्स वे लेवल बुलाते हैं जो आपने उसी ज़ोन पर सेट किए हैं। प्रीसेट धीरे-धीरे बदलते हैं, जब तक आप सेटिंग, ऑडियो में Direct पर न स्विच कर दें।</li>
+      <li><b>5. वैकल्पिक: इसे सहेजें।</b> ज़ोन के अपने Smart Select या Quick Select स्लॉट में से किसी को दबाकर रखें ताकि ज़ोन अभी जो कुछ कर रहा है वह सब सहेज जाए, फिर बाद में उस पर टैप करके उसे वापस लाएं।</li>
+    </ul>
+    <p class="lead" style="margin-top:20px">होम स्क्रीन पर ज़ोन के नाम को देर तक दबाकर उसका नाम बदलें। नाम रिसीवर में लिखा जाता है, इसलिए फ़्रंट पैनल और हर दूसरा ऐप ऐप से सहमत रहता है।</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">जानने लायक बातें</div>
+      <h2>मुख्य ज़ोन बंद करने से आपके बाकी कमरे क्यों बंद नहीं होते</h2>
+    </div>
+    <p class="lead">Denon और Marantz रिसीवर में दो अलग पावर कमांड होते हैं, और अगर घर में कहीं और संगीत बज रहा हो तो यह फ़र्क मायने रखता है।</p>
+    <p class="lead">सिस्टम-व्यापी स्टैंडबाय कमांड पूरे चेसिस को बंद कर देता है, और रिसीवर बाकी ज़ोन को भी साथ ले जाता है - Cinema 30 पर मापा गया, स्टैंडबाय कमांड पहुंचने के एक मिलीसेकंड बाद चेसिस ज़ोन 2 को बंद बताता है। इसलिए AVR Maestro का मुख्य पावर कंट्रोल जान-बूझकर इसकी जगह <b>मुख्य-ज़ोन</b> कमांड भेजता है। ऐप से थिएटर बंद करें और रसोई में संगीत चलता रहता है।</p>
+    <p class="lead">यह उलटी तरफ़ भी काम करता है: ठंडे रिसीवर पर मुख्य ज़ोन चालू करने से पहले चेसिस जागता है, इसलिए ऐप इस्तेमाल करने से पहले आपको रिसीवर को अलग से चालू करने की ज़रूरत नहीं।</p>
+    <div class="note">अगर मुख्य ज़ोन बदलने पर कोई ज़ोन अपने-आप बंद हो जाता है, तो यह रिसीवर का अपना सेटअप कर रहा है, ऐप नहीं। कुछ मॉडलों के ज़ोन मेन्यू में पावर-इंटरलॉक विकल्प होता है।</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">आम सवाल</div>
+      <h2>मल्टी-ज़ोन के सवाल-जवाब</h2>
+    </div>
+    <details open><summary>क्या मैं अपने फ़ोन से ज़ोन 2 और ज़ोन 3 कंट्रोल कर सकता हूं?</summary><div class="body">जी हां - मल्टी-ज़ोन रिसीवर पर हर ज़ोन का अपना पावर, वॉल्यूम, म्यूट, इनपुट और क्विक-वॉल्यूम प्रीसेट होता है, जो मुख्य ज़ोन से पूरी तरह अलग है, और लाइव सिंक रहता है।</div></details>
+    <details><summary>क्या मैं किसी ज़ोन में Smart Select या Quick Select इस्तेमाल कर सकता हूं?</summary><div class="body">जी हां - हर ज़ोन कार्ड पर उस ज़ोन के अपने स्लॉट होते हैं, उसी नाम से जिससे आपका रिसीवर उन्हें बुलाता है: Marantz पर Smart Select, Denon पर Quick Select। किसी स्लॉट को चलाने के लिए उस पर टैप करें; ज़ोन की मौजूदा स्थिति उसमें सहेजने के लिए दबाकर रखें, सीधे कार्ड से।</div></details>
+    <details><summary>क्या मैं अपने ज़ोन का नाम बदल सकता हूं?</summary><div class="body">जी हां - होम स्क्रीन पर ज़ोन के नाम को देर तक दबाएं और किसी भी ज़ोन का नाम बदलें, मुख्य ज़ोन का भी। नाम रिसीवर में ही लिखा जाता है, इसलिए वह निर्माता के ऐप और हर दूसरे क्लाइंट में दिखता है, पुराने चेसिस पर भी।</div></details>
+    <details><summary>क्या हर ज़ोन दिखाता है कि क्या बज रहा है?</summary><div class="body">जी हां - जब कोई ज़ोन चालू होता है, तो उसका कार्ड उस ज़ोन की लाइव HEOS अभी-बज-रहा-है स्ट्रीम को ट्रांसपोर्ट कंट्रोल के साथ दिखाता है।</div></details>
+    <details><summary>क्या कोई सीन मेरे ज़ोन सेट कर सकता है?</summary><div class="body">जी हां - एक <a href="/hi/guide/scenes/">सीन</a> आपके बाकी सेटअप के साथ ज़ोन 2/3 की पावर, इनपुट और वॉल्यूम को कैप्चर और बहाल कर सकता है।</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">गाइड के और हिस्से</div>
+      <h2>AVR Maestro की अन्य गाइड</h2>
+    </div>
+    <p class="lead"><a href="/hi/guide/getting-started/">शुरुआत करें</a> &middot; <a href="/hi/guide/home/">होम स्क्रीन</a> &middot; <a href="/hi/guide/scenes/">सीन</a> &middot; <a href="/hi/guide/custom-icons/">कस्टम आइकन</a> &middot; <a href="/hi/guide/sound/">ध्वनि</a> &middot; <a href="/hi/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/hi/guide/speakers/">स्पीकर</a> &middot; <a href="/hi/guide/locked-controls/">कंट्रोल लॉक क्यों है</a> &middot; <a href="/hi/guide/assistant/">असिस्टेंट</a> &middot; <a href="/hi/guide/home-automation/">होम ऑटोमेशन</a> &middot; <a href="/hi/guide/home-assistant-dashboard/">Home Assistant डैशबोर्ड</a> &middot; <a href="/hi/guide/remote/">रिमोट</a> &middot; <a href="/hi/guide/radio/">रेडियो (FM/AM)</a> &middot; <a href="/hi/guide/on-screen-display/">ऑन-स्क्रीन डिस्प्ले</a> &middot; <a href="/hi/guide/settings/">सेटिंग्स</a> &middot; <a href="/hi/guide/languages/">भाषाएं</a> &middot; <a href="/hi/guide/volume/">वॉल्यूम नियंत्रण</a> &middot; <a href="/hi/guide/backup/">बैकअप &amp; रिस्टोर</a> &middot; <a href="/hi/guide/now-playing/">अभी बज रहा है &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>हर कमरे का नियंत्रण अपने हाथ में लें</h2>
+    <p class="lead" style="margin:0 auto 24px">एक बार की खरीदारी, कोई विज्ञापन नहीं, कोई सब्सक्रिप्शन नहीं। एक मिनट से भी कम में कनेक्ट करें।</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Google Play पर पाएँ" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="App Store से डाउनलोड करें" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Mac App Store से डाउनलोड करें" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Microsoft Store पर पाएँ" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/hi/guide/">पूरी यूज़र गाइड पर वापस जाएँ &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/hi/">होम</a>
+      <a href="/hi/guide/">उपयोगकर्ता गाइड</a>
+      <a href="/hi/guide/getting-started/">शुरुआत करें</a>
+      <a href="/hi/receivers/">रिसीवर</a>
+      <a href="/hi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hi/audyssey-vs-dirac/">Audyssey बनाम Dirac</a>
+      <a href="/hi/best-denon-marantz-app/">बदलाव क्यों करें</a>
+      <a href="/hi/help/">सहायता</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro, MiyaraHub Technologies LLC का एक स्वतंत्र ऐप है और Denon, Marantz, D&amp;M Holdings, Sound United या इस पेज पर नामित किसी भी अन्य कंपनी से संबद्ध, उनके द्वारा समर्थित या प्रायोजित नहीं है। Denon, Marantz, HEOS, Audyssey और Dirac Live अपने-अपने स्वामियों के ट्रेडमार्क हैं, जिनका उपयोग यहाँ केवल पहचान के लिए किया गया है।</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

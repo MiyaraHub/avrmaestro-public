@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="hi" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Denon &amp; Marantz के लिए Home Assistant डैशबोर्ड - AVR Maestro</title>
+<meta name="description" content="अपने Denon या Marantz रिसीवर के लिए Home Assistant डैशबोर्ड बनाएँ: HACS कार्ड, एंटिटी ID, हर कार्ड के लिए YAML, असली dB वॉल्यूम, सीन और हिस्ट्री।" />
+<meta name="keywords" content="Home Assistant Denon dashboard, Marantz Home Assistant card, mushroom card AV receiver, Home Assistant receiver volume dB, denonavr dashboard, AVR Maestro Home Assistant example" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/hi/guide/home-assistant-dashboard/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-assistant-dashboard/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="hi_IN" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Denon &amp; Marantz के लिए Home Assistant डैशबोर्ड - AVR Maestro" />
+<meta property="og:description" content="अपने Denon या Marantz रिसीवर के लिए Home Assistant डैशबोर्ड बनाएँ: HACS कार्ड, एंटिटी ID, हर कार्ड के लिए YAML, असली dB वॉल्यूम, सीन और हिस्ट्री।" />
+<meta property="og:url" content="https://avrmaestro.com/hi/guide/home-assistant-dashboard/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Denon &amp; Marantz के लिए Home Assistant डैशबोर्ड - AVR Maestro" />
+<meta name="twitter:description" content="अपने Denon या Marantz रिसीवर के लिए Home Assistant डैशबोर्ड बनाएँ: HACS कार्ड, एंटिटी ID, हर कार्ड के लिए YAML, असली dB वॉल्यूम, सीन और हिस्ट्री।" />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro एक स्वतंत्र ऐप है, जो आपके लोकल नेटवर्क पर Denon और Marantz AV रिसीवर को कंट्रोल करता है।",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "hi"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
+      "headline": "यह Home Assistant डैशबोर्ड करीब एक घंटे में बनाएँ",
+      "description": "अपने Denon या Marantz रिसीवर के लिए Home Assistant डैशबोर्ड बनाएँ: HACS कार्ड, एंटिटी ID, हर कार्ड के लिए YAML, असली dB वॉल्यूम, सीन और हिस्ट्री।",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "datePublished": "2026-08-23",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-assistant-dashboard/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "hi"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "क्या इसे बनाने के लिए मुझे HACS के कस्टम कार्ड चाहिए?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "इसे चलाने के लिए नहीं। इस पेज का हर कंट्रोल एक सादे Home Assistant बटन कार्ड से चलता है। Mushroom, button-card, card-mod और apexcharts-card ही उसे वैसा रूप देते हैं जैसा स्क्रीनशॉट में दिखता है, और नीचे हर सेक्शन बताता है कि वह कौन-सा इस्तेमाल करता है और उसके बिना आप क्या खोते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "कुछ बटन क्यों जलते हैं और कुछ नहीं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "बटन तब जलता है जब Home Assistant आपके रिसीवर से संबंधित स्थिति पढ़ सकता है। स्रोत, सराउंड मोड, वॉल्यूम और म्यूट रिसीवर की अपनी मीडिया प्लेयर एंटिटी से वापस आते हैं, इसलिए वे हाइलाइट होते हैं। Audyssey कर्व, Dirac स्लॉट, डिमर, इको मोड और स्पीकर प्रीसेट Denon इंटीग्रेशन द्वारा प्रकाशित नहीं किए जाते, इसलिए Home Assistant को पता नहीं चल सकता कि कौन-सा सक्रिय है और बटन तब तक बिना जले रहते हैं जब तक आप कोई एक टैप न करें।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या मैं प्रतिशत की जगह असली dB वॉल्यूम दिखा सकता हूँ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "हाँ। Home Assistant, volume_level को रिसीवर के मास्टर वॉल्यूम में 100 का भाग देकर प्रकाशित करता है, और Denon व Marantz रिसीवरों पर MV 80 ही 0 dB का संदर्भ बिंदु है। यानी dB = volume_level गुणा 100, घटा 80। 0.67 का volume_level मास्टर वॉल्यूम 67 है, जो -13.0 dB होता है।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या मेरी entity ID इस गाइड में दी गई ID से मेल खाएँगी?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "शुरुआत और अंत का पैटर्न मेल खाएगा, बीच का हिस्सा नहीं। AVR Maestro अपनी स्क्रिप्ट के नाम रिसीवर के MAC पते पर रखता है, ताकि नाम बदलने पर वही स्क्रिप्ट अपडेट हो, नई कॉपी न बने। आपकी ID कुछ ऐसी दिखेगी: script.avr_maestro_ फिर आपके अपने बारह अक्षर, फिर कंट्रोल का नाम। अपनी सूची देखने के लिए Home Assistant में Developer Tools, फिर States खोलें और avr_maestro से फ़िल्टर करें।"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "होम",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "उपयोगकर्ता गाइड",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "होम ऑटोमेशन",
+      "item": "https://avrmaestro.com/guide/home-automation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "डैशबोर्ड",
+      "item": "https://avrmaestro.com/guide/home-assistant-dashboard/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/hi/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="मेन्यू" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="गाइड में खोजें..." data-i18n-empty="कोई परिणाम नहीं मिला:" data-i18n-language="भाषा">
+      <a href="/hi/">होम</a>
+      <a href="/hi/guide/">उपयोगकर्ता गाइड</a>
+      <a href="/hi/receivers/">रिसीवर</a>
+      <a href="/hi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hi/best-denon-marantz-app/">बदलाव क्यों करें</a>
+      <a href="/hi/#top" class="cta">डाउनलोड करें</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/hi/">होम</a> &rsaquo; <a href="/hi/guide/">उपयोगकर्ता गाइड</a> &rsaquo; <a href="/hi/guide/home-automation/">होम ऑटोमेशन</a> &rsaquo; डैशबोर्ड</div>
+    <div class="eyebrow">Home Assistant &middot; चरण दर चरण</div>
+    <h1>यह Home Assistant डैशबोर्ड बनाएँ <span class="g">लगभग एक घंटे में</span></h1>
+    <p>दस चरण, हर कार्ड का YAML, और एक पूरा व्यू जिसे आप एक बार में पेस्ट कर सकते हैं। असली Marantz CINEMA 30 पर बनाया और फ़ोटो खींचा गया। बस दो स्ट्रिंग बदलिए और यह आपका हो गया।</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <figure class="hero-shot">
+      <img alt="तैयार डैशबोर्ड: अभी चल रहे कंटेंट वाला हीरो कार्ड, dB प्रीसेट के साथ वॉल्यूम, सोर्स ग्रिड, सराउंड मोड, रूम करेक्शन, सीन और वॉल्यूम ग्राफ़" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <figcaption>आप क्या बना रहे हैं</figcaption>
+    </figure>
+    <div class="note"><b>जल्दी में हैं?</b> सीधे <a href="#whole">चरण 10</a> पर जाएँ, पूरा व्यू डाउनलोड करें, दो स्ट्रिंग बदलें और पेस्ट कर दें। बीच के चरण बताते हैं कि हर हिस्सा क्या करता है, ताकि आप उसे अपने हिसाब से बदल सकें।</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>शुरू करने से पहले</h2>
+    </div>
+    <ul class="plain">
+      <li><b>AVR Maestro, Home Assistant से लिंक हो चुका है और सिंक हो गया है।</b> इसके बारे में <a href="/hi/guide/home-automation/">सेटअप गाइड</a> में बताया गया है। इसके ऊपर कुछ भी बनाने से पहले आपको अपने कंट्रोल Home Assistant में दिखाई देने चाहिए।</li>
+      <li><b>आपका रिसीवर Home Assistant में जुड़ चुका है।</b> सेटिंग्स &rsaquo; डिवाइस &amp; सेवाएं &rsaquo; इंटीग्रेशन जोड़ें &rsaquo; <b>Denon AVR</b>, फिर उसका लोकल IP। इसी से डैशबोर्ड को लाइव स्थिति मिलती है।</li>
+      <li><b>बनाते समय आपका रिसीवर चालू हो।</b> आप जो लिखने जा रहे हैं उसका आधा हिस्सा लाइव वैल्यू पढ़ता है, और स्टैंडबाय में रिसीवर लगभग कुछ भी प्रकाशित नहीं करता।</li>
+    </ul>
+    <p class="lead">इस डैशबोर्ड को दो चीज़ों से जानकारी मिलती है, और नीचे हर चरण में यह फ़र्क मायने रखता है।</p>
+    <table class="t">
+      <thead><tr><th>स्रोत</th><th>आपको मिलता है</th></tr></thead>
+      <tbody>
+        <tr><td>AVR Maestro की सिंक की गई स्क्रिप्ट</td><td>हर <b>कंट्रोल</b>। इनपुट, सराउंड मोड, Audyssey, Dirac, Smart Select, प्रीसेट, डिमर, ईको और आपके सीन।</td></tr>
+        <tr><td>Denon AVR इंटीग्रेशन की media player entity</td><td>लाइव <b>स्थिति</b>। पावर, चुना गया सोर्स, सराउंड मोड, वॉल्यूम, म्यूट।</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">चरण 1</div>
+      <h2>HACS से चार कार्ड इंस्टॉल करें</h2>
+    </div>
+    <p class="lead">चारों डिफ़ॉल्ट HACS स्टोर में उपलब्ध हैं। Home Assistant में: <b>HACS &rsaquo; Frontend &rsaquo; Explore &amp; Download Repositories</b>, नाम खोजें, Download करें, फिर अपना ब्राउज़र रीलोड करें।</p>
+    <table class="t">
+      <thead><tr><th>खोजें</th><th>किस काम के लिए</th><th>इसे छोड़ने पर</th></tr></thead>
+      <tbody>
+        <tr><td><b>Mushroom</b></td><td>हर कंट्रोल टाइल और वॉल्यूम स्लाइडर</td><td>सादा <code>button</code> कार्ड इस्तेमाल करें। काम करेगा, पर थोड़ा चौकोर दिखेगा।</td></tr>
+        <tr><td><b>button-card</b></td><td>लाइव लेबल वाले सेक्शन हेडर</td><td><code>markdown</code> कार्ड इस्तेमाल करें, या सादे शीर्षक रखें।</td></tr>
+        <tr><td><b>card-mod</b></td><td>रंग, और सक्रिय टाइल की जलती हुई स्थिति</td><td>सब कुछ फिर भी काम करता है। बस कुछ भी जलता नहीं।</td></tr>
+        <tr><td><b>apexcharts-card</b></td><td>हिस्ट्री ग्राफ़</td><td>बिल्ट-इन <code>history-graph</code> कार्ड इस्तेमाल करें।</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><b>इनमें से कोई भी इसे चलाने के लिए ज़रूरी नहीं है।</b> नीचे का हर कंट्रोल उसी स्क्रिप्ट की ओर इशारा करते Home Assistant के सामान्य बटन कार्ड से चलता है। कस्टम कार्ड केवल सजावट हैं, बुनियादी ढाँचा नहीं।</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">चरण 2</div>
+      <h2>अपनी दो entity ID ढूँढें</h2>
+    </div>
+    <p class="lead">इस पेज के हर स्निपेट में दो प्लेसहोल्डर इस्तेमाल हुए हैं। अपनी ID एक बार ढूँढ लें, बाकी सब कॉपी और पेस्ट है।</p>
+    <ul class="plain">
+      <li><b><code>media_player.your_receiver</code></b> &rarr; सेटिंग्स &rsaquo; डिवाइस &amp; सेवाएं &rsaquo; आपका रिसीवर &rsaquo; मीडिया प्लेयर एंटिटी। कुछ इस तरह: <code>media_player.marantz_cinema_30</code>।</li>
+      <li><b><code>script.avr_maestro_MAC_...</code></b> &rarr; डेवलपर टूल्स &rsaquo; स्टेट्स, और एंटिटी फ़िल्टर में <code>avr_maestro</code> लिखें। आपकी पूरी कंट्रोल सूची दिख जाएगी।</li>
+    </ul>
+    <p class="lead">हर स्क्रिप्ट ID का बीच का हिस्सा आपके रिसीवर का MAC पता है: बारह छोटे अक्षर, जो सब पर एक जैसे होते हैं। इसे एक बार कॉपी कर लें। इस पेज पर जहाँ भी <code>MAC</code> लिखा है, वहाँ अपना डालें।</p>
+    <div class="note"><b>जिन पर <code>unavailable</code> लिखा हो, उन्हें अनदेखा करें।</b> पुराने बिल्ड स्क्रिप्ट का नाम MAC की जगह रिसीवर के नाम पर रखते थे। अगर आपने तब सिंक किया था, तो वे पुरानी स्क्रिप्ट अब भी सूची में दिखती हैं और बेकार हैं। चालू स्क्रिप्ट वही हैं जिनके नाम MAC पर हैं।</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">चरण 3</div>
+      <h2>व्यू बनाएँ</h2>
+    </div>
+    <ol class="plain">
+      <li><b>1.</b> Settings &rsaquo; Dashboards &rsaquo; Add Dashboard &rsaquo; New dashboard from scratch। नाम जो चाहें रखें।</li>
+      <li><b>2.</b> इसे खोलें, फिर संपादित करने के लिए ऊपर दाईं ओर पेंसिल आइकन दबाएँ।</li>
+      <li><b>3.</b> एक व्यू जोड़ें और <b>Sections</b> लेआउट चुनें। Masonry नहीं। फ़ोन पर ठीक से फैलने और सिमटने का काम Sections ही करता है।</li>
+      <li><b>4.</b> व्यू सेटिंग में <b>Max columns</b> को 3 पर रखें और <b>Dense section placement</b> चालू करें।</li>
+    </ol>
+    <p class="lead">यहाँ से हर चरण यही है: एक सेक्शन जोड़ें, फिर उसमें कार्ड पेस्ट करें। YAML पेस्ट करने के लिए कार्ड के तीन-बिंदु मेन्यू में <b>Edit in YAML</b> चुनें, या पूरा एक साथ पेस्ट करने के लिए डैशबोर्ड के तीन-बिंदु मेन्यू से <b>Raw configuration editor</b> खोलें।</p>
+<pre class="code"><span class="c"># The view's own settings, if you prefer to type them</span>
+type: sections
+title: AVR Maestro
+icon: mdi:audio-video
+max_columns: 3
+dense_section_placement: true</pre>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">चरण 4</div>
+      <h2>एक कंट्रोल जोड़ें</h2>
+    </div>
+    <p class="lead">बोर्ड की सबसे सरल चीज़ से शुरू करें, ताकि कुछ भी जटिल बनाने से पहले पक्का हो जाए कि आपकी entity ID सही हैं। एक सेक्शन जोड़ें, एक कार्ड जोड़ें, Edit in YAML दबाएँ और पेस्ट करें:</p>
+<pre class="code">type: button
+name: Pure Direct
+icon: mdi:speaker
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_mode_pure_direct</pre>
+    <p class="capt">सामान्य Home Assistant। HACS की ज़रूरत नहीं।</p>
+    <p class="lead">इसे दबाएँ। अगर रिसीवर में बदलाव होता है, तो आपकी ID सही हैं और नीचे का सब कुछ चलेगा। कुछ न हो तो चरण 2 पर लौटें।</p>
+  </div>
+</section>
+
+<section id="highlight">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">चरण 5</div>
+      <h2>जो चालू है, उसे जलता हुआ दिखाएँ</h2>
+    </div>
+    <p class="lead">यह वह पैटर्न है जिसे सीखना सार्थक है, और बोर्ड की हर सोर्स और सराउंड टाइल इसी की कॉपी है। कार्ड एक स्क्रिप्ट भेजता है और रिसीवर entity से अपना रंग तय करता है, इसलिए जिस इनपुट पर आप सचमुच हैं वह जलता है और बाकी नहीं।</p>
+    <figure><img alt="सोर्स ग्रिड, जिसमें Nvidia Shield नारंगी रंग में जल रहा है और बाकी बारह इनपुट बुझे हुए हैं" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>एक टाइल जलती हुई, बारह बुझी हुई</figcaption></figure>
+<pre class="code">type: custom:mushroom-template-card
+entity: script.avr_maestro_MAC_input_cd
+icon: mdi:disc
+primary: CD
+icon_color: >-
+  {{ 'orange' if (state_attr('media_player.your_receiver','source') or '')|lower
+     == 'cd' else 'grey' }}
+layout: vertical
+fill_container: true
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_input_cd
+card_mod:
+  style: |
+    ha-card {
+      border-radius: 14px;
+    {% if (state_attr('media_player.your_receiver','source') or '')|lower == 'cd' %}
+      background: linear-gradient(160deg, rgba(226,86,10,0.34), rgba(15,15,17,0.88));
+      border: 1px solid rgba(255,122,24,0.80);
+    {% else %}
+      background: rgba(15,15,17,0.72);
+      border: 1px solid rgba(255,122,24,0.14);
+    {% endif %}
+    }</pre>
+    <p class="capt">हर इनपुट के लिए तीन चीज़ें बदलें: स्क्रिप्ट, आइकन, और वह स्ट्रिंग जिससे तुलना होती है।</p>
+    <p class="lead">दो बातें सही रखें, वरना कोई टाइल कभी नहीं जलेगी:</p>
+    <ul class="plain">
+      <li><b>उसी से तुलना करें जो आपका रिसीवर सचमुच बताता है।</b> Developer Tools &rsaquo; States खोलें, अपनी media player entity चुनें और <code>source_list</code> व <code>sound_mode_list</code> एट्रिब्यूट पढ़ें। यही सटीक स्ट्रिंग हैं। ऊपर की तरह छोटे अक्षरों में तुलना करें।</li>
+      <li><b>नाम बदला गया इनपुट नया नाम ही बताता है।</b> रिसीवर पर GAME1 का नाम "Xbox" कर दें तो वह <code>Xbox</code> बताएगा, जबकि AVR Maestro का कंट्रोल अब भी <code>input_game1</code> कहलाता है। रिसीवर जो बताता है उससे मिलान करें, स्क्रिप्ट के नाम से नहीं।</li>
+    </ul>
+    <p class="lead">सराउंड मोड वही कार्ड हैं, बस <code>source</code> की जगह <code>sound_mode</code> आता है।</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">चरण 6</div>
+      <h2>हर सेक्शन को लाइव हेडर दें</h2>
+    </div>
+    <p class="lead">सादा शीर्षक बेकार जगह घेरता है। उसके नीचे लाइव वैल्यू रखें और "Sources" बन जाता है "Sources / Now on Nvidia Shield"।</p>
+<pre class="code">type: custom:button-card
+name: Sources
+icon: mdi:video-input-hdmi
+color_type: label-card
+entity: media_player.your_receiver
+show_label: true
+label: >-
+  [[[ var v = states["media_player.your_receiver"].attributes.source;
+      return v ? ("Now on " + v) : "Receiver in standby"; ]]]
+tap_action:
+  action: none
+styles:
+  grid:
+    - grid-template-areas: '"i n" "i l"'
+    - grid-template-columns: min-content auto
+  name:
+    - font-size: 13px
+    - letter-spacing: 3px
+    - text-transform: uppercase
+    - justify-self: start
+  label:
+    - font-size: 11px
+    - justify-self: start</pre>
+    <p class="capt">दो-पंक्ति वाला ग्रिड ही लेबल को शीर्षक के बगल की जगह उसके नीचे रखता है।</p>
+    <p class="lead">Surround हेडर पर <code>attributes.source</code> की जगह <code>attributes.sound_mode</code> लगाएँ, और इसी तरह आगे।</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">चरण 7</div>
+      <h2>वॉल्यूम dB में दिखाएँ</h2>
+    </div>
+    <p class="lead">Home Assistant वॉल्यूम को भिन्न के रूप में बताता है। रिसीवर को "0.67" पर कोई सेट नहीं करता। गणित की एक पंक्ति इसे ठीक कर देती है और पूरा सेक्शन रिसीवर जैसा पढ़ा जाने लगता है।</p>
+    <figure><img alt="वॉल्यूम सेक्शन: एक स्लाइडर, ऊपर, नीचे, म्यूट और चार dB प्रीसेट" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie और Loud, हर एक पर वह dB लिखा है जो वह सेट करता है</figcaption></figure>
+    <div class="note"><b>रूपांतरण।</b> Home Assistant <code>volume_level</code> को मास्टर वॉल्यूम में 100 का भाग देकर प्रकाशित करता है, और Denon व Marantz रिसीवरों पर MV 80 ही 0 dB का संदर्भ बिंदु है। इसलिए <b>dB = volume_level &times; 100 &minus; 80</b>। 0.67 का <code>volume_level</code> मास्टर वॉल्यूम 67 है, यानी &minus;13.0 dB।</div>
+<pre class="code"><span class="c"># The readout</span>
+type: custom:mushroom-template-card
+entity: media_player.your_receiver
+icon: mdi:volume-high
+primary: >-
+  {% set v = state_attr('media_player.your_receiver','volume_level') %}
+  {% if v is not none %}{{ (v * 100 - 80) | round(1) }} dB{% else %}Standby{% endif %}
+secondary: Master volume
+layout: vertical</pre>
+<pre class="code"><span class="c"># The slider. media_controls must be empty or the bar becomes a power button</span>
+type: custom:mushroom-media-player-card
+entity: media_player.your_receiver
+volume_controls:
+  - volume_set
+media_controls: []
+show_volume_level: true</pre>
+<pre class="code"><span class="c"># A preset. 0.50 is master volume 50, which is -30 dB</span>
+type: custom:mushroom-template-card
+entity: media_player.your_receiver
+icon: mdi:weather-night
+primary: Night
+secondary: "-30 dB"
+tap_action:
+  action: perform-action
+  perform_action: media_player.volume_set
+  target:
+    entity_id: media_player.your_receiver
+  data:
+    volume_level: 0.50</pre>
+    <div class="note"><b>अपना सबसे तेज़ प्रीसेट सोच-समझकर चुनें।</b> ऊपर वाला सेट &minus;10 dB पर रुक जाता है। रिमोट की तुलना में डैशबोर्ड पर गलती से दबा देना कहीं आसान है, और बड़े रिसीवर पर रेफ़रेंस लेवल सचमुच तेज़ होता है।</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">चरण 8</div>
+      <h2>अपने सीन जोड़ें</h2>
+    </div>
+    <p class="lead">नाम टाइप करने के बजाय स्क्रिप्ट से पढ़ें, और AVR Maestro में किसी सीन का नाम बदलते ही टाइल का नाम भी बदल जाएगा, डैशबोर्ड में कुछ बदले बिना।</p>
+    <figure><img alt="चार सीन टाइल, हर एक पर वे सेटिंग लिखी हैं जो वह सीन बहाल करता है" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>हर टाइल बताती है कि उसका सीन असल में क्या बहाल करता है</figcaption></figure>
+<pre class="code">type: custom:mushroom-template-card
+entity: script.avr_maestro_MAC_scene_1234567890123
+icon: mdi:theater
+primary: >-
+  {{ state_attr('script.avr_maestro_MAC_scene_1234567890123','friendly_name')
+     | replace('AVR Maestro - ', '') | replace(' (Your Receiver)', '') }}
+secondary: >-
+  {% set t = states.script['avr_maestro_MAC_scene_1234567890123'].attributes.last_triggered %}
+  {{ 'recalled ' ~ relative_time(t) ~ ' ago' if t else 'not run yet' }}
+multiline_secondary: true
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_scene_1234567890123</pre>
+    <p class="capt">दोनों replace() कॉल फ़्रेंडली नेम से प्रीफ़िक्स और रिसीवर का नाम हटा देते हैं।</p>
+    <p class="lead">दूसरी पंक्ति के लिए एक मिनट और लगाना फ़ायदे का सौदा है। रात 11 बजे फ़िल्मी-से नामों वाले बटनों की दीवार कुछ नहीं बताती; हर बटन क्या बहाल करता है यह बताने वाली एक पंक्ति बता देती है कि कौन सा दबाना है।</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">चरण 9</div>
+      <h2>हिस्ट्री जोड़ें</h2>
+    </div>
+    <p class="lead">रिसीवर की media player entity को Home Assistant किसी भी दूसरी entity की तरह रिकॉर्ड करता है, इसलिए आपको सुनने का इतिहास मुफ़्त में मिल जाता है। नीचे सब कुछ उसी एक entity से आता है: कोई अतिरिक्त सेंसर नहीं, कोई helper नहीं, पहले से कुछ कॉन्फ़िगर नहीं करना।</p>
+    <figure><img alt="पाँच हिस्ट्री ग्राफ़: पावर और गतिविधि, dB में मास्टर वॉल्यूम, दिन के हिसाब से वॉल्यूम, इस्तेमाल हुआ सोर्स और सराउंड मोड" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>पाँच ग्राफ़, एक entity, सात दिन</figcaption></figure>
+    <p class="lead">सादे स्टेट टाइमलाइन के लिए किसी कस्टम कार्ड की ज़रूरत नहीं है, और यही सबसे ज़्यादा काम का है:</p>
+<pre class="code">type: history-graph
+hours_to_show: 168
+entities:
+  - entity: media_player.your_receiver
+    name: Receiver</pre>
+    <p class="capt">एक हफ़्ते में चालू, बंद, और तब वह क्या कर रहा था।</p>
+    <p class="lead">dB में वॉल्यूम में वही रूपांतरण इस्तेमाल होता है जो चरण 7 में है:</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+header:
+  show: true
+  title: Master volume, last 7 days
+series:
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Master volume
+    type: line
+    curve: smooth
+    unit: dB
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100 - 80;"
+    extend_to: now
+    group_by:
+      duration: 1h
+      func: last
+      fill: last
+apex_config:
+  chart:
+    height: 240
+  yaxis:
+    min: -60
+    max: 0</pre>
+    <p class="capt">fill: last के साथ group_by छिटपुट घटनाओं को लगातार रेखा में बदल देता है। y-अक्ष को apex_config में रखना ज़रूरी है, तभी वह लागू होता है।</p>
+    <p class="lead">दैनिक औसत और शिखर, नुकीली रेखा को एक आकार दे देते हैं:</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+span:
+  end: day
+header:
+  show: true
+  title: Master volume by day in dB, average and peak
+series:
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Day average
+    type: column
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100;"
+    group_by: {duration: 1d, func: avg, fill: 'null'}
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Day peak
+    type: line
+    curve: smooth
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100;"
+    group_by: {duration: 1d, func: max, fill: 'null'}
+apex_config:
+  yaxis:
+    min: 0
+    max: 80
+    labels:
+      formatter: "EVAL:function (v) { return (v - 80).toFixed(0); }"
+  tooltip:
+    y:
+      formatter: "EVAL:function (v) { return v == null ? '' : (v - 80).toFixed(1) + ' dB'; }"</pre>
+    <p class="capt">एक ही एट्रिब्यूट से दो सीरीज़, दिन के हिसाब से समूहित।</p>
+    <div class="note"><b>यह ग्राफ़ 0 से 80 तक क्यों बनता है और dB में फ़ॉर्मैट होता है, सीधे dB क्यों नहीं बनाता।</b> बार अक्ष के निचले तल से ऊपर की ओर बढ़ते हैं। सीधे dB बनाएँगे तो हर बार 0 से नीचे की ओर लटकेगा, यानी लंबा बार मतलब धीमी आवाज़, जो उलटा पढ़ा जाता है। कच्चे मास्टर वॉल्यूम की संख्या बनाएँ और अक्ष व टूलटिप के फ़ॉर्मैटर में 80 घटा दें, तो बार ऊपर की ओर बढ़ते हैं और पाठक को जो कुछ दिखता है वह फिर भी dB में ही होता है। <code>fill: 'null'</code> का मतलब है कि जिस दिन कोई रीडिंग नहीं है उस दिन कोई बार नहीं बनता, कल का आँकड़ा आगे नहीं खिसकाया जाता।</div>
+    <p class="lead">और वे दो जो इस सवाल का जवाब देते हैं कि "मैं असल में किस पर और किस मोड में देखता हूँ": सोर्स और सराउंड मोड, इस टाइमलाइन के रूप में कि कब कौन सा चुना गया था।</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+span:
+  end: day
+header:
+  show: true
+  title: Source in use, last 7 days
+series:
+  - entity: media_player.your_receiver
+    attribute: source
+    name: Source
+    type: line
+    curve: stepline
+    stroke_width: 3
+    extend_to: now
+    float_precision: 0
+    transform: |
+      if (x == null) return null;
+      var m = ["Phono", "NET", "Xbox", "Nvidia Shield"];
+      var i = m.indexOf(x);
+      return i &lt; 0 ? 0 : i + 1;
+apex_config:
+  yaxis:
+    min: 0
+    max: 4
+    tickAmount: 4
+    labels:
+      formatter: >-
+        EVAL:function (v) { return ["Other", "Phono", "HEOS Net", "Xbox",
+        "Shield"][Math.round(v)] || ''; }
+  tooltip:
+    y:
+      formatter: >-
+        EVAL:function (v) { return v == null ? 'off' : ["Other", "Phono",
+        "HEOS Net", "Xbox", "Shield"][Math.round(v)] || 'Other'; }</pre>
+    <p class="capt">अपने सोर्स transform ऐरे और दोनों formatter ऐरे में डालें। इंडेक्स 0 को "Other" ही रहने दें।</p>
+    <p class="lead">चार्ट के अक्ष को संख्याएँ चाहिए, इसलिए <code>transform</code> हर सोर्स के नाम को एक स्थिति से जोड़ता है और formatter लेबल व टूलटिप के लिए उसे वापस नाम में बदलते हैं। मैपिंग को <b>पूर्ण</b> रखें: <code>null</code> (रिसीवर बंद) खाली जगह ही रहता है, और आपकी सूची में न आने वाली हर चीज़ "Other" में चली जाती है, ताकि दोनों में कभी गड़बड़ न हो। यही कार्ड <code>sound_mode</code> के साथ सराउंड मोड दे देता है, जिसमें स्ट्रिंग बड़े अक्षरों में वैसी ही हों जैसी आपका रिसीवर बताता है।</p>
+    <div class="note"><b>आख़िरी दोनों पर <code>stepline</code> रखें।</b> सोर्स या सराउंड मोड एक श्रेणी है, संख्या नहीं। कर्व को चिकना करेंगे तो रेखा Shield और Xbox के बीच अक्ष पर पड़ने वाली हर चीज़ से होकर लहराती हुई गुज़रेगी, और ऐसा इनपुट दिखाएगी जो कभी चुना ही नहीं गया। वॉल्यूम एक वास्तविक मात्रा है और ईमानदारी से चिकना हो सकता है; श्रेणी नहीं।</div>
+    <div class="note"><b>पहले अपना recorder retention जाँच लें।</b> Home Assistant डिफ़ॉल्ट रूप से दस दिन रखता है, इसलिए सात दिन ही वह अधिकतम है जो काम का माँगा जा सकता है। इससे पीछे जाना हो तो <code>state_class: measurement</code> टेम्पलेट सेंसर चाहिए, जिसे Home Assistant सालों तक दीर्घकालिक आँकड़ों के रूप में रखता है।</div>
+    <div class="note"><b>कोई दिन ग़ायब दिखे तो आमतौर पर वही सही है।</b> Home Assistant बदलाव रिकॉर्ड करता है, नमूने नहीं। रिसीवर को दो दिन एक इनपुट पर एक वॉल्यूम पर छोड़ दें तो वह कुछ भी नहीं लिखता, इसलिए उस दिन कोई बार नहीं होता। यह डेटा खोने जैसा लगता है, जबकि बात उलटी है: कुछ हुआ ही नहीं।</div>
+  </div>
+</section>
+
+<section id="whole">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">चरण 10</div>
+      <h2>या पूरा तैयार ले लें</h2>
+    </div>
+    <p class="lead">पूरा व्यू, हर सेक्शन और हर कार्ड, entity ID की जगह प्लेसहोल्डर के साथ।</p>
+    <ol class="plain">
+      <li><b>1.</b> <a href="/hi/guide/home-assistant-dashboard/avr-maestro-dashboard.yaml" download>व्यू YAML डाउनलोड करें</a>।</li>
+      <li><b>2.</b> इसे किसी भी टेक्स्ट एडिटर में खोलें और दो स्ट्रिंग जहाँ-जहाँ आएँ वहाँ बदल दें: <code>YOUR_RECEIVER</code> की जगह अपनी media player entity का नाम, और <code>YOURMAC</code> की जगह चरण 2 से अपने रिसीवर के बारह अक्षर।</li>
+      <li><b>3.</b> Home Assistant में अपना डैशबोर्ड खोलें, पेंसिल आइकन, तीन-बिंदु मेन्यू, <b>Raw configuration editor</b>, और इसे एक व्यू के रूप में पेस्ट कर दें।</li>
+    </ol>
+    <div class="note"><b>आपकी सीन ID मेल नहीं खाएँगी।</b> सीन स्क्रिप्ट के नाम इस आधार पर रखे जाते हैं कि सीन कब बनाया गया था, इसलिए फ़ाइल के चारों सीन आपके सिस्टम पर मौजूद नहीं हैं: वे कार्ड दिखेंगे पर कुछ नहीं करेंगे। उनकी entity ID की जगह चरण 2 से अपनी ID डालें, या Scenes सेक्शन हटाकर उसे चरण 8 से दोबारा बनाएँ।</div>
+    <div class="note"><b>दो और बातें जिनकी उम्मीद रखें।</b> सोर्स और सराउंड ग्राफ़ में उसी रिसीवर के सोर्स नाम हैं जिस पर यह बना था, इसलिए चरण 9 के अनुसार उन ऐरे को बदलें। और टाइल के लेबल अंग्रेज़ी में हैं; फ़ाइल में किसी चीज़ का अनुवाद नहीं हुआ है।</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>अगर कोई टाइल कभी नहीं जलती</h2>
+    </div>
+    <p class="lead">यह मान लेने से पहले कि आपने गलत बनाया है: उनमें से कुछ जल ही नहीं सकतीं, और यह जानना काम का है कि कौन सी।</p>
+    <p class="lead">कोई टाइल अपनी स्थिति तभी दिखा सकती है जब Home Assistant उसे पढ़ सके, और वह आपके रिसीवर को दो जगहों से पढ़ता है। Denon AVR इंटीग्रेशन बुनियादी जानकारी media player entity पर प्रकाशित करता है। बाकी AVR Maestro प्रकाशित करता है: वह एक <b>Status Bridge</b> सेंसर, <code>sensor.avr_maestro_your_receiver</code>, बनाता है और जो रीडिंग उसके पास पहले से हैं उन्हें एट्रिब्यूट के रूप में उस पर लिख देता है।</p>
+    <table class="t">
+      <thead><tr><th>media player entity पर</th><th>Status Bridge सेंसर पर</th></tr></thead>
+      <tbody>
+        <tr><td>पावर</td><td>Audyssey MultEQ कर्व</td></tr>
+        <tr><td>चुना गया सोर्स</td><td>Dynamic Volume और रेफ़रेंस लेवल</td></tr>
+        <tr><td>सराउंड मोड</td><td>कौन सा Dirac स्लॉट लोड है</td></tr>
+        <tr><td>वॉल्यूम और म्यूट</td><td>फ्रंट पैनल डिमर, ईको मोड</td></tr>
+        <tr><td>Dynamic EQ, कभी-कभी</td><td>स्पीकर प्रीसेट, टोन, और दर्जनों अन्य</td></tr>
+      </tbody>
+    </table>
+    <p class="lead">अब दोनों कॉलम पढ़े जा सकते हैं। media player की वैल्यू <code>states['media_player.your_receiver'].attributes</code> से लें, और Status Bridge की वैल्यू <code>state_attr('sensor.avr_maestro_your_receiver','dirac_slot')</code> से, ताकि टाइल उसी सेटिंग के लिए जले जो सचमुच सक्रिय है, केवल उसे बदलने वाली स्क्रिप्ट चलाकर न रह जाए।</p>
+    <p class="lead">जिस रिसीवर पर यह बना, उस पर मापा गया: media player entity साठ में से लगभग बीस कंट्रोल देती है, और Status Bridge सेंसर करीब चालीस और प्रकाशित करता है। दोनों को मिलाकर डैशबोर्ड वह लगभग सब कुछ पढ़ सकता है जो वह बदल सकता है - बटनों की दीवार और कंट्रोल सतह के बीच यही फ़र्क है।</p>
+    <div class="note"><b>अगर किसी वैल्यू के दो मतलब हो सकते हैं, तो यह साफ़ कहें।</b> Dynamic EQ <code>true</code>, <code>false</code> के रूप में आता है, या बिल्कुल नहीं आता। "बिल्कुल नहीं" को "बंद" मान लेना आपकी दीवार पर आत्मविश्वास से भरा गलत जवाब टाँग देता है।</div>
+<pre class="code">icon_color: >-
+  {% set d = state_attr('media_player.your_receiver','dynamic_eq') %}
+  {{ 'orange' if d is true else 'grey' }}
+secondary: >-
+  {% set d = state_attr('media_player.your_receiver','dynamic_eq') %}
+  {% if d is none %}state not published{% elif d %}on{% else %}off{% endif %}</pre>
+    <p class="capt">तीन स्थितियाँ, दो नहीं।</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>जानने लायक अन्य बातें</h2>
+    </div>
+    <ul class="plain">
+      <li><b>टाइलें अपेक्षित चौड़ाई की एक-तिहाई आती हैं।</b> 3 कॉलम में फैले सेक्शन में भीतरी ग्रिड 12 नहीं, <b>36</b> कॉलम का होता है। चार टाइल एक पंक्ति में चाहिए तो <code>grid_options: {columns: 9}</code> सेट करें। छह के लिए, 6।</li>
+      <li><b>वॉल्यूम स्लाइडर बार की जगह पावर बटन दिखाता है।</b> ऐसा तब होता है जब <code>media_controls</code> में <code>on_off</code> हो। <code>media_controls: []</code> सेट करें।</li>
+      <li><b>लेबल कट जाते हैं।</b> "Volume Down" बन जाता है "Volume Do..."। उसे "Vol Down" कर दें, या टाइल चौड़ी करें।</li>
+      <li><b>सीन के विवरण कट जाते हैं।</b> <code>multiline_secondary: true</code> जोड़ें।</li>
+      <li><b>apexcharts ग्राफ़ से सीधी रेखा ग़ायब हो जाती है।</b> यह <code>experimental.color_threshold</code> है। यह रेखा को ऊर्ध्वाधर ग्रेडिएंट के रूप में खींचता है, और बिल्कुल क्षैतिज खंड की ऊँचाई शून्य होती है, इसलिए ग्रेडिएंट के लिए कोई जगह नहीं बचती और वह अदृश्य हो जाता है। एक ही वॉल्यूम पर 43 घंटे का सेशन पूरी तरह ग़ायब हो गया। ठोस <code>color</code> इस्तेमाल करें।</li>
+      <li><b>यह फ़ोन पर अपने आप ढल जाता है।</b> Sections व्यू संकरी चौड़ाई पर बिना किसी अतिरिक्त कॉन्फ़िगरेशन के एक कॉलम में सिमट जाते हैं।</li>
+    </ul>
+    <figure><img alt="वही डैशबोर्ड फ़ोन की चौड़ाई पर, एक कॉलम में सिमटा हुआ" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>फ़ोन की चौड़ाई पर वही डैशबोर्ड: तीन कॉलम एक हो जाते हैं, और इसके लिए कुछ भी कॉन्फ़िगर नहीं किया गया</figcaption></figure>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">आम सवाल</div>
+      <h2>डैशबोर्ड, सवाल-जवाब</h2>
+    </div>
+    <details open><summary>क्या इसे बनाने के लिए मुझे HACS के कस्टम कार्ड चाहिए?</summary><div class="body">इसे चलाने के लिए नहीं। इस पेज का हर कंट्रोल एक सादे Home Assistant बटन कार्ड से चलता है। Mushroom, button-card, card-mod और apexcharts-card ही उसे वैसा रूप देते हैं जैसा स्क्रीनशॉट में दिखता है, और नीचे हर सेक्शन बताता है कि वह कौन-सा इस्तेमाल करता है और उसके बिना आप क्या खोते हैं।</div></details>
+    <details><summary>कुछ बटन क्यों जलते हैं और कुछ नहीं?</summary><div class="body">जब Home Assistant आपके रिसीवर से संबंधित स्थिति पढ़ सकता है, तब बटन जलता है। सोर्स, सराउंड मोड, वॉल्यूम और म्यूट रिसीवर की अपनी media player entity से आते हैं, इसलिए वे हाइलाइट होते हैं। Audyssey कर्व, Dirac स्लॉट, डिमर, ईको मोड और स्पीकर प्रीसेट Denon इंटीग्रेशन प्रकाशित नहीं करता, इसलिए Home Assistant को पता ही नहीं चल पाता कि कौन सा सक्रिय है और बटन तब तक बुझे रहते हैं जब तक आप कोई दबा न दें।</div></details>
+    <details><summary>क्या मैं प्रतिशत की जगह असली dB वॉल्यूम दिखा सकता हूँ?</summary><div class="body">हाँ। Home Assistant, volume_level को रिसीवर के मास्टर वॉल्यूम में 100 का भाग देकर प्रकाशित करता है, और Denon व Marantz रिसीवरों पर MV 80 ही 0 dB का संदर्भ बिंदु है। यानी dB = volume_level गुणा 100, घटा 80। 0.67 का volume_level मास्टर वॉल्यूम 67 है, जो -13.0 dB होता है।</div></details>
+    <details><summary>क्या मेरी entity ID इस गाइड में दी गई ID से मेल खाएँगी?</summary><div class="body">शुरुआत और अंत का पैटर्न मेल खाएगा, बीच का हिस्सा नहीं। AVR Maestro अपनी स्क्रिप्ट के नाम रिसीवर के MAC पते पर रखता है, ताकि नाम बदलने पर वही स्क्रिप्ट अपडेट हो, नई कॉपी न बने। आपकी ID कुछ ऐसी दिखेगी: script.avr_maestro_ फिर आपके अपने बारह अक्षर, फिर कंट्रोल का नाम। अपनी सूची देखने के लिए Home Assistant में Developer Tools, फिर States खोलें और avr_maestro से फ़िल्टर करें।</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">गाइड के और हिस्से</div>
+      <h2>AVR Maestro की अन्य गाइड</h2>
+    </div>
+    <p class="lead"><a href="/hi/guide/getting-started/">शुरुआत करें</a> &middot; <a href="/hi/guide/home/">होम स्क्रीन</a> &middot; <a href="/hi/guide/scenes/">सीन</a> &middot; <a href="/hi/guide/custom-icons/">कस्टम आइकन</a> &middot; <a href="/hi/guide/sound/">ध्वनि</a> &middot; <a href="/hi/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/hi/guide/speakers/">स्पीकर</a> &middot; <a href="/hi/guide/locked-controls/">कंट्रोल लॉक क्यों है</a> &middot; <a href="/hi/guide/assistant/">असिस्टेंट</a> &middot; <a href="/hi/guide/home-automation/">होम ऑटोमेशन</a> &middot; <a href="/hi/guide/multi-zone/">ज़ोन</a> &middot; <a href="/hi/guide/remote/">रिमोट</a> &middot; <a href="/hi/guide/radio/">रेडियो (FM/AM)</a> &middot; <a href="/hi/guide/on-screen-display/">ऑन-स्क्रीन डिस्प्ले</a> &middot; <a href="/hi/guide/settings/">सेटिंग्स</a> &middot; <a href="/hi/guide/languages/">भाषाएं</a> &middot; <a href="/hi/guide/volume/">वॉल्यूम नियंत्रण</a> &middot; <a href="/hi/guide/backup/">बैकअप &amp; रिस्टोर</a> &middot; <a href="/hi/guide/now-playing/">अभी बज रहा है &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>आपका पूरा रिसीवर, एक दीवार पर</h2>
+    <p class="lead" style="margin:0 auto 24px">होम ऑटोमेशन AVR Maestro में इकलौता सशुल्क अनलॉक है। बाकी सब कुछ, ऑन-डिवाइस AI असिस्टेंट समेत, शामिल है।</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Google Play पर पाएँ" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="App Store से डाउनलोड करें" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Mac App Store से डाउनलोड करें" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Microsoft Store पर पाएँ" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/hi/guide/home-automation/">होम ऑटोमेशन पर वापस जाएं &rarr;</a> &middot; <a href="/hi/guide/">पूरा उपयोगकर्ता गाइड &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/hi/">होम</a>
+      <a href="/hi/guide/">उपयोगकर्ता गाइड</a>
+      <a href="/hi/guide/getting-started/">शुरुआत करें</a>
+      <a href="/hi/receivers/">रिसीवर</a>
+      <a href="/hi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hi/audyssey-vs-dirac/">Audyssey बनाम Dirac</a>
+      <a href="/hi/best-denon-marantz-app/">बदलाव क्यों करें</a>
+      <a href="/hi/help/">सहायता</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro, MiyaraHub Technologies LLC का एक स्वतंत्र ऐप है और Denon, Marantz, D&amp;M Holdings, Sound United या इस पेज पर नामित किसी भी अन्य कंपनी से संबद्ध, उनके द्वारा समर्थित या प्रायोजित नहीं है। Denon, Marantz, HEOS, Home Assistant, Mushroom, HACS, Audyssey और Nvidia Shield अपने-अपने स्वामियों के ट्रेडमार्क या प्रोजेक्ट हैं, जिनका यहाँ केवल पहचान के लिए उपयोग किया गया है।</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

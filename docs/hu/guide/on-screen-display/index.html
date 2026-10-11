@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="hu" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Képernyőkijelzés: hangerő-kijelzés &amp; 21:9 - AVR Maestro</title>
+<meta name="description" content="Vezérelheted a Denon vagy Marantz képernyőkijelzését a telefonodról: a hangerő-kijelzés helyét vagy kikapcsolását, az információs sávot, a 21:9 pozicionálást és a képernyővédőt." />
+<meta name="keywords" content="Denon on screen display app, Marantz OSD settings, AVR volume readout off, receiver info banner, 21:9 constant height AVR, Denon screen saver, AVR OSD phone" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/hu/guide/on-screen-display/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/on-screen-display/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/on-screen-display/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/on-screen-display/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/on-screen-display/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/on-screen-display/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/on-screen-display/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/on-screen-display/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/on-screen-display/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/on-screen-display/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/on-screen-display/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/on-screen-display/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/on-screen-display/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/on-screen-display/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/on-screen-display/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/on-screen-display/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/on-screen-display/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/on-screen-display/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/on-screen-display/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/on-screen-display/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/on-screen-display/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/on-screen-display/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/on-screen-display/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/on-screen-display/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/on-screen-display/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/on-screen-display/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/on-screen-display/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="hu_HU" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Képernyőkijelzés: hangerő-kijelzés &amp; 21:9 - AVR Maestro" />
+<meta property="og:description" content="Vezérelheted a Denon vagy Marantz képernyőkijelzését a telefonodról: a hangerő-kijelzés helyét vagy kikapcsolását, az információs sávot, a 21:9 pozicionálást és a képernyővédőt." />
+<meta property="og:url" content="https://avrmaestro.com/hu/guide/on-screen-display/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Képernyőkijelzés: hangerő-kijelzés &amp; 21:9 - AVR Maestro" />
+<meta name="twitter:description" content="Vezérelheted a Denon vagy Marantz képernyőkijelzését a telefonodról: a hangerő-kijelzés helyét vagy kikapcsolását, az információs sávot, a 21:9 pozicionálást és a képernyővédőt." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "Az AVR Maestro egy független alkalmazás Denon és Marantz AV-erősítők vezérlésére a helyi hálózaton keresztül.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "hu"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/on-screen-display/#article",
+      "headline": "A képernyőkijelzés - a fotelből",
+      "description": "Vezérelheted a Denon vagy Marantz képernyőkijelzését a telefonodról: a hangerő-kijelzés helyét vagy kikapcsolását, az információs sávot, a 21:9 pozicionálást és a képernyővédőt.",
+      "image": "https://avrmaestro.com/screenshots/on-screen-display.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/on-screen-display/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "hu"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/on-screen-display/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Eltüntethetem a hangerőszámot a tévéről?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Igen. Nyisd meg az AVR Maestro-ban a Beállítások, majd a Képernyőkijelzés menüt, és állítsd a Hangerőt Ki állásba. Azt is megteheted, hogy a képernyő aljára vagy tetejére helyezed át, anélkül hogy felkelnél a helyedről."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mire való a 21:9 mód?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A készülék képernyőmenüit a 21:9 állandó magasságú képernyőhöz igazítja, így a projektor nem vágja le őket fent és lent. Csak akkor kapcsold be, ha ilyen a beállításod."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Miért látok kevesebb lehetőséget, mint a képernyőképeken?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mert a készüléked kevesebbet jelent. Az AVR Maestro megkérdezi a készüléktől, milyen képernyőkijelzési lehetőségei vannak, és csak azokat mutatja. Egy régebbi készülék, amelyen nincs Képernyővédő, egyszerűen nem kapja meg azt a kártyát, ahelyett hogy egy olyan vezérlőt látnál, amely hibára futna."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Kezdőlap",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Felhasználói útmutató",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Képernyőkijelzés (OSD)",
+      "item": "https://avrmaestro.com/guide/on-screen-display/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/hu/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menü" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Keresés az útmutatóban..." data-i18n-empty="Nincs találat erre:" data-i18n-language="Nyelv">
+      <a href="/hu/">Kezdőlap</a>
+      <a href="/hu/guide/">Felhasználói útmutató</a>
+      <a href="/hu/receivers/">Készülékek</a>
+      <a href="/hu/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hu/best-denon-marantz-app/">Miért érdemes váltani</a>
+      <a href="/hu/#top" class="cta">Letöltés</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/hu/">Főoldal</a> &rsaquo; <a href="/hu/guide/">Felhasználói útmutató</a> &rsaquo; Képernyőkijelző</div>
+    <div class="eyebrow">Amit a készüléked kirajzol a tévére</div>
+    <h1>A képernyőkijelzés - <span class="g">a fotelből</span></h1>
+    <p>A film közben felvillanó hangerőszám, a forrásváltáskor megjelenő sáv, a zene alatt végig látható most szóló képernyő - mind a készülék beállítási menüjében él, vagyis fel kell kelned, és elő kell hoznod a menüt arra a képernyőre, amit éppen néztél. Az AVR Maestro ezt a telefonodra teszi.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+      <figure><img alt="A Képernyőkijelzés beállításai az AVR Maestro alkalmazásban" src="/screenshots/on-screen-display.png" width="1324" height="2644" decoding="async" /><figcaption>Minden lehetőség, amit a készülék jelent - és csak azok</figcaption></figure>
+    </div>
+
+    <div class="section-head" style="margin-top:36px">
+      <h2>Amit módosíthatsz</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Hangerő:</b> <b>Alul</b>, <b>Felül</b> vagy <b>Ki</b>. Hol jelenjen meg a hangerő-kijelzés, amikor módosítod a hangerőt, vagy megjelenjen-e egyáltalán. A Ki az, amit filmnézés közben mindenki keres.</li>
+      <li><b>Információ:</b> az állapotsáv, amelyet a készülék a forrás vagy a hangzásmód váltásakor rajzol ki.</li>
+      <li><b>Most szól:</b> hogy a most szóló képernyő látható marad-e hálózati forrás lejátszása közben, vagy egy kis idő után eltűnik.</li>
+      <li><b>21:9 mód:</b> a készülék saját menüit a 21:9 állandó magasságú képernyőhöz igazítja, így a projektor nem vágja le őket.</li>
+      <li><b>Képernyővédő:</b> mozdulatlanság után elmozgatja a képet a kijelzőn, ami védi a beégésre hajlamos panelt.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Csak amije a készülékednek van</div>
+        <h2>A készüléked dönti el, melyiket látod ezek közül</h2>
+        <p>Nem minden készüléken van mind az öt. Ahelyett, hogy egy hibára futó vezérlőt mutatna, az AVR Maestro megkérdezi a készüléket, milyen képernyőkijelzési lehetőségeket kínál, és csak azokat jeleníti meg - így egy régebbi készülék, amelyen nincs Képernyővédő, egyszerűen nem kapja meg azt a kártyát.</p>
+        <p>Ha egy beállítás létezik, de a készülék most nem válaszolt, az alkalmazás pontosan ezt mondja, és felajánlja az újrapróbálást. Soha nem adja ki a „ezt most nem sikerült beolvasni” üzenetet úgy, mintha „a készülékednek nincs ilyen” lenne - ez két különböző válasz, és csak az egyik igaz.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Gyakori kérdések</div>
+      <h2>Képernyőkijelzés - válaszok</h2>
+    </div>
+    <details open><summary>Eltüntethetem a hangerőszámot a tévéről?</summary><div class="body">Igen. Nyisd meg az AVR Maestro-ban a Beállítások, majd a Képernyőkijelzés menüt, és állítsd a Hangerőt Ki állásba. Azt is megteheted, hogy a képernyő aljára vagy tetejére helyezed át, anélkül hogy felkelnél a helyedről.</div></details>
+    <details><summary>Mire való a 21:9 mód?</summary><div class="body">A készülék képernyőmenüit a 21:9 állandó magasságú képernyőhöz igazítja, így a projektor nem vágja le őket fent és lent. Csak akkor kapcsold be, ha ilyen a beállításod.</div></details>
+    <details><summary>Miért látok kevesebb lehetőséget, mint a képernyőképeken?</summary><div class="body">Mert a készüléked kevesebbet jelent. Az AVR Maestro megkérdezi a készüléktől, milyen képernyőkijelzési lehetőségei vannak, és csak azokat mutatja. Egy régebbi készülék, amelyen nincs Képernyővédő, egyszerűen nem kapja meg azt a kártyát, ahelyett hogy egy olyan vezérlőt látnál, amely hibára futna.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Az útmutató további részei</div>
+      <h2>További AVR Maestro útmutatók</h2>
+    </div>
+    <p class="lead"><a href="/hu/guide/getting-started/">Első lépések</a> &middot; <a href="/hu/guide/home/">Kezdőképernyő</a> &middot; <a href="/hu/guide/scenes/">Jelenetek</a> &middot; <a href="/hu/guide/custom-icons/">Egyéni ikonok</a> &middot; <a href="/hu/guide/sound/">Hang</a> &middot; <a href="/hu/guide/graphic-eq/">Grafikus EQ</a> &middot; <a href="/hu/guide/speakers/">Hangszórók</a> &middot; <a href="/hu/guide/locked-controls/">Miért zárolt egy vezérlő</a> &middot; <a href="/hu/guide/assistant/">Az asszisztens</a> &middot; <a href="/hu/guide/home-automation/">Otthonautomatizálás</a> &middot; <a href="/hu/guide/home-assistant-dashboard/">Home Assistant irányítópult</a> &middot; <a href="/hu/guide/multi-zone/">Zónák</a> &middot; <a href="/hu/guide/remote/">Távirányító</a> &middot; <a href="/hu/guide/radio/">Rádió (FM/AM)</a> &middot; <a href="/hu/guide/settings/">Beállítások</a> &middot; <a href="/hu/guide/languages/">Nyelvek</a> &middot; <a href="/hu/guide/volume/">Hangerő-szabályzók</a> &middot; <a href="/hu/guide/backup/">Mentés &amp; visszaállítás</a> &middot; <a href="/hu/guide/now-playing/">Most szól &amp; HEOS</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/hu/">Kezdőlap</a>
+      <a href="/hu/guide/">Felhasználói útmutató</a>
+      <a href="/hu/guide/getting-started/">Első lépések</a>
+      <a href="/hu/receivers/">Készülékek</a>
+      <a href="/hu/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hu/audyssey-vs-dirac/">Audyssey és Dirac</a>
+      <a href="/hu/best-denon-marantz-app/">Miért érdemes váltani</a>
+      <a href="/hu/help/">Súgó</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">Az AVR Maestro a MiyaraHub Technologies LLC független alkalmazása, amely nem áll kapcsolatban a Denon, a Marantz, a D&amp;M Holdings, a Sound United vagy az ezen az oldalon említett bármely más céggel, és azok nem támogatják, illetve nem szponzorálják. A Denon, a Marantz és az Audyssey a megfelelő tulajdonosaik védjegye, és itt csak azonosításra szolgál.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

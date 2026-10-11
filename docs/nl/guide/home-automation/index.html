@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="nl" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Home Assistant &amp; Hubitat voor Denon &amp; Marantz - AVR Maestro</title>
+<meta name="description" content="Koppel AVR Maestro aan Home Assistant of Hubitat en je Scènes worden native scripts die zonder je telefoon draaien. Spraakbesturing, live status en webhooks." />
+<meta name="keywords" content="Denon Home Assistant, Marantz Home Assistant, AV receiver Alexa, receiver Google Assistant, receiver Siri Shortcuts, Hubitat AV receiver, receiver webhooks, Denon voice control" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/nl/guide/home-automation/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-automation/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-automation/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-automation/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-automation/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-automation/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-automation/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-automation/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-automation/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-automation/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-automation/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-automation/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-automation/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-automation/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-automation/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-automation/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-automation/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-automation/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-automation/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-automation/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-automation/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-automation/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-automation/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-automation/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-automation/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-automation/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-automation/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-automation/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-automation/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-automation/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-automation/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-automation/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="nl_NL" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Home Assistant &amp; Hubitat voor Denon &amp; Marantz - AVR Maestro" />
+<meta property="og:description" content="Koppel AVR Maestro aan Home Assistant of Hubitat en je Scènes worden native scripts die zonder je telefoon draaien. Spraakbesturing, live status en webhooks." />
+<meta property="og:url" content="https://avrmaestro.com/nl/guide/home-automation/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Home Assistant &amp; Hubitat voor Denon &amp; Marantz - AVR Maestro" />
+<meta name="twitter:description" content="Koppel AVR Maestro aan Home Assistant of Hubitat en je Scènes worden native scripts die zonder je telefoon draaien. Spraakbesturing, live status en webhooks." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro is een onafhankelijke app voor het bedienen van Denon- en Marantz-AV-receivers via je lokale netwerk.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "nl"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-automation/#article",
+      "headline": "Home Assistant en Hubitat: je scènes, draaiend zonder je telefoon",
+      "description": "Koppel AVR Maestro aan Home Assistant of Hubitat en je Scènes worden native scripts die zonder je telefoon draaien. Spraakbesturing, live status en webhooks.",
+      "image": "https://avrmaestro.com/screenshots/home-assistant.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-automation/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "nl"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-automation/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Moet mijn telefoon aan staan om spraakbesturing te laten werken?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nee. AVR Maestro compileert je scènes tot native Home Assistant-scripts. Home Assistant praat rechtstreeks met de receiver op je lokale netwerk, dus je telefoon mag uit staan, slapen of in een ander land zijn."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welke spraakassistenten kunnen mijn receiver bedienen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Welke je al gebruikt. AVR Maestro voegt geen eigen spraaklaag toe - het publiceert scripts naar Home Assistant of Hubitat, en die worden door de hub die je al vertrouwt beschikbaar gesteld aan Alexa, Google Assistant of Siri Shortcuts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Valt de AI-assistent onder de betaalde ontgrendeling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nee. De AI-assistent op het apparaat is gratis. Domotica - Home Assistant, Hubitat en uitgaande webhooks - is de enige betaalde ontgrendeling in AVR Maestro."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Verlaat er iets mijn thuisnetwerk?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Niet voor de besturing. De app praat met je receiver en met je hub via je eigen netwerk. Er loopt niets via een MiyaraHub-server. Een webhook gaat naar waar jij hem heen wijst, en dat is jouw keuze."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Start",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Handleiding",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Domotica",
+      "item": "https://avrmaestro.com/guide/home-automation/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/nl/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Zoek in de handleiding..." data-i18n-empty="Geen resultaten voor" data-i18n-language="Taal">
+      <a href="/nl/">Start</a>
+      <a href="/nl/guide/">Handleiding</a>
+      <a href="/nl/receivers/">Receivers</a>
+      <a href="/nl/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/nl/best-denon-marantz-app/">Waarom overstappen</a>
+      <a href="/nl/#top" class="cta">Downloaden</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/nl/">Home</a> &rsaquo; <a href="/nl/guide/">Gebruikershandleiding</a> &rsaquo; Domotica</div>
+    <div class="eyebrow">Home Assistant &middot; Hubitat &middot; Webhooks</div>
+    <h1>Home Assistant en Hubitat: je scènes, draaiend <span class="g">zonder je telefoon</span></h1>
+    <p>Koppel AVR Maestro aan Home Assistant of Hubitat en elke scène die je hebt gemaakt wordt een native script op je hub. Vanaf dan praat de hub rechtstreeks met de receiver, op je eigen netwerk - dus “Alexa, filmavond” werkt met je telefoon uit, in slaap, of in een ander land.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+      <figure><img alt="De AVR Maestro Domotica-hub met Home Assistant, Hubitat en Webhooks" src="/screenshots/home-automation.png" width="1324" height="2644" decoding="async" /><figcaption>Eén hub, drie uitwegen</figcaption></figure>
+      <figure><img alt="AVR Maestro gekoppeld aan Home Assistant met automatisch gevonden receiver-entiteit" src="/screenshots/home-assistant.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Gekoppeld, met je receiver-entiteit voor je gevonden</figcaption></figure>
+      <figure><img alt="Domotica vergrendeld, met een hangslot en een knop Bekijk wat is inbegrepen" src="/screenshots/home-automation-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Voor de ontgrendeling staat er wat het omvat</figcaption></figure>
+    </div>
+
+    <div class="section-head" style="margin-top:36px">
+      <h2>Waarom het zonder de app draait</h2>
+    </div>
+    <p class="lead">De meeste integraties maken van je telefoon de tussenpersoon: de telefoon hoort de opdracht, de telefoon verstuurt hem, en de automatisering werkt alleen zolang de telefoon wakker is en op het netwerk zit.</p>
+    <p class="lead">AVR Maestro doet dat niet. Het <b>compileert</b> je scènes tot scripts die op je hub leven, en de hub stuurt de opdrachten naar het lokale IP-adres van je receiver. De taak van de app eindigt zodra de synchronisatie klaar is.</p>
+    <ul class="plain">
+      <li><b>Eerst lokaal:</b> er loopt niets via een MiyaraHub-server. Je hub en je receiver praten met elkaar.</li>
+      <li><b>Onafhankelijk van de telefoon:</b> zodra een scène is gepubliceerd, draait hij ongeacht of de app is geïnstalleerd op de telefoon die hem maakte.</li>
+      <li><b>Jouw assistent, niet de onze:</b> Alexa, Google Assistant en Siri Shortcuts bereiken deze scripts allemaal via de hub die je al vertrouwt. AVR Maestro voegt geen eigen spraaklaag toe.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Home Assistant, van begin tot eind</h2>
+    </div>
+    <ul class="plain">
+      <li><b>1. Voeg eerst je receiver toe aan Home Assistant.</b> Instellingen &rsaquo; Apparaten &amp; services &rsaquo; Integratie toevoegen &rsaquo; <b>Denon AVR</b> (of <b>HEOS</b>), daarna het lokale IP-adres van je receiver. Home Assistant maakt er een mediaspeler-entiteit voor aan.</li>
+      <li><b>2. Open Instellingen &rsaquo; Domotica in AVR Maestro</b> en tik op de Home Assistant-kaart.</li>
+      <li><b>3. Voer je Home Assistant-adres in</b> - een lokaal adres zoals <code>http://192.168.1.150:8123</code>, of je externe Nabu Casa-URL.</li>
+      <li><b>4. Meld je aan en geef toestemming.</b> Een beveiligde browser in de app opent de eigen aanmelding van Home Assistant. Je gegevens gaan naar Home Assistant, nooit naar ons.</li>
+      <li><b>5. Hij vindt je receiver zelf.</b> De app scant je mediaspeler-entiteiten en beoordeelt ze op model, naam en surroundmogelijkheden, en vult dan de juiste entiteit voor je in.</li>
+      <li><b>6. Synchroniseer.</b> Je scènes worden tot scripts gebouwd en geüpload. Daarna werkt het bewerken van een scène het script op de achtergrond bij - je hoeft aan geen knop te denken.</li>
+    </ul>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Zodra het gesynchroniseerd is</div>
+        <h2>Bouw een dashboard dat de moeite waard is</h2>
+        <p>Home Assistant heeft nu een bediening voor alles wat je receiver kan doen, en geen enkele mening over hoe je die schikt. <a href="/nl/guide/home-assistant-dashboard/">Het dashboardvoorbeeld</a> is één opstelling met de volledige YAML: bron- en surroundtegels die oplichten als ze de actieve zijn, volume in echte dB, je Scènes die hun eigen naam lezen en een eerlijke kaart van wat Home Assistant wel en niet kan zien.</p>
+      </div>
+      <img alt="Een Home Assistant-dashboard gebouwd uit de gesynchroniseerde bedieningen van AVR Maestro" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Niet alleen scènes</div>
+        <h2>Ook Speaker Presets, Dirac en Audyssey</h2>
+        <p>Zet <b>Geavanceerde bediening synchroniseren</b> aan en de app publiceert een script voor veel meer dan je scènes: elke Speaker Preset, elk Dirac Live-filterslot, elke Audyssey-curve. Een volledige synchronisatie op een Cinema 30 levert meer dan zeventig scripts op, zodat een dashboardknop of een spraakopdracht een Dirac-filter kan laden of de ruimtecurve kan wisselen op dezelfde manier als een scène wordt opgeroepen.</p>
+      </div>
+      <img alt="Het Home Assistant-scherm van AVR Maestro met Geavanceerde bediening synchroniseren ingeschakeld" src="/screenshots/ha-app-controls.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Het leest ook, niet alleen schrijven</div>
+        <h2>Home Assistant kan zien wat actief is</h2>
+        <p>Een script kun je uitvoeren maar nooit lezen, dus vroege dashboards konden de Audyssey-curve of het Dirac-slot wisselen zonder te kunnen tonen welke aan stond. De metingen die de app al heeft - de live surroundmodus, het actieve Dirac-filter, de speaker preset, de dimmer en tientallen meer - worden nu als attributen op de statussensor van de receiver gepubliceerd, zodat een tegel kan oplichten voor de instelling die echt draait.</p>
+      </div>
+      <img alt="AVR Maestro publiceert scripts voor Speaker Preset, Dirac Live en Audyssey naar Home Assistant" src="/screenshots/ha-sync-advanced.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Elke ruimte</div>
+        <h2>Je andere zones, vanuit hetzelfde dashboard</h2>
+        <p>Aan/uit, volume en demping voor Zone 2 en Zone 3 worden als eigen scripts gepubliceerd, zodat een terras of een tweede kamer op een dashboard of een spraakassistent antwoordt zoals de hoofdzone altijd al deed. Alleen de zones die je receiver echt meldt krijgen knoppen, dus een receiver met twee zones krijgt nooit een Zone 3.</p>
+      </div>
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Als je met een oudere build hebt gesynchroniseerd</div>
+        <h2>Je script-ID's veranderen één keer</h2>
+        <p>Scripts werden vroeger genoemd naar de scène <em>en</em> de receiver, dus als je een van beide hernoemde, bleef het oude script achter en ontstond er stilletjes een tweede. Nu worden ze genoemd naar de scène en het MAC-adres van de receiver, en daardoor werkt een hernoeming hetzelfde script bij in plaats van er een kopie van te maken.</p>
+        <p>De eerste synchronisatie na die wijziging vervangt de oude scripts door de nieuwe. <b>Alles wat je op de oude ID's hebt gebouwd moet één keer opnieuw worden gericht</b> - een dashboardknop, een automatisering, een spraakalias. Open het script in Home Assistant om de nieuwe entiteits-ID te vinden.</p>
+        <p>Entiteiten lezen nu ook van de receiver - <code>cinema30</code> in plaats van tweeëndertig tekens machine-ID - zodat de lijst leesbaar is en automatisch aanvullen ze vindt. ID's uit eerdere versies blijven werken.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Hubitat</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Hubitat wordt ondersteund via de <b>Maker API</b> en is in de app gemarkeerd als BETA omdat het nieuwer is dan de Home Assistant-route, niet omdat het onaf is.</p>
+        <ul class="plain">
+          <li><b>Hub-IP</b> - het adres van je Hubitat op het lokale netwerk.</li>
+          <li><b>Maker API App-ID</b> - het getal in de eigen URL van de Maker API-app.</li>
+          <li><b>Toegangstoken</b> - uitgegeven door Maker API wanneer je het inschakelt.</li>
+        </ul>
+        <p class="lead">Schakel eerst Maker API in op de hub (Apps &rsaquo; Ingebouwde app toevoegen &rsaquo; Maker API) en je krijgt alle drie. Plak ze erin en AVR Maestro vindt je receiver, publiceert je scènes als opdrachtreeksen en stuurt de live status terug, zodat een Hubitat-dashboard weergeeft wat de receiver echt doet in plaats van wat hem het laatst is gezegd.</p>
+      </div>
+      <img alt="Het Hubitat-installatiescherm met hub-IP, Maker API App-ID en toegangstoken" src="/screenshots/hubitat.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Webhooks</h2>
+    </div>
+    <p class="lead">Home Assistant en Hubitat sturen opdrachten <em>naar</em> de receiver. Webhooks gaan de andere kant op: als de receiver iets doet, vertel je het aan al het andere. Zet de receiver aan en AVR Maestro stuurt een klein bericht naar een adres dat jij kiest - dat bericht is de webhook.</p>
+
+    <div class="note"><b>Dit is het enige onderdeel dat niet onafhankelijk van de telefoon is.</b> Je gesynchroniseerde scènes worden scripts op je hub en draaien ongeacht of de app ergens in de buurt is. Webhooks zijn anders: AVR Maestro is degene die de receiver in de gaten houdt, dus een trigger gaat af terwijl de app open staat op een apparaat dat hem kan zien. Wil je dat er iets afgaat terwijl er niets draait, bouw het dan op je hub rond de receiver-entiteit.</div>
+
+    <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px;margin-top:22px">
+      <figure><img alt="Het Webhooks-scherm met zijn uitlegkaart en nog geen triggers" src="/screenshots/webhooks.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Leeg tot je er een toevoegt</figcaption></figure>
+      <figure><img alt="Het blad Automatiseringstrigger toevoegen: triggergebeurtenis, waar het naartoe gestuurd wordt en een webhook-ID" src="/screenshots/webhook-trigger.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Een gebeurtenis, een bestemming, een ID</figcaption></figure>
+    </div>
+
+    <h3 style="margin-top:34px">De vier triggers</h3>
+    <table class="t" style="margin-top:14px">
+      <thead><tr><th>Triggergebeurtenis</th><th>Gaat af wanneer</th><th>Kan worden beperkt tot</th></tr></thead>
+      <tbody>
+        <tr><td>Receiver AAN</td><td>De receiver komt uit stand-by</td><td>-</td></tr>
+        <tr><td>Receiver UIT</td><td>De receiver gaat in stand-by</td><td>-</td></tr>
+        <tr><td>Actieve ingang gewijzigd</td><td>De gekozen bron verandert</td><td>Eén ingang, onder <em>Alleen triggeren voor ingangsbron</em></td></tr>
+        <tr><td>Scène opgeroepen</td><td>Een Scène wordt toegepast</td><td>Eén scène, onder <em>Scène selecteren</em></td></tr>
+      </tbody>
+    </table>
+
+    <p class="lead" style="margin-top:22px">Beperken maakt ze nuttig in plaats van lawaaierig. “Actieve ingang gewijzigd” op elke ingang is een brandslang; dezelfde trigger vastgezet op de ene ingang waar je projector op zit, is een lichtschakelaar.</p>
+    <p class="lead">De ingangslijst is die van je eigen receiver, dus hij weerspiegelt al elke bron die je hebt hernoemd of verborgen. De scènelijst bestaat uit je eigen scènes.</p>
+
+    <div class="section-head" style="margin-top:44px">
+      <h2>Eén instellen, stap voor stap</h2>
+    </div>
+    <p class="lead">Dit is de Home Assistant-route, de route die de meeste mensen willen. Doe eerst de Home Assistant-helft - de app heeft iets nodig om naar te wijzen.</p>
+
+    <h3 style="margin-top:28px">In Home Assistant</h3>
+    <ul class="plain">
+      <li><b>1. Instellingen &rsaquo; Automatiseringen &amp; scènes &rsaquo; Automatisering maken &rsaquo; Nieuwe automatisering maken.</b></li>
+      <li><b>2. Trigger toevoegen &rsaquo; Webhook.</b> Home Assistant genereert een lange willekeurige Webhook-ID voor je.</li>
+      <li><b>3. Vervang hem door iets wat je herkent</b> - <code>avr-power-on</code>, <code>avr-movie-night</code>. Elke naam werkt zolang hij uniek is op je Home Assistant. Schrijf hem op; je typt dezelfde in AVR Maestro.</li>
+      <li><b>4. Sta onder de instellingen van de webhook <em>POST</em> toe.</b> Dat is wat AVR Maestro verstuurt. Alleen lokaal is prima - de app zit op je eigen netwerk.</li>
+      <li><b>5. Voeg toe wat je wilt dat er gebeurt</b> - de lampen dimmen, de jaloezieën sluiten, een scène starten - en sla de automatisering op.</li>
+    </ul>
+
+    <h3 style="margin-top:28px">In AVR Maestro</h3>
+    <ul class="plain">
+      <li><b>1. Instellingen &rsaquo; Domotica &rsaquo; Webhooks</b>, daarna <b>Eerste trigger toevoegen</b> - of de knop <b>+</b> zodra je er een hebt.</li>
+      <li><b>2. Triggergebeurtenis</b> - kies wat hem moet laten afgaan. Kies je <em>Actieve ingang gewijzigd</em> of <em>Scène opgeroepen</em>, dan verschijnt een tweede vak om het te beperken.</li>
+      <li><b>3. Waar het naartoe gestuurd wordt</b> - laat het op <b>Home Assistant</b> staan. Het adres is al bekend, omdat je het eerder op ditzelfde scherm hebt gekoppeld.</li>
+      <li><b>4. Webhook-ID</b> - typ dezelfde ID als in Home Assistant. Verder hoeft niets overeen te komen. Eronder schrijft de app het exacte adres uit waarnaar hij post - <code>Sends to http://your-ha:8123/api/webhook/avr-power-on</code> - zodat je het kunt controleren voordat je opslaat.</li>
+      <li><b>5. Opslaan.</b> Druk daarna op <b>Test</b> bij de trigger in de lijst. Je Home Assistant-automatisering moet direct draaien.</li>
+    </ul>
+
+    <div class="note" style="margin-top:24px"><b>Voor de Home Assistant-route typ je nooit een URL.</b> De app bouwt hem op uit het Home Assistant dat je hebt gekoppeld, en zoekt dat adres <em>elke keer dat een trigger afgaat</em> opnieuw op. Verplaats Home Assistant naar een nieuwe poort, een nieuwe hostnaam of een Nabu Casa-adres, en elke webhook die je al hebt gemaakt volgt mee. Je hoeft niets opnieuw te synchroniseren en op geen knop te drukken.</div>
+
+    <div class="note">Als het blad <b>Home Assistant is nog niet gekoppeld</b> zegt, doe dan eerst de Home Assistant-kaart bovenaan deze pagina. De webhook-route heeft een adres nodig om op voort te bouwen.</div>
+
+    <h3 style="margin-top:34px">Naar iets anders sturen dan Home Assistant</h3>
+    <p class="lead">Zet <b>Waar het naartoe gestuurd wordt</b> op <b>Overig</b> en plak een volledige URL in <b>Webhook-URL</b>. Alles wat een POST accepteert werkt - een Node-RED-flow, een IFTTT-applet, een script op een NAS, een Hubitat Maker API-eindpunt. Die route slaat het adres precies op zoals je het typte, dus als de bestemming verhuist, bewerk je de trigger.</p>
+
+    <div class="section-head" style="margin-top:44px">
+      <h2>Wat er echt wordt verstuurd</h2>
+    </div>
+    <p class="lead">Een kleine JSON-body. De kaart <b>Wat het verzendt</b> op hetzelfde scherm zegt het in gewone taal voor de trigger die je koos, dus je hoeft nooit te raden - en dit zijn de veldnamen die je automatisering leest:</p>
+    <table class="t" style="margin-top:14px">
+      <thead><tr><th>Trigger</th><th>Velden in het bericht</th></tr></thead>
+      <tbody>
+        <tr><td>Receiver AAN / UIT</td><td><code>event</code>, <code>timestamp</code></td></tr>
+        <tr><td>Actieve ingang gewijzigd</td><td>...plus <code>source</code></td></tr>
+        <tr><td>Scène opgeroepen</td><td>...plus <code>sceneId</code> en <code>sceneName</code></td></tr>
+      </tbody>
+    </table>
+    <p class="lead" style="margin-top:20px">In een Home Assistant-automatisering komen die binnen als <code>{{ trigger.json.event }}</code>, <code>{{ trigger.json.source }}</code> enzovoort. Je kunt ze lezen, of ze helemaal negeren en alleen reageren op het feit dat hij is afgegaan. De meeste mensen doen het laatste.</p>
+    <p class="lead">Als je een andere vorm nodig hebt - een service die een eigen formaat verwacht - open dan <b>Verstuur in plaats daarvan mijn eigen JSON</b> onder die kaart en schrijf het daar. Het is ingeklapt en als Geavanceerd gemarkeerd omdat bijna niemand het nodig heeft, niet omdat het wordt afgeraden.</p>
+
+    <div class="note">Het scherm heet <b>Webhooks</b> omdat dat is wat ze zijn. Zoek je de automatiseringen die <em>op</em> je hub draaien, dan zijn dat de Home Assistant- en Hubitat-kaarten hierboven - een gesynchroniseerde Scène wordt daar een script, geen webhook hier.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Als een webhook niet aankomt</h2>
+    </div>
+    <p class="lead">In de volgorde die de moeite waard is om te controleren, want de eerste twee zijn bijna altijd de oorzaak:</p>
+    <ul class="plain">
+      <li><b>Druk eerst op Test.</b> Het verstuurt hetzelfde bericht als de echte trigger, naar hetzelfde adres, en vertelt je welke van drie dingen er gebeurde: afgeleverd, niet afgeleverd, of overgeslagen omdat de eigen schakelaar van de trigger uit staat. Als Test aflevert en de echte gebeurtenis niet, ligt het probleem bij de trigger - meestal een <em>Actieve ingang gewijzigd</em> die is beperkt tot een ingang waar je niet echt naartoe schakelt.</li>
+      <li><b>Controleer of de ID exact overeenkomt.</b> Home Assistant-webhook-ID's zijn hoofdlettergevoelig en verdragen geen verdwaalde spatie. De app drukt het volledige adres waarnaar hij post onder het veld af - vergelijk het met dat in je automatisering.</li>
+      <li><b>Controleer of de automatisering POST toestaat.</b> Een Home Assistant-webhooktrigger die alleen GET toestaat, negeert stilletjes wat AVR Maestro verstuurt.</li>
+      <li><b>Controleer of de schakelaar van de trigger aan staat.</b> Elke trigger heeft in de lijst een eigen schakelaar, en een uitgeschakelde trigger wordt overgeslagen in plaats van te mislukken.</li>
+      <li><b>Triggers horen bij één receiver.</b> De lijst waar je naar kijkt is de lijst van de receiver die nu is geselecteerd. Een andere receiver heeft een eigen lijst, dus een regel die je hier maakt gaat niet af voor een andere kamer.</li>
+      <li><b>De app moet meekijken.</b> AVR Maestro is degene die merkt dat de receiver veranderde, dus er gaat niets af vanaf een telefoon in je zak met de app dicht. Dat is de afweging die bovenaan dit onderdeel is beschreven, geen fout.</li>
+      <li><b>Webhooks horen bij Domotica.</b> Zonder die ontgrendeling zijn de triggers zichtbaar maar wordt er niets verstuurd, en Test zegt dat ook in plaats van te doen alsof het werkte.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Wat betaald is en wat niet</div>
+        <h2>Domotica is de enige ontgrendeling. De AI-assistent is gratis.</h2>
+        <p><b>Domotica (Pro)</b> - Home Assistant, Hubitat en uitgaande webhooks - is een eenmalige ontgrendeling. Al het andere in AVR Maestro, inclusief de AI-assistent op het apparaat, is in de app inbegrepen.</p>
+        <p>Spraakbesturing bereikt je receiver <em>via</em> Domotica, door middel van je hub. AVR Maestro draait geen eigen spraakherkenning.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Veelgestelde vragen</div>
+      <h2>Domotica, beantwoord</h2>
+    </div>
+    <details open><summary>Moet mijn telefoon aan staan om spraakbesturing te laten werken?</summary><div class="body">Nee. AVR Maestro compileert je scènes tot native Home Assistant-scripts. Home Assistant praat rechtstreeks met de receiver op je lokale netwerk, dus je telefoon mag uit staan, slapen of in een ander land zijn.</div></details>
+    <details><summary>Welke spraakassistenten kunnen mijn receiver bedienen?</summary><div class="body">Welke je al gebruikt. AVR Maestro voegt geen eigen spraaklaag toe - het publiceert scripts naar Home Assistant of Hubitat, en die worden door de hub die je al vertrouwt beschikbaar gesteld aan Alexa, Google Assistant of Siri Shortcuts.</div></details>
+    <details><summary>Valt de AI-assistent onder de betaalde ontgrendeling?</summary><div class="body">Nee. De AI-assistent op het apparaat is gratis. Domotica - Home Assistant, Hubitat en uitgaande webhooks - is de enige betaalde ontgrendeling in AVR Maestro.</div></details>
+    <details><summary>Verlaat er iets mijn thuisnetwerk?</summary><div class="body">Niet voor de besturing. De app praat met je receiver en met je hub via je eigen netwerk. Er loopt niets via een MiyaraHub-server. Een webhook gaat naar waar jij hem heen wijst, en dat is jouw keuze.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Meer uit de handleiding</div>
+      <h2>Andere AVR Maestro-handleidingen</h2>
+    </div>
+    <p class="lead"><a href="/nl/guide/getting-started/">Aan de slag</a> &middot; <a href="/nl/guide/home/">Startscherm</a> &middot; <a href="/nl/guide/scenes/">Scènes</a> &middot; <a href="/nl/guide/custom-icons/">Aangepaste pictogrammen</a> &middot; <a href="/nl/guide/sound/">Geluid</a> &middot; <a href="/nl/guide/graphic-eq/">Grafische EQ</a> &middot; <a href="/nl/guide/speakers/">Luidsprekers</a> &middot; <a href="/nl/guide/locked-controls/">Waarom een bediening vergrendeld is</a> &middot; <a href="/nl/guide/assistant/">De assistent</a> &middot; <a href="/nl/guide/home-assistant-dashboard/">Home Assistant-dashboard</a> &middot; <a href="/nl/guide/multi-zone/">Zones</a> &middot; <a href="/nl/guide/remote/">Afstandsbediening</a> &middot; <a href="/nl/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/nl/guide/on-screen-display/">Schermweergave</a> &middot; <a href="/nl/guide/settings/">Instellingen</a> &middot; <a href="/nl/guide/languages/">Talen</a> &middot; <a href="/nl/guide/volume/">Volumebediening</a> &middot; <a href="/nl/guide/backup/">Back-up &amp; herstel</a> &middot; <a href="/nl/guide/now-playing/">Nu aan het spelen &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Je scènes, draaiend zonder je telefoon</h2>
+    <p class="lead" style="margin:0 auto 24px">Domotica is een eenmalige ontgrendeling. Al het andere in de app, inclusief de AI-assistent, is inbegrepen.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Download via Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Download in de App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Download in de Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Download via de Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/nl/guide/">Terug naar de volledige gebruikershandleiding &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/nl/">Start</a>
+      <a href="/nl/guide/">Handleiding</a>
+      <a href="/nl/guide/getting-started/">Aan de slag</a>
+      <a href="/nl/receivers/">Receivers</a>
+      <a href="/nl/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/nl/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/nl/best-denon-marantz-app/">Waarom overstappen</a>
+      <a href="/nl/help/">Hulp</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro is een onafhankelijke app van MiyaraHub Technologies LLC en is niet gelieerd aan, goedgekeurd door of gesponsord door Denon, Marantz, D&amp;M Holdings, Sound United of enig ander bedrijf dat op deze pagina wordt genoemd. Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant en Siri zijn handelsmerken van hun respectieve eigenaren en worden hier alleen ter identificatie gebruikt.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

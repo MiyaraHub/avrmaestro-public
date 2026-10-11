@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="fi" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Asetukset, teemat, widgetit &amp; varmuuskopio - AVR Maestro</title>
+<meta name="description" content="AVR Maestron asetukset: vastaanottimien hallinta, väriteema heksakoodilla sekä vaalea, tumma ja AMOLED, äänenvoimakkuuden askel, widgetit iOS:llä ja Androidilla sekä varmuuskopio tiedostoon." />
+<meta name="keywords" content="AVR Maestro settings, Color Theme, AVR Maestro backup restore, AV receiver app theme, hardware volume keys receiver, AV receiver home screen widget, AVR Maestro AMOLED, MiyaraHub apps, more from MiyaraHub" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/fi/guide/settings/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/settings/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/settings/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/settings/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/settings/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/settings/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/settings/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/settings/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/settings/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/settings/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/settings/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/settings/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/settings/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/settings/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/settings/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/settings/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/settings/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/settings/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/settings/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/settings/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/settings/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/settings/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/settings/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/settings/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/settings/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/settings/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/settings/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/settings/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/settings/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/settings/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/settings/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/settings/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="fi_FI" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Asetukset, teemat, widgetit &amp; varmuuskopio - AVR Maestro" />
+<meta property="og:description" content="AVR Maestron asetukset: vastaanottimien hallinta, väriteema heksakoodilla sekä vaalea, tumma ja AMOLED, äänenvoimakkuuden askel, widgetit iOS:llä ja Androidilla sekä varmuuskopio tiedostoon." />
+<meta property="og:url" content="https://avrmaestro.com/fi/guide/settings/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Asetukset, teemat, widgetit &amp; varmuuskopio - AVR Maestro" />
+<meta name="twitter:description" content="AVR Maestron asetukset: vastaanottimien hallinta, väriteema heksakoodilla sekä vaalea, tumma ja AMOLED, äänenvoimakkuuden askel, widgetit iOS:llä ja Androidilla sekä varmuuskopio tiedostoon." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro on itsenäinen sovellus Denon- ja Marantz-AV-vastaanottimien ohjaamiseen paikallisverkossa.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "fi"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/settings/#article",
+      "headline": "Asetukset: tee siitä omasi",
+      "description": "AVR Maestron asetukset: vastaanottimien hallinta, väriteema heksakoodilla sekä vaalea, tumma ja AMOLED, äänenvoimakkuuden askel, widgetit iOS:llä ja Androidilla sekä varmuuskopio tiedostoon.",
+      "image": "https://avrmaestro.com/screenshots/settings-tjmode.png",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/settings/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "fi"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/settings/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Voinko vaihtaa sovelluksen teemaa ja värejä?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kyllä - Vaalea, Tumma, Laite tai AMOLED (aito musta), sekä Väriteema, jossa valitset minkä tahansa korostusvärin ja sovellus rakentaa paletin uudelleen. Käytä väriympyrää tai kirjoita heksakoodi (#FF8C00 tai kolmimerkkinen lyhenne). Jos koodi on väärä, sovellus kertoo mikä siinä on vialla sen sijaan, että vain kieltäytyisi. Voit myös säätää näytön/widgetin kokoa ja mukauttaa navigointia ja välilehtiä."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Voinko varmuuskopioida asetukseni?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kyllä - Asetukset, Varmuuskopio vie kaikki vastaanottimet, esiasetukset ja asetukset .zip-tiedostoon, johon on niputettu myös mukautetut tulokuvakkeesi; tuo se palauttaaksesi uudella puhelimella. Vanhat .json-varmuuskopiot tuodaan edelleen moitteetta. Tiedostossa ei ole tunnistetietoja, joten sen voi jakaa turvallisesti."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hyppäävätkö äänenvoimakkuuden esiasetukset suoraan tavoitteeseen vai nousevatko ne sinne tasaisesti?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sinä päätät - Asetukset, Ääni -kohdassa on Asteittainen / Suora -kytkin. Asteittainen (oletus) nousee tasaisesti kohti esiasetuksen tavoitetta, joten napautus ei voi koskaan iskeä kaiuttimiin äkillisellä hypyllä. Suora ottaa sen käyttöön heti. Toimii päävyöhykkeellä ja vyöhykkeillä 2/3."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Voinko lukita vastaanottimen fyysisen kaukosäätimen sovelluksesta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kyllä, vastaanottimilla jotka tukevat sitä - Asetukset, Vastaanotin -kohdassa on Kaukosäätimen lukitus -kytkin, jolla lukitset tai avaat vastaanottimen oman IR-kaukosäätimen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ovatko aloitusnäytön widgetit vain Androidille?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ei - Pikaohjaus (virta / äänenvoimakkuus / mykistys / lähde), Nyt soi- ja Tila-widgetit toimivat sekä iOS:llä että Androidilla. Kun vastaanotin on pois päältä tai tavoittamattomissa, ne näyttävät selkeän ”AVR off” / ”Valmiustila” -tilan vanhentuneen tiedon sijaan, ja Pikaohjauksen virtapainike pysyy aktiivisena, joten voit herättää vastaanottimen widgetistä."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ohjaavatko puhelimen äänenvoimakkuuspainikkeet vastaanotinta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Androidilla kyllä - kun sovellus on etualalla, äänenvoimakkuuspainikkeesi ohjaavat vastaanottimen äänenvoimakkuutta. iOS ei salli tätä."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Miten avaan piilotetun virheenkorjausvalikon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Avaa Asetukset, Tietoja ja napauta versionumeroa seitsemän kertaa. Virheenkorjausvalikko pysyy sitten käytettävissä käynnistysten yli - reaaliaikainen virheenkorjausloki sekä raakakomentotyökalut ja diagnostiikka tukea varten - kunnes napautat ”Poista virheenkorjausvalikko” piilottaaksesi sen uudelleen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mikä on ”Lisää MiyaraHubilta”?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Asetusten osio, jossa on Selaa kaikkia sovelluksiamme -painike. Napauta sitä, niin sovelluskauppasi avaa MiyaraHubin kehittäjäsivun - Google Play, App Store tai Microsoft Store laitteestasi riippuen - ja voit selata kaikkia tekemiämme sovelluksia."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Etusivu",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Käyttöopas",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Asetukset",
+      "item": "https://avrmaestro.com/guide/settings/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/fi/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Valikko" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Hae oppaasta..." data-i18n-empty="Ei osumia haulle" data-i18n-language="Kieli">
+      <a href="/fi/">Etusivu</a>
+      <a href="/fi/guide/">Käyttöopas</a>
+      <a href="/fi/receivers/">Vastaanottimet</a>
+      <a href="/fi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/fi/best-denon-marantz-app/">Miksi vaihtaa</a>
+      <a href="/fi/#top" class="cta">Lataa</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero split">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="/fi/">Etusivu</a> &rsaquo; <a href="/fi/guide/">Käyttöopas</a> &rsaquo; Asetukset</div>
+      <div class="eyebrow">Asetukset</div>
+      <h1>Asetukset: tee siitä <span class="g">omasi</span></h1>
+      <p>Kaikki, mikä sovittaa AVR Maestron sinulle ja laitteistollesi - hallitse vastaanottimia, teemoita koko sovellus Väriteemalla, säädä äänenvoimakkuuden askelta, hae virheenkorjausloki tukea varten ja varmuuskopioi koko kokoonpanosi tiedostoon.</p>
+    </div>
+    <div class="hero-shot"><img alt="Väriteeman korostusväri AVR Maestrossa" src="/screenshots/settings-tjmode.png" width="1324" height="2644" fetchpriority="high" /></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Jokainen osio</div>
+      <h2>Mitä Asetuksissa on</h2>
+    </div>
+    <table class="t">
+      <thead><tr><th>Osio</th><th>Mitä siinä on</th></tr></thead>
+      <tbody>
+        <tr><td>Laitteet</td><td>Vaihda vastaanotinta, täydet laitteen tiedot, vastaanottimien hallinta (nimeä uudelleen/poista), vastaanottimen lisäys.</td></tr>
+        <tr><td>Vastaanotin</td><td><b>Kaukosäätimen lukitus</b> - lukitse tai avaa vastaanottimen oma fyysinen IR-kaukosäädin sovelluksesta. Näkyy vain vastaanottimilla, jotka tukevat sitä.</td></tr>
+        <tr><td>Ulkoasu</td><td>Teema (Vaalea / Tumma / Laite / AMOLED aito musta) ja <b>Väriteema</b> - valitse mikä tahansa korostusväri väriympyrästä tai kirjoittamalla heksakoodi, kuten <code>#FF8C00</code>, ja sovellus rakentaa paletin sen ympärille. Koodi, jota ei voi lukea, hylätään syyn kera, ja mustaa liian lähellä oleva väri hylätään erikseen, koska AMOLED-teemassa sillä ei olisi mitään, mitä vasten näkyä. Lisäksi Näyttökoko, Widgetin koko, Mukauta navigointia ja Mukauta välilehtiä.</td></tr>
+        <tr><td>Kieli</td><td><b>Järjestelmän oletus</b> seuraa laitetta; sen alla jokainen 29 kielestä omalla nimellään. <a href="/fi/guide/languages/">Kieliopas &rarr;</a></td></tr>
+        <tr><td>Ääni</td><td>Äänenvoimakkuuden askel (0.5-2.0 dB), jota jokainen napautus, pitkä pito ja äänenvoimakkuuspainike käyttää; näytetäänkö ylhäällä absoluuttinen äänenvoimakkuus vai dB; <b>Laitteen äänenvoimakkuuspainikkeet</b> (oletuksena käytössä, Android ja iOS); sekä <b>Asteittaiset</b> ja <b>Suorat</b> äänenvoimakkuuden esiasetukset - Asteittainen (oletus) nousee tasaisesti esiasetuksen tavoitteeseen sen sijaan että hyppäisi suoraan sinne, päävyöhykkeellä ja vyöhykkeillä 2/3.</td></tr>
+        <tr><td>Ohje</td><td>Selityskorttien kytkin, hylättyjen korttien palautus ja reaaliaikainen virheenkorjausloki, jossa Tallenna &amp; jaa -toiminto yhdellä napautuksella tukea varten.</td></tr>
+        <tr><td>Kehittäjätyökalut</td><td>Piilossa, kunnes napautat versionumeroa (kohdassa Tietoja) seitsemän kertaa - sen jälkeen se pysyy käytettävissä käynnistysten yli, kunnes poistat sen. Raa'at Telnet- / HEOS-komennot, AJAX-vedos ja äänenvoimakkuusrajan linjadiagnostiikka.</td></tr>
+        <tr><td>Varmuuskopio</td><td>Vie kaikki vastaanottimet, esiasetukset ja asetukset <b>.zip-tiedostoon, johon on niputettu myös mukautetut tulokuvakkeesi</b>, ja tuo se palauttaaksesi uudella puhelimella - toimii sekä iOS:llä että Androidilla. Vanhat .json-varmuuskopiot tuodaan edelleen moitteetta. Tiedostossa ei ole tunnistetietoja, vain vastaanottimien IP-osoitteet ja omat esiasetusten nimesi, joten sen voi jakaa turvallisesti.</td></tr>
+        <tr><td>Sovellus</td><td>Arvioi sovellus, Tietoja, <b>Tervetuloa &amp; asennusopas</b>, Sovelluksen käyttöopas (tämä opas), verkkosivusto, tietosuoja, ehdot, lisenssit.</td></tr>
+        <tr><td>Tervetuloa &amp; asennusopas</td><td>Toistaa ensimmäisellä käynnistyskerralla näkemäsi viisivaiheisen tervetulon: vastaanottimien lisääminen, missä kaikki sijaitsee, tilanteiden rakentaminen ja mistä saa apua. Vastaanottimesi ja tilanteesi jäävät täsmälleen ennalleen. <a href="/fi/guide/getting-started/">Aloitusopas &rarr;</a></td></tr>
+        <tr><td>Tuki ja yhteisö</td><td><b>Tietoja</b>-kohdassa: Discord-yhteisö, Facebook-käyttäjäryhmä ja <b>Kaikki asiaankuuluvat lokit</b>, joka pakkaa kaikki sovelluksen ja vastaanottimen lokit yhteen zip-tiedostoon, valmiina lähetettäväksi meille, kun jokin toimii väärin.</td></tr>
+        <tr><td>Lisää MiyaraHubilta</td><td><b>Selaa kaikkia sovelluksiamme</b> avaa MiyaraHubin kehittäjäsivun kaupassasi - Google Play, App Store tai Microsoft Store laitteestasi riippuen - ja näet kaikki tekemämme sovellukset yhdessä paikassa.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Sovelluksen ulkopuolella</div>
+      <h2>Aloitusnäytön widgetit ja laitteen äänenvoimakkuuspainikkeet</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Aloitusnäytön widgetit (iOS ja Android):</b> Pikaohjaus (virta / äänenvoimakkuus / mykistys / lähde), Nyt soi ja Tila - useina kokoina, vain napautettavia ja automaattisesti päivittyviä. Kun vastaanotin on pois päältä tai tavoittamattomissa, widgetit näyttävät selkeän <b>”AVR off” / ”Valmiustila”</b> -tilan vanhentuneen tulon ja äänenvoimakkuuden sijaan - ja virtapainike pysyy aktiivisena, joten voit herättää vastaanottimen suoraan widgetistä.</li>
+      <li><b>Laitteen äänenvoimakkuuspainikkeet (Android ja iOS):</b> kun AVR Maestro on etualalla, laitteen fyysiset äänenvoimakkuuspainikkeet ohjaavat <b>vastaanottimen</b> äänenvoimakkuutta (käyttäen Äänenvoimakkuuden askeltasi), ja pitkä pito nostaa tasaisesti. Vain etualalla; painikkeet palaavat ohjaamaan laitetta heti, kun sovellus jää toisen taakse, ja Asetukset, Ääni -kohdan kytkin poistaa ohjauksen käytöstä.</li>
+    </ul>
+    <div class="note">Widgetit, teemoitus, varmuuskopiointi &amp; palautus sekä äänenvoimakkuuspainikkeiden ohjaus toimivat <b>sekä iOS:llä että Androidilla</b>.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Usein kysyttyä</div>
+      <h2>Asetusten UKK</h2>
+    </div>
+    <details open><summary>Voinko vaihtaa sovelluksen teemaa ja värejä?</summary><div class="body">Kyllä - Vaalea, Tumma, Laite tai AMOLED (aito musta), sekä Väriteema, jossa valitset minkä tahansa korostusvärin ja sovellus rakentaa paletin uudelleen. Käytä väriympyrää tai kirjoita heksakoodi (<code>#FF8C00</code> tai kolmimerkkinen lyhenne). Jos koodi on väärä, sovellus kertoo mikä siinä on vialla sen sijaan, että vain kieltäytyisi. Voit myös säätää näytön/widgetin kokoa ja mukauttaa navigointia ja välilehtiä.</div></details>
+    <details><summary>Voinko varmuuskopioida asetukseni?</summary><div class="body">Kyllä - Asetukset, Varmuuskopio vie kaikki vastaanottimet, esiasetukset ja asetukset .zip-tiedostoon, johon on niputettu myös mukautetut tulokuvakkeesi; tuo se palauttaaksesi uudella puhelimella. Vanhat .json-varmuuskopiot tuodaan edelleen moitteetta. Tiedostossa ei ole tunnistetietoja, joten sen voi jakaa turvallisesti.</div></details>
+    <details><summary>Hyppäävätkö äänenvoimakkuuden esiasetukset suoraan tavoitteeseen vai nousevatko ne sinne tasaisesti?</summary><div class="body">Sinä päätät - Asetukset, Ääni -kohdassa on Asteittainen / Suora -kytkin. Asteittainen (oletus) nousee tasaisesti kohti esiasetuksen tavoitetta, joten napautus ei voi koskaan iskeä kaiuttimiin äkillisellä hypyllä. Suora ottaa sen käyttöön heti. Toimii päävyöhykkeellä ja vyöhykkeillä 2/3.</div></details>
+    <details><summary>Voinko lukita vastaanottimen fyysisen kaukosäätimen sovelluksesta?</summary><div class="body">Kyllä, vastaanottimilla jotka tukevat sitä - Asetukset, Vastaanotin -kohdassa on Kaukosäätimen lukitus -kytkin, jolla lukitset tai avaat vastaanottimen oman IR-kaukosäätimen.</div></details>
+    <details><summary>Ovatko aloitusnäytön widgetit vain Androidille?</summary><div class="body">Ei - Pikaohjaus (virta / äänenvoimakkuus / mykistys / lähde), Nyt soi- ja Tila-widgetit toimivat <b>sekä iOS:llä että Androidilla</b>. Kun vastaanotin on pois päältä tai tavoittamattomissa, ne näyttävät selkeän ”AVR off” / ”Valmiustila” -tilan vanhentuneen tiedon sijaan, ja Pikaohjauksen virtapainike pysyy aktiivisena, joten voit herättää vastaanottimen widgetistä.</div></details>
+    <details><summary>Ohjaavatko puhelimen äänenvoimakkuuspainikkeet vastaanotinta?</summary><div class="body">Androidilla kyllä - kun sovellus on etualalla, äänenvoimakkuuspainikkeesi ohjaavat vastaanottimen äänenvoimakkuutta. iOS ei salli tätä.</div></details>
+    <details><summary>Miten avaan piilotetun virheenkorjausvalikon?</summary><div class="body">Avaa Asetukset, Tietoja ja napauta versionumeroa seitsemän kertaa. Virheenkorjausvalikko pysyy sitten käytettävissä käynnistysten yli - reaaliaikainen virheenkorjausloki sekä raakakomentotyökalut ja diagnostiikka tukea varten - kunnes napautat ”Poista virheenkorjausvalikko” piilottaaksesi sen uudelleen.</div></details>
+    <details><summary>Mikä on ”Lisää MiyaraHubilta”?</summary><div class="body">Asetusten osio, jossa on <b>Selaa kaikkia sovelluksiamme</b> -painike. Napauta sitä, niin sovelluskauppasi avaa MiyaraHubin kehittäjäsivun - Google Play, App Store tai Microsoft Store laitteestasi riippuen - ja voit selata kaikkia tekemiämme sovelluksia.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Lisää oppaasta</div>
+      <h2>Muut AVR Maestro -oppaat</h2>
+    </div>
+    <p class="lead"><a href="/fi/guide/getting-started/">Aloitus</a> &middot; <a href="/fi/guide/home/">Kotinäyttö</a> &middot; <a href="/fi/guide/scenes/">Kohtaukset</a> &middot; <a href="/fi/guide/custom-icons/">Omat kuvakkeet</a> &middot; <a href="/fi/guide/sound/">Ääni</a> &middot; <a href="/fi/guide/graphic-eq/">Graafinen taajuuskorjain</a> &middot; <a href="/fi/guide/speakers/">Kaiuttimet</a> &middot; <a href="/fi/guide/locked-controls/">Miksi säädin on lukittu</a> &middot; <a href="/fi/guide/assistant/">Avustaja</a> &middot; <a href="/fi/guide/home-automation/">Kodin automaatio</a> &middot; <a href="/fi/guide/home-assistant-dashboard/">Home Assistant -kojelauta</a> &middot; <a href="/fi/guide/multi-zone/">Vyöhykkeet</a> &middot; <a href="/fi/guide/remote/">Kaukosäädin</a> &middot; <a href="/fi/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/fi/guide/on-screen-display/">Kuvaruutunäyttö</a> &middot; <a href="/fi/guide/languages/">Kielet</a> &middot; <a href="/fi/guide/volume/">Äänenvoimakkuuden hallinta</a> &middot; <a href="/fi/guide/backup/">Varmuuskopiointi &amp; palautus</a> &middot; <a href="/fi/guide/now-playing/">Nyt soi &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Säädä se täsmälleen haluamallasi tavalla</h2>
+    <p class="lead" style="margin:0 auto 24px">Kertaostos, ei mainoksia, ei tilauksia. Yhdistä alle minuutissa.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Lataa Google Playsta" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Lataa App Storesta" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Lataa Mac App Storesta" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Hanki Microsoft Storesta" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/fi/guide/">Takaisin koko käyttöoppaaseen &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/fi/">Etusivu</a>
+      <a href="/fi/guide/">Käyttöopas</a>
+      <a href="/fi/guide/getting-started/">Aloitus</a>
+      <a href="/fi/receivers/">Vastaanottimet</a>
+      <a href="/fi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/fi/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/fi/best-denon-marantz-app/">Miksi vaihtaa</a>
+      <a href="/fi/help/">Ohje</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro on MiyaraHub Technologies LLC:n itsenäinen sovellus, eikä Denon, Marantz, D&amp;M Holdings, Sound United tai mikään muu tällä sivulla mainittu yritys ole sen kumppani, hyväksyjä tai sponsori. Denon, Marantz, HEOS, Audyssey, Dirac Live, App Store, Google Play ja Microsoft Store ovat omistajiensa tavaramerkkejä, joita käytetään tässä vain tunnistamiseen.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

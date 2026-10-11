@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Главный экран &amp; виджеты «Сейчас играет» - AVR Maestro</title>
+<meta name="description" content="Главный экран AVR Maestro: закреплённая карточка состояния и виджеты, которые можно добавлять, удалять и переставлять, - громкость, источник, режим звука, зоны, Audyssey/Dirac и HEOS." />
+<meta name="keywords" content="AVR Maestro home screen, customizable receiver app home, AV receiver widgets, now playing HEOS app, receiver volume widget, Denon Marantz home screen" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/ru/guide/home/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Главный экран &amp; виджеты «Сейчас играет» - AVR Maestro" />
+<meta property="og:description" content="Главный экран AVR Maestro: закреплённая карточка состояния и виджеты, которые можно добавлять, удалять и переставлять, - громкость, источник, режим звука, зоны, Audyssey/Dirac и HEOS." />
+<meta property="og:url" content="https://avrmaestro.com/ru/guide/home/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Главный экран &amp; виджеты «Сейчас играет» - AVR Maestro" />
+<meta name="twitter:description" content="Главный экран AVR Maestro: закреплённая карточка состояния и виджеты, которые можно добавлять, удалять и переставлять, - громкость, источник, режим звука, зоны, Audyssey/Dirac и HEOS." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro - независимое приложение для управления AV-ресиверами Denon и Marantz по локальной сети.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "ru"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home/#article",
+      "headline": "Главный экран: ваша точка входа, настроенная под вас",
+      "description": "Главный экран AVR Maestro: закреплённая карточка состояния и виджеты, которые можно добавлять, удалять и переставлять, - громкость, источник, режим звука, зоны, Audyssey/Dirac и HEOS.",
+      "image": "https://avrmaestro.com/screenshots/dashboard.png",
+      "datePublished": "2026-07-03",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "ru"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли настроить главный экран?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да - нажмите «Настроить главный экран», затем перетаскивайте карточки для изменения порядка, нажимайте красный кружок для удаления, «Добавить» для новых виджетов, «Сбросить» для возврата к настройкам по умолчанию и «Готово» для завершения. Во время редактирования карточки затемняются, чтобы вы не изменили настройку случайно."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли переименовать зоны, включая основную?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да - нажмите и удерживайте название зоны на главном экране. Название записывается в сам ресивер, поэтому оно отображается в приложении производителя и во всех остальных клиентах, и это работает даже на старых моделях."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Показывает ли он, что сейчас играет?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, для источников, которые передают метаданные: обложка альбома, трек/исполнитель/станция и управление воспроизведением. Нажмите «Запустить HEOS» для просмотра; как только воспроизведение начнётся, AVR Maestro снова возьмёт на себя экран «Сейчас играет»."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Руководство пользователя",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Главный экран",
+      "item": "https://avrmaestro.com/guide/home/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/ru/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Меню" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Поиск по руководству..." data-i18n-empty="Нет совпадений для" data-i18n-language="Язык">
+      <a href="/ru/">Главная</a>
+      <a href="/ru/guide/">Руководство пользователя</a>
+      <a href="/ru/receivers/">Ресиверы</a>
+      <a href="/ru/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ru/best-denon-marantz-app/">Зачем переходить</a>
+      <a href="/ru/#top" class="cta">Скачать</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero split">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="/ru/">Главная</a> &rsaquo; <a href="/ru/guide/">Руководство пользователя</a> &rsaquo; Главный экран</div>
+      <div class="eyebrow">Главный экран</div>
+      <h1>Главный экран: ваша <span class="g">точка входа</span>, настроенная под вас</h1>
+      <p>Карточка состояния устройства всегда закреплена вверху - модель, подключение, питание - а под ней находится настраиваемая сетка виджетов. Добавляйте, удаляйте и переставляйте карточки, чтобы главный экран показывал именно то, что вам важно.</p>
+    </div>
+    <div class="hero-shot"><img alt="Главный экран AVR Maestro" src="/screenshots/dashboard.png" width="1324" height="2644" fetchpriority="high" /></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="feat rev">
+      <div class="shots"><img alt="Настройка главного экрана" src="/screenshots/dashboard-customize.png" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <div class="eyebrow">Сделайте всё по-своему</div>
+        <h2>Настройка за секунды</h2>
+        <p class="lead">Нажмите значок <b>«Настроить главный экран»</b> (вверху слева), чтобы войти в режим редактирования:</p>
+        <ul>
+          <li><b>Перетащите</b> карточку, чтобы изменить её место.</li>
+          <li>Нажмите красный кружок, чтобы <b>удалить</b> карточку.</li>
+          <li>Кнопка <b>Добавить</b> открывает список виджетов, которых у вас ещё нет.</li>
+          <li><b>Сбросить</b> восстанавливает настройки по умолчанию, <b>Готово</b> завершает редактирование.</li>
+        </ul>
+        <div class="note">Во время редактирования карточки затемняются, чтобы вы не изменили настройку ресивера случайно. Виджеты отображаются, только если ваш ресивер поддерживает соответствующую функцию.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Назовите свои комнаты</div>
+      <h2>«Гостиная», а не «MAIN ZONE»</h2>
+      <p class="lead"><b>Нажмите и удерживайте название зоны</b> на главном экране, чтобы переименовать любую зону, <b>включая основную</b>. Название записывается в <b>сам ресивер</b>, а не только в приложение, поэтому оно отображается в фирменном приложении производителя и во всех остальных клиентах, и это работает даже на старых моделях. Переименуйте один раз, и все пульты в доме будут одинаково называть комнату.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Виджеты</div>
+      <h2>Всё, что можно закрепить</h2>
+    </div>
+    <table class="t">
+      <thead><tr><th>Виджет</th><th>Что делает</th></tr></thead>
+      <tbody>
+        <tr><td>Громкость</td><td>Ползунок с индикацией в дБ, отключение звука и 8 сохранённых пресетов громкости.</td></tr>
+        <tr><td>Источник</td><td>Открывает выбор входа; нажмите и удерживайте плитки, чтобы изменить порядок. Переименованные источники и пользовательские значки входов, заданные в сетке входов на пульте, отображаются здесь тоже.</td></tr>
+        <tr><td>Режим звука</td><td>Текущий режим объёмного звука; нажмите, чтобы открыть список с группировкой.</td></tr>
+        <tr><td>Сейчас играет</td><td>Обложка альбома, сведения о треке и управление воспроизведением для источников HEOS.</td></tr>
+        <tr><td>Зоны</td><td>Компактное состояние и быстрое управление Zone 2 / Zone 3, включая ячейки Smart Select или Quick Select самой зоны: нажмите на ячейку, чтобы вызвать её, нажмите и удерживайте, чтобы сохранить в неё текущее состояние зоны.</td></tr>
+        <tr><td>Smart Select / Quick Select</td><td>Собственные ячейки памяти вашего ресивера под теми названиями, которые использует сам ресивер: Smart Select на Marantz, Quick Select на Denon. Переименованные ячейки сохраняются на ресивере, поэтому ваши названия видны во всех приложениях.</td></tr>
+        <tr><td>Пресет колонок</td><td>Переключатель Preset 1 / 2 - отображается только на ресиверах, у которых больше одного пресета.</td></tr>
+        <tr><td>Audyssey / Dirac</td><td>Состояние калибровки с одного взгляда и быстрый переход к ней.</td></tr>
+        <tr><td>Уровни каналов и сабвуфера</td><td>Снимки уровней по каналам и сабвуфера с кнопками шага - количество сабвуферов определяется текущей конфигурацией вашего ресивера.</td></tr>
+        <tr><td>ECO, Sleep, DRC, Restorer, Video, Room Size, LFE</td><td>Переключатели и списки в одно касание, каждый отображается только при поддержке.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Элементы управления звуком</div>
+      <h2>Быстрые переключатели в разделе «Звук»</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Графический эквалайзер:</b> включайте или выключайте графический эквалайзер ресивера в разделе «Звук», «Функции звука». Доступно, только если ни Dirac Live, ни Audyssey не выполняют коррекцию помещения - приложение следует собственному правилу ресивера.</li>
+      <li><b>Сабвуфер:</b> отключайте звук сабвуфера или включайте его в разделе «Звук», «Функции звука», не заходя в настройку колонок. Отображается только на ресиверах, которые сообщают об этом и принимают такую команду.</li>
+      <li><b>Восстановитель звука:</b> восстановитель сжатого звука ресивера - <b>Restorer</b> на Denon, <b>M-DAX</b> на Marantz - в виде переключателя в разделе «Звук», «Тембр», рядом с фильтром ЦАП. Верните жизнь MP3 и потоковым источникам без похода в экранное меню.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Сейчас играет &amp; HEOS</div>
+      <h2>Смотрите и управляйте тем, что играет</h2>
+      <p class="lead">Если активный источник передаёт метаданные, карточка «Сейчас играет» показывает обложку альбома, сведения о треке / исполнителе / станции и управление воспроизведением (воспроизведение / пауза / далее / назад).</p>
+    </div>
+    <p style="color:var(--mut);max-width:70ch">Чтобы просматривать музыку - станции, очереди, стриминговые сервисы, комнаты HEOS - нажмите <b>Запустить HEOS</b> на карточке «Сейчас играет». AVR Maestro открывает официальное приложение HEOS для просмотра; как только воспроизведение там начнётся, AVR Maestro снова берёт на себя экран «Сейчас играет», управление воспроизведением и виджеты. Аналоговые, оптические/коаксиальные и сквозные источники HDMI не передают метаданные, поэтому для них карточка остаётся пустой.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Частые вопросы</div>
+      <h2>Главный экран: частые вопросы</h2>
+    </div>
+    <details open><summary>Можно ли настроить главный экран?</summary><div class="body">Да - нажмите «Настроить главный экран», затем перетаскивайте карточки для изменения порядка, нажимайте красный кружок для удаления, «Добавить» для новых виджетов, «Сбросить» для возврата к настройкам по умолчанию и «Готово» для завершения. Во время редактирования карточки затемняются, чтобы вы не изменили настройку случайно.</div></details>
+    <details><summary>Можно ли переименовать зоны, включая основную?</summary><div class="body">Да - нажмите и удерживайте название зоны на главном экране. Название записывается в сам ресивер, поэтому оно отображается в приложении производителя и во всех остальных клиентах, и это работает даже на старых моделях.</div></details>
+    <details><summary>Показывает ли он, что сейчас играет?</summary><div class="body">Да, для источников, которые передают метаданные: обложка альбома, трек/исполнитель/станция и управление воспроизведением. Нажмите «Запустить HEOS» для просмотра; как только воспроизведение начнётся, AVR Maestro снова возьмёт на себя экран «Сейчас играет».</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Другие разделы руководства</div>
+      <h2>Другие руководства по AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/ru/guide/getting-started/">Начало работы</a> &middot; <a href="/ru/guide/scenes/">Сцены</a> &middot; <a href="/ru/guide/custom-icons/">Пользовательские значки</a> &middot; <a href="/ru/guide/sound/">Звук</a> &middot; <a href="/ru/guide/graphic-eq/">Графический эквалайзер</a> &middot; <a href="/ru/guide/speakers/">Колонки</a> &middot; <a href="/ru/guide/locked-controls/">Почему элемент заблокирован</a> &middot; <a href="/ru/guide/assistant/">Помощник</a> &middot; <a href="/ru/guide/home-automation/">Автоматизация дома</a> &middot; <a href="/ru/guide/home-assistant-dashboard/">Панель Home Assistant</a> &middot; <a href="/ru/guide/multi-zone/">Зоны</a> &middot; <a href="/ru/guide/remote/">Пульт</a> &middot; <a href="/ru/guide/radio/">Радио (FM/AM)</a> &middot; <a href="/ru/guide/on-screen-display/">Экранное меню</a> &middot; <a href="/ru/guide/settings/">Настройки</a> &middot; <a href="/ru/guide/languages/">Языки</a> &middot; <a href="/ru/guide/volume/">Управление громкостью</a> &middot; <a href="/ru/guide/backup/">Резервное копирование &amp; восстановление</a> &middot; <a href="/ru/guide/now-playing/">Сейчас играет &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Соберите главный экран по своему вкусу</h2>
+    <p class="lead" style="margin:0 auto 24px">Разовая покупка, без рекламы и подписок. Подключение занимает меньше минуты.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Доступно в Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Загрузите в App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Загрузите в Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Доступно в Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/ru/guide/">Назад к полному руководству пользователя &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/ru/">Главная</a>
+      <a href="/ru/guide/">Руководство пользователя</a>
+      <a href="/ru/guide/getting-started/">Начало работы</a>
+      <a href="/ru/receivers/">Ресиверы</a>
+      <a href="/ru/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ru/audyssey-vs-dirac/">Audyssey и Dirac</a>
+      <a href="/ru/best-denon-marantz-app/">Зачем переходить</a>
+      <a href="/ru/help/">Справка</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro - независимое приложение MiyaraHub Technologies LLC, которое не связано с Denon, Marantz, D&amp;M Holdings, Sound United и любыми другими компаниями, упомянутыми на этой странице, и не одобрено и не спонсируется ими. Denon, Marantz, HEOS, Audyssey и Dirac Live - товарные знаки их владельцев, используемые здесь только для идентификации.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

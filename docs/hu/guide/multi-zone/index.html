@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="hu" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vezéreld a Zóna 2 &amp; Zóna 3 zónát a telefonodról - AVR Maestro</title>
+<meta name="description" content="Önálló Zóna 2 és Zóna 3 vezérlés Denon és Marantz készülékeken: bekapcsolás, bemenet, hangerő, némítás, Zone Smart Select / Quick Select, zónák átnevezése és zónánkénti Most szól." />
+<meta name="keywords" content="multi-zone receiver control app, Zone 2 control app, Zone 3 control app, Denon multi-zone app, Marantz multi-zone, whole house audio receiver app, second zone control, zone quick select, zone smart select, rename zones Denon Marantz" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/hu/guide/multi-zone/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/multi-zone/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/multi-zone/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/multi-zone/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/multi-zone/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/multi-zone/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/multi-zone/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/multi-zone/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/multi-zone/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/multi-zone/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/multi-zone/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/multi-zone/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/multi-zone/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/multi-zone/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/multi-zone/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/multi-zone/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/multi-zone/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/multi-zone/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/multi-zone/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/multi-zone/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/multi-zone/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/multi-zone/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/multi-zone/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/multi-zone/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/multi-zone/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/multi-zone/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/multi-zone/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/multi-zone/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/multi-zone/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/multi-zone/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/multi-zone/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/multi-zone/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="hu_HU" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Vezéreld a Zóna 2 &amp; Zóna 3 zónát a telefonodról - AVR Maestro" />
+<meta property="og:description" content="Önálló Zóna 2 és Zóna 3 vezérlés Denon és Marantz készülékeken: bekapcsolás, bemenet, hangerő, némítás, Zone Smart Select / Quick Select, zónák átnevezése és zónánkénti Most szól." />
+<meta property="og:url" content="https://avrmaestro.com/hu/guide/multi-zone/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Vezéreld a Zóna 2 &amp; Zóna 3 zónát a telefonodról - AVR Maestro" />
+<meta name="twitter:description" content="Önálló Zóna 2 és Zóna 3 vezérlés Denon és Marantz készülékeken: bekapcsolás, bemenet, hangerő, némítás, Zone Smart Select / Quick Select, zónák átnevezése és zónánkénti Most szól." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "Az AVR Maestro egy független alkalmazás Denon és Marantz AV-erősítők vezérlésére a helyi hálózaton keresztül.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "hu"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/multi-zone/#article",
+      "headline": "Többzónás: az egész ház a tiéd",
+      "description": "Önálló Zóna 2 és Zóna 3 vezérlés Denon és Marantz készülékeken: bekapcsolás, bemenet, hangerő, némítás, Zone Smart Select / Quick Select, zónák átnevezése és zónánkénti Most szól.",
+      "image": "https://avrmaestro.com/screenshots/zones.png",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/multi-zone/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "hu"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/multi-zone/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Vezérelhetem a Zóna 2 és Zóna 3 zónát a telefonomról?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Igen - a többzónás készülékeken minden zónának saját bekapcsolása, hangereje, némítása, bemenete és gyorshangerő-előbeállítása van, a fő zónától teljesen függetlenül, és élőben szinkronizálódik."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Használhatok Smart Select vagy Quick Select funkciót egy zónában?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Igen - minden zónakártyán ott vannak a zóna saját helyei, úgy elnevezve, ahogy a készüléked nevezi őket: Smart Select a Marantzon, Quick Select a Denonon. Koppints egy helyre a behíváshoz; nyomd hosszan, hogy a zóna aktuális állapotát elmentsd bele, közvetlenül a kártyáról."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Átnevezhetem a zónáimat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Igen - nyomd hosszan a zóna nevét a Kezdőlapon bármelyik zóna átnevezéséhez, a fő zónáét is. A név magába a készülékbe íródik, így megjelenik a gyártó alkalmazásában és minden más kliensben is, a régebbi készülékházakon is."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Minden zóna megmutatja, mi szól éppen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Igen - ha egy zóna be van kapcsolva, a kártyája az adott zóna élő HEOS Most szól adatfolyamát mutatja lejátszásvezérlőkkel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Beállíthatja egy Jelenet a zónáimat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Igen - egy Jelenet rögzítheti és visszaállíthatja a Zóna 2/3 bekapcsolását, bemenetét és hangerejét a beállításaid többi részével együtt."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Kezdőlap",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Felhasználói útmutató",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Többzónás",
+      "item": "https://avrmaestro.com/guide/multi-zone/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/hu/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menü" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Keresés az útmutatóban..." data-i18n-empty="Nincs találat erre:" data-i18n-language="Nyelv">
+      <a href="/hu/">Kezdőlap</a>
+      <a href="/hu/guide/">Felhasználói útmutató</a>
+      <a href="/hu/receivers/">Készülékek</a>
+      <a href="/hu/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hu/best-denon-marantz-app/">Miért érdemes váltani</a>
+      <a href="/hu/#top" class="cta">Letöltés</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero split">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="/hu/">Főoldal</a> &rsaquo; <a href="/hu/guide/">Felhasználói útmutató</a> &rsaquo; Többzónás használat</div>
+      <div class="eyebrow">Többzónás</div>
+      <h1>Többzónás: <span class="g">az egész ház a tiéd</span></h1>
+      <p>Önálló bekapcsolás, bemenet és hangerő a Zóna 2 és Zóna 3 zónához többzónás Denon és Marantz készülékeken - és a Jelenetek a zónák állapotát is rögzíthetik és visszaállíthatják. Zene a konyhában, film a házimozi-szobában, mindez egyetlen alkalmazásból.</p>
+    </div>
+    <div class="hero-shot"><img alt="Többzónás vezérlés: AVR Maestro" src="/screenshots/zones.png" width="1324" height="2644" fetchpriority="high" /></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Hogyan működnek a zónák</div>
+      <h2>Minden zóna teljesen önálló</h2>
+      <p class="lead">Minden zónának saját bekapcsolása, hangereje, némítása, bemenete és gyorshangerő-előbeállítása van, a fő zónától teljesen függetlenül.</p>
+    </div>
+    <div class="grid">
+      <div class="gcard"><div class="ic">&#128268;</div><h3>Önálló bekapcsolás</h3><p>Kapcsold be és ki a Zóna 2 vagy Zóna 3 zónát a fő zóna érintése nélkül.</p></div>
+      <div class="gcard"><div class="ic">&#127925;</div><h3>Saját forrás &amp; hangerő</h3><p>Zónánként eltérő bemenet és hangerő, gyorshangerő-előbeállítás chipekkel - az előbeállítások alapból finoman emelkednek (Beállítások, Hang: Fokozatos / Direct).</p></div>
+      <div class="gcard"><div class="ic">&#9889;</div><h3>Zone Smart Select / Quick Select</h3><p>A zóna saját Smart Select vagy Quick Select helyei közvetlenül a kártyán - koppints egy helyre a behíváshoz, nyomd hosszan, hogy a zóna aktuális állapotát elmentsd bele.</p></div>
+      <div class="gcard"><div class="ic">&#9997;&#65039;</div><h3>Bármelyik zóna átnevezése</h3><p>Nyomd hosszan a zóna nevét a Kezdőlapon - a fő zónáét is. A név magába a készülékbe mentődik, így minden alkalmazás egyetért benne.</p></div>
+      <div class="gcard"><div class="ic">&#128260;</div><h3>Élő szinkron</h3><p>Módosíts egy zónát a készülék paneljéről vagy távirányítójáról, és az alkalmazás egy másodpercen belül frissül.</p></div>
+      <div class="gcard"><div class="ic">&#127911;</div><h3>Zónánkénti Most szól</h3><p>Ha egy zóna be van kapcsolva, a kártyája az adott zóna élő HEOS adatfolyamát mutatja lejátszásvezérléssel.</p></div>
+      <div class="gcard"><div class="ic">&#127917;</div><h3>A Jelenetek rögzítik</h3><p>Egy <a href="/hu/guide/scenes/">Jelenet</a> rögzítheti és visszaállíthatja a Zóna 2/3 állapotát minden mással együtt.</p></div>
+      <div class="gcard"><div class="ic">&#128241;</div><h3>A Kezdőlapon</h3><p>Egy kompakt Zónák modul egy pillantással mutatja az állapotot, és gyors vezérlőket ad a Kezdőlapon.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Egy zóna bekapcsolása és a forrás kijelölése</h2>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(1,1fr);max-width:320px;margin:0 0 26px">
+      <figure><img alt="A Zónák fül, amely a Teraszt zónaként 2, a ZONE3-at zónaként 3 sorolja fel, mindkettő saját bekapcsolóval" src="/screenshots/zones.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Egy kártya minden zónához, amelyet a készülék jelent</figcaption></figure>
+    </div>
+    <ul class="plain">
+      <li><b>1. Nyisd meg a Zónák fület.</b> A készüléked által jelentett minden zóna kap egy kártyát. Az egyzónás készülék nem kapja meg a fület.</li>
+      <li><b>2. Kapcsold be a zónát</b> a kártyáján lévő bekapcsolóval. A fő zónán semmi sem változik.</li>
+      <li><b>3. Válaszd ki a forrását.</b> A lista a készüléked saját listája, az általad átnevezett nevekkel, és egy zóna teljesen más bemeneten állhat, mint a fő helyiség.</li>
+      <li><b>4. Állítsd be a hangerejét.</b> A zónának saját szintje és saját némítása van, a gyorshangerő-chipek pedig az adott zónán beállított szinteket hívják elő. Az előbeállítások finoman emelkednek, hacsak nem váltasz Direct módra a Beállítások, Hang alatt.</li>
+      <li><b>5. Opcionális: mentsd el.</b> Nyomd hosszan a zóna egyik saját Smart Select vagy Quick Select helyét, hogy eltárold mindent, amit a zóna éppen csinál, majd később koppints rá a visszahívásához.</li>
+    </ul>
+    <p class="lead" style="margin-top:20px">Egy zónát úgy nevezhetsz át, hogy hosszan nyomod a nevét a Kezdőlapon. A név a készülékbe íródik, így az előlap és minden más alkalmazás egyetért az alkalmazással.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Érdemes tudni</div>
+      <h2>Miért nem öli meg a fő zóna kikapcsolása a többi szobádat</h2>
+    </div>
+    <p class="lead">A Denon és Marantz készülékeknek két különböző bekapcsolási parancsa van, és a különbség számít, ha a ház másik pontján éppen zene szól.</p>
+    <p class="lead">A rendszerszintű készenléti parancs az egész készüléket kikapcsolja, és a készülék a többi zónát is magával viszi - egy Cinema 30-on mérve a készülék a Zóna 2 kikapcsolását egy ezredmásodperccel a készenléti parancs megérkezése után jelzi. Ezért az AVR Maestro fő bekapcsolója szándékosan a <b>fő zóna</b> parancsát küldi helyette. Kapcsold ki a házimozit az alkalmazásból, és a konyhában tovább szól a zene.</p>
+    <p class="lead">Ez fordítva is működik: a fő zóna bekapcsolása hideg készülékről először felébreszti a készüléket, így nem kell külön bekapcsolnod a készüléket az alkalmazás használata előtt.</p>
+    <div class="note">Ha egy zóna mégis kikapcsol, amikor a fő zóna változik, azt a készülék saját beállítása okozza, nem az alkalmazás. Egyes modelleken a zónamenüben van egy bekapcsolási zárolás opció.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Gyakori kérdések</div>
+      <h2>Többzónás GYIK</h2>
+    </div>
+    <details open><summary>Vezérelhetem a Zóna 2 és Zóna 3 zónát a telefonomról?</summary><div class="body">Igen - a többzónás készülékeken minden zónának saját bekapcsolása, hangereje, némítása, bemenete és gyorshangerő-előbeállítása van, a fő zónától teljesen függetlenül, és élőben szinkronizálódik.</div></details>
+    <details><summary>Használhatok Smart Select vagy Quick Select funkciót egy zónában?</summary><div class="body">Igen - minden zónakártyán ott vannak a zóna saját helyei, úgy elnevezve, ahogy a készüléked nevezi őket: Smart Select a Marantzon, Quick Select a Denonon. Koppints egy helyre a behíváshoz; nyomd hosszan, hogy a zóna aktuális állapotát elmentsd bele, közvetlenül a kártyáról.</div></details>
+    <details><summary>Átnevezhetem a zónáimat?</summary><div class="body">Igen - nyomd hosszan a zóna nevét a Kezdőlapon bármelyik zóna átnevezéséhez, a fő zónáét is. A név magába a készülékbe íródik, így megjelenik a gyártó alkalmazásában és minden más kliensben is, a régebbi készülékházakon is.</div></details>
+    <details><summary>Minden zóna megmutatja, mi szól éppen?</summary><div class="body">Igen - ha egy zóna be van kapcsolva, a kártyája az adott zóna élő HEOS Most szól adatfolyamát mutatja lejátszásvezérlőkkel.</div></details>
+    <details><summary>Beállíthatja egy Jelenet a zónáimat?</summary><div class="body">Igen - egy <a href="/hu/guide/scenes/">Jelenet</a> rögzítheti és visszaállíthatja a Zóna 2/3 bekapcsolását, bemenetét és hangerejét a beállításaid többi részével együtt.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Az útmutató további részei</div>
+      <h2>További AVR Maestro útmutatók</h2>
+    </div>
+    <p class="lead"><a href="/hu/guide/getting-started/">Első lépések</a> &middot; <a href="/hu/guide/home/">Kezdőképernyő</a> &middot; <a href="/hu/guide/scenes/">Jelenetek</a> &middot; <a href="/hu/guide/custom-icons/">Egyéni ikonok</a> &middot; <a href="/hu/guide/sound/">Hang</a> &middot; <a href="/hu/guide/graphic-eq/">Grafikus EQ</a> &middot; <a href="/hu/guide/speakers/">Hangszórók</a> &middot; <a href="/hu/guide/locked-controls/">Miért zárolt egy vezérlő</a> &middot; <a href="/hu/guide/assistant/">Az asszisztens</a> &middot; <a href="/hu/guide/home-automation/">Otthonautomatizálás</a> &middot; <a href="/hu/guide/home-assistant-dashboard/">Home Assistant irányítópult</a> &middot; <a href="/hu/guide/remote/">Távirányító</a> &middot; <a href="/hu/guide/radio/">Rádió (FM/AM)</a> &middot; <a href="/hu/guide/on-screen-display/">Képernyőkijelző</a> &middot; <a href="/hu/guide/settings/">Beállítások</a> &middot; <a href="/hu/guide/languages/">Nyelvek</a> &middot; <a href="/hu/guide/volume/">Hangerő-szabályzók</a> &middot; <a href="/hu/guide/backup/">Mentés &amp; visszaállítás</a> &middot; <a href="/hu/guide/now-playing/">Most szól &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Vedd át az irányítást minden szoba felett</h2>
+    <p class="lead" style="margin:0 auto 24px">Egyszeri vásárlás, hirdetések és előfizetés nélkül. Csatlakozás egy percen belül.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Töltse le a Google Playről" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Letöltés az App Store-ból" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Letöltés a Mac App Store-ból" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Töltse le a Microsoft Store-ból" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/hu/guide/">Vissza a teljes Felhasználói útmutatóhoz &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/hu/">Kezdőlap</a>
+      <a href="/hu/guide/">Felhasználói útmutató</a>
+      <a href="/hu/guide/getting-started/">Első lépések</a>
+      <a href="/hu/receivers/">Készülékek</a>
+      <a href="/hu/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hu/audyssey-vs-dirac/">Audyssey és Dirac</a>
+      <a href="/hu/best-denon-marantz-app/">Miért érdemes váltani</a>
+      <a href="/hu/help/">Súgó</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">Az AVR Maestro a MiyaraHub Technologies LLC független alkalmazása, amely nem áll kapcsolatban a Denon, a Marantz, a D&amp;M Holdings, a Sound United vagy az oldalon említett más vállalatokkal, és tőlük nem kapott támogatást vagy jóváhagyást. A Denon, a Marantz, a HEOS, az Audyssey és a Dirac Live tulajdonosaik védjegyei, itt kizárólag azonosítási célból szerepelnek.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

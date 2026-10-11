@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fi" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kuvaruutunäyttö: äänenvoimakkuuden näyttö &amp; 21:9 - AVR Maestro</title>
+<meta name="description" content="Ohjaa Denon- tai Marantz-vastaanottimesi kuvaruutunäyttöä puhelimelta: äänenvoimakkuuden näytön sijainti tai poiskytkentä, tietopalkki, 21:9-sijoitus ja näytönsäästäjä." />
+<meta name="keywords" content="Denon on screen display app, Marantz OSD settings, AVR volume readout off, receiver info banner, 21:9 constant height AVR, Denon screen saver, AVR OSD phone" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/fi/guide/on-screen-display/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/on-screen-display/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/on-screen-display/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/on-screen-display/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/on-screen-display/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/on-screen-display/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/on-screen-display/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/on-screen-display/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/on-screen-display/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/on-screen-display/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/on-screen-display/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/on-screen-display/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/on-screen-display/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/on-screen-display/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/on-screen-display/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/on-screen-display/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/on-screen-display/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/on-screen-display/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/on-screen-display/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/on-screen-display/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/on-screen-display/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/on-screen-display/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/on-screen-display/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/on-screen-display/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/on-screen-display/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/on-screen-display/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/on-screen-display/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="fi_FI" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Kuvaruutunäyttö: äänenvoimakkuuden näyttö &amp; 21:9 - AVR Maestro" />
+<meta property="og:description" content="Ohjaa Denon- tai Marantz-vastaanottimesi kuvaruutunäyttöä puhelimelta: äänenvoimakkuuden näytön sijainti tai poiskytkentä, tietopalkki, 21:9-sijoitus ja näytönsäästäjä." />
+<meta property="og:url" content="https://avrmaestro.com/fi/guide/on-screen-display/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Kuvaruutunäyttö: äänenvoimakkuuden näyttö &amp; 21:9 - AVR Maestro" />
+<meta name="twitter:description" content="Ohjaa Denon- tai Marantz-vastaanottimesi kuvaruutunäyttöä puhelimelta: äänenvoimakkuuden näytön sijainti tai poiskytkentä, tietopalkki, 21:9-sijoitus ja näytönsäästäjä." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro on itsenäinen sovellus Denon- ja Marantz-AV-vastaanottimien ohjaamiseen paikallisverkossa.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "fi"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/on-screen-display/#article",
+      "headline": "Kuvaruutunäyttö, suoraan paikaltasi",
+      "description": "Ohjaa Denon- tai Marantz-vastaanottimesi kuvaruutunäyttöä puhelimelta: äänenvoimakkuuden näytön sijainti tai poiskytkentä, tietopalkki, 21:9-sijoitus ja näytönsäästäjä.",
+      "image": "https://avrmaestro.com/screenshots/on-screen-display.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/on-screen-display/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "fi"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/on-screen-display/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Voinko estää äänenvoimakkuuden numeron näkymisen televisiossa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kyllä. Avaa AVR Maestrossa Asetukset ja sitten Kuvaruutunäyttö ja aseta Äänenvoimakkuus-kohdaksi Pois. Voit myös siirtää sen ruudun alareunaan tai yläreunaan nousematta sohvalta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mihin 21:9-tilaa tarvitaan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Se sijoittaa vastaanottimen kuvaruutuvalikot uudelleen 21:9-kuvasuhteen vakiokorkeusnäytölle, jotta projektori ei leikkaa niitä ylä- ja alareunasta. Ota se käyttöön vain, jos sinulla on tällainen kokoonpano."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Miksi näen vähemmän vaihtoehtoja kuin kuvakaappauksissa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Koska vastaanottimesi ilmoittaa niitä vähemmän. AVR Maestro kysyy laitteelta, mitä kuvaruutuvaihtoehtoja siinä on, ja näyttää vain ne. Vanhempi vastaanotin ilman näytönsäästäjää ei yksinkertaisesti saa sitä korttia, eikä sille näytetä säädintä, joka ei toimisi."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Etusivu",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Käyttöopas",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Kuvaruutunäyttö",
+      "item": "https://avrmaestro.com/guide/on-screen-display/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/fi/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Valikko" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Hae oppaasta..." data-i18n-empty="Ei osumia haulle" data-i18n-language="Kieli">
+      <a href="/fi/">Etusivu</a>
+      <a href="/fi/guide/">Käyttöopas</a>
+      <a href="/fi/receivers/">Vastaanottimet</a>
+      <a href="/fi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/fi/best-denon-marantz-app/">Miksi vaihtaa</a>
+      <a href="/fi/#top" class="cta">Lataa</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/fi/">Etusivu</a> &rsaquo; <a href="/fi/guide/">Käyttöopas</a> &rsaquo; Kuvaruutunäyttö</div>
+    <div class="eyebrow">Mitä vastaanottimesi piirtää televisioon</div>
+    <h1>Kuvaruutunäyttö, <span class="g">suoraan paikaltasi</span></h1>
+    <p>Elokuvan keskellä välähtävä äänenvoimakkuuden numero, lähteen vaihtuessa näkyvä palkki, musiikin päälle jäävä Nyt soi -näkymä - kaikki löytyy vastaanottimen asetusvalikosta, eli sinun pitää nousta ylös ja tuoda valikko siihen kuvaan, jota katsoit. AVR Maestro tuo sen sen sijaan puhelimeesi.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+      <figure><img alt="Kuvaruutunäytön asetukset AVR Maestrossa" src="/screenshots/on-screen-display.png" width="1324" height="2644" decoding="async" /><figcaption>Kaikki vastaanottimen ilmoittamat vaihtoehdot, eikä muita</figcaption></figure>
+    </div>
+
+    <div class="section-head" style="margin-top:36px">
+      <h2>Mitä voit muuttaa</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Äänenvoimakkuus:</b> <b>Alhaalla</b>, <b>Ylhäällä</b> tai <b>Pois</b>. Missä äänenvoimakkuuden ilmaisin näkyy, kun muutat sitä, vai näkyykö se lainkaan. Pois on se, jota ihmiset etsivät kesken elokuvan.</li>
+      <li><b>Tiedot:</b> tilapalkki, jonka vastaanotin piirtää, kun lähde tai äänitila vaihtuu.</li>
+      <li><b>Nyt soi:</b> pysyykö Nyt soi -näkymä esillä verkkolähteen toistuessa vai poistuuko se hetken kuluttua itsestään.</li>
+      <li><b>21:9-tila:</b> sijoittaa vastaanottimen omat valikot uudelleen 21:9-kuvasuhteen vakiokorkeusnäytölle, jotta projektori ei leikkaa niitä.</li>
+      <li><b>Näytönsäästäjä:</b> siirtää kuvaruudun kuvaa, kun ruutu on pysynyt paikallaan jonkin aikaa, ja suojaa näin palamisherkkää paneelia.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Vain se, mitä vastaanottimessasi on</div>
+        <h2>Laitteesi päättää, mitkä näistä näet</h2>
+        <p>Kaikissa vastaanottimissa ei ole kaikkia viittä. Sen sijaan että näyttäisi säätimen, joka ei toimisi, AVR Maestro kysyy laitteelta, mitkä kuvaruutuvaihtoehdot se tarjoaa, ja näyttää vain ne - vanhempi vastaanotin ilman näytönsäästäjää ei siis yksinkertaisesti saa sitä korttia.</p>
+        <p>Jos asetus on olemassa, mutta vastaanotin ei vastannut tällä kertaa, sovellus kertoo sen suoraan ja tarjoutuu yrittämään uudelleen. Se ei koskaan esitä tilannetta ”tätä ei voitu lukea” tilanteena ”vastaanottimessasi ei ole tätä” - ne ovat eri vastauksia, ja vain toinen niistä on tosi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Usein kysyttyä</div>
+      <h2>Kuvaruutunäyttö, vastauksia</h2>
+    </div>
+    <details open><summary>Voinko estää äänenvoimakkuuden numeron näkymisen televisiossa?</summary><div class="body">Kyllä. Avaa AVR Maestrossa Asetukset ja sitten Kuvaruutunäyttö ja aseta Äänenvoimakkuus-kohdaksi Pois. Voit myös siirtää sen ruudun alareunaan tai yläreunaan nousematta sohvalta.</div></details>
+    <details><summary>Mihin 21:9-tilaa tarvitaan?</summary><div class="body">Se sijoittaa vastaanottimen kuvaruutuvalikot uudelleen 21:9-kuvasuhteen vakiokorkeusnäytölle, jotta projektori ei leikkaa niitä ylä- ja alareunasta. Ota se käyttöön vain, jos sinulla on tällainen kokoonpano.</div></details>
+    <details><summary>Miksi näen vähemmän vaihtoehtoja kuin kuvakaappauksissa?</summary><div class="body">Koska vastaanottimesi ilmoittaa niitä vähemmän. AVR Maestro kysyy laitteelta, mitä kuvaruutuvaihtoehtoja siinä on, ja näyttää vain ne. Vanhempi vastaanotin ilman näytönsäästäjää ei yksinkertaisesti saa sitä korttia, eikä sille näytetä säädintä, joka ei toimisi.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Lisää oppaasta</div>
+      <h2>Muut AVR Maestro -oppaat</h2>
+    </div>
+    <p class="lead"><a href="/fi/guide/getting-started/">Aloitus</a> &middot; <a href="/fi/guide/home/">Kotinäyttö</a> &middot; <a href="/fi/guide/scenes/">Kohtaukset</a> &middot; <a href="/fi/guide/custom-icons/">Omat kuvakkeet</a> &middot; <a href="/fi/guide/sound/">Ääni</a> &middot; <a href="/fi/guide/graphic-eq/">Graafinen taajuuskorjain</a> &middot; <a href="/fi/guide/speakers/">Kaiuttimet</a> &middot; <a href="/fi/guide/locked-controls/">Miksi säädin on lukittu</a> &middot; <a href="/fi/guide/assistant/">Avustaja</a> &middot; <a href="/fi/guide/home-automation/">Kodin automaatio</a> &middot; <a href="/fi/guide/home-assistant-dashboard/">Home Assistant -kojelauta</a> &middot; <a href="/fi/guide/multi-zone/">Vyöhykkeet</a> &middot; <a href="/fi/guide/remote/">Kaukosäädin</a> &middot; <a href="/fi/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/fi/guide/settings/">Asetukset</a> &middot; <a href="/fi/guide/languages/">Kielet</a> &middot; <a href="/fi/guide/volume/">Äänenvoimakkuuden hallinta</a> &middot; <a href="/fi/guide/backup/">Varmuuskopiointi &amp; palautus</a> &middot; <a href="/fi/guide/now-playing/">Nyt soi &amp; HEOS</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/fi/">Etusivu</a>
+      <a href="/fi/guide/">Käyttöopas</a>
+      <a href="/fi/guide/getting-started/">Aloitus</a>
+      <a href="/fi/receivers/">Vastaanottimet</a>
+      <a href="/fi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/fi/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/fi/best-denon-marantz-app/">Miksi vaihtaa</a>
+      <a href="/fi/help/">Ohje</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro on MiyaraHub Technologies LLC:n itsenäinen sovellus, eikä Denon, Marantz, D&amp;M Holdings, Sound United tai mikään muu tällä sivulla mainittu yritys ole sen kanssa sidoksissa, tue sitä tai sponsoroi sitä. Denon, Marantz ja Audyssey ovat omistajiensa tavaramerkkejä, joita käytetään tässä vain tunnistamiseen.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ro" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Configurarea difuzoarelor: niveluri, crossovere &amp; presetări - AVR Maestro</title>
+<meta name="description" content="Un atelier de configurare a difuzoarelor pentru Denon sau Marantz, direct de pe telefon: configurație, distanțe, niveluri pe canal, crossovere, subwoofer și presetări de difuzoare, citite în timp real." />
+<meta name="keywords" content="Denon speaker setup app, Marantz speaker setup, AV receiver speaker levels app, crossover setting app, speaker preset app, channel level trim app, amp assign Denon Marantz, subwoofer setting app" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/ro/guide/speakers/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/speakers/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/speakers/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/speakers/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/speakers/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/speakers/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/speakers/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/speakers/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/speakers/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/speakers/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/speakers/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/speakers/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/speakers/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/speakers/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/speakers/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/speakers/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/speakers/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/speakers/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/speakers/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/speakers/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/speakers/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/speakers/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/speakers/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/speakers/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/speakers/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/speakers/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/speakers/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/speakers/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/speakers/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/speakers/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/speakers/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/speakers/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="ro_RO" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Configurarea difuzoarelor: niveluri, crossovere &amp; presetări - AVR Maestro" />
+<meta property="og:description" content="Un atelier de configurare a difuzoarelor pentru Denon sau Marantz, direct de pe telefon: configurație, distanțe, niveluri pe canal, crossovere, subwoofer și presetări de difuzoare, citite în timp real." />
+<meta property="og:url" content="https://avrmaestro.com/ro/guide/speakers/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Configurarea difuzoarelor: niveluri, crossovere &amp; presetări - AVR Maestro" />
+<meta name="twitter:description" content="Un atelier de configurare a difuzoarelor pentru Denon sau Marantz, direct de pe telefon: configurație, distanțe, niveluri pe canal, crossovere, subwoofer și presetări de difuzoare, citite în timp real." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro este o aplicație independentă pentru controlul receiverelor AV Denon și Marantz prin rețeaua dumneavoastră locală.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "ro"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/speakers/#article",
+      "headline": "Un atelier dedicat Difuzoarelor",
+      "description": "Un atelier de configurare a difuzoarelor pentru Denon sau Marantz, direct de pe telefon: configurație, distanțe, niveluri pe canal, crossovere, subwoofer și presetări de difuzoare, citite în timp real.",
+      "image": "https://avrmaestro.com/screenshots/speakers-layout.png",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/speakers/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "ro"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/speakers/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Pot seta distanțele și nivelurile din aplicație?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Da - alocarea amplificatoarelor și configurația, distanțele pe difuzor, nivelurile canalelor, crossoverele și setările subwooferului, toate citite în timp real și urmând Speaker Preset-ul activ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "De ce sunt blocate unele ecrane de difuzoare?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Când un filtru Dirac Live este activ pe presetare, Dirac deține configurația, distanțele și crossoverele. Aplicația afișează o blocare în loc să te lase să trimiți modificări pe care receiverul le-ar respinge. Treci pe o presetare fără Dirac ca să le editezi. Mai multe în ghidul Audyssey & Dirac."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ce sunt Speaker Presets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Presetarea 1 și 2 își stochează fiecare propria configurație, distanțe, niveluri, crossovere și calibrare. Comuți între ele în aplicație; fiecare ecran Difuzoare urmează presetarea activă. Pe receivere cu o singură presetare (precum AVR-X4500H), selectorul rămâne ascuns."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pot trimite canalul LFE către difuzoarele frontale fără subwoofer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Da, pe receiverele care permit asta. Când difuzoarele principale sunt setate pe Full Range în Crossovere și receiverul nu rutează LFE către un subwoofer, opțiunea LFE Distribution din ecranul Bass trimite canalul LFE (.1) către acele difuzoare, cu un nivel pe difuzor. AVR Maestro o oferă doar când receiverul o permite cu adevărat - dacă difuzoarele nu sunt Full Range sau un subwoofer este configurat să preia LFE, receiverul blochează setarea, iar aplicația arată exact de ce. Nu poate ruta niciodată basul către un difuzor pe care receiverul îl interzice. Controlul LPF for LFE din același ecran setează frecvența de tăiere trece-jos pentru canalul LFE."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Acasă",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Ghid de utilizare",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Difuzoare",
+      "item": "https://avrmaestro.com/guide/speakers/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/ro/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Meniu" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Căutați în ghid..." data-i18n-empty="Niciun rezultat pentru" data-i18n-language="Limbă">
+      <a href="/ro/">Acasă</a>
+      <a href="/ro/guide/">Ghid de utilizare</a>
+      <a href="/ro/receivers/">Receivere</a>
+      <a href="/ro/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ro/best-denon-marantz-app/">De ce să treceți la el</a>
+      <a href="/ro/#top" class="cta">Descarcă</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/ro/">Acasă</a> &rsaquo; <a href="/ro/guide/">Ghid de utilizare</a> &rsaquo; Difuzoare</div>
+    <div class="eyebrow">Configurarea difuzoarelor &amp; presetări</div>
+    <h1>Un atelier dedicat <span class="g">Difuzoarelor</span></h1>
+    <p>Configurație, distanțe, niveluri, crossovere, subwoofer, gestionarea basului și presetări de difuzoare - suita completă de configurare, citită în timp real de pe receiverul tău Denon sau Marantz, fiecare ecran urmând Speaker Preset-ul activ.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+      <figure><img alt="Configurația difuzoarelor și Amp Assign" src="/screenshots/speakers-layout.png" width="1324" height="2644" decoding="async" /><figcaption>Configurație &amp; Amp Assign</figcaption></figure>
+      <figure><img alt="Distanțele difuzoarelor" src="/screenshots/speakers-distances.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Distanțe</figcaption></figure>
+      <figure><img alt="Nivelurile canalelor" src="/screenshots/speakers-levels.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Niveluri</figcaption></figure>
+      <figure><img alt="Speaker Presets" src="/screenshots/speakers-preset.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Speaker Presets</figcaption></figure>
+      <figure><img alt="Frecvențe de crossover pe difuzor" src="/screenshots/speakers-crossovers.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Crossovere</figcaption></figure>
+      <figure><img alt="LPF for LFE și LFE Distribution" src="/screenshots/speakers-bass.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Gestionarea basului</figcaption></figure>
+      <figure><img alt="Subwoofer Output blocat de Dirac Live" src="/screenshots/speakers-subwoofer-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Ieșire subwoofer</figcaption></figure>
+    </div>
+    <div class="section-head" style="margin-top:36px">
+      <h2>Fiecare ecran de configurare, pe telefon</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Speaker Layout:</b> alocarea amplificatoarelor și configurarea Spkr / Pre-out pentru fiecare difuzor.</li>
+      <li><b>Distanțe:</b> distanța fiecărui difuzor față de locul tău, în unitățile receiverului (m sau ft).</li>
+      <li><b>Niveluri:</b> nivelul de ajustare pentru fiecare difuzor.</li>
+      <li><b>Crossovere:</b> frecvența sub care basul este rutat către subwoofer (apar doar difuzoarele „small”; cele „large” rulează full-range).</li>
+      <li><b>Subwoofer:</b> setările ieșirii subwooferului.</li>
+      <li><b>Bass:</b> LPF for LFE (frecvența de tăiere trece-jos pentru canalul LFE) și LFE Distribution (rutează canalul LFE .1 către difuzoarele full-range - oferit doar când receiverul o permite).</li>
+      <li><b>Preset:</b> comută între Speaker Preset 1 / 2 - fiecare își stochează propria configurație, distanțe, niveluri, crossovere și calibrare. Pe receivere cu o singură presetare (de exemplu AVR-X4500H), selectorul rămâne ascuns, în loc să ofere o comutare care nu duce nicăieri.</li>
+      <li><b>Front Speaker:</b> ce terminale frontale alimentează receiverul - A, B sau A+B - pe modelele care o oferă. Unde receiverul a estompat setarea, aplicația spune că este blocată, în loc să se prefacă că modificarea va avea efect.</li>
+    </ul>
+
+    <div class="section-head" style="margin-top:36px">
+      <h2>Vezi ce se redă de fapt, canal cu canal</h2>
+    </div>
+    <div class="gallery">
+      <figure><img alt="Grila de difuzoare AVR Maestro, cu canalele de intrare și de ieșire aprinse în timp ce se redă o piesă" src="/screenshots/speaker-grid-live.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Intrare și ieșire, una lângă alta, în timp real</figcaption></figure>
+    </div>
+    <p class="lead">Atinge configurația difuzoarelor și se deschide ca o grilă: în stânga, ce transportă semnalul primit, în dreapta, ce alimentează de fapt receiverul tău. O piesă stereo arată două canale de intrare lângă unsprezece ieșiri, și vezi upmix-ul la lucru.</p>
+    <ul class="plain">
+      <li><b>Receiverul își numește singur difuzoarele.</b> Fiecare etichetă vine de pe fir, așa că un model cu difuzoare pe care aplicația nu le-a mai văzut le desenează tot în locurile potrivite.</li>
+      <li><b>Trei stări, nu două:</b> în redare, conectat dar mut și absent. Un difuzor despre care receiverul spune că nu e în acest semnal nu este desenat deloc.</li>
+      <li><b>Adaugă-l unde vrei:</b> grila este disponibilă ca card pe ecranul Acasă și în fila Telecomandă.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Isteață cu Dirac</div>
+        <h2>Nu te lasă să trimiți modificări pe care receiverul le-ar respinge</h2>
+        <p class="lead">Ecranele de mai sus sunt complet editabile pe un Speaker Preset standard. Dar când un <b>filtru Dirac Live este activ</b> pe o presetare, Dirac deține configurația, distanțele și crossoverele - așa că, în loc să te lase să faci modificări pe care receiverul le-ar ignora în tăcere, AVR Maestro afișează o blocare clară și îți spune exact de ce. Treci pe o presetare fără Dirac ca să le editezi.</p>
+      </div>
+      <img alt="Un ecran de difuzoare blocat de Dirac" src="/screenshots/speakers-layout-locked.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+    <div class="note">Firmware mai vechi? Pe unele receivere dinainte de 2025 (clasa X4500H / X6700H / S960H / X4700H), receiverul nu poate servi aplicației prin rețea ecranele Speaker Layout sau Subwoofer Output. În loc să afișeze un ecran defect, AVR Maestro îți oferă un buton cu o singură atingere direct în controlul web al receiverului pentru acele modificări - restul suitei Difuzoare funcționează normal. Receiverele cu firmware mai nou servesc direct fiecare ecran.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Întrebări frecvente</div>
+      <h2>Întrebări frecvente despre configurarea difuzoarelor</h2>
+    </div>
+    <details open><summary>Pot seta distanțele și nivelurile din aplicație?</summary><div class="body">Da - alocarea amplificatoarelor și configurația, distanțele pe difuzor, nivelurile canalelor, crossoverele și setările subwooferului, toate citite în timp real și urmând Speaker Preset-ul activ.</div></details>
+    <details><summary>De ce sunt blocate unele ecrane de difuzoare?</summary><div class="body">Când un filtru Dirac Live este activ pe presetare, Dirac deține configurația, distanțele și crossoverele. Aplicația afișează o blocare în loc să te lase să trimiți modificări pe care receiverul le-ar respinge. Treci pe o presetare fără Dirac ca să le editezi. Mai multe în <a href="/ro/audyssey-dirac-control/">ghidul Audyssey &amp; Dirac</a>.</div></details>
+    <details><summary>Ce sunt Speaker Presets?</summary><div class="body">Presetarea 1 și 2 își stochează fiecare propria configurație, distanțe, niveluri, crossovere și calibrare. Comuți între ele în aplicație; fiecare ecran Difuzoare urmează presetarea activă. Pe receivere cu o singură presetare (precum AVR-X4500H), selectorul rămâne ascuns.</div></details>
+    <details><summary>Pot trimite canalul LFE către difuzoarele frontale fără subwoofer?</summary><div class="body">Da, pe receiverele care permit asta. Când difuzoarele principale sunt setate pe Full Range în Crossovere și receiverul nu rutează LFE către un subwoofer, opțiunea LFE Distribution din ecranul Bass trimite canalul LFE (.1) către acele difuzoare, cu un nivel pe difuzor. AVR Maestro o oferă doar când receiverul o permite cu adevărat - dacă difuzoarele nu sunt Full Range sau un subwoofer este configurat să preia LFE, receiverul blochează setarea, iar aplicația arată exact de ce. Nu poate ruta niciodată basul către un difuzor pe care receiverul îl interzice. Controlul LPF for LFE din același ecran setează frecvența de tăiere trece-jos pentru canalul LFE.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Mai multe din ghid</div>
+      <h2>Alte ghiduri AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/ro/guide/getting-started/">Primii pași</a> &middot; <a href="/ro/guide/home/">Ecranul principal</a> &middot; <a href="/ro/guide/scenes/">Scene</a> &middot; <a href="/ro/guide/custom-icons/">Pictograme personalizate</a> &middot; <a href="/ro/guide/sound/">Sunet</a> &middot; <a href="/ro/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/ro/guide/locked-controls/">De ce este blocat un control</a> &middot; <a href="/ro/guide/assistant/">Asistentul</a> &middot; <a href="/ro/guide/home-automation/">Automatizare Locuință</a> &middot; <a href="/ro/guide/home-assistant-dashboard/">Panou Home Assistant</a> &middot; <a href="/ro/guide/multi-zone/">Zone</a> &middot; <a href="/ro/guide/remote/">Telecomandă</a> &middot; <a href="/ro/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/ro/guide/on-screen-display/">Afișaj pe ecran</a> &middot; <a href="/ro/guide/settings/">Setări</a> &middot; <a href="/ro/guide/languages/">Limbi</a> &middot; <a href="/ro/guide/volume/">Comenzi de volum</a> &middot; <a href="/ro/guide/backup/">Copie de rezervă &amp; restaurare</a> &middot; <a href="/ro/guide/now-playing/">Se redă acum &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Reglează-ți difuzoarele de pe canapea</h2>
+    <p class="lead" style="margin:0 auto 24px">Achiziție unică, fără reclame, fără abonamente. Conectați-vă în mai puțin de un minut.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Descărcați de pe Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Descărcați din App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Descărcați din Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Descărcați din Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/ro/guide/">Înapoi la Ghidul complet de utilizare &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/ro/">Acasă</a>
+      <a href="/ro/guide/">Ghid de utilizare</a>
+      <a href="/ro/guide/getting-started/">Primii pași</a>
+      <a href="/ro/receivers/">Receivere</a>
+      <a href="/ro/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ro/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/ro/best-denon-marantz-app/">De ce să treceți la el</a>
+      <a href="/ro/help/">Ajutor</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro este o aplicație independentă creată de MiyaraHub Technologies LLC și nu este afiliată, susținută sau sponsorizată de Denon, Marantz, D&amp;M Holdings, Sound United sau de orice altă companie menționată pe această pagină. Denon, Marantz, HEOS, Audyssey și Dirac Live sunt mărci comerciale ale proprietarilor respectivi, utilizate aici exclusiv pentru identificare.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

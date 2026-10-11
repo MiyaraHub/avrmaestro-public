@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aba Som: Todos os Controles de Áudio do Seu AVR - AVR Maestro</title>
+<meta name="description" content="Todos os controles de áudio do seu Denon ou Marantz explicados: modos surround, Realce de Diálogo, DRC, Audyssey, Dirac Live, Graphic EQ, ajustes, Tom, IMAX e Auro-3D." />
+<meta name="keywords" content="Denon sound modes app, Marantz surround mode app, Audyssey MultEQ app, Dirac Live app control, Dolby Surround DTS Neural X app, IMAX Enhanced settings app, Auro-3D app, dialog enhancer Denon, dynamic range compression AVR, M-DAX audio restorer" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/pt-br/guide/sound/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/sound/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/sound/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/sound/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/sound/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/sound/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/sound/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/sound/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/sound/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/sound/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/sound/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/sound/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/sound/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/sound/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/sound/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/sound/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/sound/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/sound/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/sound/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/sound/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/sound/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/sound/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/sound/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/sound/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/sound/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/sound/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/sound/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/sound/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/sound/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/sound/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/sound/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/sound/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Aba Som: Todos os Controles de Áudio do Seu AVR - AVR Maestro" />
+<meta property="og:description" content="Todos os controles de áudio do seu Denon ou Marantz explicados: modos surround, Realce de Diálogo, DRC, Audyssey, Dirac Live, Graphic EQ, ajustes, Tom, IMAX e Auro-3D." />
+<meta property="og:url" content="https://avrmaestro.com/pt-br/guide/sound/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Aba Som: Todos os Controles de Áudio do Seu AVR - AVR Maestro" />
+<meta name="twitter:description" content="Todos os controles de áudio do seu Denon ou Marantz explicados: modos surround, Realce de Diálogo, DRC, Audyssey, Dirac Live, Graphic EQ, ajustes, Tom, IMAX e Auro-3D." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "O AVR Maestro é um aplicativo independente para controlar receptores AV Denon e Marantz pela sua rede local.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "pt-BR"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/sound/#article",
+      "headline": "Todos os controles de áudio do seu receptor, em uma só aba Som",
+      "description": "Todos os controles de áudio do seu Denon ou Marantz explicados: modos surround, Realce de Diálogo, DRC, Audyssey, Dirac Live, Graphic EQ, ajustes, Tom, IMAX e Auro-3D.",
+      "image": "https://avrmaestro.com/screenshots/sound-surround.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/sound/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "pt-BR"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/sound/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Por que a lista de modos de som muda?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Porque a lista do receptor muda. Os modos que um Denon ou Marantz aceita dependem do que ele está decodificando: um fluxo de dois canais oferece os upmixers, um fluxo Atmos oferece os modos compatíveis com Atmos. O AVR Maestro lê a lista atual direto do receptor a cada vez, em vez de mostrar um menu fixo que estaria errado metade do tempo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por que um controle aparece esmaecido com N/A?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "N/A significa que o receptor não tem valor para ele no estado atual, geralmente porque o sinal de entrada não traz o recurso. Toque no ponto de interrogação ao lado da linha e o app explica qual sinal o habilitaria. Um controle cinza nunca é um bug escondido; é a resposta do próprio receptor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual é a diferença entre Canais e Níveis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Canais (aba Som) é o ajuste ao vivo por canal para o sinal que está tocando agora. Níveis (aba Alto-falantes) é o nível de referência por alto-falante guardado na Predefinição de Alto-falantes pela sua calibração. Ajustar Canais não reescreve a sua calibração."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Posso usar o Controle de Tom e o Audyssey juntos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não enquanto o Dynamic EQ estiver ligado: o receptor assume o controle do tom. Desligue o Dynamic EQ na página do Audyssey e Graves e Agudos voltam a ser editáveis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso estar na mesma rede?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. O AVR Maestro conversa com o seu receptor diretamente pela sua LAN, sem conta na nuvem e sem servidor de retransmissão no meio. Veja Primeiros passos."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Início",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guia do Usuário",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Som",
+      "item": "https://avrmaestro.com/guide/sound/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/pt-br/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Pesquisar no guia..." data-i18n-empty="Nenhum resultado para" data-i18n-language="Idioma">
+      <a href="/pt-br/">Início</a>
+      <a href="/pt-br/guide/">Guia do Usuário</a>
+      <a href="/pt-br/receivers/">Receptores</a>
+      <a href="/pt-br/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/pt-br/best-denon-marantz-app/">Por que trocar</a>
+      <a href="/pt-br/#top" class="cta">Baixar</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/pt-br/">Início</a> &rsaquo; <a href="/pt-br/guide/">Guia do Usuário</a> &rsaquo; Som</div>
+    <div class="eyebrow">A aba Som</div>
+    <h1>Todos os controles de áudio do seu receptor, <span class="g">em uma só aba Som</span></h1>
+    <p>A aba Som tem nove páginas de profundidade e espelha o menu de áudio do próprio receptor, não uma versão simplificada dele. Esta página percorre as nove: o que cada controle faz, o que ele espera e por que o receptor às vezes se recusa a deixar você mexer nele.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">O que há aqui</div>
+      <h2>As nove páginas</h2>
+    </div>
+    <table class="t">
+      <thead><tr><th>Página</th><th>O que ela controla</th></tr></thead>
+      <tbody>
+        <tr><td><a href="#surround">Surround</a></td><td>O modo de som, agrupado em Filme / Música / Jogo / Pure, mais o painel de recursos de áudio</td></tr>
+        <tr><td><a href="#dialog">Diálogo &amp; DRC</a></td><td>Intensidade do Realce de Diálogo e Compressão de Faixa Dinâmica</td></tr>
+        <tr><td><a href="#audyssey">Audyssey</a></td><td>MultEQ, Dynamic EQ, Reference Level Offset, Dynamic Volume, Surround Level Compensation</td></tr>
+        <tr><td><a href="#dirac">Dirac Live</a></td><td>Seus slots de filtro carregados pelo nome, e Desligado</td></tr>
+        <tr><td><a href="#geq">Graphic EQ</a></td><td>Uma curva de 9 bandas por alto-falante, de 63Hz a 16kHz</td></tr>
+        <tr><td><a href="#channels">Canais</a></td><td>Ajuste por canal em dB para cada alto-falante do sinal atual, mais Bass Sync</td></tr>
+        <tr><td><a href="#tone">Tom</a></td><td>Controle de Tom, Graves, Agudos, filtro DAC, Restaurador de Áudio (M-DAX)</td></tr>
+        <tr><td><a href="#imax">IMAX</a></td><td>Modo IMAX Enhanced e seus próprios HPF, LPF e roteamento do subwoofer</td></tr>
+        <tr><td><a href="#auro">Auro-3D</a></td><td>Predefinição Auromatic, Intensidade e Modo Auro-3D</td></tr>
+      </tbody>
+    </table>
+    <div class="note">Seu receptor decide quais destas páginas aparecem. Um chassi sem licença Auro-3D simplesmente não tem a página Auro-3D, e um sem decodificador IMAX Enhanced não tem a página IMAX. O AVR Maestro pergunta ao receptor o que ele tem, em vez de presumir um modelo.</div>
+  </div>
+</section>
+
+<section id="surround">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Página um</div>
+      <h2>Surround: o modo e o que o receptor está realmente fazendo</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">O cartão do topo mostra o <b>modo atual</b> exatamente como o receptor o informa. Abaixo dele, os modos são agrupados em <b>Filme</b>, <b>Música</b>, <b>Jogo</b> e <b>Pure</b>, e só são oferecidos os modos que o receptor aceita para o sinal que está decodificando neste momento.</p>
+        <ul class="plain">
+          <li><b>Stereo, Dolby Surround, DTS Neural:X, Auro-3D, Auro Surround, Multi Ch Stereo</b> e os demais aparecem conforme o seu chassi e o fluxo de entrada permitirem.</li>
+          <li><b>Recursos de Áudio</b>, logo abaixo, é um painel ao vivo, não uma lista de desejos: Neural:X, IMAX Enhanced, Cinema EQ, Center Spread, Loudness Management, Speaker Virtualizer e companhia mostram cada um <b>Ativo</b>, <b>Inativo</b> ou <b>N/A</b>.</li>
+          <li><b>N/A</b> significa que o sinal atual não consegue usar aquele recurso. Toque no ponto de interrogação ao lado e o app explica qual sinal conseguiria.</li>
+        </ul>
+      </div>
+      <img alt="A página Surround mostrando o modo atual e o painel de recursos de áudio" src="/screenshots/sound-surround.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="dialog">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Página dois</div>
+      <h2>Diálogo &amp; DRC: inteligibilidade e audição noturna</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <ul class="plain">
+          <li><b>Realce de Diálogo</b> - Desligado, Baixo, Médio ou Alto. Aumenta a inteligibilidade do canal central sem mexer na sua calibração.</li>
+          <li><b>Compressão de Faixa Dinâmica</b> - Desligada, Baixa, Média, Alta ou Automática. Reduz a distância entre sussurros e explosões, que é exatamente o que você quer tarde da noite.</li>
+        </ul>
+        <p class="lead">O DRC é o melhor exemplo de como o AVR Maestro lida com um controle que o receptor não aceita. Os dados de compressão viajam <b>dentro de um bitstream Dolby</b>, então em uma fonte PCM, DTS ou stereo de rede não há nada para comprimir. Em vez de deixar você apertar um botão que não faz nada, o app deixa a linha esmaecida e mostra o motivo: mude para conteúdo Dolby Digital, Dolby Digital Plus, Dolby TrueHD ou Dolby Atmos para usá-lo.</p>
+      </div>
+      <img alt="Diálogo e DRC, com a Compressão de Faixa Dinâmica esmaecida e explicada" src="/screenshots/sound-dialog-drc.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="audyssey">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Página três</div>
+      <h2>Audyssey: o menu de calibração completo, não só o MultEQ</h2>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px">
+      <figure><img alt="A página Audyssey com MultEQ, Dynamic EQ, Reference Level Offset, Dynamic Volume e Surround Level Compensation" src="/screenshots/sound-audyssey.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Todos os controles do Audyssey, ao vivo</figcaption></figure>
+      <figure><img alt="A página do Audyssey informando que o Dirac é o dono desta Predefinição de Alto-falantes" src="/screenshots/sound-audyssey-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Em uma predefinição Dirac, ele avisa</figcaption></figure>
+    </div>
+    <ul class="plain" style="margin-top:26px">
+      <li><b>MultEQ</b> - Reference, Bypass LR, Flat ou Desligado. Reference é a curva calibrada de referência; Flat remove a atenuação das altas frequências; Bypass LR deixa o par frontal sem correção; Desligado devolve o EQ para você.</li>
+      <li><b>Dynamic EQ</b> - Ligado ou Desligado. Mantém o equilíbrio tonal correto conforme você baixa o volume, em vez de deixar os graves sumirem.</li>
+      <li><b>Reference Level Offset</b> - 0, 5, 10 ou 15 dB. Informa ao Dynamic EQ quanto abaixo do nível de referência o seu conteúdo foi masterizado. 0 dB serve para filmes; os offsets maiores servem para música e TV.</li>
+      <li><b>Dynamic Volume</b> - Desligado, Leve, Médio ou Pesado. Equilibra comerciais altos com diálogos baixos.</li>
+      <li><b>Surround Level Compensation</b> - Desligado, Leve, Médio ou Pesado.</li>
+    </ul>
+    <div class="note">Se esta página pode ser editada depende de qual sistema é dono da Predefinição de Alto-falantes atual. Veja <a href="/pt-br/guide/locked-controls/">por que um controle está bloqueado</a>.</div>
+  </div>
+</section>
+
+<section id="dirac">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Página quatro</div>
+      <h2>Dirac Live: seus filtros, com os nomes que você deu</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Se você já rodou o Dirac Live, os filtros exportados ficam em slots numerados no receptor. O AVR Maestro os lista <b>pelo nome com o qual você os salvou</b>, com o número do slot logo abaixo, além de uma entrada <b>Desligado</b> para usar a predefinição sem nenhum filtro. Um toque troca de filtro.</p>
+        <p class="lead">Em uma Predefinição de Alto-falantes sem filtro Dirac carregado, a página avisa isso claramente em vez de mostrar uma lista vazia.</p>
+      </div>
+      <img alt="A página Dirac Live listando os slots de filtro pelos nomes salvos" src="/screenshots/sound-dirac.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="geq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Página cinco</div>
+      <h2>Graphic EQ: nove bandas, por alto-falante</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Um editor de verdade, não um simples interruptor: nove bandas de 63Hz a 16kHz, de -20 a +6 dB, arrastadas no gráfico. Escolha <b>Todos</b>, <b>Esquerdo/Direito</b> ou <b>Cada</b> alto-falante, use <b>Copiar</b> para partir da sua curva Audyssey medida, <b>Redefinir</b> para zerar e a barra de alterações pendentes para aplicar.</p>
+        <p class="lead">O receptor usa a correção de sala <b>ou</b> o EQ manual, nunca os dois, então esta página fica bloqueada sempre que o MultEQ ou o Dirac estiver ativo - e ela diz qual dos dois.</p>
+        <p class="lead"><a href="/pt-br/guide/graphic-eq/">O guia completo do Graphic EQ &rarr;</a></p>
+      </div>
+      <img alt="O editor de Graphic EQ com uma curva de 9 bandas por alto-falante" src="/screenshots/graphic-eq.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="channels">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Página seis</div>
+      <h2>Canais: ajuste qualquer alto-falante com o filme rodando</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Ajuste por canal em dB para cada alto-falante presente no <b>sinal atual</b> - Frontal Esquerdo, Frontal Direito, Central, os surrounds, os surrounds traseiros, os dois subwoofers e a camada de alturas, cada um com o nome curto logo abaixo para você nunca ficar na dúvida de qual é qual.</p>
+        <ul class="plain">
+          <li><b>Arraste o controle deslizante</b> para um ajuste grande, ou toque em <b>mais e menos</b> para um passo fino, tudo enquanto você ouve.</li>
+          <li><b>Redefinir Tudo</b> leva todos os canais de volta a 0 dB.</li>
+          <li><b>Bass Sync</b>, no final, alinha no tempo o canal LFE com os canais principais.</li>
+        </ul>
+        <p class="lead">Estes são os ajustes ao vivo por sinal. Os <b>níveis de referência</b> por alto-falante, guardados na Predefinição de Alto-falantes, ficam na <a href="/pt-br/guide/speakers/">aba Alto-falantes</a>, e o app explica a diferença no próprio cartão de informações da página.</p>
+      </div>
+      <img alt="A página Canais com um controle deslizante de nível e passos finos de mais e menos para cada alto-falante" src="/screenshots/sound-channels.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="tone">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Página sete</div>
+      <h2>Tom: graves, agudos, o filtro DAC e o M-DAX</h2>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px">
+      <figure><img alt="A página Tom com Graves, Agudos, Filtro DAC e Restaurador de Áudio" src="/screenshots/sound-tone.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Tom, livre para editar</figcaption></figure>
+      <figure><img alt="A página Tom com os controles bloqueados pelo Dynamic EQ" src="/screenshots/sound-tone-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>O Dynamic EQ assume os controles de tom</figcaption></figure>
+    </div>
+    <ul class="plain" style="margin-top:26px">
+      <li><b>Controle de Tom</b> - o interruptor geral. Graves e Agudos só chegam ao receptor enquanto ele estiver ativo.</li>
+      <li><b>Graves</b> e <b>Agudos</b> - de -6 dB a +6 dB em passos de 1 dB.</li>
+      <li><b>Filtro DAC</b> - o Filtro 1 é mais quente, com queda lenta; o Filtro 2 é uma resposta de referência mais nítida.</li>
+      <li><b>Restaurador de Áudio (M-DAX)</b> - Desligado, Baixo, Médio ou Alto. Recupera detalhes perdidos em áudio comprimido ou de streaming, o que é ótimo em uma rádio de 128k e desnecessário em um disco sem perdas.</li>
+    </ul>
+    <div class="note">O Audyssey Dynamic EQ assume os controles de tom enquanto estiver ativo: o receptor toma conta deles, e o AVR Maestro mostra um aviso dizendo isso, em vez de deixar você se perguntando por que os Graves não fazem nada.</div>
+  </div>
+</section>
+
+<section id="imax">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Página oito</div>
+      <h2>IMAX: o menu completo de ajustes Enhanced</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Em um chassi com IMAX Enhanced, o app expõe o menu inteiro, e não apenas o liga/desliga:</p>
+        <ul class="plain">
+          <li><b>Modo IMAX</b> - Automático ou Desligado.</li>
+          <li><b>Configurações de áudio</b> - Automático segue a recomendação IMAX; Manual abre os quatro controles abaixo.</li>
+          <li><b>Filtro Passa-Alta</b> - de 40Hz a 250Hz.</li>
+          <li><b>Filtro Passa-Baixa</b> - de 70Hz a 250Hz.</li>
+          <li><b>Subwoofer</b> - Ligado ou Desligado, e <b>Saída do Subwoofer</b> - LFE+Main ou LFE.</li>
+        </ul>
+      </div>
+      <img alt="A página IMAX com modo, filtros e roteamento do subwoofer" src="/screenshots/sound-imax.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="auro">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Página nove</div>
+      <h2>Auro-3D: upmix com forma</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <ul class="plain">
+          <li><b>Predefinição do Auro-Matic 3D</b> - Pequena, Média, Grande, Fala ou Filme. Escolhe o tipo de sala e de conteúdo que o upmixer usa como alvo.</li>
+          <li><b>Intensidade</b> - de 0 a 15, define quanta informação de altura o Auromatic gera.</li>
+          <li><b>Modo Auro-3D</b> - Direto ou Expansão de Canais.</li>
+        </ul>
+        <p class="lead">Estes só se aplicam enquanto um modo Auro estiver selecionado na página Surround, e a página só existe em um chassi que traga o decodificador Auro-3D.</p>
+      </div>
+      <img alt="A página Auro-3D com predefinição, intensidade e modo" src="/screenshots/sound-auro3d.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Perguntas frequentes</div>
+      <h2>Perguntas frequentes da aba Som</h2>
+    </div>
+    <details open><summary>Por que a lista de modos de som muda?</summary><div class="body">Porque a lista do receptor muda. Os modos que um Denon ou Marantz aceita dependem do que ele está decodificando: um fluxo de dois canais oferece os upmixers, um fluxo Atmos oferece os modos compatíveis com Atmos. O AVR Maestro lê a lista atual direto do receptor a cada vez, em vez de mostrar um menu fixo que estaria errado metade do tempo.</div></details>
+    <details><summary>Por que um controle aparece esmaecido com N/A?</summary><div class="body">N/A significa que o receptor não tem valor para ele no estado atual, geralmente porque o sinal de entrada não traz o recurso. Toque no ponto de interrogação ao lado da linha e o app explica qual sinal o habilitaria. Um controle cinza nunca é um bug escondido; é a resposta do próprio receptor.</div></details>
+    <details><summary>Qual é a diferença entre Canais e Níveis?</summary><div class="body">Canais (aba Som) é o ajuste ao vivo por canal para o sinal que está tocando agora. Níveis (aba Alto-falantes) é o nível de referência por alto-falante guardado na Predefinição de Alto-falantes pela sua calibração. Ajustar Canais não reescreve a sua calibração.</div></details>
+    <details><summary>Posso usar o Controle de Tom e o Audyssey juntos?</summary><div class="body">Não enquanto o Dynamic EQ estiver ligado: o receptor assume o controle do tom. Desligue o Dynamic EQ na página do Audyssey e Graves e Agudos voltam a ser editáveis.</div></details>
+    <details><summary>Preciso estar na mesma rede?</summary><div class="body">Sim. O AVR Maestro conversa diretamente com o seu receptor pela sua rede local, sem conta na nuvem e sem servidor intermediário. Veja <a href="/pt-br/guide/getting-started/">Primeiros passos</a>.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Mais do guia</div>
+      <h2>Outros guias do AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/pt-br/guide/getting-started/">Primeiros passos</a> &middot; <a href="/pt-br/guide/home/">Tela Inicial</a> &middot; <a href="/pt-br/guide/scenes/">Cenas</a> &middot; <a href="/pt-br/guide/custom-icons/">Ícones Personalizados</a> &middot; <a href="/pt-br/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/pt-br/guide/speakers/">Alto-falantes</a> &middot; <a href="/pt-br/guide/locked-controls/">Por que um controle está bloqueado</a> &middot; <a href="/pt-br/guide/assistant/">O Assistente</a> &middot; <a href="/pt-br/guide/home-automation/">Automação Residencial</a> &middot; <a href="/pt-br/guide/home-assistant-dashboard/">Painel do Home Assistant</a> &middot; <a href="/pt-br/guide/multi-zone/">Zonas</a> &middot; <a href="/pt-br/guide/remote/">Remoto</a> &middot; <a href="/pt-br/guide/radio/">Rádio (FM/AM)</a> &middot; <a href="/pt-br/guide/on-screen-display/">Exibição em Tela (OSD)</a> &middot; <a href="/pt-br/guide/settings/">Configurações</a> &middot; <a href="/pt-br/guide/languages/">Idiomas</a> &middot; <a href="/pt-br/guide/volume/">Controles de Volume</a> &middot; <a href="/pt-br/guide/backup/">Backup &amp; Restauração</a> &middot; <a href="/pt-br/guide/now-playing/">Reproduzindo agora &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>O menu de áudio completo, direto do sofá</h2>
+    <p class="lead" style="margin:0 auto 24px">Compra única, sem anúncios, sem assinaturas. Conecte em menos de um minuto.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Disponível no Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Baixe na App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Baixe na Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Disponível na Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/pt-br/guide/">Voltar ao Guia do Usuário completo &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/pt-br/">Início</a>
+      <a href="/pt-br/guide/">Guia do Usuário</a>
+      <a href="/pt-br/guide/getting-started/">Primeiros passos</a>
+      <a href="/pt-br/receivers/">Receptores</a>
+      <a href="/pt-br/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/pt-br/audyssey-vs-dirac/">Audyssey x Dirac</a>
+      <a href="/pt-br/best-denon-marantz-app/">Por que trocar</a>
+      <a href="/pt-br/help/">Ajuda</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">O AVR Maestro é um aplicativo independente da MiyaraHub Technologies LLC e não é afiliado, endossado nem patrocinado pela Denon, Marantz, D&amp;M Holdings, Sound United ou qualquer outra empresa citada nesta página. Denon, Marantz, HEOS, Audyssey, Dirac Live, IMAX, Auro-3D e Dolby Atmos são marcas registradas de seus respectivos proprietários, usadas aqui apenas para identificação.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

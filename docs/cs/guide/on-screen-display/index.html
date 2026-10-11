@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="cs" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zobrazení na obrazovce: údaj hlasitosti a 21:9 &amp; další - AVR Maestro</title>
+<meta name="description" content="Ovládejte zobrazení na obrazovce svého Denonu nebo Marantzu z telefonu: pozici údaje o hlasitosti nebo jeho vypnutí, informační banner, umístění pro 21:9 a spořič obrazovky." />
+<meta name="keywords" content="Denon on screen display app, Marantz OSD settings, AVR volume readout off, receiver info banner, 21:9 constant height AVR, Denon screen saver, AVR OSD phone" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/cs/guide/on-screen-display/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/on-screen-display/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/on-screen-display/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/on-screen-display/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/on-screen-display/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/on-screen-display/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/on-screen-display/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/on-screen-display/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/on-screen-display/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/on-screen-display/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/on-screen-display/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/on-screen-display/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/on-screen-display/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/on-screen-display/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/on-screen-display/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/on-screen-display/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/on-screen-display/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/on-screen-display/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/on-screen-display/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/on-screen-display/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/on-screen-display/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/on-screen-display/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/on-screen-display/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/on-screen-display/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/on-screen-display/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/on-screen-display/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/on-screen-display/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="cs_CZ" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Zobrazení na obrazovce: údaj hlasitosti a 21:9 &amp; další - AVR Maestro" />
+<meta property="og:description" content="Ovládejte zobrazení na obrazovce svého Denonu nebo Marantzu z telefonu: pozici údaje o hlasitosti nebo jeho vypnutí, informační banner, umístění pro 21:9 a spořič obrazovky." />
+<meta property="og:url" content="https://avrmaestro.com/cs/guide/on-screen-display/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Zobrazení na obrazovce: údaj hlasitosti a 21:9 &amp; další - AVR Maestro" />
+<meta name="twitter:description" content="Ovládejte zobrazení na obrazovce svého Denonu nebo Marantzu z telefonu: pozici údaje o hlasitosti nebo jeho vypnutí, informační banner, umístění pro 21:9 a spořič obrazovky." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro je nezávislá aplikace pro ovládání AV přijímačů Denon a Marantz přes vaši místní síť.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "cs"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/on-screen-display/#article",
+      "headline": "Zobrazení na obrazovce přímo z vašeho místa",
+      "description": "Ovládejte zobrazení na obrazovce svého Denonu nebo Marantzu z telefonu: pozici údaje o hlasitosti nebo jeho vypnutí, informační banner, umístění pro 21:9 a spořič obrazovky.",
+      "image": "https://avrmaestro.com/screenshots/on-screen-display.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/on-screen-display/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "cs"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/on-screen-display/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Můžu zabránit tomu, aby se na TV objevovalo číslo hlasitosti?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano. V AVR Maestro otevřete Nastavení, poté Zobrazení na obrazovce a nastavte Hlasitost na Vypnuto. Můžete ji také přesunout mezi spodní a horní okraj obrazovky, aniž byste vstali z gauče."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "K čemu je režim 21:9?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Přemístí nabídky přijímače na obrazovce pro plátno 21:9 s konstantní výškou, aby je projektor neoříznul nahoře a dole. Zapněte ho jen tehdy, pokud takovou sestavu máte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Proč vidím méně možností než na snímcích obrazovky?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Protože je váš přijímač nahlásí méně. AVR Maestro se přijímače ptá, jaké možnosti zobrazení na obrazovce má, a ukáže jen ty. Starší přijímač bez spořiče obrazovky tuto kartu prostě nedostane, místo aby mu byl zobrazen ovládací prvek, který by nefungoval."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Domů",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Uživatelská příručka",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Zobrazení na obrazovce",
+      "item": "https://avrmaestro.com/guide/on-screen-display/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/cs/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Nabídka" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Hledat v příručce..." data-i18n-empty="Žádné výsledky pro" data-i18n-language="Jazyk">
+      <a href="/cs/">Domů</a>
+      <a href="/cs/guide/">Uživatelská příručka</a>
+      <a href="/cs/receivers/">Přijímače</a>
+      <a href="/cs/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/cs/best-denon-marantz-app/">Proč přejít</a>
+      <a href="/cs/#top" class="cta">Stáhnout</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/cs/">Domů</a> &rsaquo; <a href="/cs/guide/">Uživatelská příručka</a> &rsaquo; Zobrazení na obrazovce</div>
+    <div class="eyebrow">Co váš přijímač vykresluje na televizi</div>
+    <h1>Zobrazení na obrazovce, <span class="g">přímo z vašeho místa</span></h1>
+    <p>Číslo hlasitosti, které se mihne uprostřed filmu, banner při změně zdroje, obrazovka s právě přehrávanou skladbou, která zůstává nad hudbou - to všechno se nastavuje v nabídce přijímače, což znamená vstát a zobrazit nabídku na obrazovce, na kterou jste se dívali. AVR Maestro ji místo toho přenese na váš telefon.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+      <figure><img alt="Nastavení zobrazení na obrazovce v AVR Maestro" src="/screenshots/on-screen-display.png" width="1324" height="2644" decoding="async" /><figcaption>Každá možnost, kterou přijímač hlásí, a jen ty</figcaption></figure>
+    </div>
+
+    <div class="section-head" style="margin-top:36px">
+      <h2>Co můžete změnit</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Hlasitost:</b> <b>Dole</b>, <b>Nahoře</b> nebo <b>Vypnuto</b>. Kde se údaj o hlasitosti zobrazí, když ji změníte, nebo jestli se zobrazí vůbec. Právě Vypnuto lidé při filmu hledají.</li>
+      <li><b>Info:</b> stavový banner, který přijímač vykreslí při změně zdroje nebo zvukového režimu.</li>
+      <li><b>Právě se přehrává:</b> zda obrazovka s právě přehrávanou skladbou zůstane zobrazená, dokud hraje síťový zdroj, nebo se po chvíli sama skryje.</li>
+      <li><b>Režim 21:9:</b> přemístí vlastní nabídky přijímače pro plátno 21:9 s konstantní výškou, aby je projektor neoříznul.</li>
+      <li><b>Spořič obrazovky:</b> po delší době beze změny posune obraz na obrazovce, což chrání panel náchylný k vypálení obrazu.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Jen to, co váš přijímač má</div>
+        <h2>O tom, které z nich uvidíte, rozhoduje váš přijímač</h2>
+        <p>Ne každý přijímač má všech pět. Místo zobrazení ovládacího prvku, který by nefungoval, se AVR Maestro přijímače zeptá, jaké možnosti zobrazení na obrazovce nabízí, a vykreslí jen ty - takže starší přijímač bez spořiče obrazovky tuto kartu prostě nedostane.</p>
+        <p>Pokud nastavení existuje, ale přijímač tentokrát neodpověděl, aplikace to řekne přesně takto a nabídne, že to zkusí znovu. Nikdy nevydává "nepodařilo se nám to přečíst" za "váš přijímač to nemá" - to jsou dvě různé odpovědi a pravdivá je jen jedna z nich.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Časté dotazy</div>
+      <h2>Zobrazení na obrazovce: odpovědi na otázky</h2>
+    </div>
+    <details open><summary>Můžu zabránit tomu, aby se na TV objevovalo číslo hlasitosti?</summary><div class="body">Ano. V AVR Maestro otevřete Nastavení, poté Zobrazení na obrazovce a nastavte Hlasitost na Vypnuto. Můžete ji také přesunout mezi spodní a horní okraj obrazovky, aniž byste vstali z gauče.</div></details>
+    <details><summary>K čemu je režim 21:9?</summary><div class="body">Přemístí nabídky přijímače na obrazovce pro plátno 21:9 s konstantní výškou, aby je projektor neoříznul nahoře a dole. Zapněte ho jen tehdy, pokud takovou sestavu máte.</div></details>
+    <details><summary>Proč vidím méně možností než na snímcích obrazovky?</summary><div class="body">Protože je váš přijímač nahlásí méně. AVR Maestro se přijímače ptá, jaké možnosti zobrazení na obrazovce má, a ukáže jen ty. Starší přijímač bez spořiče obrazovky tuto kartu prostě nedostane, místo aby mu byl zobrazen ovládací prvek, který by nefungoval.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Další z průvodce</div>
+      <h2>Další průvodce aplikací AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/cs/guide/getting-started/">Začínáme</a> &middot; <a href="/cs/guide/home/">Domovská obrazovka</a> &middot; <a href="/cs/guide/scenes/">Scény</a> &middot; <a href="/cs/guide/custom-icons/">Vlastní ikony</a> &middot; <a href="/cs/guide/sound/">Zvuk</a> &middot; <a href="/cs/guide/graphic-eq/">Grafický ekvalizér</a> &middot; <a href="/cs/guide/speakers/">Reproduktory</a> &middot; <a href="/cs/guide/locked-controls/">Proč je ovládací prvek uzamčen</a> &middot; <a href="/cs/guide/assistant/">Asistent</a> &middot; <a href="/cs/guide/home-automation/">Domácí automatizace</a> &middot; <a href="/cs/guide/home-assistant-dashboard/">Dashboard Home Assistant</a> &middot; <a href="/cs/guide/multi-zone/">Zóny</a> &middot; <a href="/cs/guide/remote/">Dálkový ovladač</a> &middot; <a href="/cs/guide/radio/">Rádio (FM/AM)</a> &middot; <a href="/cs/guide/settings/">Nastavení</a> &middot; <a href="/cs/guide/languages/">Jazyky</a> &middot; <a href="/cs/guide/volume/">Ovládání hlasitosti</a> &middot; <a href="/cs/guide/backup/">Záloha &amp; obnova</a> &middot; <a href="/cs/guide/now-playing/">Právě se přehrává &amp; HEOS</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/cs/">Domů</a>
+      <a href="/cs/guide/">Uživatelská příručka</a>
+      <a href="/cs/guide/getting-started/">Začínáme</a>
+      <a href="/cs/receivers/">Přijímače</a>
+      <a href="/cs/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/cs/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/cs/best-denon-marantz-app/">Proč přejít</a>
+      <a href="/cs/help/">Nápověda</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro je nezávislá aplikace společnosti MiyaraHub Technologies LLC a nijak nesouvisí s firmami Denon, Marantz, D&amp;M Holdings, Sound United ani s žádnou jinou společností uvedenou na této stránce, ani není jimi schválena či sponzorována. Denon, Marantz a Audyssey jsou ochranné známky svých příslušných vlastníků a jsou zde použity pouze pro identifikaci.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

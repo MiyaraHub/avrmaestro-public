@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lecture en cours &amp; HEOS : pochette et commandes de lecture - AVR Maestro</title>
+<meta name="description" content="La carte Lecture en cours d'AVR Maestro affiche pochette, titre, artiste et station avec lecture, pause, suivant et précédent, en direct depuis votre Denon ou Marantz via HEOS." />
+<meta name="keywords" content="Denon Now Playing app, Marantz HEOS app, HEOS controller app, AVR now playing album art, receiver transport controls app, Denon Marantz music control, HEOS favorites app" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/fr/guide/now-playing/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/now-playing/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/now-playing/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/now-playing/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/now-playing/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/now-playing/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/now-playing/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/now-playing/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/now-playing/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/now-playing/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/now-playing/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/now-playing/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/now-playing/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/now-playing/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/now-playing/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/now-playing/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/now-playing/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/now-playing/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/now-playing/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/now-playing/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/now-playing/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/now-playing/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/now-playing/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/now-playing/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/now-playing/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/now-playing/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/now-playing/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/now-playing/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/now-playing/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/now-playing/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/now-playing/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/now-playing/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Lecture en cours &amp; HEOS : pochette et commandes de lecture - AVR Maestro" />
+<meta property="og:description" content="La carte Lecture en cours d'AVR Maestro affiche pochette, titre, artiste et station avec lecture, pause, suivant et précédent, en direct depuis votre Denon ou Marantz via HEOS." />
+<meta property="og:url" content="https://avrmaestro.com/fr/guide/now-playing/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Lecture en cours &amp; HEOS : pochette et commandes de lecture - AVR Maestro" />
+<meta name="twitter:description" content="La carte Lecture en cours d'AVR Maestro affiche pochette, titre, artiste et station avec lecture, pause, suivant et précédent, en direct depuis votre Denon ou Marantz via HEOS." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro est une application indépendante pour contrôler les récepteurs AV Denon et Marantz via votre réseau local.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/now-playing/#article",
+      "headline": "Lecture en cours : ce qui joue, sur un seul écran",
+      "description": "La carte Lecture en cours d'AVR Maestro affiche pochette, titre, artiste et station avec lecture, pause, suivant et précédent, en direct depuis votre Denon ou Marantz via HEOS.",
+      "image": "https://avrmaestro.com/screenshots/now-playing.png",
+      "datePublished": "2026-07-28",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/now-playing/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "fr"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/now-playing/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Affiche-t-il ce qui est en cours de lecture ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui - pour les sources qui communiquent des métadonnées via HEOS, vous obtenez la pochette, le titre, l'artiste ou la station, et les commandes de lecture (lecture, pause, suivant, précédent), en direct depuis votre récepteur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment parcourir la musique ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Touchez Lancer HEOS sur la carte Lecture en cours. AVR Maestro ouvre l'application HEOS officielle pour parcourir stations, files d'attente, pièces HEOS et services de streaming. Dès que la lecture démarre, AVR Maestro reprend l'affichage de lecture en cours et les commandes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourquoi la carte est-elle vide sur certaines entrées ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les sources analogiques, optiques/coaxiales et HDMI en passthrough ne communiquent pas de métadonnées de morceau, il n'y a donc rien à afficher. La carte se remplit pour les sources HEOS et réseau qui en fournissent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Où se trouve la carte Lecture en cours ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sur votre écran d'accueil, aux côtés des widgets que vous choisissez - volume, source, mode sonore, zones et plus encore."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guide de l'utilisateur",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Lecture en cours",
+      "item": "https://avrmaestro.com/guide/now-playing/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/fr/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Rechercher dans le guide..." data-i18n-empty="Aucun résultat pour" data-i18n-language="Langue">
+      <a href="/fr/">Accueil</a>
+      <a href="/fr/guide/">Guide de l'utilisateur</a>
+      <a href="/fr/receivers/">Récepteurs</a>
+      <a href="/fr/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/fr/best-denon-marantz-app/">Pourquoi changer</a>
+      <a href="/fr/#top" class="cta">Télécharger</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/fr/">Accueil</a> &rsaquo; <a href="/fr/guide/">Guide d'utilisation</a> &rsaquo; Lecture en cours</div>
+    <div class="eyebrow">Lecture en cours &amp; HEOS</div>
+    <h1>Lecture en cours : ce qui joue, <span class="g">sur un seul écran</span></h1>
+    <p>Lorsque votre source communique des métadonnées, la carte Lecture en cours d'AVR Maestro place la pochette, le titre et les commandes de lecture directement sur votre écran d'accueil - puis passe la main à HEOS pour parcourir, et reprend dès que la musique démarre.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+      <figure><img alt="La carte Lecture en cours d'AVR Maestro avec pochette et commandes de lecture" src="/screenshots/now-playing.png" width="1324" height="2644" decoding="async" /><figcaption>Pochette, infos du morceau et commandes de lecture, en direct via HEOS</figcaption></figure>
+      <figure><img alt="Parcourir les favoris et stations HEOS depuis AVR Maestro" src="/screenshots/now-playing-heos.png" width="575" height="1280" loading="lazy" decoding="async" /><figcaption>Lancez HEOS pour parcourir stations, files d'attente et favoris</figcaption></figure>
+    </div>
+    <div class="section-head" style="margin-top:36px">
+      <h2>Tout ce que vous écoutez, sur une seule carte</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Pochette et infos du morceau :</b> la carte affiche la jaquette, le titre, et l'artiste ou la station de ce qui est en lecture.</li>
+      <li><b>Commandes de lecture :</b> lecture, pause, suivant et précédent, directement sur la carte - inutile de chercher la télécommande.</li>
+      <li><b>Lancez HEOS pour parcourir :</b> touchez-le pour ouvrir l'application HEOS officielle et accéder aux stations, files d'attente, pièces HEOS et services de streaming. Lancez quelque chose là-bas et AVR Maestro reprend l'affichage de lecture en cours, les commandes et les widgets.</li>
+      <li><b>Intégrée à votre écran d'accueil :</b> la carte Lecture en cours se place aux côtés de vos widgets de volume, de source et de mode sonore, pour que ce qui joue ne soit jamais qu'à un coup d'œil.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="note">La carte se remplit pour les sources HEOS et réseau qui communiquent des métadonnées. Les sources analogiques, optiques/coaxiales et HDMI en passthrough n'envoient aucune info de morceau au récepteur, donc la carte reste vide - c'est la source qui est en cause, pas l'application.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Questions fréquentes</div>
+      <h2>FAQ Lecture en cours</h2>
+    </div>
+    <details open><summary>Affiche-t-il ce qui est en cours de lecture ?</summary><div class="body">Oui - pour les sources qui communiquent des métadonnées via HEOS, vous obtenez la pochette, le titre, l'artiste ou la station, et les commandes de lecture (lecture, pause, suivant, précédent), en direct depuis votre récepteur.</div></details>
+    <details><summary>Comment parcourir la musique ?</summary><div class="body">Touchez <b>Lancer HEOS</b> sur la carte Lecture en cours. AVR Maestro ouvre l'application HEOS officielle pour parcourir les stations, les files d'attente, les pièces HEOS et les services de streaming. Dès que la lecture démarre, AVR Maestro reprend la main sur l'affichage de lecture en cours et les commandes de transport.</div></details>
+    <details><summary>Pourquoi la carte est-elle vide sur certaines entrées ?</summary><div class="body">Les sources analogiques, optiques/coaxiales et HDMI en passthrough ne communiquent pas de métadonnées de morceau, il n'y a donc rien à afficher. La carte se remplit pour les sources HEOS et réseau qui en fournissent.</div></details>
+    <details><summary>Où se trouve la carte Lecture en cours ?</summary><div class="body">Sur votre <a href="/fr/guide/home/">écran d'accueil</a>, à côté des widgets de votre choix : volume, source, mode son, zones et bien plus.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">La suite du guide</div>
+      <h2>Autres guides AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/fr/guide/getting-started/">Prise en main</a> &middot; <a href="/fr/guide/home/">Écran d'accueil</a> &middot; <a href="/fr/guide/scenes/">Scènes</a> &middot; <a href="/fr/guide/custom-icons/">Icônes personnalisées</a> &middot; <a href="/fr/guide/sound/">Son</a> &middot; <a href="/fr/guide/graphic-eq/">Égaliseur graphique</a> &middot; <a href="/fr/guide/speakers/">Enceintes</a> &middot; <a href="/fr/guide/locked-controls/">Pourquoi une commande est verrouillée</a> &middot; <a href="/fr/guide/assistant/">L'assistant</a> &middot; <a href="/fr/guide/home-automation/">Domotique</a> &middot; <a href="/fr/guide/home-assistant-dashboard/">Tableau de bord Home Assistant</a> &middot; <a href="/fr/guide/multi-zone/">Zones</a> &middot; <a href="/fr/guide/remote/">Télécommande</a> &middot; <a href="/fr/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/fr/guide/on-screen-display/">Affichage à l'écran</a> &middot; <a href="/fr/guide/settings/">Paramètres</a> &middot; <a href="/fr/guide/languages/">Langues</a> &middot; <a href="/fr/guide/volume/">Contrôles de volume</a> &middot; <a href="/fr/guide/backup/">Sauvegarde &amp; restauration</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Voyez ce qui est en lecture, depuis le canapé</h2>
+    <p class="lead" style="margin:0 auto 24px">Achat unique, sans publicité, sans abonnement. Connexion en moins d'une minute.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Disponible sur Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Télécharger dans l'App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Télécharger dans le Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Disponible sur le Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/fr/guide/">Retour au guide d'utilisation complet &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/fr/">Accueil</a>
+      <a href="/fr/guide/">Guide de l'utilisateur</a>
+      <a href="/fr/guide/getting-started/">Prise en main</a>
+      <a href="/fr/receivers/">Récepteurs</a>
+      <a href="/fr/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/fr/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/fr/best-denon-marantz-app/">Pourquoi changer</a>
+      <a href="/fr/help/">Aide</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro est une application indépendante de MiyaraHub Technologies LLC, sans affiliation, approbation ni parrainage de la part de Denon, Marantz, D&amp;M Holdings, Sound United ou de toute autre société citée sur cette page. Denon, Marantz, HEOS, Audyssey et Dirac Live sont des marques commerciales de leurs propriétaires respectifs, utilisées ici à des fins d'identification uniquement.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

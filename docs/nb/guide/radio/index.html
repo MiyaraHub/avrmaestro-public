@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Styr FM/AM-tuneren fra telefonen - AVR Maestro</title>
+<meta name="description" content="En skikkelig FM/AM-radio for Denon- og Marantz-mottakere med innebygd tuner: bånd og innstillingsmodus, innstilling etter frekvens og navngitte stasjonsforvalg fra telefonen." />
+<meta name="keywords" content="FM AM tuner app, AV receiver radio app, Denon tuner app, Marantz tuner app, receiver radio presets app, control receiver radio from phone, FM tuner controller" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/nb/guide/radio/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/radio/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/radio/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/radio/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/radio/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/radio/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/radio/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/radio/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/radio/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/radio/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/radio/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/radio/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/radio/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/radio/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/radio/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/radio/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/radio/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/radio/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/radio/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/radio/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/radio/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/radio/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/radio/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/radio/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/radio/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/radio/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/radio/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/radio/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/radio/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/radio/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/radio/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/radio/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="nb_NO" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Styr FM/AM-tuneren fra telefonen - AVR Maestro" />
+<meta property="og:description" content="En skikkelig FM/AM-radio for Denon- og Marantz-mottakere med innebygd tuner: bånd og innstillingsmodus, innstilling etter frekvens og navngitte stasjonsforvalg fra telefonen." />
+<meta property="og:url" content="https://avrmaestro.com/nb/guide/radio/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Styr FM/AM-tuneren fra telefonen - AVR Maestro" />
+<meta name="twitter:description" content="En skikkelig FM/AM-radio for Denon- og Marantz-mottakere med innebygd tuner: bånd og innstillingsmodus, innstilling etter frekvens og navngitte stasjonsforvalg fra telefonen." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro er en uavhengig app for å styre Denon- og Marantz-AV-mottakere over det lokale nettverket ditt.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "nb"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/radio/#article",
+      "headline": "En ekte FM/AM-radio, med navngitte forvalg",
+      "description": "En skikkelig FM/AM-radio for Denon- og Marantz-mottakere med innebygd tuner: bånd og innstillingsmodus, innstilling etter frekvens og navngitte stasjonsforvalg fra telefonen.",
+      "image": "https://avrmaestro.com/screenshots/radio.png",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/radio/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "nb"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/radio/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Kan jeg styre FM/AM-radioen fra appen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, på mottakere med innebygd tuner - live visning av bånd, frekvens og forvalg, veksling mellom FM og AM, automatisk eller manuell innstilling, et tastatur for å hoppe til en frekvens og et rutenett med forvalg."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan jeg gi forvalgene mine navn?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja - trykk og hold på en plass for å lagre gjeldende stasjon, legge til eller endre navn («Jazz 88», «NPR»), eller tømme den."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hvorfor ser jeg ikke Radio-fanen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Den vises bare på mottakere med innebygd tuner. Har din en, sjekk at tuneren vises som en inngang, og slå fanen på igjen under Innstillinger, Tilpass navigasjon."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Hjem",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Brukerguide",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Radio",
+      "item": "https://avrmaestro.com/guide/radio/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/nb/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Meny" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Søk i guiden..." data-i18n-empty="Ingen treff for" data-i18n-language="Språk">
+      <a href="/nb/">Hjem</a>
+      <a href="/nb/guide/">Brukerguide</a>
+      <a href="/nb/receivers/">Mottakere</a>
+      <a href="/nb/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/nb/best-denon-marantz-app/">Hvorfor bytte</a>
+      <a href="/nb/#top" class="cta">Last ned</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero split">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="/nb/">Hjem</a> &rsaquo; <a href="/nb/guide/">Brukerveiledning</a> &rsaquo; Radio</div>
+      <div class="eyebrow">FM/AM-tuner</div>
+      <h1>En ekte FM/AM-<span class="g">radio</span>, med navngitte forvalg</h1>
+      <p>På Denon- og Marantz-mottakere med innebygd tuner gir AVR Maestro deg et skikkelig FM/AM-radiogrensesnitt. Stasjonskortet viser live bånd, frekvens og aktivt forvalg, og følger mottakeren i sanntid.</p>
+    </div>
+    <div class="hero-shot"><img alt="FM/AM-tuner i AVR Maestro" src="/screenshots/radio.png" width="1324" height="2648" fetchpriority="high" /></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Slik fungerer det</div>
+      <h2>Still inn, søk og lagre</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Bånd:</b> FM / AM. <b>Innstillingsmodus:</b> Automatisk (søk til neste sterke stasjon) eller Manuell (trinn for trinn etter båndets inkrement).</li>
+      <li><b>Innstilling:</b> de to knappene Still inn flytter dreieskiven trinnvis; <b>Skriv inn frekvens</b> åpner et tastatur så du kan hoppe rett til en stasjon (krever manuell modus).</li>
+      <li><b>Forvalg:</b> et rutenett med forvalgsplasser pluss opp/ned-knapper. <b>Trykk og hold</b> på en plass for å <b>Lagre gjeldende stasjon</b>, <b>Legge til / endre navn</b> («Jazz 88», «NPR»), eller <b>Tømme navn</b>.</li>
+    </ul>
+    <div class="note">Hvis Radio-fanen er skjult, legger du den til igjen fra <i>Innstillinger &rarr; Tilpass navigasjon</i> - den vises bare når mottakeren din har en tuner.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Vanlige spørsmål</div>
+      <h2>Vanlige spørsmål om tuneren</h2>
+    </div>
+    <details open><summary>Kan jeg styre FM/AM-radioen fra appen?</summary><div class="body">Ja, på mottakere med innebygd tuner - live visning av bånd, frekvens og forvalg, veksling mellom FM og AM, automatisk eller manuell innstilling, et tastatur for å hoppe til en frekvens og et rutenett med forvalg.</div></details>
+    <details><summary>Kan jeg gi forvalgene mine navn?</summary><div class="body">Ja - trykk og hold på en plass for å lagre gjeldende stasjon, legge til eller endre navn («Jazz 88», «NPR»), eller tømme den.</div></details>
+    <details><summary>Hvorfor ser jeg ikke Radio-fanen?</summary><div class="body">Den vises bare på mottakere med innebygd tuner. Har din en, sjekk at tuneren vises som en inngang, og slå fanen på igjen under Innstillinger, Tilpass navigasjon.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Mer av guiden</div>
+      <h2>Andre AVR Maestro-guider</h2>
+    </div>
+    <p class="lead"><a href="/nb/guide/getting-started/">Kom i gang</a> &middot; <a href="/nb/guide/home/">Startskjerm</a> &middot; <a href="/nb/guide/scenes/">Scener</a> &middot; <a href="/nb/guide/custom-icons/">Egendefinerte ikoner</a> &middot; <a href="/nb/guide/sound/">Lyd</a> &middot; <a href="/nb/guide/graphic-eq/">Grafisk EQ</a> &middot; <a href="/nb/guide/speakers/">Høyttalere</a> &middot; <a href="/nb/guide/locked-controls/">Hvorfor en kontroll er låst</a> &middot; <a href="/nb/guide/assistant/">Assistenten</a> &middot; <a href="/nb/guide/home-automation/">Hjemmeautomatisering</a> &middot; <a href="/nb/guide/home-assistant-dashboard/">Home Assistant-dashbord</a> &middot; <a href="/nb/guide/multi-zone/">Soner</a> &middot; <a href="/nb/guide/remote/">Fjernkontroll</a> &middot; <a href="/nb/guide/on-screen-display/">Skjermmeny</a> &middot; <a href="/nb/guide/settings/">Innstillinger</a> &middot; <a href="/nb/guide/languages/">Språk</a> &middot; <a href="/nb/guide/volume/">Volumkontroller</a> &middot; <a href="/nb/guide/backup/">Sikkerhetskopi &amp; gjenoppretting</a> &middot; <a href="/nb/guide/now-playing/">Spilles nå &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Ta mottakerens radio med til telefonen</h2>
+    <p class="lead" style="margin:0 auto 24px">Engangskjøp, ingen reklame, ingen abonnement. Koble til på under et minutt.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Hent den på Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Last ned på App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Last ned på Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Hent den på Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/nb/guide/">Tilbake til hele brukerguiden &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/nb/">Hjem</a>
+      <a href="/nb/guide/">Brukerguide</a>
+      <a href="/nb/guide/getting-started/">Kom i gang</a>
+      <a href="/nb/receivers/">Mottakere</a>
+      <a href="/nb/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/nb/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/nb/best-denon-marantz-app/">Hvorfor bytte</a>
+      <a href="/nb/help/">Hjelp</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro er en uavhengig app fra MiyaraHub Technologies LLC og er ikke tilknyttet, anbefalt av eller sponset av Denon, Marantz, D&amp;M Holdings, Sound United eller andre selskaper som er nevnt på denne siden. Denon, Marantz, HEOS, Audyssey og Dirac Live er varemerker som tilhører sine respektive eiere, og brukes her kun for identifikasjon.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="hi" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Denon &amp; Marantz के लिए Home Assistant &amp; Hubitat - AVR Maestro</title>
+<meta name="description" content="AVR Maestro को Home Assistant या Hubitat से लिंक करें और आपके सीन नेटिव स्क्रिप्ट बन जाते हैं जो आपके फ़ोन के बिना चलती हैं। वॉइस कंट्रोल, लाइव स्थिति और वेबहुक।" />
+<meta name="keywords" content="Denon Home Assistant, Marantz Home Assistant, AV receiver Alexa, receiver Google Assistant, receiver Siri Shortcuts, Hubitat AV receiver, receiver webhooks, Denon voice control" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/hi/guide/home-automation/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-automation/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-automation/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-automation/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-automation/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-automation/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-automation/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-automation/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-automation/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-automation/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-automation/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-automation/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-automation/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-automation/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-automation/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-automation/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-automation/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-automation/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-automation/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-automation/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-automation/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-automation/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-automation/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-automation/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-automation/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-automation/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-automation/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-automation/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-automation/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-automation/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-automation/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-automation/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="hi_IN" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Denon &amp; Marantz के लिए Home Assistant &amp; Hubitat - AVR Maestro" />
+<meta property="og:description" content="AVR Maestro को Home Assistant या Hubitat से लिंक करें और आपके सीन नेटिव स्क्रिप्ट बन जाते हैं जो आपके फ़ोन के बिना चलती हैं। वॉइस कंट्रोल, लाइव स्थिति और वेबहुक।" />
+<meta property="og:url" content="https://avrmaestro.com/hi/guide/home-automation/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Denon &amp; Marantz के लिए Home Assistant &amp; Hubitat - AVR Maestro" />
+<meta name="twitter:description" content="AVR Maestro को Home Assistant या Hubitat से लिंक करें और आपके सीन नेटिव स्क्रिप्ट बन जाते हैं जो आपके फ़ोन के बिना चलती हैं। वॉइस कंट्रोल, लाइव स्थिति और वेबहुक।" />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro एक स्वतंत्र ऐप है, जो आपके लोकल नेटवर्क पर Denon और Marantz AV रिसीवर को कंट्रोल करता है।",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "hi"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-automation/#article",
+      "headline": "Home Assistant और Hubitat: आपके सीन, आपके फ़ोन के बिना चलते हुए",
+      "description": "AVR Maestro को Home Assistant या Hubitat से लिंक करें और आपके सीन नेटिव स्क्रिप्ट बन जाते हैं जो आपके फ़ोन के बिना चलती हैं। वॉइस कंट्रोल, लाइव स्थिति और वेबहुक।",
+      "image": "https://avrmaestro.com/screenshots/home-assistant.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-automation/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "hi"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-automation/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "क्या वॉइस कंट्रोल के लिए मेरा फ़ोन चालू होना ज़रूरी है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "नहीं। AVR Maestro आपके सीन को Home Assistant की नेटिव स्क्रिप्ट में बदल देता है। Home Assistant आपके लोकल नेटवर्क पर सीधे रिसीवर से बात करता है, इसलिए आपका फ़ोन बंद हो, सोया हो या किसी दूसरे देश में हो, फ़र्क नहीं पड़ता।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "कौन से वॉइस असिस्टेंट मेरे रिसीवर को कंट्रोल कर सकते हैं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "जो भी आप पहले से इस्तेमाल करते हैं। AVR Maestro अपनी कोई वॉइस परत नहीं जोड़ता - वह Home Assistant या Hubitat पर स्क्रिप्ट प्रकाशित करता है, और आपका भरोसेमंद हब उन्हें Alexa, Google Assistant या Siri Shortcuts तक पहुँचा देता है।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या AI असिस्टेंट सशुल्क अनलॉक का हिस्सा है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "नहीं। ऑन-डिवाइस AI असिस्टेंट मुफ़्त है। होम ऑटोमेशन - Home Assistant, Hubitat और आउटबाउंड वेबहुक - AVR Maestro में इकलौता सशुल्क अनलॉक है।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या कुछ भी मेरे होम नेटवर्क से बाहर जाता है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "कंट्रोल के लिए नहीं। ऐप आपके रिसीवर और आपके हब से आपके अपने नेटवर्क पर बात करता है। कुछ भी MiyaraHub के किसी सर्वर से होकर नहीं गुज़रता। वेबहुक वहीं जाता है जहाँ आप उसे भेजना तय करें, और यह आपकी पसंद है।"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "होम",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "उपयोगकर्ता गाइड",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "होम ऑटोमेशन",
+      "item": "https://avrmaestro.com/guide/home-automation/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/hi/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="मेन्यू" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="गाइड में खोजें..." data-i18n-empty="कोई परिणाम नहीं मिला:" data-i18n-language="भाषा">
+      <a href="/hi/">होम</a>
+      <a href="/hi/guide/">उपयोगकर्ता गाइड</a>
+      <a href="/hi/receivers/">रिसीवर</a>
+      <a href="/hi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hi/best-denon-marantz-app/">बदलाव क्यों करें</a>
+      <a href="/hi/#top" class="cta">डाउनलोड करें</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/hi/">होम</a> &rsaquo; <a href="/hi/guide/">उपयोगकर्ता गाइड</a> &rsaquo; होम ऑटोमेशन</div>
+    <div class="eyebrow">Home Assistant &middot; Hubitat &middot; वेबहुक</div>
+    <h1>Home Assistant और Hubitat: आपके सीन, <span class="g">आपके फ़ोन के बिना</span> चलते हुए</h1>
+    <p>AVR Maestro को Home Assistant या Hubitat से लिंक करें और आपके बनाए हर सीन आपके हब पर एक नेटिव स्क्रिप्ट बन जाता है। उसके बाद हब आपके अपने नेटवर्क पर सीधे रिसीवर से बात करता है - इसलिए "Alexa, movie night" तब भी चलता है जब आपका फ़ोन बंद हो, सोया हो, या किसी दूसरे देश में हो।</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+      <figure><img alt="AVR Maestro का होम ऑटोमेशन हब, जिसमें Home Assistant, Hubitat और वेबहुक हैं" src="/screenshots/home-automation.png" width="1324" height="2644" decoding="async" /><figcaption>एक हब, बाहर निकलने के तीन रास्ते</figcaption></figure>
+      <figure><img alt="AVR Maestro, Home Assistant से लिंक है और रिसीवर entity अपने आप मिल गई है" src="/screenshots/home-assistant.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>लिंक हो गया, और आपकी रिसीवर entity आपके लिए ढूँढ ली गई</figcaption></figure>
+      <figure><img alt="ताले के साथ लॉक किया हुआ होम ऑटोमेशन और &quot;देखें इसमें क्या शामिल है&quot; बटन" src="/screenshots/home-automation-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>अनलॉक से पहले, यह बताता है कि इसमें क्या-क्या शामिल है</figcaption></figure>
+    </div>
+
+    <div class="section-head" style="margin-top:36px">
+      <h2>यह ऐप के बिना क्यों चलता है</h2>
+    </div>
+    <p class="lead">ज़्यादातर इंटीग्रेशन आपके फ़ोन को बिचौलिया बना देते हैं: फ़ोन कमांड सुनता है, फ़ोन उसे भेजता है, और ऑटोमेशन तभी चलता है जब फ़ोन जागा हुआ और नेटवर्क पर हो।</p>
+    <p class="lead">AVR Maestro ऐसा नहीं करता। वह आपके सीन को ऐसी स्क्रिप्ट में <b>कंपाइल</b> कर देता है जो आपके हब पर रहती हैं, और हब कमांड आपके रिसीवर के लोकल IP पर भेजता है। सिंक पूरा होते ही ऐप का काम ख़त्म हो जाता है।</p>
+    <ul class="plain">
+      <li><b>पहले लोकल:</b> कुछ भी MiyaraHub के किसी सर्वर से होकर नहीं गुज़रता। आपका हब और आपका रिसीवर आपस में बात करते हैं।</li>
+      <li><b>फ़ोन से स्वतंत्र:</b> सीन एक बार प्रकाशित हो जाए तो वह चलता रहता है, चाहे उसे बनाने वाले फ़ोन पर ऐप इंस्टॉल हो या नहीं।</li>
+      <li><b>आपका असिस्टेंट, हमारा नहीं:</b> Alexa, Google Assistant और Siri Shortcuts, सभी आपके भरोसेमंद हब के ज़रिए इन स्क्रिप्ट तक पहुँचते हैं। AVR Maestro अपनी कोई वॉइस परत नहीं जोड़ता।</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Home Assistant, शुरू से अंत तक</h2>
+    </div>
+    <ul class="plain">
+      <li><b>1. सबसे पहले अपना रिसीवर Home Assistant में जोड़ें।</b> सेटिंग्स &rsaquo; डिवाइस &amp; सेवाएं &rsaquo; इंटीग्रेशन जोड़ें &rsaquo; <b>Denon AVR</b> (या <b>HEOS</b>), फिर अपने रिसीवर का लोकल IP। Home Assistant उसके लिए एक मीडिया प्लेयर एंटिटी बना देता है।</li>
+      <li><b>2. AVR Maestro में Settings &rsaquo; होम ऑटोमेशन खोलें</b> और Home Assistant कार्ड पर टैप करें।</li>
+      <li><b>3. अपना Home Assistant पता दर्ज करें</b> - कोई लोकल पता जैसे <code>http://192.168.1.150:8123</code>, या आपका बाहरी Nabu Casa URL।</li>
+      <li><b>4. लॉग इन करें और अनुमति दें।</b> एक सुरक्षित इन-ऐप ब्राउज़र में Home Assistant का अपना लॉगिन खुलता है। आपके क्रेडेंशियल Home Assistant को जाते हैं, हमें कभी नहीं।</li>
+      <li><b>5. वह आपका रिसीवर अपने आप ढूँढ लेता है।</b> ऐप आपकी media player entity को स्कैन करता है, उन्हें मॉडल, नाम और सराउंड क्षमता पर आँकता है, और सही entity अपने आप भर देता है।</li>
+      <li><b>6. सिंक करें।</b> आपके सीन स्क्रिप्ट में बनकर अपलोड हो जाते हैं। उसके बाद सीन संपादित करने पर उसकी स्क्रिप्ट पृष्ठभूमि में अपने आप अपडेट हो जाती है - याद रखने के लिए कोई बटन नहीं है।</li>
+    </ul>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">सिंक होने के बाद</div>
+        <h2>ऐसा डैशबोर्ड बनाएँ जो देखने लायक हो</h2>
+        <p>Home Assistant के पास अब आपके रिसीवर से कराई जा सकने वाली हर चीज़ के लिए एक कंट्रोल है, और उन्हें कैसे सजाना है इस पर उसकी कोई राय नहीं है। <a href="/hi/guide/home-assistant-dashboard/">डैशबोर्ड का उदाहरण</a> एक सजावट है, पूरे YAML के साथ: सोर्स और सराउंड टाइलें जो चालू होने पर जलती हैं, असली dB में वॉल्यूम, आपके सीन अपने ही नाम पढ़ते हुए, और इस बात का ईमानदार नक्शा कि Home Assistant क्या देख सकता है और क्या नहीं।</p>
+      </div>
+      <img alt="AVR Maestro के सिंक किए गए कंट्रोल से बना Home Assistant डैशबोर्ड" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">सिर्फ़ सीन नहीं</div>
+        <h2>Speaker Presets, Dirac और Audyssey भी</h2>
+        <p><b>Sync Advanced Controls</b> चालू करें और ऐप आपके सीन से कहीं ज़्यादा के लिए स्क्रिप्ट प्रकाशित करता है: हर Speaker Preset, हर Dirac Live फ़िल्टर स्लॉट, हर Audyssey कर्व। Cinema 30 पर पूरे सिंक से सत्तर से ज़्यादा स्क्रिप्ट बन जाती हैं, इसलिए डैशबोर्ड का बटन या वॉइस कमांड, सीन याद दिलाने की तरह ही, Dirac फ़िल्टर लोड कर सकता है या रूम कर्व बदल सकता है।</p>
+      </div>
+      <img alt="AVR Maestro की Home Assistant स्क्रीन, जिसमें Sync Advanced Controls चालू है" src="/screenshots/ha-app-controls.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">यह पढ़ता भी है, सिर्फ़ लिखता नहीं</div>
+        <h2>Home Assistant देख सकता है कि क्या सक्रिय है</h2>
+        <p>स्क्रिप्ट चलाई जा सकती है पर पढ़ी नहीं जा सकती, इसलिए शुरुआती डैशबोर्ड Audyssey कर्व या Dirac स्लॉट बदल तो सकते थे, पर यह नहीं दिखा सकते थे कि कौन सा चालू था। ऐप के पास पहले से मौजूद रीडिंग - लाइव सराउंड मोड, सक्रिय Dirac फ़िल्टर, स्पीकर प्रीसेट, डिमर और दर्जनों अन्य - अब रिसीवर के स्टेटस सेंसर पर एट्रिब्यूट के रूप में प्रकाशित होती हैं, ताकि टाइल उसी सेटिंग के लिए जल सके जो सचमुच चल रही है।</p>
+      </div>
+      <img alt="AVR Maestro, Home Assistant पर Speaker Preset, Dirac Live और Audyssey कंट्रोल स्क्रिप्ट प्रकाशित कर रहा है" src="/screenshots/ha-sync-advanced.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">हर कमरा</div>
+        <h2>आपके बाकी ज़ोन, उसी डैशबोर्ड से</h2>
+        <p>Zone 2 और Zone 3 के पावर, वॉल्यूम और म्यूट अपनी अलग स्क्रिप्ट के रूप में प्रकाशित होते हैं, इसलिए आँगन या दूसरा कमरा डैशबोर्ड या वॉइस असिस्टेंट की बात वैसे ही मानता है जैसे मुख्य ज़ोन हमेशा से मानता आया है। बटन केवल उन्हीं ज़ोन के बनते हैं जिन्हें आपका रिसीवर सचमुच बताता है, इसलिए दो-ज़ोन वाले रिसीवर में Zone 3 कभी नहीं उगता।</p>
+      </div>
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">अगर आपने पुराने बिल्ड से सिंक किया था</div>
+        <h2>आपकी स्क्रिप्ट ID एक बार बदलती हैं</h2>
+        <p>स्क्रिप्ट का नाम पहले सीन <em>और</em> रिसीवर, दोनों पर रखा जाता था, इसलिए इनमें से किसी का भी नाम बदलने पर पुरानी स्क्रिप्ट पीछे रह जाती थी और चुपचाप एक दूसरी बन जाती थी। अब नाम सीन और रिसीवर के MAC पते पर रखे जाते हैं, और यही वजह है कि नाम बदलने पर वही स्क्रिप्ट अपडेट होती है, नई कॉपी नहीं बनती।</p>
+        <p>उस बदलाव के बाद पहला सिंक पुरानी स्क्रिप्ट की जगह नई स्क्रिप्ट रख देता है। <b>पुरानी ID पर आपने जो कुछ भी बनाया है, उसे एक बार दोबारा जोड़ना होगा</b> - डैशबोर्ड बटन, ऑटोमेशन, वॉइस अलायस। नई entity ID जानने के लिए Home Assistant में वह स्क्रिप्ट खोलें।</p>
+        <p>Entity अब रिसीवर से भी पढ़ी जाती हैं - मशीन पहचानकर्ता के बत्तीस अक्षरों की जगह <code>cinema30</code> - इसलिए सूची पढ़ने लायक है और ऑटोकम्प्लीट उन्हें ढूँढ लेता है। पिछले संस्करणों की ID काम करती रहती हैं।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Hubitat</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Hubitat उसके <b>Maker API</b> के ज़रिए समर्थित है, और ऐप में BETA चिह्नित है क्योंकि वह Home Assistant वाले रास्ते से नया है, इसलिए नहीं कि वह अधूरा है।</p>
+        <ul class="plain">
+          <li><b>Hub IP</b> - LAN पर आपके Hubitat का पता।</li>
+          <li><b>Maker API App ID</b> - Maker API ऐप के अपने URL में दी गई संख्या।</li>
+          <li><b>Access Token</b> - Maker API चालू करने पर वही जारी करता है।</li>
+        </ul>
+        <p class="lead">पहले हब पर Maker API चालू करें (Apps &rsaquo; Add Built-In App &rsaquo; Maker API) और वह आपको तीनों दे देता है। उन्हें पेस्ट करें और AVR Maestro आपका रिसीवर खोज लेता है, आपके सीन को कमांड सीक्वेंस के रूप में प्रकाशित करता है, और लाइव स्थिति वापस भेजता है ताकि Hubitat डैशबोर्ड वह दिखाए जो रिसीवर सचमुच कर रहा है, वह नहीं जो उसे आख़िरी बार कहा गया था।</p>
+      </div>
+      <img alt="Hubitat सेटअप स्क्रीन, जिसमें hub IP, Maker API App ID और access token हैं" src="/screenshots/hubitat.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>वेबहुक</h2>
+    </div>
+    <p class="lead">Home Assistant और Hubitat रिसीवर <em>को</em> कमांड भेजते हैं। वेबहुक उलटी दिशा में जाते हैं: जब रिसीवर कुछ करे, तो किसी और को उसकी ख़बर दें। रिसीवर चालू करें और AVR Maestro आपके चुने पते पर एक छोटा संदेश भेजता है - वही संदेश वेबहुक है।</p>
+
+    <div class="note"><b>यही एक हिस्सा है जो फ़ोन से स्वतंत्र नहीं है।</b> आपके सिंक किए सीन आपके हब पर स्क्रिप्ट बन जाते हैं और चलते रहते हैं, चाहे ऐप आसपास कहीं हो या नहीं। वेबहुक अलग हैं: रिसीवर पर नज़र रखने वाला AVR Maestro ही है, इसलिए ट्रिगर तब चलता है जब ऐप किसी ऐसे डिवाइस पर खुला हो जो उसे देख सके। अगर आप चाहते हैं कि कुछ भी न चल रहा हो तब भी कुछ हो, तो उसे अपने हब पर रिसीवर entity के आधार पर बनाएँ।</div>
+
+    <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px;margin-top:22px">
+      <figure><img alt="वेबहुक स्क्रीन, जिसमें समझाने वाला कार्ड है और अभी कोई ट्रिगर नहीं है" src="/screenshots/webhooks.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>जब तक आप कोई न जोड़ें, खाली</figcaption></figure>
+      <figure><img alt="Add Automation Trigger शीट: ट्रिगर इवेंट, उसे कहाँ भेजना है, और एक वेबहुक ID" src="/screenshots/webhook-trigger.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>एक इवेंट, एक गंतव्य, एक ID</figcaption></figure>
+    </div>
+
+    <h3 style="margin-top:34px">चार ट्रिगर</h3>
+    <table class="t" style="margin-top:14px">
+      <thead><tr><th>ट्रिगर इवेंट</th><th>कब चलता है</th><th>इसे सीमित किया जा सकता है</th></tr></thead>
+      <tbody>
+        <tr><td>रिसीवर पावर ON</td><td>रिसीवर स्टैंडबाय से बाहर आता है</td><td>-</td></tr>
+        <tr><td>रिसीवर पावर OFF</td><td>रिसीवर स्टैंडबाय में जाता है</td><td>-</td></tr>
+        <tr><td>सक्रिय इनपुट बदला गया</td><td>चुना गया सोर्स बदलता है</td><td>एक इनपुट, <em>Only trigger for input source</em> के अंतर्गत</td></tr>
+        <tr><td>सीन रिकॉल किया गया</td><td>कोई सीन लागू किया जाता है</td><td>एक सीन, <em>Select Scene</em> के अंतर्गत</td></tr>
+      </tbody>
+    </table>
+
+    <p class="lead" style="margin-top:22px">सीमित करने से ही ये काम के बनते हैं, शोर नहीं। हर इनपुट पर "सक्रिय इनपुट बदला गया" एक बौछार है; वही ट्रिगर उस एक इनपुट पर टिका दें जिस पर आपका प्रोजेक्टर लगा है, तो वह लाइट का स्विच बन जाता है।</p>
+    <p class="lead">इनपुट सूची वही है जो आपका अपना रिसीवर बताता है, इसलिए उसमें नाम बदले या छिपाए गए हर सोर्स की स्थिति पहले से दिखती है। सीन सूची आपके अपने सीन की है।</p>
+
+    <div class="section-head" style="margin-top:44px">
+      <h2>एक ट्रिगर सेट करना, चरण दर चरण</h2>
+    </div>
+    <p class="lead">यह Home Assistant वाला रास्ता है, जो ज़्यादातर लोग चाहते हैं। पहले Home Assistant वाला आधा हिस्सा करें - ऐप को इशारा करने के लिए कुछ चाहिए।</p>
+
+    <h3 style="margin-top:28px">Home Assistant में</h3>
+    <ul class="plain">
+      <li><b>1. Settings &rsaquo; Automations &amp; Scenes &rsaquo; Create Automation &rsaquo; Create new automation।</b></li>
+      <li><b>2. Add Trigger &rsaquo; Webhook।</b> Home Assistant आपके लिए एक लंबा रैंडम Webhook ID बना देता है।</li>
+      <li><b>3. उसे ऐसी चीज़ से बदलें जिसे आप पहचानें</b> - <code>avr-power-on</code>, <code>avr-movie-night</code>। कोई भी नाम चलेगा, बस आपके Home Assistant पर अनोखा हो। उसे लिख लें; वही नाम आप AVR Maestro में टाइप करेंगे।</li>
+      <li><b>4. वेबहुक की सेटिंग में <em>POST</em> की अनुमति दें।</b> AVR Maestro वही भेजता है। केवल-लोकल रखना ठीक है - ऐप आपके अपने नेटवर्क पर है।</li>
+      <li><b>5. जो भी इससे करवाना चाहते हैं, जोड़ें</b> - लाइटें धीमी करना, पर्दे बंद करना, कोई सीन शुरू करना - और ऑटोमेशन सेव करें।</li>
+    </ul>
+
+    <h3 style="margin-top:28px">AVR Maestro में</h3>
+    <ul class="plain">
+      <li><b>1. Settings &rsaquo; होम ऑटोमेशन &rsaquo; वेबहुक</b>, फिर <b>पहला ट्रिगर जोड़ें</b> - या एक बन जाने के बाद <b>+</b> बटन।</li>
+      <li><b>2. ट्रिगर इवेंट</b> - चुनें कि इसे क्या चालू करे। <em>सक्रिय इनपुट बदला गया</em> या <em>सीन रिकॉल किया गया</em> चुनने पर इसे सीमित करने के लिए दूसरा बॉक्स जुड़ जाता है।</li>
+      <li><b>3. इसे कहाँ भेजना है</b> - इसे <b>Home Assistant</b> पर ही रहने दें। पता पहले से ज्ञात है, क्योंकि आपने इसी स्क्रीन पर पहले उसे लिंक किया था।</li>
+      <li><b>4. Webhook ID</b> - वही ID टाइप करें जो आपने Home Assistant में इस्तेमाल की थी। और कुछ मेल खाने की ज़रूरत नहीं है। नीचे ऐप वह सटीक पता लिख देता है जिस पर वह भेजेगा - <code>Sends to http://your-ha:8123/api/webhook/avr-power-on</code> - ताकि आप सेव करने से पहले उसे जाँच सकें।</li>
+      <li><b>5. सेव करें।</b> फिर सूची में ट्रिगर पर <b>Test</b> दबाएँ। आपका Home Assistant ऑटोमेशन तुरंत चलना चाहिए।</li>
+    </ul>
+
+    <div class="note" style="margin-top:24px"><b>Home Assistant वाले रास्ते के लिए आपको कभी URL टाइप नहीं करना पड़ता।</b> ऐप उसे आपके लिंक किए Home Assistant से बनाता है, और वह पता <em>हर बार ट्रिगर चलने पर</em> दोबारा देखता है। Home Assistant को नए पोर्ट, नए होस्टनेम या Nabu Casa पते पर ले जाएँ, और आपके बनाए हर वेबहुक उसके पीछे चल पड़ते हैं। दोबारा सिंक करने को कुछ नहीं और दबाने को कोई बटन नहीं।</div>
+
+    <div class="note">अगर शीट में <b>Home Assistant is not linked yet</b> लिखा है, तो पहले इसी पेज के ऊपर वाला Home Assistant कार्ड पूरा करें। वेबहुक वाले रास्ते को बनाने के लिए एक पता चाहिए।</div>
+
+    <h3 style="margin-top:34px">Home Assistant के अलावा कहीं और भेजना</h3>
+    <p class="lead"><b>Where to send it</b> को <b>Other</b> पर बदलें और <b>Webhook URL</b> में पूरा URL पेस्ट करें। POST स्वीकार करने वाली कोई भी चीज़ चलेगी - Node-RED फ़्लो, IFTTT एप्लेट, NAS पर कोई स्क्रिप्ट, Hubitat Maker API एंडपॉइंट। वह रास्ता पता ठीक वैसा ही रखता है जैसा आपने टाइप किया, इसलिए गंतव्य बदले तो ट्रिगर आपको खुद संपादित करना होगा।</p>
+
+    <div class="section-head" style="margin-top:44px">
+      <h2>असल में क्या भेजा जाता है</h2>
+    </div>
+    <p class="lead">एक छोटा JSON बॉडी। उसी स्क्रीन पर <b>What it sends</b> कार्ड आपके चुने ट्रिगर के लिए उसे सरल भाषा में बता देता है, इसलिए अंदाज़ा लगाने की ज़रूरत नहीं - और आपका ऑटोमेशन जो फ़ील्ड नाम पढ़ता है वे ये हैं:</p>
+    <table class="t" style="margin-top:14px">
+      <thead><tr><th>ट्रिगर</th><th>संदेश में फ़ील्ड</th></tr></thead>
+      <tbody>
+        <tr><td>रिसीवर पावर ON / OFF</td><td><code>event</code>, <code>timestamp</code></td></tr>
+        <tr><td>सक्रिय इनपुट बदला गया</td><td>...साथ में <code>source</code></td></tr>
+        <tr><td>सीन रिकॉल किया गया</td><td>...साथ में <code>sceneId</code> और <code>sceneName</code></td></tr>
+      </tbody>
+    </table>
+    <p class="lead" style="margin-top:20px">Home Assistant ऑटोमेशन में ये <code>{{ trigger.json.event }}</code>, <code>{{ trigger.json.source }}</code> और इसी तरह आते हैं। आप उन्हें पढ़ सकते हैं, या पूरी तरह अनदेखा करके सिर्फ़ इस बात पर काम कर सकते हैं कि ट्रिगर चला। ज़्यादातर लोग दूसरा करते हैं।</p>
+    <p class="lead">अगर आपको कोई अलग रूप चाहिए - ऐसी सेवा जो अपना फ़ॉर्मैट माँगती है - तो उस कार्ड के नीचे <b>Send my own JSON instead</b> खोलें और वहीं लिखें। यह मुड़ा हुआ रखा है और Advanced चिह्नित है क्योंकि लगभग किसी को इसकी ज़रूरत नहीं पड़ती, इसलिए नहीं कि इसे हतोत्साहित किया जाता है।</p>
+
+    <div class="note">स्क्रीन का नाम <b>वेबहुक</b> इसलिए है क्योंकि वे यही हैं। अगर आप उन ऑटोमेशन को ढूँढ रहे हैं जो आपके हब <em>पर</em> चलते हैं, तो वे ऊपर के Home Assistant और Hubitat कार्ड हैं - सिंक किया गया सीन वहाँ स्क्रिप्ट बनता है, यहाँ वेबहुक नहीं।</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>जब वेबहुक नहीं पहुँचता</h2>
+    </div>
+    <p class="lead">जाँचने लायक क्रम में, क्योंकि पहले दो लगभग हमेशा वजह होते हैं:</p>
+    <ul class="plain">
+      <li><b>पहले Test दबाएँ।</b> वह वही संदेश, उसी पते पर भेजता है जो असली ट्रिगर भेजता है, और बताता है कि तीन में से क्या हुआ: पहुँचा, नहीं पहुँचा, या छोड़ दिया गया क्योंकि ट्रिगर का अपना स्विच बंद है। अगर Test पहुँचता है और असली इवेंट नहीं, तो समस्या ट्रिगर में है - अक्सर <em>सक्रिय इनपुट बदला गया</em> ऐसे इनपुट पर सीमित है जिस पर आप असल में स्विच नहीं कर रहे।</li>
+      <li><b>जाँचें कि ID ठीक-ठीक मेल खाती है।</b> Home Assistant के वेबहुक ID में अक्षरों का बड़ा-छोटा होना मायने रखता है और अनचाहा खाली स्थान भी नहीं चलता। ऐप फ़ील्ड के नीचे वह पूरा पता छापता है जिस पर वह भेजेगा - उसे अपने ऑटोमेशन वाले पते से मिलाएँ।</li>
+      <li><b>जाँचें कि ऑटोमेशन POST की अनुमति देता है।</b> जो Home Assistant वेबहुक ट्रिगर केवल GET की अनुमति देता है, वह AVR Maestro जो भेजता है उसे चुपचाप अनदेखा कर देता है।</li>
+      <li><b>जाँचें कि ट्रिगर का स्विच चालू है।</b> सूची में हर ट्रिगर का अपना टॉगल है, और बंद ट्रिगर को विफल नहीं, छोड़ा हुआ माना जाता है।</li>
+      <li><b>ट्रिगर एक रिसीवर के होते हैं।</b> आप जो सूची देख रहे हैं वह उस रिसीवर की है जो अभी चुना हुआ है। दूसरे रिसीवर की अपनी सूची है, इसलिए यहाँ बनाया नियम किसी दूसरे कमरे के लिए नहीं चलता।</li>
+      <li><b>ऐप का देखते रहना ज़रूरी है।</b> रिसीवर में बदलाव AVR Maestro ही भाँपता है, इसलिए जेब में रखे फ़ोन पर ऐप बंद हो तो कुछ नहीं चलता। यह इस सेक्शन की शुरुआत में बताया गया समझौता है, कोई खराबी नहीं।</li>
+      <li><b>वेबहुक होम ऑटोमेशन का हिस्सा हैं।</b> उस अनलॉक के बिना ट्रिगर दिखते तो हैं पर कुछ भेजा नहीं जाता, और Test यह बात साफ़ कह देता है, काम करने का दिखावा नहीं करता।</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">क्या सशुल्क है और क्या नहीं</div>
+        <h2>होम ऑटोमेशन ही एक अनलॉक है। AI असिस्टेंट मुफ़्त है।</h2>
+        <p><b>होम ऑटोमेशन (Pro)</b> - Home Assistant, Hubitat और आउटबाउंड वेबहुक - एक बार का अनलॉक है। AVR Maestro में बाकी सब कुछ, ऑन-डिवाइस AI असिस्टेंट समेत, ऐप में शामिल है।</p>
+        <p>वॉइस कंट्रोल आपके रिसीवर तक होम ऑटोमेशन <em>के ज़रिए</em> पहुँचता है, आपके हब के रास्ते। AVR Maestro अपनी वॉइस पहचान नहीं चलाता।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">आम सवाल</div>
+      <h2>होम ऑटोमेशन, सवाल-जवाब</h2>
+    </div>
+    <details open><summary>क्या वॉइस कंट्रोल के लिए मेरा फ़ोन चालू होना ज़रूरी है?</summary><div class="body">नहीं। AVR Maestro आपके सीन को Home Assistant की नेटिव स्क्रिप्ट में बदल देता है। Home Assistant आपके लोकल नेटवर्क पर सीधे रिसीवर से बात करता है, इसलिए आपका फ़ोन बंद हो, सोया हो या किसी दूसरे देश में हो, फ़र्क नहीं पड़ता।</div></details>
+    <details><summary>कौन से वॉइस असिस्टेंट मेरे रिसीवर को कंट्रोल कर सकते हैं?</summary><div class="body">जो भी आप पहले से इस्तेमाल करते हैं। AVR Maestro अपनी कोई वॉइस परत नहीं जोड़ता - वह Home Assistant या Hubitat पर स्क्रिप्ट प्रकाशित करता है, और आपका भरोसेमंद हब उन्हें Alexa, Google Assistant या Siri Shortcuts तक पहुँचा देता है।</div></details>
+    <details><summary>क्या AI असिस्टेंट सशुल्क अनलॉक का हिस्सा है?</summary><div class="body">नहीं। ऑन-डिवाइस AI असिस्टेंट मुफ़्त है। होम ऑटोमेशन - Home Assistant, Hubitat और आउटबाउंड वेबहुक - AVR Maestro में इकलौता सशुल्क अनलॉक है।</div></details>
+    <details><summary>क्या कुछ भी मेरे होम नेटवर्क से बाहर जाता है?</summary><div class="body">कंट्रोल के लिए नहीं। ऐप आपके रिसीवर और आपके हब से आपके अपने नेटवर्क पर बात करता है। कुछ भी MiyaraHub के किसी सर्वर से होकर नहीं गुज़रता। वेबहुक वहीं जाता है जहाँ आप उसे भेजना तय करें, और यह आपकी पसंद है।</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">गाइड के और हिस्से</div>
+      <h2>AVR Maestro की अन्य गाइड</h2>
+    </div>
+    <p class="lead"><a href="/hi/guide/getting-started/">शुरुआत करें</a> &middot; <a href="/hi/guide/home/">होम स्क्रीन</a> &middot; <a href="/hi/guide/scenes/">सीन</a> &middot; <a href="/hi/guide/custom-icons/">कस्टम आइकन</a> &middot; <a href="/hi/guide/sound/">ध्वनि</a> &middot; <a href="/hi/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/hi/guide/speakers/">स्पीकर</a> &middot; <a href="/hi/guide/locked-controls/">कंट्रोल लॉक क्यों है</a> &middot; <a href="/hi/guide/assistant/">असिस्टेंट</a> &middot; <a href="/hi/guide/home-assistant-dashboard/">Home Assistant डैशबोर्ड</a> &middot; <a href="/hi/guide/multi-zone/">ज़ोन</a> &middot; <a href="/hi/guide/remote/">रिमोट</a> &middot; <a href="/hi/guide/radio/">रेडियो (FM/AM)</a> &middot; <a href="/hi/guide/on-screen-display/">ऑन-स्क्रीन डिस्प्ले</a> &middot; <a href="/hi/guide/settings/">सेटिंग्स</a> &middot; <a href="/hi/guide/languages/">भाषाएं</a> &middot; <a href="/hi/guide/volume/">वॉल्यूम नियंत्रण</a> &middot; <a href="/hi/guide/backup/">बैकअप &amp; रिस्टोर</a> &middot; <a href="/hi/guide/now-playing/">अभी बज रहा है &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>आपके सीन, आपके फ़ोन के बिना चलते हुए</h2>
+    <p class="lead" style="margin:0 auto 24px">होम ऑटोमेशन एक बार का अनलॉक है। ऐप में बाकी सब कुछ, AI असिस्टेंट समेत, शामिल है।</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Google Play पर पाएँ" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="App Store से डाउनलोड करें" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Mac App Store से डाउनलोड करें" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Microsoft Store पर पाएँ" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/hi/guide/">पूरी यूज़र गाइड पर वापस जाएँ &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/hi/">होम</a>
+      <a href="/hi/guide/">उपयोगकर्ता गाइड</a>
+      <a href="/hi/guide/getting-started/">शुरुआत करें</a>
+      <a href="/hi/receivers/">रिसीवर</a>
+      <a href="/hi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hi/audyssey-vs-dirac/">Audyssey बनाम Dirac</a>
+      <a href="/hi/best-denon-marantz-app/">बदलाव क्यों करें</a>
+      <a href="/hi/help/">सहायता</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro, MiyaraHub Technologies LLC का एक स्वतंत्र ऐप है और Denon, Marantz, D&amp;M Holdings, Sound United या इस पेज पर नामित किसी भी अन्य कंपनी से संबद्ध, उनके द्वारा समर्थित या प्रायोजित नहीं है। Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant और Siri अपने-अपने स्वामियों के ट्रेडमार्क हैं, जिनका यहाँ केवल पहचान के लिए उपयोग किया गया है।</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

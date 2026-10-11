@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>適用於 Denon &amp; Marantz 的 Home Assistant 儀表板 - AVR Maestro</title>
+<meta name="description" content="為您的 Denon 或 Marantz 接收器建立 Home Assistant 儀表板：HACS 卡片、實體 ID、每張卡片的 YAML、真實的 dB 音量、情境與歷史記錄。" />
+<meta name="keywords" content="Home Assistant Denon dashboard, Marantz Home Assistant card, mushroom card AV receiver, Home Assistant receiver volume dB, denonavr dashboard, AVR Maestro Home Assistant example" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/zh-hant/guide/home-assistant-dashboard/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-assistant-dashboard/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:title" content="適用於 Denon &amp; Marantz 的 Home Assistant 儀表板 - AVR Maestro" />
+<meta property="og:description" content="為您的 Denon 或 Marantz 接收器建立 Home Assistant 儀表板：HACS 卡片、實體 ID、每張卡片的 YAML、真實的 dB 音量、情境與歷史記錄。" />
+<meta property="og:url" content="https://avrmaestro.com/zh-hant/guide/home-assistant-dashboard/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="適用於 Denon &amp; Marantz 的 Home Assistant 儀表板 - AVR Maestro" />
+<meta name="twitter:description" content="為您的 Denon 或 Marantz 接收器建立 Home Assistant 儀表板：HACS 卡片、實體 ID、每張卡片的 YAML、真實的 dB 音量、情境與歷史記錄。" />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro 是一款獨立開發的應用程式，可透過區域網路控制 Denon 與 Marantz AV 接收器。",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "zh-Hant"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
+      "headline": "大約一小時就能建好這個 Home Assistant 儀表板",
+      "description": "為您的 Denon 或 Marantz 接收器建立 Home Assistant 儀表板：HACS 卡片、實體 ID、每張卡片的 YAML、真實的 dB 音量、情境與歷史記錄。",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "datePublished": "2026-08-23",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-assistant-dashboard/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "zh-Hant"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "要建立這個儀表板，需要 HACS 的自訂卡片嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "要讓它運作並不需要。本頁的每個控制項都是以一般的 Home Assistant 按鈕卡片執行。Mushroom、button-card、card-mod 與 apexcharts-card 則是讓它呈現出截圖中樣貌的關鍵，下方每個段落都會說明用到哪一個，以及少了它會失去什麼。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "為什麼有些按鈕會亮起，有些不會？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "當 Home Assistant 能從您的接收器讀取到對應的狀態時，按鈕就會亮起。訊源、環繞模式、音量與靜音都來自接收器自己的媒體播放器實體，因此這些會亮起。Audyssey 曲線、Dirac 記憶位、調光、eco 模式與喇叭預設並不會由 Denon 整合發布，所以 Home Assistant 無從得知目前使用哪一個，這些按鈕在您點選之前都會保持不亮。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "我可以顯示真實的 dB 音量，而不是百分比嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。Home Assistant 會將 volume_level 以接收器主音量除以 100 的方式發布，而在 Denon 與 Marantz 接收器上，MV 80 就是 0 dB 的基準。因此 dB 等於 volume_level 乘以 100 再減 80。volume_level 為 0.67 代表主音量 67，也就是 -13.0 dB。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "我的實體 ID 會和本指南中的一樣嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "格式會一樣，中間的部分則不會。AVR Maestro 以接收器的 MAC 位址為腳本命名，這樣重新命名時會更新同一個腳本，而不會產生分支。您的 ID 會是 script.avr_maestro_ 加上您自己的十二個字元，再接上控制項名稱。請在 Home Assistant 中開啟「開發者工具」再進入「狀態」，並以 avr_maestro 篩選，即可看到您自己的清單。"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首頁",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "使用指南",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "居家自動化",
+      "item": "https://avrmaestro.com/guide/home-automation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "儀表板",
+      "item": "https://avrmaestro.com/guide/home-assistant-dashboard/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/zh-hant/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="選單" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="搜尋指南..." data-i18n-empty="找不到符合的結果：" data-i18n-language="語言">
+      <a href="/zh-hant/">首頁</a>
+      <a href="/zh-hant/guide/">使用指南</a>
+      <a href="/zh-hant/receivers/">接收器</a>
+      <a href="/zh-hant/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/zh-hant/best-denon-marantz-app/">為什麼要換</a>
+      <a href="/zh-hant/#top" class="cta">下載</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/zh-hant/">首頁</a> &rsaquo; <a href="/zh-hant/guide/">使用指南</a> &rsaquo; <a href="/zh-hant/guide/home-automation/">居家自動化</a> &rsaquo; 儀表板</div>
+    <div class="eyebrow">Home Assistant &middot; 逐步教學</div>
+    <h1><span class="g">約一小時</span>打造這個 Home Assistant 儀表板</h1>
+    <p>十個步驟、每張卡片的 YAML，以及可一次貼上的完整檢視。在真實的 Marantz CINEMA 30 上打造並拍攝。只要改兩個字串，就是您專屬的儀表板。</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <figure class="hero-shot">
+      <img alt="完成的儀表板：播放中主視覺、附 dB 預設值的音量、訊源格狀選單、環繞模式、房間校正、情境與音量圖表" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <figcaption>您將打造的內容</figcaption>
+    </figure>
+    <div class="note"><b>趕時間嗎？</b>直接跳到<a href="#whole">步驟 10</a>，下載完整檢視，改兩個字串後貼上即可。中間的步驟會說明每個部分的作用，方便您自行修改。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>開始之前</h2>
+    </div>
+    <ul class="plain">
+      <li><b>AVR Maestro 已與 Home Assistant 連結並完成同步。</b><a href="/zh-hant/guide/home-automation/">設定指南</a>中有詳細說明。在其上建立任何內容之前，您應該已能在 Home Assistant 中看到您的各項控制。</li>
+      <li><b>您的接收器已新增至 Home Assistant。</b>設定 &rsaquo; 裝置 &amp; 服務 &rsaquo; 新增整合 &rsaquo; <b>Denon AVR</b>，然後輸入其本機 IP。儀表板的即時狀態就是由此而來。</li>
+      <li><b>打造期間請保持接收器開機。</b>接下來要寫的內容有一半會讀取即時數值，而待機中的接收器幾乎不會發布任何資料。</li>
+    </ul>
+    <p class="lead">這個儀表板由兩個來源提供資料，下面每個步驟都會用到兩者的差異。</p>
+    <table class="t">
+      <thead><tr><th>來源</th><th>提供</th></tr></thead>
+      <tbody>
+        <tr><td>AVR Maestro 同步的腳本</td><td>所有<b>控制項</b>。輸入、環繞模式、Audyssey、Dirac、Smart Select、預設值、亮度、ECO 模式，以及您的情境。</td></tr>
+        <tr><td>Denon AVR 整合的媒體播放器實體</td><td>即時<b>狀態</b>。電源、已選訊源、環繞模式、音量、靜音。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">步驟 1</div>
+      <h2>從 HACS 安裝四張卡片</h2>
+    </div>
+    <p class="lead">這四張都在 HACS 預設商店中。在 Home Assistant 中：<b>HACS &rsaquo; 前端 &rsaquo; 探索 &amp; 下載儲存庫</b>，搜尋名稱、按下載，然後重新載入瀏覽器。</p>
+    <table class="t">
+      <thead><tr><th>搜尋</th><th>用途</th><th>略過的話</th></tr></thead>
+      <tbody>
+        <tr><td><b>Mushroom</b></td><td>所有控制磚，以及音量滑桿</td><td>改用一般的 <code>button</code> 卡片。可以運作，只是外觀較方正。</td></tr>
+        <tr><td><b>button-card</b></td><td>附即時標籤的區段標題</td><td>改用 <code>markdown</code> 卡片，或一般標題。</td></tr>
+        <tr><td><b>card-mod</b></td><td>配色，以及使用中控制磚的亮起狀態</td><td>一切照常運作，只是不會有任何亮起效果。</td></tr>
+        <tr><td><b>apexcharts-card</b></td><td>歷史圖表</td><td>改用內建的 <code>history-graph</code> 卡片。</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><b>這四個都不是必要的。</b>下方每個控制項都能用原生的 Home Assistant 按鈕卡片指向同一個腳本來運作。自訂卡片只是化妝，不是水電管線。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">步驟 2</div>
+      <h2>找出您的兩個實體 ID</h2>
+    </div>
+    <p class="lead">本頁的每段程式碼都會用到兩個預留位置。只要找出一次，其餘都是複製貼上。</p>
+    <ul class="plain">
+      <li><b><code>media_player.your_receiver</code></b> &rarr; 設定 &rsaquo; 裝置 &amp; 服務 &rsaquo; 您的接收器 &rsaquo; 媒體播放器實體。名稱大致像 <code>media_player.marantz_cinema_30</code>。</li>
+      <li><b><code>script.avr_maestro_MAC_...</code></b> &rarr; 開發者工具 &rsaquo; 狀態，並在實體篩選欄輸入 <code>avr_maestro</code>。您的完整控制清單就會出現。</li>
+    </ul>
+    <p class="lead">每個腳本 ID 的中間部分都是您接收器的 MAC 位址，十二個小寫字元，且每個都相同。複製一次就好。本頁寫著 <code>MAC</code> 的地方，都換成您自己的。</p>
+    <div class="note"><b>請忽略任何寫著 <code>unavailable</code> 的項目。</b>舊版本是以接收器名稱而非 MAC 位址為腳本命名。如果您當時同步過，這些舊腳本仍會列出，但已失效。有效的是以 MAC 命名的那些。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">步驟 3</div>
+      <h2>建立檢視</h2>
+    </div>
+    <ol class="plain">
+      <li><b>1.</b> 設定 &rsaquo; 儀表板 &rsaquo; 新增儀表板 &rsaquo; 從頭開始建立新儀表板。名稱隨您喜歡。</li>
+      <li><b>2.</b> 開啟儀表板，再點右上角的鉛筆圖示進入編輯。</li>
+      <li><b>3.</b> 新增檢視，並選擇<b>區段</b>版面。不要選 Masonry。區段版面才能在手機上正確重新排列。</li>
+      <li><b>4.</b> 在檢視設定中，將<b>最大欄數</b>設為 3，並開啟<b>密集區段排列</b>。</li>
+    </ol>
+    <p class="lead">從這裡開始，每個步驟都是：新增區段，然後把卡片貼進去。要貼上 YAML，請使用卡片的三點選單並選擇<b>以 YAML 編輯</b>，或使用儀表板的三點選單開啟<b>原始設定編輯器</b>，一次貼上整份內容。</p>
+<pre class="code"><span class="c"># The view's own settings, if you prefer to type them</span>
+type: sections
+title: AVR Maestro
+icon: mdi:audio-video
+max_columns: 3
+dense_section_placement: true</pre>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">步驟 4</div>
+      <h2>新增一個控制項</h2>
+    </div>
+    <p class="lead">先從版面上最簡單的東西開始，這樣在打造複雜內容之前，就能確認您的實體 ID 是否正確。新增區段、新增卡片、以 YAML 編輯，然後貼上：</p>
+<pre class="code">type: button
+name: Pure Direct
+icon: mdi:speaker
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_mode_pure_direct</pre>
+    <p class="capt">原生 Home Assistant，不需要 HACS。</p>
+    <p class="lead">點一下它。如果接收器有反應，代表您的 ID 正確，下面的一切都能運作。如果沒有反應，請回到步驟 2。</p>
+  </div>
+</section>
+
+<section id="highlight">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">步驟 5</div>
+      <h2>讓它在成為使用中項目時亮起</h2>
+    </div>
+    <p class="lead">這是值得學會的模式，板面上每個訊源與環繞磚都是它的複本。卡片會送出腳本，並依據接收器實體為自己上色，因此您目前實際使用的輸入會亮起，其他的則不會。</p>
+    <figure><img alt="訊源格狀選單，Nvidia Shield 以橘色亮起，其餘十二個輸入為暗色" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>一個亮起，十二個暗著</figcaption></figure>
+<pre class="code">type: custom:mushroom-template-card
+entity: script.avr_maestro_MAC_input_cd
+icon: mdi:disc
+primary: CD
+icon_color: >-
+  {{ 'orange' if (state_attr('media_player.your_receiver','source') or '')|lower
+     == 'cd' else 'grey' }}
+layout: vertical
+fill_container: true
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_input_cd
+card_mod:
+  style: |
+    ha-card {
+      border-radius: 14px;
+    {% if (state_attr('media_player.your_receiver','source') or '')|lower == 'cd' %}
+      background: linear-gradient(160deg, rgba(226,86,10,0.34), rgba(15,15,17,0.88));
+      border: 1px solid rgba(255,122,24,0.80);
+    {% else %}
+      background: rgba(15,15,17,0.72);
+      border: 1px solid rgba(255,122,24,0.14);
+    {% endif %}
+    }</pre>
+    <p class="capt">每個輸入只需改三樣東西：腳本、圖示，以及用來比對的字串。</p>
+    <p class="lead">有兩件事要做對，否則控制磚永遠不會亮起：</p>
+    <ul class="plain">
+      <li><b>請與接收器實際回報的內容比對。</b>開發者工具 &rsaquo; 狀態，找到您的媒體播放器實體，讀取 <code>source_list</code> 與 <code>sound_mode_list</code> 屬性。那些就是確切的字串。如上所示，請以小寫比對。</li>
+      <li><b>重新命名的輸入會回報新名稱。</b>在接收器上將 GAME1 改名為「Xbox」，它就會回報 <code>Xbox</code>，而 AVR Maestro 的控制項仍叫 <code>input_game1</code>。請依接收器回報的內容比對，而不是腳本名稱。</li>
+    </ul>
+    <p class="lead">環繞模式使用同一張卡片，只要把 <code>source</code> 換成 <code>sound_mode</code>。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">步驟 6</div>
+      <h2>為每個區段加上即時標題</h2>
+    </div>
+    <p class="lead">單純的標題只是浪費空間。把即時數值放在標題下方，「訊源」就會變成「訊源 / 目前為 Nvidia Shield」。</p>
+<pre class="code">type: custom:button-card
+name: Sources
+icon: mdi:video-input-hdmi
+color_type: label-card
+entity: media_player.your_receiver
+show_label: true
+label: >-
+  [[[ var v = states["media_player.your_receiver"].attributes.source;
+      return v ? ("Now on " + v) : "Receiver in standby"; ]]]
+tap_action:
+  action: none
+styles:
+  grid:
+    - grid-template-areas: '"i n" "i l"'
+    - grid-template-columns: min-content auto
+  name:
+    - font-size: 13px
+    - letter-spacing: 3px
+    - text-transform: uppercase
+    - justify-self: start
+  label:
+    - font-size: 11px
+    - justify-self: start</pre>
+    <p class="capt">兩行格狀排列能讓標籤顯示在標題下方，而不是旁邊。</p>
+    <p class="lead">在環繞標題中，將 <code>attributes.source</code> 換成 <code>attributes.sound_mode</code>，其餘依此類推。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">步驟 7</div>
+      <h2>以 dB 顯示音量</h2>
+    </div>
+    <p class="lead">Home Assistant 以小數回報音量，但沒人會把接收器調到「0.67」。一行運算就能解決，整個區段讀起來也會像一台真正的接收器。</p>
+    <figure><img alt="音量區段：一支滑桿、增大、減小、靜音，以及四個 dB 預設值" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>夜間、對白、電影與大聲，每個都標示其設定的 dB</figcaption></figure>
+    <div class="note"><b>轉換方式。</b>Home Assistant 將 <code>volume_level</code> 以主音量除以 100 的方式發布，而在 Denon 與 Marantz 接收器上，MV 80 就是 0 dB 的基準。因此 <b>dB = volume_level &times; 100 &minus; 80</b>。<code>volume_level</code> 為 0.67 代表主音量 67，也就是 &minus;13.0 dB。</div>
+<pre class="code"><span class="c"># The readout</span>
+type: custom:mushroom-template-card
+entity: media_player.your_receiver
+icon: mdi:volume-high
+primary: >-
+  {% set v = state_attr('media_player.your_receiver','volume_level') %}
+  {% if v is not none %}{{ (v * 100 - 80) | round(1) }} dB{% else %}Standby{% endif %}
+secondary: Master volume
+layout: vertical</pre>
+<pre class="code"><span class="c"># The slider. media_controls must be empty or the bar becomes a power button</span>
+type: custom:mushroom-media-player-card
+entity: media_player.your_receiver
+volume_controls:
+  - volume_set
+media_controls: []
+show_volume_level: true</pre>
+<pre class="code"><span class="c"># A preset. 0.50 is master volume 50, which is -30 dB</span>
+type: custom:mushroom-template-card
+entity: media_player.your_receiver
+icon: mdi:weather-night
+primary: Night
+secondary: "-30 dB"
+tap_action:
+  action: perform-action
+  perform_action: media_player.volume_set
+  target:
+    entity_id: media_player.your_receiver
+  data:
+    volume_level: 0.50</pre>
+    <div class="note"><b>請審慎選擇最大聲的預設值。</b>上面這組止於 &minus;10 dB。儀表板比遙控器更容易誤觸，而大型接收器上的參考音量真的非常大聲。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">步驟 8</div>
+      <h2>加入您的情境</h2>
+    </div>
+    <p class="lead">直接從腳本讀取名稱，而不是手動輸入，這樣在 AVR Maestro 中重新命名情境時，控制磚也會跟著改名，不必編輯儀表板。</p>
+    <figure><img alt="四個情境磚，每個都列出該情境所還原的設定" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>每個磚都會說明其情境實際還原的內容</figcaption></figure>
+<pre class="code">type: custom:mushroom-template-card
+entity: script.avr_maestro_MAC_scene_1234567890123
+icon: mdi:theater
+primary: >-
+  {{ state_attr('script.avr_maestro_MAC_scene_1234567890123','friendly_name')
+     | replace('AVR Maestro - ', '') | replace(' (Your Receiver)', '') }}
+secondary: >-
+  {% set t = states.script['avr_maestro_MAC_scene_1234567890123'].attributes.last_triggered %}
+  {{ 'recalled ' ~ relative_time(t) ~ ' ago' if t else 'not run yet' }}
+multiline_secondary: true
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_scene_1234567890123</pre>
+    <p class="capt">兩個 replace() 呼叫會從好記名稱中去除前綴與接收器名稱。</p>
+    <p class="lead">多花一分鐘加上第二行是值得的。一整面名稱華麗的按鈕，在晚上11點什麼也告訴不了您；而一行說明各按鈕還原內容的文字，能讓您知道該按哪一個。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">步驟 9</div>
+      <h2>加入歷史記錄</h2>
+    </div>
+    <p class="lead">Home Assistant 會像記錄其他實體一樣記錄接收器的媒體播放器實體，因此您可以免費取得收聽歷史。下面的一切都來自這個實體：不需要額外的感測器、輔助項目，也不用先設定任何東西。</p>
+    <figure><img alt="五張歷史圖表：電源與活動、以 dB 表示的主音量、每日音量、使用中的訊源，以及環繞模式" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>五張圖表、一個實體、七天</figcaption></figure>
+    <p class="lead">一般的狀態時間軸完全不需要自訂卡片，也是最值得擁有的一張：</p>
+<pre class="code">type: history-graph
+hours_to_show: 168
+entities:
+  - entity: media_player.your_receiver
+    name: Receiver</pre>
+    <p class="capt">一週內的開機、關機，以及它在做什麼。</p>
+    <p class="lead">以 dB 表示的音量使用與步驟 7 相同的轉換：</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+header:
+  show: true
+  title: Master volume, last 7 days
+series:
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Master volume
+    type: line
+    curve: smooth
+    unit: dB
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100 - 80;"
+    extend_to: now
+    group_by:
+      duration: 1h
+      func: last
+      fill: last
+apex_config:
+  chart:
+    height: 240
+  yaxis:
+    min: -60
+    max: 0</pre>
+    <p class="capt">group_by 搭配 fill: last 會把零散的事件變成連續的線。y 軸必須放在 apex_config 中才會生效。</p>
+    <p class="lead">每日平均值與峰值，能讓起伏不定的線條變得有形狀：</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+span:
+  end: day
+header:
+  show: true
+  title: Master volume by day in dB, average and peak
+series:
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Day average
+    type: column
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100;"
+    group_by: {duration: 1d, func: avg, fill: 'null'}
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Day peak
+    type: line
+    curve: smooth
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100;"
+    group_by: {duration: 1d, func: max, fill: 'null'}
+apex_config:
+  yaxis:
+    min: 0
+    max: 80
+    labels:
+      formatter: "EVAL:function (v) { return (v - 80).toFixed(0); }"
+  tooltip:
+    y:
+      formatter: "EVAL:function (v) { return v == null ? '' : (v - 80).toFixed(1) + ' dB'; }"</pre>
+    <p class="capt">同一個屬性產生兩個數列，依日分組。</p>
+    <div class="note"><b>為什麼這張圖是繪製 0 到 80，再格式化成 dB，而不是直接繪製 dB。</b>長條是從座標軸底部往上長。若直接繪製 dB，每根長條都會從 0 往下垂，長條越長反而代表越小聲，讀起來是反的。改為繪製原始的主音量數字，並在座標軸與提示框的格式化器中減去 80，長條就會向上成長，而讀者看到的一切仍是 dB。<code>fill: 'null'</code> 代表沒有讀數的那一天不會有長條，而不是沿用前一天的數值。</div>
+    <p class="lead">還有兩張用來回答「我到底都用什麼來看、用什麼格式」：訊源與環繞模式，以時間軸呈現當時選了哪一個。</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+span:
+  end: day
+header:
+  show: true
+  title: Source in use, last 7 days
+series:
+  - entity: media_player.your_receiver
+    attribute: source
+    name: Source
+    type: line
+    curve: stepline
+    stroke_width: 3
+    extend_to: now
+    float_precision: 0
+    transform: |
+      if (x == null) return null;
+      var m = ["Phono", "NET", "Xbox", "Nvidia Shield"];
+      var i = m.indexOf(x);
+      return i &lt; 0 ? 0 : i + 1;
+apex_config:
+  yaxis:
+    min: 0
+    max: 4
+    tickAmount: 4
+    labels:
+      formatter: >-
+        EVAL:function (v) { return ["Other", "Phono", "HEOS Net", "Xbox",
+        "Shield"][Math.round(v)] || ''; }
+  tooltip:
+    y:
+      formatter: >-
+        EVAL:function (v) { return v == null ? 'off' : ["Other", "Phono",
+        "HEOS Net", "Xbox", "Shield"][Math.round(v)] || 'Other'; }</pre>
+    <p class="capt">請把您自己的訊源放進 transform 陣列與兩個格式化器陣列。索引 0 請保留為「其他」。</p>
+    <p class="lead">圖表座標軸需要數字，所以 <code>transform</code> 會把每個訊源名稱對應到一個位置，格式化器再把它對應回來，用於標籤與提示框。請讓對應<b>完整</b>：<code>null</code>（接收器關機）會保持為空白，而不在您清單內的項目則歸入「其他」，因此兩者絕不會被混淆。同一張卡片搭配 <code>sound_mode</code> 就能得到環繞模式，字串請照接收器回報的方式使用大寫。</p>
+    <div class="note"><b>最後這兩張請保留 <code>stepline</code>。</b>訊源或環繞模式是類別，不是數字。若將曲線平滑化，線條會在 Shield 與 Xbox 之間穿過座標軸上夾在中間的任何項目，畫出一個從未被選過的輸入。音量是真實的量，平滑處理是合理的；類別則不是。</div>
+    <div class="note"><b>請先檢查您的 recorder 保留期限。</b>Home Assistant 預設保留十天，所以七天大概是您能合理要求的上限。若要回溯更久，您需要一個 <code>state_class: measurement</code> 範本感測器，Home Assistant 會將它以長期統計資料的形式保存多年。</div>
+    <div class="note"><b>缺少某一天通常是正常的。</b>Home Assistant 記錄的是變化，而不是取樣。讓接收器以同一個輸入、同一個音量放兩天，它就完全不會寫入任何東西，所以那一天沒有長條。這看起來像資料遺失，其實正好相反：什麼事都沒發生。</div>
+  </div>
+</section>
+
+<section id="whole">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">步驟 10</div>
+      <h2>或者直接整份帶走</h2>
+    </div>
+    <p class="lead">完整的檢視，包含每個區段與每張卡片，以預留位置取代實體 ID。</p>
+    <ol class="plain">
+      <li><b>1.</b> <a href="/zh-hant/guide/home-assistant-dashboard/avr-maestro-dashboard.yaml" download>下載檢視 YAML</a>。</li>
+      <li><b>2.</b> 用任何文字編輯器開啟，並將兩個字串在所有出現的地方替換：<code>YOUR_RECEIVER</code> 換成您媒體播放器實體的名稱，<code>YOURMAC</code> 換成步驟 2 中您接收器的十二個字元。</li>
+      <li><b>3.</b> 在 Home Assistant 中開啟您的儀表板，點鉛筆圖示、三點選單、<b>原始設定編輯器</b>，然後將其以檢視的形式貼上。</li>
+    </ol>
+    <div class="note"><b>您的情境 ID 不會相符。</b>情境腳本是以情境建立的時間命名，因此檔案中的那四個在您的系統上並不存在：這些卡片會顯示，但不會有任何作用。請將它們的實體 ID 換成您在步驟 2 找到的自己的 ID，或刪除情境區段，再依步驟 8 重新建立。</div>
+    <div class="note"><b>還有兩件事要預期。</b>訊源與環繞圖表帶有打造此範例所用接收器的訊源名稱，請依步驟 9 的說明編輯那些陣列。此外，磚上的標籤是英文，檔案中沒有任何內容經過翻譯。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>如果某個磚一直不亮</h2>
+    </div>
+    <p class="lead">在懷疑是自己做錯之前：有些磚本來就無法亮起，知道是哪些很有用。</p>
+    <p class="lead">磚只有在 Home Assistant 讀得到狀態時才能顯示，而它從兩個地方讀取您的接收器。Denon AVR 整合會在媒體播放器實體上發布基本資訊。其餘由 AVR Maestro 發布：它會建立一個<b>狀態橋接</b>感測器 <code>sensor.avr_maestro_your_receiver</code>，並把它已掌握的讀數以屬性的形式寫入其中。</p>
+    <table class="t">
+      <thead><tr><th>在媒體播放器實體上</th><th>在狀態橋接感測器上</th></tr></thead>
+      <tbody>
+        <tr><td>電源</td><td>Audyssey MultEQ 曲線</td></tr>
+        <tr><td>已選訊源</td><td>Dynamic Volume 與參考音量</td></tr>
+        <tr><td>環繞模式</td><td>目前載入的 Dirac 槽位</td></tr>
+        <tr><td>音量與靜音</td><td>前面板亮度、ECO 模式</td></tr>
+        <tr><td>Dynamic EQ，有時可用</td><td>喇叭預設、音調，以及其他數十項</td></tr>
+      </tbody>
+    </table>
+    <p class="lead">現在兩欄都能讀取。媒體播放器的值取自 <code>states['media_player.your_receiver'].attributes</code>，狀態橋接的值則使用 <code>state_attr('sensor.avr_maestro_your_receiver','dirac_slot')</code>，這樣磚就會為實際啟用中的設定亮起，而不是只會觸發改變它的腳本。</p>
+    <p class="lead">以打造此範例的接收器實測：媒體播放器實體提供約六十個控制項中的二十個，而狀態橋接感測器另外發布約四十個。兩者合計，儀表板幾乎能讀取它能更改的一切，這正是一面按鈕牆與一個控制介面之間的差別。</p>
+    <div class="note"><b>如果一個值可能有兩種意思，就要說清楚。</b>Dynamic EQ 的值可能是 <code>true</code>、<code>false</code>，或根本沒有。把「根本沒有」當成「關閉」，只會在您的牆上顯示一個信心滿滿的錯誤答案。</div>
+<pre class="code">icon_color: >-
+  {% set d = state_attr('media_player.your_receiver','dynamic_eq') %}
+  {{ 'orange' if d is true else 'grey' }}
+secondary: >-
+  {% set d = state_attr('media_player.your_receiver','dynamic_eq') %}
+  {% if d is none %}state not published{% elif d %}on{% else %}off{% endif %}</pre>
+    <p class="capt">三種狀態，而不是兩種。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>其他值得知道的事</h2>
+    </div>
+    <ul class="plain">
+      <li><b>磚的寬度只有您預期的三分之一。</b>在橫跨 3 欄的區段中，內部格線是 <b>36</b> 欄，而不是 12。若要一列四個磚，請設定 <code>grid_options: {columns: 9}</code>。一列六個則設為 6。</li>
+      <li><b>音量滑桿顯示的是電源按鈕，而不是長條。</b>那是 <code>media_controls</code> 裡面有 <code>on_off</code> 的緣故。請設定 <code>media_controls: []</code>。</li>
+      <li><b>標籤被截斷。</b>「Volume Down」變成「Volume Do...」。請縮短為「Vol Down」，或加寬磚的寬度。</li>
+      <li><b>情境說明被裁切。</b>請加入 <code>multiline_secondary: true</code>。</li>
+      <li><b>apexcharts 圖表中的水平線消失了。</b>那是 <code>experimental.color_threshold</code> 造成的。它以垂直漸層繪製線條，而完全水平的線段高度為零，無法在其上做漸層，所以會變成看不見。一段 43 小時、音量固定的連續使用就這樣完全消失了。請改用純色的 <code>color</code>。</li>
+      <li><b>它會在手機上自動重新排列。</b>區段檢視在窄螢幕上會堆疊成單欄，不需要任何額外設定。</li>
+    </ul>
+    <figure><img alt="同一個儀表板在手機寬度下，重新排列成單欄" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>同一個儀表板在手機寬度下：三欄變成一欄，而且完全不需要任何設定</figcaption></figure>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">常見問題</div>
+      <h2>儀表板常見問題</h2>
+    </div>
+    <details open><summary>要建立這個儀表板，需要 HACS 的自訂卡片嗎？</summary><div class="body">要讓它運作並不需要。本頁的每個控制項都是以一般的 Home Assistant 按鈕卡片執行。Mushroom、button-card、card-mod 與 apexcharts-card 則是讓它呈現出截圖中樣貌的關鍵，下方每個段落都會說明用到哪一個，以及少了它會失去什麼。</div></details>
+    <details><summary>為什麼有些按鈕會亮起，有些不會？</summary><div class="body">當 Home Assistant 能從您的接收器讀到對應的狀態時，按鈕就會亮起。訊源、環繞模式、音量與靜音都來自接收器自己的媒體播放器實體，因此這些會有亮起效果。Audyssey 曲線、Dirac 槽位、亮度、ECO 模式與喇叭預設並不會由 Denon 整合發布，所以 Home Assistant 無從得知哪一個正在使用，這些按鈕在您點按之前都會維持不亮。</div></details>
+    <details><summary>我可以顯示真實的 dB 音量，而不是百分比嗎？</summary><div class="body">可以。Home Assistant 會將 volume_level 以接收器主音量除以 100 的方式發布，而在 Denon 與 Marantz 接收器上，MV 80 就是 0 dB 的基準。因此 dB 等於 volume_level 乘以 100 再減 80。volume_level 為 0.67 代表主音量 67，也就是 -13.0 dB。</div></details>
+    <details><summary>我的實體 ID 會和本指南中的一樣嗎？</summary><div class="body">格式會一樣，中間的部分則不會。AVR Maestro 以接收器的 MAC 位址為腳本命名，這樣重新命名時會更新同一個腳本，而不會產生分支。您的 ID 會是 script.avr_maestro_ 加上您自己的十二個字元，再接上控制項名稱。請在 Home Assistant 中開啟「開發者工具」再進入「狀態」，並以 avr_maestro 篩選，即可看到您自己的清單。</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">指南的更多內容</div>
+      <h2>其他 AVR Maestro 指南</h2>
+    </div>
+    <p class="lead"><a href="/zh-hant/guide/getting-started/">開始使用</a> &middot; <a href="/zh-hant/guide/home/">主畫面</a> &middot; <a href="/zh-hant/guide/scenes/">場景</a> &middot; <a href="/zh-hant/guide/custom-icons/">自訂圖示</a> &middot; <a href="/zh-hant/guide/sound/">音效</a> &middot; <a href="/zh-hant/guide/graphic-eq/">圖形等化器</a> &middot; <a href="/zh-hant/guide/speakers/">喇叭</a> &middot; <a href="/zh-hant/guide/locked-controls/">控制項為何被鎖定</a> &middot; <a href="/zh-hant/guide/assistant/">助理</a> &middot; <a href="/zh-hant/guide/home-automation/">居家自動化</a> &middot; <a href="/zh-hant/guide/multi-zone/">分區</a> &middot; <a href="/zh-hant/guide/remote/">遙控器</a> &middot; <a href="/zh-hant/guide/radio/">廣播 (FM/AM)</a> &middot; <a href="/zh-hant/guide/on-screen-display/">螢幕顯示</a> &middot; <a href="/zh-hant/guide/settings/">設定</a> &middot; <a href="/zh-hant/guide/languages/">語言</a> &middot; <a href="/zh-hant/guide/volume/">音量控制項</a> &middot; <a href="/zh-hant/guide/backup/">備份 &amp; 還原</a> &middot; <a href="/zh-hant/guide/now-playing/">正在播放 &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>您的整台接收器，盡在一面牆上</h2>
+    <p class="lead" style="margin:0 auto 24px">居家自動化是 AVR Maestro 中唯一的付費解鎖項目。其他一切，包括裝置端 AI 助理，都已包含在內。</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="在 Google Play 取得" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="在 App Store 下載" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="在 Mac App Store 下載" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="在 Microsoft Store 取得" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/zh-hant/guide/home-automation/">返回居家自動化 &rarr;</a> &middot; <a href="/zh-hant/guide/">完整使用指南 &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/zh-hant/">首頁</a>
+      <a href="/zh-hant/guide/">使用指南</a>
+      <a href="/zh-hant/guide/getting-started/">入門指南</a>
+      <a href="/zh-hant/receivers/">接收器</a>
+      <a href="/zh-hant/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/zh-hant/audyssey-vs-dirac/">Audyssey 與 Dirac 比較</a>
+      <a href="/zh-hant/best-denon-marantz-app/">為什麼要換</a>
+      <a href="/zh-hant/help/">說明</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro 是 MiyaraHub Technologies LLC 開發的獨立應用程式，與 Denon、Marantz、D&amp;M Holdings、Sound United 或本頁提及的任何其他公司皆無隸屬、背書或贊助關係。Denon、Marantz、HEOS、Home Assistant、Mushroom、HACS、Audyssey 與 Nvidia Shield 為其各自擁有者的商標或專案，在此僅用於識別。</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

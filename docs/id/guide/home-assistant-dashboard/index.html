@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dasbor Home Assistant untuk Denon &amp; Marantz - AVR Maestro</title>
+<meta name="description" content="Bangun dasbor Home Assistant untuk receiver Denon atau Marantz Anda: kartu HACS, ID entitas, YAML untuk setiap kartu, volume dB sungguhan, Skenario, dan riwayat." />
+<meta name="keywords" content="Home Assistant Denon dashboard, Marantz Home Assistant card, mushroom card AV receiver, Home Assistant receiver volume dB, denonavr dashboard, AVR Maestro Home Assistant example" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/id/guide/home-assistant-dashboard/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-assistant-dashboard/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="id_ID" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Dasbor Home Assistant untuk Denon &amp; Marantz - AVR Maestro" />
+<meta property="og:description" content="Bangun dasbor Home Assistant untuk receiver Denon atau Marantz Anda: kartu HACS, ID entitas, YAML untuk setiap kartu, volume dB sungguhan, Skenario, dan riwayat." />
+<meta property="og:url" content="https://avrmaestro.com/id/guide/home-assistant-dashboard/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Dasbor Home Assistant untuk Denon &amp; Marantz - AVR Maestro" />
+<meta name="twitter:description" content="Bangun dasbor Home Assistant untuk receiver Denon atau Marantz Anda: kartu HACS, ID entitas, YAML untuk setiap kartu, volume dB sungguhan, Skenario, dan riwayat." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro adalah aplikasi independen untuk mengendalikan receiver AV Denon dan Marantz melalui jaringan lokal Anda.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "id"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
+      "headline": "Bangun dasbor Home Assistant ini dalam sekitar satu jam",
+      "description": "Bangun dasbor Home Assistant untuk receiver Denon atau Marantz Anda: kartu HACS, ID entitas, YAML untuk setiap kartu, volume dB sungguhan, Skenario, dan riwayat.",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "datePublished": "2026-08-23",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-assistant-dashboard/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "id"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Apakah saya perlu kartu kustom dari HACS untuk membangun ini?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tidak untuk membuatnya berfungsi. Setiap kontrol di halaman ini berjalan dari kartu tombol Home Assistant biasa. Mushroom, button-card, card-mod, dan apexcharts-card-lah yang membuatnya tampil seperti di tangkapan layar, dan setiap bagian di bawah menyebutkan mana yang dipakai serta apa yang hilang tanpanya."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mengapa sebagian tombol menyala dan yang lain tidak?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tombol menyala bila Home Assistant dapat membaca status yang sesuai dari receiver Anda. Sumber, mode surround, volume, dan bisu kembali dari entitas media player milik receiver itu sendiri, sehingga semuanya tersorot. Kurva Audyssey, slot Dirac, dimmer, mode eco, dan speaker preset tidak dipublikasikan oleh integrasi Denon, jadi Home Assistant tidak punya cara mengetahui mana yang aktif dan tombolnya tetap tidak menyala sampai Anda mengetuk salah satunya."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bisakah saya menampilkan volume dB yang sebenarnya, bukan persentase?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ya. Home Assistant menampilkan volume_level sebagai volume utama receiver dibagi 100, dan pada receiver Denon dan Marantz, MV 80 adalah acuan 0 dB. Jadi dB sama dengan volume_level dikali 100, dikurangi 80. Nilai volume_level 0.67 berarti volume utama 67, yaitu -13.0 dB."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Apakah entity ID saya akan sama dengan yang ada di panduan ini?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Polanya sama, bagian tengahnya tidak. AVR Maestro menamai skripnya berdasarkan alamat MAC receiver, sehingga mengganti nama akan memperbarui skrip yang sama, bukan membuat salinan baru. Milik Anda akan berbentuk script.avr_maestro_ lalu dua belas karakter milik Anda sendiri, lalu nama kontrolnya. Buka Developer Tools lalu States di Home Assistant dan filter dengan avr_maestro untuk melihat daftar milik Anda."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Panduan Pengguna",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Otomasi Rumah",
+      "item": "https://avrmaestro.com/guide/home-automation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Dasbor",
+      "item": "https://avrmaestro.com/guide/home-assistant-dashboard/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/id/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Cari di panduan..." data-i18n-empty="Tidak ada hasil untuk" data-i18n-language="Bahasa">
+      <a href="/id/">Beranda</a>
+      <a href="/id/guide/">Panduan Pengguna</a>
+      <a href="/id/receivers/">Receiver</a>
+      <a href="/id/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/id/best-denon-marantz-app/">Mengapa beralih</a>
+      <a href="/id/#top" class="cta">Unduh</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/id/">Beranda</a> &rsaquo; <a href="/id/guide/">Panduan Pengguna</a> &rsaquo; <a href="/id/guide/home-automation/">Otomasi Rumah</a> &rsaquo; Dasbor</div>
+    <div class="eyebrow">Home Assistant &middot; langkah demi langkah</div>
+    <h1>Bangun dasbor Home Assistant ini <span class="g">dalam waktu sekitar satu jam</span></h1>
+    <p>Sepuluh langkah, YAML setiap kartu, dan satu tampilan lengkap yang bisa Anda tempel sekaligus. Dibuat dan difoto pada Marantz CINEMA 30 sungguhan. Ubah dua string dan dasbor ini jadi milik Anda.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <figure class="hero-shot">
+      <img alt="Dasbor yang sudah jadi: panel sedang diputar, volume dengan preset dB, kisi sumber, mode surround, koreksi ruangan, skenario, dan grafik volume" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <figcaption>Yang akan Anda bangun</figcaption>
+    </figure>
+    <div class="note"><b>Sedang terburu-buru?</b> Langsung ke <a href="#whole">langkah 10</a>, unduh tampilan lengkapnya, ubah dua string, lalu tempel. Langkah-langkah di antaranya menjelaskan fungsi setiap bagian agar Anda bisa mengubahnya.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Sebelum Anda mulai</h2>
+    </div>
+    <ul class="plain">
+      <li><b>AVR Maestro sudah tertaut ke Home Assistant dan telah tersinkron.</b> <a href="/id/guide/home-automation/">Panduan penyiapan</a> membahasnya. Anda seharusnya sudah bisa melihat kontrol Anda di Home Assistant sebelum membangun apa pun di atasnya.</li>
+      <li><b>Receiver Anda sudah ditambahkan ke Home Assistant.</b> Pengaturan &rsaquo; Perangkat &amp; Layanan &rsaquo; Tambah Integrasi &rsaquo; <b>Denon AVR</b>, lalu masukkan IP lokalnya. Inilah yang membuat dasbor menampilkan status secara langsung.</li>
+      <li><b>Receiver Anda menyala</b> selama Anda membangun. Separuh dari yang akan Anda tulis membaca nilai langsung, dan receiver dalam mode standby hampir tidak mengirim data apa pun.</li>
+    </ul>
+    <p class="lead">Dua hal mengisi dasbor ini, dan perbedaannya penting di setiap langkah berikut.</p>
+    <table class="t">
+      <thead><tr><th>Berasal dari</th><th>Memberi Anda</th></tr></thead>
+      <tbody>
+        <tr><td>Skrip tersinkronisasi dari AVR Maestro</td><td>Setiap <b>kontrol</b>. Input, mode surround, Audyssey, Dirac, Smart Select, preset, dimmer, eco, Skenario Anda.</td></tr>
+        <tr><td>Entity media player dari integrasi Denon AVR</td><td><b>Status</b> langsung. Daya, sumber terpilih, mode surround, volume, bisu.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Langkah 1</div>
+      <h2>Pasang empat kartu dari HACS</h2>
+    </div>
+    <p class="lead">Keempatnya ada di toko HACS bawaan. Di Home Assistant: <b>HACS &rsaquo; Frontend &rsaquo; Explore &amp; Download Repositories</b>, cari namanya, Download, lalu muat ulang browser Anda.</p>
+    <table class="t">
+      <thead><tr><th>Cari</th><th>Dipakai untuk</th><th>Jika dilewati</th></tr></thead>
+      <tbody>
+        <tr><td><b>Mushroom</b></td><td>Setiap tile kontrol, dan penggeser volume</td><td>Gunakan kartu <code>button</code> biasa. Tetap berfungsi, tampilannya lebih kaku.</td></tr>
+        <tr><td><b>button-card</b></td><td>Header bagian dengan label langsung</td><td>Gunakan kartu <code>markdown</code>, atau judul biasa.</td></tr>
+        <tr><td><b>card-mod</b></td><td>Warna, dan status menyala pada tile yang aktif</td><td>Semuanya tetap berfungsi. Hanya saja tidak ada yang menyala.</td></tr>
+        <tr><td><b>apexcharts-card</b></td><td>Grafik riwayat</td><td>Gunakan kartu <code>history-graph</code> bawaan.</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><b>Tidak satu pun wajib agar dasbor ini berfungsi.</b> Setiap kontrol di bawah berjalan dari kartu tombol Home Assistant standar yang diarahkan ke skrip yang sama. Kartu kustom hanyalah riasan, bukan saluran utamanya.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Langkah 2</div>
+      <h2>Temukan dua entity ID Anda</h2>
+    </div>
+    <p class="lead">Setiap cuplikan di halaman ini memakai dua placeholder. Temukan milik Anda satu kali, sisanya tinggal salin dan tempel.</p>
+    <ul class="plain">
+      <li><b><code>media_player.your_receiver</code></b> &rarr; Pengaturan &rsaquo; Perangkat &amp; Layanan &rsaquo; receiver Anda &rsaquo; entitas media player. Kurang lebih seperti <code>media_player.marantz_cinema_30</code>.</li>
+      <li><b><code>script.avr_maestro_MAC_...</code></b> &rarr; Developer Tools &rsaquo; States, lalu ketik <code>avr_maestro</code> di filter entitas. Seluruh daftar kontrol Anda akan muncul.</li>
+    </ul>
+    <p class="lead">Bagian tengah setiap ID skrip adalah alamat MAC receiver Anda, dua belas karakter huruf kecil, sama pada semuanya. Salin sekali saja. Di mana pun halaman ini menulis <code>MAC</code>, isi dengan milik Anda.</p>
+    <div class="note"><b>Abaikan yang bertuliskan <code>unavailable</code>.</b> Versi lama menamai skrip berdasarkan nama receiver, bukan MAC-nya. Jika Anda pernah menyinkronkan saat itu, skrip lama tersebut masih terdaftar dan sudah tidak aktif. Yang aktif adalah yang dinamai dengan MAC.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Langkah 3</div>
+      <h2>Buat tampilan</h2>
+    </div>
+    <ol class="plain">
+      <li><b>1.</b> Settings &rsaquo; Dashboards &rsaquo; Add Dashboard &rsaquo; New dashboard from scratch. Beri nama sesuka Anda.</li>
+      <li><b>2.</b> Buka dasbornya, lalu klik ikon pensil di kanan atas untuk mengedit.</li>
+      <li><b>3.</b> Tambahkan tampilan, lalu pilih tata letak <b>Sections</b>. Bukan Masonry. Sections membuatnya menyesuaikan diri dengan benar di ponsel.</li>
+      <li><b>4.</b> Di pengaturan tampilan, atur <b>Max columns</b> ke 3 dan aktifkan <b>Dense section placement</b>.</li>
+    </ol>
+    <p class="lead">Mulai sekarang, setiap langkahnya sama: tambahkan satu bagian, lalu tempel kartu ke dalamnya. Untuk menempel YAML, gunakan menu tiga titik pada kartu dan pilih <b>Edit in YAML</b>, atau menu tiga titik pada dasbor untuk <b>Raw configuration editor</b> agar semuanya bisa ditempel sekaligus.</p>
+<pre class="code"><span class="c"># The view's own settings, if you prefer to type them</span>
+type: sections
+title: AVR Maestro
+icon: mdi:audio-video
+max_columns: 3
+dense_section_placement: true</pre>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Langkah 4</div>
+      <h2>Tambahkan satu kontrol</h2>
+    </div>
+    <p class="lead">Mulailah dari hal paling sederhana di papan, supaya Anda tahu entity ID Anda sudah benar sebelum membangun yang rumit. Tambahkan bagian, tambahkan kartu, Edit in YAML, tempel:</p>
+<pre class="code">type: button
+name: Pure Direct
+icon: mdi:speaker
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_mode_pure_direct</pre>
+    <p class="capt">Home Assistant standar. Tidak perlu HACS.</p>
+    <p class="lead">Ketuk tombolnya. Jika receiver bereaksi, ID Anda sudah benar dan semua langkah di bawah akan berfungsi. Jika tidak ada yang terjadi, kembali ke langkah 2.</p>
+  </div>
+</section>
+
+<section id="highlight">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Langkah 5</div>
+      <h2>Buat menyala saat sedang aktif</h2>
+    </div>
+    <p class="lead">Inilah pola yang layak dipelajari, dan setiap tile sumber maupun surround di papan adalah salinannya. Kartu mengirim sebuah skrip, lalu mewarnai dirinya dari entity receiver, sehingga input yang sedang Anda pakai menyala dan yang lain tidak.</p>
+    <figure><img alt="Kisi sumber dengan Nvidia Shield menyala oranye dan dua belas input lainnya gelap" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Satu tile menyala, dua belas gelap</figcaption></figure>
+<pre class="code">type: custom:mushroom-template-card
+entity: script.avr_maestro_MAC_input_cd
+icon: mdi:disc
+primary: CD
+icon_color: >-
+  {{ 'orange' if (state_attr('media_player.your_receiver','source') or '')|lower
+     == 'cd' else 'grey' }}
+layout: vertical
+fill_container: true
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_input_cd
+card_mod:
+  style: |
+    ha-card {
+      border-radius: 14px;
+    {% if (state_attr('media_player.your_receiver','source') or '')|lower == 'cd' %}
+      background: linear-gradient(160deg, rgba(226,86,10,0.34), rgba(15,15,17,0.88));
+      border: 1px solid rgba(255,122,24,0.80);
+    {% else %}
+      background: rgba(15,15,17,0.72);
+      border: 1px solid rgba(255,122,24,0.14);
+    {% endif %}
+    }</pre>
+    <p class="capt">Ubah tiga hal untuk setiap input: skripnya, ikonnya, dan string yang dibandingkan.</p>
+    <p class="lead">Dua hal yang harus benar, jika tidak tile tidak akan pernah menyala:</p>
+    <ul class="plain">
+      <li><b>Bandingkan dengan yang benar-benar dilaporkan receiver Anda.</b> Developer Tools &rsaquo; States, entity media player Anda, baca atribut <code>source_list</code> dan <code>sound_mode_list</code>. Itulah string yang tepat. Bandingkan dengan huruf kecil, seperti di atas.</li>
+      <li><b>Input yang diganti namanya melaporkan nama barunya.</b> Ganti nama GAME1 menjadi "Xbox" di receiver dan receiver melaporkan <code>Xbox</code>, sementara kontrol AVR Maestro tetap bernama <code>input_game1</code>. Cocokkan dengan yang dilaporkan receiver, bukan nama skripnya.</li>
+    </ul>
+    <p class="lead">Mode surround memakai kartu yang sama dengan <code>sound_mode</code> sebagai pengganti <code>source</code>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Langkah 6</div>
+      <h2>Beri setiap bagian header yang hidup</h2>
+    </div>
+    <p class="lead">Judul biasa hanya membuang ruang. Taruh nilai langsungnya di bawah judul dan "Sumber" berubah menjadi "Sumber / Sekarang di Nvidia Shield".</p>
+<pre class="code">type: custom:button-card
+name: Sources
+icon: mdi:video-input-hdmi
+color_type: label-card
+entity: media_player.your_receiver
+show_label: true
+label: >-
+  [[[ var v = states["media_player.your_receiver"].attributes.source;
+      return v ? ("Now on " + v) : "Receiver in standby"; ]]]
+tap_action:
+  action: none
+styles:
+  grid:
+    - grid-template-areas: '"i n" "i l"'
+    - grid-template-columns: min-content auto
+  name:
+    - font-size: 13px
+    - letter-spacing: 3px
+    - text-transform: uppercase
+    - justify-self: start
+  label:
+    - font-size: 11px
+    - justify-self: start</pre>
+    <p class="capt">Kisi dua baris inilah yang menaruh label di bawah judul, bukan di sampingnya.</p>
+    <p class="lead">Ganti <code>attributes.source</code> dengan <code>attributes.sound_mode</code> pada header Surround, dan seterusnya.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Langkah 7</div>
+      <h2>Tampilkan volume dalam dB</h2>
+    </div>
+    <p class="lead">Home Assistant melaporkan volume sebagai pecahan. Tidak ada yang mengatur receiver ke "0.67". Satu baris matematika memperbaikinya dan seluruh bagian ini mulai terbaca seperti receiver sungguhan.</p>
+    <figure><img alt="Bagian volume: penggeser, naik, turun, bisu, dan empat preset dB" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie, dan Loud, masing-masing berlabel dB yang diaturnya</figcaption></figure>
+    <div class="note"><b>Konversinya.</b> Home Assistant menampilkan <code>volume_level</code> sebagai volume utama dibagi 100, dan pada receiver Denon dan Marantz, MV 80 adalah acuan 0 dB. Jadi <b>dB = volume_level &times; 100 &minus; 80</b>. Nilai <code>volume_level</code> 0.67 berarti volume utama 67, yaitu &minus;13.0 dB.</div>
+<pre class="code"><span class="c"># The readout</span>
+type: custom:mushroom-template-card
+entity: media_player.your_receiver
+icon: mdi:volume-high
+primary: >-
+  {% set v = state_attr('media_player.your_receiver','volume_level') %}
+  {% if v is not none %}{{ (v * 100 - 80) | round(1) }} dB{% else %}Standby{% endif %}
+secondary: Master volume
+layout: vertical</pre>
+<pre class="code"><span class="c"># The slider. media_controls must be empty or the bar becomes a power button</span>
+type: custom:mushroom-media-player-card
+entity: media_player.your_receiver
+volume_controls:
+  - volume_set
+media_controls: []
+show_volume_level: true</pre>
+<pre class="code"><span class="c"># A preset. 0.50 is master volume 50, which is -30 dB</span>
+type: custom:mushroom-template-card
+entity: media_player.your_receiver
+icon: mdi:weather-night
+primary: Night
+secondary: "-30 dB"
+tap_action:
+  action: perform-action
+  perform_action: media_player.volume_set
+  target:
+    entity_id: media_player.your_receiver
+  data:
+    volume_level: 0.50</pre>
+    <div class="note"><b>Pilih preset terkeras Anda dengan sengaja.</b> Set di atas berhenti di &minus;10 dB. Dasbor jauh lebih mudah tersentuh tidak sengaja dibanding remote, dan level referensi pada receiver besar benar-benar keras.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Langkah 8</div>
+      <h2>Tambahkan Skenario Anda</h2>
+    </div>
+    <p class="lead">Baca namanya dari skrip alih-alih mengetiknya, dan saat Skenario diganti namanya di AVR Maestro, tile ikut berganti nama tanpa perlu mengedit dasbor.</p>
+    <figure><img alt="Empat tile skenario, masing-masing mencantumkan pengaturan yang dipulihkan skenario itu" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Setiap tile menyebutkan apa yang sebenarnya dipulihkan skenarionya</figcaption></figure>
+<pre class="code">type: custom:mushroom-template-card
+entity: script.avr_maestro_MAC_scene_1234567890123
+icon: mdi:theater
+primary: >-
+  {{ state_attr('script.avr_maestro_MAC_scene_1234567890123','friendly_name')
+     | replace('AVR Maestro - ', '') | replace(' (Your Receiver)', '') }}
+secondary: >-
+  {% set t = states.script['avr_maestro_MAC_scene_1234567890123'].attributes.last_triggered %}
+  {{ 'recalled ' ~ relative_time(t) ~ ' ago' if t else 'not run yet' }}
+multiline_secondary: true
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_scene_1234567890123</pre>
+    <p class="capt">Dua pemanggilan replace() memangkas awalan dan nama receiver dari nama yang ditampilkan.</p>
+    <p class="lead">Baris kedua layak dibuat. Deretan tombol bernama puitis tidak memberi tahu apa pun pukul 11 malam; satu baris yang menyebutkan apa yang dipulihkan masing-masing memberi tahu mana yang harus ditekan.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Langkah 9</div>
+      <h2>Tambahkan riwayat</h2>
+    </div>
+    <p class="lead">Entity media player receiver dicatat oleh Home Assistant seperti entity lainnya, jadi Anda mendapatkan riwayat mendengarkan secara gratis. Semua di bawah ini berasal dari satu entity itu: tanpa sensor tambahan, tanpa helper, tanpa perlu mengonfigurasi apa pun lebih dulu.</p>
+    <figure><img alt="Lima grafik riwayat: daya dan aktivitas, volume utama dalam dB, volume per hari, sumber yang dipakai, dan mode surround" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Lima grafik, satu entity, tujuh hari</figcaption></figure>
+    <p class="lead">Timeline status biasa tidak memerlukan kartu kustom sama sekali, dan itulah yang paling layak dimiliki:</p>
+<pre class="code">type: history-graph
+hours_to_show: 168
+entities:
+  - entity: media_player.your_receiver
+    name: Receiver</pre>
+    <p class="capt">Menyala, mati, dan apa yang sedang dilakukan, selama seminggu.</p>
+    <p class="lead">Volume dalam dB memakai konversi yang sama seperti di langkah 7:</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+header:
+  show: true
+  title: Master volume, last 7 days
+series:
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Master volume
+    type: line
+    curve: smooth
+    unit: dB
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100 - 80;"
+    extend_to: now
+    group_by:
+      duration: 1h
+      func: last
+      fill: last
+apex_config:
+  chart:
+    height: 240
+  yaxis:
+    min: -60
+    max: 0</pre>
+    <p class="capt">group_by dengan fill: last mengubah kejadian yang jarang menjadi garis yang kontinu. Sumbu y harus ditaruh di apex_config agar berlaku.</p>
+    <p class="lead">Rata-rata dan puncak harian mengubah garis yang naik turun menjadi sesuatu yang berbentuk:</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+span:
+  end: day
+header:
+  show: true
+  title: Master volume by day in dB, average and peak
+series:
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Day average
+    type: column
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100;"
+    group_by: {duration: 1d, func: avg, fill: 'null'}
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Day peak
+    type: line
+    curve: smooth
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100;"
+    group_by: {duration: 1d, func: max, fill: 'null'}
+apex_config:
+  yaxis:
+    min: 0
+    max: 80
+    labels:
+      formatter: "EVAL:function (v) { return (v - 80).toFixed(0); }"
+  tooltip:
+    y:
+      formatter: "EVAL:function (v) { return v == null ? '' : (v - 80).toFixed(1) + ' dB'; }"</pre>
+    <p class="capt">Dua seri dari atribut yang sama, dikelompokkan per hari.</p>
+    <div class="note"><b>Mengapa grafik ini memplot 0 sampai 80 dan memformat ke dB, bukan memplot dB.</b> Batang tumbuh dari dasar sumbu. Jika dB diplot langsung, setiap batang menggantung ke bawah dari 0, sehingga batang panjang berarti pelan, dan itu terbaca terbalik. Plot angka volume utama mentah lalu kurangi 80 di formatter sumbu dan tooltip, maka batang tumbuh ke atas sementara semua yang dilihat pembaca tetap dB. <code>fill: 'null'</code> berarti hari tanpa data tidak mendapat batang, alih-alih membawa nilai kemarin.</div>
+    <p class="lead">Dan dua grafik yang menjawab "saya sebenarnya menonton lewat apa, dan dalam mode apa": sumber dan mode surround, diplot sebagai timeline mana yang terpilih.</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+span:
+  end: day
+header:
+  show: true
+  title: Source in use, last 7 days
+series:
+  - entity: media_player.your_receiver
+    attribute: source
+    name: Source
+    type: line
+    curve: stepline
+    stroke_width: 3
+    extend_to: now
+    float_precision: 0
+    transform: |
+      if (x == null) return null;
+      var m = ["Phono", "NET", "Xbox", "Nvidia Shield"];
+      var i = m.indexOf(x);
+      return i &lt; 0 ? 0 : i + 1;
+apex_config:
+  yaxis:
+    min: 0
+    max: 4
+    tickAmount: 4
+    labels:
+      formatter: >-
+        EVAL:function (v) { return ["Other", "Phono", "HEOS Net", "Xbox",
+        "Shield"][Math.round(v)] || ''; }
+  tooltip:
+    y:
+      formatter: >-
+        EVAL:function (v) { return v == null ? 'off' : ["Other", "Phono",
+        "HEOS Net", "Xbox", "Shield"][Math.round(v)] || 'Other'; }</pre>
+    <p class="capt">Masukkan sumber Anda sendiri ke array transform dan ke kedua array formatter. Biarkan indeks 0 sebagai "Other".</p>
+    <p class="lead">Sumbu grafik membutuhkan angka, jadi <code>transform</code> memetakan setiap nama sumber ke sebuah posisi dan formatter memetakannya kembali untuk label dan tooltip. Buat pemetaannya <b>total</b>: <code>null</code> (receiver mati) tetap menjadi celah, dan apa pun yang tidak ada dalam daftar Anda masuk ke "Other", sehingga keduanya tidak pernah tertukar. Kartu yang sama dengan <code>sound_mode</code> memberi Anda mode surround, dengan string dalam huruf besar persis seperti yang dilaporkan receiver Anda.</p>
+    <div class="note"><b>Pertahankan <code>stepline</code> pada dua yang terakhir itu.</b> Sumber atau mode surround adalah kategori, bukan angka. Haluskan kurvanya dan garis akan meliuk antara Shield dan Xbox melewati apa pun yang ada di antaranya pada sumbu, menggambar input yang tidak pernah dipilih. Volume adalah besaran nyata dan boleh dihaluskan dengan jujur; kategori tidak.</div>
+    <div class="note"><b>Periksa dulu retensi recorder Anda.</b> Home Assistant menyimpan sepuluh hari secara default, jadi tujuh hari adalah batas yang masuk akal. Untuk melihat lebih jauh, Anda memerlukan sensor template <code>state_class: measurement</code>, yang disimpan Home Assistant sebagai statistik jangka panjang selama bertahun-tahun.</div>
+    <div class="note"><b>Hari yang hilang biasanya memang benar.</b> Home Assistant mencatat perubahan, bukan sampel. Biarkan receiver di satu input pada satu volume selama dua hari dan tidak ada yang ditulis sama sekali, sehingga hari itu tidak punya batang. Terlihat seperti data hilang padahal kebalikannya: tidak ada yang terjadi.</div>
+  </div>
+</section>
+
+<section id="whole">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Langkah 10</div>
+      <h2>Atau ambil semuanya</h2>
+    </div>
+    <p class="lead">Tampilan lengkap, setiap bagian dan setiap kartu, dengan placeholder sebagai pengganti entity ID.</p>
+    <ol class="plain">
+      <li><b>1.</b> <a href="/id/guide/home-assistant-dashboard/avr-maestro-dashboard.yaml" download>Unduh YAML tampilan</a>.</li>
+      <li><b>2.</b> Buka dengan editor teks apa pun dan ganti dua string, di mana pun muncul: <code>YOUR_RECEIVER</code> dengan nama entity media player Anda, dan <code>YOURMAC</code> dengan dua belas karakter receiver Anda dari langkah 2.</li>
+      <li><b>3.</b> Di Home Assistant, buka dasbor Anda, ikon pensil, menu tiga titik, <b>Raw configuration editor</b>, lalu tempel sebagai sebuah tampilan.</li>
+    </ol>
+    <div class="note"><b>ID Skenario Anda tidak akan cocok.</b> Skrip Skenario dinamai menurut waktu Skenario dibuat, jadi keempat yang ada di file tidak ada di sistem Anda: kartu-kartu itu akan tampil tetapi tidak berbuat apa-apa. Ganti entity ID-nya dengan milik Anda dari langkah 2, atau hapus bagian Skenario dan bangun ulang dengan langkah 8.</div>
+    <div class="note"><b>Dua hal lain yang perlu diperkirakan.</b> Grafik sumber dan surround membawa nama sumber dari receiver tempat ini dibuat, jadi edit array tersebut seperti dijelaskan di langkah 9. Dan label tile berbahasa Inggris; tidak ada yang diterjemahkan di dalam file.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Jika sebuah tile tidak pernah menyala</h2>
+    </div>
+    <p class="lead">Sebelum menyimpulkan Anda salah membangunnya: sebagian memang tidak bisa menyala, dan ada baiknya tahu yang mana.</p>
+    <p class="lead">Sebuah tile hanya bisa menampilkan statusnya jika Home Assistant dapat membacanya, dan Home Assistant membaca receiver Anda dari dua tempat. Integrasi Denon AVR menampilkan hal-hal dasar pada entity media player. AVR Maestro menampilkan sisanya: aplikasi membuat sensor <b>Status Bridge</b>, <code>sensor.avr_maestro_your_receiver</code>, dan menuliskan pembacaan yang sudah dimilikinya ke sensor itu sebagai atribut.</p>
+    <table class="t">
+      <thead><tr><th>Pada entity media player</th><th>Pada sensor Status Bridge</th></tr></thead>
+      <tbody>
+        <tr><td>Daya</td><td>Kurva Audyssey MultEQ</td></tr>
+        <tr><td>Sumber terpilih</td><td>Dynamic Volume dan level referensi</td></tr>
+        <tr><td>Mode surround</td><td>Slot Dirac mana yang dimuat</td></tr>
+        <tr><td>Volume dan bisu</td><td>Dimmer panel depan, mode Eco</td></tr>
+        <tr><td>Dynamic EQ, kadang-kadang</td><td>Preset speaker, nada, dan puluhan lainnya</td></tr>
+      </tbody>
+    </table>
+    <p class="lead">Kedua kolom kini bisa dibaca. Ambil nilai media player dari <code>states['media_player.your_receiver'].attributes</code>, dan nilai Status Bridge dengan <code>state_attr('sensor.avr_maestro_your_receiver','dirac_slot')</code>, sehingga sebuah tile menyala untuk pengaturan yang benar-benar aktif, bukan hanya menjalankan skrip yang mengubahnya.</p>
+    <p class="lead">Diukur pada receiver tempat ini dibuat: entity media player membawa sekitar dua puluh dari enam puluh kontrol, dan sensor Status Bridge menampilkan kira-kira empat puluh lagi. Dari keduanya, dasbor dapat membaca hampir semua yang bisa diubahnya - perbedaan antara deretan tombol dan panel kontrol sungguhan.</p>
+    <div class="note"><b>Jika sebuah nilai bisa bermakna dua hal, katakan.</b> Dynamic EQ datang sebagai <code>true</code>, <code>false</code>, atau tidak datang sama sekali. Menganggap "tidak datang sama sekali" sebagai "mati" memajang jawaban salah yang meyakinkan di dinding Anda.</div>
+<pre class="code">icon_color: >-
+  {% set d = state_attr('media_player.your_receiver','dynamic_eq') %}
+  {{ 'orange' if d is true else 'grey' }}
+secondary: >-
+  {% set d = state_attr('media_player.your_receiver','dynamic_eq') %}
+  {% if d is none %}state not published{% elif d %}on{% else %}off{% endif %}</pre>
+    <p class="capt">Tiga status, bukan dua.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Hal lain yang perlu diketahui</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Tile keluar sepertiga dari lebar yang Anda harapkan.</b> Pada bagian yang membentang 3 kolom, grid internalnya adalah <b>36</b> kolom, bukan 12. Untuk empat tile berjajar, atur <code>grid_options: {columns: 9}</code>. Untuk enam berjajar, 6.</li>
+      <li><b>Penggeser volume menampilkan tombol daya, bukan bilah.</b> Itu adalah <code>media_controls</code> yang berisi <code>on_off</code>. Atur <code>media_controls: []</code>.</li>
+      <li><b>Label terpotong.</b> "Volume Down" menjadi "Volume Do...". Persingkat menjadi "Vol Down", atau lebarkan tile.</li>
+      <li><b>Deskripsi Skenario terpotong.</b> Tambahkan <code>multiline_secondary: true</code>.</li>
+      <li><b>Garis yang stabil menghilang dari grafik apexcharts.</b> Itu adalah <code>experimental.color_threshold</code>. Garis digambar sebagai gradien vertikal, dan segmen yang benar-benar horizontal memiliki tinggi nol untuk digradasi, sehingga tidak terlihat. Sesi 43 jam pada satu volume lenyap seluruhnya. Gunakan <code>color</code> solid.</li>
+      <li><b>Tampilan menyesuaikan diri di ponsel dengan sendirinya.</b> Tampilan Sections menumpuk menjadi satu kolom pada lebar sempit tanpa konfigurasi tambahan.</li>
+    </ul>
+    <figure><img alt="Dasbor yang sama pada lebar ponsel, tersusun menjadi satu kolom" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Dasbor yang sama pada lebar ponsel: tiga kolom menjadi satu, dan tidak ada yang dikonfigurasi untuk itu</figcaption></figure>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pertanyaan umum</div>
+      <h2>Dasbor, terjawab</h2>
+    </div>
+    <details open><summary>Apakah saya perlu kartu kustom dari HACS untuk membangun ini?</summary><div class="body">Tidak untuk membuatnya berfungsi. Setiap kontrol di halaman ini berjalan dari kartu tombol Home Assistant biasa. Mushroom, button-card, card-mod, dan apexcharts-card-lah yang membuatnya tampil seperti di tangkapan layar, dan setiap bagian di bawah menyebutkan mana yang dipakai serta apa yang hilang tanpanya.</div></details>
+    <details><summary>Mengapa sebagian tombol menyala dan yang lain tidak?</summary><div class="body">Tombol menyala saat Home Assistant dapat membaca status yang sesuai dari receiver Anda. Sumber, mode surround, volume, dan bisu datang dari entity media player milik receiver itu sendiri, sehingga semuanya tersorot. Kurva Audyssey, slot Dirac, dimmer, mode eco, dan preset speaker tidak dipublikasikan oleh integrasi Denon, jadi Home Assistant tidak punya cara untuk tahu mana yang aktif dan tombolnya tetap tidak menyala sampai Anda mengetuk salah satunya.</div></details>
+    <details><summary>Bisakah saya menampilkan volume dB yang sebenarnya, bukan persentase?</summary><div class="body">Ya. Home Assistant menampilkan volume_level sebagai volume utama receiver dibagi 100, dan pada receiver Denon dan Marantz, MV 80 adalah acuan 0 dB. Jadi dB sama dengan volume_level dikali 100, dikurangi 80. Nilai volume_level 0.67 berarti volume utama 67, yaitu -13.0 dB.</div></details>
+    <details><summary>Apakah entity ID saya akan sama dengan yang ada di panduan ini?</summary><div class="body">Polanya sama, bagian tengahnya tidak. AVR Maestro menamai skripnya berdasarkan alamat MAC receiver, sehingga mengganti nama akan memperbarui skrip yang sama, bukan membuat salinan baru. Milik Anda akan berbentuk script.avr_maestro_ lalu dua belas karakter milik Anda sendiri, lalu nama kontrolnya. Buka Developer Tools lalu States di Home Assistant dan filter dengan avr_maestro untuk melihat daftar milik Anda.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Lainnya dari panduan</div>
+      <h2>Panduan AVR Maestro lainnya</h2>
+    </div>
+    <p class="lead"><a href="/id/guide/getting-started/">Memulai</a> &middot; <a href="/id/guide/home/">Layar Utama</a> &middot; <a href="/id/guide/scenes/">Skenario</a> &middot; <a href="/id/guide/custom-icons/">Ikon Kustom</a> &middot; <a href="/id/guide/sound/">Suara</a> &middot; <a href="/id/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/id/guide/speakers/">Speaker</a> &middot; <a href="/id/guide/locked-controls/">Mengapa kontrol terkunci</a> &middot; <a href="/id/guide/assistant/">Asisten</a> &middot; <a href="/id/guide/home-automation/">Otomasi Rumah</a> &middot; <a href="/id/guide/multi-zone/">Zona</a> &middot; <a href="/id/guide/remote/">Remote</a> &middot; <a href="/id/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/id/guide/on-screen-display/">Tampilan Layar</a> &middot; <a href="/id/guide/settings/">Pengaturan</a> &middot; <a href="/id/guide/languages/">Bahasa</a> &middot; <a href="/id/guide/volume/">Kontrol Volume</a> &middot; <a href="/id/guide/backup/">Cadangkan &amp; Pulihkan</a> &middot; <a href="/id/guide/now-playing/">Sedang Diputar &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Seluruh receiver Anda, dalam satu dinding</h2>
+    <p class="lead" style="margin:0 auto 24px">Otomasi Rumah adalah satu-satunya fitur berbayar di AVR Maestro. Semua yang lain, termasuk asisten AI di perangkat, sudah termasuk.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Dapatkan di Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Unduh di App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Unduh di Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Dapatkan di Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/id/guide/home-automation/">Kembali ke Otomasi Rumah &rarr;</a> &middot; <a href="/id/guide/">Panduan Pengguna Lengkap &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/id/">Beranda</a>
+      <a href="/id/guide/">Panduan Pengguna</a>
+      <a href="/id/guide/getting-started/">Memulai</a>
+      <a href="/id/receivers/">Receiver</a>
+      <a href="/id/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/id/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/id/best-denon-marantz-app/">Mengapa beralih</a>
+      <a href="/id/help/">Bantuan</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro adalah aplikasi independen dari MiyaraHub Technologies LLC dan tidak berafiliasi dengan, didukung oleh, atau disponsori oleh Denon, Marantz, D&amp;M Holdings, Sound United, atau perusahaan lain mana pun yang disebut di halaman ini. Denon, Marantz, HEOS, Home Assistant, Mushroom, HACS, Audyssey, dan Nvidia Shield adalah merek dagang atau proyek dari pemiliknya masing-masing, dipakai di sini hanya untuk identifikasi.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

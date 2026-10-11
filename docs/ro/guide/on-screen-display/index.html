@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ro" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Afișaj pe ecran: indicator de volum &amp; 21:9 - AVR Maestro</title>
+<meta name="description" content="Controlați afișajul pe ecran al receiverului Denon sau Marantz de pe telefon: poziția indicatorului de volum sau dezactivarea lui, bannerul de informații, poziționarea 21:9 și economizorul de ecran." />
+<meta name="keywords" content="Denon on screen display app, Marantz OSD settings, AVR volume readout off, receiver info banner, 21:9 constant height AVR, Denon screen saver, AVR OSD phone" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/ro/guide/on-screen-display/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/on-screen-display/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/on-screen-display/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/on-screen-display/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/on-screen-display/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/on-screen-display/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/on-screen-display/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/on-screen-display/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/on-screen-display/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/on-screen-display/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/on-screen-display/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/on-screen-display/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/on-screen-display/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/on-screen-display/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/on-screen-display/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/on-screen-display/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/on-screen-display/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/on-screen-display/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/on-screen-display/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/on-screen-display/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/on-screen-display/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/on-screen-display/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/on-screen-display/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/on-screen-display/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/on-screen-display/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/on-screen-display/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/on-screen-display/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="ro_RO" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Afișaj pe ecran: indicator de volum &amp; 21:9 - AVR Maestro" />
+<meta property="og:description" content="Controlați afișajul pe ecran al receiverului Denon sau Marantz de pe telefon: poziția indicatorului de volum sau dezactivarea lui, bannerul de informații, poziționarea 21:9 și economizorul de ecran." />
+<meta property="og:url" content="https://avrmaestro.com/ro/guide/on-screen-display/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Afișaj pe ecran: indicator de volum &amp; 21:9 - AVR Maestro" />
+<meta name="twitter:description" content="Controlați afișajul pe ecran al receiverului Denon sau Marantz de pe telefon: poziția indicatorului de volum sau dezactivarea lui, bannerul de informații, poziționarea 21:9 și economizorul de ecran." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro este o aplicație independentă pentru controlul receiverelor AV Denon și Marantz prin rețeaua dumneavoastră locală.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "ro"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/on-screen-display/#article",
+      "headline": "Afișajul pe ecran, de unde stați",
+      "description": "Controlați afișajul pe ecran al receiverului Denon sau Marantz de pe telefon: poziția indicatorului de volum sau dezactivarea lui, bannerul de informații, poziționarea 21:9 și economizorul de ecran.",
+      "image": "https://avrmaestro.com/screenshots/on-screen-display.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/on-screen-display/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "ro"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/on-screen-display/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Pot opri afișarea numărului de volum pe televizor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Da. Deschideți în AVR Maestro Setări, apoi Afișaj pe ecran, și setați Volum pe Oprit. Îl puteți muta și între partea de jos și cea de sus a ecranului, fără să vă ridicați din fotoliu."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pentru ce este modul 21:9?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Repoziționează meniurile de pe ecran ale receiverului pentru un ecran 21:9 cu înălțime constantă, astfel încât un proiector să nu le taie sus și jos. Activați-l doar dacă aveți o astfel de configurație."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "De ce văd mai puține opțiuni decât în capturile de ecran?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pentru că receiverul dvs. raportează mai puține. AVR Maestro întreabă șasiul ce opțiuni pe ecran are și le afișează doar pe acelea. Un receiver mai vechi, fără Economizor de ecran, pur și simplu nu primește acel card, în loc să i se arate un control care ar eșua."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Acasă",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Ghid de utilizare",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Afișaj pe ecran",
+      "item": "https://avrmaestro.com/guide/on-screen-display/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/ro/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Meniu" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Căutați în ghid..." data-i18n-empty="Niciun rezultat pentru" data-i18n-language="Limbă">
+      <a href="/ro/">Acasă</a>
+      <a href="/ro/guide/">Ghid de utilizare</a>
+      <a href="/ro/receivers/">Receivere</a>
+      <a href="/ro/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ro/best-denon-marantz-app/">De ce să treceți la el</a>
+      <a href="/ro/#top" class="cta">Descarcă</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/ro/">Acasă</a> &rsaquo; <a href="/ro/guide/">Ghid de utilizare</a> &rsaquo; Afișaj pe ecran</div>
+    <div class="eyebrow">Ce desenează receiverul pe televizor</div>
+    <h1>Afișajul pe ecran, <span class="g">de unde stați</span></h1>
+    <p>Numărul de volum care apare în mijlocul unui film, bannerul la schimbarea sursei, ecranul de redare care rămâne peste muzică - toate se află în meniul de configurare al receiverului, ceea ce înseamnă să vă ridicați și să afișați meniul peste ceea ce vă uitați. AVR Maestro îl mută pe telefon.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+      <figure><img alt="Setările Afișajului pe ecran în AVR Maestro" src="/screenshots/on-screen-display.png" width="1324" height="2644" decoding="async" /><figcaption>Fiecare opțiune raportată de receiver, și doar acelea</figcaption></figure>
+    </div>
+
+    <div class="section-head" style="margin-top:36px">
+      <h2>Ce puteți schimba</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Volum:</b> <b>Jos</b>, <b>Sus</b> sau <b>Oprit</b>. Locul în care apare indicatorul de volum când îl modificați sau dacă apare deloc. Oprit este varianta pe care o caută lumea în timpul unui film.</li>
+      <li><b>Info:</b> bannerul de stare pe care receiverul îl afișează când se schimbă sursa sau modul de sunet.</li>
+      <li><b>Se redă acum:</b> dacă ecranul de redare rămâne afișat cât timp se redă o sursă de rețea sau dispare singur după un moment.</li>
+      <li><b>Mod 21:9:</b> repoziționează meniurile proprii ale receiverului pentru un ecran 21:9 cu înălțime constantă, astfel încât un proiector să nu le taie.</li>
+      <li><b>Economizor de ecran:</b> mută imaginea de pe ecran după o perioadă de imobilitate, ceea ce protejează un panou predispus la burn-in.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Doar ce are receiverul dvs.</div>
+        <h2>Șasiul dvs. decide pe care dintre acestea le vedeți</h2>
+        <p>Nu toate receiverele le au pe toate cinci. În loc să afișeze un control care ar eșua, AVR Maestro întreabă șasiul ce opțiuni pe ecran publică și le afișează doar pe acelea - astfel încât un receiver mai vechi, fără Economizor de ecran, pur și simplu nu primește acel card.</p>
+        <p>Dacă o setare există, dar receiverul nu a răspuns de data aceasta, aplicația spune exact asta și vă propune să încercați din nou. Nu prezintă niciodată „nu am putut citi aceasta” drept „receiverul dvs. nu o are” - sunt răspunsuri diferite și doar unul dintre ele este adevărat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Întrebări frecvente</div>
+      <h2>Afișajul pe ecran, explicat</h2>
+    </div>
+    <details open><summary>Pot opri afișarea numărului de volum pe televizor?</summary><div class="body">Da. Deschideți în AVR Maestro Setări, apoi Afișaj pe ecran, și setați Volum pe Oprit. Îl puteți muta și între partea de jos și cea de sus a ecranului, fără să vă ridicați din fotoliu.</div></details>
+    <details><summary>Pentru ce este modul 21:9?</summary><div class="body">Repoziționează meniurile de pe ecran ale receiverului pentru un ecran 21:9 cu înălțime constantă, astfel încât un proiector să nu le taie sus și jos. Activați-l doar dacă aveți o astfel de configurație.</div></details>
+    <details><summary>De ce văd mai puține opțiuni decât în capturile de ecran?</summary><div class="body">Pentru că receiverul dvs. raportează mai puține. AVR Maestro întreabă șasiul ce opțiuni pe ecran are și le afișează doar pe acelea. Un receiver mai vechi, fără Economizor de ecran, pur și simplu nu primește acel card, în loc să i se arate un control care ar eșua.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Mai multe din ghid</div>
+      <h2>Alte ghiduri AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/ro/guide/getting-started/">Primii pași</a> &middot; <a href="/ro/guide/home/">Ecranul principal</a> &middot; <a href="/ro/guide/scenes/">Scene</a> &middot; <a href="/ro/guide/custom-icons/">Pictograme personalizate</a> &middot; <a href="/ro/guide/sound/">Sunet</a> &middot; <a href="/ro/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/ro/guide/speakers/">Difuzoare</a> &middot; <a href="/ro/guide/locked-controls/">De ce este blocat un control</a> &middot; <a href="/ro/guide/assistant/">Asistentul</a> &middot; <a href="/ro/guide/home-automation/">Automatizare Locuință</a> &middot; <a href="/ro/guide/home-assistant-dashboard/">Panou Home Assistant</a> &middot; <a href="/ro/guide/multi-zone/">Zone</a> &middot; <a href="/ro/guide/remote/">Telecomandă</a> &middot; <a href="/ro/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/ro/guide/settings/">Setări</a> &middot; <a href="/ro/guide/languages/">Limbi</a> &middot; <a href="/ro/guide/volume/">Comenzi de volum</a> &middot; <a href="/ro/guide/backup/">Copie de rezervă &amp; restaurare</a> &middot; <a href="/ro/guide/now-playing/">Se redă acum &amp; HEOS</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/ro/">Acasă</a>
+      <a href="/ro/guide/">Ghid de utilizare</a>
+      <a href="/ro/guide/getting-started/">Primii pași</a>
+      <a href="/ro/receivers/">Receivere</a>
+      <a href="/ro/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ro/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/ro/best-denon-marantz-app/">De ce să treceți la el</a>
+      <a href="/ro/help/">Ajutor</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro este o aplicație independentă a MiyaraHub Technologies LLC și nu este afiliată, susținută sau sponsorizată de Denon, Marantz, D&amp;M Holdings, Sound United sau de vreo altă companie menționată pe această pagină. Denon, Marantz și Audyssey sunt mărci comerciale ale deținătorilor respectivi, utilizate aici doar în scop de identificare.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

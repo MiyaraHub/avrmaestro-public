@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Controle a Zona 2 &amp; a Zona 3 pelo celular - AVR Maestro</title>
+<meta name="description" content="Controle independente da Zona 2 e da Zona 3 em receptores Denon e Marantz: energia, entrada, volume, mudo, Zone Smart Select / Quick Select, renomeação de zonas e reprodução atual por zona." />
+<meta name="keywords" content="multi-zone receiver control app, Zone 2 control app, Zone 3 control app, Denon multi-zone app, Marantz multi-zone, whole house audio receiver app, second zone control, zone quick select, zone smart select, rename zones Denon Marantz" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/pt-br/guide/multi-zone/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/multi-zone/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/multi-zone/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/multi-zone/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/multi-zone/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/multi-zone/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/multi-zone/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/multi-zone/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/multi-zone/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/multi-zone/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/multi-zone/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/multi-zone/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/multi-zone/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/multi-zone/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/multi-zone/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/multi-zone/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/multi-zone/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/multi-zone/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/multi-zone/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/multi-zone/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/multi-zone/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/multi-zone/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/multi-zone/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/multi-zone/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/multi-zone/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/multi-zone/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/multi-zone/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/multi-zone/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/multi-zone/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/multi-zone/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/multi-zone/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/multi-zone/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Controle a Zona 2 &amp; a Zona 3 pelo celular - AVR Maestro" />
+<meta property="og:description" content="Controle independente da Zona 2 e da Zona 3 em receptores Denon e Marantz: energia, entrada, volume, mudo, Zone Smart Select / Quick Select, renomeação de zonas e reprodução atual por zona." />
+<meta property="og:url" content="https://avrmaestro.com/pt-br/guide/multi-zone/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Controle a Zona 2 &amp; a Zona 3 pelo celular - AVR Maestro" />
+<meta name="twitter:description" content="Controle independente da Zona 2 e da Zona 3 em receptores Denon e Marantz: energia, entrada, volume, mudo, Zone Smart Select / Quick Select, renomeação de zonas e reprodução atual por zona." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "O AVR Maestro é um aplicativo independente para controlar receptores AV Denon e Marantz pela sua rede local.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "pt-BR"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/multi-zone/#article",
+      "headline": "Multizona: comande a casa inteira",
+      "description": "Controle independente da Zona 2 e da Zona 3 em receptores Denon e Marantz: energia, entrada, volume, mudo, Zone Smart Select / Quick Select, renomeação de zonas e reprodução atual por zona.",
+      "image": "https://avrmaestro.com/screenshots/zones.png",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/multi-zone/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "pt-BR"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/multi-zone/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Posso controlar a Zona 2 e a Zona 3 pelo celular?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim - em receptores multizona, cada zona tem a sua própria energia, volume, mudo, entrada e predefinições de volume rápido, totalmente separados da zona principal, e sincroniza ao vivo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Posso usar o Smart Select ou o Quick Select em uma zona?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim - cada cartão de zona traz os slots da própria zona, com o nome que o seu receptor usa: Smart Select em um Marantz, Quick Select em um Denon. Toque em um slot para recuperá-lo; mantenha pressionado para salvar nele o estado atual da zona, direto do cartão."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Posso renomear minhas zonas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim - mantenha pressionado o nome da zona na tela Início para renomear qualquer zona, inclusive a principal. O nome é gravado no próprio receptor, então aparece no app do fabricante e em todos os outros clientes, inclusive em modelos mais antigos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cada zona mostra o que está tocando?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim - quando uma zona está ligada, o cartão dela mostra o fluxo HEOS de reprodução atual dessa zona, com controles de reprodução."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Uma Cena pode configurar minhas zonas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim - uma Cena pode capturar e restaurar a energia, a entrada e o volume da Zona 2/3 junto com o restante da sua configuração."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Início",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guia do Usuário",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Multizona",
+      "item": "https://avrmaestro.com/guide/multi-zone/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/pt-br/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Pesquisar no guia..." data-i18n-empty="Nenhum resultado para" data-i18n-language="Idioma">
+      <a href="/pt-br/">Início</a>
+      <a href="/pt-br/guide/">Guia do Usuário</a>
+      <a href="/pt-br/receivers/">Receptores</a>
+      <a href="/pt-br/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/pt-br/best-denon-marantz-app/">Por que trocar</a>
+      <a href="/pt-br/#top" class="cta">Baixar</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero split">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="/pt-br/">Início</a> &rsaquo; <a href="/pt-br/guide/">Guia do Usuário</a> &rsaquo; Multizona</div>
+      <div class="eyebrow">Multizona</div>
+      <h1>Multizona: comande a <span class="g">casa inteira</span></h1>
+      <p>Energia, entrada e volume independentes para a Zona 2 e a Zona 3 em receptores Denon e Marantz multizona - e as Cenas também podem capturar e restaurar o estado das zonas. Música na cozinha, o filme na sala de cinema, tudo em um só app.</p>
+    </div>
+    <div class="hero-shot"><img alt="Controle multizona no AVR Maestro" src="/screenshots/zones.png" width="1324" height="2644" fetchpriority="high" /></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Como as zonas funcionam</div>
+      <h2>Cada zona, totalmente independente</h2>
+      <p class="lead">Cada zona tem a sua própria energia, volume, mudo, entrada e predefinições de volume rápido, completamente separados da zona principal.</p>
+    </div>
+    <div class="grid">
+      <div class="gcard"><div class="ic">&#128268;</div><h3>Energia independente</h3><p>Ligue e desligue a Zona 2 ou a Zona 3 sem mexer na zona principal.</p></div>
+      <div class="gcard"><div class="ic">&#127925;</div><h3>Fonte &amp; volume próprios</h3><p>Uma entrada e um volume diferentes por zona, com chips de predefinição de volume rápido - as predefinições sobem e descem suavemente por padrão (Configurações, Áudio: Gradual / Direto).</p></div>
+      <div class="gcard"><div class="ic">&#9889;</div><h3>Zone Smart Select / Quick Select</h3><p>Os slots de Smart Select ou Quick Select da própria zona, direto no cartão - toque em um slot para recuperá-lo, mantenha pressionado para salvar nele o estado atual da zona.</p></div>
+      <div class="gcard"><div class="ic">&#9997;&#65039;</div><h3>Renomeie qualquer zona</h3><p>Mantenha pressionado o nome da zona na tela Início - inclusive a principal. O nome é salvo no próprio receptor, então todos os apps concordam com ele.</p></div>
+      <div class="gcard"><div class="ic">&#128260;</div><h3>Sincronização ao vivo</h3><p>Mude uma zona pelo painel ou pelo controle remoto do receptor e o app atualiza em menos de um segundo.</p></div>
+      <div class="gcard"><div class="ic">&#127911;</div><h3>Reprodução atual por zona</h3><p>Quando uma zona está ligada, o cartão dela mostra o fluxo HEOS ao vivo dessa zona, com controles de reprodução.</p></div>
+      <div class="gcard"><div class="ic">&#127917;</div><h3>Capturado pelas Cenas</h3><p>Uma <a href="/pt-br/guide/scenes/">Cena</a> pode capturar e restaurar o estado da Zona 2/3 junto com todo o resto.</p></div>
+      <div class="gcard"><div class="ic">&#128241;</div><h3>Na tela Início</h3><p>Um widget compacto de Zonas mostra o status num relance e oferece controles rápidos na tela Início.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Ligar uma zona e apontá-la para algum lugar</h2>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(1,1fr);max-width:320px;margin:0 0 26px">
+      <figure><img alt="A aba Zonas listando Patio como zona 2 e ZONE3 como zona 3, cada uma com o seu próprio controle de energia" src="/screenshots/zones.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Um cartão por zona declarada pelo receptor</figcaption></figure>
+    </div>
+    <ul class="plain">
+      <li><b>1. Abra a aba Zonas.</b> Cada zona que o seu receptor declara ganha um cartão. Um receptor com uma só zona não ganha a aba.</li>
+      <li><b>2. Ligue a zona</b> com o controle de energia no cartão dela. Nada muda na zona principal.</li>
+      <li><b>3. Escolha a fonte.</b> A lista é a do seu receptor, com os nomes que você tiver dado, e uma zona pode ficar em uma entrada completamente diferente da sala principal.</li>
+      <li><b>4. Ajuste o volume.</b> A zona tem o seu próprio nível e o seu próprio mudo, e os chips de volume rápido recuperam níveis que você definiu nessa zona. As predefinições sobem e descem suavemente, a menos que você mude para Direto em Configurações, Áudio.</li>
+      <li><b>5. Opcional: salve.</b> Mantenha pressionado um dos slots de Smart Select ou Quick Select da própria zona para guardar tudo o que a zona está fazendo agora e toque nele depois para trazer tudo de volta.</li>
+    </ul>
+    <p class="lead" style="margin-top:20px">Renomeie uma zona mantendo pressionado o nome dela na tela Início. O nome é gravado no receptor, então o painel frontal e todos os outros apps concordam com o app.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Vale saber</div>
+      <h2>Por que ligar ou desligar a zona principal não derruba os outros cômodos</h2>
+    </div>
+    <p class="lead">Os receptores Denon e Marantz têm dois comandos de energia diferentes, e a diferença importa se há música tocando em outro lugar da casa.</p>
+    <p class="lead">O comando de standby do sistema inteiro desliga todo o equipamento, e o receptor leva as outras zonas junto - medido em um Cinema 30, o equipamento informa a Zona 2 desligada um milissegundo depois que o comando de standby chega. Por isso o controle de energia principal do AVR Maestro envia de propósito o comando da <b>zona principal</b>. Desligue o home theater pelo app e a cozinha continua tocando.</p>
+    <p class="lead">Funciona no sentido contrário também: ligar a zona principal com o receptor totalmente desligado acorda primeiro o equipamento, então você não precisa ligar o receptor separadamente antes de usar o app.</p>
+    <div class="note">Se uma zona se desligar sozinha quando a zona principal mudar, isso é a configuração do próprio receptor, não o app. Alguns modelos têm uma opção de interligação de energia no menu de zonas.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Perguntas frequentes</div>
+      <h2>Perguntas frequentes sobre multizona</h2>
+    </div>
+    <details open><summary>Posso controlar a Zona 2 e a Zona 3 pelo celular?</summary><div class="body">Sim - em receptores multizona, cada zona tem a sua própria energia, volume, mudo, entrada e predefinições de volume rápido, totalmente separados da zona principal, e sincroniza ao vivo.</div></details>
+    <details><summary>Posso usar o Smart Select ou o Quick Select em uma zona?</summary><div class="body">Sim - cada cartão de zona traz os slots da própria zona, com o nome que o seu receptor usa: Smart Select em um Marantz, Quick Select em um Denon. Toque em um slot para recuperá-lo; mantenha pressionado para salvar nele o estado atual da zona, direto do cartão.</div></details>
+    <details><summary>Posso renomear minhas zonas?</summary><div class="body">Sim - mantenha pressionado o nome da zona na tela Início para renomear qualquer zona, inclusive a principal. O nome é gravado no próprio receptor, então aparece no app do fabricante e em todos os outros clientes, inclusive em modelos mais antigos.</div></details>
+    <details><summary>Cada zona mostra o que está tocando?</summary><div class="body">Sim - quando uma zona está ligada, o cartão dela mostra o fluxo HEOS de reprodução atual dessa zona, com controles de reprodução.</div></details>
+    <details><summary>Uma Cena pode configurar minhas zonas?</summary><div class="body">Sim - uma <a href="/pt-br/guide/scenes/">Cena</a> pode capturar e restaurar a energia, a entrada e o volume da Zona 2/3 junto com o restante da sua configuração.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Mais do guia</div>
+      <h2>Outros guias do AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/pt-br/guide/getting-started/">Primeiros passos</a> &middot; <a href="/pt-br/guide/home/">Tela Inicial</a> &middot; <a href="/pt-br/guide/scenes/">Cenas</a> &middot; <a href="/pt-br/guide/custom-icons/">Ícones Personalizados</a> &middot; <a href="/pt-br/guide/sound/">Som</a> &middot; <a href="/pt-br/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/pt-br/guide/speakers/">Alto-falantes</a> &middot; <a href="/pt-br/guide/locked-controls/">Por que um controle está bloqueado</a> &middot; <a href="/pt-br/guide/assistant/">O Assistente</a> &middot; <a href="/pt-br/guide/home-automation/">Automação Residencial</a> &middot; <a href="/pt-br/guide/home-assistant-dashboard/">Painel do Home Assistant</a> &middot; <a href="/pt-br/guide/remote/">Remoto</a> &middot; <a href="/pt-br/guide/radio/">Rádio (FM/AM)</a> &middot; <a href="/pt-br/guide/on-screen-display/">Exibição em Tela (OSD)</a> &middot; <a href="/pt-br/guide/settings/">Configurações</a> &middot; <a href="/pt-br/guide/languages/">Idiomas</a> &middot; <a href="/pt-br/guide/volume/">Controles de Volume</a> &middot; <a href="/pt-br/guide/backup/">Backup &amp; Restauração</a> &middot; <a href="/pt-br/guide/now-playing/">Reproduzindo agora &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Assuma o controle de todos os cômodos</h2>
+    <p class="lead" style="margin:0 auto 24px">Compra única, sem anúncios, sem assinaturas. Conecte em menos de um minuto.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Disponível no Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Baixe na App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Baixe na Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Disponível na Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/pt-br/guide/">Voltar ao Guia do Usuário completo &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/pt-br/">Início</a>
+      <a href="/pt-br/guide/">Guia do Usuário</a>
+      <a href="/pt-br/guide/getting-started/">Primeiros passos</a>
+      <a href="/pt-br/receivers/">Receptores</a>
+      <a href="/pt-br/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/pt-br/audyssey-vs-dirac/">Audyssey x Dirac</a>
+      <a href="/pt-br/best-denon-marantz-app/">Por que trocar</a>
+      <a href="/pt-br/help/">Ajuda</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">O AVR Maestro é um aplicativo independente da MiyaraHub Technologies LLC e não é afiliado, endossado nem patrocinado pela Denon, Marantz, D&amp;M Holdings, Sound United ou qualquer outra empresa citada nesta página. Denon, Marantz, HEOS, Audyssey e Dirac Live são marcas registradas de seus respectivos proprietários, usadas aqui apenas para identificação.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

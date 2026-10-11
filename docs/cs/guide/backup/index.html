@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="cs" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Záloha a obnovení nastavení do nového telefonu - AVR Maestro</title>
+<meta name="description" content="Exportujte veškerá nastavení AVR Maestro do jednoho souboru: přijímače, názvy a ikony vstupů, Scény, motiv i předvolby hlasitosti. Na novém telefonu je obnovíte pár klepnutími." />
+<meta name="keywords" content="AVR Maestro backup, transfer AVR app settings new phone, export receiver settings app, restore Denon app config, AVR Maestro migrate device" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/cs/guide/backup/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/backup/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/backup/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/backup/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/backup/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/backup/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/backup/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/backup/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/backup/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/backup/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/backup/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/backup/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/backup/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/backup/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/backup/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/backup/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/backup/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/backup/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/backup/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/backup/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/backup/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/backup/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/backup/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/backup/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/backup/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/backup/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/backup/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/backup/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/backup/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/backup/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/backup/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/backup/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="cs_CZ" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Záloha a obnovení nastavení do nového telefonu - AVR Maestro" />
+<meta property="og:description" content="Exportujte veškerá nastavení AVR Maestro do jednoho souboru: přijímače, názvy a ikony vstupů, Scény, motiv i předvolby hlasitosti. Na novém telefonu je obnovíte pár klepnutími." />
+<meta property="og:url" content="https://avrmaestro.com/cs/guide/backup/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Záloha a obnovení nastavení do nového telefonu - AVR Maestro" />
+<meta name="twitter:description" content="Exportujte veškerá nastavení AVR Maestro do jednoho souboru: přijímače, názvy a ikony vstupů, Scény, motiv i předvolby hlasitosti. Na novém telefonu je obnovíte pár klepnutími." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro je nezávislá aplikace pro ovládání AV přijímačů Denon a Marantz přes vaši místní síť.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "cs"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/backup/#article",
+      "headline": "Záloha a obnovení: celé vaše nastavení v jednom souboru",
+      "description": "Exportujte veškerá nastavení AVR Maestro do jednoho souboru: přijímače, názvy a ikony vstupů, Scény, motiv i předvolby hlasitosti. Na novém telefonu je obnovíte pár klepnutími.",
+      "image": "https://avrmaestro.com/screenshots/backup-restore.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/backup/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "cs"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/backup/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Mohu přenést zálohu mezi Androidem a iPhonem?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Soubor je obyčejný JSON a není svázán se zařízením, které ho vytvořilo. Exportujte na jednom, dostaňte soubor na druhé zařízení a importujte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Přepíše import kalibraci mého přijímače?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ne. Záloha obsahuje pouze nastavení aplikace. Vše, co si ukládá samotný přijímač - kalibrace, předvolby, úrovně, vzdálenosti, filtry Dirac - zůstává v přijímači a import se toho nedotkne."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Přenesou se i moje Scény?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano, včetně toho, která nastavení měla každá Scéna zachytit. Viz průvodce Scénami."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kam Uložit do zařízení soubor uloží?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kamkoli si vyberete v systémovém výběru souborů. Pokud soubor jen putuje na jiný telefon, je rychlejší cesta Sdílet."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Domů",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Uživatelská příručka",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Záloha a obnovení",
+      "item": "https://avrmaestro.com/guide/backup/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/cs/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Nabídka" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Hledat v příručce..." data-i18n-empty="Žádné výsledky pro" data-i18n-language="Jazyk">
+      <a href="/cs/">Domů</a>
+      <a href="/cs/guide/">Uživatelská příručka</a>
+      <a href="/cs/receivers/">Přijímače</a>
+      <a href="/cs/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/cs/best-denon-marantz-app/">Proč přejít</a>
+      <a href="/cs/#top" class="cta">Stáhnout</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/cs/">Domů</a> &rsaquo; <a href="/cs/guide/">Uživatelská příručka</a> &rsaquo; Záloha &amp; obnova</div>
+    <div class="eyebrow">Nastavení &rsaquo; Záloha a obnovení</div>
+    <h1>Záloha a obnovení: celé vaše nastavení <span class="g">v jednom souboru</span></h1>
+    <p>Přejmenovat každý vstup, vybrat ke každému obrázek, seřadit zdroje a vytvořit sadu Scén je pořádná práce. Mělo by to přežít i nový telefon, a také to přežije: jeden export, jeden import a nové zařízení vypadá úplně stejně jako to staré.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Export</div>
+        <h2>Uložte do zařízení, nebo pošlete rovnou dál</h2>
+        <p class="lead">Otevřete <b>Nastavení</b>, přejděte na <b>Záloha a obnovení</b> a vyberte:</p>
+        <ul class="plain">
+          <li><b>Uložit do zařízení</b> - zapíše jeden soubor JSON, kam určíte.</li>
+          <li><b>Sdílet</b> - předá soubor běžné nabídce sdílení, takže může jít rovnou do druhého telefonu, na cloudové úložiště nebo do zprávy sobě.</li>
+        </ul>
+        <p class="lead">Je to obyčejný textový soubor. Nic v něm není vázáno na zařízení, ze kterého pochází.</p>
+      </div>
+      <img alt="Stránka Záloha a obnovení s exportem a importem" src="/screenshots/backup-restore.png" width="1324" height="2644" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Obsah</div>
+      <h2>Co se přenese s vámi</h2>
+    </div>
+    <table class="t">
+      <thead><tr><th>Zahrnuto</th><th>Význam</th></tr></thead>
+      <tbody>
+        <tr><td>Nakonfigurované přijímače</td><td>Každé zařízení, které jste přidali, s jeho adresou a nastavením</td></tr>
+        <tr><td>Pořadí zdrojů pro každé zařízení</td><td>Pořadí, do kterého jste vstupy přetáhli, uložené zvlášť pro každý přijímač</td></tr>
+        <tr><td>Motiv a Barevný motiv</td><td>Barva zvýraznění a volby vzhledu</td></tr>
+        <tr><td>Velikost zobrazení a widgetů</td><td>Velikost textu a widgetů</td></tr>
+        <tr><td>Předvolby hlasitosti</td><td>Chování hlasitosti na straně aplikace</td></tr>
+        <tr><td>Stav vysvětlujících karet</td><td>Které informační panely jste zavřeli, aby zůstaly zavřené</td></tr>
+        <tr><td>Uložené výsledky testů</td><td>Výsledky testů HEOS, funkcí a hudebních možností, aby nový telefon nezačínal od nuly</td></tr>
+      </tbody>
+    </table>
+    <div class="note">Vlastní názvy a obrázky vstupů jsou součástí konfigurace přijímače, takže se přenesou s ní. Viz <a href="/cs/guide/custom-icons/">průvodce Vlastními ikonami</a>.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Import</div>
+      <h2>Obnovení na novém telefonu</h2>
+    </div>
+    <ol class="plain">
+      <li>Nainstalujte AVR Maestro do nového zařízení a ujistěte se, že je ve stejné síti jako váš přijímač.</li>
+      <li>Otevřete <b>Nastavení &rsaquo; Záloha a obnovení</b>.</li>
+      <li>Klepněte na <b>Importovat nastavení ze souboru</b> a vyberte zálohu.</li>
+      <li><b>Restartujte aplikaci.</b> Řekne vám to i sama aplikace - restart zajistí, že se všechna obnovená nastavení správně uplatní.</li>
+    </ol>
+    <div class="note"><b>Import nahrazuje, neslučuje.</b> Vše, co je v daném zařízení, se přepíše obsahem zálohy. Pokud pro vás současné nastavení něco znamená, nejdřív ho exportujte - stojí to dvě klepnutí.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Dobré vědět</div>
+      <h2>Záloha je aplikace, ne přijímač</h2>
+    </div>
+    <p class="lead">Vaše kalibrace, předvolby reproduktorů, úrovně, vzdálenosti, výhybky a filtry Dirac jsou uloženy <b>v přijímači</b>. V záloze nejsou a import je nemůže narušit. Platí to oběma směry: záloha neobnoví přijímač, který jste vrátili do továrního nastavení, a ani to není potřeba - po opětovném připojení aplikace k tomuto přijímači si jeho nastavení načte zpět přímo z něj.</p>
+    <p class="lead">Je také rozumné zálohu pořídit před větším přeskupováním. Exportujte, libovolně přeuspořádejte vstupy a znovu sestavte Scény, a pokud vám původní podoba vyhovovala víc, soubor je po ruce.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Časté dotazy</div>
+      <h2>Časté dotazy k záloze</h2>
+    </div>
+    <details open><summary>Mohu přenést zálohu mezi Androidem a iPhonem?</summary><div class="body">Soubor je obyčejný JSON a není svázán se zařízením, které ho vytvořilo. Exportujte na jednom, dostaňte soubor na druhé zařízení a importujte.</div></details>
+    <details><summary>Přepíše import kalibraci mého přijímače?</summary><div class="body">Ne. Záloha obsahuje pouze nastavení aplikace. Vše, co si ukládá samotný přijímač - kalibrace, předvolby, úrovně, vzdálenosti, filtry Dirac - zůstává v přijímači a import se toho nedotkne.</div></details>
+    <details><summary>Přenesou se i moje Scény?</summary><div class="body">Ano, včetně toho, která nastavení měla každá Scéna zachytit. Viz <a href="/cs/guide/scenes/">průvodce Scénami</a>.</div></details>
+    <details><summary>Kam Uložit do zařízení soubor uloží?</summary><div class="body">Kamkoli si vyberete v systémovém výběru souborů. Pokud soubor jen putuje na jiný telefon, je rychlejší cesta Sdílet.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Další z průvodce</div>
+      <h2>Další průvodce aplikací AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/cs/guide/getting-started/">Začínáme</a> &middot; <a href="/cs/guide/home/">Domovská obrazovka</a> &middot; <a href="/cs/guide/scenes/">Scény</a> &middot; <a href="/cs/guide/custom-icons/">Vlastní ikony</a> &middot; <a href="/cs/guide/sound/">Zvuk</a> &middot; <a href="/cs/guide/graphic-eq/">Grafický ekvalizér</a> &middot; <a href="/cs/guide/speakers/">Reproduktory</a> &middot; <a href="/cs/guide/locked-controls/">Proč je ovládací prvek uzamčen</a> &middot; <a href="/cs/guide/assistant/">Asistent</a> &middot; <a href="/cs/guide/home-automation/">Domácí automatizace</a> &middot; <a href="/cs/guide/home-assistant-dashboard/">Dashboard Home Assistant</a> &middot; <a href="/cs/guide/multi-zone/">Zóny</a> &middot; <a href="/cs/guide/remote/">Dálkový ovladač</a> &middot; <a href="/cs/guide/radio/">Rádio (FM/AM)</a> &middot; <a href="/cs/guide/on-screen-display/">Zobrazení na obrazovce</a> &middot; <a href="/cs/guide/settings/">Nastavení</a> &middot; <a href="/cs/guide/languages/">Jazyky</a> &middot; <a href="/cs/guide/volume/">Ovládání hlasitosti</a> &middot; <a href="/cs/guide/now-playing/">Právě se přehrává &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Nastavte jednou</h2>
+    <p class="lead" style="margin:0 auto 24px">Jednorázový nákup, žádné reklamy, žádná předplatná. Připojení za méně než minutu.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Stáhnout z Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Stáhnout z App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Stáhnout z Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Stáhnout z Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/cs/guide/">Zpět na celého Uživatelského průvodce &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/cs/">Domů</a>
+      <a href="/cs/guide/">Uživatelská příručka</a>
+      <a href="/cs/guide/getting-started/">Začínáme</a>
+      <a href="/cs/receivers/">Přijímače</a>
+      <a href="/cs/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/cs/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/cs/best-denon-marantz-app/">Proč přejít</a>
+      <a href="/cs/help/">Nápověda</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro je nezávislá aplikace společnosti MiyaraHub Technologies LLC a není nijak spojena se společnostmi Denon, Marantz, D&amp;M Holdings, Sound United ani s žádnou jinou firmou uvedenou na této stránce, ani jimi není schválena či sponzorována. Denon, Marantz, HEOS, Audyssey a Dirac Live jsou ochranné známky svých příslušných vlastníků, které jsou zde použity pouze pro identifikaci.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

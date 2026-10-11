@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="th" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>แดชบอร์ด Home Assistant สำหรับ Denon &amp; Marantz - AVR Maestro</title>
+<meta name="description" content="สร้างแดชบอร์ด Home Assistant สำหรับเครื่องรับ Denon หรือ Marantz ของคุณ: การ์ด HACS รหัสเอนทิตี YAML ของทุกการ์ด ระดับเสียง dB จริง ฉาก และประวัติ" />
+<meta name="keywords" content="Home Assistant Denon dashboard, Marantz Home Assistant card, mushroom card AV receiver, Home Assistant receiver volume dB, denonavr dashboard, AVR Maestro Home Assistant example" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/th/guide/home-assistant-dashboard/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-assistant-dashboard/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="th_TH" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="แดชบอร์ด Home Assistant สำหรับ Denon &amp; Marantz - AVR Maestro" />
+<meta property="og:description" content="สร้างแดชบอร์ด Home Assistant สำหรับเครื่องรับ Denon หรือ Marantz ของคุณ: การ์ด HACS รหัสเอนทิตี YAML ของทุกการ์ด ระดับเสียง dB จริง ฉาก และประวัติ" />
+<meta property="og:url" content="https://avrmaestro.com/th/guide/home-assistant-dashboard/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="แดชบอร์ด Home Assistant สำหรับ Denon &amp; Marantz - AVR Maestro" />
+<meta name="twitter:description" content="สร้างแดชบอร์ด Home Assistant สำหรับเครื่องรับ Denon หรือ Marantz ของคุณ: การ์ด HACS รหัสเอนทิตี YAML ของทุกการ์ด ระดับเสียง dB จริง ฉาก และประวัติ" />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro เป็นแอปอิสระสำหรับควบคุมเครื่องรับ AV ของ Denon และ Marantz ผ่านเครือข่ายภายในบ้านของคุณ",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "th"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
+      "headline": "สร้างแดชบอร์ด Home Assistant นี้ได้ในเวลาราวหนึ่งชั่วโมง",
+      "description": "สร้างแดชบอร์ด Home Assistant สำหรับเครื่องรับ Denon หรือ Marantz ของคุณ: การ์ด HACS รหัสเอนทิตี YAML ของทุกการ์ด ระดับเสียง dB จริง ฉาก และประวัติ",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "datePublished": "2026-08-23",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-assistant-dashboard/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "th"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "ต้องใช้การ์ดกำหนดเองจาก HACS เพื่อสร้างสิ่งนี้ไหม",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ไม่จำเป็นเพื่อให้ใช้งานได้ ทุกตัวควบคุมในหน้านี้ทำงานได้จากการ์ดปุ่มธรรมดาของ Home Assistant ส่วน Mushroom, button-card, card-mod และ apexcharts-card คือสิ่งที่ทำให้หน้าตาออกมาเหมือนในภาพหน้าจอ และแต่ละส่วนด้านล่างจะบอกว่าใช้ตัวไหนและจะเสียอะไรไปหากไม่มี"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ทำไมบางปุ่มจึงสว่างขึ้นแต่บางปุ่มไม่สว่าง",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ปุ่มจะสว่างเมื่อ Home Assistant อ่านสถานะที่ตรงกันจากเครื่องรับของคุณได้ แหล่งสัญญาณ โหมดเซอร์ราวด์ ระดับเสียง และปิดเสียง ส่งกลับมาจากเอนทิตีมีเดียเพลเยอร์ของเครื่องรับเอง จึงมีไฮไลต์ ส่วนเส้นโค้ง Audyssey สล็อต Dirac ตัวหรี่ไฟ โหมด eco และพรีเซ็ตลำโพง อินทิเกรชัน Denon ไม่ได้เผยแพร่ Home Assistant จึงไม่มีทางรู้ว่าตัวไหนทำงานอยู่ ปุ่มเหล่านั้นจึงไม่สว่างจนกว่าคุณจะแตะสักปุ่ม"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "แสดงระดับเสียง dB จริงแทนเปอร์เซ็นต์ได้ไหม",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ได้ Home Assistant เผยแพร่ volume_level เป็นค่าระดับเสียงหลักของเครื่องรับหารด้วย 100 และบนเครื่องรับ Denon และ Marantz ค่า MV 80 คือจุดอ้างอิง 0 dB ดังนั้น dB เท่ากับ volume_level คูณ 100 แล้วลบ 80 ค่า volume_level ที่ 0.67 คือระดับเสียงหลัก 67 หรือ -13.0 dB"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Entity ID ของฉันจะตรงกับในคู่มือนี้ไหม",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "รูปแบบจะตรงกัน แต่ส่วนตรงกลางจะไม่ตรง AVR Maestro ตั้งชื่อสคริปต์ตามที่อยู่ MAC ของเครื่องรับ เพื่อให้การเปลี่ยนชื่อไปอัปเดตสคริปต์เดิมแทนที่จะสร้างสคริปต์ใหม่ซ้ำ ของคุณจะเป็น script.avr_maestro_ ตามด้วยอักขระ 12 ตัวของคุณเอง แล้วจึงตามด้วยชื่อตัวควบคุม เปิด Developer Tools แล้วไปที่ States ใน Home Assistant และกรองด้วย avr_maestro เพื่อดูรายการของคุณเอง"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "หน้าแรก",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "คู่มือผู้ใช้",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "ระบบบ้านอัตโนมัติ",
+      "item": "https://avrmaestro.com/guide/home-automation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "แดชบอร์ด",
+      "item": "https://avrmaestro.com/guide/home-assistant-dashboard/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/th/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="เมนู" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="ค้นหาในคู่มือ..." data-i18n-empty="ไม่พบผลลัพธ์สำหรับ" data-i18n-language="ภาษา">
+      <a href="/th/">หน้าแรก</a>
+      <a href="/th/guide/">คู่มือผู้ใช้</a>
+      <a href="/th/receivers/">เครื่องรับ</a>
+      <a href="/th/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/th/best-denon-marantz-app/">ทำไมต้องเปลี่ยน</a>
+      <a href="/th/#top" class="cta">ดาวน์โหลด</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/th/">หน้าแรก</a> &rsaquo; <a href="/th/guide/">คู่มือผู้ใช้</a> &rsaquo; <a href="/th/guide/home-automation/">ระบบบ้านอัตโนมัติ</a> &rsaquo; แดชบอร์ด</div>
+    <div class="eyebrow">Home Assistant &middot; ทีละขั้นตอน</div>
+    <h1>สร้างแดชบอร์ด Home Assistant นี้ <span class="g">ได้ในเวลาราวหนึ่งชั่วโมง</span></h1>
+    <p>สิบขั้นตอน YAML ของทุกการ์ด และวิวสมบูรณ์ที่วางได้ในครั้งเดียว สร้างและถ่ายภาพจาก Marantz CINEMA 30 ตัวจริง เปลี่ยนสองสตริงก็เป็นของคุณแล้ว</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <figure class="hero-shot">
+      <img alt="แดชบอร์ดที่เสร็จสมบูรณ์: การ์ดหลักแสดงสิ่งที่กำลังเล่น ระดับเสียงพร้อมพรีเซ็ต dB ตารางแหล่งสัญญาณ โหมดเซอร์ราวด์ การปรับแก้ห้อง ฉาก และกราฟระดับเสียง" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <figcaption>สิ่งที่คุณกำลังจะสร้าง</figcaption>
+    </figure>
+    <div class="note"><b>รีบอยู่ใช่ไหม</b> ข้ามไปที่ <a href="#whole">ขั้นตอนที่ 10</a> ดาวน์โหลดวิวสมบูรณ์ เปลี่ยนสองสตริงแล้ววางได้เลย ขั้นตอนระหว่างทางอธิบายว่าแต่ละส่วนทำอะไร เพื่อให้คุณปรับเปลี่ยนเองได้</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>ก่อนเริ่มต้น</h2>
+    </div>
+    <ul class="plain">
+      <li><b>AVR Maestro เชื่อมต่อกับ Home Assistant และซิงก์เรียบร้อยแล้ว</b> <a href="/th/guide/home-automation/">คู่มือการตั้งค่า</a>อธิบายขั้นตอนนี้ไว้ คุณควรเห็นตัวควบคุมของคุณใน Home Assistant ก่อนจะสร้างสิ่งอื่นต่อยอดจากตัวควบคุมเหล่านั้น</li>
+      <li><b>เพิ่มเครื่องรับของคุณใน Home Assistant แล้ว</b> การตั้งค่า &rsaquo; อุปกรณ์ &amp; บริการ &rsaquo; เพิ่มการผสานรวม &rsaquo; <b>Denon AVR</b> จากนั้นระบุ IP ภายในเครือข่ายของเครื่อง นี่คือสิ่งที่ทำให้แดชบอร์ดแสดงสถานะแบบเรียลไทม์</li>
+      <li><b>เปิดเครื่องรับไว้</b> ระหว่างที่สร้าง ครึ่งหนึ่งของสิ่งที่คุณกำลังจะเขียนอ่านค่าสด และเครื่องรับที่อยู่ในโหมดสแตนด์บายแทบไม่เผยแพร่ข้อมูลอะไรเลย</li>
+    </ul>
+    <p class="lead">แดชบอร์ดนี้ได้ข้อมูลจากสองแหล่ง และความแตกต่างนี้สำคัญในทุกขั้นตอนต่อจากนี้</p>
+    <table class="t">
+      <thead><tr><th>มาจาก</th><th>ให้คุณได้</th></tr></thead>
+      <tbody>
+        <tr><td>สคริปต์ที่ AVR Maestro ซิงค์ให้</td><td><b>ตัวควบคุม</b> ทุกตัว ได้แก่ อินพุต โหมดเซอร์ราวด์ Audyssey Dirac Smart Select พรีเซ็ต ตัวหรี่ไฟ โหมดประหยัด และฉากของคุณ</td></tr>
+        <tr><td>เอนทิตีเครื่องเล่นสื่อของอินทิเกรชัน Denon AVR</td><td><b>สถานะ</b> สด ได้แก่ สถานะเปิดปิด แหล่งสัญญาณที่เลือก โหมดเซอร์ราวด์ ระดับเสียง และการปิดเสียง</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ขั้นตอนที่ 1</div>
+      <h2>ติดตั้งการ์ดสี่ตัวจาก HACS</h2>
+    </div>
+    <p class="lead">ทั้งสี่ตัวอยู่ในร้านค้าเริ่มต้นของ HACS ใน Home Assistant ให้ไปที่ <b>HACS &rsaquo; Frontend &rsaquo; Explore &amp; Download Repositories</b> ค้นหาชื่อ กด Download แล้วรีโหลดเบราว์เซอร์</p>
+    <table class="t">
+      <thead><tr><th>ค้นหาว่า</th><th>ใช้สำหรับ</th><th>ถ้าข้ามไป</th></tr></thead>
+      <tbody>
+        <tr><td><b>Mushroom</b></td><td>ไทล์ควบคุมทุกอัน และแถบเลื่อนระดับเสียง</td><td>ใช้การ์ด <code>button</code> ธรรมดาแทน ใช้งานได้ แต่ดูเหลี่ยมกว่า</td></tr>
+        <tr><td><b>button-card</b></td><td>หัวข้อส่วนพร้อมป้ายสถานะสด</td><td>ใช้การ์ด <code>markdown</code> หรือหัวข้อธรรมดา</td></tr>
+        <tr><td><b>card-mod</b></td><td>สีสัน และสถานะสว่างบนไทล์ที่ใช้งานอยู่</td><td>ทุกอย่างยังทำงานได้ แต่จะไม่มีอะไรสว่างขึ้น</td></tr>
+        <tr><td><b>apexcharts-card</b></td><td>กราฟประวัติ</td><td>ใช้การ์ด <code>history-graph</code> ที่มีมาในตัว</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><b>ไม่มีตัวใดจำเป็นต่อการใช้งานเลย</b> ตัวควบคุมทุกอันด้านล่างทำงานได้จากการ์ดปุ่มมาตรฐานของ Home Assistant ที่ชี้ไปยังสคริปต์เดียวกัน การ์ดแบบกำหนดเองเป็นแค่เครื่องสำอาง ไม่ใช่ระบบท่อ</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ขั้นตอนที่ 2</div>
+      <h2>หา Entity ID สองตัวของคุณ</h2>
+    </div>
+    <p class="lead">ทุกโค้ดตัวอย่างในหน้านี้ใช้ตัวแทนสองตัว หาของคุณเพียงครั้งเดียว ที่เหลือก็แค่คัดลอกแล้ววาง</p>
+    <ul class="plain">
+      <li><b><code>media_player.your_receiver</code></b> &rarr; การตั้งค่า &rsaquo; อุปกรณ์ &amp; บริการ &rsaquo; เครื่องรับของคุณ &rsaquo; เอนทิตีเครื่องเล่นสื่อ ลักษณะประมาณ <code>media_player.marantz_cinema_30</code></li>
+      <li><b><code>script.avr_maestro_MAC_...</code></b> &rarr; เครื่องมือสำหรับนักพัฒนา &rsaquo; สถานะ แล้วพิมพ์ <code>avr_maestro</code> ในช่องกรองเอนทิตี รายการตัวควบคุมทั้งหมดของคุณจะปรากฏขึ้น</li>
+    </ul>
+    <p class="lead">ส่วนกลางของ ID สคริปต์ทุกตัวคือที่อยู่ MAC ของเครื่องรับ เป็นอักษรตัวพิมพ์เล็ก 12 ตัว และเหมือนกันทุกตัว คัดลอกไว้ครั้งเดียว ทุกที่ที่หน้านี้เขียน <code>MAC</code> ให้ใส่ของคุณแทน</p>
+    <div class="note"><b>ไม่ต้องสนใจตัวที่ขึ้นว่า <code>unavailable</code></b> บิลด์เก่าตั้งชื่อสคริปต์ตามชื่อเครื่องรับ ไม่ใช่ MAC หากคุณเคยซิงค์ในตอนนั้น สคริปต์รุ่นเก่าเหล่านั้นจะยังค้างอยู่ในรายการและใช้งานไม่ได้แล้ว ตัวที่ใช้งานจริงคือตัวที่ตั้งชื่อตาม MAC</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ขั้นตอนที่ 3</div>
+      <h2>สร้างวิว</h2>
+    </div>
+    <ol class="plain">
+      <li><b>1.</b> Settings &rsaquo; Dashboards &rsaquo; Add Dashboard &rsaquo; New dashboard from scratch ตั้งชื่ออะไรก็ได้ตามต้องการ</li>
+      <li><b>2.</b> เปิดแดชบอร์ด แล้วแตะไอคอนดินสอที่มุมขวาบนเพื่อแก้ไข</li>
+      <li><b>3.</b> เพิ่มวิว แล้วเลือกเลย์เอาต์ <b>Sections</b> ไม่ใช่ Masonry เลย์เอาต์ Sections คือสิ่งที่ทำให้จัดเรียงใหม่ได้ถูกต้องบนโทรศัพท์</li>
+      <li><b>4.</b> ในการตั้งค่าวิว ตั้ง <b>Max columns</b> เป็น 3 และเปิด <b>Dense section placement</b></li>
+    </ol>
+    <p class="lead">จากนี้ไปทุกขั้นตอนคือ เพิ่มส่วน แล้ววางการ์ดลงไป หากต้องการวาง YAML ให้ใช้เมนูสามจุดบนการ์ดแล้วเลือก <b>Edit in YAML</b> หรือใช้เมนูสามจุดบนแดชบอร์ดเพื่อเปิด <b>Raw configuration editor</b> แล้ววางทั้งหมดในครั้งเดียว</p>
+<pre class="code"><span class="c"># The view's own settings, if you prefer to type them</span>
+type: sections
+title: AVR Maestro
+icon: mdi:audio-video
+max_columns: 3
+dense_section_placement: true</pre>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ขั้นตอนที่ 4</div>
+      <h2>เพิ่มตัวควบคุม</h2>
+    </div>
+    <p class="lead">เริ่มจากสิ่งที่ง่ายที่สุดบนบอร์ด เพื่อให้แน่ใจว่า Entity ID ของคุณถูกต้องก่อนสร้างอะไรที่ซับซ้อน เพิ่มส่วน เพิ่มการ์ด เลือก Edit in YAML แล้ววาง:</p>
+<pre class="code">type: button
+name: Pure Direct
+icon: mdi:speaker
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_mode_pure_direct</pre>
+    <p class="capt">Home Assistant มาตรฐาน ไม่ต้องใช้ HACS</p>
+    <p class="lead">แตะดู ถ้าเครื่องรับเปลี่ยนตาม แปลว่า ID ของคุณถูกต้อง และทุกอย่างด้านล่างจะใช้งานได้ ถ้าไม่มีอะไรเกิดขึ้น ให้กลับไปที่ขั้นตอนที่ 2</p>
+  </div>
+</section>
+
+<section id="highlight">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ขั้นตอนที่ 5</div>
+      <h2>ทำให้สว่างขึ้นเมื่อเป็นตัวที่ใช้งานอยู่</h2>
+    </div>
+    <p class="lead">นี่คือรูปแบบที่ควรเรียนรู้ และทุกไทล์แหล่งสัญญาณและเซอร์ราวด์บนบอร์ดก็คือสำเนาของมัน การ์ดจะส่งสคริปต์ และเปลี่ยนสีตัวเองตามเอนทิตีของเครื่องรับ ดังนั้นอินพุตที่คุณใช้อยู่จะสว่าง ส่วนตัวอื่นจะมืด</p>
+    <figure><img alt="ตารางแหล่งสัญญาณที่ Nvidia Shield สว่างเป็นสีส้ม และอินพุตอีกสิบสองตัวมืดอยู่" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>สว่างหนึ่งไทล์ มืดสิบสองไทล์</figcaption></figure>
+<pre class="code">type: custom:mushroom-template-card
+entity: script.avr_maestro_MAC_input_cd
+icon: mdi:disc
+primary: CD
+icon_color: >-
+  {{ 'orange' if (state_attr('media_player.your_receiver','source') or '')|lower
+     == 'cd' else 'grey' }}
+layout: vertical
+fill_container: true
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_input_cd
+card_mod:
+  style: |
+    ha-card {
+      border-radius: 14px;
+    {% if (state_attr('media_player.your_receiver','source') or '')|lower == 'cd' %}
+      background: linear-gradient(160deg, rgba(226,86,10,0.34), rgba(15,15,17,0.88));
+      border: 1px solid rgba(255,122,24,0.80);
+    {% else %}
+      background: rgba(15,15,17,0.72);
+      border: 1px solid rgba(255,122,24,0.14);
+    {% endif %}
+    }</pre>
+    <p class="capt">เปลี่ยนสามอย่างต่อหนึ่งอินพุต ได้แก่ สคริปต์ ไอคอน และสตริงที่ใช้เปรียบเทียบ</p>
+    <p class="lead">มีสองเรื่องที่ต้องทำให้ถูก ไม่อย่างนั้นไทล์จะไม่มีวันสว่าง:</p>
+    <ul class="plain">
+      <li><b>เปรียบเทียบกับค่าที่เครื่องรับรายงานจริง</b> ไปที่ Developer Tools &rsaquo; States เลือกเอนทิตีเครื่องเล่นสื่อของคุณ แล้วอ่านแอตทริบิวต์ <code>source_list</code> และ <code>sound_mode_list</code> นั่นคือสตริงที่ถูกต้องตรงตัว เปรียบเทียบด้วยตัวพิมพ์เล็กตามตัวอย่างด้านบน</li>
+      <li><b>อินพุตที่เปลี่ยนชื่อจะรายงานชื่อใหม่</b> ถ้าคุณเปลี่ยนชื่อ GAME1 เป็น “Xbox” บนเครื่องรับ เครื่องรับจะรายงานเป็น <code>Xbox</code> ขณะที่ตัวควบคุมของ AVR Maestro ยังคงชื่อ <code>input_game1</code> ให้จับคู่กับสิ่งที่เครื่องรับรายงาน ไม่ใช่ชื่อสคริปต์</li>
+    </ul>
+    <p class="lead">โหมดเซอร์ราวด์ใช้การ์ดเดียวกัน โดยใช้ <code>sound_mode</code> แทน <code>source</code></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ขั้นตอนที่ 6</div>
+      <h2>ใส่หัวข้อสดให้แต่ละส่วน</h2>
+    </div>
+    <p class="lead">ชื่อธรรมดาคือพื้นที่เปล่าที่เสียเปล่า ใส่ค่าสดไว้ใต้ชื่อ แล้วหัวข้อ “Sources” จะกลายเป็น “Sources / Now on Nvidia Shield”</p>
+<pre class="code">type: custom:button-card
+name: Sources
+icon: mdi:video-input-hdmi
+color_type: label-card
+entity: media_player.your_receiver
+show_label: true
+label: >-
+  [[[ var v = states["media_player.your_receiver"].attributes.source;
+      return v ? ("Now on " + v) : "Receiver in standby"; ]]]
+tap_action:
+  action: none
+styles:
+  grid:
+    - grid-template-areas: '"i n" "i l"'
+    - grid-template-columns: min-content auto
+  name:
+    - font-size: 13px
+    - letter-spacing: 3px
+    - text-transform: uppercase
+    - justify-self: start
+  label:
+    - font-size: 11px
+    - justify-self: start</pre>
+    <p class="capt">กริดสองบรรทัดคือสิ่งที่ทำให้ป้ายอยู่ใต้ชื่อ แทนที่จะอยู่ข้างๆ</p>
+    <p class="lead">สลับ <code>attributes.source</code> เป็น <code>attributes.sound_mode</code> ที่หัวข้อเซอร์ราวด์ และทำแบบเดียวกันกับส่วนอื่น</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ขั้นตอนที่ 7</div>
+      <h2>แสดงระดับเสียงเป็น dB</h2>
+    </div>
+    <p class="lead">Home Assistant รายงานระดับเสียงเป็นเศษส่วน ไม่มีใครตั้งเครื่องรับที่ “0.67” หรอก คณิตศาสตร์บรรทัดเดียวแก้ปัญหานี้ได้ และทั้งส่วนจะอ่านแล้วเหมือนเครื่องรับจริงๆ</p>
+    <figure><img alt="ส่วนระดับเสียง: แถบเลื่อน เพิ่ม ลด ปิดเสียง และพรีเซ็ต dB สี่ตัว" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie และ Loud แต่ละตัวมีป้ายบอกค่า dB ที่ตั้งไว้</figcaption></figure>
+    <div class="note"><b>การแปลงค่า</b> Home Assistant เผยแพร่ <code>volume_level</code> เป็นระดับเสียงหลักหารด้วย 100 และบนเครื่องรับ Denon และ Marantz ค่า MV 80 คือจุดอ้างอิง 0 dB ดังนั้น <b>dB = volume_level &times; 100 &minus; 80</b> ค่า <code>volume_level</code> ที่ 0.67 คือระดับเสียงหลัก 67 หรือ &minus;13.0 dB</div>
+<pre class="code"><span class="c"># The readout</span>
+type: custom:mushroom-template-card
+entity: media_player.your_receiver
+icon: mdi:volume-high
+primary: >-
+  {% set v = state_attr('media_player.your_receiver','volume_level') %}
+  {% if v is not none %}{{ (v * 100 - 80) | round(1) }} dB{% else %}Standby{% endif %}
+secondary: Master volume
+layout: vertical</pre>
+<pre class="code"><span class="c"># The slider. media_controls must be empty or the bar becomes a power button</span>
+type: custom:mushroom-media-player-card
+entity: media_player.your_receiver
+volume_controls:
+  - volume_set
+media_controls: []
+show_volume_level: true</pre>
+<pre class="code"><span class="c"># A preset. 0.50 is master volume 50, which is -30 dB</span>
+type: custom:mushroom-template-card
+entity: media_player.your_receiver
+icon: mdi:weather-night
+primary: Night
+secondary: "-30 dB"
+tap_action:
+  action: perform-action
+  perform_action: media_player.volume_set
+  target:
+    entity_id: media_player.your_receiver
+  data:
+    volume_level: 0.50</pre>
+    <div class="note"><b>เลือกพรีเซ็ตที่ดังที่สุดอย่างรอบคอบ</b> ชุดด้านบนหยุดที่ &minus;10 dB แดชบอร์ดกดพลาดได้ง่ายกว่ารีโมตมาก และระดับอ้างอิงบนเครื่องรับใหญ่ๆ ดังจริงจัง</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ขั้นตอนที่ 8</div>
+      <h2>เพิ่มฉากของคุณ</h2>
+    </div>
+    <p class="lead">อ่านชื่อจากสคริปต์แทนการพิมพ์เอง แล้วเมื่อคุณเปลี่ยนชื่อฉากใน AVR Maestro ไทล์ก็เปลี่ยนชื่อตาม โดยไม่ต้องแก้แดชบอร์ด</p>
+    <figure><img alt="ไทล์ฉากสี่ตัว แต่ละตัวแสดงรายการการตั้งค่าที่ฉากนั้นคืนค่า" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>แต่ละไทล์บอกว่าฉากของมันคืนค่าอะไรบ้างจริงๆ</figcaption></figure>
+<pre class="code">type: custom:mushroom-template-card
+entity: script.avr_maestro_MAC_scene_1234567890123
+icon: mdi:theater
+primary: >-
+  {{ state_attr('script.avr_maestro_MAC_scene_1234567890123','friendly_name')
+     | replace('AVR Maestro - ', '') | replace(' (Your Receiver)', '') }}
+secondary: >-
+  {% set t = states.script['avr_maestro_MAC_scene_1234567890123'].attributes.last_triggered %}
+  {{ 'recalled ' ~ relative_time(t) ~ ' ago' if t else 'not run yet' }}
+multiline_secondary: true
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_scene_1234567890123</pre>
+    <p class="capt">การเรียก replace() สองครั้งตัดคำนำหน้าและชื่อเครื่องรับออกจากชื่อที่แสดง</p>
+    <p class="lead">บรรทัดที่สองคุ้มกับเวลาที่เพิ่มอีกหนึ่งนาที ปุ่มชื่อเก๋ๆ เรียงเป็นแผงไม่ได้บอกอะไรเลยตอน 11 โมงคืน แต่บรรทัดที่บอกว่าแต่ละปุ่มคืนค่าอะไรจะบอกคุณว่าควรกดปุ่มไหน</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ขั้นตอนที่ 9</div>
+      <h2>เพิ่มประวัติ</h2>
+    </div>
+    <p class="lead">Home Assistant บันทึกเอนทิตีเครื่องเล่นสื่อของเครื่องรับเหมือนเอนทิตีอื่นทั่วไป คุณจึงได้ประวัติการรับฟังฟรีๆ ทุกอย่างด้านล่างมาจากเอนทิตีเดียวนั้น ไม่ต้องมีเซนเซอร์เพิ่ม ไม่ต้องมี helper และไม่ต้องตั้งค่าอะไรก่อน</p>
+    <figure><img alt="กราฟประวัติห้าแบบ: สถานะเปิดปิดและกิจกรรม ระดับเสียงหลักเป็น dB ระดับเสียงรายวัน แหล่งสัญญาณที่ใช้ และโหมดเซอร์ราวด์" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>ห้ากราฟ หนึ่งเอนทิตี เจ็ดวัน</figcaption></figure>
+    <p class="lead">ไทม์ไลน์สถานะธรรมดาไม่ต้องใช้การ์ดแบบกำหนดเองเลย และเป็นอันที่ควรมีมากที่สุด:</p>
+<pre class="code">type: history-graph
+hours_to_show: 168
+entities:
+  - entity: media_player.your_receiver
+    name: Receiver</pre>
+    <p class="capt">เปิด ปิด และกำลังทำอะไรอยู่ ตลอดหนึ่งสัปดาห์</p>
+    <p class="lead">ระดับเสียงเป็น dB ใช้การแปลงค่าเดียวกับขั้นตอนที่ 7:</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+header:
+  show: true
+  title: Master volume, last 7 days
+series:
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Master volume
+    type: line
+    curve: smooth
+    unit: dB
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100 - 80;"
+    extend_to: now
+    group_by:
+      duration: 1h
+      func: last
+      fill: last
+apex_config:
+  chart:
+    height: 240
+  yaxis:
+    min: -60
+    max: 0</pre>
+    <p class="capt">group_by กับ fill: last เปลี่ยนเหตุการณ์ที่กระจัดกระจายให้เป็นเส้นต่อเนื่อง แกน y ต้องใส่ใน apex_config จึงจะมีผล</p>
+    <p class="lead">ค่าเฉลี่ยและค่าสูงสุดรายวันเปลี่ยนเส้นที่ขึ้นลงแหลมให้เป็นรูปทรงที่อ่านออก:</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+span:
+  end: day
+header:
+  show: true
+  title: Master volume by day in dB, average and peak
+series:
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Day average
+    type: column
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100;"
+    group_by: {duration: 1d, func: avg, fill: 'null'}
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Day peak
+    type: line
+    curve: smooth
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100;"
+    group_by: {duration: 1d, func: max, fill: 'null'}
+apex_config:
+  yaxis:
+    min: 0
+    max: 80
+    labels:
+      formatter: "EVAL:function (v) { return (v - 80).toFixed(0); }"
+  tooltip:
+    y:
+      formatter: "EVAL:function (v) { return v == null ? '' : (v - 80).toFixed(1) + ' dB'; }"</pre>
+    <p class="capt">สองชุดข้อมูลจากแอตทริบิวต์เดียวกัน จัดกลุ่มตามวัน</p>
+    <div class="note"><b>เหตุที่กราฟนี้พล็อต 0 ถึง 80 แล้วจัดรูปแบบเป็น dB แทนที่จะพล็อต dB ตรงๆ</b> แท่งกราฟโตขึ้นจากพื้นของแกน ถ้าพล็อต dB ตรงๆ ทุกแท่งจะห้อยลงจาก 0 ทำให้แท่งยาวหมายถึงเสียงเบา ซึ่งอ่านแล้วกลับด้าน ให้พล็อตค่าระดับเสียงหลักดิบ แล้วลบ 80 ในตัวจัดรูปแบบของแกนและทูลทิป แท่งก็จะโตขึ้นด้านบน ขณะที่ทุกอย่างที่ผู้อ่านเห็นยังเป็น dB อยู่ <code>fill: 'null'</code> หมายความว่าวันที่ไม่มีค่าอ่านจะไม่มีแท่ง แทนที่จะยกค่าของเมื่อวานมาแสดง</div>
+    <p class="lead">และอีกสองกราฟที่ตอบคำถามว่า “จริงๆ แล้วฉันดูอะไรบนอะไร” ได้แก่ แหล่งสัญญาณและโหมดเซอร์ราวด์ พล็อตเป็นไทม์ไลน์ว่าตัวไหนถูกเลือกอยู่</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+span:
+  end: day
+header:
+  show: true
+  title: Source in use, last 7 days
+series:
+  - entity: media_player.your_receiver
+    attribute: source
+    name: Source
+    type: line
+    curve: stepline
+    stroke_width: 3
+    extend_to: now
+    float_precision: 0
+    transform: |
+      if (x == null) return null;
+      var m = ["Phono", "NET", "Xbox", "Nvidia Shield"];
+      var i = m.indexOf(x);
+      return i &lt; 0 ? 0 : i + 1;
+apex_config:
+  yaxis:
+    min: 0
+    max: 4
+    tickAmount: 4
+    labels:
+      formatter: >-
+        EVAL:function (v) { return ["Other", "Phono", "HEOS Net", "Xbox",
+        "Shield"][Math.round(v)] || ''; }
+  tooltip:
+    y:
+      formatter: >-
+        EVAL:function (v) { return v == null ? 'off' : ["Other", "Phono",
+        "HEOS Net", "Xbox", "Shield"][Math.round(v)] || 'Other'; }</pre>
+    <p class="capt">ใส่แหล่งสัญญาณของคุณเองในอาร์เรย์ transform และในอาร์เรย์ตัวจัดรูปแบบทั้งสอง เก็บ index 0 ไว้เป็น “Other”</p>
+    <p class="lead">แกนของกราฟต้องใช้ตัวเลข ดังนั้น <code>transform</code> จึงจับคู่ชื่อแหล่งสัญญาณแต่ละตัวกับตำแหน่ง และตัวจัดรูปแบบจะแปลงกลับเป็นชื่อสำหรับป้ายและทูลทิป ทำให้การจับคู่นั้น<b>ครบถ้วน</b> คือ <code>null</code> (เครื่องรับปิดอยู่) ยังคงเป็นช่องว่าง และสิ่งที่ไม่อยู่ในรายการของคุณจะตกไปที่ “Other” สองอย่างนี้จึงไม่มีวันสับสนกัน ใช้การ์ดเดียวกันกับ <code>sound_mode</code> จะได้โหมดเซอร์ราวด์ โดยใช้สตริงตัวพิมพ์ใหญ่ตรงตามที่เครื่องรับรายงาน</p>
+    <div class="note"><b>เก็บ <code>stepline</code> ไว้กับสองกราฟสุดท้ายนี้</b> แหล่งสัญญาณหรือโหมดเซอร์ราวด์เป็นหมวดหมู่ ไม่ใช่ตัวเลข ถ้าทำให้เส้นโค้งเนียน เส้นจะพุ่งโค้งระหว่าง Shield กับ Xbox ผ่านทุกอย่างที่อยู่ระหว่างกันบนแกน แล้ววาดอินพุตที่ไม่เคยถูกเลือกขึ้นมา ระดับเสียงเป็นปริมาณจริงจึงทำให้เนียนได้อย่างซื่อตรง แต่หมวดหมู่ทำไม่ได้</div>
+    <div class="note"><b>ตรวจสอบการเก็บข้อมูลของ recorder ก่อน</b> Home Assistant เก็บข้อมูลสิบวันเป็นค่าเริ่มต้น ดังนั้นเจ็ดวันจึงเป็นช่วงที่ขอได้อย่างมีประโยชน์ที่สุด หากต้องการย้อนไปไกลกว่านั้นต้องใช้เซนเซอร์เทมเพลต <code>state_class: measurement</code> ซึ่ง Home Assistant เก็บเป็นสถิติระยะยาวได้หลายปี</div>
+    <div class="note"><b>วันที่หายไปมักถูกต้องแล้ว</b> Home Assistant บันทึกการเปลี่ยนแปลง ไม่ใช่การสุ่มวัดค่า ถ้าปล่อยเครื่องรับไว้ที่อินพุตเดียวและระดับเสียงเดียวสองวัน มันจะไม่เขียนอะไรเลย วันนั้นจึงไม่มีแท่ง ดูเหมือนข้อมูลสูญหาย แต่จริงๆ ตรงกันข้าม คือไม่มีอะไรเกิดขึ้น</div>
+  </div>
+</section>
+
+<section id="whole">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ขั้นตอนที่ 10</div>
+      <h2>หรือเอาไปทั้งชุดเลย</h2>
+    </div>
+    <p class="lead">วิวสมบูรณ์ ทุกส่วนและทุกการ์ด โดยใช้ตัวแทนแทน Entity ID</p>
+    <ol class="plain">
+      <li><b>1.</b> <a href="/th/guide/home-assistant-dashboard/avr-maestro-dashboard.yaml" download>ดาวน์โหลดไฟล์ YAML ของมุมมอง</a></li>
+      <li><b>2.</b> เปิดในโปรแกรมแก้ไขข้อความใดก็ได้ แล้วแทนที่สองสตริงทุกจุดที่ปรากฏ คือ <code>YOUR_RECEIVER</code> ด้วยชื่อเอนทิตีเครื่องเล่นสื่อของคุณ และ <code>YOURMAC</code> ด้วยอักขระ 12 ตัวของเครื่องรับที่ได้จากขั้นตอนที่ 2</li>
+      <li><b>3.</b> ใน Home Assistant เปิดแดชบอร์ดของคุณ แตะไอคอนดินสอ เมนูสามจุด แล้วเลือก <b>Raw configuration editor</b> จากนั้นวางเป็นวิว</li>
+    </ol>
+    <div class="note"><b>ID ของฉากของคุณจะไม่ตรงกัน</b> สคริปต์ฉากตั้งชื่อตามเวลาที่สร้างฉาก ดังนั้นสี่ตัวในไฟล์จึงไม่มีอยู่ในระบบของคุณ การ์ดเหล่านั้นจะแสดงผลแต่ไม่ทำอะไร ให้แทนที่ Entity ID ของมันด้วยของคุณเองจากขั้นตอนที่ 2 หรือลบส่วนฉากทิ้งแล้วสร้างใหม่ตามขั้นตอนที่ 8</div>
+    <div class="note"><b>อีกสองอย่างที่ควรรู้</b> กราฟแหล่งสัญญาณและเซอร์ราวด์ใช้ชื่อแหล่งสัญญาณจากเครื่องรับที่ใช้สร้างวิวนี้ ให้แก้อาร์เรย์เหล่านั้นตามที่ขั้นตอนที่ 9 อธิบาย และป้ายบนไทล์เป็นภาษาอังกฤษ ไม่มีอะไรในไฟล์ที่แปลไว้</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>ถ้าไทล์ไม่เคยสว่างขึ้น</h2>
+    </div>
+    <p class="lead">ก่อนจะคิดว่าสร้างผิด ต้องรู้ก่อนว่าบางตัวสว่างไม่ได้จริงๆ และควรรู้ด้วยว่าตัวไหน</p>
+    <p class="lead">ไทล์แสดงสถานะได้ก็ต่อเมื่อ Home Assistant อ่านค่านั้นได้ และ Home Assistant อ่านเครื่องรับของคุณจากสองที่ อินทิเกรชัน Denon AVR เผยแพร่ข้อมูลพื้นฐานบนเอนทิตีเครื่องเล่นสื่อ ส่วน AVR Maestro เผยแพร่ส่วนที่เหลือ โดยสร้างเซนเซอร์ <b>Status Bridge</b> คือ <code>sensor.avr_maestro_your_receiver</code> แล้วเขียนค่าที่แอปมีอยู่แล้วลงไปเป็นแอตทริบิวต์</p>
+    <table class="t">
+      <thead><tr><th>บนเอนทิตีเครื่องเล่นสื่อ</th><th>บนเซนเซอร์ Status Bridge</th></tr></thead>
+      <tbody>
+        <tr><td>สถานะเปิดปิด</td><td>เส้นโค้ง Audyssey MultEQ</td></tr>
+        <tr><td>แหล่งสัญญาณที่เลือก</td><td>Dynamic Volume และระดับอ้างอิง</td></tr>
+        <tr><td>โหมดเซอร์ราวด์</td><td>ช่อง Dirac ที่โหลดอยู่</td></tr>
+        <tr><td>ระดับเสียงและการปิดเสียง</td><td>ตัวหรี่ไฟแผงหน้าปัด โหมด Eco</td></tr>
+        <tr><td>Dynamic EQ เป็นบางครั้ง</td><td>พรีเซ็ตลำโพง โทนเสียง และอีกหลายสิบรายการ</td></tr>
+      </tbody>
+    </table>
+    <p class="lead">ตอนนี้อ่านได้ทั้งสองคอลัมน์ ดึงค่าเครื่องเล่นสื่อจาก <code>states['media_player.your_receiver'].attributes</code> และค่า Status Bridge ด้วย <code>state_attr('sensor.avr_maestro_your_receiver','dirac_slot')</code> เพื่อให้ไทล์สว่างตามการตั้งค่าที่ใช้งานอยู่จริง แทนที่จะเป็นแค่การสั่งสคริปต์ที่เปลี่ยนค่านั้น</p>
+    <p class="lead">วัดจากเครื่องรับที่ใช้สร้างวิวนี้ เอนทิตีเครื่องเล่นสื่อมีตัวควบคุมราวยี่สิบจากหกสิบตัว และเซนเซอร์ Status Bridge เผยแพร่เพิ่มอีกราวสี่สิบ เมื่อรวมทั้งสองแหล่ง แดชบอร์ดจะอ่านได้เกือบทุกอย่างที่เปลี่ยนได้ ซึ่งเป็นความแตกต่างระหว่างกำแพงปุ่มกับแผงควบคุมจริงๆ</p>
+    <div class="note"><b>ถ้าค่าหนึ่งมีความหมายได้สองอย่าง ให้บอกตรงๆ</b> Dynamic EQ มาเป็น <code>true</code>, <code>false</code> หรือไม่มาเลย การถือว่า “ไม่มาเลย” เท่ากับ “ปิด” คือการแปะคำตอบผิดๆ ที่มั่นใจเต็มร้อยไว้บนกำแพงของคุณ</div>
+<pre class="code">icon_color: >-
+  {% set d = state_attr('media_player.your_receiver','dynamic_eq') %}
+  {{ 'orange' if d is true else 'grey' }}
+secondary: >-
+  {% set d = state_attr('media_player.your_receiver','dynamic_eq') %}
+  {% if d is none %}state not published{% elif d %}on{% else %}off{% endif %}</pre>
+    <p class="capt">สามสถานะ ไม่ใช่สอง</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>เรื่องอื่นๆ ที่ควรรู้</h2>
+    </div>
+    <ul class="plain">
+      <li><b>ไทล์ออกมากว้างแค่หนึ่งในสามของที่คาด</b> ในส่วนที่กินพื้นที่ 3 คอลัมน์ กริดภายในมี <b>36</b> คอลัมน์ ไม่ใช่ 12 หากต้องการให้เรียงสี่ไทล์ต่อแถว ให้ตั้ง <code>grid_options: {columns: 9}</code> หากต้องการหกไทล์ต่อแถว ใช้ 6</li>
+      <li><b>แถบเลื่อนระดับเสียงแสดงปุ่มเปิดปิดแทนที่จะเป็นแถบ</b> นั่นคือ <code>media_controls</code> ที่มี <code>on_off</code> อยู่ข้างใน ให้ตั้ง <code>media_controls: []</code></li>
+      <li><b>ป้ายถูกตัดข้อความ</b> “Volume Down” กลายเป็น “Volume Do...” ให้ย่อเป็น “Vol Down” หรือขยายไทล์ให้กว้างขึ้น</li>
+      <li><b>คำอธิบายฉากถูกตัดขาด</b> ให้เพิ่ม <code>multiline_secondary: true</code></li>
+      <li><b>เส้นที่คงที่หายไปจากกราฟ apexcharts</b> นั่นคือ <code>experimental.color_threshold</code> ซึ่งวาดเส้นเป็นไล่เฉดแนวตั้ง และช่วงที่ราบสนิทมีความสูงเป็นศูนย์ให้ไล่เฉด จึงแสดงผลเป็นเส้นที่มองไม่เห็น เซสชัน 43 ชั่วโมงที่ระดับเสียงเดียวหายไปทั้งหมด ให้ใช้ <code>color</code> สีทึบแทน</li>
+      <li><b>จัดเรียงใหม่บนโทรศัพท์ได้เอง</b> วิวแบบ Sections จะซ้อนเป็นคอลัมน์เดียวเมื่อหน้าจอแคบ โดยไม่ต้องตั้งค่าอะไรเพิ่ม</li>
+    </ul>
+    <figure><img alt="แดชบอร์ดเดียวกันที่ความกว้างโทรศัพท์ จัดเรียงใหม่เป็นคอลัมน์เดียว" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>แดชบอร์ดเดียวกันที่ความกว้างโทรศัพท์: สามคอลัมน์กลายเป็นหนึ่ง และไม่ได้ตั้งค่าอะไรเพื่อให้เกิดขึ้น</figcaption></figure>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">คำถามที่พบบ่อย</div>
+      <h2>แดชบอร์ด ถามตอบ</h2>
+    </div>
+    <details open><summary>ต้องใช้การ์ดกำหนดเองจาก HACS เพื่อสร้างสิ่งนี้ไหม</summary><div class="body">ไม่จำเป็นเพื่อให้ใช้งานได้ ทุกตัวควบคุมในหน้านี้ทำงานได้จากการ์ดปุ่มธรรมดาของ Home Assistant ส่วน Mushroom, button-card, card-mod และ apexcharts-card คือสิ่งที่ทำให้หน้าตาออกมาเหมือนในภาพหน้าจอ และแต่ละส่วนด้านล่างจะบอกว่าใช้ตัวไหนและจะเสียอะไรไปหากไม่มี</div></details>
+    <details><summary>ทำไมบางปุ่มจึงสว่างขึ้นแต่บางปุ่มไม่สว่าง</summary><div class="body">ปุ่มจะสว่างเมื่อ Home Assistant อ่านสถานะที่ตรงกันจากเครื่องรับของคุณได้ แหล่งสัญญาณ โหมดเซอร์ราวด์ ระดับเสียง และการปิดเสียงส่งกลับมาจากเอนทิตีเครื่องเล่นสื่อของเครื่องรับเอง จึงไฮไลต์ได้ ส่วนเส้นโค้ง Audyssey ช่อง Dirac ตัวหรี่ไฟ โหมดประหยัด และพรีเซ็ตลำโพง อินทิเกรชัน Denon ไม่ได้เผยแพร่ Home Assistant จึงไม่มีทางรู้ว่าตัวไหนใช้งานอยู่ ปุ่มเหล่านั้นจะไม่สว่างจนกว่าคุณจะแตะสักปุ่ม</div></details>
+    <details><summary>แสดงระดับเสียง dB จริงแทนเปอร์เซ็นต์ได้ไหม</summary><div class="body">ได้ Home Assistant เผยแพร่ volume_level เป็นค่าระดับเสียงหลักของเครื่องรับหารด้วย 100 และบนเครื่องรับ Denon และ Marantz ค่า MV 80 คือจุดอ้างอิง 0 dB ดังนั้น dB เท่ากับ volume_level คูณ 100 แล้วลบ 80 ค่า volume_level ที่ 0.67 คือระดับเสียงหลัก 67 หรือ -13.0 dB</div></details>
+    <details><summary>Entity ID ของฉันจะตรงกับในคู่มือนี้ไหม</summary><div class="body">รูปแบบจะตรงกัน แต่ส่วนตรงกลางจะไม่ตรง AVR Maestro ตั้งชื่อสคริปต์ตามที่อยู่ MAC ของเครื่องรับ เพื่อให้การเปลี่ยนชื่อไปอัปเดตสคริปต์เดิมแทนที่จะสร้างสคริปต์ใหม่ซ้ำ ของคุณจะเป็น script.avr_maestro_ ตามด้วยอักขระ 12 ตัวของคุณเอง แล้วจึงตามด้วยชื่อตัวควบคุม เปิด Developer Tools แล้วไปที่ States ใน Home Assistant และกรองด้วย avr_maestro เพื่อดูรายการของคุณเอง</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">เนื้อหาเพิ่มเติมของคู่มือ</div>
+      <h2>คู่มือ AVR Maestro เรื่องอื่น ๆ</h2>
+    </div>
+    <p class="lead"><a href="/th/guide/getting-started/">เริ่มต้นใช้งาน</a> &middot; <a href="/th/guide/home/">หน้าจอหลัก</a> &middot; <a href="/th/guide/scenes/">ฉาก</a> &middot; <a href="/th/guide/custom-icons/">ไอคอนกำหนดเอง</a> &middot; <a href="/th/guide/sound/">เสียง</a> &middot; <a href="/th/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/th/guide/speakers/">ลำโพง</a> &middot; <a href="/th/guide/locked-controls/">เหตุใดตัวควบคุมจึงถูกล็อก</a> &middot; <a href="/th/guide/assistant/">ผู้ช่วย</a> &middot; <a href="/th/guide/home-automation/">ระบบบ้านอัตโนมัติ</a> &middot; <a href="/th/guide/multi-zone/">โซน</a> &middot; <a href="/th/guide/remote/">รีโมท</a> &middot; <a href="/th/guide/radio/">วิทยุ (FM/AM)</a> &middot; <a href="/th/guide/on-screen-display/">การแสดงผลบนหน้าจอ</a> &middot; <a href="/th/guide/settings/">การตั้งค่า</a> &middot; <a href="/th/guide/languages/">ภาษา</a> &middot; <a href="/th/guide/volume/">การควบคุมระดับเสียง</a> &middot; <a href="/th/guide/backup/">สำรอง &amp; กู้คืนข้อมูล</a> &middot; <a href="/th/guide/now-playing/">กำลังเล่น &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>เครื่องรับทั้งเครื่องของคุณ บนกำแพงเดียว</h2>
+    <p class="lead" style="margin:0 auto 24px">ระบบบ้านอัตโนมัติคือสิ่งเดียวที่ต้องปลดล็อกแบบเสียเงินใน AVR Maestro ส่วนอื่นทั้งหมด รวมถึงผู้ช่วย AI บนอุปกรณ์ รวมอยู่ให้แล้ว</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="ดาวน์โหลดบน Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="ดาวน์โหลดบน App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="ดาวน์โหลดบน Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="ดาวน์โหลดบน Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/th/guide/home-automation/">กลับไปที่ระบบบ้านอัตโนมัติ &rarr;</a> &middot; <a href="/th/guide/">คู่มือผู้ใช้ฉบับเต็ม &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/th/">หน้าแรก</a>
+      <a href="/th/guide/">คู่มือผู้ใช้</a>
+      <a href="/th/guide/getting-started/">เริ่มต้นใช้งาน</a>
+      <a href="/th/receivers/">เครื่องรับ</a>
+      <a href="/th/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/th/audyssey-vs-dirac/">Audyssey เทียบกับ Dirac</a>
+      <a href="/th/best-denon-marantz-app/">ทำไมต้องเปลี่ยน</a>
+      <a href="/th/help/">วิธีใช้</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro เป็นแอปอิสระโดย MiyaraHub Technologies LLC และไม่มีความเกี่ยวข้อง การรับรอง หรือการสนับสนุนจาก Denon, Marantz, D&amp;M Holdings, Sound United หรือบริษัทอื่นใดที่ถูกกล่าวถึงในหน้านี้ Denon, Marantz, HEOS, Home Assistant, Mushroom, HACS, Audyssey และ Nvidia Shield เป็นเครื่องหมายการค้าหรือโปรเจกต์ของเจ้าของที่เกี่ยวข้อง ใช้ในที่นี้เพื่อระบุตัวตนเท่านั้น</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

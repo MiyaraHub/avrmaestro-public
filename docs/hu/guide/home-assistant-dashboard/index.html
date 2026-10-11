@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="hu" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Home Assistant irányítópult Denon &amp; Marantz készülékekhez - AVR Maestro</title>
+<meta name="description" content="Építs Home Assistant irányítópultot a Denon vagy Marantz készülékedhez: HACS kártyák, entitásazonosítók, YAML minden kártyához, valódi dB hangerő, Jelenetek és előzmények." />
+<meta name="keywords" content="Home Assistant Denon dashboard, Marantz Home Assistant card, mushroom card AV receiver, Home Assistant receiver volume dB, denonavr dashboard, AVR Maestro Home Assistant example" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/hu/guide/home-assistant-dashboard/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-assistant-dashboard/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="hu_HU" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Home Assistant irányítópult Denon &amp; Marantz készülékekhez - AVR Maestro" />
+<meta property="og:description" content="Építs Home Assistant irányítópultot a Denon vagy Marantz készülékedhez: HACS kártyák, entitásazonosítók, YAML minden kártyához, valódi dB hangerő, Jelenetek és előzmények." />
+<meta property="og:url" content="https://avrmaestro.com/hu/guide/home-assistant-dashboard/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Home Assistant irányítópult Denon &amp; Marantz készülékekhez - AVR Maestro" />
+<meta name="twitter:description" content="Építs Home Assistant irányítópultot a Denon vagy Marantz készülékedhez: HACS kártyák, entitásazonosítók, YAML minden kártyához, valódi dB hangerő, Jelenetek és előzmények." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "Az AVR Maestro egy független alkalmazás Denon és Marantz AV-erősítők vezérlésére a helyi hálózaton keresztül.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "hu"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
+      "headline": "Építsd meg ezt a Home Assistant irányítópultot nagyjából egy óra alatt",
+      "description": "Építs Home Assistant irányítópultot a Denon vagy Marantz készülékedhez: HACS kártyák, entitásazonosítók, YAML minden kártyához, valódi dB hangerő, Jelenetek és előzmények.",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "datePublished": "2026-08-23",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-assistant-dashboard/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "hu"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Kellenek hozzá egyéni HACS kártyák?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A működéshez nem. Az oldalon minden vezérlő sima Home Assistant gombkártyáról fut. A Mushroom, a button-card, a card-mod és az apexcharts-card adja a képernyőképeken látható kinézetet, és minden szakasz megmondja, melyiket használja, és mit veszítesz nélküle."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Miért világít néhány gomb, mások meg nem?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Egy gomb akkor világít, ha a Home Assistant ki tudja olvasni a megfelelő állapotot a készülékedről. A forrás, a térhatású mód, a hangerő és a némítás a készülék saját médialejátszó entitásából jön vissza, ezért ezek kiemelődnek. Az Audyssey görbét, a Dirac foglalatot, a fényerőt, az eco módot és a hangszóró-előbeállítást a Denon integráció nem publikálja, így a Home Assistant nem tudhatja, melyik aktív, és a gombok kialszva maradnak, amíg rájuk nem koppintasz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Megjeleníthetem a valódi dB hangerőt százalék helyett?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Igen. A Home Assistant a volume_level értéket a készülék fő hangerejének századrészeként teszi közzé, a Denon és Marantz készülékeken pedig az MV 80 a 0 dB referencia. Tehát a dB egyenlő a volume_level szorozva 100-zal, mínusz 80. A 0.67-es volume_level fő hangerő 67, vagyis -13.0 dB."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Megegyeznek majd az entitásazonosítóim az ebben az útmutatóban szereplőkkel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A minta igen, a középső rész nem. Az AVR Maestro a szkriptjeit a készülék MAC-címéről nevezi el, így egy átnevezés ugyanazt a szkriptet frissíti, nem pedig másodpéldányt hoz létre. A tiéd így néz ki: script.avr_maestro_, majd a saját tizenkét karaktered, végül a vezérlő neve. Nyisd meg a Home Assistantban a Fejlesztői eszközök, majd az Állapotok oldalt, és szűrj az avr_maestro szóra, hogy lásd a saját listádat."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Kezdőlap",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Felhasználói útmutató",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Otthon-automatizálás",
+      "item": "https://avrmaestro.com/guide/home-automation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Irányítópult",
+      "item": "https://avrmaestro.com/guide/home-assistant-dashboard/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/hu/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menü" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Keresés az útmutatóban..." data-i18n-empty="Nincs találat erre:" data-i18n-language="Nyelv">
+      <a href="/hu/">Kezdőlap</a>
+      <a href="/hu/guide/">Felhasználói útmutató</a>
+      <a href="/hu/receivers/">Készülékek</a>
+      <a href="/hu/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hu/best-denon-marantz-app/">Miért érdemes váltani</a>
+      <a href="/hu/#top" class="cta">Letöltés</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/hu/">Főoldal</a> &rsaquo; <a href="/hu/guide/">Felhasználói útmutató</a> &rsaquo; <a href="/hu/guide/home-automation/">Otthonautomatizálás</a> &rsaquo; Irányítópult</div>
+    <div class="eyebrow">Home Assistant &middot; lépésről lépésre</div>
+    <h1>Építsd meg ezt a Home Assistant irányítópultot <span class="g">nagyjából egy óra alatt</span></h1>
+    <p>Tíz lépés, minden kártya YAML-kódja, és egy teljes nézet, amelyet egyben beilleszthetsz. Valódi Marantz CINEMA 30 készüléken épült és fotózva. Cserélj ki két szöveget, és a tiéd.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <figure class="hero-shot">
+      <img alt="A kész irányítópult: lejátszott tartalom kiemelt kártyája, hangerő dB-előbeállításokkal, forrásrács, térhatású módok, térkorrekció, jelenetek és hangerőgrafikon" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <figcaption>Mit építesz meg</figcaption>
+    </figure>
+    <div class="note"><b>Sietsz?</b> Ugorj a <a href="#whole">10. lépésre</a>, töltsd le a teljes nézetet, cserélj ki két szöveget, és illeszd be. A köztes lépések azt magyarázzák, hogy az egyes elemek mit csinálnak, hogy tudd módosítani őket.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Mielőtt elkezdenéd</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Az AVR Maestro kapcsolódik a Home Assistant-hoz, és szinkronizált.</b> Ezt <a href="/hu/guide/home-automation/">a beállítási útmutató</a> mutatja be. Mielőtt bármit építenél rájuk, győződj meg róla, hogy a vezérlőid megjelennek a Home Assistant-ban.</li>
+      <li><b>A készüléked hozzá van adva a Home Assistant-hoz.</b> Beállítások &rsaquo; Eszközök &amp; szolgáltatások &rsaquo; Integráció hozzáadása &rsaquo; <b>Denon AVR</b>, majd a készülék helyi IP-címe. Ettől lesz élő az irányítópult állapotkijelzése.</li>
+      <li><b>A készülék be van kapcsolva</b> az építés közben. Amit írni fogsz, annak a fele élő értékeket olvas, a készenléti állapotú készülék pedig szinte semmit sem közöl.</li>
+    </ul>
+    <p class="lead">Két forrás táplálja ezt az irányítópultot, és a különbség minden alábbi lépésnél számít.</p>
+    <table class="t">
+      <thead><tr><th>Innen jön</th><th>Ezt adja</th></tr></thead>
+      <tbody>
+        <tr><td>Az AVR Maestro szinkronizált szkriptjei</td><td>Minden <b>vezérlő</b>. Bemenetek, térhatású módok, Audyssey, Dirac, Smart Selectek, előbeállítások, fényerőszabályzó, eco, a Jeleneteid.</td></tr>
+        <tr><td>A Denon AVR integráció médialejátszó entitása</td><td>Élő <b>állapot</b>. Tápellátás, kiválasztott forrás, térhatású mód, hangerő, némítás.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">1. lépés</div>
+      <h2>Telepíts négy kártyát a HACS-ből</h2>
+    </div>
+    <p class="lead">Mind a négy megtalálható az alapértelmezett HACS-tárolóban. A Home Assistantban: <b>HACS &rsaquo; Frontend &rsaquo; Explore &amp; Download Repositories</b>, keress rá a névre, Download, majd töltsd újra a böngészőt.</p>
+    <table class="t">
+      <thead><tr><th>Keresett név</th><th>Ehhez kell</th><th>Ha kihagyod</th></tr></thead>
+      <tbody>
+        <tr><td><b>Mushroom</b></td><td>Minden vezérlőcsempe és a hangerőcsúszka</td><td>Használj sima <code>button</code> kártyát. Működik, csak szögletesebb.</td></tr>
+        <tr><td><b>button-card</b></td><td>Szakaszfejlécek élő felirattal</td><td>Használj <code>markdown</code> kártyát, vagy sima címsorokat.</td></tr>
+        <tr><td><b>card-mod</b></td><td>A színek és az aktív csempe kivilágított állapota</td><td>Minden továbbra is működik. Semmi sem világít.</td></tr>
+        <tr><td><b>apexcharts-card</b></td><td>Az előzménygrafikonok</td><td>Használd a beépített <code>history-graph</code> kártyát.</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><b>Egyik sem szükséges a működéshez.</b> Alább minden vezérlő egy alap Home Assistant gombkártyából fut, amely ugyanarra a szkriptre mutat. Az egyedi kártyák sminkek, nem vízvezeték.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">2. lépés</div>
+      <h2>Keresd meg a két entitásazonosítódat</h2>
+    </div>
+    <p class="lead">Az oldal minden kódrészlete két helyőrzőt használ. Keresd meg a sajátjaidat egyszer, a többi már csak másolás és beillesztés.</p>
+    <ul class="plain">
+      <li><b><code>media_player.your_receiver</code></b> &rarr; Beállítások &rsaquo; Eszközök &amp; szolgáltatások &rsaquo; a készüléked &rsaquo; a médialejátszó entitás. Valami ilyesmi: <code>media_player.marantz_cinema_30</code>.</li>
+      <li><b><code>script.avr_maestro_MAC_...</code></b> &rarr; Fejlesztői eszközök &rsaquo; Állapotok, és írd be a(z) <code>avr_maestro</code> szöveget az entitásszűrőbe. Megjelenik a teljes vezérlőlistád.</li>
+    </ul>
+    <p class="lead">Minden szkriptazonosító közepe a készülék MAC-címe, tizenkét kisbetűs karakter, mindegyiken ugyanaz. Másold ki egyszer. Ahol az oldal ezt írja: <code>MAC</code>, ott told be a sajátodat.</p>
+    <div class="note"><b>Hagyd figyelmen kívül azokat, amelyekben ez szerepel: <code>unavailable</code>.</b> A régebbi verziók a szkripteket a készülék nevéről nevezték el, nem a MAC-címéről. Ha akkor szinkronizáltál, ezek a régiek még mindig listázva vannak, de halottak. Az élők a MAC-cím alapján elnevezettek.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">3. lépés</div>
+      <h2>Hozd létre a nézetet</h2>
+    </div>
+    <ol class="plain">
+      <li><b>1.</b> Beállítások &rsaquo; Irányítópultok &rsaquo; Irányítópult hozzáadása &rsaquo; Új irányítópult a semmiből. Nevezd el, ahogy akarod.</li>
+      <li><b>2.</b> Nyisd meg, majd kattints a jobb felső sarokban lévő ceruza ikonra a szerkesztéshez.</li>
+      <li><b>3.</b> Adj hozzá egy nézetet, és válaszd a <b>Sections</b> elrendezést. Ne a Masonryt. A Sections miatt töltődik át rendesen a nézet telefonon.</li>
+      <li><b>4.</b> A nézet beállításaiban állítsd a <b>Max columns</b> értékét 3-ra, és kapcsold be a <b>Dense section placement</b> opciót.</li>
+    </ol>
+    <p class="lead">Innentől minden lépés ugyanaz: adj hozzá egy szakaszt, majd illessz be kártyákat. A YAML beillesztéséhez használd a kártya hárompontos menüjét és válaszd az <b>Edit in YAML</b> lehetőséget, vagy az irányítópult hárompontos menüjében a <b>Raw configuration editor</b> menüpontot, hogy az egészet egyszerre illeszd be.</p>
+<pre class="code"><span class="c"># The view's own settings, if you prefer to type them</span>
+type: sections
+title: AVR Maestro
+icon: mdi:audio-video
+max_columns: 3
+dense_section_placement: true</pre>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">4. lépés</div>
+      <h2>Adj hozzá egy vezérlőt</h2>
+    </div>
+    <p class="lead">Kezdd a tábla legegyszerűbb elemével, hogy még a bonyolult dolgok megépítése előtt tudd, jók-e az entitásazonosítóid. Adj hozzá egy szakaszt, egy kártyát, Edit in YAML, és illeszd be:</p>
+<pre class="code">type: button
+name: Pure Direct
+icon: mdi:speaker
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_mode_pure_direct</pre>
+    <p class="capt">Alap Home Assistant. Nincs szükség HACS-re.</p>
+    <p class="lead">Koppints rá. Ha a készülék reagál, jók az azonosítóid, és minden alábbi működni fog. Ha nem történik semmi, térj vissza a 2. lépéshez.</p>
+  </div>
+</section>
+
+<section id="highlight">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">5. lépés</div>
+      <h2>Világítson, amikor ez az aktív</h2>
+    </div>
+    <p class="lead">Ez az a minta, amelyet érdemes megtanulni, és a tábla minden forrás- és térhatású csempéje ennek a másolata. A kártya egy szkriptet küld, és a színét a készülék entitásából veszi, így az éppen használt bemenet világít, a többi nem.</p>
+    <figure><img alt="A forrásrács, amelyen az Nvidia Shield narancssárgán világít, a másik tizenkét bemenet pedig sötét" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Egy kivilágított csempe, tizenkét sötét</figcaption></figure>
+<pre class="code">type: custom:mushroom-template-card
+entity: script.avr_maestro_MAC_input_cd
+icon: mdi:disc
+primary: CD
+icon_color: >-
+  {{ 'orange' if (state_attr('media_player.your_receiver','source') or '')|lower
+     == 'cd' else 'grey' }}
+layout: vertical
+fill_container: true
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_input_cd
+card_mod:
+  style: |
+    ha-card {
+      border-radius: 14px;
+    {% if (state_attr('media_player.your_receiver','source') or '')|lower == 'cd' %}
+      background: linear-gradient(160deg, rgba(226,86,10,0.34), rgba(15,15,17,0.88));
+      border: 1px solid rgba(255,122,24,0.80);
+    {% else %}
+      background: rgba(15,15,17,0.72);
+      border: 1px solid rgba(255,122,24,0.14);
+    {% endif %}
+    }</pre>
+    <p class="capt">Bemenetenként három dolgot kell módosítani: a szkriptet, az ikont és a szöveget, amellyel összehasonlít.</p>
+    <p class="lead">Két dologra figyelj, különben a csempe soha nem fog világítani:</p>
+    <ul class="plain">
+      <li><b>Azzal hasonlíts össze, amit a készüléked ténylegesen jelent.</b> Fejlesztői eszközök &rsaquo; Állapotok, a médialejátszó entitásod, olvasd el a <code>source_list</code> és <code>sound_mode_list</code> attribútumokat. Ezek a pontos szövegek. Kisbetűkkel hasonlíts össze, ahogy fent.</li>
+      <li><b>Az átnevezett bemenet az új nevét jelenti.</b> Nevezd át a GAME1-et „Xbox”-ra a készüléken, és az ezt jelenti: <code>Xbox</code>, miközben az AVR Maestro vezérlő neve továbbra is <code>input_game1</code>. Arra illeszkedj, amit a készülék jelent, ne a szkript nevére.</li>
+    </ul>
+    <p class="lead">A térhatású módok ugyanezt a kártyát használják, <code>sound_mode</code> helyett <code>source</code> értékkel.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">6. lépés</div>
+      <h2>Adj minden szakasznak élő fejlécet</h2>
+    </div>
+    <p class="lead">Egy sima cím holt tér. Tedd alá az élő értéket, és a „Sources” így lesz: „Sources / Now on Nvidia Shield”.</p>
+<pre class="code">type: custom:button-card
+name: Sources
+icon: mdi:video-input-hdmi
+color_type: label-card
+entity: media_player.your_receiver
+show_label: true
+label: >-
+  [[[ var v = states["media_player.your_receiver"].attributes.source;
+      return v ? ("Now on " + v) : "Receiver in standby"; ]]]
+tap_action:
+  action: none
+styles:
+  grid:
+    - grid-template-areas: '"i n" "i l"'
+    - grid-template-columns: min-content auto
+  name:
+    - font-size: 13px
+    - letter-spacing: 3px
+    - text-transform: uppercase
+    - justify-self: start
+  label:
+    - font-size: 11px
+    - justify-self: start</pre>
+    <p class="capt">A kétsoros rács teszi a feliratot a cím alá a mellé helyett.</p>
+    <p class="lead">A Surround fejlécben cseréld a(z) <code>attributes.source</code> értéket <code>attributes.sound_mode</code> értékre, és így tovább.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">7. lépés</div>
+      <h2>Mutasd a hangerőt dB-ben</h2>
+    </div>
+    <p class="lead">A Home Assistant törtként közli a hangerőt. Senki sem állít be egy készüléket „0.67”-re. Egyetlen sor matek megoldja, és a teljes szakasz végre úgy olvasódik, mint egy készülék.</p>
+    <figure><img alt="A hangerőszakasz: csúszka, fel, le, némítás és négy dB-előbeállítás" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie és Loud, mindegyiken a beállított dB-érték látható</figcaption></figure>
+    <div class="note"><b>Az átváltás.</b> A Home Assistant a(z) <code>volume_level</code> értéket a fő hangerő századrészeként teszi közzé, a Denon és Marantz készülékeken pedig az MV 80 a 0 dB referencia. Tehát <b>dB = volume_level &times; 100 &minus; 80</b>. A 0.67-es <code>volume_level</code> fő hangerő 67, vagyis &minus;13.0 dB.</div>
+<pre class="code"><span class="c"># The readout</span>
+type: custom:mushroom-template-card
+entity: media_player.your_receiver
+icon: mdi:volume-high
+primary: >-
+  {% set v = state_attr('media_player.your_receiver','volume_level') %}
+  {% if v is not none %}{{ (v * 100 - 80) | round(1) }} dB{% else %}Standby{% endif %}
+secondary: Master volume
+layout: vertical</pre>
+<pre class="code"><span class="c"># The slider. media_controls must be empty or the bar becomes a power button</span>
+type: custom:mushroom-media-player-card
+entity: media_player.your_receiver
+volume_controls:
+  - volume_set
+media_controls: []
+show_volume_level: true</pre>
+<pre class="code"><span class="c"># A preset. 0.50 is master volume 50, which is -30 dB</span>
+type: custom:mushroom-template-card
+entity: media_player.your_receiver
+icon: mdi:weather-night
+primary: Night
+secondary: "-30 dB"
+tap_action:
+  action: perform-action
+  perform_action: media_player.volume_set
+  target:
+    entity_id: media_player.your_receiver
+  data:
+    volume_level: 0.50</pre>
+    <div class="note"><b>A leghangosabb előbeállítást tudatosan válaszd meg.</b> A fenti készlet &minus;10 dB-nél megáll. Egy irányítópultot sokkal könnyebb véletlenül megnyomni, mint egy távirányítót, a referenciaszint pedig egy nagy készüléken tényleg hangos.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">8. lépés</div>
+      <h2>Add hozzá a Jeleneteidet</h2>
+    </div>
+    <p class="lead">A nevet olvasd ki a szkriptből, ne gépeld be, így ha az AVR Maestro-ban átnevezel egy Jelenetet, a csempe neve is változik, az irányítópult szerkesztése nélkül.</p>
+    <figure><img alt="Négy jelenetcsempe, mindegyiken a jelenet által visszaállított beállítások listájával" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Minden csempe megmondja, mit állít vissza a jelenete</figcaption></figure>
+<pre class="code">type: custom:mushroom-template-card
+entity: script.avr_maestro_MAC_scene_1234567890123
+icon: mdi:theater
+primary: >-
+  {{ state_attr('script.avr_maestro_MAC_scene_1234567890123','friendly_name')
+     | replace('AVR Maestro - ', '') | replace(' (Your Receiver)', '') }}
+secondary: >-
+  {% set t = states.script['avr_maestro_MAC_scene_1234567890123'].attributes.last_triggered %}
+  {{ 'recalled ' ~ relative_time(t) ~ ' ago' if t else 'not run yet' }}
+multiline_secondary: true
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_scene_1234567890123</pre>
+    <p class="capt">A két replace() hívás levágja az előtagot és a készülék nevét a barátságos névről.</p>
+    <p class="lead">A második sor megér egy plusz percet. Egy csomó hangzatos nevű gomb este 11-kor semmit sem mond; egy sor arról, hogy mit állít vissza, megmondja, melyiket nyomd meg.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">9. lépés</div>
+      <h2>Add hozzá az előzményeket</h2>
+    </div>
+    <p class="lead">A készülék médialejátszó entitását a Home Assistant úgy rögzíti, mint bármelyik másikat, így hallgatási előzményt kapsz ingyen. Minden alábbi ebből az egy entitásból származik: nincs extra szenzor, nincs segédelem, nincs mit előzetesen beállítani.</p>
+    <figure><img alt="Öt előzménygrafikon: tápellátás és tevékenység, fő hangerő dB-ben, hangerő napok szerint, használt forrás és térhatású mód" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Öt grafikon, egy entitás, hét nap</figcaption></figure>
+    <p class="lead">Az egyszerű állapot-idővonalhoz egyáltalán nem kellenek egyedi kártyák, és ezt érdemes a legjobban megtartani:</p>
+<pre class="code">type: history-graph
+hours_to_show: 168
+entities:
+  - entity: media_player.your_receiver
+    name: Receiver</pre>
+    <p class="capt">Be, ki, és mit csinált, egy héten át.</p>
+    <p class="lead">A dB-ben mutatott hangerő ugyanazt az átváltást használja, mint a 7. lépés:</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+header:
+  show: true
+  title: Master volume, last 7 days
+series:
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Master volume
+    type: line
+    curve: smooth
+    unit: dB
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100 - 80;"
+    extend_to: now
+    group_by:
+      duration: 1h
+      func: last
+      fill: last
+apex_config:
+  chart:
+    height: 240
+  yaxis:
+    min: -60
+    max: 0</pre>
+    <p class="capt">A group_by és a fill: last a ritka eseményeket folytonos vonallá alakítja. Az y tengelyt az apex_config részben kell megadni, hogy érvényesüljön.</p>
+    <p class="lead">A napi átlag és csúcs a tüskés vonalból formát csinál:</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+span:
+  end: day
+header:
+  show: true
+  title: Master volume by day in dB, average and peak
+series:
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Day average
+    type: column
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100;"
+    group_by: {duration: 1d, func: avg, fill: 'null'}
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Day peak
+    type: line
+    curve: smooth
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100;"
+    group_by: {duration: 1d, func: max, fill: 'null'}
+apex_config:
+  yaxis:
+    min: 0
+    max: 80
+    labels:
+      formatter: "EVAL:function (v) { return (v - 80).toFixed(0); }"
+  tooltip:
+    y:
+      formatter: "EVAL:function (v) { return v == null ? '' : (v - 80).toFixed(1) + ' dB'; }"</pre>
+    <p class="capt">Két adatsor ugyanabból az attribútumból, napok szerint csoportosítva.</p>
+    <div class="note"><b>Miért 0 és 80 között ábrázol ez, és formáz dB-re, ahelyett, hogy dB-t ábrázolna.</b> Az oszlopok a tengely aljától nőnek. Ha közvetlenül dB-t ábrázolsz, minden oszlop 0-tól lefelé lóg, így a hosszú oszlop halkat jelent, ami fordítva olvasódik. Ha a nyers fő hangerő értéket ábrázolod, és a tengely- meg a tooltip-formázóban vonsz ki belőle 80-at, az oszlopok felfelé nőnek, miközben az olvasó mindent dB-ben lát. A(z) <code>fill: 'null'</code> azt jelenti, hogy a mérés nélküli napnak nincs oszlopa, ahelyett hogy az előző napé öröklődne tovább.</div>
+    <p class="lead">És a két grafikon, amely megválaszolja: „min nézek valójában, és milyen módban”: a forrás és a térhatású mód, idővonalként ábrázolva, hogy melyik volt kiválasztva.</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+span:
+  end: day
+header:
+  show: true
+  title: Source in use, last 7 days
+series:
+  - entity: media_player.your_receiver
+    attribute: source
+    name: Source
+    type: line
+    curve: stepline
+    stroke_width: 3
+    extend_to: now
+    float_precision: 0
+    transform: |
+      if (x == null) return null;
+      var m = ["Phono", "NET", "Xbox", "Nvidia Shield"];
+      var i = m.indexOf(x);
+      return i &lt; 0 ? 0 : i + 1;
+apex_config:
+  yaxis:
+    min: 0
+    max: 4
+    tickAmount: 4
+    labels:
+      formatter: >-
+        EVAL:function (v) { return ["Other", "Phono", "HEOS Net", "Xbox",
+        "Shield"][Math.round(v)] || ''; }
+  tooltip:
+    y:
+      formatter: >-
+        EVAL:function (v) { return v == null ? 'off' : ["Other", "Phono",
+        "HEOS Net", "Xbox", "Shield"][Math.round(v)] || 'Other'; }</pre>
+    <p class="capt">Írd be a saját forrásaidat a transform tömbbe és mindkét formázó tömbbe. A 0. index maradjon „Other”.</p>
+    <p class="lead">A diagram tengelyének számok kellenek, ezért a(z) <code>transform</code> minden forrásnevet egy pozícióhoz rendel, a formázók pedig visszafordítják a feliratokhoz és a tooltiphez. Tedd a hozzárendelést <b>teljessé</b>: a(z) <code>null</code> (kikapcsolt készülék) rés marad, és ami nincs a listádban, az „Other”-be kerül, így a kettő sosem keveredhet össze. Ugyanez a kártya <code>sound_mode</code> értékkel a térhatású módot adja, a szövegek nagybetűsen, pontosan ahogy a készülék jelenti.</p>
+    <div class="note"><b>Tartsd meg a(z) <code>stepline</code> beállítást ennél az utolsó kettőnél.</b> A forrás vagy a térhatású mód kategória, nem szám. Ha simítod a görbét, a vonal a Shield és az Xbox között átível mindenen, ami a tengelyen köztük van, és olyan bemenetet rajzol, amelyet soha nem választottak ki. A hangerő valódi mennyiség, és őszintén simítható; a kategória nem.</div>
+    <div class="note"><b>Először ellenőrizd a recorder megőrzési idejét.</b> A Home Assistant alapból tíz napot őriz, így a hét nap nagyjából a legtöbb, amit észszerűen kérhetsz. Ha messzebbre akarsz visszamenni, kell egy <code>state_class: measurement</code> template szenzor, amelyet a Home Assistant évekig hosszú távú statisztikaként tárol.</div>
+    <div class="note"><b>A hiányzó nap általában helyes.</b> A Home Assistant változásokat rögzít, nem mintákat. Ha a készüléket két napig egy bemeneten, egy hangerőn hagyod, egyáltalán nem ír semmit, így arra a napra nincs oszlop. Adatvesztésnek látszik, pedig az ellenkezője: nem történt semmi.</div>
+  </div>
+</section>
+
+<section id="whole">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">10. lépés</div>
+      <h2>Vagy vidd az egészet</h2>
+    </div>
+    <p class="lead">A teljes nézet, minden szakasszal és kártyával, entitásazonosítók helyett helyőrzőkkel.</p>
+    <ol class="plain">
+      <li><b>1.</b> <a href="/hu/guide/home-assistant-dashboard/avr-maestro-dashboard.yaml" download>Töltsd le a nézet YAML-fájlját</a>.</li>
+      <li><b>2.</b> Nyisd meg bármilyen szövegszerkesztőben, és cserélj ki két szöveget mindenhol, ahol előfordulnak: a(z) <code>YOUR_RECEIVER</code> szöveget a médialejátszó entitásod nevére, a(z) <code>YOURMAC</code> szöveget pedig a készüléked tizenkét karakterére a 2. lépésből.</li>
+      <li><b>3.</b> A Home Assistantban nyisd meg az irányítópultodat, ceruza ikon, hárompontos menü, <b>Raw configuration editor</b>, és illeszd be nézetként.</li>
+    </ol>
+    <div class="note"><b>A Jelenet-azonosítóid nem fognak egyezni.</b> A Jelenet-szkriptek neve a Jelenet létrehozásának idejét tükrözi, így a fájlban lévő négy nem létezik a te rendszereden: ezek a kártyák megjelennek, de nem csinálnak semmit. Cseréld le az entitásazonosítóikat a sajátjaidra a 2. lépésből, vagy töröld a Jelenetek szakaszt, és építsd újra a 8. lépéssel.</div>
+    <div class="note"><b>Még két dologra számíts.</b> A forrás- és térhatású grafikonok annak a készüléknek a forrásneveit tartalmazzák, amelyen ez készült, ezért szerkeszd ezeket a tömböket a 9. lépés szerint. A csempefeliratok pedig angolul vannak; a fájlban semmi sincs lefordítva.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Ha egy csempe soha nem világít</h2>
+    </div>
+    <p class="lead">Mielőtt azt hinnéd, hogy rosszul építetted: némelyik nem is tud világítani, és érdemes tudni, melyik.</p>
+    <p class="lead">Egy csempe csak akkor mutathatja az állapotát, ha a Home Assistant el tudja olvasni, a készülékedet pedig két helyről olvassa. A Denon AVR integráció az alapokat a médialejátszó entitáson teszi közzé. A többit az AVR Maestro: létrehoz egy <b>Status Bridge</b> szenzort, <code>sensor.avr_maestro_your_receiver</code>, és a már birtokában lévő értékeket attribútumként ráírja.</p>
+    <table class="t">
+      <thead><tr><th>A médialejátszó entitáson</th><th>A Status Bridge szenzoron</th></tr></thead>
+      <tbody>
+        <tr><td>Tápellátás</td><td>Audyssey MultEQ görbe</td></tr>
+        <tr><td>Kiválasztott forrás</td><td>Dynamic Volume és referenciaszint</td></tr>
+        <tr><td>Térhatású mód</td><td>Melyik Dirac foglalat van betöltve</td></tr>
+        <tr><td>Hangerő és némítás</td><td>Elülső panel fényerőszabályzója, Eco mód</td></tr>
+        <tr><td>Dynamic EQ, néha</td><td>Hangszóró-előbeállítás, hangszín és még tucatnyi más</td></tr>
+      </tbody>
+    </table>
+    <p class="lead">Mindkét oszlop mostantól olvasható. A médialejátszó értékét innen vedd: <code>states['media_player.your_receiver'].attributes</code>, a Status Bridge értékét pedig így: <code>state_attr('sensor.avr_maestro_your_receiver','dirac_slot')</code>, hogy a csempe arra a beállításra világítson, amely ténylegesen aktív, ne csak azt a szkriptet indítsa, amely módosítja.</p>
+    <p class="lead">Azon a készüléken mérve, amelyen ez készült: a médialejátszó entitás a hatvan vezérlőből nagyjából húszat hordoz, a Status Bridge szenzor pedig körülbelül negyvenet tesz közzé. A kettő együtt lehetővé teszi, hogy az irányítópult szinte mindent kiolvasson, amit módosítani tud - ez a különbség a gombfal és a vezérlőfelület között.</p>
+    <div class="note"><b>Ha egy érték kétféle dolgot jelenthet, mondd ki.</b> A Dynamic EQ így érkezik: <code>true</code>, <code>false</code>, vagy sehogy. Ha a „sehogy”-t „kikapcsolva”-nak veszed, magabiztos, de téves választ teszel a falra.</div>
+<pre class="code">icon_color: >-
+  {% set d = state_attr('media_player.your_receiver','dynamic_eq') %}
+  {{ 'orange' if d is true else 'grey' }}
+secondary: >-
+  {% set d = state_attr('media_player.your_receiver','dynamic_eq') %}
+  {% if d is none %}state not published{% elif d %}on{% else %}off{% endif %}</pre>
+    <p class="capt">Három állapot, nem kettő.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Egyéb tudnivalók</h2>
+    </div>
+    <ul class="plain">
+      <li><b>A csempék a várt szélesség harmadára sikerülnek.</b> A 3 oszlopot átfogó szakaszban a belső rács <b>36</b> oszlopos, nem 12. Négy csempéhez egy sorba állítsd ezt: <code>grid_options: {columns: 9}</code>. Hat csempéhez 6.</li>
+      <li><b>A hangerőcsúszka sáv helyett bekapcsológombot mutat.</b> Ez a(z) <code>media_controls</code> a(z) <code>on_off</code> értékkel. Állítsd ezt: <code>media_controls: []</code>.</li>
+      <li><b>A feliratok levágódnak.</b> A „Volume Down” így lesz: „Volume Do...”. Rövidítsd „Vol Down”-ra, vagy szélesítsd a csempét.</li>
+      <li><b>A jelenetleírások levágódnak.</b> Add hozzá ezt: <code>multiline_secondary: true</code>.</li>
+      <li><b>Egy egyenletes vonal eltűnik az apexcharts grafikonról.</b> Ez a(z) <code>experimental.color_threshold</code>. A vonalat függőleges színátmenettel rajzolja, a tökéletesen vízszintes szakasznak pedig nulla a magassága, amelyen átmenet lehetne, így láthatatlan lesz. Egy 43 órás, egy hangerőn futó munkamenet teljesen eltűnt. Használj tömör <code>color</code> értéket.</li>
+      <li><b>Telefonon magától átrendeződik.</b> A Sections nézetek keskeny szélességnél egy oszlopba rendeződnek, külön beállítás nélkül.</li>
+    </ul>
+    <figure><img alt="Ugyanaz az irányítópult telefonszélességen, egyetlen oszlopba rendeződve" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Ugyanaz az irányítópult telefonszélességen: a három oszlopból egy lesz, és ehhez semmit sem kellett beállítani</figcaption></figure>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Gyakori kérdések</div>
+      <h2>Az irányítópult, megválaszolva</h2>
+    </div>
+    <details open><summary>Kellenek hozzá egyéni HACS kártyák?</summary><div class="body">A működéshez nem. Az oldalon minden vezérlő sima Home Assistant gombkártyáról fut. A Mushroom, a button-card, a card-mod és az apexcharts-card adja a képernyőképeken látható kinézetet, és minden szakasz megmondja, melyiket használja, és mit veszítesz nélküle.</div></details>
+    <details><summary>Miért világít néhány gomb, mások meg nem?</summary><div class="body">Egy gomb akkor világít, ha a Home Assistant el tudja olvasni a hozzá tartozó állapotot a készülékedről. A forrás, a térhatású mód, a hangerő és a némítás a készülék saját médialejátszó entitásából érkezik, ezért ezek kiemelődnek. Az Audyssey görbét, a Dirac foglalatot, a fényerőszabályzót, az eco módot és a hangszóró-előbeállítást a Denon integráció nem teszi közzé, így a Home Assistant nem tudhatja, melyik az aktív, és a gombok addig nem világítanak, amíg meg nem koppintasz egyet.</div></details>
+    <details><summary>Megjeleníthetem a valódi dB hangerőt százalék helyett?</summary><div class="body">Igen. A Home Assistant a volume_level értéket a készülék fő hangerejének századrészeként teszi közzé, a Denon és Marantz készülékeken pedig az MV 80 a 0 dB referencia. Tehát a dB egyenlő a volume_level szorozva 100-zal, mínusz 80. A 0.67-es volume_level fő hangerő 67, vagyis -13.0 dB.</div></details>
+    <details><summary>Megegyeznek majd az entitásazonosítóim az ebben az útmutatóban szereplőkkel?</summary><div class="body">A minta igen, a középső rész nem. Az AVR Maestro a szkriptjeit a készülék MAC-címéről nevezi el, így egy átnevezés ugyanazt a szkriptet frissíti, nem pedig másodpéldányt hoz létre. A tiéd így néz ki: script.avr_maestro_, majd a saját tizenkét karaktered, végül a vezérlő neve. Nyisd meg a Home Assistantban a Fejlesztői eszközök, majd az Állapotok oldalt, és szűrj az avr_maestro szóra, hogy lásd a saját listádat.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Az útmutató további részei</div>
+      <h2>További AVR Maestro útmutatók</h2>
+    </div>
+    <p class="lead"><a href="/hu/guide/getting-started/">Első lépések</a> &middot; <a href="/hu/guide/home/">Kezdőképernyő</a> &middot; <a href="/hu/guide/scenes/">Jelenetek</a> &middot; <a href="/hu/guide/custom-icons/">Egyéni ikonok</a> &middot; <a href="/hu/guide/sound/">Hang</a> &middot; <a href="/hu/guide/graphic-eq/">Grafikus EQ</a> &middot; <a href="/hu/guide/speakers/">Hangszórók</a> &middot; <a href="/hu/guide/locked-controls/">Miért zárolt egy vezérlő</a> &middot; <a href="/hu/guide/assistant/">Az asszisztens</a> &middot; <a href="/hu/guide/home-automation/">Otthonautomatizálás</a> &middot; <a href="/hu/guide/multi-zone/">Zónák</a> &middot; <a href="/hu/guide/remote/">Távirányító</a> &middot; <a href="/hu/guide/radio/">Rádió (FM/AM)</a> &middot; <a href="/hu/guide/on-screen-display/">Képernyőkijelző</a> &middot; <a href="/hu/guide/settings/">Beállítások</a> &middot; <a href="/hu/guide/languages/">Nyelvek</a> &middot; <a href="/hu/guide/volume/">Hangerő-szabályzók</a> &middot; <a href="/hu/guide/backup/">Mentés &amp; visszaállítás</a> &middot; <a href="/hu/guide/now-playing/">Most szól &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>A teljes készüléked, egy falon</h2>
+    <p class="lead" style="margin:0 auto 24px">Az Otthon-automatizálás az AVR Maestro egyetlen fizetős feloldása. Minden más, az eszközön futó AI-asszisztenssel együtt, benne van.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Töltse le a Google Playről" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Letöltés az App Store-ból" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Letöltés a Mac App Store-ból" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Töltse le a Microsoft Store-ból" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/hu/guide/home-automation/">Vissza az otthonautomatizáláshoz &rarr;</a> &middot; <a href="/hu/guide/">Teljes felhasználói útmutató &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/hu/">Kezdőlap</a>
+      <a href="/hu/guide/">Felhasználói útmutató</a>
+      <a href="/hu/guide/getting-started/">Első lépések</a>
+      <a href="/hu/receivers/">Készülékek</a>
+      <a href="/hu/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hu/audyssey-vs-dirac/">Audyssey és Dirac</a>
+      <a href="/hu/best-denon-marantz-app/">Miért érdemes váltani</a>
+      <a href="/hu/help/">Súgó</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">Az AVR Maestro a MiyaraHub Technologies LLC független alkalmazása, amelyet nem érint, nem támogat és nem szponzorál a Denon, a Marantz, a D&amp;M Holdings, a Sound United, sem más, ezen az oldalon említett cég. A Denon, Marantz, HEOS, Home Assistant, Mushroom, HACS, Audyssey és Nvidia Shield nevek a megfelelő tulajdonosaik védjegyei vagy projektjei, itt kizárólag azonosításra használjuk őket.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="el" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ελέγξτε τη Ζώνη 2 &amp; τη Ζώνη 3 από το κινητό σας - AVR Maestro</title>
+<meta name="description" content="Ανεξάρτητος έλεγχος Ζώνης 2 και Ζώνης 3 σε δέκτες Denon και Marantz: λειτουργία, είσοδος, ένταση, σίγαση, Zone Smart Select / Quick Select, μετονομασία ζωνών και αναπαράγεται τώρα ανά ζώνη." />
+<meta name="keywords" content="multi-zone receiver control app, Zone 2 control app, Zone 3 control app, Denon multi-zone app, Marantz multi-zone, whole house audio receiver app, second zone control, zone quick select, zone smart select, rename zones Denon Marantz" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/el/guide/multi-zone/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/multi-zone/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/multi-zone/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/multi-zone/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/multi-zone/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/multi-zone/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/multi-zone/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/multi-zone/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/multi-zone/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/multi-zone/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/multi-zone/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/multi-zone/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/multi-zone/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/multi-zone/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/multi-zone/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/multi-zone/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/multi-zone/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/multi-zone/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/multi-zone/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/multi-zone/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/multi-zone/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/multi-zone/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/multi-zone/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/multi-zone/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/multi-zone/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/multi-zone/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/multi-zone/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/multi-zone/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/multi-zone/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/multi-zone/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/multi-zone/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/multi-zone/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="el_GR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Ελέγξτε τη Ζώνη 2 &amp; τη Ζώνη 3 από το κινητό σας - AVR Maestro" />
+<meta property="og:description" content="Ανεξάρτητος έλεγχος Ζώνης 2 και Ζώνης 3 σε δέκτες Denon και Marantz: λειτουργία, είσοδος, ένταση, σίγαση, Zone Smart Select / Quick Select, μετονομασία ζωνών και αναπαράγεται τώρα ανά ζώνη." />
+<meta property="og:url" content="https://avrmaestro.com/el/guide/multi-zone/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Ελέγξτε τη Ζώνη 2 &amp; τη Ζώνη 3 από το κινητό σας - AVR Maestro" />
+<meta name="twitter:description" content="Ανεξάρτητος έλεγχος Ζώνης 2 και Ζώνης 3 σε δέκτες Denon και Marantz: λειτουργία, είσοδος, ένταση, σίγαση, Zone Smart Select / Quick Select, μετονομασία ζωνών και αναπαράγεται τώρα ανά ζώνη." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "Το AVR Maestro είναι μια ανεξάρτητη εφαρμογή για τον έλεγχο δεκτών AV Denon και Marantz μέσω του τοπικού σας δικτύου.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "el"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/multi-zone/#article",
+      "headline": "Πολλαπλές ζώνες: ελέγξτε ολόκληρο το σπίτι",
+      "description": "Ανεξάρτητος έλεγχος Ζώνης 2 και Ζώνης 3 σε δέκτες Denon και Marantz: λειτουργία, είσοδος, ένταση, σίγαση, Zone Smart Select / Quick Select, μετονομασία ζωνών και αναπαράγεται τώρα ανά ζώνη.",
+      "image": "https://avrmaestro.com/screenshots/zones.png",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/multi-zone/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "el"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/multi-zone/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Μπορώ να ελέγξω τη Ζώνη 2 και τη Ζώνη 3 από το κινητό μου;",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ναι - σε δέκτες πολλαπλών ζωνών κάθε ζώνη έχει τη δική της λειτουργία, ένταση, σίγαση, είσοδο και προεπιλογές γρήγορης έντασης, εντελώς ξεχωριστά από την κύρια ζώνη, με ζωντανό συγχρονισμό."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Μπορώ να χρησιμοποιήσω Smart Select ή Quick Select σε μια ζώνη;",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ναι - η κάρτα κάθε ζώνης φέρει τις δικές της θέσεις, με τα ονόματα που δίνει ο δέκτης σας: Smart Select σε Marantz, Quick Select σε Denon. Πατήστε μια θέση για ανάκληση· πατήστε παρατεταμένα για να αποθηκεύσετε σε αυτήν την τρέχουσα κατάσταση της ζώνης, απευθείας από την κάρτα."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Μπορώ να μετονομάσω τις ζώνες μου;",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ναι - πατήστε παρατεταμένα το όνομα της ζώνης στην Αρχική για να μετονομάσετε οποιαδήποτε ζώνη, συμπεριλαμβανομένης της κύριας. Το όνομα γράφεται στον ίδιο τον δέκτη, οπότε εμφανίζεται στην εφαρμογή του κατασκευαστή και σε κάθε άλλο πρόγραμμα-πελάτη, ακόμη και σε παλαιότερα σασί."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Δείχνει κάθε ζώνη τι παίζει;",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ναι - όταν μια ζώνη είναι ενεργή, η κάρτα της δείχνει τη ζωντανή ροή HEOS αναπαράγεται τώρα για εκείνη τη ζώνη, με χειριστήρια αναπαραγωγής."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Μπορεί μια Σκηνή να ρυθμίσει τις ζώνες μου;",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ναι - μια Σκηνή μπορεί να αποτυπώσει και να επαναφέρει τη λειτουργία, την είσοδο και την ένταση της Ζώνης 2/3 μαζί με την υπόλοιπη ρύθμισή σας."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Αρχική",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Οδηγός Χρήσης",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Πολλαπλές ζώνες",
+      "item": "https://avrmaestro.com/guide/multi-zone/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/el/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Μενού" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Αναζήτηση στον οδηγό..." data-i18n-empty="Δεν βρέθηκαν αποτελέσματα για" data-i18n-language="Γλώσσα">
+      <a href="/el/">Αρχική</a>
+      <a href="/el/guide/">Οδηγός Χρήσης</a>
+      <a href="/el/receivers/">Δέκτες</a>
+      <a href="/el/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/el/best-denon-marantz-app/">Γιατί να αλλάξετε</a>
+      <a href="/el/#top" class="cta">Λήψη</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero split">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="/el/">Αρχική</a> &rsaquo; <a href="/el/guide/">Οδηγός χρήσης</a> &rsaquo; Πολλαπλές ζώνες</div>
+      <div class="eyebrow">Πολλαπλές ζώνες</div>
+      <h1>Πολλαπλές ζώνες: ελέγξτε <span class="g">ολόκληρο το σπίτι</span></h1>
+      <p>Ανεξάρτητη λειτουργία, είσοδος και ένταση για τη Ζώνη 2 και τη Ζώνη 3 σε δέκτες Denon και Marantz πολλαπλών ζωνών - και οι Σκηνές μπορούν επίσης να αποτυπώνουν και να επαναφέρουν την κατάσταση των ζωνών. Μουσική στην κουζίνα, ταινία στην αίθουσα προβολής, όλα από μία εφαρμογή.</p>
+    </div>
+    <div class="hero-shot"><img alt="Έλεγχος πολλαπλών ζωνών στο AVR Maestro" src="/screenshots/zones.png" width="1324" height="2644" fetchpriority="high" /></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Πώς λειτουργούν οι ζώνες</div>
+      <h2>Κάθε ζώνη, πλήρως ανεξάρτητη</h2>
+      <p class="lead">Κάθε ζώνη έχει τη δική της λειτουργία, ένταση, σίγαση, είσοδο και προεπιλογές γρήγορης έντασης, εντελώς ξεχωριστά από την κύρια ζώνη.</p>
+    </div>
+    <div class="grid">
+      <div class="gcard"><div class="ic">&#128268;</div><h3>Ανεξάρτητη λειτουργία</h3><p>Ανοίξτε ή κλείστε τη Ζώνη 2 ή τη Ζώνη 3 χωρίς να αγγίξετε την κύρια ζώνη.</p></div>
+      <div class="gcard"><div class="ic">&#127925;</div><h3>Δική της πηγή &amp; ένταση</h3><p>Διαφορετική είσοδος και ένταση ανά ζώνη, με chips προεπιλογών γρήγορης έντασης - οι προεπιλογές ανεβαίνουν ομαλά από προεπιλογή (Ρυθμίσεις, Ήχος: Gradual / Direct).</p></div>
+      <div class="gcard"><div class="ic">&#9889;</div><h3>Zone Smart Select / Quick Select</h3><p>Οι δικές της θέσεις Smart Select ή Quick Select της ζώνης, ακριβώς πάνω στην κάρτα - πατήστε μια θέση για ανάκληση, πατήστε παρατεταμένα για να αποθηκεύσετε σε αυτήν την τρέχουσα κατάσταση της ζώνης.</p></div>
+      <div class="gcard"><div class="ic">&#9997;&#65039;</div><h3>Μετονομάστε οποιαδήποτε ζώνη</h3><p>Πατήστε παρατεταμένα το όνομα της ζώνης στην Αρχική - συμπεριλαμβανομένης της κύριας ζώνης. Το όνομα αποθηκεύεται στον ίδιο τον δέκτη, ώστε όλες οι εφαρμογές να συμφωνούν σε αυτό.</p></div>
+      <div class="gcard"><div class="ic">&#128260;</div><h3>Ζωντανός συγχρονισμός</h3><p>Αλλάξτε μια ζώνη από το πάνελ ή το τηλεχειριστήριο του δέκτη και η εφαρμογή ενημερώνεται μέσα σε ένα δευτερόλεπτο.</p></div>
+      <div class="gcard"><div class="ic">&#127911;</div><h3>Αναπαράγεται τώρα ανά ζώνη</h3><p>Όταν μια ζώνη είναι ενεργή, η κάρτα της δείχνει τη ζωντανή ροή HEOS για εκείνη τη ζώνη, με χειριστήρια αναπαραγωγής.</p></div>
+      <div class="gcard"><div class="ic">&#127917;</div><h3>Αποτυπώνεται από τις Σκηνές</h3><p>Μια <a href="/el/guide/scenes/">Σκηνή</a> μπορεί να αποτυπώσει και να επαναφέρει την κατάσταση της Ζώνης 2/3 μαζί με όλα τα υπόλοιπα.</p></div>
+      <div class="gcard"><div class="ic">&#128241;</div><h3>Στην Αρχική</h3><p>Ένα συμπαγές widget Ζωνών δίνει εικόνα της κατάστασης με μια ματιά και γρήγορα χειριστήρια στην Αρχική.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Ενεργοποιώντας μια ζώνη και κατευθύνοντάς την κάπου</h2>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(1,1fr);max-width:320px;margin:0 0 26px">
+      <figure><img alt="Η καρτέλα Ζώνες με το Patio ως ζώνη 2 και το ZONE3 ως ζώνη 3, καθεμία με το δικό της χειριστήριο λειτουργίας" src="/screenshots/zones.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Μία κάρτα για κάθε ζώνη που δηλώνει ο δέκτης</figcaption></figure>
+    </div>
+    <ul class="plain">
+      <li><b>1. Ανοίξτε την καρτέλα Ζώνες.</b> Κάθε ζώνη που δηλώνει ο δέκτης σας παίρνει μια κάρτα. Ένας δέκτης με μία ζώνη δεν έχει την καρτέλα.</li>
+      <li><b>2. Ενεργοποιήστε τη ζώνη</b> με το χειριστήριο λειτουργίας στην κάρτα της. Τίποτα στην κύρια ζώνη δεν αλλάζει.</li>
+      <li><b>3. Διαλέξτε την πηγή της.</b> Η λίστα είναι του ίδιου του δέκτη σας, με όποια ονόματα έχετε δώσει, και μια ζώνη μπορεί να βρίσκεται σε εντελώς διαφορετική είσοδο από το κύριο δωμάτιο.</li>
+      <li><b>4. Ρυθμίστε την ένταση.</b> Η ζώνη έχει δικό της επίπεδο και δική της σίγαση, και τα chips γρήγορης έντασης ανακαλούν επίπεδα που ορίσατε για εκείνη τη ζώνη. Οι προεπιλογές ανεβαίνουν ομαλά εκτός αν αλλάξετε σε Direct στις Ρυθμίσεις, Ήχος.</li>
+      <li><b>5. Προαιρετικά: αποθηκεύστε την.</b> Πατήστε παρατεταμένα μία από τις δικές της θέσεις Smart Select ή Quick Select της ζώνης για να αποθηκεύσετε ό,τι κάνει τώρα η ζώνη, και πατήστε την αργότερα για να την επαναφέρετε.</li>
+    </ul>
+    <p class="lead" style="margin-top:20px">Μετονομάστε μια ζώνη πατώντας παρατεταμένα το όνομά της στην Αρχική. Το όνομα γράφεται στον δέκτη, ώστε το μπροστινό πάνελ και κάθε άλλη εφαρμογή να συμφωνούν με την εφαρμογή.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Καλό είναι να γνωρίζετε</div>
+      <h2>Γιατί η απενεργοποίηση της κύριας ζώνης δεν σβήνει τα υπόλοιπα δωμάτιά σας</h2>
+    </div>
+    <p class="lead">Οι δέκτες Denon και Marantz έχουν δύο διαφορετικές εντολές λειτουργίας, και η διαφορά μετράει αν παίζει μουσική κάπου αλλού στο σπίτι.</p>
+    <p class="lead">Η εντολή standby ολόκληρου του συστήματος σβήνει ολόκληρο το σασί, και ο δέκτης κατεβάζει μαζί του και τις άλλες ζώνες - μετρήθηκε σε Cinema 30: το σασί αναφέρει τη Ζώνη 2 κλειστή ένα χιλιοστό του δευτερολέπτου αφότου φτάσει η εντολή standby. Γι' αυτό το κύριο χειριστήριο λειτουργίας στο AVR Maestro στέλνει σκόπιμα την εντολή της <b>κύριας ζώνης</b>. Κλείστε την αίθουσα προβολής από την εφαρμογή και η κουζίνα συνεχίζει να παίζει.</p>
+    <p class="lead">Ισχύει και αντίστροφα: η ενεργοποίηση της κύριας ζώνης από κρύο δέκτη ξυπνά πρώτα το σασί, οπότε δεν χρειάζεται να ανοίξετε χωριστά τον δέκτη πριν χρησιμοποιήσετε την εφαρμογή.</p>
+    <div class="note">Αν μια ζώνη σβήσει μόνη της όταν αλλάζει η κύρια ζώνη, φταίει η δική του ρύθμιση του δέκτη και όχι η εφαρμογή. Ορισμένα μοντέλα έχουν επιλογή αλληλοδιαπλοκής λειτουργίας στο μενού ζωνών τους.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Συχνές ερωτήσεις</div>
+      <h2>Συχνές ερωτήσεις για τις πολλαπλές ζώνες</h2>
+    </div>
+    <details open><summary>Μπορώ να ελέγξω τη Ζώνη 2 και τη Ζώνη 3 από το κινητό μου;</summary><div class="body">Ναι - σε δέκτες πολλαπλών ζωνών κάθε ζώνη έχει τη δική της λειτουργία, ένταση, σίγαση, είσοδο και προεπιλογές γρήγορης έντασης, εντελώς ξεχωριστά από την κύρια ζώνη, με ζωντανό συγχρονισμό.</div></details>
+    <details><summary>Μπορώ να χρησιμοποιήσω Smart Select ή Quick Select σε μια ζώνη;</summary><div class="body">Ναι - η κάρτα κάθε ζώνης φέρει τις δικές της θέσεις, με τα ονόματα που δίνει ο δέκτης σας: Smart Select σε Marantz, Quick Select σε Denon. Πατήστε μια θέση για ανάκληση· πατήστε παρατεταμένα για να αποθηκεύσετε σε αυτήν την τρέχουσα κατάσταση της ζώνης, απευθείας από την κάρτα.</div></details>
+    <details><summary>Μπορώ να μετονομάσω τις ζώνες μου;</summary><div class="body">Ναι - πατήστε παρατεταμένα το όνομα της ζώνης στην Αρχική για να μετονομάσετε οποιαδήποτε ζώνη, συμπεριλαμβανομένης της κύριας. Το όνομα γράφεται στον ίδιο τον δέκτη, οπότε εμφανίζεται στην εφαρμογή του κατασκευαστή και σε κάθε άλλο πρόγραμμα-πελάτη, ακόμη και σε παλαιότερα σασί.</div></details>
+    <details><summary>Δείχνει κάθε ζώνη τι παίζει;</summary><div class="body">Ναι - όταν μια ζώνη είναι ενεργή, η κάρτα της δείχνει τη ζωντανή ροή HEOS αναπαράγεται τώρα για εκείνη τη ζώνη, με χειριστήρια αναπαραγωγής.</div></details>
+    <details><summary>Μπορεί μια Σκηνή να ρυθμίσει τις ζώνες μου;</summary><div class="body">Ναι - μια <a href="/el/guide/scenes/">Σκηνή</a> μπορεί να αποτυπώσει και να επαναφέρει τη λειτουργία, την είσοδο και την ένταση της Ζώνης 2/3 μαζί με την υπόλοιπη ρύθμισή σας.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Περισσότερα από τον οδηγό</div>
+      <h2>Άλλοι οδηγοί του AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/el/guide/getting-started/">Ξεκινώντας</a> &middot; <a href="/el/guide/home/">Αρχική οθόνη</a> &middot; <a href="/el/guide/scenes/">Σκηνές</a> &middot; <a href="/el/guide/custom-icons/">Προσαρμοσμένα εικονίδια</a> &middot; <a href="/el/guide/sound/">Ήχος</a> &middot; <a href="/el/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/el/guide/speakers/">Ηχεία</a> &middot; <a href="/el/guide/locked-controls/">Γιατί ένα χειριστήριο είναι κλειδωμένο</a> &middot; <a href="/el/guide/assistant/">Ο Βοηθός</a> &middot; <a href="/el/guide/home-automation/">Αυτοματισμός Σπιτιού</a> &middot; <a href="/el/guide/home-assistant-dashboard/">Πίνακας ελέγχου Home Assistant</a> &middot; <a href="/el/guide/remote/">Τηλεχειριστήριο</a> &middot; <a href="/el/guide/radio/">Ραδιόφωνο (FM/AM)</a> &middot; <a href="/el/guide/on-screen-display/">Ενδείξεις οθόνης</a> &middot; <a href="/el/guide/settings/">Ρυθμίσεις</a> &middot; <a href="/el/guide/languages/">Γλώσσες</a> &middot; <a href="/el/guide/volume/">Χειριστήρια έντασης</a> &middot; <a href="/el/guide/backup/">Αντίγραφο ασφαλείας &amp; επαναφορά</a> &middot; <a href="/el/guide/now-playing/">Αναπαράγεται τώρα &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Αναλάβετε τον έλεγχο κάθε δωματίου</h2>
+    <p class="lead" style="margin:0 auto 24px">Εφάπαξ αγορά, χωρίς διαφημίσεις, χωρίς συνδρομές. Συνδεθείτε σε λιγότερο από ένα λεπτό.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Διαθέσιμο στο Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Λήψη από το App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Λήψη από το Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Διαθέσιμο στο Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/el/guide/">Πίσω στον πλήρη Οδηγό Χρήσης &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/el/">Αρχική</a>
+      <a href="/el/guide/">Οδηγός Χρήσης</a>
+      <a href="/el/guide/getting-started/">Πρώτα βήματα</a>
+      <a href="/el/receivers/">Δέκτες</a>
+      <a href="/el/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/el/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/el/best-denon-marantz-app/">Γιατί να αλλάξετε</a>
+      <a href="/el/help/">Βοήθεια</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">Το AVR Maestro είναι μια ανεξάρτητη εφαρμογή της MiyaraHub Technologies LLC και δεν σχετίζεται με, δεν υποστηρίζεται από και δεν χρηματοδοτείται από τις Denon, Marantz, D&amp;M Holdings, Sound United ή οποιαδήποτε άλλη εταιρεία αναφέρεται σε αυτή τη σελίδα. Οι Denon, Marantz, HEOS, Audyssey και Dirac Live είναι εμπορικά σήματα των αντίστοιχων κατόχων τους και χρησιμοποιούνται εδώ μόνο για αναγνώριση.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

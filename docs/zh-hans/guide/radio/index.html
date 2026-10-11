@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>用手机控制 FM/AM 调谐器 - AVR Maestro</title>
+<meta name="description" content="为内置调谐器的 Denon 和 Marantz 接收机提供完整的 FM/AM 收音机：波段与调谐模式、按频率调谐，以及可命名的电台预设，全部在手机上完成。" />
+<meta name="keywords" content="FM AM tuner app, AV receiver radio app, Denon tuner app, Marantz tuner app, receiver radio presets app, control receiver radio from phone, FM tuner controller" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/zh-hans/guide/radio/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/radio/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/radio/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/radio/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/radio/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/radio/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/radio/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/radio/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/radio/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/radio/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/radio/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/radio/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/radio/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/radio/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/radio/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/radio/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/radio/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/radio/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/radio/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/radio/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/radio/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/radio/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/radio/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/radio/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/radio/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/radio/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/radio/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/radio/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/radio/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/radio/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/radio/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/radio/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="zh_CN" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="用手机控制 FM/AM 调谐器 - AVR Maestro" />
+<meta property="og:description" content="为内置调谐器的 Denon 和 Marantz 接收机提供完整的 FM/AM 收音机：波段与调谐模式、按频率调谐，以及可命名的电台预设，全部在手机上完成。" />
+<meta property="og:url" content="https://avrmaestro.com/zh-hans/guide/radio/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="用手机控制 FM/AM 调谐器 - AVR Maestro" />
+<meta name="twitter:description" content="为内置调谐器的 Denon 和 Marantz 接收机提供完整的 FM/AM 收音机：波段与调谐模式、按频率调谐，以及可命名的电台预设，全部在手机上完成。" />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro 是一款独立应用，可通过本地网络控制 Denon 和 Marantz AV 接收机。",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "zh-Hans"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/radio/#article",
+      "headline": "真正的 FM/AM 收音机，预设还能命名",
+      "description": "为内置调谐器的 Denon 和 Marantz 接收机提供完整的 FM/AM 收音机：波段与调谐模式、按频率调谐，以及可命名的电台预设，全部在手机上完成。",
+      "image": "https://avrmaestro.com/screenshots/radio.png",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/radio/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "zh-Hans"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/radio/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "我可以在应用中控制 FM/AM 收音机吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以，适用于内置调谐器的接收机。应用提供实时的波段/频率/预设显示、FM/AM 切换、自动或手动调谐、可直接跳到某个频率的数字键盘，以及预设网格。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "我可以给预设命名吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。长按某个位置即可保存当前电台，添加或重命名标签（如“Jazz 88”“NPR”），或清除标签。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "为什么我看不到“电台”标签页？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "只有内置调谐器的接收机才会显示该标签页。如果您的接收机有调谐器，请确认调谐器已显示为输入源，然后在“设置”的“自定义导航”中重新启用该标签页。"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "主页",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "用户指南",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "电台",
+      "item": "https://avrmaestro.com/guide/radio/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/zh-hans/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="菜单" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="搜索指南…" data-i18n-empty="没有找到匹配项：" data-i18n-language="语言">
+      <a href="/zh-hans/">主页</a>
+      <a href="/zh-hans/guide/">用户指南</a>
+      <a href="/zh-hans/receivers/">接收机</a>
+      <a href="/zh-hans/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/zh-hans/best-denon-marantz-app/">为什么要换</a>
+      <a href="/zh-hans/#top" class="cta">下载</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero split">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="/zh-hans/">首页</a> &rsaquo; <a href="/zh-hans/guide/">用户指南</a> &rsaquo; 收音机</div>
+      <div class="eyebrow">FM/AM 调谐器</div>
+      <h1>真正的 FM/AM <span class="g">收音机</span>，预设还能命名</h1>
+      <p>在内置调谐器的 Denon 和 Marantz 接收机上，AVR Maestro 为您提供完整的 FM/AM 收音机界面。电台卡片会显示实时的波段、频率和当前预设，并实时跟随接收机的状态。</p>
+    </div>
+    <div class="hero-shot"><img alt="AVR Maestro 中的 FM/AM 调谐器" src="/screenshots/radio.png" width="1324" height="2648" fetchpriority="high" /></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">工作方式</div>
+      <h2>调谐、扫描与保存</h2>
+    </div>
+    <ul class="plain">
+      <li><b>波段：</b>FM / AM。<b>调谐模式：</b>自动（扫描到下一个强信号电台）或手动（按波段步进值逐步调节）。</li>
+      <li><b>调谐：</b>两个“调谐”按钮用于步进调节；<b>输入频率</b>会打开数字键盘，直接跳到某个电台（需要手动模式）。</li>
+      <li><b>预设：</b>由预设位置组成的网格，外加上下步进按钮。<b>长按</b>某个位置即可<b>保存当前电台</b>、<b>添加/重命名标签</b>（如“Jazz 88”“NPR”），或<b>清除标签</b>。</li>
+    </ul>
+    <div class="note">如果“电台”标签页被隐藏，请从<i>设置 &rarr; 自定义导航</i>中重新添加。只有接收机提供调谐器时，它才会出现。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">常见问题</div>
+      <h2>调谐器常见问题解答</h2>
+    </div>
+    <details open><summary>我可以在应用中控制 FM/AM 收音机吗？</summary><div class="body">可以，适用于内置调谐器的接收机。应用提供实时的波段/频率/预设显示、FM/AM 切换、自动或手动调谐、可直接跳到某个频率的数字键盘，以及预设网格。</div></details>
+    <details><summary>我可以给预设命名吗？</summary><div class="body">可以。长按某个位置即可保存当前电台，添加或重命名标签（如“Jazz 88”“NPR”），或清除标签。</div></details>
+    <details><summary>为什么我看不到“电台”标签页？</summary><div class="body">只有内置调谐器的接收机才会显示该标签页。如果您的接收机有调谐器，请确认调谐器已显示为输入源，然后在“设置”的“自定义导航”中重新启用该标签页。</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">指南的更多内容</div>
+      <h2>其他 AVR Maestro 指南</h2>
+    </div>
+    <p class="lead"><a href="/zh-hans/guide/getting-started/">快速入门</a> &middot; <a href="/zh-hans/guide/home/">主屏幕</a> &middot; <a href="/zh-hans/guide/scenes/">场景</a> &middot; <a href="/zh-hans/guide/custom-icons/">自定义图标</a> &middot; <a href="/zh-hans/guide/sound/">声音</a> &middot; <a href="/zh-hans/guide/graphic-eq/">图形 EQ</a> &middot; <a href="/zh-hans/guide/speakers/">扬声器</a> &middot; <a href="/zh-hans/guide/locked-controls/">控制项为何被锁定</a> &middot; <a href="/zh-hans/guide/assistant/">助手</a> &middot; <a href="/zh-hans/guide/home-automation/">家庭自动化</a> &middot; <a href="/zh-hans/guide/home-assistant-dashboard/">Home Assistant 仪表板</a> &middot; <a href="/zh-hans/guide/multi-zone/">分区</a> &middot; <a href="/zh-hans/guide/remote/">遥控</a> &middot; <a href="/zh-hans/guide/on-screen-display/">屏幕显示</a> &middot; <a href="/zh-hans/guide/settings/">设置</a> &middot; <a href="/zh-hans/guide/languages/">语言</a> &middot; <a href="/zh-hans/guide/volume/">音量控制</a> &middot; <a href="/zh-hans/guide/backup/">备份 &amp; 恢复</a> &middot; <a href="/zh-hans/guide/now-playing/">正在播放 &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>把接收机的收音机带到您的手机上</h2>
+    <p class="lead" style="margin:0 auto 24px">一次性购买，无广告，无订阅。不到一分钟即可连接。</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="在 Google Play 获取" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="在 App Store 下载" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="在 Mac App Store 下载" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="在 Microsoft Store 获取" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/zh-hans/guide/">返回完整用户指南 &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/zh-hans/">主页</a>
+      <a href="/zh-hans/guide/">用户指南</a>
+      <a href="/zh-hans/guide/getting-started/">入门指南</a>
+      <a href="/zh-hans/receivers/">接收机</a>
+      <a href="/zh-hans/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/zh-hans/audyssey-vs-dirac/">Audyssey 与 Dirac 对比</a>
+      <a href="/zh-hans/best-denon-marantz-app/">为什么要换</a>
+      <a href="/zh-hans/help/">帮助</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro 是 MiyaraHub Technologies LLC 开发的独立应用，与 Denon、Marantz、D&amp;M Holdings、Sound United 或本页提及的任何其他公司均无关联，也未获得其认可或赞助。Denon、Marantz、HEOS、Audyssey 和 Dirac Live 是其各自所有者的商标，在此仅用于识别。</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

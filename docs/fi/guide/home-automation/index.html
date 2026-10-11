@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="fi" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Home Assistant &amp; Hubitat Denonille &amp; Marantzille - AVR Maestro</title>
+<meta name="description" content="Yhdistä AVR Maestro Home Assistantiin tai Hubitatiin, niin tilanteistasi tulee natiiveja skriptejä, jotka toimivat ilman puhelintasi. Äänikomennot, reaaliaikainen tila ja webhookit." />
+<meta name="keywords" content="Denon Home Assistant, Marantz Home Assistant, AV receiver Alexa, receiver Google Assistant, receiver Siri Shortcuts, Hubitat AV receiver, receiver webhooks, Denon voice control" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/fi/guide/home-automation/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-automation/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-automation/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-automation/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-automation/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-automation/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-automation/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-automation/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-automation/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-automation/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-automation/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-automation/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-automation/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-automation/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-automation/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-automation/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-automation/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-automation/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-automation/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-automation/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-automation/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-automation/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-automation/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-automation/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-automation/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-automation/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-automation/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-automation/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-automation/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-automation/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-automation/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-automation/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="fi_FI" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Home Assistant &amp; Hubitat Denonille &amp; Marantzille - AVR Maestro" />
+<meta property="og:description" content="Yhdistä AVR Maestro Home Assistantiin tai Hubitatiin, niin tilanteistasi tulee natiiveja skriptejä, jotka toimivat ilman puhelintasi. Äänikomennot, reaaliaikainen tila ja webhookit." />
+<meta property="og:url" content="https://avrmaestro.com/fi/guide/home-automation/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Home Assistant &amp; Hubitat Denonille &amp; Marantzille - AVR Maestro" />
+<meta name="twitter:description" content="Yhdistä AVR Maestro Home Assistantiin tai Hubitatiin, niin tilanteistasi tulee natiiveja skriptejä, jotka toimivat ilman puhelintasi. Äänikomennot, reaaliaikainen tila ja webhookit." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro on itsenäinen sovellus Denon- ja Marantz-AV-vastaanottimien ohjaamiseen paikallisverkossa.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "fi"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-automation/#article",
+      "headline": "Home Assistant ja Hubitat: tilanteesi toimivat ilman puhelintasi",
+      "description": "Yhdistä AVR Maestro Home Assistantiin tai Hubitatiin, niin tilanteistasi tulee natiiveja skriptejä, jotka toimivat ilman puhelintasi. Äänikomennot, reaaliaikainen tila ja webhookit.",
+      "image": "https://avrmaestro.com/screenshots/home-assistant.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-automation/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "fi"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-automation/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Pitääkö puhelimeni olla päällä, jotta äänikomennot toimivat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ei. AVR Maestro kokoaa tilanteesi natiiveiksi Home Assistant -skripteiksi. Home Assistant puhuu vastaanottimelle suoraan paikallisverkossasi, joten puhelimesi voi olla sammutettuna, lepotilassa tai toisessa maassa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Millä ääniavustajilla voin ohjata vastaanotintani?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Millä tahansa, jota jo käytät. AVR Maestro ei lisää omaa äänikerrostaan - se julkaisee skriptit Home Assistantiin tai Hubitatiin, ja jo luottamasi keskusyksikkö tarjoaa ne Alexalle, Google Assistantille tai Siri-oikoteille."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kuuluuko tekoälyavustaja maksulliseen avaukseen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ei. Laitteella toimiva tekoälyavustaja on ilmainen. Kodin automaatio - Home Assistant, Hubitat ja lähtevät webhookit - on AVR Maestron ainoa maksullinen avaus."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Poistuuko mitään kotiverkostani?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ei ohjauksen osalta. Sovellus puhuu vastaanottimellesi ja keskusyksikölle omassa verkossasi. Mitään ei reititetä MiyaraHubin palvelimen kautta. Webhook menee sinne, minne sen osoitat, ja se on sinun valintasi."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Etusivu",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Käyttöopas",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Kodin automaatio",
+      "item": "https://avrmaestro.com/guide/home-automation/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/fi/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Valikko" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Hae oppaasta..." data-i18n-empty="Ei osumia haulle" data-i18n-language="Kieli">
+      <a href="/fi/">Etusivu</a>
+      <a href="/fi/guide/">Käyttöopas</a>
+      <a href="/fi/receivers/">Vastaanottimet</a>
+      <a href="/fi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/fi/best-denon-marantz-app/">Miksi vaihtaa</a>
+      <a href="/fi/#top" class="cta">Lataa</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/fi/">Etusivu</a> &rsaquo; <a href="/fi/guide/">Käyttöopas</a> &rsaquo; Kodin automaatio</div>
+    <div class="eyebrow">Home Assistant &middot; Hubitat &middot; Webhookit</div>
+    <h1>Home Assistant ja Hubitat: tilanteesi toimivat <span class="g">ilman puhelintasi</span></h1>
+    <p>Yhdistä AVR Maestro Home Assistantiin tai Hubitatiin, niin jokaisesta rakentamastasi tilanteesta tulee natiivi skripti keskusyksikölläsi. Siitä lähtien keskusyksikkö puhuu vastaanottimelle suoraan omassa verkossasi - joten ”Alexa, movie night” toimii, vaikka puhelimesi olisi sammutettu, lepotilassa tai toisessa maassa.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+      <figure><img alt="AVR Maestron Kodin automaatio -keskus Home Assistantilla, Hubitatilla ja webhookeilla" src="/screenshots/home-automation.png" width="1324" height="2644" decoding="async" /><figcaption>Yksi keskus, kolme ulostuloa</figcaption></figure>
+      <figure><img alt="AVR Maestro yhdistettynä Home Assistantiin, vastaanotinentiteetti löydetty automaattisesti" src="/screenshots/home-assistant.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Yhdistetty, ja vastaanotinentiteettisi löytyi puolestasi</figcaption></figure>
+      <figure><img alt="Lukittu Kodin automaatio, lukon kuva ja Katso, mitä sisältyy -painike" src="/screenshots/home-automation-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Ennen avausta se kertoo, mitä se kattaa</figcaption></figure>
+    </div>
+
+    <div class="section-head" style="margin-top:36px">
+      <h2>Miksi se toimii ilman sovellusta</h2>
+    </div>
+    <p class="lead">Useimmat integraatiot tekevät puhelimestasi välittäjän: puhelin kuulee komennon, puhelin lähettää sen, ja automaatio toimii vain kun puhelin on hereillä ja verkossa.</p>
+    <p class="lead">AVR Maestro ei toimi niin. Se <b>kokoaa</b> tilanteesi skripteiksi, jotka elävät keskusyksikölläsi, ja keskusyksikkö lähettää komennot vastaanottimesi paikalliseen IP-osoitteeseen. Sovelluksen työ päättyy, kun synkronointi on valmis.</p>
+    <ul class="plain">
+      <li><b>Paikallisuus ensin:</b> mitään ei reititetä MiyaraHubin palvelimen kautta. Keskusyksikkösi ja vastaanottimesi puhuvat keskenään.</li>
+      <li><b>Puhelimesta riippumaton:</b> kun tilanne on julkaistu, se toimii riippumatta siitä, onko sovellus asennettu sen tehneeseen puhelimeen.</li>
+      <li><b>Sinun avustajasi, ei meidän:</b> Alexa, Google Assistant ja Siri-oikotiet tavoittavat nämä skriptit jo luottamasi keskusyksikön kautta. AVR Maestro ei lisää omaa äänikerrosta.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Home Assistant, alusta loppuun</h2>
+    </div>
+    <ul class="plain">
+      <li><b>1. Lisää ensin vastaanottimesi Home Assistantiin.</b> Asetukset &rsaquo; Laitteet &amp; palvelut &rsaquo; Lisää integraatio &rsaquo; <b>Denon AVR</b> (tai <b>HEOS</b>), sitten vastaanottimesi paikallinen IP-osoite. Home Assistant luo sille mediasoitinentiteetin.</li>
+      <li><b>2. Avaa AVR Maestrossa Asetukset &rsaquo; Kodin automaatio</b> ja napauta Home Assistant -korttia.</li>
+      <li><b>3. Anna Home Assistantin osoite</b> - paikallinen, kuten <code>http://192.168.1.150:8123</code>, tai ulkoinen Nabu Casa -URL-osoitteesi.</li>
+      <li><b>4. Kirjaudu sisään ja valtuuta.</b> Suojattu sovelluksen sisäinen selain avaa Home Assistantin oman kirjautumisen. Tunnuksesi menevät Home Assistantille, eivät koskaan meille.</li>
+      <li><b>5. Se löytää vastaanottimesi itse.</b> Sovellus skannaa mediasoitinentiteettisi ja pisteyttää ne mallin, nimen ja surround-ominaisuuksien perusteella, ja täyttää sitten oikean entiteetin puolestasi.</li>
+      <li><b>6. Synkronoi.</b> Tilanteesi rakennetaan skripteiksi ja ladataan. Sen jälkeen tilanteen muokkaaminen päivittää sen skriptin taustalla - ei painiketta, jota muistaa painaa.</li>
+    </ul>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Kun synkronointi on tehty</div>
+        <h2>Rakenna kojelauta, jota kannattaa katsoa</h2>
+        <p>Home Assistantilla on nyt ohjain kaikelle, mitä vastaanottimelle voi käskeä, mutta ei lainkaan mielipidettä siitä, miten ne järjestetään. <a href="/fi/guide/home-assistant-dashboard/">Kojelauta-esimerkki</a> on yksi järjestely täydellä YAML:lla: lähde- ja surround-ruudut, jotka syttyvät kun ne ovat aktiivisia, äänenvoimakkuus todellisina desibeleinä, tilanteet, jotka lukevat omat nimensä, ja rehellinen kartta siitä, mitä Home Assistant näkee ja mitä ei.</p>
+      </div>
+      <img alt="Home Assistant -kojelauta, rakennettu AVR Maestron synkronoiduista ohjaimista" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Ei vain tilanteet</div>
+        <h2>Myös kaiutinesiasetukset, Dirac ja Audyssey</h2>
+        <p>Ota käyttöön <b>Synkronoi lisäohjaimet</b>, niin sovellus julkaisee skriptin paljon useammalle kuin tilanteillesi: jokaiselle kaiutinesiasetukselle, jokaiselle Dirac Live -suodinpaikalle ja jokaiselle Audyssey-käyrälle. Täysi synkronointi Cinema 30:llä tuottaa yli seitsemänkymmentä skriptiä, joten kojelaudan painike tai äänikomento voi ladata Dirac-suodattimen tai vaihtaa huonekäyrän samaan tapaan kuin palauttaa tilanteen.</p>
+      </div>
+      <img alt="AVR Maestron Home Assistant -näyttö, Synkronoi lisäohjaimet käytössä" src="/screenshots/ha-app-controls.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Se lukee, ei vain kirjoita</div>
+        <h2>Home Assistant näkee, mikä on aktiivinen</h2>
+        <p>Skriptin voi ajaa mutta ei lukea, joten varhaiset kojelaudat osasivat vaihtaa Audyssey-käyrän tai Dirac-paikan mutta eivät näyttää, mikä oli päällä. Lukemat, jotka sovelluksella jo on - reaaliaikainen surround-tila, aktiivinen Dirac-suodatin, kaiutinesiasetus, himmennin ja kymmeniä muita - julkaistaan nyt vastaanottimen tila-anturin attribuutteina, joten ruutu voi syttyä sille asetukselle, joka oikeasti on käytössä.</p>
+      </div>
+      <img alt="AVR Maestro julkaisee Kaiutinesiasetus-, Dirac Live- ja Audyssey-ohjainskriptit Home Assistantiin" src="/screenshots/ha-sync-advanced.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Jokainen huone</div>
+        <h2>Muut vyöhykkeesi samalta kojelaudalta</h2>
+        <p>Vyöhykkeiden 2 ja 3 virta, äänenvoimakkuus ja mykistys julkaistaan omina skripteinään, joten terassi tai toinen huone vastaa kojelaudalle tai ääniavustajalle samalla tavalla kuin päävyöhyke aina. Vain ne vyöhykkeet, jotka vastaanottimesi oikeasti ilmoittaa, saavat painikkeet, joten kahden vyöhykkeen vastaanottimelle ei koskaan ilmesty Vyöhykettä 3.</p>
+      </div>
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Jos synkronoit vanhemmalla versiolla</div>
+        <h2>Skriptitunnuksesi vaihtuvat kerran</h2>
+        <p>Skriptit nimettiin ennen tilanteen <em>ja</em> vastaanottimen mukaan, joten kumman tahansa uudelleennimeäminen jätti vanhan skriptin paikoilleen ja loi hiljaa toisen. Nyt ne nimetään tilanteen ja vastaanottimen MAC-osoitteen mukaan, minkä ansiosta uudelleennimeäminen päivittää saman skriptin eikä luo kopiota.</p>
+        <p>Tämän muutoksen jälkeinen ensimmäinen synkronointi korvaa vanhat skriptit uusilla. <b>Kaikki vanhoihin tunnuksiin rakennettu on osoitettava uudelleen kerran</b> - kojelaudan painike, automaatio, ääniaputunnus. Avaa skripti Home Assistantissa nähdäksesi sen uuden entiteettitunnuksen.</p>
+        <p>Entiteetit luetaan nyt myös vastaanottimelta - <code>cinema30</code> kolmenkymmenenkahden koneentunnistemerkin sijaan - joten luettelo on luettava ja automaattinen täydennys löytää ne. Aiempien versioiden tunnukset toimivat edelleen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Hubitat</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Hubitatia tuetaan sen <b>Maker API</b> -rajapinnan kautta, ja se on merkitty sovelluksessa BETA-tilaan, koska se on uudempi kuin Home Assistant -reitti, ei siksi että se olisi keskeneräinen.</p>
+        <ul class="plain">
+          <li><b>Hubin IP</b> - Hubitatisi osoite lähiverkossa.</li>
+          <li><b>Maker API App ID</b> - numero Maker API -sovelluksen omassa URL-osoitteessa.</li>
+          <li><b>Access Token</b> - Maker API myöntää sen, kun otat sen käyttöön.</li>
+        </ul>
+        <p class="lead">Ota Maker API käyttöön ensin keskusyksikössä (Apps &rsaquo; Add Built-In App &rsaquo; Maker API), niin saat kaikki kolme. Liitä ne, ja AVR Maestro löytää vastaanottimesi, julkaisee tilanteesi komentosarjoina ja työntää reaaliaikaisen tilan takaisin, jotta Hubitat-kojelauta heijastaa sitä, mitä vastaanotin oikeasti tekee, eikä sitä, mitä sille viimeksi käskettiin.</p>
+      </div>
+      <img alt="Hubitatin asetusnäyttö, jossa hubin IP, Maker API App ID ja access token" src="/screenshots/hubitat.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Webhookit</h2>
+    </div>
+    <p class="lead">Home Assistant ja Hubitat lähettävät komentoja <em>vastaanottimelle</em>. Webhookit kulkevat toiseen suuntaan: kun vastaanotin tekee jotakin, kerro siitä muulle. Käynnistä vastaanotin, niin AVR Maestro lähettää pienen viestin valitsemaasi osoitteeseen - se viesti on webhook.</p>
+
+    <div class="note"><b>Tämä on ainoa osa, joka ei ole puhelimesta riippumaton.</b> Synkronoidut tilanteesi muuttuvat keskusyksikkösi skripteiksi ja toimivat riippumatta siitä, onko sovellus missään lähettyvillä. Webhookit ovat erilaisia: AVR Maestro on se, joka tarkkailee vastaanotinta, joten laukaisin ammutaan, kun sovellus on auki laitteella, joka näkee sen. Jos haluat jonkin laukeavan kun mikään ei ole käynnissä, rakenna se keskusyksikölle vastaanotinentiteetin ympärille.</div>
+
+    <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px;margin-top:22px">
+      <figure><img alt="Webhookit-näyttö selityskorttineen ja ilman laukaisimia" src="/screenshots/webhooks.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Tyhjä, kunnes lisäät yhden</figcaption></figure>
+      <figure><img alt="Lisää automaatiolaukaisin -taulukko: laukaisutapahtuma, minne lähetetään ja webhook-tunnus" src="/screenshots/webhook-trigger.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Tapahtuma, kohde, tunnus</figcaption></figure>
+    </div>
+
+    <h3 style="margin-top:34px">Neljä laukaisinta</h3>
+    <table class="t" style="margin-top:14px">
+      <thead><tr><th>Laukaisutapahtuma</th><th>Laukeaa, kun</th><th>Voidaan rajata</th></tr></thead>
+      <tbody>
+        <tr><td>Vastaanottimen virta päälle</td><td>Vastaanotin poistuu valmiustilasta</td><td>-</td></tr>
+        <tr><td>Vastaanottimen virta pois</td><td>Vastaanotin siirtyy valmiustilaan</td><td>-</td></tr>
+        <tr><td>Aktiivinen tulo vaihtui</td><td>Valittu lähde vaihtuu</td><td>Yksi tulo, kohdassa <em>Laukaise vain tulolähteelle</em></td></tr>
+        <tr><td>Tilanne palautettu</td><td>Tilanne otetaan käyttöön</td><td>Yksi tilanne, kohdassa <em>Valitse tilanne</em></td></tr>
+      </tbody>
+    </table>
+
+    <p class="lead" style="margin-top:22px">Rajaus tekee niistä hyödyllisiä eikä meluisia. ”Aktiivinen tulo vaihtui” jokaisella tulolla on tulvaletku; sama laukaisin kiinnitettynä siihen yhteen tuloon, jossa projektorisi on, on valokatkaisin.</p>
+    <p class="lead">Tuloluettelo on oman vastaanottimesi ilmoittama, joten se heijastaa jo kaikkia uudelleennimeämiäsi tai piilottamiasi lähteitä. Tilanneluettelo on omat tilanteesi.</p>
+
+    <div class="section-head" style="margin-top:44px">
+      <h2>Yhden asettaminen vaihe vaiheelta</h2>
+    </div>
+    <p class="lead">Tämä on Home Assistant -reitti, jonka useimmat haluavat. Tee Home Assistantin puoli ensin - sovellus tarvitsee jotakin, mihin osoittaa.</p>
+
+    <h3 style="margin-top:28px">Home Assistantissa</h3>
+    <ul class="plain">
+      <li><b>1. Asetukset &rsaquo; Automaatiot &amp; tilanteet &rsaquo; Luo automaatio &rsaquo; Luo uusi automaatio.</b></li>
+      <li><b>2. Lisää laukaisin &rsaquo; Webhook.</b> Home Assistant luo sinulle pitkän satunnaisen webhook-tunnuksen.</li>
+      <li><b>3. Korvaa se jollakin tunnistettavalla</b> - <code>avr-power-on</code>, <code>avr-movie-night</code>. Mikä tahansa nimi käy, kunhan se on yksilöllinen Home Assistantissasi. Kirjoita se muistiin; kirjoitat saman AVR Maestroon.</li>
+      <li><b>4. Salli webhookin asetuksissa <em>POST</em>.</b> Sen AVR Maestro lähettää. Vain paikallinen käy hyvin - sovellus on omassa verkossasi.</li>
+      <li><b>5. Lisää, mitä haluat sen tekevän</b> - himmennä valot, sulje kaihtimet, käynnistä tilanne - ja tallenna automaatio.</li>
+    </ul>
+
+    <h3 style="margin-top:28px">AVR Maestrossa</h3>
+    <ul class="plain">
+      <li><b>1. Asetukset &rsaquo; Kodin automaatio &rsaquo; Webhookit</b>, sitten <b>Lisää ensimmäinen laukaisin</b> - tai <b>+</b>-painike, kun sinulla on jo yksi.</li>
+      <li><b>2. Laukaisutapahtuma</b> - valitse, minkä pitäisi laukaista se. Valinta <em>Aktiivinen tulo vaihtui</em> tai <em>Tilanne palautettu</em> lisää toisen kentän rajaamista varten.</li>
+      <li><b>3. Minne se lähetetään</b> - jätä asetukseen <b>Home Assistant</b>. Osoite on jo tiedossa, koska yhdistit sen aiemmin samalla näytöllä.</li>
+      <li><b>4. Webhook-tunnus</b> - kirjoita sama tunnus kuin Home Assistantissa. Mitään muuta ei tarvitse täsmätä. Alla sovellus kirjoittaa auki täsmällisen osoitteen, johon se lähettää - <code>Sends to http://your-ha:8123/api/webhook/avr-power-on</code> - jotta voit tarkistaa sen ennen tallennusta.</li>
+      <li><b>5. Tallenna.</b> Paina sitten luettelossa laukaisimen kohdalla <b>Testaa</b>. Home Assistant -automaatiosi pitäisi käynnistyä heti.</li>
+    </ul>
+
+    <div class="note" style="margin-top:24px"><b>Et koskaan kirjoita URL-osoitetta Home Assistant -reitille.</b> Sovellus rakentaa sen yhdistämästäsi Home Assistantista ja hakee tuon osoitteen <em>aina kun laukaisin laukeaa</em>. Siirrä Home Assistant uuteen porttiin, uuteen isäntänimeen tai Nabu Casa -osoitteeseen, ja jokainen jo tekemäsi webhook seuraa mukana. Mitään ei tarvitse synkronoida uudelleen eikä painaa mitään painiketta.</div>
+
+    <div class="note">Jos taulukossa lukee <b>Home Assistantia ei ole vielä yhdistetty</b>, tee ensin tämän sivun yläosan Home Assistant -kortti. Webhook-reitti tarvitsee osoitteen, jolle rakentaa.</div>
+
+    <h3 style="margin-top:34px">Lähettäminen muualle kuin Home Assistantiin</h3>
+    <p class="lead">Vaihda <b>Minne se lähetetään</b> arvoon <b>Muu</b> ja liitä koko URL-osoite kenttään <b>Webhookin URL-osoite</b>. Kaikki, mikä hyväksyy POSTin, toimii - Node-RED-kulku, IFTTT-sovelma, NAS-laitteen skripti, Hubitat Maker API -päätepiste. Tämä reitti tallentaa osoitteen täsmälleen kirjoittamallasi tavalla, joten jos kohde siirtyy, muokkaat laukaisinta.</p>
+
+    <div class="section-head" style="margin-top:44px">
+      <h2>Mitä oikeasti lähetetään</h2>
+    </div>
+    <p class="lead">Pieni JSON-runko. Saman näytön <b>Mitä se lähettää</b> -kortti kertoo sen selkokielellä valitsemallesi laukaisimelle, joten sinun ei tarvitse arvailla - ja nämä ovat kenttien nimet, jotka automaatiosi lukee:</p>
+    <table class="t" style="margin-top:14px">
+      <thead><tr><th>Laukaisin</th><th>Viestin kentät</th></tr></thead>
+      <tbody>
+        <tr><td>Vastaanottimen virta päälle / pois</td><td><code>event</code>, <code>timestamp</code></td></tr>
+        <tr><td>Aktiivinen tulo vaihtui</td><td>...sekä <code>source</code></td></tr>
+        <tr><td>Tilanne palautettu</td><td>...sekä <code>sceneId</code> ja <code>sceneName</code></td></tr>
+      </tbody>
+    </table>
+    <p class="lead" style="margin-top:20px">Home Assistant -automaatiossa nämä saapuvat muodossa <code>{{ trigger.json.event }}</code>, <code>{{ trigger.json.source }}</code> ja niin edelleen. Voit lukea ne tai jättää ne täysin huomiotta ja toimia vain sen perusteella, että se laukesi. Useimmat tekevät jälkimmäisen.</p>
+    <p class="lead">Jos tarvitset eri muodon - palvelu, joka odottaa omaa formaattiaan - avaa kyseisen kortin alta <b>Lähetä oma JSON</b> ja kirjoita se sinne. Se on taitettu piiloon ja merkitty Lisäasetukset-kohtaan, koska melkein kukaan ei tarvitse sitä, ei siksi että sitä ei suositeltaisi.</p>
+
+    <div class="note">Näyttö on nimeltään <b>Webhookit</b>, koska ne ovat sitä. Jos etsit automaatioita, jotka toimivat keskusyksikössäsi <em>siellä</em>, ne ovat yllä olevat Home Assistant- ja Hubitat-kortit - synkronoidusta tilanteesta tulee siellä skripti, ei täällä webhook.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Kun webhook ei saavu perille</h2>
+    </div>
+    <p class="lead">Tarkistettava tässä järjestyksessä, koska kaksi ensimmäistä on lähes aina syy:</p>
+    <ul class="plain">
+      <li><b>Paina ensin Testaa.</b> Se lähettää saman viestin kuin oikea laukaisin, samaan osoitteeseen, ja kertoo, mikä kolmesta tapahtui: toimitettu, ei toimitettu tai ohitettu, koska laukaisimen oma kytkin on pois päältä. Jos testi toimittaa mutta oikea tapahtuma ei, vika on laukaisimessa - useimmiten <em>Aktiivinen tulo vaihtui</em> on rajattu tuloon, johon et oikeasti vaihda.</li>
+      <li><b>Tarkista, että tunnus täsmää tarkasti.</b> Home Assistantin webhook-tunnukset erottavat isot ja pienet kirjaimet eivätkä siedä ylimääräistä välilyöntiä. Sovellus tulostaa kentän alle täyden osoitteen, johon se lähettää - vertaa sitä automaatiosi osoitteeseen.</li>
+      <li><b>Tarkista, että automaatio sallii POSTin.</b> Home Assistantin webhook-laukaisin, joka sallii vain GETin, ohittaa hiljaa sen, mitä AVR Maestro lähettää.</li>
+      <li><b>Tarkista, että laukaisimen kytkin on päällä.</b> Jokaisella on oma kytkimensä luettelossa, ja pois kytketty laukaisin ohitetaan eikä epäonnistu.</li>
+      <li><b>Laukaisimet kuuluvat yhdelle vastaanottimelle.</b> Näkemäsi luettelo on tällä hetkellä valitun vastaanottimen luettelo. Toisella vastaanottimella on omansa, joten täällä tehty sääntö ei laukea toiselle huoneelle.</li>
+      <li><b>Sovelluksen on tarkkailtava.</b> AVR Maestro huomaa vastaanottimen muuttuneen, joten mikään ei laukea taskussasi olevasta puhelimesta, jossa sovellus on kiinni. Se on tämän osion alussa kuvattu kompromissi, ei vika.</li>
+      <li><b>Webhookit kuuluvat Kodin automaatioon.</b> Ilman tuota avausta laukaisimet näkyvät mutta mitään ei lähetetä, ja Testaa kertoo sen sen sijaan, että teeskentelisi toimivansa.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Mikä on maksullista ja mikä ei</div>
+        <h2>Kodin automaatio on ainoa avaus. Tekoälyavustaja on ilmainen.</h2>
+        <p><b>Kodin automaatio (Pro)</b> - Home Assistant, Hubitat ja lähtevät webhookit - on kertaluonteinen avaus. Kaikki muu AVR Maestrossa, myös laitteella toimiva tekoälyavustaja, kuuluu sovellukseen.</p>
+        <p>Äänikomennot tavoittavat vastaanottimesi <em>Kodin automaation</em> kautta, keskusyksikkösi välityksellä. AVR Maestro ei suorita omaa puheentunnistustaan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Usein kysyttyä</div>
+      <h2>Kodin automaatio, vastauksia</h2>
+    </div>
+    <details open><summary>Pitääkö puhelimeni olla päällä, jotta äänikomennot toimivat?</summary><div class="body">Ei. AVR Maestro kokoaa tilanteesi natiiveiksi Home Assistant -skripteiksi. Home Assistant puhuu vastaanottimelle suoraan paikallisverkossasi, joten puhelimesi voi olla sammutettuna, lepotilassa tai toisessa maassa.</div></details>
+    <details><summary>Millä ääniavustajilla voin ohjata vastaanotintani?</summary><div class="body">Millä tahansa, jota jo käytät. AVR Maestro ei lisää omaa äänikerrostaan - se julkaisee skriptit Home Assistantiin tai Hubitatiin, ja jo luottamasi keskusyksikkö tarjoaa ne Alexalle, Google Assistantille tai Siri-oikoteille.</div></details>
+    <details><summary>Kuuluuko tekoälyavustaja maksulliseen avaukseen?</summary><div class="body">Ei. Laitteella toimiva tekoälyavustaja on ilmainen. Kodin automaatio - Home Assistant, Hubitat ja lähtevät webhookit - on AVR Maestron ainoa maksullinen avaus.</div></details>
+    <details><summary>Poistuuko mitään kotiverkostani?</summary><div class="body">Ei ohjauksen osalta. Sovellus puhuu vastaanottimellesi ja keskusyksikölle omassa verkossasi. Mitään ei reititetä MiyaraHubin palvelimen kautta. Webhook menee sinne, minne sen osoitat, ja se on sinun valintasi.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Lisää oppaasta</div>
+      <h2>Muut AVR Maestro -oppaat</h2>
+    </div>
+    <p class="lead"><a href="/fi/guide/getting-started/">Aloitus</a> &middot; <a href="/fi/guide/home/">Kotinäyttö</a> &middot; <a href="/fi/guide/scenes/">Kohtaukset</a> &middot; <a href="/fi/guide/custom-icons/">Omat kuvakkeet</a> &middot; <a href="/fi/guide/sound/">Ääni</a> &middot; <a href="/fi/guide/graphic-eq/">Graafinen taajuuskorjain</a> &middot; <a href="/fi/guide/speakers/">Kaiuttimet</a> &middot; <a href="/fi/guide/locked-controls/">Miksi säädin on lukittu</a> &middot; <a href="/fi/guide/assistant/">Avustaja</a> &middot; <a href="/fi/guide/home-assistant-dashboard/">Home Assistant -kojelauta</a> &middot; <a href="/fi/guide/multi-zone/">Vyöhykkeet</a> &middot; <a href="/fi/guide/remote/">Kaukosäädin</a> &middot; <a href="/fi/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/fi/guide/on-screen-display/">Kuvaruutunäyttö</a> &middot; <a href="/fi/guide/settings/">Asetukset</a> &middot; <a href="/fi/guide/languages/">Kielet</a> &middot; <a href="/fi/guide/volume/">Äänenvoimakkuuden hallinta</a> &middot; <a href="/fi/guide/backup/">Varmuuskopiointi &amp; palautus</a> &middot; <a href="/fi/guide/now-playing/">Nyt soi &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Tilanteesi toimivat ilman puhelintasi</h2>
+    <p class="lead" style="margin:0 auto 24px">Kodin automaatio on kertaluonteinen avaus. Kaikki muu sovelluksessa, myös tekoälyavustaja, kuuluu hintaan.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Lataa Google Playsta" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Lataa App Storesta" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Lataa Mac App Storesta" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Hanki Microsoft Storesta" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/fi/guide/">Takaisin koko käyttöoppaaseen &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/fi/">Etusivu</a>
+      <a href="/fi/guide/">Käyttöopas</a>
+      <a href="/fi/guide/getting-started/">Aloitus</a>
+      <a href="/fi/receivers/">Vastaanottimet</a>
+      <a href="/fi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/fi/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/fi/best-denon-marantz-app/">Miksi vaihtaa</a>
+      <a href="/fi/help/">Ohje</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro on MiyaraHub Technologies LLC:n itsenäinen sovellus, eikä Denon, Marantz, D&amp;M Holdings, Sound United tai mikään muu tällä sivulla mainittu yritys ole sen kanssa sidoksissa, tue sitä tai sponsoroi sitä. Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant ja Siri ovat omistajiensa tavaramerkkejä, ja niitä käytetään tässä vain tunnistamiseen.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

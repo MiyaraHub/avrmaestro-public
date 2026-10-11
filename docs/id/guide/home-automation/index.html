@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Home Assistant &amp; Hubitat untuk Denon &amp; Marantz - AVR Maestro</title>
+<meta name="description" content="Hubungkan AVR Maestro ke Home Assistant atau Hubitat dan Skenario Anda menjadi skrip native yang berjalan tanpa ponsel Anda. Kontrol suara, status langsung, dan webhook." />
+<meta name="keywords" content="Denon Home Assistant, Marantz Home Assistant, AV receiver Alexa, receiver Google Assistant, receiver Siri Shortcuts, Hubitat AV receiver, receiver webhooks, Denon voice control" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/id/guide/home-automation/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-automation/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-automation/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-automation/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-automation/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-automation/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-automation/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-automation/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-automation/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-automation/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-automation/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-automation/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-automation/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-automation/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-automation/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-automation/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-automation/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-automation/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-automation/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-automation/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-automation/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-automation/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-automation/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-automation/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-automation/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-automation/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-automation/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-automation/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-automation/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-automation/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-automation/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-automation/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="id_ID" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Home Assistant &amp; Hubitat untuk Denon &amp; Marantz - AVR Maestro" />
+<meta property="og:description" content="Hubungkan AVR Maestro ke Home Assistant atau Hubitat dan Skenario Anda menjadi skrip native yang berjalan tanpa ponsel Anda. Kontrol suara, status langsung, dan webhook." />
+<meta property="og:url" content="https://avrmaestro.com/id/guide/home-automation/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Home Assistant &amp; Hubitat untuk Denon &amp; Marantz - AVR Maestro" />
+<meta name="twitter:description" content="Hubungkan AVR Maestro ke Home Assistant atau Hubitat dan Skenario Anda menjadi skrip native yang berjalan tanpa ponsel Anda. Kontrol suara, status langsung, dan webhook." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro adalah aplikasi independen untuk mengendalikan receiver AV Denon dan Marantz melalui jaringan lokal Anda.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "id"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-automation/#article",
+      "headline": "Home Assistant dan Hubitat: skenario Anda, berjalan tanpa ponsel Anda",
+      "description": "Hubungkan AVR Maestro ke Home Assistant atau Hubitat dan Skenario Anda menjadi skrip native yang berjalan tanpa ponsel Anda. Kontrol suara, status langsung, dan webhook.",
+      "image": "https://avrmaestro.com/screenshots/home-assistant.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-automation/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "id"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-automation/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Apakah ponsel saya harus menyala agar kontrol suara berfungsi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tidak. AVR Maestro mengompilasi skenario Anda menjadi skrip Home Assistant native. Home Assistant berbicara langsung dengan receiver di jaringan lokal Anda, jadi ponsel Anda boleh mati, tidur, atau berada di negara lain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Asisten suara mana yang bisa mengontrol receiver saya?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yang mana pun yang sudah Anda pakai. AVR Maestro tidak menambahkan lapisan suara sendiri - aplikasi ini menerbitkan skrip ke Home Assistant atau Hubitat, dan skrip itu diteruskan ke Alexa, Google Assistant, atau Siri Shortcuts oleh hub yang sudah Anda percaya."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Apakah asisten AI bagian dari fitur berbayar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tidak. Asisten AI di perangkat gratis. Otomasi Rumah - Home Assistant, Hubitat, dan webhook keluar - adalah satu-satunya fitur berbayar di AVR Maestro."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Apakah ada yang keluar dari jaringan rumah saya?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tidak untuk kontrol. Aplikasi berbicara dengan receiver dan hub Anda melalui jaringan Anda sendiri. Tidak ada yang dialirkan melalui server MiyaraHub. Webhook pergi ke mana pun Anda arahkan, dan itu pilihan Anda."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Panduan Pengguna",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Otomasi Rumah",
+      "item": "https://avrmaestro.com/guide/home-automation/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/id/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Cari di panduan..." data-i18n-empty="Tidak ada hasil untuk" data-i18n-language="Bahasa">
+      <a href="/id/">Beranda</a>
+      <a href="/id/guide/">Panduan Pengguna</a>
+      <a href="/id/receivers/">Receiver</a>
+      <a href="/id/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/id/best-denon-marantz-app/">Mengapa beralih</a>
+      <a href="/id/#top" class="cta">Unduh</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/id/">Beranda</a> &rsaquo; <a href="/id/guide/">Panduan Pengguna</a> &rsaquo; Otomasi Rumah</div>
+    <div class="eyebrow">Home Assistant &middot; Hubitat &middot; Webhook</div>
+    <h1>Home Assistant dan Hubitat: skenario Anda, berjalan <span class="g">tanpa ponsel Anda</span></h1>
+    <p>Hubungkan AVR Maestro ke Home Assistant atau Hubitat dan setiap skenario yang Anda buat menjadi skrip native di hub Anda. Sejak itu hub berbicara langsung dengan receiver, di jaringan Anda sendiri - jadi "Alexa, movie night" tetap berfungsi saat ponsel Anda mati, tidur, atau berada di negara lain.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+      <figure><img alt="Hub Otomasi Rumah AVR Maestro dengan Home Assistant, Hubitat, dan Webhook" src="/screenshots/home-automation.png" width="1324" height="2644" decoding="async" /><figcaption>Satu hub, tiga jalur keluar</figcaption></figure>
+      <figure><img alt="AVR Maestro terhubung ke Home Assistant dengan entity receiver yang ditemukan otomatis" src="/screenshots/home-assistant.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Terhubung, dengan entity receiver Anda ditemukan untuk Anda</figcaption></figure>
+      <figure><img alt="Otomasi Rumah terkunci, dengan gembok dan tombol Lihat apa saja yang termasuk" src="/screenshots/home-automation-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Sebelum dibuka, tertulis apa saja yang tercakup</figcaption></figure>
+    </div>
+
+    <div class="section-head" style="margin-top:36px">
+      <h2>Mengapa bisa berjalan tanpa aplikasi</h2>
+    </div>
+    <p class="lead">Kebanyakan integrasi menjadikan ponsel Anda perantara: ponsel mendengar perintah, ponsel mengirimnya, dan otomasi hanya berjalan selama ponsel aktif dan terhubung ke jaringan.</p>
+    <p class="lead">AVR Maestro tidak begitu. Aplikasi ini <b>mengompilasi</b> skenario Anda menjadi skrip yang tinggal di hub Anda, dan hub mengirim perintah ke IP lokal receiver Anda. Tugas aplikasi selesai begitu sinkronisasi selesai.</p>
+    <ul class="plain">
+      <li><b>Mengutamakan lokal:</b> tidak ada yang dialirkan melalui server MiyaraHub. Hub dan receiver Anda saling berbicara.</li>
+      <li><b>Tidak bergantung pada ponsel:</b> setelah skenario diterbitkan, skenario berjalan entah aplikasinya terpasang atau tidak di ponsel yang membuatnya.</li>
+      <li><b>Asisten Anda, bukan milik kami:</b> Alexa, Google Assistant, dan Siri Shortcuts semuanya menjangkau skrip ini melalui hub yang sudah Anda percaya. AVR Maestro tidak menambahkan lapisan suara sendiri.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Home Assistant, dari awal sampai akhir</h2>
+    </div>
+    <ul class="plain">
+      <li><b>1. Tambahkan receiver Anda ke Home Assistant terlebih dahulu.</b> Pengaturan &rsaquo; Perangkat &amp; Layanan &rsaquo; Tambah Integrasi &rsaquo; <b>Denon AVR</b> (atau <b>HEOS</b>), lalu masukkan IP lokal receiver Anda. Home Assistant akan membuat entitas media player untuknya.</li>
+      <li><b>2. Buka Pengaturan &rsaquo; Otomasi Rumah di AVR Maestro</b> dan ketuk kartu Home Assistant.</li>
+      <li><b>3. Masukkan alamat Home Assistant Anda</b> - alamat lokal seperti <code>http://192.168.1.150:8123</code>, atau URL Nabu Casa eksternal Anda.</li>
+      <li><b>4. Masuk dan beri otorisasi.</b> Browser aman di dalam aplikasi membuka halaman login Home Assistant sendiri. Kredensial Anda dikirim ke Home Assistant, tidak pernah ke kami.</li>
+      <li><b>5. Receiver Anda ditemukan sendiri.</b> Aplikasi memindai entity media player Anda dan menilainya berdasarkan model, nama, dan kemampuan surround, lalu mengisi entity yang tepat untuk Anda.</li>
+      <li><b>6. Sinkronkan.</b> Skenario Anda dibangun menjadi skrip dan diunggah. Setelah itu, mengedit skenario memperbarui skripnya di latar belakang - tidak ada tombol yang perlu diingat.</li>
+    </ul>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Setelah tersinkronisasi</div>
+        <h2>Bangun dasbor yang enak dilihat</h2>
+        <p>Home Assistant kini punya kontrol untuk semua yang bisa diperintahkan ke receiver Anda, dan sama sekali tidak punya pendapat tentang cara menatanya. <a href="/id/guide/home-assistant-dashboard/">Contoh dasbor</a> adalah satu penataan lengkap dengan YAML penuh: tile sumber dan surround yang menyala saat sedang aktif, volume dalam dB sungguhan, Skenario yang membaca namanya sendiri, dan peta jujur tentang apa yang bisa dan tidak bisa dilihat Home Assistant.</p>
+      </div>
+      <img alt="Dasbor Home Assistant yang dibangun dari kontrol tersinkronisasi AVR Maestro" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Bukan hanya skenario</div>
+        <h2>Preset Speaker, Dirac, dan Audyssey juga</h2>
+        <p>Aktifkan <b>Sync Advanced Controls</b> dan aplikasi menerbitkan skrip untuk jauh lebih banyak daripada skenario Anda: setiap Preset Speaker, setiap slot filter Dirac Live, setiap kurva Audyssey. Sinkronisasi penuh pada Cinema 30 menghasilkan lebih dari tujuh puluh skrip, sehingga tombol dasbor atau perintah suara dapat memuat filter Dirac atau mengganti kurva ruangan dengan cara yang sama seperti memanggil skenario.</p>
+      </div>
+      <img alt="Layar Home Assistant di AVR Maestro dengan Sync Advanced Controls diaktifkan" src="/screenshots/ha-app-controls.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Bisa membaca, bukan hanya menulis</div>
+        <h2>Home Assistant dapat melihat apa yang aktif</h2>
+        <p>Skrip bisa dijalankan tetapi tidak bisa dibaca, sehingga dasbor awal bisa mengganti kurva Audyssey atau slot Dirac tanpa cara menunjukkan yang mana yang sedang aktif. Pembacaan yang sudah dimiliki aplikasi - mode surround langsung, filter Dirac yang aktif, preset speaker, dimmer, dan puluhan lainnya - kini diterbitkan sebagai atribut pada sensor status receiver, sehingga sebuah tile bisa menyala untuk pengaturan yang benar-benar sedang berjalan.</p>
+      </div>
+      <img alt="AVR Maestro menerbitkan skrip kontrol Speaker Preset, Dirac Live, dan Audyssey ke Home Assistant" src="/screenshots/ha-sync-advanced.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Setiap ruangan</div>
+        <h2>Zona lain Anda, dari dasbor yang sama</h2>
+        <p>Daya, volume, dan bisu untuk Zona 2 dan Zona 3 diterbitkan sebagai skrip tersendiri, sehingga teras atau ruangan kedua merespons dasbor atau asisten suara seperti zona utama selama ini. Hanya zona yang benar-benar dilaporkan receiver Anda yang mendapat tombol, jadi receiver dua zona tidak akan pernah punya Zona 3.</p>
+      </div>
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Jika Anda menyinkronkan dengan versi lama</div>
+        <h2>ID skrip Anda berubah satu kali</h2>
+        <p>Dulu skrip dinamai menurut skenario <em>dan</em> receiver, sehingga mengganti nama salah satunya meninggalkan skrip lama dan diam-diam membuat yang kedua. Kini skrip dinamai menurut skenario dan alamat MAC receiver, yang membuat penggantian nama memperbarui skrip yang sama, bukan menggandakannya.</p>
+        <p>Sinkronisasi pertama setelah perubahan itu menggantikan skrip lama dengan yang baru. <b>Apa pun yang Anda bangun di atas ID lama perlu diarahkan ulang satu kali</b> - tombol dasbor, otomasi, alias suara. Buka skrip di Home Assistant untuk menemukan entity ID barunya.</p>
+        <p>Entity kini juga terbaca dari receiver - <code>cinema30</code> alih-alih tiga puluh dua karakter pengenal mesin - sehingga daftarnya terbaca jelas dan pelengkapan otomatis dapat menemukannya. ID dari versi sebelumnya tetap berfungsi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Hubitat</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Hubitat didukung melalui <b>Maker API</b>-nya, dan ditandai BETA di aplikasi karena lebih baru daripada jalur Home Assistant, bukan karena belum selesai.</p>
+        <ul class="plain">
+          <li><b>Hub IP</b> - alamat Hubitat Anda di LAN.</li>
+          <li><b>Maker API App ID</b> - angka pada URL aplikasi Maker API itu sendiri.</li>
+          <li><b>Access Token</b> - diterbitkan oleh Maker API saat Anda mengaktifkannya.</li>
+        </ul>
+        <p class="lead">Aktifkan Maker API di hub terlebih dahulu (Apps &rsaquo; Add Built-In App &rsaquo; Maker API) dan Anda akan mendapatkan ketiganya. Tempel ke dalam aplikasi dan AVR Maestro menemukan receiver Anda, menerbitkan skenario Anda sebagai rangkaian perintah, dan mengirim status langsung kembali sehingga dasbor Hubitat mencerminkan apa yang benar-benar dilakukan receiver, bukan apa yang terakhir diperintahkan kepadanya.</p>
+      </div>
+      <img alt="Layar penyiapan Hubitat dengan hub IP, Maker API App ID, dan access token" src="/screenshots/hubitat.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Webhook</h2>
+    </div>
+    <p class="lead">Home Assistant dan Hubitat mengirim perintah <em>ke</em> receiver. Webhook berjalan sebaliknya: saat receiver melakukan sesuatu, beri tahu apa pun yang lain tentangnya. Nyalakan receiver dan AVR Maestro mengirim pesan kecil ke alamat yang Anda pilih - pesan itulah webhook.</p>
+
+    <div class="note"><b>Inilah satu-satunya bagian yang tidak bebas dari ponsel.</b> Skenario tersinkronisasi Anda menjadi skrip di hub dan berjalan entah aplikasinya ada di dekat Anda atau tidak. Webhook berbeda: AVR Maestro-lah yang mengawasi receiver, jadi pemicu aktif selama aplikasi terbuka di perangkat yang dapat melihatnya. Jika Anda ingin sesuatu terpicu tanpa ada yang berjalan, bangun di hub Anda berdasarkan entity receiver.</div>
+
+    <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px;margin-top:22px">
+      <figure><img alt="Layar Webhook dengan kartu penjelasan dan belum ada pemicu" src="/screenshots/webhooks.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Kosong sampai Anda menambahkannya</figcaption></figure>
+      <figure><img alt="Lembar Tambah Pemicu Otomasi: peristiwa pemicu, tujuan pengiriman, dan ID webhook" src="/screenshots/webhook-trigger.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Sebuah peristiwa, sebuah tujuan, sebuah ID</figcaption></figure>
+    </div>
+
+    <h3 style="margin-top:34px">Empat pemicu</h3>
+    <table class="t" style="margin-top:14px">
+      <thead><tr><th>Peristiwa Pemicu</th><th>Terpicu saat</th><th>Dapat dipersempit ke</th></tr></thead>
+      <tbody>
+        <tr><td>Receiver Dinyalakan</td><td>Receiver keluar dari standby</td><td>-</td></tr>
+        <tr><td>Receiver Dimatikan</td><td>Receiver masuk ke standby</td><td>-</td></tr>
+        <tr><td>Input Aktif Berubah</td><td>Sumber yang dipilih berubah</td><td>Satu input, di bawah <em>Only trigger for input source</em></td></tr>
+        <tr><td>Skenario Dipanggil</td><td>Sebuah Skenario diterapkan</td><td>Satu skenario, di bawah <em>Select Scene</em></td></tr>
+      </tbody>
+    </table>
+
+    <p class="lead" style="margin-top:22px">Mempersempit itulah yang membuatnya berguna, bukan berisik. "Input Aktif Berubah" pada setiap input adalah banjir; pemicu yang sama yang dipatok pada satu input tempat proyektor Anda terhubung adalah sakelar lampu.</p>
+    <p class="lead">Daftar input adalah yang dilaporkan receiver Anda sendiri, jadi sudah mencerminkan sumber apa pun yang Anda ganti namanya atau sembunyikan. Daftar skenario adalah skenario Anda sendiri.</p>
+
+    <div class="section-head" style="margin-top:44px">
+      <h2>Menyiapkan satu, langkah demi langkah</h2>
+    </div>
+    <p class="lead">Ini adalah jalur Home Assistant, yang paling diinginkan kebanyakan orang. Kerjakan bagian Home Assistant lebih dulu - aplikasi butuh sesuatu untuk dituju.</p>
+
+    <h3 style="margin-top:28px">Di Home Assistant</h3>
+    <ul class="plain">
+      <li><b>1. Settings &rsaquo; Automations &amp; Scenes &rsaquo; Create Automation &rsaquo; Create new automation.</b></li>
+      <li><b>2. Add Trigger &rsaquo; Webhook.</b> Home Assistant membuatkan Webhook ID acak yang panjang untuk Anda.</li>
+      <li><b>3. Ganti dengan sesuatu yang Anda kenali</b> - <code>avr-power-on</code>, <code>avr-movie-night</code>. Nama apa pun boleh asalkan unik di Home Assistant Anda. Catat; Anda mengetik yang sama ke AVR Maestro.</li>
+      <li><b>4. Di pengaturan webhook, izinkan <em>POST</em>.</b> Itulah yang dikirim AVR Maestro. Hanya lokal sudah cukup - aplikasi berada di jaringan Anda sendiri.</li>
+      <li><b>5. Tambahkan apa pun yang ingin dilakukannya</b> - meredupkan lampu, menutup tirai, memulai skenario - lalu simpan otomasinya.</li>
+    </ul>
+
+    <h3 style="margin-top:28px">Di AVR Maestro</h3>
+    <ul class="plain">
+      <li><b>1. Settings &rsaquo; Home Automation &rsaquo; Webhooks</b>, lalu <b>Add First Trigger</b> - atau tombol <b>+</b> jika sudah punya satu.</li>
+      <li><b>2. Trigger Event</b> - pilih apa yang harus memicunya. Memilih <em>Active Input Changed</em> atau <em>Scene Recalled</em> menambahkan kotak kedua untuk mempersempitnya.</li>
+      <li><b>3. Where to send it</b> - biarkan di <b>Home Assistant</b>. Alamatnya sudah diketahui, karena Anda menghubungkannya sebelumnya di layar yang sama.</li>
+      <li><b>4. Webhook ID</b> - ketik ID yang sama dengan yang Anda pakai di Home Assistant. Tidak ada lagi yang harus cocok. Di bawahnya, aplikasi menuliskan alamat persis yang akan dikirimi - <code>Sends to http://your-ha:8123/api/webhook/avr-power-on</code> - sehingga Anda bisa memeriksanya sebelum menyimpan.</li>
+      <li><b>5. Simpan.</b> Lalu tekan <b>Test</b> pada pemicu di daftar. Otomasi Home Assistant Anda seharusnya langsung berjalan.</li>
+    </ul>
+
+    <div class="note" style="margin-top:24px"><b>Anda tidak pernah mengetik URL untuk jalur Home Assistant.</b> Aplikasi membangunnya dari Home Assistant yang Anda hubungkan, dan mencari alamat itu <em>setiap kali pemicu terpicu</em>. Pindahkan Home Assistant ke port baru, hostname baru, atau alamat Nabu Casa, dan setiap webhook yang sudah Anda buat mengikutinya. Tidak ada yang perlu disinkronkan ulang dan tidak ada tombol yang harus ditekan.</div>
+
+    <div class="note">Jika lembar menampilkan <b>Home Assistant is not linked yet</b>, kerjakan kartu Home Assistant di bagian atas halaman ini terlebih dahulu. Jalur webhook membutuhkan alamat untuk dijadikan dasar.</div>
+
+    <h3 style="margin-top:34px">Mengirim ke tempat selain Home Assistant</h3>
+    <p class="lead">Ubah <b>Where to send it</b> ke <b>Other</b> dan tempel URL lengkap ke <b>Webhook URL</b>. Apa pun yang menerima POST bisa dipakai - alur Node-RED, applet IFTTT, skrip di NAS, endpoint Hubitat Maker API. Jalur itu menyimpan alamat persis seperti yang Anda ketik, jadi jika tujuannya pindah, Anda mengedit pemicunya.</p>
+
+    <div class="section-head" style="margin-top:44px">
+      <h2>Apa yang sebenarnya dikirim</h2>
+    </div>
+    <p class="lead">Isi JSON yang kecil. Kartu <b>What it sends</b> di layar yang sama menjelaskannya dengan bahasa sederhana untuk pemicu yang Anda pilih, jadi Anda tidak perlu menebak - dan berikut nama field yang dibaca otomasi Anda:</p>
+    <table class="t" style="margin-top:14px">
+      <thead><tr><th>Pemicu</th><th>Field dalam pesan</th></tr></thead>
+      <tbody>
+        <tr><td>Receiver Power ON / OFF</td><td><code>event</code>, <code>timestamp</code></td></tr>
+        <tr><td>Input Aktif Berubah</td><td>...ditambah <code>source</code></td></tr>
+        <tr><td>Skenario Dipanggil</td><td>...ditambah <code>sceneId</code> dan <code>sceneName</code></td></tr>
+      </tbody>
+    </table>
+    <p class="lead" style="margin-top:20px">Dalam otomasi Home Assistant, semuanya tiba sebagai <code>{{ trigger.json.event }}</code>, <code>{{ trigger.json.source }}</code>, dan seterusnya. Anda bisa membacanya, atau mengabaikannya sepenuhnya dan cukup bertindak karena pemicunya terpicu. Kebanyakan orang memilih yang kedua.</p>
+    <p class="lead">Jika Anda butuh bentuk yang berbeda - layanan yang mengharapkan formatnya sendiri - buka <b>Send my own JSON instead</b> di bawah kartu itu dan tulis di sana. Bagian itu dilipat dan ditandai Advanced karena hampir tidak ada yang membutuhkannya, bukan karena tidak dianjurkan.</p>
+
+    <div class="note">Layar ini bernama <b>Webhooks</b> karena memang itulah mereka. Jika Anda mencari otomasi yang berjalan <em>di</em> hub Anda, itu adalah kartu Home Assistant dan Hubitat di atas - Skenario tersinkronisasi menjadi skrip di sana, bukan webhook di sini.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Saat webhook tidak sampai</h2>
+    </div>
+    <p class="lead">Dalam urutan yang layak diperiksa, karena dua yang pertama hampir selalu penyebabnya:</p>
+    <ul class="plain">
+      <li><b>Tekan Test lebih dulu.</b> Test mengirim pesan yang sama dengan pemicu asli, ke alamat yang sama, dan memberi tahu salah satu dari tiga hal: terkirim, tidak terkirim, atau dilewati karena sakelar pemicunya mati. Jika Test terkirim tetapi peristiwa aslinya tidak, masalahnya ada di pemicu - paling sering <em>Active Input Changed</em> yang dipersempit ke input yang sebenarnya tidak Anda pindahi.</li>
+      <li><b>Periksa apakah ID cocok persis.</b> ID webhook Home Assistant peka huruf besar-kecil dan tidak mentoleransi spasi nyasar. Aplikasi menampilkan alamat lengkap yang akan dikirimi di bawah kolom - bandingkan dengan yang ada di otomasi Anda.</li>
+      <li><b>Periksa apakah otomasi mengizinkan POST.</b> Pemicu webhook Home Assistant yang hanya mengizinkan GET akan diam-diam mengabaikan apa yang dikirim AVR Maestro.</li>
+      <li><b>Periksa apakah sakelar pemicu menyala.</b> Masing-masing punya tombol sendiri di daftar, dan pemicu yang dimatikan dilewati, bukan gagal.</li>
+      <li><b>Pemicu milik satu receiver.</b> Daftar yang Anda lihat adalah daftar untuk receiver yang sedang dipilih. Receiver lain punya daftarnya sendiri, jadi aturan yang dibuat di sini tidak terpicu untuk ruangan yang berbeda.</li>
+      <li><b>Aplikasi harus mengawasi.</b> AVR Maestro-lah yang menyadari receiver berubah, jadi tidak ada yang terpicu dari ponsel di saku Anda dengan aplikasi tertutup. Itu pertukaran yang dijelaskan di awal bagian ini, bukan kerusakan.</li>
+      <li><b>Webhook bagian dari Otomasi Rumah.</b> Tanpa pembukaan itu, pemicu terlihat tetapi tidak ada yang dikirim, dan Test mengatakannya alih-alih berpura-pura berhasil.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Yang berbayar dan yang tidak</div>
+        <h2>Otomasi Rumah adalah satu-satunya pembukaan. Asisten AI gratis.</h2>
+        <p><b>Otomasi Rumah (Pro)</b> - Home Assistant, Hubitat, dan webhook keluar - adalah pembukaan sekali bayar. Semua yang lain di AVR Maestro, termasuk asisten AI di perangkat, sudah termasuk dalam aplikasi.</p>
+        <p>Kontrol suara menjangkau receiver Anda <em>melalui</em> Otomasi Rumah, lewat hub Anda. AVR Maestro tidak menjalankan pengenalan suaranya sendiri.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pertanyaan umum</div>
+      <h2>Otomasi Rumah, terjawab</h2>
+    </div>
+    <details open><summary>Apakah ponsel saya harus menyala agar kontrol suara berfungsi?</summary><div class="body">Tidak. AVR Maestro mengompilasi skenario Anda menjadi skrip Home Assistant native. Home Assistant berbicara langsung dengan receiver di jaringan lokal Anda, jadi ponsel Anda boleh mati, tidur, atau berada di negara lain.</div></details>
+    <details><summary>Asisten suara mana yang bisa mengontrol receiver saya?</summary><div class="body">Yang mana pun yang sudah Anda pakai. AVR Maestro tidak menambahkan lapisan suara sendiri - aplikasi ini menerbitkan skrip ke Home Assistant atau Hubitat, dan skrip itu diteruskan ke Alexa, Google Assistant, atau Siri Shortcuts oleh hub yang sudah Anda percaya.</div></details>
+    <details><summary>Apakah asisten AI bagian dari fitur berbayar?</summary><div class="body">Tidak. Asisten AI di perangkat gratis. Otomasi Rumah - Home Assistant, Hubitat, dan webhook keluar - adalah satu-satunya fitur berbayar di AVR Maestro.</div></details>
+    <details><summary>Apakah ada yang keluar dari jaringan rumah saya?</summary><div class="body">Tidak untuk kontrol. Aplikasi berbicara dengan receiver dan hub Anda melalui jaringan Anda sendiri. Tidak ada yang dialirkan melalui server MiyaraHub. Webhook pergi ke mana pun Anda arahkan, dan itu pilihan Anda.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Lainnya dari panduan</div>
+      <h2>Panduan AVR Maestro lainnya</h2>
+    </div>
+    <p class="lead"><a href="/id/guide/getting-started/">Memulai</a> &middot; <a href="/id/guide/home/">Layar Utama</a> &middot; <a href="/id/guide/scenes/">Skenario</a> &middot; <a href="/id/guide/custom-icons/">Ikon Kustom</a> &middot; <a href="/id/guide/sound/">Suara</a> &middot; <a href="/id/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/id/guide/speakers/">Speaker</a> &middot; <a href="/id/guide/locked-controls/">Mengapa kontrol terkunci</a> &middot; <a href="/id/guide/assistant/">Asisten</a> &middot; <a href="/id/guide/home-assistant-dashboard/">Dasbor Home Assistant</a> &middot; <a href="/id/guide/multi-zone/">Zona</a> &middot; <a href="/id/guide/remote/">Remote</a> &middot; <a href="/id/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/id/guide/on-screen-display/">Tampilan Layar</a> &middot; <a href="/id/guide/settings/">Pengaturan</a> &middot; <a href="/id/guide/languages/">Bahasa</a> &middot; <a href="/id/guide/volume/">Kontrol Volume</a> &middot; <a href="/id/guide/backup/">Cadangkan &amp; Pulihkan</a> &middot; <a href="/id/guide/now-playing/">Sedang Diputar &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Skenario Anda, berjalan tanpa ponsel Anda</h2>
+    <p class="lead" style="margin:0 auto 24px">Otomasi Rumah adalah pembukaan sekali bayar. Semua yang lain di aplikasi, termasuk asisten AI, sudah termasuk.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Dapatkan di Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Unduh di App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Unduh di Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Dapatkan di Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/id/guide/">Kembali ke Panduan Pengguna lengkap &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/id/">Beranda</a>
+      <a href="/id/guide/">Panduan Pengguna</a>
+      <a href="/id/guide/getting-started/">Memulai</a>
+      <a href="/id/receivers/">Receiver</a>
+      <a href="/id/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/id/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/id/best-denon-marantz-app/">Mengapa beralih</a>
+      <a href="/id/help/">Bantuan</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro adalah aplikasi independen dari MiyaraHub Technologies LLC dan tidak berafiliasi dengan, didukung oleh, atau disponsori oleh Denon, Marantz, D&amp;M Holdings, Sound United, atau perusahaan lain mana pun yang disebut di halaman ini. Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant, dan Siri adalah merek dagang dari pemiliknya masing-masing, dipakai di sini hanya untuk identifikasi.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

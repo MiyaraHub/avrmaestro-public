@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="fi" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Home Assistant -kojelauta Denon- &amp; Marantz-vastaanottimille - AVR Maestro</title>
+<meta name="description" content="Rakenna Home Assistant -kojelauta Denon- tai Marantz-vastaanottimellesi: HACS-kortit, entiteettitunnukset, YAML jokaiselle kortille, todellinen dB-äänenvoimakkuus, kohtaukset ja historia." />
+<meta name="keywords" content="Home Assistant Denon dashboard, Marantz Home Assistant card, mushroom card AV receiver, Home Assistant receiver volume dB, denonavr dashboard, AVR Maestro Home Assistant example" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/fi/guide/home-assistant-dashboard/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-assistant-dashboard/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="fi_FI" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Home Assistant -kojelauta Denon- &amp; Marantz-vastaanottimille - AVR Maestro" />
+<meta property="og:description" content="Rakenna Home Assistant -kojelauta Denon- tai Marantz-vastaanottimellesi: HACS-kortit, entiteettitunnukset, YAML jokaiselle kortille, todellinen dB-äänenvoimakkuus, kohtaukset ja historia." />
+<meta property="og:url" content="https://avrmaestro.com/fi/guide/home-assistant-dashboard/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Home Assistant -kojelauta Denon- &amp; Marantz-vastaanottimille - AVR Maestro" />
+<meta name="twitter:description" content="Rakenna Home Assistant -kojelauta Denon- tai Marantz-vastaanottimellesi: HACS-kortit, entiteettitunnukset, YAML jokaiselle kortille, todellinen dB-äänenvoimakkuus, kohtaukset ja historia." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro on itsenäinen sovellus Denon- ja Marantz-AV-vastaanottimien ohjaamiseen paikallisverkossa.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "fi"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
+      "headline": "Rakenna tämä Home Assistant -kojelauta noin tunnissa",
+      "description": "Rakenna Home Assistant -kojelauta Denon- tai Marantz-vastaanottimellesi: HACS-kortit, entiteettitunnukset, YAML jokaiselle kortille, todellinen dB-äänenvoimakkuus, kohtaukset ja historia.",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "datePublished": "2026-08-23",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-assistant-dashboard/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "fi"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Tarvitsenko HACS:n mukautettuja kortteja tämän rakentamiseen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Et toimivuuden vuoksi. Jokainen tämän sivun säädin toimii tavallisella Home Assistantin painikekortilla. Mushroom, button-card, card-mod ja apexcharts-card tekevät siitä kuvakaappausten näköisen, ja jokainen alla oleva osio kertoo, mitä niistä se käyttää ja mitä menetät ilman sitä."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Miksi osa painikkeista syttyy ja osa ei?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Painike syttyy, kun Home Assistant voi lukea vastaavan tilan vastaanottimestasi. Lähde, surround-tila, äänenvoimakkuus ja mykistys tulevat takaisin vastaanottimen omasta mediasoitin-entiteetistä, joten ne korostuvat. Denon-integraatio ei julkaise Audyssey-käyrää, Dirac-paikkaa, himmennintä, eco-tilaa tai kaiutinesiasetusta, joten Home Assistant ei voi tietää, mikä niistä on aktiivinen, ja painikkeet pysyvät sammuneina, kunnes napautat jotakin."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Voinko näyttää todellisen dB-äänenvoimakkuuden prosenttiluvun sijaan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kyllä. Home Assistant julkaisee volume_level-arvon vastaanottimen pää-äänenvoimakkuutena jaettuna sadalla, ja Denon- ja Marantz-vastaanottimissa MV 80 on 0 dB:n vertailutaso. Siis dB on volume_level kertaa 100 miinus 80. Arvo volume_level 0.67 vastaa pää-äänenvoimakkuutta 67, joka on -13.0 dB."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vastaavatko entiteettitunnukseni tämän oppaan tunnuksia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kuvio vastaa, keskiosa ei. AVR Maestro nimeää skriptinsä vastaanottimen MAC-osoitteen mukaan, jotta uudelleennimeäminen päivittää saman skriptin eikä luo kopiota. Sinun tunnuksesi on muotoa script.avr_maestro_, sitten omat kaksitoista merkkiäsi ja lopuksi ohjaimen nimi. Avaa Home Assistantissa Kehittäjätyökalut ja Tilat ja suodata haulla avr_maestro, niin näet oman luettelosi."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Etusivu",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Käyttöopas",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Kodin automaatio",
+      "item": "https://avrmaestro.com/guide/home-automation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Kojelauta",
+      "item": "https://avrmaestro.com/guide/home-assistant-dashboard/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/fi/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Valikko" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Hae oppaasta..." data-i18n-empty="Ei osumia haulle" data-i18n-language="Kieli">
+      <a href="/fi/">Etusivu</a>
+      <a href="/fi/guide/">Käyttöopas</a>
+      <a href="/fi/receivers/">Vastaanottimet</a>
+      <a href="/fi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/fi/best-denon-marantz-app/">Miksi vaihtaa</a>
+      <a href="/fi/#top" class="cta">Lataa</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/fi/">Etusivu</a> &rsaquo; <a href="/fi/guide/">Käyttöopas</a> &rsaquo; <a href="/fi/guide/home-automation/">Kodin automaatio</a> &rsaquo; Kojelauta</div>
+    <div class="eyebrow">Home Assistant &middot; vaihe vaiheelta</div>
+    <h1>Rakenna tämä Home Assistant -kojelauta <span class="g">noin tunnissa</span></h1>
+    <p>Kymmenen vaihetta, jokaisen kortin YAML ja koko näkymä, jonka voit liittää kerralla. Rakennettu ja kuvattu oikealla Marantz CINEMA 30:llä. Vaihda kaksi merkkijonoa, niin se on sinun.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <figure class="hero-shot">
+      <img alt="Valmis kojelauta: nyt soi -pääkortti, äänenvoimakkuus dB-esiasetuksilla, lähderuudukko, surround-tilat, huonekorjaus, tilanteet ja äänenvoimakkuuskaavio" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <figcaption>Mitä rakennat</figcaption>
+    </figure>
+    <div class="note"><b>Kiire?</b> Hyppää <a href="#whole">vaiheeseen 10</a>, lataa koko näkymä, vaihda kaksi merkkijonoa ja liitä se. Välivaiheet selittävät, mitä kukin osa tekee, jotta voit muokata sitä.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Ennen aloittamista</h2>
+    </div>
+    <ul class="plain">
+      <li><b>AVR Maestro on yhdistetty Home Assistantiin ja synkronoitu.</b> <a href="/fi/guide/home-automation/">Asennusopas</a> käy tämän läpi. Näet säätimesi Home Assistantissa, ennen kuin rakennat niiden päälle mitään.</li>
+      <li><b>Vastaanottimesi on lisätty Home Assistantiin.</b> Asetukset &rsaquo; Laitteet &amp; palvelut &rsaquo; Lisää integraatio &rsaquo; <b>Denon AVR</b>, sitten sen paikallinen IP-osoite. Tämä antaa kojelaudalle reaaliaikaisen tilan.</li>
+      <li><b>Vastaanottimesi on päällä</b> rakentamisen ajan. Puolet kirjoittamastasi lukee reaaliaikaisia arvoja, ja valmiustilassa oleva vastaanotin ei julkaise juuri mitään.</li>
+    </ul>
+    <p class="lead">Kojelautaa syöttää kaksi lähdettä, ja ero on tärkeä jokaisessa alla olevassa vaiheessa.</p>
+    <table class="t">
+      <thead><tr><th>Tulee täältä</th><th>Antaa sinulle</th></tr></thead>
+      <tbody>
+        <tr><td>AVR Maestron synkronoidut skriptit</td><td>Jokaisen <b>ohjaimen</b>. Tulot, surround-tilat, Audyssey, Dirac, Smart Selectit, esiasetukset, himmennin, eco, omat tilanteesi.</td></tr>
+        <tr><td>Denon AVR -integraation mediasoitinentiteetti</td><td>Reaaliaikaisen <b>tilan</b>. Virta, valittu lähde, surround-tila, äänenvoimakkuus, mykistys.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Vaihe 1</div>
+      <h2>Asenna neljä korttia HACS:stä</h2>
+    </div>
+    <p class="lead">Kaikki neljä ovat HACS:n oletuskaupassa. Home Assistantissa: <b>HACS &rsaquo; Frontend &rsaquo; Explore &amp; Download Repositories</b>, hae nimellä, valitse Download ja lataa selain uudelleen.</p>
+    <table class="t">
+      <thead><tr><th>Hakusana</th><th>Käyttötarkoitus</th><th>Jos jätät väliin</th></tr></thead>
+      <tbody>
+        <tr><td><b>Mushroom</b></td><td>Jokainen ohjainruutu ja äänenvoimakkuuden liukusäädin</td><td>Käytä tavallista <code>button</code>-korttia. Toimii, näyttää kulmikkaammalta.</td></tr>
+        <tr><td><b>button-card</b></td><td>Osio-otsikot reaaliaikaisella tekstillä</td><td>Käytä <code>markdown</code>-korttia tai tavallisia otsikoita.</td></tr>
+        <tr><td><b>card-mod</b></td><td>Värit ja aktiivisen ruudun valaistu tila</td><td>Kaikki toimii silti. Mikään ei syty.</td></tr>
+        <tr><td><b>apexcharts-card</b></td><td>Historiakaaviot</td><td>Käytä sisäänrakennettua <code>history-graph</code>-korttia.</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><b>Mikään niistä ei ole pakollinen.</b> Jokainen alla oleva ohjain toimii tavallisella Home Assistantin painikekortilla, joka osoittaa samaan skriptiin. Mukautetut kortit ovat meikkiä, eivät putkistoa.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Vaihe 2</div>
+      <h2>Etsi kaksi entiteettitunnustasi</h2>
+    </div>
+    <p class="lead">Jokainen tämän sivun koodinpätkä käyttää kahta paikkamerkkiä. Etsi omasi kerran, niin loppu on kopioimista ja liittämistä.</p>
+    <ul class="plain">
+      <li><b><code>media_player.your_receiver</code></b> &rarr; Asetukset &rsaquo; Laitteet &amp; palvelut &rsaquo; vastaanottimesi &rsaquo; mediasoitinentiteetti. Jotain tällaista: <code>media_player.marantz_cinema_30</code>.</li>
+      <li><b><code>script.avr_maestro_MAC_...</code></b> &rarr; Kehittäjätyökalut &rsaquo; Tilat, ja kirjoita <code>avr_maestro</code> entiteettisuodattimeen. Koko säädinluettelosi tulee näkyviin.</li>
+    </ul>
+    <p class="lead">Jokaisen skriptitunnuksen keskiosa on vastaanottimesi MAC-osoite, kaksitoista pientä kirjainta tai numeroa, sama kaikissa. Kopioi se kerran. Kaikkialle, minne tämä sivu kirjoittaa <code>MAC</code>, laita omasi.</p>
+    <div class="note"><b>Ohita kaikki, joissa lukee <code>unavailable</code>.</b> Vanhemmat versiot nimesivät skriptit vastaanottimen nimen eikä MAC-osoitteen mukaan. Jos synkronoit silloin, nuo vanhat ovat yhä luettelossa ja ne ovat kuolleita. Toimivat ovat MAC-osoitteella nimetyt.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Vaihe 3</div>
+      <h2>Luo näkymä</h2>
+    </div>
+    <ol class="plain">
+      <li><b>1.</b> Asetukset &rsaquo; Kojelaudat &rsaquo; Lisää kojelauta &rsaquo; Uusi kojelauta tyhjästä. Nimeä se miten haluat.</li>
+      <li><b>2.</b> Avaa se ja napsauta oikean yläkulman kynäkuvaketta muokataksesi.</li>
+      <li><b>3.</b> Lisää näkymä ja valitse <b>Sections</b>-asettelu. Ei Masonry. Sections saa sen mukautumaan kunnolla puhelimella.</li>
+      <li><b>4.</b> Aseta näkymän asetuksissa <b>Max columns</b> arvoon 3 ja ota käyttöön <b>Dense section placement</b>.</li>
+    </ol>
+    <p class="lead">Tästä eteenpäin jokainen vaihe on sama: lisää osio ja liitä siihen kortteja. YAML:n liittämiseksi käytä kortin kolmen pisteen valikkoa ja valitse <b>Edit in YAML</b>, tai kojelaudan kolmen pisteen valikosta <b>Raw configuration editor</b>, jolloin liität kaiken kerralla.</p>
+<pre class="code"><span class="c"># The view's own settings, if you prefer to type them</span>
+type: sections
+title: AVR Maestro
+icon: mdi:audio-video
+max_columns: 3
+dense_section_placement: true</pre>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Vaihe 4</div>
+      <h2>Lisää ohjain</h2>
+    </div>
+    <p class="lead">Aloita taulun yksinkertaisimmasta asiasta, jotta tiedät entiteettitunnustesi olevan oikein ennen kuin rakennat mitään monimutkaista. Lisää osio, lisää kortti, Edit in YAML, liitä:</p>
+<pre class="code">type: button
+name: Pure Direct
+icon: mdi:speaker
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_mode_pure_direct</pre>
+    <p class="capt">Tavallista Home Assistantia. HACS:ää ei tarvita.</p>
+    <p class="lead">Napauta sitä. Jos vastaanotin reagoi, tunnuksesi ovat oikein ja kaikki alla toimii. Jos mitään ei tapahdu, palaa vaiheeseen 2.</p>
+  </div>
+</section>
+
+<section id="highlight">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Vaihe 5</div>
+      <h2>Saa se syttymään, kun se on aktiivinen</h2>
+    </div>
+    <p class="lead">Tämä on opettelemisen arvoinen kuvio, ja jokainen taulun lähde- ja surround-ruutu on kopio siitä. Kortti lähettää skriptin ja värittää itsensä vastaanotinentiteetin mukaan, joten tulo, jota oikeasti käytät, palaa ja muut eivät.</p>
+    <figure><img alt="Lähderuudukko, jossa Nvidia Shield palaa oranssina ja muut kaksitoista tuloa ovat tummia" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Yksi palava ruutu, kaksitoista tummaa</figcaption></figure>
+<pre class="code">type: custom:mushroom-template-card
+entity: script.avr_maestro_MAC_input_cd
+icon: mdi:disc
+primary: CD
+icon_color: >-
+  {{ 'orange' if (state_attr('media_player.your_receiver','source') or '')|lower
+     == 'cd' else 'grey' }}
+layout: vertical
+fill_container: true
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_input_cd
+card_mod:
+  style: |
+    ha-card {
+      border-radius: 14px;
+    {% if (state_attr('media_player.your_receiver','source') or '')|lower == 'cd' %}
+      background: linear-gradient(160deg, rgba(226,86,10,0.34), rgba(15,15,17,0.88));
+      border: 1px solid rgba(255,122,24,0.80);
+    {% else %}
+      background: rgba(15,15,17,0.72);
+      border: 1px solid rgba(255,122,24,0.14);
+    {% endif %}
+    }</pre>
+    <p class="capt">Vaihda kolme asiaa tuloa kohden: skripti, kuvake ja merkkijono, johon verrataan.</p>
+    <p class="lead">Kaksi asiaa on tehtävä oikein, tai ruutu ei koskaan syty:</p>
+    <ul class="plain">
+      <li><b>Vertaa siihen, mitä vastaanottimesi oikeasti ilmoittaa.</b> Kehittäjätyökalut &rsaquo; Tilat, mediasoitinentiteettisi, lue attribuutit <code>source_list</code> ja <code>sound_mode_list</code>. Ne ovat täsmälliset merkkijonot. Vertaa pienillä kirjaimilla, kuten yllä.</li>
+      <li><b>Uudelleennimetty tulo ilmoittaa uuden nimensä.</b> Nimeä GAME1 vastaanottimessa ”Xbox”iksi, niin se ilmoittaa <code>Xbox</code>, vaikka AVR Maestron ohjain on yhä nimeltään <code>input_game1</code>. Vertaa sitä, mitä vastaanotin ilmoittaa, ei skriptin nimeen.</li>
+    </ul>
+    <p class="lead">Surround-tilat ovat sama kortti, jossa <code>sound_mode</code> korvaa tunnuksen <code>source</code>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Vaihe 6</div>
+      <h2>Anna jokaiselle osiolle reaaliaikainen otsikko</h2>
+    </div>
+    <p class="lead">Pelkkä otsikko on hukkatilaa. Laita reaaliaikainen arvo sen alle, niin ”Sources” muuttuu muotoon ”Sources / Now on Nvidia Shield”.</p>
+<pre class="code">type: custom:button-card
+name: Sources
+icon: mdi:video-input-hdmi
+color_type: label-card
+entity: media_player.your_receiver
+show_label: true
+label: >-
+  [[[ var v = states["media_player.your_receiver"].attributes.source;
+      return v ? ("Now on " + v) : "Receiver in standby"; ]]]
+tap_action:
+  action: none
+styles:
+  grid:
+    - grid-template-areas: '"i n" "i l"'
+    - grid-template-columns: min-content auto
+  name:
+    - font-size: 13px
+    - letter-spacing: 3px
+    - text-transform: uppercase
+    - justify-self: start
+  label:
+    - font-size: 11px
+    - justify-self: start</pre>
+    <p class="capt">Kaksirivinen ruudukko saa tekstin otsikon alle sen viereen sijaan.</p>
+    <p class="lead">Vaihda <code>attributes.source</code> tunnukseen <code>attributes.sound_mode</code> Surround-otsikossa, ja niin edelleen.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Vaihe 7</div>
+      <h2>Näytä äänenvoimakkuus desibeleinä</h2>
+    </div>
+    <p class="lead">Home Assistant ilmoittaa äänenvoimakkuuden murtolukuna. Kukaan ei aseta vastaanotinta arvoon ”0.67”. Yksi rivi laskentaa korjaa sen, ja koko osio alkaa lukea kuin vastaanotin.</p>
+    <figure><img alt="Äänenvoimakkuusosio: liukusäädin, ylös, alas, mykistys ja neljä dB-esiasetusta" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie ja Loud, kukin nimetty asettamansa dB-arvon mukaan</figcaption></figure>
+    <div class="note"><b>Muunnos.</b> Home Assistant julkaisee arvon <code>volume_level</code> pää-äänenvoimakkuutena jaettuna sadalla, ja Denon- ja Marantz-vastaanottimissa MV 80 on 0 dB:n vertailutaso. Siis <b>dB = volume_level &times; 100 &minus; 80</b>. Arvo <code>volume_level</code> 0.67 vastaa pää-äänenvoimakkuutta 67, joka on &minus;13.0 dB.</div>
+<pre class="code"><span class="c"># The readout</span>
+type: custom:mushroom-template-card
+entity: media_player.your_receiver
+icon: mdi:volume-high
+primary: >-
+  {% set v = state_attr('media_player.your_receiver','volume_level') %}
+  {% if v is not none %}{{ (v * 100 - 80) | round(1) }} dB{% else %}Standby{% endif %}
+secondary: Master volume
+layout: vertical</pre>
+<pre class="code"><span class="c"># The slider. media_controls must be empty or the bar becomes a power button</span>
+type: custom:mushroom-media-player-card
+entity: media_player.your_receiver
+volume_controls:
+  - volume_set
+media_controls: []
+show_volume_level: true</pre>
+<pre class="code"><span class="c"># A preset. 0.50 is master volume 50, which is -30 dB</span>
+type: custom:mushroom-template-card
+entity: media_player.your_receiver
+icon: mdi:weather-night
+primary: Night
+secondary: "-30 dB"
+tap_action:
+  action: perform-action
+  perform_action: media_player.volume_set
+  target:
+    entity_id: media_player.your_receiver
+  data:
+    volume_level: 0.50</pre>
+    <div class="note"><b>Valitse kovin esiasetuksesi harkiten.</b> Yllä oleva sarja päättyy arvoon &minus;10 dB. Kojelautaa on paljon helpompi painaa vahingossa kuin kaukosäädintä, ja suuren vastaanottimen vertailutaso on todella kova.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Vaihe 8</div>
+      <h2>Lisää tilanteesi</h2>
+    </div>
+    <p class="lead">Lue nimi skriptistä sen kirjoittamisen sijaan, niin tilanteen uudelleennimeäminen AVR Maestrossa nimeää myös ruudun ilman kojelaudan muokkausta.</p>
+    <figure><img alt="Neljä tilanneruutua, jokainen luettelee tilanteen palauttamat asetukset" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Jokainen ruutu kertoo, mitä sen tilanne oikeasti palauttaa</figcaption></figure>
+<pre class="code">type: custom:mushroom-template-card
+entity: script.avr_maestro_MAC_scene_1234567890123
+icon: mdi:theater
+primary: >-
+  {{ state_attr('script.avr_maestro_MAC_scene_1234567890123','friendly_name')
+     | replace('AVR Maestro - ', '') | replace(' (Your Receiver)', '') }}
+secondary: >-
+  {% set t = states.script['avr_maestro_MAC_scene_1234567890123'].attributes.last_triggered %}
+  {{ 'recalled ' ~ relative_time(t) ~ ' ago' if t else 'not run yet' }}
+multiline_secondary: true
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_scene_1234567890123</pre>
+    <p class="capt">Kaksi replace()-kutsua leikkaa etuliitteen ja vastaanottimen nimen pois helppolukuisesta nimestä.</p>
+    <p class="lead">Toinen rivi on ylimääräisen minuutin arvoinen. Seinällinen elokuvallisesti nimettyjä painikkeita ei kerro mitään kello 11 illalla, mutta rivi, joka kertoo mitä kukin palauttaa, kertoo minkä painat.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Vaihe 9</div>
+      <h2>Lisää historia</h2>
+    </div>
+    <p class="lead">Home Assistant tallentaa vastaanottimen mediasoitinentiteetin kuten minkä tahansa muun, joten saat kuunteluhistorian ilmaiseksi. Kaikki alla oleva tulee tuosta yhdestä entiteetistä: ei lisäantureita, ei apuelementtejä, ei mitään ensin määritettävää.</p>
+    <figure><img alt="Viisi historiakaaviota: virta ja aktiivisuus, pää-äänenvoimakkuus dB:nä, äänenvoimakkuus päivittäin, käytetty lähde ja surround-tila" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Viisi kaaviota, yksi entiteetti, seitsemän päivää</figcaption></figure>
+    <p class="lead">Tavallinen tila-aikajana ei tarvitse lainkaan mukautettuja kortteja, ja se on se, jonka haluaminen kannattaa eniten:</p>
+<pre class="code">type: history-graph
+hours_to_show: 168
+entities:
+  - entity: media_player.your_receiver
+    name: Receiver</pre>
+    <p class="capt">Päällä, pois ja mitä se teki, viikon ajalta.</p>
+    <p class="lead">Äänenvoimakkuus dB:nä käyttää samaa muunnosta kuin vaihe 7:</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+header:
+  show: true
+  title: Master volume, last 7 days
+series:
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Master volume
+    type: line
+    curve: smooth
+    unit: dB
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100 - 80;"
+    extend_to: now
+    group_by:
+      duration: 1h
+      func: last
+      fill: last
+apex_config:
+  chart:
+    height: 240
+  yaxis:
+    min: -60
+    max: 0</pre>
+    <p class="capt">group_by ja fill: last muuttaa harvat tapahtumat yhtenäiseksi viivaksi. Y-akseli on määritettävä apex_config-kohdassa, jotta se tulee voimaan.</p>
+    <p class="lead">Päivittäinen keskiarvo ja huippu muuttaa piikikkään viivan hahmoksi:</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+span:
+  end: day
+header:
+  show: true
+  title: Master volume by day in dB, average and peak
+series:
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Day average
+    type: column
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100;"
+    group_by: {duration: 1d, func: avg, fill: 'null'}
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Day peak
+    type: line
+    curve: smooth
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100;"
+    group_by: {duration: 1d, func: max, fill: 'null'}
+apex_config:
+  yaxis:
+    min: 0
+    max: 80
+    labels:
+      formatter: "EVAL:function (v) { return (v - 80).toFixed(0); }"
+  tooltip:
+    y:
+      formatter: "EVAL:function (v) { return v == null ? '' : (v - 80).toFixed(1) + ' dB'; }"</pre>
+    <p class="capt">Kaksi sarjaa samasta attribuutista, ryhmiteltynä päivittäin.</p>
+    <div class="note"><b>Miksi tämä piirtää välille 0-80 ja muotoilee dB:ksi sen sijaan, että piirtäisi dB:t.</b> Pylväät kasvavat akselin pohjalta. Jos piirrät dB:t suoraan, jokainen pylväs roikkuu alas nollasta, joten pitkä pylväs tarkoittaa hiljaista, mikä lukeutuu väärinpäin. Piirrä raaka pää-äänenvoimakkuusluku ja vähennä 80 akselin ja työkaluvihjeen muotoilijoissa, niin pylväät kasvavat ylöspäin ja kaikki, minkä lukija näkee, on silti dB:tä. <code>fill: 'null'</code> tarkoittaa, että päivä ilman lukemia ei saa pylvästä eikä kanna eilistä eteenpäin.</div>
+    <p class="lead">Ja kaksi kaaviota, jotka vastaavat kysymykseen ”millä ja missä tilassa oikeasti katson”: lähde ja surround-tila, piirrettynä aikajanana siitä, mikä oli valittuna.</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+span:
+  end: day
+header:
+  show: true
+  title: Source in use, last 7 days
+series:
+  - entity: media_player.your_receiver
+    attribute: source
+    name: Source
+    type: line
+    curve: stepline
+    stroke_width: 3
+    extend_to: now
+    float_precision: 0
+    transform: |
+      if (x == null) return null;
+      var m = ["Phono", "NET", "Xbox", "Nvidia Shield"];
+      var i = m.indexOf(x);
+      return i &lt; 0 ? 0 : i + 1;
+apex_config:
+  yaxis:
+    min: 0
+    max: 4
+    tickAmount: 4
+    labels:
+      formatter: >-
+        EVAL:function (v) { return ["Other", "Phono", "HEOS Net", "Xbox",
+        "Shield"][Math.round(v)] || ''; }
+  tooltip:
+    y:
+      formatter: >-
+        EVAL:function (v) { return v == null ? 'off' : ["Other", "Phono",
+        "HEOS Net", "Xbox", "Shield"][Math.round(v)] || 'Other'; }</pre>
+    <p class="capt">Laita omat lähteesi transform-taulukkoon ja molempiin muotoilijataulukoihin. Pidä indeksi 0 arvossa ”Other”.</p>
+    <p class="lead">Kaavion akseli tarvitsee lukuja, joten <code>transform</code> kuvaa kunkin lähteen nimen sijaintiin ja muotoilijat kuvaavat sen takaisin nimiksi ja työkaluvihjeeseen. Tee kuvauksesta <b>täydellinen</b>: <code>null</code> (vastaanotin pois päältä) jää aukoksi, ja kaikki, mikä ei ole luettelossasi, päätyy arvoon ”Other”, joten näitä kahta ei voi koskaan sekoittaa. Sama kortti arvolla <code>sound_mode</code> antaa surround-tilan, ja merkkijonot ovat isoilla kirjaimilla täsmälleen niin kuin vastaanottimesi ne ilmoittaa.</p>
+    <div class="note"><b>Pidä <code>stepline</code> noissa kahdessa viimeisessä.</b> Lähde tai surround-tila on luokka, ei luku. Pehmennä käyrää, ja viiva heilahtaa Shieldin ja Xboxin välillä kaiken akselilla niiden välissä olevan kautta ja piirtää tulon, jota ei koskaan valittu. Äänenvoimakkuus on todellinen suure ja pehmenee rehellisesti, luokka ei.</div>
+    <div class="note"><b>Tarkista ensin recorderin säilytysaika.</b> Home Assistant säilyttää oletuksena kymmenen päivää, joten seitsemän päivää on suurin hyödyllinen pyyntö. Pidemmälle menemiseksi tarvitset <code>state_class: measurement</code>-mallipohja-anturin, jonka Home Assistant säilyttää pitkäaikaistilastoina vuosia.</div>
+    <div class="note"><b>Puuttuva päivä on yleensä oikein.</b> Home Assistant tallentaa muutokset, ei näytteitä. Jätä vastaanotin yhteen tuloon yhteen äänenvoimakkuuteen kahdeksi päiväksi, niin se ei kirjoita mitään, joten sillä päivällä ei ole pylvästä. Se näyttää tietojen katoamiselta ja on sen vastakohta: mitään ei tapahtunut.</div>
+  </div>
+</section>
+
+<section id="whole">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Vaihe 10</div>
+      <h2>Tai ota koko paketti</h2>
+    </div>
+    <p class="lead">Koko näkymä, jokainen osio ja kortti, entiteettitunnusten tilalla paikkamerkit.</p>
+    <ol class="plain">
+      <li><b>1.</b> <a href="/fi/guide/home-assistant-dashboard/avr-maestro-dashboard.yaml" download>Lataa näkymän YAML</a>.</li>
+      <li><b>2.</b> Avaa se millä tahansa tekstieditorilla ja korvaa kaksi merkkijonoa kaikkialla, missä ne esiintyvät: <code>YOUR_RECEIVER</code> mediasoitinentiteettisi nimellä ja <code>YOURMAC</code> vastaanottimesi kahdellatoista merkillä vaiheesta 2.</li>
+      <li><b>3.</b> Avaa Home Assistantissa kojelautasi, kynäkuvake, kolmen pisteen valikko, <b>Raw configuration editor</b>, ja liitä se näkymänä.</li>
+    </ol>
+    <div class="note"><b>Tilannetunnuksesi eivät täsmää.</b> Tilanneskriptit on nimetty tilanteen luontihetken mukaan, joten tiedoston neljää ei ole järjestelmässäsi: ne kortit piirtyvät mutta eivät tee mitään. Korvaa niiden entiteettitunnukset omillasi vaiheesta 2 tai poista Tilanteet-osio ja rakenna se uudelleen vaiheella 8.</div>
+    <div class="note"><b>Kaksi muuta odotettavaa asiaa.</b> Lähde- ja surround-kaaviot sisältävät sen vastaanottimen lähteiden nimet, jolla tämä rakennettiin, joten muokkaa nuo taulukot vaiheessa 9 kuvatulla tavalla. Ja ruutujen tekstit ovat englanniksi; tiedostossa ei ole mitään käännettyä.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Jos ruutu ei koskaan syty</h2>
+    </div>
+    <p class="lead">Ennen kuin oletat tehneesi väärin: osa ruuduista ei voi syttyä, ja kannattaa tietää mitkä.</p>
+    <p class="lead">Ruutu voi näyttää tilansa vain, jos Home Assistant pystyy lukemaan sen, ja se lukee vastaanottimesi kahdesta paikasta. Denon AVR -integraatio julkaisee perusasiat mediasoitinentiteetillä. AVR Maestro julkaisee lopun: se luo <b>Status Bridge</b> -anturin, <code>sensor.avr_maestro_your_receiver</code>, ja kirjoittaa sille attribuuteiksi lukemat, jotka sillä jo on.</p>
+    <table class="t">
+      <thead><tr><th>Mediasoitinentiteetillä</th><th>Status Bridge -anturilla</th></tr></thead>
+      <tbody>
+        <tr><td>Virta</td><td>Audyssey MultEQ -käyrä</td></tr>
+        <tr><td>Valittu lähde</td><td>Dynamic Volume ja vertailutaso</td></tr>
+        <tr><td>Surround-tila</td><td>Mikä Dirac-paikka on ladattu</td></tr>
+        <tr><td>Äänenvoimakkuus ja mykistys</td><td>Etupaneelin himmennin, Eco-tila</td></tr>
+        <tr><td>Dynamic EQ, joskus</td><td>Kaiutinesiasetus, sävy ja kymmeniä muita</td></tr>
+      </tbody>
+    </table>
+    <p class="lead">Molemmat sarakkeet ovat nyt luettavissa. Ota mediasoittimen arvo kohdasta <code>states['media_player.your_receiver'].attributes</code> ja Status Bridge -arvo kohdasta <code>state_attr('sensor.avr_maestro_your_receiver','dirac_slot')</code>, jolloin ruutu syttyy sille asetukselle, joka on oikeasti aktiivinen, sen sijaan että se vain laukaisisi skriptin, joka sen muuttaa.</p>
+    <p class="lead">Mitattu vastaanottimella, jolla tämä rakennettiin: mediasoitinentiteetti kantaa noin kaksikymmentä kuudestakymmenestä ohjaimesta, ja Status Bridge -anturi julkaisee suunnilleen neljäkymmentä lisää. Näiden kahden kesken kojelauta voi lukea lähes kaiken, minkä se voi muuttaa - ero painikeseinän ja ohjauspinnan välillä.</p>
+    <div class="note"><b>Jos arvo voi tarkoittaa kahta asiaa, sano se.</b> Dynamic EQ saapuu muodossa <code>true</code>, <code>false</code> tai ei lainkaan. Jos ”ei lainkaan” käsitellään tilana ”pois”, seinällesi tulee varma väärä vastaus.</div>
+<pre class="code">icon_color: >-
+  {% set d = state_attr('media_player.your_receiver','dynamic_eq') %}
+  {{ 'orange' if d is true else 'grey' }}
+secondary: >-
+  {% set d = state_attr('media_player.your_receiver','dynamic_eq') %}
+  {% if d is none %}state not published{% elif d %}on{% else %}off{% endif %}</pre>
+    <p class="capt">Kolme tilaa, ei kaksi.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Muuta hyödyllistä tietoa</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Ruudut tulevat kolmanneksen odottamastasi leveydestä.</b> Kolmen sarakkeen levyisessä osiossa sisäinen ruudukko on <b>36</b> saraketta, ei 12. Neljälle ruudulle riviin aseta <code>grid_options: {columns: 9}</code>. Kuudelle riviin 6.</li>
+      <li><b>Äänenvoimakkuuden liukusäädin näyttää palkin sijaan virtapainikkeen.</b> Se on <code>media_controls</code>, jossa on <code>on_off</code>. Aseta <code>media_controls: []</code>.</li>
+      <li><b>Tekstit katkeavat.</b> ”Volume Down” muuttuu muotoon ”Volume Do...”. Lyhennä muotoon ”Vol Down” tai levennä ruutua.</li>
+      <li><b>Tilanteiden kuvaukset leikkautuvat.</b> Lisää <code>multiline_secondary: true</code>.</li>
+      <li><b>Tasainen viiva katoaa apexcharts-kaaviosta.</b> Se on <code>experimental.color_threshold</code>. Se piirtää viivan pystysuuntaisena liukuvärinä, ja täysin vaakasuoralla jaksolla ei ole korkeutta, jonka yli liukua, joten se piirtyy näkymättömänä. 43 tunnin istunto yhdellä äänenvoimakkuudella katosi kokonaan. Käytä tasaista <code>color</code>-väriä.</li>
+      <li><b>Se mukautuu puhelimella itsestään.</b> Sections-näkymät pinoutuvat yhteen sarakkeeseen kapeilla leveyksillä ilman mitään lisämäärityksiä.</li>
+    </ul>
+    <figure><img alt="Sama kojelauta puhelimen leveydellä, mukautuneena yhteen sarakkeeseen" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Sama kojelauta puhelimen leveydellä: kolmesta sarakkeesta tulee yksi, eikä mitään määritetty sen aikaansaamiseksi</figcaption></figure>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Usein kysyttyä</div>
+      <h2>Kojelauta, vastauksia</h2>
+    </div>
+    <details open><summary>Tarvitsenko HACS:n mukautettuja kortteja tämän rakentamiseen?</summary><div class="body">Et toimivuuden vuoksi. Jokainen tämän sivun säädin toimii tavallisella Home Assistantin painikekortilla. Mushroom, button-card, card-mod ja apexcharts-card tekevät siitä kuvakaappausten näköisen, ja jokainen alla oleva osio kertoo, mitä niistä se käyttää ja mitä menetät ilman sitä.</div></details>
+    <details><summary>Miksi osa painikkeista syttyy ja osa ei?</summary><div class="body">Painike syttyy, kun Home Assistant pystyy lukemaan vastaavan tilan vastaanottimestasi. Lähde, surround-tila, äänenvoimakkuus ja mykistys tulevat vastaanottimen omasta media player-entiteetistä, joten ne korostuvat. Audyssey-käyrää, Dirac-paikkaa, himmenninta, eco-tilaa ja kaiutinesiasetusta Denon-integraatio ei julkaise, joten Home Assistant ei voi tietää, mikä niistä on aktiivinen, ja painikkeet pysyvät sammuneina, kunnes napautat jotakin.</div></details>
+    <details><summary>Voinko näyttää todellisen dB-äänenvoimakkuuden prosenttiluvun sijaan?</summary><div class="body">Kyllä. Home Assistant julkaisee volume_level-arvon vastaanottimen pää-äänenvoimakkuutena jaettuna sadalla, ja Denon- ja Marantz-vastaanottimissa MV 80 on 0 dB:n vertailutaso. Siis dB on volume_level kertaa 100 miinus 80. Arvo volume_level 0.67 vastaa pää-äänenvoimakkuutta 67, joka on -13.0 dB.</div></details>
+    <details><summary>Vastaavatko entiteettitunnukseni tämän oppaan tunnuksia?</summary><div class="body">Kuvio vastaa, keskiosa ei. AVR Maestro nimeää skriptinsä vastaanottimen MAC-osoitteen mukaan, jotta uudelleennimeäminen päivittää saman skriptin eikä luo kopiota. Sinun tunnuksesi on muotoa script.avr_maestro_, sitten omat kaksitoista merkkiäsi ja lopuksi ohjaimen nimi. Avaa Home Assistantissa Kehittäjätyökalut ja Tilat ja suodata haulla avr_maestro, niin näet oman luettelosi.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Lisää oppaasta</div>
+      <h2>Muut AVR Maestro -oppaat</h2>
+    </div>
+    <p class="lead"><a href="/fi/guide/getting-started/">Aloitus</a> &middot; <a href="/fi/guide/home/">Kotinäyttö</a> &middot; <a href="/fi/guide/scenes/">Kohtaukset</a> &middot; <a href="/fi/guide/custom-icons/">Omat kuvakkeet</a> &middot; <a href="/fi/guide/sound/">Ääni</a> &middot; <a href="/fi/guide/graphic-eq/">Graafinen taajuuskorjain</a> &middot; <a href="/fi/guide/speakers/">Kaiuttimet</a> &middot; <a href="/fi/guide/locked-controls/">Miksi säädin on lukittu</a> &middot; <a href="/fi/guide/assistant/">Avustaja</a> &middot; <a href="/fi/guide/home-automation/">Kodin automaatio</a> &middot; <a href="/fi/guide/multi-zone/">Vyöhykkeet</a> &middot; <a href="/fi/guide/remote/">Kaukosäädin</a> &middot; <a href="/fi/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/fi/guide/on-screen-display/">Kuvaruutunäyttö</a> &middot; <a href="/fi/guide/settings/">Asetukset</a> &middot; <a href="/fi/guide/languages/">Kielet</a> &middot; <a href="/fi/guide/volume/">Äänenvoimakkuuden hallinta</a> &middot; <a href="/fi/guide/backup/">Varmuuskopiointi &amp; palautus</a> &middot; <a href="/fi/guide/now-playing/">Nyt soi &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Koko vastaanottimesi yhdellä seinällä</h2>
+    <p class="lead" style="margin:0 auto 24px">Kodin automaatio on AVR Maestron ainoa maksullinen avaus. Kaikki muu, myös laitteella toimiva tekoälyavustaja, kuuluu hintaan.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Lataa Google Playsta" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Lataa App Storesta" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Lataa Mac App Storesta" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Hanki Microsoft Storesta" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/fi/guide/home-automation/">Takaisin kohtaan Kodin automaatio &rarr;</a> &middot; <a href="/fi/guide/">Koko käyttöopas &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/fi/">Etusivu</a>
+      <a href="/fi/guide/">Käyttöopas</a>
+      <a href="/fi/guide/getting-started/">Aloitus</a>
+      <a href="/fi/receivers/">Vastaanottimet</a>
+      <a href="/fi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/fi/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/fi/best-denon-marantz-app/">Miksi vaihtaa</a>
+      <a href="/fi/help/">Ohje</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro on MiyaraHub Technologies LLC:n itsenäinen sovellus, eikä Denon, Marantz, D&amp;M Holdings, Sound United tai mikään muu tällä sivulla mainittu yritys ole sen kanssa sidoksissa, tue sitä tai sponsoroi sitä. Denon, Marantz, HEOS, Home Assistant, Mushroom, HACS, Audyssey ja Nvidia Shield ovat omistajiensa tavaramerkkejä tai projekteja, ja niitä käytetään tässä vain tunnistamiseen.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

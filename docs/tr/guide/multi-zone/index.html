@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bölge 2 &amp; Bölge 3'ü Telefonunuzdan Kontrol Edin - AVR Maestro</title>
+<meta name="description" content="Denon ve Marantz alıcılarda bağımsız Bölge 2 ve Bölge 3 kontrolü: güç, giriş, ses seviyesi, sessize alma, Bölge Smart Select / Quick Select, bölge yeniden adlandırma ve bölge başına Şimdi Çalıyor." />
+<meta name="keywords" content="multi-zone receiver control app, Zone 2 control app, Zone 3 control app, Denon multi-zone app, Marantz multi-zone, whole house audio receiver app, second zone control, zone quick select, zone smart select, rename zones Denon Marantz" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/tr/guide/multi-zone/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/multi-zone/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/multi-zone/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/multi-zone/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/multi-zone/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/multi-zone/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/multi-zone/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/multi-zone/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/multi-zone/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/multi-zone/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/multi-zone/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/multi-zone/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/multi-zone/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/multi-zone/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/multi-zone/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/multi-zone/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/multi-zone/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/multi-zone/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/multi-zone/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/multi-zone/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/multi-zone/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/multi-zone/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/multi-zone/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/multi-zone/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/multi-zone/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/multi-zone/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/multi-zone/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/multi-zone/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/multi-zone/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/multi-zone/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/multi-zone/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/multi-zone/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="tr_TR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Bölge 2 &amp; Bölge 3'ü Telefonunuzdan Kontrol Edin - AVR Maestro" />
+<meta property="og:description" content="Denon ve Marantz alıcılarda bağımsız Bölge 2 ve Bölge 3 kontrolü: güç, giriş, ses seviyesi, sessize alma, Bölge Smart Select / Quick Select, bölge yeniden adlandırma ve bölge başına Şimdi Çalıyor." />
+<meta property="og:url" content="https://avrmaestro.com/tr/guide/multi-zone/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Bölge 2 &amp; Bölge 3'ü Telefonunuzdan Kontrol Edin - AVR Maestro" />
+<meta name="twitter:description" content="Denon ve Marantz alıcılarda bağımsız Bölge 2 ve Bölge 3 kontrolü: güç, giriş, ses seviyesi, sessize alma, Bölge Smart Select / Quick Select, bölge yeniden adlandırma ve bölge başına Şimdi Çalıyor." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro, Denon ve Marantz AV alıcılarını yerel ağınız üzerinden kontrol etmeniz için geliştirilmiş bağımsız bir uygulamadır.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "tr"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/multi-zone/#article",
+      "headline": "Çoklu bölge: tüm evi yönetin",
+      "description": "Denon ve Marantz alıcılarda bağımsız Bölge 2 ve Bölge 3 kontrolü: güç, giriş, ses seviyesi, sessize alma, Bölge Smart Select / Quick Select, bölge yeniden adlandırma ve bölge başına Şimdi Çalıyor.",
+      "image": "https://avrmaestro.com/screenshots/zones.png",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/multi-zone/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "tr"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/multi-zone/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Bölge 2 ve Bölge 3'ü telefonumdan kontrol edebilir miyim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Evet - çok bölgeli alıcılarda her bölgenin kendi gücü, ses seviyesi, sessize alması, girişi ve hızlı ses seviyesi ön ayarları vardır; ana bölgeden tamamen ayrıdır ve canlı olarak senkronize olur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bir bölgede Smart Select veya Quick Select kullanabilir miyim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Evet - her bölge kartı, alıcınızın adlandırdığı şekilde adlandırılmış bölgenin kendi yuvalarını taşır: Marantz'ta Smart Select, Denon'da Quick Select. Çağırmak için bir yuvaya dokunun; bölgenin mevcut durumunu ona kaydetmek için basılı tutun, doğrudan karttan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bölgelerimi yeniden adlandırabilir miyim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Evet - ana bölge dahil herhangi bir bölgeyi yeniden adlandırmak için Ana Sayfa ekranında bölge adına uzun basın. Ad alıcının kendisine yazılır; bu yüzden üreticinin uygulamasında ve diğer tüm istemcilerde, eski kasalar dahil, görünür."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Her bölge neyin çaldığını gösteriyor mu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Evet - bir bölge açıkken kartı, o bölge için canlı HEOS şimdi çalıyor akışını oynatma kontrolleriyle birlikte gösterir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bir Sahne bölgelerimi ayarlayabilir mi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Evet - bir Sahne, kurulumunuzun geri kalanıyla birlikte Bölge 2/3 gücünü, girişini ve ses seviyesini yakalayıp geri yükleyebilir."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Ana Sayfa",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Kullanım Kılavuzu",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Çoklu bölge",
+      "item": "https://avrmaestro.com/guide/multi-zone/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/tr/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menü" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Kılavuzda ara..." data-i18n-empty="Eşleşme bulunamadı:" data-i18n-language="Dil">
+      <a href="/tr/">Ana Sayfa</a>
+      <a href="/tr/guide/">Kullanım Kılavuzu</a>
+      <a href="/tr/receivers/">Alıcılar</a>
+      <a href="/tr/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/tr/best-denon-marantz-app/">Neden geçmelisiniz</a>
+      <a href="/tr/#top" class="cta">İndir</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero split">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="/tr/">Ana Sayfa</a> &rsaquo; <a href="/tr/guide/">Kullanım Kılavuzu</a> &rsaquo; Çoklu bölge</div>
+      <div class="eyebrow">Çoklu bölge</div>
+      <h1>Çoklu bölge: <span class="g">tüm evi</span> yönetin</h1>
+      <p>Çok bölgeli Denon ve Marantz alıcılarda Bölge 2 ve Bölge 3 için bağımsız güç, giriş ve ses seviyesi - ve Sahneler de bölge durumunu yakalayıp geri yükleyebilir. Mutfakta müzik, sinema odasında film, hepsi tek bir uygulamadan.</p>
+    </div>
+    <div class="hero-shot"><img alt="AVR Maestro'da çoklu bölge kontrolü" src="/screenshots/zones.png" width="1324" height="2644" fetchpriority="high" /></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Bölgeler nasıl çalışır</div>
+      <h2>Her bölge tamamen bağımsız</h2>
+      <p class="lead">Her bölgenin kendi gücü, ses seviyesi, sessize alması, girişi ve hızlı ses seviyesi ön ayarları vardır; ana bölgeden tamamen ayrıdır.</p>
+    </div>
+    <div class="grid">
+      <div class="gcard"><div class="ic">&#128268;</div><h3>Bağımsız güç</h3><p>Ana bölgeye dokunmadan Bölge 2 veya Bölge 3'ü açıp kapatın.</p></div>
+      <div class="gcard"><div class="ic">&#127925;</div><h3>Kendi kaynağı &amp; ses seviyesi</h3><p>Bölge başına farklı bir giriş ve ses seviyesi, hızlı ses seviyesi ön ayar çipleriyle birlikte - ön ayarlar varsayılan olarak yumuşakça yükselir (Ayarlar, Ses: Kademeli / Doğrudan).</p></div>
+      <div class="gcard"><div class="ic">&#9889;</div><h3>Bölge Smart Select / Quick Select</h3><p>Bölgenin kendi Smart Select veya Quick Select yuvaları doğrudan kartın üzerinde - çağırmak için bir yuvaya dokunun, bölgenin mevcut durumunu ona kaydetmek için basılı tutun.</p></div>
+      <div class="gcard"><div class="ic">&#9997;&#65039;</div><h3>Herhangi bir bölgeyi yeniden adlandırın</h3><p>Ana Sayfa ekranında bölge adına uzun basın - ana bölge dahil. Ad alıcının kendisine kaydedilir, böylece tüm uygulamalar aynı adı kullanır.</p></div>
+      <div class="gcard"><div class="ic">&#128260;</div><h3>Canlı senkronizasyon</h3><p>Bir bölgeyi alıcının panelinden veya kumandasından değiştirin; uygulama bir saniye içinde güncellenir.</p></div>
+      <div class="gcard"><div class="ic">&#127911;</div><h3>Bölge başına Şimdi Çalıyor</h3><p>Bir bölge açıkken kartı, o bölge için canlı HEOS akışını oynatma kontrolleriyle birlikte gösterir.</p></div>
+      <div class="gcard"><div class="ic">&#127917;</div><h3>Sahneler tarafından yakalanır</h3><p>Bir <a href="/tr/guide/scenes/">Sahne</a>, Bölge 2/3 durumunu diğer her şeyle birlikte yakalayıp geri yükleyebilir.</p></div>
+      <div class="gcard"><div class="ic">&#128241;</div><h3>Ana Sayfa ekranında</h3><p>Kompakt bir Bölgeler widget'ı, Ana Sayfa ekranında tek bakışta durum ve hızlı kontroller sunar.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Bir bölgeyi açmak ve bir yere yönlendirmek</h2>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(1,1fr);max-width:320px;margin:0 0 26px">
+      <figure><img alt="Bölge 2 olarak Patio'yu ve Bölge 3 olarak ZONE3'ü listeleyen, her birinin kendi güç kontrolü olan Bölgeler sekmesi" src="/screenshots/zones.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Alıcının bildirdiği her bölge için bir kart</figcaption></figure>
+    </div>
+    <ul class="plain">
+      <li><b>1. Bölgeler sekmesini açın.</b> Alıcınızın bildirdiği her bölge bir kart alır. Tek bölgeli bir alıcıda bu sekme yer almaz.</li>
+      <li><b>2. Bölgeyi açın:</b> kartındaki güç kontrolünü kullanın. Ana bölgede hiçbir şey değişmez.</li>
+      <li><b>3. Kaynağını seçin.</b> Liste alıcınızın kendi listesidir, yeniden adlandırdığınız adlarla gelir ve bir bölge ana odadan tamamen farklı bir girişte olabilir.</li>
+      <li><b>4. Ses seviyesini ayarlayın.</b> Bölgenin kendi seviyesi ve kendi sessize alması vardır; hızlı ses seviyesi çipleri o bölgede belirlediğiniz seviyeleri çağırır. Ayarlar, Ses altında Doğrudan'a geçmediğiniz sürece ön ayarlar yumuşakça yükselir.</li>
+      <li><b>5. İsteğe bağlı: kaydedin.</b> Bölgenin şu anda yaptığı her şeyi saklamak için kendi Smart Select veya Quick Select yuvalarından birine basılı tutun, sonra geri getirmek için daha sonra ona dokunun.</li>
+    </ul>
+    <p class="lead" style="margin-top:20px">Bir bölgeyi yeniden adlandırmak için Ana Sayfa ekranında adına uzun basın. Ad alıcıya yazılır; bu yüzden ön panel ve diğer tüm uygulamalar uygulamayla aynı fikirdedir.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Bilinmesi gerekenler</div>
+      <h2>Ana bölgeyi açıp kapatmak neden diğer odalarınızı kapatmaz</h2>
+    </div>
+    <p class="lead">Denon ve Marantz alıcılarında iki farklı güç komutu vardır ve evde başka bir yerde müzik çalıyorsa aradaki fark önemlidir.</p>
+    <p class="lead">Sistem genelindeki bekleme komutu tüm kasayı kapatır ve alıcı diğer bölgeleri de onunla birlikte kapatır - bir Cinema 30 üzerinde ölçüldüğünde, kasa bekleme komutu ulaştıktan bir milisaniye sonra Bölge 2'yi kapalı bildiriyor. Bu yüzden AVR Maestro'daki ana güç kontrolü bilerek bunun yerine <b>ana bölge</b> komutunu gönderir. Home theater'ı uygulamadan kapatın, mutfak çalmaya devam eder.</p>
+    <p class="lead">Tersi de geçerlidir: ana bölgeyi soğuk bir alıcıdan açmak önce kasayı uyandırır; bu yüzden uygulamayı kullanmadan önce alıcıyı ayrıca açmanız gerekmez.</p>
+    <div class="note">Ana bölge değiştiğinde bir bölge kendiliğinden kapanıyorsa, bunu yapan uygulama değil alıcının kendi kurulumudur. Bazı modellerin bölge menüsünde bir güç kilidi seçeneği vardır.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Sık sorulan sorular</div>
+      <h2>Çoklu bölge SSS</h2>
+    </div>
+    <details open><summary>Bölge 2 ve Bölge 3'ü telefonumdan kontrol edebilir miyim?</summary><div class="body">Evet - çok bölgeli alıcılarda her bölgenin kendi gücü, ses seviyesi, sessize alması, girişi ve hızlı ses seviyesi ön ayarları vardır; ana bölgeden tamamen ayrıdır ve canlı olarak senkronize olur.</div></details>
+    <details><summary>Bir bölgede Smart Select veya Quick Select kullanabilir miyim?</summary><div class="body">Evet - her bölge kartı, alıcınızın adlandırdığı şekilde adlandırılmış bölgenin kendi yuvalarını taşır: Marantz'ta Smart Select, Denon'da Quick Select. Çağırmak için bir yuvaya dokunun; bölgenin mevcut durumunu ona kaydetmek için basılı tutun, doğrudan karttan.</div></details>
+    <details><summary>Bölgelerimi yeniden adlandırabilir miyim?</summary><div class="body">Evet - ana bölge dahil herhangi bir bölgeyi yeniden adlandırmak için Ana Sayfa ekranında bölge adına uzun basın. Ad alıcının kendisine yazılır; bu yüzden üreticinin uygulamasında ve diğer tüm istemcilerde, eski kasalar dahil, görünür.</div></details>
+    <details><summary>Her bölge neyin çaldığını gösteriyor mu?</summary><div class="body">Evet - bir bölge açıkken kartı, o bölge için canlı HEOS şimdi çalıyor akışını oynatma kontrolleriyle birlikte gösterir.</div></details>
+    <details><summary>Bir Sahne bölgelerimi ayarlayabilir mi?</summary><div class="body">Evet - bir <a href="/tr/guide/scenes/">Sahne</a>, kurulumunuzun geri kalanıyla birlikte Bölge 2/3 gücünü, girişini ve ses seviyesini yakalayıp geri yükleyebilir.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Rehberin devamı</div>
+      <h2>Diğer AVR Maestro rehberleri</h2>
+    </div>
+    <p class="lead"><a href="/tr/guide/getting-started/">Başlarken</a> &middot; <a href="/tr/guide/home/">Ana Ekran</a> &middot; <a href="/tr/guide/scenes/">Sahneler</a> &middot; <a href="/tr/guide/custom-icons/">Özel Simgeler</a> &middot; <a href="/tr/guide/sound/">Ses</a> &middot; <a href="/tr/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/tr/guide/speakers/">Hoparlörler</a> &middot; <a href="/tr/guide/locked-controls/">Bir kontrol neden kilitli</a> &middot; <a href="/tr/guide/assistant/">Asistan</a> &middot; <a href="/tr/guide/home-automation/">Ev Otomasyonu</a> &middot; <a href="/tr/guide/home-assistant-dashboard/">Home Assistant panosu</a> &middot; <a href="/tr/guide/remote/">Uzaktan Kumanda</a> &middot; <a href="/tr/guide/radio/">Radyo (FM/AM)</a> &middot; <a href="/tr/guide/on-screen-display/">Ekran Menüsü</a> &middot; <a href="/tr/guide/settings/">Ayarlar</a> &middot; <a href="/tr/guide/languages/">Diller</a> &middot; <a href="/tr/guide/volume/">Ses Kontrolleri</a> &middot; <a href="/tr/guide/backup/">Yedekleme &amp; Geri Yükleme</a> &middot; <a href="/tr/guide/now-playing/">Şimdi Çalıyor &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Her odanın kontrolünü elinize alın</h2>
+    <p class="lead" style="margin:0 auto 24px">Tek seferlik satın alma, reklamsız, abonelik yok. Bir dakikadan kısa sürede bağlanın.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Google Play üzerinden edinin" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="App Store üzerinden indirin" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Mac App Store üzerinden indirin" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Microsoft Store üzerinden edinin" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/tr/guide/">Tam Kullanım Kılavuzuna dön &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/tr/">Ana Sayfa</a>
+      <a href="/tr/guide/">Kullanım Kılavuzu</a>
+      <a href="/tr/guide/getting-started/">Başlarken</a>
+      <a href="/tr/receivers/">Alıcılar</a>
+      <a href="/tr/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/tr/audyssey-vs-dirac/">Audyssey ve Dirac</a>
+      <a href="/tr/best-denon-marantz-app/">Neden geçmelisiniz</a>
+      <a href="/tr/help/">Yardım</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro, MiyaraHub Technologies LLC tarafından geliştirilen bağımsız bir uygulamadır; Denon, Marantz, D&amp;M Holdings, Sound United veya bu sayfada adı geçen herhangi bir başka şirketle bağlantılı değildir, bunlar tarafından onaylanmamış veya desteklenmemiştir. Denon, Marantz, HEOS, Audyssey ve Dirac Live, ilgili sahiplerinin ticari markalarıdır ve burada yalnızca tanımlama amacıyla kullanılmıştır.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

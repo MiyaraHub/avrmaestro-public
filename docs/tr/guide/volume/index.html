@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ses Sınırı, Açılış Seviyesi &amp; Sessize Alma Derinliği - AVR Maestro</title>
+<meta name="description" content="Denon veya Marantz cihazınız için ses sınırı belirleyin, açılış seviyesini seçin, Sessize Almanın sesi ne kadar kısacağını belirleyin ve sesi 0 ile 98 arasında veya desibel cinsinden okuyun." />
+<meta name="keywords" content="Denon volume limit app, Marantz power on level, AVR mute level -20 dB, receiver volume in decibels app, Denon volume scale absolute relative, protect speakers volume limit" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/tr/guide/volume/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/volume/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/volume/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/volume/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/volume/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/volume/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/volume/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/volume/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/volume/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/volume/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/volume/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/volume/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/volume/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/volume/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/volume/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/volume/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/volume/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/volume/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/volume/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/volume/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/volume/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/volume/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/volume/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/volume/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/volume/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/volume/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/volume/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/volume/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/volume/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/volume/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/volume/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/volume/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="tr_TR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Ses Sınırı, Açılış Seviyesi &amp; Sessize Alma Derinliği - AVR Maestro" />
+<meta property="og:description" content="Denon veya Marantz cihazınız için ses sınırı belirleyin, açılış seviyesini seçin, Sessize Almanın sesi ne kadar kısacağını belirleyin ve sesi 0 ile 98 arasında veya desibel cinsinden okuyun." />
+<meta property="og:url" content="https://avrmaestro.com/tr/guide/volume/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Ses Sınırı, Açılış Seviyesi &amp; Sessize Alma Derinliği - AVR Maestro" />
+<meta name="twitter:description" content="Denon veya Marantz cihazınız için ses sınırı belirleyin, açılış seviyesini seçin, Sessize Almanın sesi ne kadar kısacağını belirleyin ve sesi 0 ile 98 arasında veya desibel cinsinden okuyun." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro, Denon ve Marantz AV alıcılarını yerel ağınız üzerinden kontrol etmeniz için geliştirilmiş bağımsız bir uygulamadır.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "tr"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/volume/#article",
+      "headline": "Ses kontrolleri: bir tavan, bir açılış seviyesi ve istediğinizi yapan bir Sessize Alma",
+      "description": "Denon veya Marantz cihazınız için ses sınırı belirleyin, açılış seviyesini seçin, Sessize Almanın sesi ne kadar kısacağını belirleyin ve sesi 0 ile 98 arasında veya desibel cinsinden okuyun.",
+      "image": "https://avrmaestro.com/screenshots/volume-controls.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/volume/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "tr"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/volume/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Ses sınırı fiziksel uzaktan kumandaya da uygulanır mı?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Evet. Sınır bir uygulama ayarı değil, alıcı ayarıdır; bu yüzden her yolu sınırlar: uygulamayı, birlikte gelen kumandayı, ön panel düğmesini ve ağınızdaki diğer tüm kontrolcüleri."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bu ayarlar Bölge 2 ve Bölge 3 için de geçerli mi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ses Kontrolleri ana bölgeyi kapsar. Her bölgenin kendi sesi, kendi gücü ve girişi vardır; bunlar Bölgeler sekmesindedir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "İncelemeler desibel verirken uygulama neden 0 ile 98 gösteriyor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aynı düğmenin iki görünümüdür. Ses Ölçeğini -79.5 ile 18.0 dB arasına çevirin; gösterge, kalibrasyon seviyelerinin normalde verildiği biçimle eşleşir, burada 0.0 dB referanstır."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Telefonumun ses düğmelerini kullanabilir miyim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Evet, Android'de ve iPhone'da. AVR Maestro ön plandayken cihazın ses düğmeleri alıcıyı doğrudan sürer: her basışta bir adım, basılı tutunca kesintisiz artış; Ayarlar, Ses altındaki bir anahtar düğmeleri cihaza geri verir."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Ana Sayfa",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Kullanım Kılavuzu",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Ses Kontrolleri",
+      "item": "https://avrmaestro.com/guide/volume/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/tr/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menü" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Kılavuzda ara..." data-i18n-empty="Eşleşme bulunamadı:" data-i18n-language="Dil">
+      <a href="/tr/">Ana Sayfa</a>
+      <a href="/tr/guide/">Kullanım Kılavuzu</a>
+      <a href="/tr/receivers/">Alıcılar</a>
+      <a href="/tr/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/tr/best-denon-marantz-app/">Neden geçmelisiniz</a>
+      <a href="/tr/#top" class="cta">İndir</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/tr/">Ana Sayfa</a> &rsaquo; <a href="/tr/guide/">Kullanım Kılavuzu</a> &rsaquo; Ses Kontrolleri</div>
+    <div class="eyebrow">Ayarlar &rsaquo; Ses Kontrolleri</div>
+    <h1>Ses kontrolleri: bir tavan, bir açılış seviyesi ve <span class="g">istediğinizi yapan bir Sessize Alma</span></h1>
+    <p>Alıcınızın ulaşabileceği en yüksek sesi, uyandığında ne yapacağını ve Sessize Almanın sesi ne kadar düşüreceğini birlikte belirleyen dört ayar. Bunlar alıcıda yaşar, bu yüzden uygulamayı, fiziksel kumandayı veya ön paneli kullanmanızdan bağımsız olarak geçerlidir.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Nerede bulunur</div>
+        <h2>Ayarlar &rsaquo; Ses Kontrolleri</h2>
+        <p class="lead"><b>Ayarlar</b>'ı açın ve <b>Ses Kontrolleri</b>'ne kaydırın - "Ses sınırı, açılış seviyesi ve sessize alma derinliği". Bu sayfadaki her şey doğrudan alıcıya yazılır; bu yüzden uygulamayı kapatsanız da kalır ve onu kontrol etmenin her yolunda geçerli olur.</p>
+      </div>
+      <img alt="Ses ölçeği, sınır, açılış seviyesi ve sessize alma seviyesini içeren Ses Kontrolleri sayfası" src="/screenshots/volume-controls.png" width="1324" height="2644" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Tek tek</div>
+      <h2>Her ayar ne yapar</h2>
+    </div>
+
+    <h3 style="margin-top:26px">Ses Ölçeği</h3>
+    <p class="lead">Sesin hem ekranda hem alıcının kendi göstergesinde nasıl okunduğu. <b>0 - 98</b> çoğu kişinin bildiği göreli ölçektir; <b>-79.5 ile 18.0 dB</b> ise 0.0 dB'nin referans seviye olduğu mutlak ölçektir. Bir incelemede "-15 dB" yazdığını görüp bunun düğmenizdeki karşılığını merak ettiyseniz, cevabı veren anahtar budur.</p>
+
+    <h3 style="margin-top:26px">Ses Sınırı</h3>
+    <p class="lead">Kesin bir tavan. Ayarlandığında <b>hiçbir şey</b> bunu aşamaz - ne uygulama, ne fiziksel kumanda, ne de ön panel düğmesi, çünkü sınır uygulamada değil alıcıda yaşar. En bariz kullanımı, yanlış bir dokunuştan hoparlörleri veya odadaki herkesi korumaktır ve kumandayı bir ev misafirine vermeden önce başvuracağınız ayar budur. <b>Kapalı</b> sınırı kaldırır.</p>
+
+    <h3 style="margin-top:26px">Açılış Seviyesi</h3>
+    <p class="lead"><b>Son sesi kullan</b> varsayılan olarak açıktır: alıcı, kapattığınız andaki sesle uyanır. Kapatırsanız bunun yerine sabit bir seviye belirleyebilirsiniz; böylece yüksek sesle geçirilen geç bir seans ertesi sabah hoş olmayan bir sürprize dönüşmez.</p>
+
+    <h3 style="margin-top:26px">Sessize Alma Seviyesi</h3>
+    <p class="lead">Sessize Almanın sesi ne kadar düşürdüğü. <b>Tam</b> sesi tamamen keser. <b>-40 dB</b> ve <b>-20 dB</b> ise bunun yerine kısar; filmin yerini kaybetmeden üzerine sohbet etmek istediğinizde daha iyi seçimdir.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Uygulamanın başka yerlerinde</div>
+      <h2>Her gün kullandığınız kontroller</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Ana sayfa panosu</b> ana bölge için ana sesi, sessize almayı ve gücü barındırır.</li>
+      <li><b>Uzaktan Kumanda sekmesi</b>, D-pad ve oynatma tuşlarının yanında bir ses düğmesi sunar; seviye siz ilerledikçe gösterilir. <a href="/tr/guide/remote/">Kumanda rehberi &rarr;</a></li>
+      <li><b>Her artı ve eksi ses düğmesi</b> - Ana sayfa panosunda, bölge kartlarında ve Uzaktan Kumanda sekmesinde - dokunuşta bir adım atar ve basılı tuttukça adım atmaya devam eder, tıpkı fiziksel kumanda gibi. Bıraktığınızda bir adım içinde durur.</li>
+      <li><b>Telefonunuzun ses düğmeleri</b>, Android'de ve iPhone'da, uygulama öndeyken alıcıyı sürer; böylece bakmadan ayarlayabilirsiniz. Basılı tutmak da kesintisiz artırır.</li>
+      <li><b>Her bölgenin</b> ana bölgeden bağımsız kendi sesi vardır. <a href="/tr/guide/multi-zone/">Bölgeler rehberi &rarr;</a></li>
+      <li><b>Sahneler</b> Ana Sesi de kaydedebilir; böylece birini çağırmak her şeyle birlikte seviyeyi de ayarlar. <a href="/tr/guide/scenes/">Sahneler rehberi &rarr;</a></li>
+      <li>TV'nizdeki <b>ekran üstü ses göstergesi</b> taşınabilir veya tamamen kapatılabilir. <a href="/tr/guide/on-screen-display/">Ekran Üstü Görüntü rehberi &rarr;</a></li>
+    </ul>
+    <div class="note">Ses değişiklikleri piksel başına bir komut gönderilmek yerine bilinçli olarak aralıklandırılır; böylece düğmeyi basılı tutmak veya kaydırıcıyı sürüklemek, alıcıyı kuyruğa alıp geç uygulayacağı komutlarla boğmak yerine düzgünce artar.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Sık sorulan sorular</div>
+      <h2>Ses SSS</h2>
+    </div>
+    <details open><summary>Ses sınırı fiziksel uzaktan kumandaya da uygulanır mı?</summary><div class="body">Evet. Sınır bir uygulama ayarı değil, alıcı ayarıdır; bu yüzden her yolu sınırlar: uygulamayı, birlikte gelen kumandayı, ön panel düğmesini ve ağınızdaki diğer tüm kontrolcüleri.</div></details>
+    <details><summary>Bu ayarlar Bölge 2 ve Bölge 3 için de geçerli mi?</summary><div class="body">Ses Kontrolleri ana bölgeyi kapsar. Her bölgenin kendi sesi, kendi gücü ve girişi vardır; bunlar Bölgeler sekmesindedir.</div></details>
+    <details><summary>İncelemeler desibel verirken uygulama neden 0 ile 98 gösteriyor?</summary><div class="body">Aynı düğmenin iki görünümüdür. Ses Ölçeğini -79.5 ile 18.0 dB arasına çevirin; gösterge, kalibrasyon seviyelerinin normalde verildiği biçimle eşleşir, burada 0.0 dB referanstır.</div></details>
+    <details><summary>Telefonumun ses düğmelerini kullanabilir miyim?</summary><div class="body">Evet, Android'de ve iPhone'da. AVR Maestro ön plandayken cihazın ses düğmeleri alıcıyı doğrudan sürer: her basışta bir adım, basılı tutunca kesintisiz artış; Ayarlar, Ses altındaki bir anahtar düğmeleri cihaza geri verir.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Rehberin devamı</div>
+      <h2>Diğer AVR Maestro rehberleri</h2>
+    </div>
+    <p class="lead"><a href="/tr/guide/getting-started/">Başlarken</a> &middot; <a href="/tr/guide/home/">Ana Ekran</a> &middot; <a href="/tr/guide/scenes/">Sahneler</a> &middot; <a href="/tr/guide/custom-icons/">Özel Simgeler</a> &middot; <a href="/tr/guide/sound/">Ses</a> &middot; <a href="/tr/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/tr/guide/speakers/">Hoparlörler</a> &middot; <a href="/tr/guide/locked-controls/">Bir kontrol neden kilitli</a> &middot; <a href="/tr/guide/assistant/">Asistan</a> &middot; <a href="/tr/guide/home-automation/">Ev Otomasyonu</a> &middot; <a href="/tr/guide/home-assistant-dashboard/">Home Assistant panosu</a> &middot; <a href="/tr/guide/multi-zone/">Bölgeler</a> &middot; <a href="/tr/guide/remote/">Uzaktan Kumanda</a> &middot; <a href="/tr/guide/radio/">Radyo (FM/AM)</a> &middot; <a href="/tr/guide/on-screen-display/">Ekran Menüsü</a> &middot; <a href="/tr/guide/settings/">Ayarlar</a> &middot; <a href="/tr/guide/languages/">Diller</a> &middot; <a href="/tr/guide/backup/">Yedekleme &amp; Geri Yükleme</a> &middot; <a href="/tr/guide/now-playing/">Şimdi Çalıyor &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Tavanı bir kez belirleyin, sonrasında rahat edin</h2>
+    <p class="lead" style="margin:0 auto 24px">Tek seferlik satın alma, reklamsız, abonelik yok. Bir dakikadan kısa sürede bağlanın.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Google Play üzerinden edinin" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="App Store üzerinden indirin" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Mac App Store üzerinden indirin" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Microsoft Store üzerinden edinin" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/tr/guide/">Tam Kullanım Kılavuzuna dön &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/tr/">Ana Sayfa</a>
+      <a href="/tr/guide/">Kullanım Kılavuzu</a>
+      <a href="/tr/guide/getting-started/">Başlarken</a>
+      <a href="/tr/receivers/">Alıcılar</a>
+      <a href="/tr/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/tr/audyssey-vs-dirac/">Audyssey ve Dirac</a>
+      <a href="/tr/best-denon-marantz-app/">Neden geçmelisiniz</a>
+      <a href="/tr/help/">Yardım</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro, MiyaraHub Technologies LLC tarafından geliştirilen bağımsız bir uygulamadır; Denon, Marantz, D&amp;M Holdings, Sound United veya bu sayfada adı geçen herhangi bir başka şirketle bağlantılı değildir, bunlar tarafından onaylanmamış veya desteklenmemiştir. Denon, Marantz, HEOS, Audyssey ve Dirac Live, ilgili sahiplerinin ticari markalarıdır ve burada yalnızca tanımlama amacıyla kullanılmıştır.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

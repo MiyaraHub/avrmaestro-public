@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>用手机控制分区 2 &amp; 分区 3 - AVR Maestro</title>
+<meta name="description" content="在 Denon 和 Marantz 接收机上独立控制分区 2 和分区 3：电源、输入源、音量、静音、分区 Smart Select / Quick Select、分区重命名以及各分区的正在播放。" />
+<meta name="keywords" content="multi-zone receiver control app, Zone 2 control app, Zone 3 control app, Denon multi-zone app, Marantz multi-zone, whole house audio receiver app, second zone control, zone quick select, zone smart select, rename zones Denon Marantz" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/zh-hans/guide/multi-zone/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/multi-zone/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/multi-zone/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/multi-zone/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/multi-zone/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/multi-zone/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/multi-zone/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/multi-zone/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/multi-zone/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/multi-zone/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/multi-zone/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/multi-zone/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/multi-zone/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/multi-zone/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/multi-zone/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/multi-zone/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/multi-zone/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/multi-zone/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/multi-zone/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/multi-zone/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/multi-zone/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/multi-zone/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/multi-zone/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/multi-zone/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/multi-zone/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/multi-zone/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/multi-zone/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/multi-zone/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/multi-zone/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/multi-zone/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/multi-zone/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/multi-zone/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="zh_CN" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="用手机控制分区 2 &amp; 分区 3 - AVR Maestro" />
+<meta property="og:description" content="在 Denon 和 Marantz 接收机上独立控制分区 2 和分区 3：电源、输入源、音量、静音、分区 Smart Select / Quick Select、分区重命名以及各分区的正在播放。" />
+<meta property="og:url" content="https://avrmaestro.com/zh-hans/guide/multi-zone/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="用手机控制分区 2 &amp; 分区 3 - AVR Maestro" />
+<meta name="twitter:description" content="在 Denon 和 Marantz 接收机上独立控制分区 2 和分区 3：电源、输入源、音量、静音、分区 Smart Select / Quick Select、分区重命名以及各分区的正在播放。" />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro 是一款独立应用，可通过本地网络控制 Denon 和 Marantz AV 接收机。",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "zh-Hans"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/multi-zone/#article",
+      "headline": "多分区：掌控全屋",
+      "description": "在 Denon 和 Marantz 接收机上独立控制分区 2 和分区 3：电源、输入源、音量、静音、分区 Smart Select / Quick Select、分区重命名以及各分区的正在播放。",
+      "image": "https://avrmaestro.com/screenshots/zones.png",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/multi-zone/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "zh-Hans"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/multi-zone/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "我能用手机控制分区 2 和分区 3 吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以 - 在多分区接收机上，每个分区都有各自的电源、音量、静音、输入源和快速音量预设，与主分区完全独立，并实时同步。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "我能在分区中使用 Smart Select 或 Quick Select 吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以 - 每个分区卡片都带有该分区自己的插槽，名称与您的接收机一致：Marantz 上是 Smart Select，Denon 上是 Quick Select。点按插槽即可调用；长按则可把该分区当前状态直接从卡片保存到其中。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "我能重命名分区吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以 - 在主页长按分区名称即可重命名任何分区，包括主分区。名称会写入接收机本身，因此厂商的应用和其他所有客户端都会显示，较旧的机型也不例外。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "每个分区都会显示正在播放的内容吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "会 - 分区开启时，其卡片会显示该分区的实时 HEOS 正在播放信息，并带有播放控制。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "场景可以设置我的分区吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以 - 场景可以连同其余设置一起捕获并恢复分区 2/3 的电源、输入源和音量。"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "主页",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "用户指南",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "多分区",
+      "item": "https://avrmaestro.com/guide/multi-zone/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/zh-hans/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="菜单" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="搜索指南…" data-i18n-empty="没有找到匹配项：" data-i18n-language="语言">
+      <a href="/zh-hans/">主页</a>
+      <a href="/zh-hans/guide/">用户指南</a>
+      <a href="/zh-hans/receivers/">接收机</a>
+      <a href="/zh-hans/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/zh-hans/best-denon-marantz-app/">为什么要换</a>
+      <a href="/zh-hans/#top" class="cta">下载</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero split">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="/zh-hans/">首页</a> &rsaquo; <a href="/zh-hans/guide/">用户指南</a> &rsaquo; 多分区</div>
+      <div class="eyebrow">多分区</div>
+      <h1>多分区：掌控<span class="g">全屋</span></h1>
+      <p>在多分区 Denon 和 Marantz 接收机上，独立控制分区 2 和分区 3 的电源、输入源与音量 - 场景还能捕获并恢复分区状态。厨房播放音乐，影院放映电影，全在一个应用里搞定。</p>
+    </div>
+    <div class="hero-shot"><img alt="AVR Maestro 中的多分区控制" src="/screenshots/zones.png" width="1324" height="2644" fetchpriority="high" /></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">分区的工作方式</div>
+      <h2>每个分区，完全独立</h2>
+      <p class="lead">每个分区都有自己的电源、音量、静音、输入源和快速音量预设，与主分区完全分开。</p>
+    </div>
+    <div class="grid">
+      <div class="gcard"><div class="ic">&#128268;</div><h3>独立电源</h3><p>开关分区 2 或分区 3，完全不影响主分区。</p></div>
+      <div class="gcard"><div class="ic">&#127925;</div><h3>独立输入源 &amp; 音量</h3><p>每个分区可使用不同的输入源和音量，并带有快速音量预设标签 - 预设默认平滑渐变（设置，音频：渐变 / 直接）。</p></div>
+      <div class="gcard"><div class="ic">&#9889;</div><h3>分区 Smart Select / Quick Select</h3><p>分区自己的 Smart Select 或 Quick Select 插槽就在卡片上 - 点按插槽即可调用，长按则把该分区当前状态保存到其中。</p></div>
+      <div class="gcard"><div class="ic">&#9997;&#65039;</div><h3>重命名任意分区</h3><p>在主页长按分区名称 - 主分区也可以。名称会保存到接收机本身，因此所有应用显示一致。</p></div>
+      <div class="gcard"><div class="ic">&#128260;</div><h3>实时同步</h3><p>在接收机面板或遥控器上更改分区，应用会在一秒内更新。</p></div>
+      <div class="gcard"><div class="ic">&#127911;</div><h3>各分区独立的正在播放</h3><p>分区开启时，其卡片会显示该分区的实时 HEOS 流，并带有播放控制。</p></div>
+      <div class="gcard"><div class="ic">&#127917;</div><h3>可被场景捕获</h3><p><a href="/zh-hans/guide/scenes/">场景</a>可以连同其他所有内容一起捕获并恢复分区 2/3 的状态。</p></div>
+      <div class="gcard"><div class="ic">&#128241;</div><h3>在主页上</h3><p>紧凑的分区小组件在主页上提供一目了然的状态和快捷控制。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>开启分区，并指定播放来源</h2>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(1,1fr);max-width:320px;margin:0 0 26px">
+      <figure><img alt="分区标签页，列出作为分区 2 的 Patio 和作为分区 3 的 ZONE3，各自带有独立的电源控制" src="/screenshots/zones.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>接收机声明的每个分区对应一张卡片</figcaption></figure>
+    </div>
+    <ul class="plain">
+      <li><b>1. 打开分区标签页。</b>接收机声明的每个分区都有一张卡片。只有一个分区的接收机不会有这个标签页。</li>
+      <li><b>2. 用卡片上的电源控制开启分区。</b>主分区不受任何影响。</li>
+      <li><b>3. 选择它的输入源。</b>列表来自您的接收机本身，沿用您重命名后的名称，分区可以使用与主房间完全不同的输入源。</li>
+      <li><b>4. 设置它的音量。</b>分区有自己的音量和自己的静音，快速音量标签会调用您在该分区上设置的电平。除非在设置的音频中切换为“直接”，否则预设会平滑渐变。</li>
+      <li><b>5. 可选：保存。</b>长按分区自己的某个 Smart Select 或 Quick Select 插槽，即可存储该分区此刻的全部状态，之后点按它就能恢复。</li>
+    </ul>
+    <p class="lead" style="margin-top:20px">在主页长按分区名称即可重命名。名称会写入接收机，因此前面板和其他所有应用都与本应用保持一致。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">须知</div>
+      <h2>为什么关闭主分区不会让其他房间停播</h2>
+    </div>
+    <p class="lead">Denon 和 Marantz 接收机有两种不同的电源命令，如果家里其他地方正在播放音乐，这种区别就很重要。</p>
+    <p class="lead">系统级待机命令会关闭整台机器，接收机也会把其他分区一并关掉 - 在 Cinema 30 上实测，待机命令生效一毫秒后，机器就报告分区 2 已关闭。因此 AVR Maestro 的主电源控制特意改为发送<b>主分区</b>命令。从应用里关掉影院，厨房照样继续播放。</p>
+    <p class="lead">反过来也成立：从冷机状态开启主分区时会先唤醒整台机器，所以使用应用前无需另行开启接收机电源。</p>
+    <div class="note">如果某个分区在主分区变化时自行关闭，那是接收机自身的设置所致，与应用无关。有些型号在其分区菜单中带有电源联动选项。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">常见问题</div>
+      <h2>多分区常见问题</h2>
+    </div>
+    <details open><summary>我能用手机控制分区 2 和分区 3 吗？</summary><div class="body">可以 - 在多分区接收机上，每个分区都有各自的电源、音量、静音、输入源和快速音量预设，与主分区完全独立，并实时同步。</div></details>
+    <details><summary>我能在分区中使用 Smart Select 或 Quick Select 吗？</summary><div class="body">可以 - 每个分区卡片都带有该分区自己的插槽，名称与您的接收机一致：Marantz 上是 Smart Select，Denon 上是 Quick Select。点按插槽即可调用；长按则可把该分区当前状态直接从卡片保存到其中。</div></details>
+    <details><summary>我能重命名分区吗？</summary><div class="body">可以 - 在主页长按分区名称即可重命名任何分区，包括主分区。名称会写入接收机本身，因此厂商的应用和其他所有客户端都会显示，较旧的机型也不例外。</div></details>
+    <details><summary>每个分区都会显示正在播放的内容吗？</summary><div class="body">会 - 分区开启时，其卡片会显示该分区的实时 HEOS 正在播放信息，并带有播放控制。</div></details>
+    <details><summary>场景可以设置我的分区吗？</summary><div class="body">可以 - <a href="/zh-hans/guide/scenes/">场景</a>可以连同其余设置一起捕获并恢复分区 2/3 的电源、输入源和音量。</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">指南的更多内容</div>
+      <h2>其他 AVR Maestro 指南</h2>
+    </div>
+    <p class="lead"><a href="/zh-hans/guide/getting-started/">快速入门</a> &middot; <a href="/zh-hans/guide/home/">主屏幕</a> &middot; <a href="/zh-hans/guide/scenes/">场景</a> &middot; <a href="/zh-hans/guide/custom-icons/">自定义图标</a> &middot; <a href="/zh-hans/guide/sound/">声音</a> &middot; <a href="/zh-hans/guide/graphic-eq/">图形 EQ</a> &middot; <a href="/zh-hans/guide/speakers/">扬声器</a> &middot; <a href="/zh-hans/guide/locked-controls/">控制项为何被锁定</a> &middot; <a href="/zh-hans/guide/assistant/">助手</a> &middot; <a href="/zh-hans/guide/home-automation/">家庭自动化</a> &middot; <a href="/zh-hans/guide/home-assistant-dashboard/">Home Assistant 仪表板</a> &middot; <a href="/zh-hans/guide/remote/">遥控</a> &middot; <a href="/zh-hans/guide/radio/">收音机 (FM/AM)</a> &middot; <a href="/zh-hans/guide/on-screen-display/">屏幕显示</a> &middot; <a href="/zh-hans/guide/settings/">设置</a> &middot; <a href="/zh-hans/guide/languages/">语言</a> &middot; <a href="/zh-hans/guide/volume/">音量控制</a> &middot; <a href="/zh-hans/guide/backup/">备份 &amp; 恢复</a> &middot; <a href="/zh-hans/guide/now-playing/">正在播放 &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>掌控每个房间</h2>
+    <p class="lead" style="margin:0 auto 24px">一次性购买，无广告，无订阅。不到一分钟即可连接。</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="在 Google Play 获取" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="在 App Store 下载" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="在 Mac App Store 下载" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="在 Microsoft Store 获取" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/zh-hans/guide/">返回完整用户指南 &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/zh-hans/">主页</a>
+      <a href="/zh-hans/guide/">用户指南</a>
+      <a href="/zh-hans/guide/getting-started/">入门指南</a>
+      <a href="/zh-hans/receivers/">接收机</a>
+      <a href="/zh-hans/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/zh-hans/audyssey-vs-dirac/">Audyssey 与 Dirac 对比</a>
+      <a href="/zh-hans/best-denon-marantz-app/">为什么要换</a>
+      <a href="/zh-hans/help/">帮助</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro 是 MiyaraHub Technologies LLC 开发的独立应用，与 Denon、Marantz、D&amp;M Holdings、Sound United 或本页提及的任何其他公司均无关联，也未获得其认可或赞助。Denon、Marantz、HEOS、Audyssey 和 Dirac Live 是其各自所有者的商标，在此仅用于识别。</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

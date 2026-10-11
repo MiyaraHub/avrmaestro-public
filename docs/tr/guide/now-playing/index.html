@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Şimdi Çalıyor &amp; HEOS: Albüm Kapağı ve Oynatma Kontrolleri - AVR Maestro</title>
+<meta name="description" content="AVR Maestro Şimdi Çalıyor kartı; Denon veya Marantz'ınızdan HEOS üzerinden canlı olarak albüm kapağını, parçayı, sanatçıyı ve istasyonu oynat, duraklat, sonraki ve önceki kontrolleriyle gösterir." />
+<meta name="keywords" content="Denon Now Playing app, Marantz HEOS app, HEOS controller app, AVR now playing album art, receiver transport controls app, Denon Marantz music control, HEOS favorites app" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/tr/guide/now-playing/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/now-playing/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/now-playing/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/now-playing/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/now-playing/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/now-playing/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/now-playing/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/now-playing/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/now-playing/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/now-playing/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/now-playing/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/now-playing/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/now-playing/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/now-playing/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/now-playing/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/now-playing/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/now-playing/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/now-playing/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/now-playing/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/now-playing/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/now-playing/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/now-playing/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/now-playing/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/now-playing/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/now-playing/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/now-playing/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/now-playing/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/now-playing/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/now-playing/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/now-playing/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/now-playing/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/now-playing/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="tr_TR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Şimdi Çalıyor &amp; HEOS: Albüm Kapağı ve Oynatma Kontrolleri - AVR Maestro" />
+<meta property="og:description" content="AVR Maestro Şimdi Çalıyor kartı; Denon veya Marantz'ınızdan HEOS üzerinden canlı olarak albüm kapağını, parçayı, sanatçıyı ve istasyonu oynat, duraklat, sonraki ve önceki kontrolleriyle gösterir." />
+<meta property="og:url" content="https://avrmaestro.com/tr/guide/now-playing/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Şimdi Çalıyor &amp; HEOS: Albüm Kapağı ve Oynatma Kontrolleri - AVR Maestro" />
+<meta name="twitter:description" content="AVR Maestro Şimdi Çalıyor kartı; Denon veya Marantz'ınızdan HEOS üzerinden canlı olarak albüm kapağını, parçayı, sanatçıyı ve istasyonu oynat, duraklat, sonraki ve önceki kontrolleriyle gösterir." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro, Denon ve Marantz AV alıcılarını yerel ağınız üzerinden kontrol etmeniz için geliştirilmiş bağımsız bir uygulamadır.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "tr"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/now-playing/#article",
+      "headline": "Şimdi Çalıyor: neyin çaldığı, tek ekranda",
+      "description": "AVR Maestro Şimdi Çalıyor kartı; Denon veya Marantz'ınızdan HEOS üzerinden canlı olarak albüm kapağını, parçayı, sanatçıyı ve istasyonu oynat, duraklat, sonraki ve önceki kontrolleriyle gösterir.",
+      "image": "https://avrmaestro.com/screenshots/now-playing.png",
+      "datePublished": "2026-07-28",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/now-playing/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "tr"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/now-playing/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Ne çaldığını gösteriyor mu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Evet - HEOS üzerinden meta veri bildiren kaynaklar için albüm kapağı, parça, sanatçı veya istasyon ve oynatma kontrollerini (oynat, duraklat, sonraki, önceki) alıcınızdan canlı olarak alırsınız."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Müziğe nasıl göz atarım?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Şimdi Çalıyor kartında HEOS'u Başlat'a dokunun. AVR Maestro; istasyonlara, kuyruklara, HEOS odalarına ve akış hizmetlerine göz atmanız için resmî HEOS uygulamasını açar. Oynatma başladığında AVR Maestro, şimdi çalıyor ekranını ve oynatma kontrollerini yeniden devralır."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kart bazı girişlerde neden boş?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Analog, optik/koaksiyel ve HDMI geçişli kaynaklar parça meta verisi bildirmez, bu yüzden gösterilecek bir şey yoktur. Kart, bildiren HEOS ve ağ kaynakları için dolar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Şimdi Çalıyor kartı nerede durur?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ana Sayfa ekranınızda, seçtiğiniz widget'ların yanında - ses seviyesi, kaynak, ses modu, bölgeler ve daha fazlası."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Ana Sayfa",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Kullanım Kılavuzu",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Şimdi Çalıyor",
+      "item": "https://avrmaestro.com/guide/now-playing/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/tr/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menü" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Kılavuzda ara..." data-i18n-empty="Eşleşme bulunamadı:" data-i18n-language="Dil">
+      <a href="/tr/">Ana Sayfa</a>
+      <a href="/tr/guide/">Kullanım Kılavuzu</a>
+      <a href="/tr/receivers/">Alıcılar</a>
+      <a href="/tr/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/tr/best-denon-marantz-app/">Neden geçmelisiniz</a>
+      <a href="/tr/#top" class="cta">İndir</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/tr/">Ana Sayfa</a> &rsaquo; <a href="/tr/guide/">Kullanım Kılavuzu</a> &rsaquo; Şimdi Çalıyor</div>
+    <div class="eyebrow">Şimdi Çalıyor &amp; HEOS</div>
+    <h1>Şimdi Çalıyor: neyin çaldığı, <span class="g">tek ekranda</span></h1>
+    <p>Kaynağınız meta veri bildirdiğinde AVR Maestro'nun Şimdi Çalıyor kartı albüm kapağını, parçayı ve oynatma kontrollerini doğrudan ana ekranınıza getirir - göz atmak için HEOS'a devreder, müzik başlar başlamaz yeniden devralır.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+      <figure><img alt="Albüm kapağı ve oynatma kontrolleri olan AVR Maestro Şimdi Çalıyor kartı" src="/screenshots/now-playing.png" width="1324" height="2644" decoding="async" /><figcaption>Albüm kapağı, parça bilgisi ve oynatma kontrolleri, HEOS üzerinden canlı</figcaption></figure>
+      <figure><img alt="AVR Maestro'dan HEOS favorilerine ve istasyonlarına göz atma" src="/screenshots/now-playing-heos.png" width="575" height="1280" loading="lazy" decoding="async" /><figcaption>İstasyonlara, kuyruklara ve favorilere göz atmak için HEOS'u başlatın</figcaption></figure>
+    </div>
+    <div class="section-head" style="margin-top:36px">
+      <h2>Dinlediğiniz her şey, tek bir kartta</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Albüm kapağı ve parça bilgisi:</b> kart, çalan şey için kapağı, parçayı ve sanatçıyı ya da istasyonu gösterir.</li>
+      <li><b>Oynatma kontrolleri:</b> oynat, duraklat, sonraki ve önceki doğrudan kartın üzerinde - kumandaya uzanmanıza gerek yok.</li>
+      <li><b>Göz atmak için HEOS'u başlatın:</b> istasyonlar, kuyruklar, HEOS odaları ve akış hizmetleri için resmî HEOS uygulamasını açmak üzere dokunun. Orada bir şey başlatın; AVR Maestro şimdi çalıyor ekranını, oynatma kontrollerini ve widget'ları yeniden devralır.</li>
+      <li><b>Ana ekranınızın bir parçası:</b> Şimdi Çalıyor kartı ses seviyesi, kaynak ve ses modu widget'larınızın yanında durur; böylece neyin çaldığı hep bir bakış uzağınızdadır.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="note">Kart, meta veri bildiren HEOS ve ağ kaynakları için dolar. Analog, optik/koaksiyel ve HDMI geçişli kaynaklar alıcıya parça bilgisi göndermez, bu yüzden kart bunlarda boş kalır - suçlu kaynaktır, uygulama değil.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Sık sorulan sorular</div>
+      <h2>Şimdi Çalıyor SSS</h2>
+    </div>
+    <details open><summary>Ne çaldığını gösteriyor mu?</summary><div class="body">Evet - HEOS üzerinden meta veri bildiren kaynaklar için albüm kapağı, parça, sanatçı veya istasyon ve oynatma kontrollerini (oynat, duraklat, sonraki, önceki) alıcınızdan canlı olarak alırsınız.</div></details>
+    <details><summary>Müziğe nasıl göz atarım?</summary><div class="body">Şimdi Çalıyor kartında <b>HEOS'u Başlat</b> öğesine dokunun. AVR Maestro; istasyonlara, kuyruklara, HEOS odalarına ve akış hizmetlerine göz atmanız için resmi HEOS uygulamasını açar. Oynatma başlayınca, çalan parça ekranını ve oynatma kontrollerini yeniden AVR Maestro devralır.</div></details>
+    <details><summary>Kart bazı girişlerde neden boş?</summary><div class="body">Analog, optik/koaksiyel ve HDMI geçişli kaynaklar parça meta verisi bildirmez, bu yüzden gösterilecek bir şey yoktur. Kart, bildiren HEOS ve ağ kaynakları için dolar.</div></details>
+    <details><summary>Şimdi Çalıyor kartı nerede durur?</summary><div class="body"><a href="/tr/guide/home/">Ana Sayfanızda</a>, seçtiğiniz widget'larla birlikte - ses, kaynak, ses modu, bölgeler ve daha fazlası.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Rehberin devamı</div>
+      <h2>Diğer AVR Maestro rehberleri</h2>
+    </div>
+    <p class="lead"><a href="/tr/guide/getting-started/">Başlarken</a> &middot; <a href="/tr/guide/home/">Ana Ekran</a> &middot; <a href="/tr/guide/scenes/">Sahneler</a> &middot; <a href="/tr/guide/custom-icons/">Özel Simgeler</a> &middot; <a href="/tr/guide/sound/">Ses</a> &middot; <a href="/tr/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/tr/guide/speakers/">Hoparlörler</a> &middot; <a href="/tr/guide/locked-controls/">Bir kontrol neden kilitli</a> &middot; <a href="/tr/guide/assistant/">Asistan</a> &middot; <a href="/tr/guide/home-automation/">Ev Otomasyonu</a> &middot; <a href="/tr/guide/home-assistant-dashboard/">Home Assistant panosu</a> &middot; <a href="/tr/guide/multi-zone/">Bölgeler</a> &middot; <a href="/tr/guide/remote/">Uzaktan Kumanda</a> &middot; <a href="/tr/guide/radio/">Radyo (FM/AM)</a> &middot; <a href="/tr/guide/on-screen-display/">Ekran Menüsü</a> &middot; <a href="/tr/guide/settings/">Ayarlar</a> &middot; <a href="/tr/guide/languages/">Diller</a> &middot; <a href="/tr/guide/volume/">Ses Kontrolleri</a> &middot; <a href="/tr/guide/backup/">Yedekleme &amp; Geri Yükleme</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Ne çaldığını koltuğunuzdan görün</h2>
+    <p class="lead" style="margin:0 auto 24px">Tek seferlik satın alma, reklamsız, abonelik yok. Bir dakikadan kısa sürede bağlanın.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Google Play üzerinden edinin" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="App Store üzerinden indirin" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Mac App Store üzerinden indirin" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Microsoft Store üzerinden edinin" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/tr/guide/">Tam Kullanım Kılavuzuna dön &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/tr/">Ana Sayfa</a>
+      <a href="/tr/guide/">Kullanım Kılavuzu</a>
+      <a href="/tr/guide/getting-started/">Başlarken</a>
+      <a href="/tr/receivers/">Alıcılar</a>
+      <a href="/tr/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/tr/audyssey-vs-dirac/">Audyssey ve Dirac</a>
+      <a href="/tr/best-denon-marantz-app/">Neden geçmelisiniz</a>
+      <a href="/tr/help/">Yardım</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro, MiyaraHub Technologies LLC tarafından geliştirilen bağımsız bir uygulamadır; Denon, Marantz, D&amp;M Holdings, Sound United veya bu sayfada adı geçen herhangi bir başka şirketle bağlantılı değildir, bunlar tarafından onaylanmamış veya desteklenmemiştir. Denon, Marantz, HEOS, Audyssey ve Dirac Live, ilgili sahiplerinin ticari markalarıdır ve burada yalnızca tanımlama amacıyla kullanılmıştır.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>휴대폰으로 FM/AM 튜너 제어 - AVR Maestro</title>
+<meta name="description" content="내장 튜너가 있는 Denon 및 Marantz 리시버를 위한 본격 FM/AM 라디오입니다. 밴드와 튜닝 모드, 주파수 직접 입력, 이름을 붙인 방송국 프리셋을 휴대폰에서 사용하세요." />
+<meta name="keywords" content="FM AM tuner app, AV receiver radio app, Denon tuner app, Marantz tuner app, receiver radio presets app, control receiver radio from phone, FM tuner controller" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/ko/guide/radio/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/radio/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/radio/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/radio/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/radio/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/radio/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/radio/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/radio/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/radio/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/radio/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/radio/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/radio/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/radio/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/radio/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/radio/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/radio/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/radio/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/radio/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/radio/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/radio/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/radio/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/radio/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/radio/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/radio/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/radio/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/radio/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/radio/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/radio/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/radio/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/radio/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/radio/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/radio/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="ko_KR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="휴대폰으로 FM/AM 튜너 제어 - AVR Maestro" />
+<meta property="og:description" content="내장 튜너가 있는 Denon 및 Marantz 리시버를 위한 본격 FM/AM 라디오입니다. 밴드와 튜닝 모드, 주파수 직접 입력, 이름을 붙인 방송국 프리셋을 휴대폰에서 사용하세요." />
+<meta property="og:url" content="https://avrmaestro.com/ko/guide/radio/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="휴대폰으로 FM/AM 튜너 제어 - AVR Maestro" />
+<meta name="twitter:description" content="내장 튜너가 있는 Denon 및 Marantz 리시버를 위한 본격 FM/AM 라디오입니다. 밴드와 튜닝 모드, 주파수 직접 입력, 이름을 붙인 방송국 프리셋을 휴대폰에서 사용하세요." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro는 로컬 네트워크를 통해 Denon 및 Marantz AV 리시버를 제어하는 독립 앱입니다.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "ko"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/radio/#article",
+      "headline": "이름을 붙이는 프리셋까지, 진짜 FM/AM 라디오",
+      "description": "내장 튜너가 있는 Denon 및 Marantz 리시버를 위한 본격 FM/AM 라디오입니다. 밴드와 튜닝 모드, 주파수 직접 입력, 이름을 붙인 방송국 프리셋을 휴대폰에서 사용하세요.",
+      "image": "https://avrmaestro.com/screenshots/radio.png",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/radio/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "ko"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/radio/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "앱에서 FM/AM 라디오를 제어할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네, 내장 튜너가 있는 리시버에서 가능합니다. 밴드, 주파수, 프리셋 실시간 표시와 FM/AM 전환, 자동 또는 수동 튜닝, 주파수로 바로 이동하는 키패드, 프리셋 그리드를 지원합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "프리셋에 이름을 붙일 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 슬롯을 길게 눌러 현재 방송국을 저장하고, 라벨(\"Jazz 88\", \"NPR\")을 추가하거나 이름을 바꾸거나 지울 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "라디오 탭이 보이지 않는 이유는 무엇인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "내장 튜너가 있는 리시버에서만 나타납니다. 튜너가 있다면 입력에 튜너가 표시되는지 확인한 뒤, 설정, 탐색 메뉴 설정에서 탭을 다시 켜세요."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "사용 설명서",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "라디오",
+      "item": "https://avrmaestro.com/guide/radio/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/ko/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="메뉴" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="가이드 검색..." data-i18n-empty="검색 결과 없음:" data-i18n-language="언어">
+      <a href="/ko/">홈</a>
+      <a href="/ko/guide/">사용 설명서</a>
+      <a href="/ko/receivers/">리시버</a>
+      <a href="/ko/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ko/best-denon-marantz-app/">갈아타는 이유</a>
+      <a href="/ko/#top" class="cta">다운로드</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero split">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="/ko/">홈</a> &rsaquo; <a href="/ko/guide/">사용 설명서</a> &rsaquo; 라디오</div>
+      <div class="eyebrow">FM/AM 튜너</div>
+      <h1>이름을 붙이는 프리셋까지, 진짜 FM/AM <span class="g">라디오</span></h1>
+      <p>내장 튜너가 있는 Denon 및 Marantz 리시버에서 AVR Maestro가 본격적인 FM/AM 라디오 화면을 제공합니다. 방송국 카드에 현재 밴드, 주파수, 활성 프리셋이 표시되며 리시버와 실시간으로 동기화됩니다.</p>
+    </div>
+    <div class="hero-shot"><img alt="AVR Maestro의 FM/AM 튜너" src="/screenshots/radio.png" width="1324" height="2648" fetchpriority="high" /></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">사용 방법</div>
+      <h2>튜닝하고, 검색하고, 저장하세요</h2>
+    </div>
+    <ul class="plain">
+      <li><b>밴드:</b> FM / AM. <b>튜닝 모드:</b> 자동(다음으로 강한 방송국까지 검색) 또는 수동(밴드 간격 단위로 이동).</li>
+      <li><b>튜닝:</b> 튜닝 버튼 두 개로 다이얼을 한 단계씩 움직입니다. <b>주파수 입력</b>은 키패드를 열어 원하는 방송국으로 바로 이동합니다(수동 모드 필요).</li>
+      <li><b>프리셋:</b> 프리셋 슬롯 그리드와 위/아래 스테퍼입니다. 슬롯을 <b>길게 누르면</b> <b>현재 방송국 저장</b>, <b>라벨 추가 / 이름 변경</b>("Jazz 88", "NPR"), <b>라벨 지우기</b>를 선택할 수 있습니다.</li>
+    </ul>
+    <div class="note">라디오 탭이 숨겨져 있다면 <i>설정 &rarr; 탐색 메뉴 설정</i>에서 다시 추가하세요. 리시버에서 튜너가 확인될 때만 나타납니다.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">자주 묻는 질문</div>
+      <h2>튜너 자주 묻는 질문</h2>
+    </div>
+    <details open><summary>앱에서 FM/AM 라디오를 제어할 수 있나요?</summary><div class="body">네, 내장 튜너가 있는 리시버에서 가능합니다. 밴드, 주파수, 프리셋 실시간 표시와 FM/AM 전환, 자동 또는 수동 튜닝, 주파수로 바로 이동하는 키패드, 프리셋 그리드를 지원합니다.</div></details>
+    <details><summary>프리셋에 이름을 붙일 수 있나요?</summary><div class="body">네. 슬롯을 길게 눌러 현재 방송국을 저장하고, 라벨("Jazz 88", "NPR")을 추가하거나 이름을 바꾸거나 지울 수 있습니다.</div></details>
+    <details><summary>라디오 탭이 보이지 않는 이유는 무엇인가요?</summary><div class="body">내장 튜너가 있는 리시버에서만 나타납니다. 튜너가 있다면 입력에 튜너가 표시되는지 확인한 뒤, 설정, 탐색 메뉴 설정에서 탭을 다시 켜세요.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">가이드 더 보기</div>
+      <h2>다른 AVR Maestro 가이드</h2>
+    </div>
+    <p class="lead"><a href="/ko/guide/getting-started/">시작하기</a> &middot; <a href="/ko/guide/home/">홈 화면</a> &middot; <a href="/ko/guide/scenes/">장면</a> &middot; <a href="/ko/guide/custom-icons/">사용자 지정 아이콘</a> &middot; <a href="/ko/guide/sound/">사운드</a> &middot; <a href="/ko/guide/graphic-eq/">그래픽 EQ</a> &middot; <a href="/ko/guide/speakers/">스피커</a> &middot; <a href="/ko/guide/locked-controls/">컨트롤이 잠겨 있는 이유</a> &middot; <a href="/ko/guide/assistant/">어시스턴트</a> &middot; <a href="/ko/guide/home-automation/">홈 오토메이션</a> &middot; <a href="/ko/guide/home-assistant-dashboard/">Home Assistant 대시보드</a> &middot; <a href="/ko/guide/multi-zone/">존</a> &middot; <a href="/ko/guide/remote/">리모컨</a> &middot; <a href="/ko/guide/on-screen-display/">온스크린 디스플레이</a> &middot; <a href="/ko/guide/settings/">설정</a> &middot; <a href="/ko/guide/languages/">언어</a> &middot; <a href="/ko/guide/volume/">볼륨 제어</a> &middot; <a href="/ko/guide/backup/">백업 &amp; 복원</a> &middot; <a href="/ko/guide/now-playing/">지금 재생 중 &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>리시버의 라디오를 휴대폰으로 가져오세요</h2>
+    <p class="lead" style="margin:0 auto 24px">한 번 구매로 끝, 광고 없음, 구독 없음. 1분 안에 연결할 수 있습니다.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Google Play에서 다운로드" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="App Store에서 다운로드" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Mac App Store에서 다운로드" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Microsoft Store에서 다운로드" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/ko/guide/">전체 사용자 가이드로 돌아가기 &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/ko/">홈</a>
+      <a href="/ko/guide/">사용 설명서</a>
+      <a href="/ko/guide/getting-started/">시작하기</a>
+      <a href="/ko/receivers/">리시버</a>
+      <a href="/ko/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ko/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/ko/best-denon-marantz-app/">갈아타는 이유</a>
+      <a href="/ko/help/">도움말</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro는 MiyaraHub Technologies LLC가 만든 독립 앱이며, Denon, Marantz, D&amp;M Holdings, Sound United 및 이 페이지에 언급된 어떤 회사와도 제휴, 보증, 후원 관계가 없습니다. Denon, Marantz, HEOS, Audyssey, Dirac Live는 각 소유자의 상표이며, 식별 목적으로만 사용되었습니다.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

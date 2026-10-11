@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="th" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>การตั้งค่า ธีม วิดเจ็ต &amp; การสำรองข้อมูล - AVR Maestro</title>
+<meta name="description" content="การตั้งค่า AVR Maestro: จัดการเครื่องรับ ธีมสีด้วยรหัสเลขฐานสิบหก พร้อมโหมดสว่าง มืด และ AMOLED ขั้นระดับเสียง วิดเจ็ตบน iOS และ Android และสำรองข้อมูลเป็นไฟล์" />
+<meta name="keywords" content="AVR Maestro settings, Color Theme, AVR Maestro backup restore, AV receiver app theme, hardware volume keys receiver, AV receiver home screen widget, AVR Maestro AMOLED, MiyaraHub apps, more from MiyaraHub" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/th/guide/settings/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/settings/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/settings/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/settings/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/settings/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/settings/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/settings/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/settings/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/settings/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/settings/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/settings/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/settings/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/settings/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/settings/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/settings/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/settings/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/settings/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/settings/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/settings/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/settings/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/settings/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/settings/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/settings/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/settings/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/settings/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/settings/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/settings/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/settings/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/settings/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/settings/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/settings/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/settings/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="th_TH" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="การตั้งค่า ธีม วิดเจ็ต &amp; การสำรองข้อมูล - AVR Maestro" />
+<meta property="og:description" content="การตั้งค่า AVR Maestro: จัดการเครื่องรับ ธีมสีด้วยรหัสเลขฐานสิบหก พร้อมโหมดสว่าง มืด และ AMOLED ขั้นระดับเสียง วิดเจ็ตบน iOS และ Android และสำรองข้อมูลเป็นไฟล์" />
+<meta property="og:url" content="https://avrmaestro.com/th/guide/settings/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="การตั้งค่า ธีม วิดเจ็ต &amp; การสำรองข้อมูล - AVR Maestro" />
+<meta name="twitter:description" content="การตั้งค่า AVR Maestro: จัดการเครื่องรับ ธีมสีด้วยรหัสเลขฐานสิบหก พร้อมโหมดสว่าง มืด และ AMOLED ขั้นระดับเสียง วิดเจ็ตบน iOS และ Android และสำรองข้อมูลเป็นไฟล์" />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro เป็นแอปอิสระสำหรับควบคุมเครื่องรับ AV ของ Denon และ Marantz ผ่านเครือข่ายภายในบ้านของคุณ",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "th"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/settings/#article",
+      "headline": "การตั้งค่า: ทำให้เป็นของคุณ",
+      "description": "การตั้งค่า AVR Maestro: จัดการเครื่องรับ ธีมสีด้วยรหัสเลขฐานสิบหก พร้อมโหมดสว่าง มืด และ AMOLED ขั้นระดับเสียง วิดเจ็ตบน iOS และ Android และสำรองข้อมูลเป็นไฟล์",
+      "image": "https://avrmaestro.com/screenshots/settings-tjmode.png",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/settings/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "th"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/settings/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "เปลี่ยนธีมและสีของแอปได้ไหม",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ได้ มีแบบสว่าง มืด ตามอุปกรณ์ หรือ AMOLED (ดำสนิท) และธีมสีที่คุณเลือกสีเน้นได้ตามต้องการ แล้วแอปจะสร้างชุดสีใหม่ทั้งหมด ใช้วงล้อสีหรือพิมพ์รหัสเลขฐานสิบหก (#FF8C00 หรือแบบย่อสามหลัก) หากรหัสไม่ถูกต้อง แอปจะบอกว่าผิดตรงไหน แทนที่จะปฏิเสธเฉย ๆ คุณยังตั้งขนาดการแสดงผล/วิดเจ็ต และปรับแต่งการนำทางและแท็บได้ด้วย"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "สำรองข้อมูลการตั้งค่าของฉันได้ไหม",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ได้ การตั้งค่า สำรองข้อมูล จะส่งออกเครื่องรับ พรีเซ็ต และค่ากำหนดทั้งหมดเป็นไฟล์ .zip ที่รวมไอคอนอินพุตกำหนดเองของคุณไว้ด้วย นำเข้าเพื่อกู้คืนบนโทรศัพท์เครื่องใหม่ได้ ไฟล์ .json รุ่นเก่ายังนำเข้าได้ตามปกติ ไฟล์ไม่มีข้อมูลรับรองตัวตน จึงแชร์ได้อย่างปลอดภัย"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "พรีเซ็ตระดับเสียงข้ามไปที่ค่าเป้าหมายทันที หรือค่อย ๆ ไล่ระดับไป",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "คุณเลือกได้ การตั้งค่า เสียง มีสวิตช์ ค่อยเป็นค่อยไป / ทันที ค่อยเป็นค่อยไป (ค่าเริ่มต้น) จะไล่ระดับอย่างนุ่มนวลไปยังค่าเป้าหมายของพรีเซ็ต การแตะครั้งเดียวจึงไม่ทำให้ลำโพงของคุณเจอเสียงดังพุ่งขึ้นกะทันหัน ทันทีจะใช้ค่าในทันที ใช้ได้กับโซนหลักและโซน 2/3"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ล็อกรีโมทจริงของเครื่องรับจากแอปได้ไหม",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ได้ บนเครื่องรับที่รองรับ การตั้งค่า เครื่องรับ มีสวิตช์ล็อกรีโมทสำหรับล็อกหรือปลดล็อกรีโมท IR ของตัวเครื่องรับ"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "วิดเจ็ตบนหน้าจอหลักมีเฉพาะ Android ใช่ไหม",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ไม่ใช่ วิดเจ็ตควบคุมด่วน (เปิด-ปิดเครื่อง / ระดับเสียง / ปิดเสียง / แหล่งสัญญาณ) กำลังเล่น และสถานะ มีให้ใช้ทั้งบน iOS และ Android เมื่อเครื่องรับปิดอยู่หรือเข้าถึงไม่ได้ วิดเจ็ตจะแสดงสถานะ “AVR off” / “Standby” อย่างชัดเจน แทนข้อมูลที่ค้างเก่า และปุ่มเปิด-ปิดเครื่องของวิดเจ็ตควบคุมด่วนยังใช้งานได้ คุณจึงปลุกเครื่องรับจากวิดเจ็ตได้"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ปุ่มปรับระดับเสียงของโทรศัพท์ควบคุมเครื่องรับได้ไหม",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "บน Android ได้ ขณะที่แอปอยู่เบื้องหน้า ปุ่มปรับระดับเสียงของคุณจะควบคุมระดับเสียงของเครื่องรับ iOS ไม่อนุญาตให้ทำเช่นนี้"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "เปิดเมนูดีบักที่ซ่อนอยู่ได้อย่างไร",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "เปิดการตั้งค่า เกี่ยวกับ แล้วแตะหมายเลขเวอร์ชันเจ็ดครั้ง จากนั้นเมนูดีบักจะยังอยู่ต่อแม้เปิดแอปใหม่ มีบันทึกดีบักแบบสด เครื่องมือคำสั่งดิบ และการวินิจฉัยสำหรับฝ่ายสนับสนุน จนกว่าคุณจะแตะ “Remove Debug Menu” เพื่อซ่อนอีกครั้ง"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "“More from MiyaraHub” คืออะไร",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ส่วนหนึ่งในการตั้งค่าที่มีปุ่มดูแอปทั้งหมดของเรา แตะแล้วแอปสโตร์ของคุณจะเปิดไปที่หน้านักพัฒนา MiyaraHub ไม่ว่าจะเป็น Google Play, App Store หรือ Microsoft Store ตามอุปกรณ์ของคุณ คุณจึงดูแอปทั้งหมดที่เราสร้างได้"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "หน้าแรก",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "คู่มือผู้ใช้",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "การตั้งค่า",
+      "item": "https://avrmaestro.com/guide/settings/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/th/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="เมนู" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="ค้นหาในคู่มือ..." data-i18n-empty="ไม่พบผลลัพธ์สำหรับ" data-i18n-language="ภาษา">
+      <a href="/th/">หน้าแรก</a>
+      <a href="/th/guide/">คู่มือผู้ใช้</a>
+      <a href="/th/receivers/">เครื่องรับ</a>
+      <a href="/th/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/th/best-denon-marantz-app/">ทำไมต้องเปลี่ยน</a>
+      <a href="/th/#top" class="cta">ดาวน์โหลด</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero split">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="/th/">หน้าแรก</a> &rsaquo; <a href="/th/guide/">คู่มือผู้ใช้</a> &rsaquo; การตั้งค่า</div>
+      <div class="eyebrow">การตั้งค่า</div>
+      <h1>การตั้งค่า: ทำให้เป็น<span class="g">ของคุณ</span></h1>
+      <p>ทุกอย่างที่ปรับ AVR Maestro ให้เข้ากับคุณและอุปกรณ์ของคุณ จัดการเครื่องรับ ตกแต่งทั้งแอปด้วยธีมสี ปรับขั้นระดับเสียง ดึงบันทึกดีบักสำหรับฝ่ายสนับสนุน และสำรองการตั้งค่าทั้งหมดของคุณเป็นไฟล์</p>
+    </div>
+    <div class="hero-shot"><img alt="สีเน้นของธีมสีใน AVR Maestro" src="/screenshots/settings-tjmode.png" width="1324" height="2644" fetchpriority="high" /></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ทุกส่วน</div>
+      <h2>สิ่งที่อยู่ในการตั้งค่า</h2>
+    </div>
+    <table class="t">
+      <thead><tr><th>ส่วน</th><th>มีอะไรบ้าง</th></tr></thead>
+      <tbody>
+        <tr><td>อุปกรณ์</td><td>สลับเครื่องรับ ข้อมูลอุปกรณ์แบบเต็ม จัดการเครื่องรับ (เปลี่ยนชื่อ/ลบ) เพิ่มเครื่องรับ</td></tr>
+        <tr><td>เครื่องรับ</td><td><b>ล็อกรีโมท</b> - ล็อกหรือปลดล็อกรีโมท IR ของตัวเครื่องรับจากแอป แสดงเฉพาะบนเครื่องรับที่รองรับ</td></tr>
+        <tr><td>รูปลักษณ์</td><td>ธีม (สว่าง / มืด / ตามอุปกรณ์ / AMOLED ดำสนิท) และ<b>ธีมสี</b> เลือกสีเน้นใดก็ได้ จากวงล้อสีหรือพิมพ์รหัสเลขฐานสิบหก เช่น <code>#FF8C00</code> แล้วแอปจะสร้างชุดสีใหม่รอบสีนั้น รหัสที่อ่านไม่ได้จะถูกปฏิเสธพร้อมบอกเหตุผล และสีที่ใกล้ดำเกินไปจะถูกปฏิเสธแยกต่างหาก เพราะบนธีม AMOLED จะไม่มีอะไรให้เห็นตัดกัน รวมถึงขนาดการแสดงผล ขนาดวิดเจ็ต ปรับแต่งการนำทาง และปรับแต่งแท็บ</td></tr>
+        <tr><td>ภาษา</td><td><b>ค่าเริ่มต้นของระบบ</b>จะตามอุปกรณ์ ด้านล่างคือทั้ง 29 ภาษาในชื่อภาษาของตัวเอง <a href="/th/guide/languages/">คู่มือภาษา &rarr;</a></td></tr>
+        <tr><td>เสียง</td><td>ขั้นระดับเสียง (0.5-2.0 dB) ซึ่งทุกการแตะ การกดค้างเพื่อไล่ระดับ และปุ่มระดับเสียงใช้ร่วมกัน การแสดงระดับเสียงสัมบูรณ์หรือ dB ที่ด้านบน <b>ปุ่มระดับเสียงของอุปกรณ์</b> (เปิดเป็นค่าเริ่มต้น บน Android และ iOS) และพรีเซ็ตระดับเสียงแบบ<b>ค่อยเป็นค่อยไป</b>หรือ<b>ทันที</b> ค่อยเป็นค่อยไป (ค่าเริ่มต้น) จะไล่ระดับอย่างนุ่มนวลไปยังค่าเป้าหมายของพรีเซ็ต แทนที่จะกระโดดไปทันที ใช้ได้กับโซนหลักและโซน 2/3</td></tr>
+        <tr><td>วิธีใช้</td><td>สวิตช์การ์ดคำอธิบาย กู้คืนการ์ดที่ปิดไป และบันทึกดีบักแบบสดพร้อมปุ่มบันทึก &amp; แชร์ในแตะเดียวสำหรับฝ่ายสนับสนุน</td></tr>
+        <tr><td>เครื่องมือนักพัฒนา</td><td>ซ่อนไว้จนกว่าคุณจะแตะหมายเลขเวอร์ชัน (ในเกี่ยวกับ) เจ็ดครั้ง จากนั้นจะยังอยู่ต่อแม้เปิดแอปใหม่จนกว่าคุณจะนำออก คำสั่ง Telnet / HEOS ดิบ การดัมพ์ AJAX และการวินิจฉัยสายสัญญาณของขีดจำกัดระดับเสียง</td></tr>
+        <tr><td>สำรองข้อมูล</td><td>ส่งออกเครื่องรับ พรีเซ็ต และค่ากำหนดทั้งหมดเป็น<b>ไฟล์ .zip ที่รวมไอคอนอินพุตกำหนดเองของคุณไว้ด้วย</b> และนำเข้าเพื่อกู้คืนบนโทรศัพท์เครื่องใหม่ ใช้ได้ทั้งบน iOS และ Android ไฟล์ .json รุ่นเก่ายังนำเข้าได้ตามปกติ ไฟล์ไม่มีข้อมูลรับรองตัวตน มีเพียง IP ของเครื่องรับและชื่อพรีเซ็ตของคุณเอง จึงแชร์ได้อย่างปลอดภัย</td></tr>
+        <tr><td>แอป</td><td>ให้คะแนนแอป เกี่ยวกับ <b>ยินดีต้อนรับ &amp; คู่มือการตั้งค่า</b> คู่มือแอป (คู่มือฉบับนี้) เว็บไซต์ ความเป็นส่วนตัว ข้อกำหนด ใบอนุญาต</td></tr>
+        <tr><td>ยินดีต้อนรับ &amp; คู่มือการตั้งค่า</td><td>เล่นซ้ำการต้อนรับห้าขั้นตอนที่คุณเห็นตอนเปิดแอปครั้งแรก ได้แก่ การเพิ่มเครื่องรับ ตำแหน่งของทุกอย่าง การสร้างฉาก และแหล่งขอความช่วยเหลือ เครื่องรับและฉากของคุณจะคงไว้ตามเดิมทุกอย่าง <a href="/th/guide/getting-started/">เริ่มต้นใช้งาน &rarr;</a></td></tr>
+        <tr><td>การสนับสนุนและชุมชน</td><td>ใน<b>เกี่ยวกับ</b>: ชุมชน Discord กลุ่มผู้ใช้ Facebook และ<b>บันทึกที่เกี่ยวข้องทั้งหมด</b> ซึ่งรวมบันทึกของแอปและเครื่องรับทั้งหมดไว้ในไฟล์ zip ไฟล์เดียว พร้อมส่งให้เราเมื่อมีสิ่งผิดปกติ</td></tr>
+        <tr><td>เพิ่มเติมจาก MiyaraHub</td><td><b>ดูแอปทั้งหมดของเรา</b>เปิดหน้านักพัฒนา MiyaraHub บนสโตร์ของคุณ ไม่ว่าจะเป็น Google Play, App Store หรือ Microsoft Store ตามอุปกรณ์ของคุณ คุณจึงเห็นทุกแอปที่เราสร้างได้ในที่เดียว</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">นอกเหนือจากแอป</div>
+      <h2>วิดเจ็ตบนหน้าจอหลักและปุ่มระดับเสียงของอุปกรณ์</h2>
+    </div>
+    <ul class="plain">
+      <li><b>วิดเจ็ตบนหน้าจอหลัก (iOS และ Android):</b> ควบคุมด่วน (เปิด-ปิดเครื่อง / ระดับเสียง / ปิดเสียง / แหล่งสัญญาณ) กำลังเล่น และสถานะ มีหลายขนาด แตะอย่างเดียวและรีเฟรชอัตโนมัติ เมื่อเครื่องรับปิดอยู่หรือเข้าถึงไม่ได้ วิดเจ็ตจะแสดงสถานะ <b>“AVR off” / “Standby”</b> อย่างชัดเจน แทนอินพุตและระดับเสียงที่ค้างเก่า และปุ่มเปิด-ปิดเครื่องยังใช้งานได้ คุณจึงปลุกเครื่องรับจากวิดเจ็ตได้ทันที</li>
+      <li><b>ปุ่มระดับเสียงของอุปกรณ์ (Android และ iOS):</b> ขณะที่ AVR Maestro อยู่เบื้องหน้า ปุ่มระดับเสียงจริงของอุปกรณ์จะควบคุมระดับเสียงของ<b>เครื่องรับ</b> (ตามขั้นระดับเสียงของคุณ) และการกดค้างจะไล่ระดับ ใช้ได้เฉพาะเบื้องหน้า ปุ่มจะกลับไปควบคุมอุปกรณ์ทันทีที่มีแอปอื่นอยู่ด้านหน้า และสวิตช์ในการตั้งค่า เสียง ปิดการควบคุมนี้ได้</li>
+    </ul>
+    <div class="note">วิดเจ็ต การปรับธีม การสำรองข้อมูล &amp; กู้คืน และการควบคุมด้วยปุ่มระดับเสียง ใช้งานได้ทั้งบน <b>iOS และ Android</b></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">คำถามที่พบบ่อย</div>
+      <h2>คำถามที่พบบ่อยเกี่ยวกับการตั้งค่า</h2>
+    </div>
+    <details open><summary>เปลี่ยนธีมและสีของแอปได้ไหม</summary><div class="body">ได้ มีแบบสว่าง มืด ตามอุปกรณ์ หรือ AMOLED (ดำสนิท) และธีมสีที่คุณเลือกสีเน้นได้ตามต้องการ แล้วแอปจะสร้างชุดสีใหม่ทั้งหมด ใช้วงล้อสีหรือพิมพ์รหัสเลขฐานสิบหก (<code>#FF8C00</code> หรือแบบย่อสามหลัก) หากรหัสไม่ถูกต้อง แอปจะบอกว่าผิดตรงไหน แทนที่จะปฏิเสธเฉย ๆ คุณยังตั้งขนาดการแสดงผล/วิดเจ็ต และปรับแต่งการนำทางและแท็บได้ด้วย</div></details>
+    <details><summary>สำรองข้อมูลการตั้งค่าของฉันได้ไหม</summary><div class="body">ได้ การตั้งค่า สำรองข้อมูล จะส่งออกเครื่องรับ พรีเซ็ต และค่ากำหนดทั้งหมดเป็นไฟล์ .zip ที่รวมไอคอนอินพุตกำหนดเองของคุณไว้ด้วย นำเข้าเพื่อกู้คืนบนโทรศัพท์เครื่องใหม่ได้ ไฟล์ .json รุ่นเก่ายังนำเข้าได้ตามปกติ ไฟล์ไม่มีข้อมูลรับรองตัวตน จึงแชร์ได้อย่างปลอดภัย</div></details>
+    <details><summary>พรีเซ็ตระดับเสียงข้ามไปที่ค่าเป้าหมายทันที หรือค่อย ๆ ไล่ระดับไป</summary><div class="body">คุณเลือกได้ การตั้งค่า เสียง มีสวิตช์ ค่อยเป็นค่อยไป / ทันที ค่อยเป็นค่อยไป (ค่าเริ่มต้น) จะไล่ระดับอย่างนุ่มนวลไปยังค่าเป้าหมายของพรีเซ็ต การแตะครั้งเดียวจึงไม่ทำให้ลำโพงของคุณเจอเสียงดังพุ่งขึ้นกะทันหัน ทันทีจะใช้ค่าในทันที ใช้ได้กับโซนหลักและโซน 2/3</div></details>
+    <details><summary>ล็อกรีโมทจริงของเครื่องรับจากแอปได้ไหม</summary><div class="body">ได้ บนเครื่องรับที่รองรับ การตั้งค่า เครื่องรับ มีสวิตช์ล็อกรีโมทสำหรับล็อกหรือปลดล็อกรีโมท IR ของตัวเครื่องรับ</div></details>
+    <details><summary>วิดเจ็ตบนหน้าจอหลักมีเฉพาะ Android ใช่ไหม</summary><div class="body">ไม่ใช่ วิดเจ็ตควบคุมด่วน (เปิด-ปิดเครื่อง / ระดับเสียง / ปิดเสียง / แหล่งสัญญาณ) กำลังเล่น และสถานะ มีให้ใช้<b>ทั้งบน iOS และ Android</b> เมื่อเครื่องรับปิดอยู่หรือเข้าถึงไม่ได้ วิดเจ็ตจะแสดงสถานะ “AVR off” / “Standby” อย่างชัดเจน แทนข้อมูลที่ค้างเก่า และปุ่มเปิด-ปิดเครื่องของวิดเจ็ตควบคุมด่วนยังใช้งานได้ คุณจึงปลุกเครื่องรับจากวิดเจ็ตได้</div></details>
+    <details><summary>ปุ่มปรับระดับเสียงของโทรศัพท์ควบคุมเครื่องรับได้ไหม</summary><div class="body">บน Android ได้ ขณะที่แอปอยู่เบื้องหน้า ปุ่มปรับระดับเสียงของคุณจะควบคุมระดับเสียงของเครื่องรับ iOS ไม่อนุญาตให้ทำเช่นนี้</div></details>
+    <details><summary>เปิดเมนูดีบักที่ซ่อนอยู่ได้อย่างไร</summary><div class="body">เปิดการตั้งค่า เกี่ยวกับ แล้วแตะหมายเลขเวอร์ชันเจ็ดครั้ง จากนั้นเมนูดีบักจะยังอยู่ต่อแม้เปิดแอปใหม่ มีบันทึกดีบักแบบสด เครื่องมือคำสั่งดิบ และการวินิจฉัยสำหรับฝ่ายสนับสนุน จนกว่าคุณจะแตะ “Remove Debug Menu” เพื่อซ่อนอีกครั้ง</div></details>
+    <details><summary>“More from MiyaraHub” คืออะไร</summary><div class="body">ส่วนหนึ่งในการตั้งค่าที่มีปุ่ม<b>ดูแอปทั้งหมดของเรา</b> แตะแล้วแอปสโตร์ของคุณจะเปิดไปที่หน้านักพัฒนา MiyaraHub ไม่ว่าจะเป็น Google Play, App Store หรือ Microsoft Store ตามอุปกรณ์ของคุณ คุณจึงดูแอปทั้งหมดที่เราสร้างได้</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">เนื้อหาเพิ่มเติมของคู่มือ</div>
+      <h2>คู่มือ AVR Maestro เรื่องอื่น ๆ</h2>
+    </div>
+    <p class="lead"><a href="/th/guide/getting-started/">เริ่มต้นใช้งาน</a> &middot; <a href="/th/guide/home/">หน้าจอหลัก</a> &middot; <a href="/th/guide/scenes/">ฉาก</a> &middot; <a href="/th/guide/custom-icons/">ไอคอนกำหนดเอง</a> &middot; <a href="/th/guide/sound/">เสียง</a> &middot; <a href="/th/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/th/guide/speakers/">ลำโพง</a> &middot; <a href="/th/guide/locked-controls/">เหตุใดตัวควบคุมจึงถูกล็อก</a> &middot; <a href="/th/guide/assistant/">ผู้ช่วย</a> &middot; <a href="/th/guide/home-automation/">ระบบบ้านอัตโนมัติ</a> &middot; <a href="/th/guide/home-assistant-dashboard/">แดชบอร์ด Home Assistant</a> &middot; <a href="/th/guide/multi-zone/">โซน</a> &middot; <a href="/th/guide/remote/">รีโมท</a> &middot; <a href="/th/guide/radio/">วิทยุ (FM/AM)</a> &middot; <a href="/th/guide/on-screen-display/">การแสดงผลบนหน้าจอ</a> &middot; <a href="/th/guide/languages/">ภาษา</a> &middot; <a href="/th/guide/volume/">การควบคุมระดับเสียง</a> &middot; <a href="/th/guide/backup/">สำรอง &amp; กู้คืนข้อมูล</a> &middot; <a href="/th/guide/now-playing/">กำลังเล่น &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>ตั้งค่าให้ตรงใจคุณทุกอย่าง</h2>
+    <p class="lead" style="margin:0 auto 24px">ซื้อครั้งเดียว ไม่มีโฆษณา ไม่มีการสมัครสมาชิก เชื่อมต่อได้ในไม่ถึงหนึ่งนาที</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="ดาวน์โหลดบน Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="ดาวน์โหลดบน App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="ดาวน์โหลดบน Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="ดาวน์โหลดบน Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/th/guide/">กลับไปที่คู่มือผู้ใช้ฉบับเต็ม &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/th/">หน้าแรก</a>
+      <a href="/th/guide/">คู่มือผู้ใช้</a>
+      <a href="/th/guide/getting-started/">เริ่มต้นใช้งาน</a>
+      <a href="/th/receivers/">เครื่องรับ</a>
+      <a href="/th/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/th/audyssey-vs-dirac/">Audyssey เทียบกับ Dirac</a>
+      <a href="/th/best-denon-marantz-app/">ทำไมต้องเปลี่ยน</a>
+      <a href="/th/help/">วิธีใช้</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro เป็นแอปอิสระโดย MiyaraHub Technologies LLC และไม่มีส่วนเกี่ยวข้อง ไม่ได้รับการรับรอง หรือการสนับสนุนจาก Denon, Marantz, D&amp;M Holdings, Sound United หรือบริษัทอื่นใดที่กล่าวถึงในหน้านี้ Denon, Marantz, HEOS, Audyssey, Dirac Live, App Store, Google Play และ Microsoft Store เป็นเครื่องหมายการค้าของเจ้าของแต่ละราย และใช้ในที่นี้เพื่อการระบุเท่านั้น</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="da" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Backup &amp; gendannelse af indstillinger til en ny telefon - AVR Maestro</title>
+<meta name="description" content="Eksporter alle AVR Maestro-indstillinger til én fil: receivere, indgangsnavne og ikoner, scener, tema og lydstyrkepræferencer. Gendan den på en ny telefon med få tryk." />
+<meta name="keywords" content="AVR Maestro backup, transfer AVR app settings new phone, export receiver settings app, restore Denon app config, AVR Maestro migrate device" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/da/guide/backup/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/backup/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/backup/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/backup/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/backup/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/backup/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/backup/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/backup/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/backup/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/backup/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/backup/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/backup/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/backup/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/backup/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/backup/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/backup/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/backup/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/backup/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/backup/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/backup/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/backup/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/backup/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/backup/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/backup/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/backup/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/backup/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/backup/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/backup/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/backup/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/backup/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/backup/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/backup/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="da_DK" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Backup &amp; gendannelse af indstillinger til en ny telefon - AVR Maestro" />
+<meta property="og:description" content="Eksporter alle AVR Maestro-indstillinger til én fil: receivere, indgangsnavne og ikoner, scener, tema og lydstyrkepræferencer. Gendan den på en ny telefon med få tryk." />
+<meta property="og:url" content="https://avrmaestro.com/da/guide/backup/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Backup &amp; gendannelse af indstillinger til en ny telefon - AVR Maestro" />
+<meta name="twitter:description" content="Eksporter alle AVR Maestro-indstillinger til én fil: receivere, indgangsnavne og ikoner, scener, tema og lydstyrkepræferencer. Gendan den på en ny telefon med få tryk." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro er en uafhængig app til at styre Denon- og Marantz-AV-receivere via dit lokale netværk.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "da"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/backup/#article",
+      "headline": "Backup og gendannelse: hele din opsætning i én fil",
+      "description": "Eksporter alle AVR Maestro-indstillinger til én fil: receivere, indgangsnavne og ikoner, scener, tema og lydstyrkepræferencer. Gendan den på en ny telefon med få tryk.",
+      "image": "https://avrmaestro.com/screenshots/backup-restore.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/backup/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "da"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/backup/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Kan jeg flytte en backup mellem Android og iPhone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Filen er almindelig JSON og er ikke bundet til den enhed, der skrev den. Eksporter fra den ene, få filen over på den anden, og importer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Overskriver en import min receivers kalibrering?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nej. En backup indeholder kun appindstillinger. Alt, hvad receiveren selv gemmer - kalibrering, forudindstillinger, niveauer, afstande, Dirac-filtre - ligger på receiveren og berøres ikke."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kommer mine scener med?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, sammen med oplysninger om, hvilke indstillinger hver scene skulle gemme. Se vejledningen om scener."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hvor lægger Gem på enhed filen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hvor du end vælger i dit systems filvælger. Del er den hurtigste vej, hvis filen kun er på gennemrejse til en anden telefon."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Hjem",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Brugervejledning",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Backup og gendannelse",
+      "item": "https://avrmaestro.com/guide/backup/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/da/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Søg i guiden..." data-i18n-empty="Ingen resultater for" data-i18n-language="Sprog">
+      <a href="/da/">Hjem</a>
+      <a href="/da/guide/">Brugervejledning</a>
+      <a href="/da/receivers/">Receivere</a>
+      <a href="/da/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/da/best-denon-marantz-app/">Hvorfor skifte</a>
+      <a href="/da/#top" class="cta">Download</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/da/">Hjem</a> &rsaquo; <a href="/da/guide/">Brugervejledning</a> &rsaquo; Backup &amp; gendannelse</div>
+    <div class="eyebrow">Indstillinger &rsaquo; Backup &amp; gendannelse</div>
+    <h1>Backup &amp; gendannelse: hele din opsætning <span class="g">i én fil</span></h1>
+    <p>At omdøbe hver eneste indgang, vælge billeder til dem, sortere dine kilder og bygge et sæt scener er en reel indsats. Den bør overleve en ny telefon, og det gør den: én eksport, én import, og den nye enhed ser præcis ud som den gamle.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Eksporter</div>
+        <h2>Gem på enheden, eller del den direkte videre</h2>
+        <p class="lead">Åbn <b>Indstillinger</b>, rul til <b>Backup &amp; gendannelse</b>, og vælg:</p>
+        <ul class="plain">
+          <li><b>Gem på enhed</b> - skriver én enkelt JSON-fil, hvor du peger hen.</li>
+          <li><b>Del</b> - sender den til dit sædvanlige delingsark, så den kan gå direkte til den anden telefon, et cloud-drev eller en besked til dig selv.</li>
+        </ul>
+        <p class="lead">Det er en almindelig tekstfil. Intet i den er låst til den enhed, den kommer fra.</p>
+      </div>
+      <img alt="Siden Backup og gendannelse med eksport og import" src="/screenshots/backup-restore.png" width="1324" height="2644" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Indholdet</div>
+      <h2>Det, der følger med dig</h2>
+    </div>
+    <table class="t">
+      <thead><tr><th>Inkluderet</th><th>Betydning</th></tr></thead>
+      <tbody>
+        <tr><td>Konfigurerede receivere</td><td>Hver enhed, du har tilføjet, med adresse og indstillinger</td></tr>
+        <tr><td>Kilderækkefølge pr. enhed</td><td>Den rækkefølge, du trak dine indgange i, gemt pr. receiver</td></tr>
+        <tr><td>Tema og farvetema</td><td>Din accentfarve og dine valg af udseende</td></tr>
+        <tr><td>Visnings- og widgetskala</td><td>Tekst- og widgetstørrelse</td></tr>
+        <tr><td>Lydstyrkepræferencer</td><td>Appens egen lydstyrkeadfærd</td></tr>
+        <tr><td>Status for forklaringskort</td><td>Hvilke infobannere du har lukket, så de bliver lukket</td></tr>
+        <tr><td>Cachede undersøgelser</td><td>Resultaterne for HEOS, funktioner og musikfunktioner, så den nye telefon ikke starter forfra</td></tr>
+      </tbody>
+    </table>
+    <div class="note">Brugerdefinerede indgangsnavne og billeder er en del af din receiverkonfiguration, så de følger med den. Se <a href="/da/guide/custom-icons/">vejledningen om brugerdefinerede ikoner</a>.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Importer</div>
+      <h2>Gendannelse på den nye telefon</h2>
+    </div>
+    <ol class="plain">
+      <li>Installer AVR Maestro på den nye enhed, og sørg for, at den er på samme netværk som din receiver.</li>
+      <li>Åbn <b>Indstillinger &rsaquo; Backup &amp; gendannelse</b>.</li>
+      <li>Tryk på <b>Importer indstillinger fra fil</b>, og vælg backuppen.</li>
+      <li><b>Genstart appen.</b> Det fortæller appen dig også - en genstart sørger for, at alle gendannede indstillinger træder rent i kraft.</li>
+    </ol>
+    <div class="note"><b>Import erstatter, den fletter ikke.</b> Alt, hvad der ligger på den enhed, overskrives med indholdet af backuppen. Hvis den nuværende opsætning har værdi for dig, så eksporter den først - det koster to tryk.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Godt at vide</div>
+      <h2>En backup er appen, ikke receiveren</h2>
+    </div>
+    <p class="lead">Din kalibrering, højttalerforudindstillinger, niveauer, afstande, delefrekvenser og Dirac-filtre ligger <b>på receiveren</b>. De er ikke med i backuppen, og en import kan ikke forstyrre dem. Det gælder begge veje: en backup gendanner ikke en receiver, du har nulstillet til fabriksindstillinger, og det behøver den heller ikke - når appen forbindes til receiveren igen, henter den indstillingerne fra receiveren selv.</p>
+    <p class="lead">Det er også en fornuftig ting at tage før en større omlægning. Eksporter, omarranger dine indgange og byg dine scener om efter forgodtbefindende, og hvis du foretrak den gamle måde, ligger filen lige der.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Ofte stillede spørgsmål</div>
+      <h2>Ofte stillede spørgsmål om backup</h2>
+    </div>
+    <details open><summary>Kan jeg flytte en backup mellem Android og iPhone?</summary><div class="body">Filen er almindelig JSON og er ikke bundet til den enhed, der skrev den. Eksporter fra den ene, få filen over på den anden, og importer.</div></details>
+    <details><summary>Overskriver en import min receivers kalibrering?</summary><div class="body">Nej. En backup indeholder kun appindstillinger. Alt, hvad receiveren selv gemmer - kalibrering, forudindstillinger, niveauer, afstande, Dirac-filtre - ligger på receiveren og berøres ikke.</div></details>
+    <details><summary>Kommer mine scener med?</summary><div class="body">Ja, sammen med oplysninger om, hvilke indstillinger hver scene skulle gemme. Se <a href="/da/guide/scenes/">vejledningen om scener</a>.</div></details>
+    <details><summary>Hvor lægger Gem på enhed filen?</summary><div class="body">Hvor du end vælger i dit systems filvælger. Del er den hurtigste vej, hvis filen kun er på gennemrejse til en anden telefon.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Mere af vejledningen</div>
+      <h2>Andre AVR Maestro-vejledninger</h2>
+    </div>
+    <p class="lead"><a href="/da/guide/getting-started/">Kom i gang</a> &middot; <a href="/da/guide/home/">Startskærm</a> &middot; <a href="/da/guide/scenes/">Scener</a> &middot; <a href="/da/guide/custom-icons/">Brugerdefinerede ikoner</a> &middot; <a href="/da/guide/sound/">Lyd</a> &middot; <a href="/da/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/da/guide/speakers/">Højttalere</a> &middot; <a href="/da/guide/locked-controls/">Hvorfor en kontrol er låst</a> &middot; <a href="/da/guide/assistant/">Assistenten</a> &middot; <a href="/da/guide/home-automation/">Hjemmeautomatisering</a> &middot; <a href="/da/guide/home-assistant-dashboard/">Home Assistant-dashboard</a> &middot; <a href="/da/guide/multi-zone/">Zoner</a> &middot; <a href="/da/guide/remote/">Fjernbetjening</a> &middot; <a href="/da/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/da/guide/on-screen-display/">Skærmmenu</a> &middot; <a href="/da/guide/settings/">Indstillinger</a> &middot; <a href="/da/guide/languages/">Sprog</a> &middot; <a href="/da/guide/volume/">Lydstyrkekontrol</a> &middot; <a href="/da/guide/now-playing/">Afspiller nu &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Sæt den op én gang</h2>
+    <p class="lead" style="margin:0 auto 24px">Engangskøb, ingen reklamer, intet abonnement. Opret forbindelse på under et minut.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Hent på Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Download i App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Download i Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Hent i Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/da/guide/">Tilbage til den fulde brugervejledning &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/da/">Hjem</a>
+      <a href="/da/guide/">Brugervejledning</a>
+      <a href="/da/guide/getting-started/">Kom i gang</a>
+      <a href="/da/receivers/">Receivere</a>
+      <a href="/da/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/da/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/da/best-denon-marantz-app/">Hvorfor skifte</a>
+      <a href="/da/help/">Hjælp</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro er en uafhængig app fra MiyaraHub Technologies LLC og er ikke tilknyttet, godkendt eller sponsoreret af Denon, Marantz, D&amp;M Holdings, Sound United eller andre virksomheder, der er nævnt på denne side. Denon, Marantz, HEOS, Audyssey og Dirac Live er varemærker tilhørende deres respektive ejere og bruges her udelukkende til identifikation.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

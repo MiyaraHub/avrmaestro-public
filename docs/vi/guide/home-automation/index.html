@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="vi" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Home Assistant &amp; Hubitat cho Denon &amp; Marantz - AVR Maestro</title>
+<meta name="description" content="Liên kết AVR Maestro với Home Assistant hoặc Hubitat và các Cảnh của bạn trở thành tập lệnh gốc chạy mà không cần điện thoại. Điều khiển bằng giọng nói, trạng thái trực tiếp và webhook." />
+<meta name="keywords" content="Denon Home Assistant, Marantz Home Assistant, AV receiver Alexa, receiver Google Assistant, receiver Siri Shortcuts, Hubitat AV receiver, receiver webhooks, Denon voice control" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/vi/guide/home-automation/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-automation/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-automation/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-automation/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-automation/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-automation/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-automation/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-automation/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-automation/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-automation/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-automation/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-automation/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-automation/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-automation/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-automation/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-automation/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-automation/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-automation/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-automation/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-automation/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-automation/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-automation/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-automation/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-automation/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-automation/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-automation/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-automation/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-automation/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-automation/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-automation/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-automation/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-automation/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="vi_VN" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Home Assistant &amp; Hubitat cho Denon &amp; Marantz - AVR Maestro" />
+<meta property="og:description" content="Liên kết AVR Maestro với Home Assistant hoặc Hubitat và các Cảnh của bạn trở thành tập lệnh gốc chạy mà không cần điện thoại. Điều khiển bằng giọng nói, trạng thái trực tiếp và webhook." />
+<meta property="og:url" content="https://avrmaestro.com/vi/guide/home-automation/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Home Assistant &amp; Hubitat cho Denon &amp; Marantz - AVR Maestro" />
+<meta name="twitter:description" content="Liên kết AVR Maestro với Home Assistant hoặc Hubitat và các Cảnh của bạn trở thành tập lệnh gốc chạy mà không cần điện thoại. Điều khiển bằng giọng nói, trạng thái trực tiếp và webhook." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro là ứng dụng độc lập để điều khiển các receiver AV Denon và Marantz qua mạng nội bộ của bạn.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "vi"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-automation/#article",
+      "headline": "Home Assistant và Hubitat: các Cảnh của bạn, chạy mà không cần điện thoại",
+      "description": "Liên kết AVR Maestro với Home Assistant hoặc Hubitat và các Cảnh của bạn trở thành tập lệnh gốc chạy mà không cần điện thoại. Điều khiển bằng giọng nói, trạng thái trực tiếp và webhook.",
+      "image": "https://avrmaestro.com/screenshots/home-assistant.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-automation/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "vi"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-automation/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Điện thoại của tôi có cần bật để điều khiển bằng giọng nói không?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Không. AVR Maestro biên dịch các Cảnh của bạn thành tập lệnh Home Assistant gốc. Home Assistant giao tiếp trực tiếp với receiver trong mạng nội bộ của bạn, nên điện thoại có thể tắt, ở chế độ ngủ hoặc đang ở một quốc gia khác."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Những trợ lý giọng nói nào có thể điều khiển receiver của tôi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bất kỳ trợ lý nào bạn đang dùng. AVR Maestro không tự thêm lớp giọng nói riêng - nó công bố các tập lệnh lên Home Assistant hoặc Hubitat, và hub mà bạn đã tin dùng sẽ chia sẻ chúng với Alexa, Google Assistant hoặc Siri Shortcuts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Trợ lý AI có nằm trong phần mở khóa trả phí không?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Không. Trợ lý AI chạy trên thiết bị là miễn phí. Home Automation - Home Assistant, Hubitat và webhook gửi đi - là tính năng mở khóa trả phí duy nhất trong AVR Maestro."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Có dữ liệu nào rời khỏi mạng gia đình của tôi không?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Không phải để điều khiển. Ứng dụng giao tiếp với receiver và hub của bạn qua chính mạng của bạn. Không có gì được định tuyến qua máy chủ MiyaraHub. Webhook gửi đến bất cứ nơi nào bạn chỉ định, đó là lựa chọn của bạn."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Trang chủ",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Hướng dẫn sử dụng",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Home Automation",
+      "item": "https://avrmaestro.com/guide/home-automation/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/vi/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Tìm trong hướng dẫn..." data-i18n-empty="Không có kết quả cho" data-i18n-language="Ngôn ngữ">
+      <a href="/vi/">Trang chủ</a>
+      <a href="/vi/guide/">Hướng dẫn sử dụng</a>
+      <a href="/vi/receivers/">Receiver</a>
+      <a href="/vi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/vi/best-denon-marantz-app/">Vì sao nên chuyển</a>
+      <a href="/vi/#top" class="cta">Tải về</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/vi/">Trang chủ</a> &rsaquo; <a href="/vi/guide/">Hướng dẫn sử dụng</a> &rsaquo; Home Automation</div>
+    <div class="eyebrow">Home Assistant &middot; Hubitat &middot; Webhook</div>
+    <h1>Home Assistant và Hubitat: các Cảnh của bạn, chạy <span class="g">mà không cần điện thoại</span></h1>
+    <p>Liên kết AVR Maestro với Home Assistant hoặc Hubitat và mọi Cảnh bạn đã tạo sẽ trở thành tập lệnh gốc trên hub của bạn. Từ đó, hub giao tiếp trực tiếp với receiver trong mạng của bạn - nên “Alexa, movie night” vẫn hoạt động khi điện thoại của bạn đã tắt, đang ngủ, hoặc ở một quốc gia khác.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+      <figure><img alt="Trung tâm Home Automation của AVR Maestro với Home Assistant, Hubitat và Webhook" src="/screenshots/home-automation.png" width="1324" height="2644" decoding="async" /><figcaption>Một hub, ba lối ra</figcaption></figure>
+      <figure><img alt="AVR Maestro đã liên kết với Home Assistant, thực thể receiver được tự động phát hiện" src="/screenshots/home-assistant.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Đã liên kết, thực thể receiver của bạn được tìm sẵn</figcaption></figure>
+      <figure><img alt="Home Automation đang khóa, với biểu tượng ổ khóa và nút See what is included" src="/screenshots/home-automation-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Trước khi mở khóa, nó cho biết nó bao gồm những gì</figcaption></figure>
+    </div>
+
+    <div class="section-head" style="margin-top:36px">
+      <h2>Vì sao nó chạy mà không cần ứng dụng</h2>
+    </div>
+    <p class="lead">Hầu hết các tích hợp biến điện thoại thành người trung gian: điện thoại nghe lệnh, điện thoại gửi lệnh, và tự động hóa chỉ hoạt động khi điện thoại đang thức và nằm trong mạng.</p>
+    <p class="lead">AVR Maestro không làm vậy. Nó <b>biên dịch</b> các Cảnh của bạn thành các tập lệnh nằm trên hub, và hub gửi lệnh đến IP cục bộ của receiver. Việc của ứng dụng kết thúc khi quá trình đồng bộ hoàn tất.</p>
+    <ul class="plain">
+      <li><b>Ưu tiên cục bộ:</b> không có gì được định tuyến qua máy chủ MiyaraHub. Hub và receiver của bạn giao tiếp trực tiếp với nhau.</li>
+      <li><b>Không phụ thuộc điện thoại:</b> khi một Cảnh đã được công bố, nó chạy dù ứng dụng có được cài trên chiếc điện thoại đã tạo ra nó hay không.</li>
+      <li><b>Trợ lý của bạn, không phải của chúng tôi:</b> Alexa, Google Assistant và Siri Shortcuts đều truy cập các tập lệnh này qua hub mà bạn đã tin dùng. AVR Maestro không thêm lớp giọng nói riêng nào.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Home Assistant, từ đầu đến cuối</h2>
+    </div>
+    <ul class="plain">
+      <li><b>1. Trước tiên, hãy thêm receiver của bạn vào Home Assistant.</b> Cài đặt &rsaquo; Thiết bị &amp; Dịch vụ &rsaquo; Thêm tích hợp &rsaquo; <b>Denon AVR</b> (hoặc <b>HEOS</b>), rồi nhập IP cục bộ của receiver. Home Assistant sẽ tạo một thực thể media player cho thiết bị đó.</li>
+      <li><b>2. Mở Settings &rsaquo; Home Automation trong AVR Maestro</b> và chạm vào thẻ Home Assistant.</li>
+      <li><b>3. Nhập địa chỉ Home Assistant của bạn</b> - địa chỉ cục bộ như <code>http://192.168.1.150:8123</code>, hoặc URL Nabu Casa bên ngoài của bạn.</li>
+      <li><b>4. Đăng nhập và cấp quyền.</b> Một trình duyệt bảo mật trong ứng dụng sẽ mở trang đăng nhập của chính Home Assistant. Thông tin đăng nhập của bạn gửi đến Home Assistant, không bao giờ gửi cho chúng tôi.</li>
+      <li><b>5. Nó tự tìm receiver của bạn.</b> Ứng dụng quét các thực thể media player của bạn và chấm điểm theo kiểu máy, tên và khả năng surround, rồi tự điền thực thể phù hợp cho bạn.</li>
+      <li><b>6. Đồng bộ.</b> Các Cảnh của bạn được dựng thành tập lệnh và tải lên. Sau đó, khi bạn sửa một Cảnh, tập lệnh của nó được cập nhật ngầm - không có nút nào phải nhớ bấm.</li>
+    </ul>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Sau khi đã đồng bộ</div>
+        <h2>Dựng một dashboard đáng để ngắm</h2>
+        <p>Giờ đây Home Assistant có một điều khiển cho mọi thứ bạn có thể ra lệnh cho receiver, và hoàn toàn không có ý kiến gì về cách sắp xếp chúng. <a href="/vi/guide/home-assistant-dashboard/">Ví dụ dashboard</a> là một cách sắp xếp kèm đầy đủ YAML: ô nguồn vào và surround sáng lên khi đó là mục đang dùng, âm lượng theo dB thực, các Cảnh đọc đúng tên của chúng, và một bản đồ trung thực về những gì Home Assistant thấy được và không thấy được.</p>
+      </div>
+      <img alt="Một dashboard Home Assistant được dựng từ các điều khiển đã đồng bộ của AVR Maestro" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Không chỉ có Cảnh</div>
+        <h2>Cả Speaker Preset, Dirac và Audyssey</h2>
+        <p>Bật <b>Sync Advanced Controls</b> và ứng dụng sẽ công bố tập lệnh cho nhiều thứ hơn hẳn các Cảnh của bạn: mọi Speaker Preset, mọi slot bộ lọc Dirac Live, từng đường cong Audyssey. Một lần đồng bộ đầy đủ trên Cinema 30 cho ra hơn bảy mươi tập lệnh, nên một nút trên dashboard hay một lệnh giọng nói có thể nạp bộ lọc Dirac hoặc chuyển đường cong phòng nghe theo cùng cách gọi lại một Cảnh.</p>
+      </div>
+      <img alt="Màn hình Home Assistant của AVR Maestro với Sync Advanced Controls đã bật" src="/screenshots/ha-app-controls.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Nó đọc được, không chỉ ghi</div>
+        <h2>Home Assistant có thể thấy mục nào đang hoạt động</h2>
+        <p>Một tập lệnh chỉ chạy được chứ không đọc được, nên các dashboard thời đầu có thể chuyển đường cong Audyssey hay slot Dirac mà không có cách nào cho biết mục nào đang bật. Những số đọc mà ứng dụng đã nắm - chế độ surround đang chạy, bộ lọc Dirac đang dùng, speaker preset, độ sáng và hàng chục thứ khác - giờ được công bố dưới dạng thuộc tính trên cảm biến trạng thái của receiver, để một ô có thể sáng lên theo cài đặt đang thực sự chạy.</p>
+      </div>
+      <img alt="AVR Maestro công bố các tập lệnh điều khiển Speaker Preset, Dirac Live và Audyssey lên Home Assistant" src="/screenshots/ha-sync-advanced.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Mọi phòng</div>
+        <h2>Các vùng khác của bạn, từ cùng một dashboard</h2>
+        <p>Nguồn điện, âm lượng và tắt tiếng cho Zone 2 và Zone 3 được công bố thành các tập lệnh riêng, nên sân hiên hay một phòng thứ hai cũng đáp lại dashboard hoặc trợ lý giọng nói như vùng chính vẫn luôn làm. Chỉ những vùng mà receiver của bạn thực sự báo về mới có nút, nên receiver hai vùng sẽ không bao giờ mọc ra Zone 3.</p>
+      </div>
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Nếu bạn đã đồng bộ bằng bản cũ</div>
+        <h2>ID tập lệnh của bạn đổi một lần</h2>
+        <p>Trước đây tập lệnh được đặt tên theo Cảnh <em>và</em> receiver, nên đổi tên một trong hai sẽ để lại tập lệnh cũ và âm thầm tạo ra một bản thứ hai. Giờ chúng được đặt tên theo Cảnh và địa chỉ MAC của receiver, nhờ đó khi đổi tên, cùng một tập lệnh được cập nhật thay vì bị tách đôi.</p>
+        <p>Lần đồng bộ đầu tiên sau thay đổi đó sẽ thay các tập lệnh cũ bằng tập lệnh mới. <b>Mọi thứ bạn đã dựng trên các ID cũ cần được trỏ lại một lần</b> - một nút dashboard, một tự động hóa, một bí danh giọng nói. Hãy mở tập lệnh trong Home Assistant để tìm ID thực thể mới của nó.</p>
+        <p>Giờ các thực thể cũng đọc từ receiver - <code>cinema30</code> thay vì ba mươi hai ký tự mã định danh máy - nên danh sách dễ đọc và tính năng tự hoàn thành tìm thấy chúng. ID từ các phiên bản trước vẫn hoạt động.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Hubitat</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Hubitat được hỗ trợ qua <b>Maker API</b> của nó, và được đánh dấu BETA trong ứng dụng vì nó mới hơn cách dùng Home Assistant, chứ không phải vì chưa hoàn thiện.</p>
+        <ul class="plain">
+          <li><b>Hub IP</b> - địa chỉ của Hubitat trên mạng LAN.</li>
+          <li><b>Maker API App ID</b> - con số nằm trong URL riêng của ứng dụng Maker API.</li>
+          <li><b>Access Token</b> - do Maker API cấp khi bạn bật nó.</li>
+        </ul>
+        <p class="lead">Hãy bật Maker API trên hub trước (Apps &rsaquo; Add Built-In App &rsaquo; Maker API) và nó sẽ cung cấp cả ba. Dán chúng vào, AVR Maestro sẽ phát hiện receiver, công bố các Cảnh của bạn dưới dạng chuỗi lệnh, và đẩy trạng thái trực tiếp trở lại để dashboard Hubitat phản ánh đúng những gì receiver đang làm thay vì lệnh cuối cùng nó nhận được.</p>
+      </div>
+      <img alt="Màn hình thiết lập Hubitat với hub IP, Maker API App ID và access token" src="/screenshots/hubitat.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Webhook</h2>
+    </div>
+    <p class="lead">Home Assistant và Hubitat gửi lệnh <em>đến</em> receiver. Webhook đi theo chiều ngược lại: khi receiver làm điều gì đó, hãy báo cho bất cứ thứ gì khác biết. Bật receiver lên và AVR Maestro sẽ gửi một thông điệp nhỏ đến địa chỉ bạn chọn - thông điệp đó chính là webhook.</p>
+
+    <div class="note"><b>Đây là phần duy nhất không độc lập với điện thoại.</b> Các Cảnh đã đồng bộ của bạn trở thành tập lệnh trên hub và chạy dù ứng dụng có ở gần hay không. Webhook thì khác: AVR Maestro là thứ theo dõi receiver, nên một trình kích hoạt chỉ chạy khi ứng dụng đang mở trên một thiết bị có thể thấy receiver. Nếu bạn muốn thứ gì đó chạy mà không cần gì đang mở, hãy dựng nó trên hub của bạn xoay quanh thực thể receiver.</div>
+
+    <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px;margin-top:22px">
+      <figure><img alt="Màn hình Webhook với thẻ giải thích và chưa có trình kích hoạt nào" src="/screenshots/webhooks.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Trống cho đến khi bạn thêm một cái</figcaption></figure>
+      <figure><img alt="Bảng Add Automation Trigger: sự kiện kích hoạt, nơi gửi và một webhook ID" src="/screenshots/webhook-trigger.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Một sự kiện, một đích đến, một ID</figcaption></figure>
+    </div>
+
+    <h3 style="margin-top:34px">Bốn trình kích hoạt</h3>
+    <table class="t" style="margin-top:14px">
+      <thead><tr><th>Sự kiện kích hoạt</th><th>Chạy khi</th><th>Có thể thu hẹp theo</th></tr></thead>
+      <tbody>
+        <tr><td>Receiver Power ON</td><td>Receiver thoát khỏi chế độ chờ</td><td>-</td></tr>
+        <tr><td>Receiver Power OFF</td><td>Receiver chuyển vào chế độ chờ</td><td>-</td></tr>
+        <tr><td>Active Input Changed</td><td>Nguồn vào đang chọn thay đổi</td><td>Một nguồn vào, trong mục <em>Only trigger for input source</em></td></tr>
+        <tr><td>Scene Recalled</td><td>Một Cảnh được áp dụng</td><td>Một Cảnh, trong mục <em>Select Scene</em></td></tr>
+      </tbody>
+    </table>
+
+    <p class="lead" style="margin-top:22px">Thu hẹp phạm vi là thứ khiến chúng hữu ích thay vì ồn ào. “Active Input Changed” cho mọi nguồn vào là một dòng thác; cùng trình kích hoạt đó gắn vào đúng nguồn vào mà máy chiếu của bạn đang dùng thì là một công tắc đèn.</p>
+    <p class="lead">Danh sách nguồn vào là danh sách do chính receiver của bạn báo về, nên đã phản ánh mọi nguồn bạn đã đổi tên hoặc ẩn. Danh sách Cảnh là các Cảnh của riêng bạn.</p>
+
+    <div class="section-head" style="margin-top:44px">
+      <h2>Thiết lập một cái, từng bước một</h2>
+    </div>
+    <p class="lead">Đây là cách dùng Home Assistant, cách mà hầu hết mọi người muốn. Hãy làm nửa Home Assistant trước - ứng dụng cần có thứ gì đó để trỏ tới.</p>
+
+    <h3 style="margin-top:28px">Trong Home Assistant</h3>
+    <ul class="plain">
+      <li><b>1. Settings &rsaquo; Automations &amp; Scenes &rsaquo; Create Automation &rsaquo; Create new automation.</b></li>
+      <li><b>2. Add Trigger &rsaquo; Webhook.</b> Home Assistant tạo cho bạn một Webhook ID ngẫu nhiên rất dài.</li>
+      <li><b>3. Thay nó bằng thứ bạn dễ nhận ra</b> - <code>avr-power-on</code>, <code>avr-movie-night</code>. Tên nào cũng được miễn là duy nhất trên Home Assistant của bạn. Hãy ghi lại; bạn sẽ gõ đúng tên đó vào AVR Maestro.</li>
+      <li><b>4. Trong cài đặt của webhook, cho phép <em>POST</em>.</b> Đó là thứ AVR Maestro gửi. Chỉ cục bộ là đủ - ứng dụng nằm trong mạng của bạn.</li>
+      <li><b>5. Thêm bất cứ việc gì bạn muốn nó làm</b> - giảm đèn, kéo rèm, bắt đầu một Cảnh - rồi lưu tự động hóa.</li>
+    </ul>
+
+    <h3 style="margin-top:28px">Trong AVR Maestro</h3>
+    <ul class="plain">
+      <li><b>1. Settings &rsaquo; Home Automation &rsaquo; Webhooks</b>, rồi <b>Add First Trigger</b> - hoặc nút <b>+</b> khi bạn đã có một cái.</li>
+      <li><b>2. Trigger Event</b> - chọn điều gì sẽ kích hoạt nó. Chọn <em>Active Input Changed</em> hoặc <em>Scene Recalled</em> sẽ thêm ô thứ hai để thu hẹp phạm vi.</li>
+      <li><b>3. Nơi gửi</b> - giữ nguyên <b>Home Assistant</b>. Địa chỉ đã được biết sẵn, vì bạn đã liên kết nó trước đó trên cùng màn hình này.</li>
+      <li><b>4. Webhook ID</b> - gõ đúng ID bạn đã dùng trong Home Assistant. Không cần khớp thêm gì khác. Bên dưới, ứng dụng ghi rõ địa chỉ chính xác mà nó sẽ gửi đến - <code>Sends to http://your-ha:8123/api/webhook/avr-power-on</code> - để bạn kiểm tra trước khi lưu.</li>
+      <li><b>5. Lưu.</b> Sau đó bấm <b>Test</b> trên trình kích hoạt trong danh sách. Tự động hóa Home Assistant của bạn sẽ chạy ngay lập tức.</li>
+    </ul>
+
+    <div class="note" style="margin-top:24px"><b>Bạn không bao giờ phải gõ URL cho cách dùng Home Assistant.</b> Ứng dụng dựng nó từ Home Assistant bạn đã liên kết, và tra cứu địa chỉ đó <em>mỗi lần một trình kích hoạt chạy</em>. Chuyển Home Assistant sang cổng mới, tên máy mới hoặc địa chỉ Nabu Casa, và mọi webhook bạn đã tạo sẽ đi theo. Không cần đồng bộ lại và không có nút nào để bấm.</div>
+
+    <div class="note">Nếu bảng báo <b>Home Assistant is not linked yet</b>, hãy làm thẻ Home Assistant ở đầu trang này trước. Cách dùng webhook cần một địa chỉ để làm nền.</div>
+
+    <h3 style="margin-top:34px">Gửi đến nơi không phải Home Assistant</h3>
+    <p class="lead">Chuyển <b>Where to send it</b> sang <b>Other</b> và dán một URL đầy đủ vào <b>Webhook URL</b>. Bất cứ thứ gì nhận POST đều dùng được - một luồng Node-RED, một applet IFTTT, một tập lệnh trên NAS, một endpoint Hubitat Maker API. Cách này lưu địa chỉ đúng như bạn gõ, nên nếu đích đến thay đổi, bạn phải sửa trình kích hoạt.</p>
+
+    <div class="section-head" style="margin-top:44px">
+      <h2>Thực sự gửi đi những gì</h2>
+    </div>
+    <p class="lead">Một phần thân JSON nhỏ. Thẻ <b>What it sends</b> trên cùng màn hình diễn đạt bằng ngôn ngữ dễ hiểu cho trình kích hoạt bạn chọn, nên bạn không bao giờ phải đoán - và đây là tên các trường mà tự động hóa của bạn đọc:</p>
+    <table class="t" style="margin-top:14px">
+      <thead><tr><th>Trình kích hoạt</th><th>Các trường trong thông điệp</th></tr></thead>
+      <tbody>
+        <tr><td>Receiver Power ON / OFF</td><td><code>event</code>, <code>timestamp</code></td></tr>
+        <tr><td>Active Input Changed</td><td>...cùng với <code>source</code></td></tr>
+        <tr><td>Scene Recalled</td><td>...cùng với <code>sceneId</code> và <code>sceneName</code></td></tr>
+      </tbody>
+    </table>
+    <p class="lead" style="margin-top:20px">Trong một tự động hóa Home Assistant, chúng đến dưới dạng <code>{{ trigger.json.event }}</code>, <code>{{ trigger.json.source }}</code> và tương tự. Bạn có thể đọc chúng, hoặc bỏ qua hoàn toàn và chỉ hành động dựa trên việc nó đã chạy. Hầu hết mọi người chọn cách thứ hai.</p>
+    <p class="lead">Nếu bạn cần một dạng khác - một dịch vụ mong đợi định dạng riêng của nó - hãy mở <b>Send my own JSON instead</b> bên dưới thẻ đó và viết ở đó. Nó được gập lại và đánh dấu Advanced vì hầu như không ai cần đến, chứ không phải vì không khuyến khích.</p>
+
+    <div class="note">Màn hình có tên <b>Webhooks</b> vì chúng đúng là như vậy. Nếu bạn đang tìm các tự động hóa chạy <em>trên</em> hub của bạn, đó là các thẻ Home Assistant và Hubitat ở trên - một Cảnh đã đồng bộ trở thành tập lệnh ở đó, không phải webhook ở đây.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Khi webhook không đến nơi</h2>
+    </div>
+    <p class="lead">Theo thứ tự đáng kiểm tra, vì hai điều đầu hầu như luôn là nguyên nhân:</p>
+    <ul class="plain">
+      <li><b>Bấm Test trước.</b> Nó gửi đúng thông điệp mà trình kích hoạt thật gửi, đến cùng địa chỉ, và cho bạn biết trong ba khả năng điều nào đã xảy ra: đã gửi, không gửi được, hoặc bị bỏ qua vì công tắc của chính trình kích hoạt đang tắt. Nếu Test gửi được mà sự kiện thật thì không, vấn đề nằm ở trình kích hoạt - thường gặp nhất là <em>Active Input Changed</em> được thu hẹp vào một nguồn vào mà bạn thực ra không chuyển sang.</li>
+      <li><b>Kiểm tra ID khớp chính xác.</b> Webhook ID của Home Assistant phân biệt chữ hoa chữ thường và không chấp nhận dấu cách thừa. Ứng dụng in địa chỉ đầy đủ mà nó sẽ gửi đến bên dưới ô nhập - hãy so sánh với địa chỉ trong tự động hóa của bạn.</li>
+      <li><b>Kiểm tra tự động hóa cho phép POST.</b> Một trình kích hoạt webhook của Home Assistant chỉ cho phép GET sẽ âm thầm bỏ qua những gì AVR Maestro gửi.</li>
+      <li><b>Kiểm tra công tắc của trình kích hoạt đang bật.</b> Mỗi cái có công tắc riêng trong danh sách, và một trình kích hoạt đang tắt sẽ bị bỏ qua chứ không báo lỗi.</li>
+      <li><b>Trình kích hoạt thuộc về một receiver.</b> Danh sách bạn đang xem là danh sách của receiver đang được chọn. Receiver khác có danh sách riêng, nên một quy tắc tạo ở đây sẽ không chạy cho phòng khác.</li>
+      <li><b>Ứng dụng phải đang theo dõi.</b> AVR Maestro là thứ nhận ra receiver đã thay đổi, nên sẽ không có gì chạy từ một chiếc điện thoại trong túi khi ứng dụng đã đóng. Đó là sự đánh đổi được mô tả ở đầu phần này, không phải lỗi.</li>
+      <li><b>Webhook là một phần của Home Automation.</b> Nếu không mở khóa tính năng đó, các trình kích hoạt vẫn hiển thị nhưng không có gì được gửi, và Test sẽ nói rõ điều đó thay vì giả vờ là đã hoạt động.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Cái gì trả phí và cái gì không</div>
+        <h2>Home Automation là phần mở khóa duy nhất. Trợ lý AI thì miễn phí.</h2>
+        <p><b>Home Automation (Pro)</b> - Home Assistant, Hubitat và webhook gửi đi - là một lần mở khóa duy nhất. Mọi thứ khác trong AVR Maestro, kể cả trợ lý AI chạy trên thiết bị, đều có sẵn trong ứng dụng.</p>
+        <p>Điều khiển bằng giọng nói đến được receiver của bạn <em>thông qua</em> Home Automation, qua hub của bạn. AVR Maestro không tự chạy nhận dạng giọng nói.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Câu hỏi thường gặp</div>
+      <h2>Giải đáp về Home Automation</h2>
+    </div>
+    <details open><summary>Điện thoại của tôi có cần bật để điều khiển bằng giọng nói không?</summary><div class="body">Không. AVR Maestro biên dịch các Cảnh của bạn thành tập lệnh Home Assistant gốc. Home Assistant giao tiếp trực tiếp với receiver trong mạng nội bộ của bạn, nên điện thoại có thể tắt, ở chế độ ngủ hoặc đang ở một quốc gia khác.</div></details>
+    <details><summary>Những trợ lý giọng nói nào có thể điều khiển receiver của tôi?</summary><div class="body">Bất kỳ trợ lý nào bạn đang dùng. AVR Maestro không tự thêm lớp giọng nói riêng - nó công bố các tập lệnh lên Home Assistant hoặc Hubitat, và hub mà bạn đã tin dùng sẽ chia sẻ chúng với Alexa, Google Assistant hoặc Siri Shortcuts.</div></details>
+    <details><summary>Trợ lý AI có nằm trong phần mở khóa trả phí không?</summary><div class="body">Không. Trợ lý AI chạy trên thiết bị là miễn phí. Home Automation - Home Assistant, Hubitat và webhook gửi đi - là tính năng mở khóa trả phí duy nhất trong AVR Maestro.</div></details>
+    <details><summary>Có dữ liệu nào rời khỏi mạng gia đình của tôi không?</summary><div class="body">Không phải để điều khiển. Ứng dụng giao tiếp với receiver và hub của bạn qua chính mạng của bạn. Không có gì được định tuyến qua máy chủ MiyaraHub. Webhook gửi đến bất cứ nơi nào bạn chỉ định, đó là lựa chọn của bạn.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Xem thêm trong hướng dẫn</div>
+      <h2>Các hướng dẫn khác về AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/vi/guide/getting-started/">Bắt đầu</a> &middot; <a href="/vi/guide/home/">Màn hình chính</a> &middot; <a href="/vi/guide/scenes/">Cảnh</a> &middot; <a href="/vi/guide/custom-icons/">Biểu tượng tùy chỉnh</a> &middot; <a href="/vi/guide/sound/">Âm thanh</a> &middot; <a href="/vi/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/vi/guide/speakers/">Loa</a> &middot; <a href="/vi/guide/locked-controls/">Vì sao một điều khiển bị khóa</a> &middot; <a href="/vi/guide/assistant/">Trợ lý</a> &middot; <a href="/vi/guide/home-assistant-dashboard/">Bảng điều khiển Home Assistant</a> &middot; <a href="/vi/guide/multi-zone/">Vùng</a> &middot; <a href="/vi/guide/remote/">Điều khiển từ xa</a> &middot; <a href="/vi/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/vi/guide/on-screen-display/">Hiển thị trên màn hình</a> &middot; <a href="/vi/guide/settings/">Cài đặt</a> &middot; <a href="/vi/guide/languages/">Ngôn ngữ</a> &middot; <a href="/vi/guide/volume/">Điều khiển âm lượng</a> &middot; <a href="/vi/guide/backup/">Sao lưu &amp; Khôi phục</a> &middot; <a href="/vi/guide/now-playing/">Đang phát &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Các Cảnh của bạn, chạy mà không cần điện thoại</h2>
+    <p class="lead" style="margin:0 auto 24px">Home Automation là một lần mở khóa duy nhất. Mọi thứ khác trong ứng dụng, kể cả trợ lý AI, đều được bao gồm.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Tải trên Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Tải trên App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Tải trên Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Tải trên Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/vi/guide/">Quay lại Hướng dẫn sử dụng đầy đủ &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/vi/">Trang chủ</a>
+      <a href="/vi/guide/">Hướng dẫn sử dụng</a>
+      <a href="/vi/guide/getting-started/">Bắt đầu</a>
+      <a href="/vi/receivers/">Receiver</a>
+      <a href="/vi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/vi/audyssey-vs-dirac/">Audyssey so với Dirac</a>
+      <a href="/vi/best-denon-marantz-app/">Vì sao nên chuyển</a>
+      <a href="/vi/help/">Trợ giúp</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro là ứng dụng độc lập của MiyaraHub Technologies LLC và không có liên kết, không được bảo trợ hay tài trợ bởi Denon, Marantz, D&amp;M Holdings, Sound United hay bất kỳ công ty nào khác được nêu trên trang này. Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant và Siri là nhãn hiệu của các chủ sở hữu tương ứng, chỉ được dùng ở đây với mục đích nhận diện.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

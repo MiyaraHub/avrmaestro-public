@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="cs" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ovládejte Zónu 2 &amp; Zónu 3 z telefonu - AVR Maestro</title>
+<meta name="description" content="Samostatné ovládání Zóny 2 a Zóny 3 na přijímačích Denon a Marantz: zapínání, vstup, hlasitost, ztlumení, Zone Smart Select / Quick Select, přejmenování zón a přehrávání pro každou zónu zvlášť." />
+<meta name="keywords" content="multi-zone receiver control app, Zone 2 control app, Zone 3 control app, Denon multi-zone app, Marantz multi-zone, whole house audio receiver app, second zone control, zone quick select, zone smart select, rename zones Denon Marantz" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/cs/guide/multi-zone/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/multi-zone/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/multi-zone/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/multi-zone/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/multi-zone/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/multi-zone/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/multi-zone/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/multi-zone/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/multi-zone/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/multi-zone/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/multi-zone/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/multi-zone/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/multi-zone/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/multi-zone/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/multi-zone/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/multi-zone/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/multi-zone/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/multi-zone/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/multi-zone/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/multi-zone/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/multi-zone/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/multi-zone/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/multi-zone/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/multi-zone/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/multi-zone/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/multi-zone/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/multi-zone/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/multi-zone/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/multi-zone/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/multi-zone/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/multi-zone/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/multi-zone/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="cs_CZ" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Ovládejte Zónu 2 &amp; Zónu 3 z telefonu - AVR Maestro" />
+<meta property="og:description" content="Samostatné ovládání Zóny 2 a Zóny 3 na přijímačích Denon a Marantz: zapínání, vstup, hlasitost, ztlumení, Zone Smart Select / Quick Select, přejmenování zón a přehrávání pro každou zónu zvlášť." />
+<meta property="og:url" content="https://avrmaestro.com/cs/guide/multi-zone/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Ovládejte Zónu 2 &amp; Zónu 3 z telefonu - AVR Maestro" />
+<meta name="twitter:description" content="Samostatné ovládání Zóny 2 a Zóny 3 na přijímačích Denon a Marantz: zapínání, vstup, hlasitost, ztlumení, Zone Smart Select / Quick Select, přejmenování zón a přehrávání pro každou zónu zvlášť." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro je nezávislá aplikace pro ovládání AV přijímačů Denon a Marantz přes vaši místní síť.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "cs"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/multi-zone/#article",
+      "headline": "Více zón: ovládejte celý dům",
+      "description": "Samostatné ovládání Zóny 2 a Zóny 3 na přijímačích Denon a Marantz: zapínání, vstup, hlasitost, ztlumení, Zone Smart Select / Quick Select, přejmenování zón a přehrávání pro každou zónu zvlášť.",
+      "image": "https://avrmaestro.com/screenshots/zones.png",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/multi-zone/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "cs"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/multi-zone/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Mohu z telefonu ovládat Zónu 2 a Zónu 3?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano - na vícezónových přijímačích má každá zóna vlastní zapínání, hlasitost, ztlumení, vstup a předvolby rychlé hlasitosti, zcela oddělené od hlavní zóny, a vše se synchronizuje živě."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mohu v zóně použít Smart Select nebo Quick Select?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano - karta každé zóny nese její vlastní sloty, pojmenované tak, jak je pojmenovává váš přijímač: Smart Select u Marantz, Quick Select u Denon. Klepnutím slot vyvoláte; podržením do něj uložíte aktuální stav zóny, přímo z karty."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mohu své zóny přejmenovat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano - dlouhým stisknutím názvu zóny na obrazovce Domů přejmenujete libovolnou zónu, včetně hlavní. Název se zapíše přímo do přijímače, takže je vidět v aplikaci výrobce i ve všech ostatních klientech, včetně starších šasi."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ukazuje každá zóna, co se přehrává?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano - když je zóna zapnutá, její karta zobrazuje živý proud právě přehrávaného z HEOS pro danou zónu spolu s ovládáním přehrávání."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Může Scéna nastavit mé zóny?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano - Scéna dokáže zachytit a obnovit zapnutí, vstup a hlasitost Zóny 2/3 spolu se zbytkem vašeho nastavení."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Domů",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Uživatelská příručka",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Více zón",
+      "item": "https://avrmaestro.com/guide/multi-zone/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/cs/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Nabídka" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Hledat v příručce..." data-i18n-empty="Žádné výsledky pro" data-i18n-language="Jazyk">
+      <a href="/cs/">Domů</a>
+      <a href="/cs/guide/">Uživatelská příručka</a>
+      <a href="/cs/receivers/">Přijímače</a>
+      <a href="/cs/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/cs/best-denon-marantz-app/">Proč přejít</a>
+      <a href="/cs/#top" class="cta">Stáhnout</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero split">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="/cs/">Domů</a> &rsaquo; <a href="/cs/guide/">Uživatelská příručka</a> &rsaquo; Více zón</div>
+      <div class="eyebrow">Více zón</div>
+      <h1>Více zón: ovládejte <span class="g">celý dům</span></h1>
+      <p>Samostatné zapínání, vstup a hlasitost pro Zónu 2 a Zónu 3 na vícezónových přijímačích Denon a Marantz - a Scény mohou zachytit a obnovit i stav zón. Hudba v kuchyni, film v domácím kině, vše z jedné aplikace.</p>
+    </div>
+    <div class="hero-shot"><img alt="Ovládání více zón v AVR Maestro" src="/screenshots/zones.png" width="1324" height="2644" fetchpriority="high" /></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Jak zóny fungují</div>
+      <h2>Každá zóna zcela samostatná</h2>
+      <p class="lead">Každá zóna má vlastní zapínání, hlasitost, ztlumení, vstup a předvolby rychlé hlasitosti, zcela oddělené od hlavní zóny.</p>
+    </div>
+    <div class="grid">
+      <div class="gcard"><div class="ic">&#128268;</div><h3>Samostatné zapínání</h3><p>Zapněte nebo vypněte Zónu 2 či Zónu 3, aniž byste se dotkli hlavní zóny.</p></div>
+      <div class="gcard"><div class="ic">&#127925;</div><h3>Vlastní zdroj &amp; hlasitost</h3><p>Jiný vstup a hlasitost pro každou zónu, s čipy předvoleb rychlé hlasitosti - předvolby se ve výchozím nastavení mění plynule (Nastavení, Zvuk: Postupně / Přímo).</p></div>
+      <div class="gcard"><div class="ic">&#9889;</div><h3>Zone Smart Select / Quick Select</h3><p>Vlastní sloty Smart Select nebo Quick Select dané zóny, přímo na kartě - klepnutím slot vyvoláte, podržením do něj uložíte aktuální stav zóny.</p></div>
+      <div class="gcard"><div class="ic">&#9997;&#65039;</div><h3>Přejmenujte libovolnou zónu</h3><p>Dlouze stiskněte název zóny na obrazovce Domů - včetně hlavní zóny. Název se uloží přímo do přijímače, takže se na něm shodnou všechny aplikace.</p></div>
+      <div class="gcard"><div class="ic">&#128260;</div><h3>Živá synchronizace</h3><p>Změňte zónu na panelu přijímače nebo dálkovém ovladači a aplikace se aktualizuje do sekundy.</p></div>
+      <div class="gcard"><div class="ic">&#127911;</div><h3>Přehrávání pro každou zónu zvlášť</h3><p>Když je zóna zapnutá, její karta zobrazuje živý proud HEOS pro danou zónu s ovládáním přehrávání.</p></div>
+      <div class="gcard"><div class="ic">&#127917;</div><h3>Zachyceno Scénami</h3><p><a href="/cs/guide/scenes/">Scéna</a> dokáže zachytit a obnovit stav Zóny 2/3 spolu se vším ostatním.</p></div>
+      <div class="gcard"><div class="ic">&#128241;</div><h3>Na obrazovce Domů</h3><p>Kompaktní widget Zóny nabízí přehledný stav i rychlé ovládání přímo na obrazovce Domů.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Zapnutí zóny a nasměrování jinam</h2>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(1,1fr);max-width:320px;margin:0 0 26px">
+      <figure><img alt="Karta Zóny s Patio jako zónou 2 a ZONE3 jako zónou 3, každá s vlastním ovládáním napájení" src="/screenshots/zones.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Jedna karta pro každou zónu, kterou přijímač hlásí</figcaption></figure>
+    </div>
+    <ul class="plain">
+      <li><b>1. Otevřete kartu Zóny.</b> Každá zóna, kterou váš přijímač hlásí, dostane vlastní kartu. Přijímač s jednou zónou kartu nemá.</li>
+      <li><b>2. Zapněte zónu</b> ovládáním napájení na její kartě. Na hlavní zóně se nic nemění.</li>
+      <li><b>3. Vyberte její zdroj.</b> Seznam je seznamem vašeho přijímače, pod jakýmikoli názvy, které jste přejmenovali, a zóna může být na úplně jiném vstupu než hlavní místnost.</li>
+      <li><b>4. Nastavte její hlasitost.</b> Zóna má vlastní úroveň a vlastní ztlumení a čipy rychlé hlasitosti vyvolávají úrovně, které jste na dané zóně nastavili. Předvolby se mění plynule, dokud v Nastavení, Zvuk nepřepnete na Přímo.</li>
+      <li><b>5. Volitelně: uložte ji.</b> Podržte jeden z vlastních slotů Smart Select nebo Quick Select dané zóny, uložíte tak vše, co zóna právě dělá, a později jej klepnutím vyvoláte zpět.</li>
+    </ul>
+    <p class="lead" style="margin-top:20px">Zónu přejmenujete dlouhým stisknutím jejího názvu na obrazovce Domů. Název se zapíše do přijímače, takže se s aplikací shoduje i přední panel a všechny ostatní aplikace.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Dobré vědět</div>
+      <h2>Proč vypnutí hlavní zóny nevypne ostatní místnosti</h2>
+    </div>
+    <p class="lead">Přijímače Denon a Marantz mají dva různé příkazy napájení a rozdíl je důležitý, pokud se jinde v domě přehrává hudba.</p>
+    <p class="lead">Systémový příkaz pohotovostního režimu vypne celé šasi a přijímač s ním stáhne i ostatní zóny - na Cinema 30 bylo naměřeno, že šasi hlásí Zónu 2 jako vypnutou jednu milisekundu poté, co příkaz pohotovostního režimu dorazí. Hlavní ovládání napájení v AVR Maestro proto záměrně posílá příkaz pro <b>hlavní zónu</b>. Vypněte domácí kino z aplikace a v kuchyni hraje dál.</p>
+    <p class="lead">Funguje to i obráceně: zapnutí hlavní zóny ze studeného přijímače nejprve probudí šasi, takže přijímač nemusíte před použitím aplikace zapínat zvlášť.</p>
+    <div class="note">Pokud se zóna vypne sama při změně hlavní zóny, způsobuje to vlastní nastavení přijímače, ne aplikace. Některé modely mají v nabídce zón volbu propojení napájení.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Časté dotazy</div>
+      <h2>Časté dotazy k více zónám</h2>
+    </div>
+    <details open><summary>Mohu z telefonu ovládat Zónu 2 a Zónu 3?</summary><div class="body">Ano - na vícezónových přijímačích má každá zóna vlastní zapínání, hlasitost, ztlumení, vstup a předvolby rychlé hlasitosti, zcela oddělené od hlavní zóny, a vše se synchronizuje živě.</div></details>
+    <details><summary>Mohu v zóně použít Smart Select nebo Quick Select?</summary><div class="body">Ano - karta každé zóny nese její vlastní sloty, pojmenované tak, jak je pojmenovává váš přijímač: Smart Select u Marantz, Quick Select u Denon. Klepnutím slot vyvoláte; podržením do něj uložíte aktuální stav zóny, přímo z karty.</div></details>
+    <details><summary>Mohu své zóny přejmenovat?</summary><div class="body">Ano - dlouhým stisknutím názvu zóny na obrazovce Domů přejmenujete libovolnou zónu, včetně hlavní. Název se zapíše přímo do přijímače, takže je vidět v aplikaci výrobce i ve všech ostatních klientech, včetně starších šasi.</div></details>
+    <details><summary>Ukazuje každá zóna, co se přehrává?</summary><div class="body">Ano - když je zóna zapnutá, její karta zobrazuje živý proud právě přehrávaného z HEOS pro danou zónu spolu s ovládáním přehrávání.</div></details>
+    <details><summary>Může Scéna nastavit mé zóny?</summary><div class="body">Ano - <a href="/cs/guide/scenes/">Scéna</a> dokáže zachytit a obnovit zapnutí, vstup a hlasitost Zóny 2/3 spolu se zbytkem vašeho nastavení.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Další z průvodce</div>
+      <h2>Další průvodce aplikací AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/cs/guide/getting-started/">Začínáme</a> &middot; <a href="/cs/guide/home/">Domovská obrazovka</a> &middot; <a href="/cs/guide/scenes/">Scény</a> &middot; <a href="/cs/guide/custom-icons/">Vlastní ikony</a> &middot; <a href="/cs/guide/sound/">Zvuk</a> &middot; <a href="/cs/guide/graphic-eq/">Grafický ekvalizér</a> &middot; <a href="/cs/guide/speakers/">Reproduktory</a> &middot; <a href="/cs/guide/locked-controls/">Proč je ovládací prvek uzamčen</a> &middot; <a href="/cs/guide/assistant/">Asistent</a> &middot; <a href="/cs/guide/home-automation/">Domácí automatizace</a> &middot; <a href="/cs/guide/home-assistant-dashboard/">Dashboard Home Assistant</a> &middot; <a href="/cs/guide/remote/">Dálkový ovladač</a> &middot; <a href="/cs/guide/radio/">Rádio (FM/AM)</a> &middot; <a href="/cs/guide/on-screen-display/">Zobrazení na obrazovce</a> &middot; <a href="/cs/guide/settings/">Nastavení</a> &middot; <a href="/cs/guide/languages/">Jazyky</a> &middot; <a href="/cs/guide/volume/">Ovládání hlasitosti</a> &middot; <a href="/cs/guide/backup/">Záloha &amp; obnova</a> &middot; <a href="/cs/guide/now-playing/">Právě se přehrává &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Ovládejte každou místnost</h2>
+    <p class="lead" style="margin:0 auto 24px">Jednorázový nákup, žádné reklamy, žádná předplatná. Připojení za méně než minutu.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Stáhnout z Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Stáhnout z App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Stáhnout z Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Stáhnout z Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/cs/guide/">Zpět na celého Uživatelského průvodce &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/cs/">Domů</a>
+      <a href="/cs/guide/">Uživatelská příručka</a>
+      <a href="/cs/guide/getting-started/">Začínáme</a>
+      <a href="/cs/receivers/">Přijímače</a>
+      <a href="/cs/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/cs/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/cs/best-denon-marantz-app/">Proč přejít</a>
+      <a href="/cs/help/">Nápověda</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro je nezávislá aplikace společnosti MiyaraHub Technologies LLC a není nijak spojena se společnostmi Denon, Marantz, D&amp;M Holdings, Sound United ani s žádnou jinou firmou uvedenou na této stránce, ani jimi není schválena či sponzorována. Denon, Marantz, HEOS, Audyssey a Dirac Live jsou ochranné známky svých příslušných vlastníků, které jsou zde použity pouze pro identifikaci.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

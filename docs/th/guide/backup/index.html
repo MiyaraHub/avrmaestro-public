@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="th" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>สำรองข้อมูล &amp; กู้คืนการตั้งค่าไปยังโทรศัพท์เครื่องใหม่ - AVR Maestro</title>
+<meta name="description" content="ส่งออกการตั้งค่า AVR Maestro ทั้งหมดเป็นไฟล์เดียว ได้แก่ เครื่องรับ ชื่อและไอคอนอินพุต ฉาก ธีม และค่ากำหนดระดับเสียง แล้วกู้คืนบนโทรศัพท์เครื่องใหม่ได้ในไม่กี่แตะ" />
+<meta name="keywords" content="AVR Maestro backup, transfer AVR app settings new phone, export receiver settings app, restore Denon app config, AVR Maestro migrate device" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/th/guide/backup/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/backup/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/backup/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/backup/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/backup/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/backup/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/backup/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/backup/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/backup/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/backup/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/backup/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/backup/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/backup/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/backup/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/backup/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/backup/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/backup/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/backup/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/backup/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/backup/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/backup/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/backup/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/backup/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/backup/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/backup/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/backup/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/backup/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/backup/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/backup/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/backup/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/backup/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/backup/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="th_TH" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="สำรองข้อมูล &amp; กู้คืนการตั้งค่าไปยังโทรศัพท์เครื่องใหม่ - AVR Maestro" />
+<meta property="og:description" content="ส่งออกการตั้งค่า AVR Maestro ทั้งหมดเป็นไฟล์เดียว ได้แก่ เครื่องรับ ชื่อและไอคอนอินพุต ฉาก ธีม และค่ากำหนดระดับเสียง แล้วกู้คืนบนโทรศัพท์เครื่องใหม่ได้ในไม่กี่แตะ" />
+<meta property="og:url" content="https://avrmaestro.com/th/guide/backup/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="สำรองข้อมูล &amp; กู้คืนการตั้งค่าไปยังโทรศัพท์เครื่องใหม่ - AVR Maestro" />
+<meta name="twitter:description" content="ส่งออกการตั้งค่า AVR Maestro ทั้งหมดเป็นไฟล์เดียว ได้แก่ เครื่องรับ ชื่อและไอคอนอินพุต ฉาก ธีม และค่ากำหนดระดับเสียง แล้วกู้คืนบนโทรศัพท์เครื่องใหม่ได้ในไม่กี่แตะ" />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro เป็นแอปอิสระสำหรับควบคุมเครื่องรับ AV ของ Denon และ Marantz ผ่านเครือข่ายภายในบ้านของคุณ",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "th"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/backup/#article",
+      "headline": "สำรองข้อมูลและกู้คืน: การตั้งค่าทั้งหมดของคุณในไฟล์เดียว",
+      "description": "ส่งออกการตั้งค่า AVR Maestro ทั้งหมดเป็นไฟล์เดียว ได้แก่ เครื่องรับ ชื่อและไอคอนอินพุต ฉาก ธีม และค่ากำหนดระดับเสียง แล้วกู้คืนบนโทรศัพท์เครื่องใหม่ได้ในไม่กี่แตะ",
+      "image": "https://avrmaestro.com/screenshots/backup-restore.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/backup/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "th"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/backup/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "ย้ายไฟล์สำรองระหว่าง Android กับ iPhone ได้ไหม",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ไฟล์เป็น JSON ธรรมดาและไม่ผูกกับอุปกรณ์ที่สร้างไฟล์ ส่งออกจากเครื่องหนึ่ง ย้ายไฟล์ไปยังอีกเครื่อง แล้วนำเข้าได้เลย"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "การนำเข้าจะเขียนทับการสอบเทียบของเครื่องรับของฉันไหม",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ไม่ ไฟล์สำรองมีเฉพาะการตั้งค่าของแอปเท่านั้น ทุกอย่างที่เครื่องรับจัดเก็บไว้เอง ไม่ว่าจะเป็นการสอบเทียบ พรีเซ็ต ระดับเสียง ระยะห่าง และตัวกรอง Dirac อยู่ในเครื่องรับและจะไม่ถูกแตะต้อง"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ฉากของฉันจะย้ายมาด้วยไหม",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ได้ พร้อมกับรายการการตั้งค่าที่แต่ละฉากถูกกำหนดให้บันทึกไว้ ดูคู่มือฉาก"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ตัวเลือกบันทึกลงอุปกรณ์จะเก็บไฟล์ไว้ที่ไหน",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ที่ใดก็ได้ที่คุณเลือกในตัวเลือกไฟล์ของระบบ หากไฟล์เพียงแค่ผ่านไปยังโทรศัพท์อีกเครื่อง การแชร์จะเร็วกว่า"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "หน้าแรก",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "คู่มือผู้ใช้",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "สำรองข้อมูลและกู้คืน",
+      "item": "https://avrmaestro.com/guide/backup/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/th/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="เมนู" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="ค้นหาในคู่มือ..." data-i18n-empty="ไม่พบผลลัพธ์สำหรับ" data-i18n-language="ภาษา">
+      <a href="/th/">หน้าแรก</a>
+      <a href="/th/guide/">คู่มือผู้ใช้</a>
+      <a href="/th/receivers/">เครื่องรับ</a>
+      <a href="/th/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/th/best-denon-marantz-app/">ทำไมต้องเปลี่ยน</a>
+      <a href="/th/#top" class="cta">ดาวน์โหลด</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/th/">หน้าแรก</a> &rsaquo; <a href="/th/guide/">คู่มือผู้ใช้</a> &rsaquo; สำรอง &amp; กู้คืนข้อมูล</div>
+    <div class="eyebrow">การตั้งค่า &rsaquo; สำรองข้อมูล &amp; กู้คืน</div>
+    <h1>สำรองข้อมูล &amp; กู้คืน: การตั้งค่าทั้งหมดของคุณ<span class="g">ในไฟล์เดียว</span></h1>
+    <p>การเปลี่ยนชื่ออินพุตทุกช่อง เลือกภาพประกอบให้แต่ละช่อง จัดลำดับแหล่งสัญญาณ และสร้างชุดฉากขึ้นมา เป็นงานที่ต้องใช้เวลาจริง ๆ สิ่งเหล่านี้ควรอยู่รอดเมื่อเปลี่ยนโทรศัพท์ และมันก็เป็นเช่นนั้น ส่งออกหนึ่งครั้ง นำเข้าหนึ่งครั้ง เครื่องใหม่ก็หน้าตาเหมือนเครื่องเดิมทุกประการ</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">ส่งออก</div>
+        <h2>บันทึกลงอุปกรณ์ หรือแชร์ต่อได้ทันที</h2>
+        <p class="lead">เปิด<b>การตั้งค่า</b> เลื่อนไปที่<b>สำรองข้อมูล &amp; กู้คืน</b> แล้วเลือก:</p>
+        <ul class="plain">
+          <li><b>บันทึกลงอุปกรณ์</b> - เขียนไฟล์ JSON ไฟล์เดียวไปยังตำแหน่งที่คุณระบุ</li>
+          <li><b>แชร์</b> - ส่งไฟล์ไปยังชีตแชร์ที่คุณใช้เป็นประจำ เพื่อส่งตรงไปยังโทรศัพท์อีกเครื่อง ไดรฟ์ในระบบคลาวด์ หรือข้อความถึงตัวคุณเอง</li>
+        </ul>
+        <p class="lead">เป็นไฟล์ข้อความธรรมดา ไม่มีสิ่งใดในไฟล์ที่ผูกติดกับอุปกรณ์ต้นทาง</p>
+      </div>
+      <img alt="หน้าสำรองข้อมูลและกู้คืนพร้อมการส่งออกและการนำเข้า" src="/screenshots/backup-restore.png" width="1324" height="2644" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">เนื้อหาในไฟล์</div>
+      <h2>สิ่งที่ย้ายไปกับคุณ</h2>
+    </div>
+    <table class="t">
+      <thead><tr><th>รวมอยู่</th><th>ความหมาย</th></tr></thead>
+      <tbody>
+        <tr><td>เครื่องรับที่ตั้งค่าไว้</td><td>ทุกอุปกรณ์ที่คุณเพิ่มไว้ พร้อมที่อยู่และการตั้งค่า</td></tr>
+        <tr><td>ลำดับแหล่งสัญญาณของแต่ละเครื่อง</td><td>ลำดับที่คุณลากอินพุตไปจัดไว้ เก็บแยกตามเครื่องรับแต่ละเครื่อง</td></tr>
+        <tr><td>ธีมและสีธีม</td><td>สีเน้นและตัวเลือกรูปลักษณ์ของคุณ</td></tr>
+        <tr><td>ขนาดการแสดงผลและวิดเจ็ต</td><td>ขนาดข้อความและวิดเจ็ต</td></tr>
+        <tr><td>ค่ากำหนดระดับเสียง</td><td>พฤติกรรมระดับเสียงในฝั่งแอป</td></tr>
+        <tr><td>สถานะการ์ดคำอธิบาย</td><td>แบนเนอร์ข้อมูลที่คุณปิดไปแล้ว จะได้ยังคงถูกปิดอยู่</td></tr>
+        <tr><td>ผลการตรวจสอบที่แคชไว้</td><td>ผลการตรวจสอบ HEOS ฟีเจอร์ และความสามารถด้านเพลง เพื่อให้โทรศัพท์เครื่องใหม่ไม่ต้องเริ่มต้นจากศูนย์</td></tr>
+      </tbody>
+    </table>
+    <div class="note">ชื่ออินพุตและภาพประกอบที่กำหนดเองเป็นส่วนหนึ่งของการตั้งค่าเครื่องรับ จึงย้ายมาพร้อมกัน ดู<a href="/th/guide/custom-icons/">คู่มือไอคอนกำหนดเอง</a></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">นำเข้า</div>
+      <h2>การกู้คืนบนโทรศัพท์เครื่องใหม่</h2>
+    </div>
+    <ol class="plain">
+      <li>ติดตั้ง AVR Maestro บนอุปกรณ์เครื่องใหม่ และตรวจสอบให้แน่ใจว่าอยู่ในเครือข่ายเดียวกับเครื่องรับของคุณ</li>
+      <li>เปิด<b>การตั้งค่า &rsaquo; สำรองข้อมูล &amp; กู้คืน</b></li>
+      <li>แตะ<b>นำเข้าการตั้งค่าจากไฟล์</b> แล้วเลือกไฟล์สำรอง</li>
+      <li><b>รีสตาร์ตแอป</b> แอปจะแจ้งเรื่องนี้เช่นกัน การรีสตาร์ตช่วยให้ทุกการตั้งค่าที่กู้คืนมามีผลอย่างสมบูรณ์</li>
+    </ol>
+    <div class="note"><b>การนำเข้าเป็นการแทนที่ ไม่ใช่การรวม</b> ทุกอย่างที่อยู่บนอุปกรณ์เครื่องนั้นจะถูกเขียนทับด้วยเนื้อหาในไฟล์สำรอง หากการตั้งค่าปัจจุบันมีค่ากับคุณ ให้ส่งออกไว้ก่อน ใช้เพียงสองแตะ</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ควรรู้ไว้</div>
+      <h2>ไฟล์สำรองคือข้อมูลของแอป ไม่ใช่ของเครื่องรับ</h2>
+    </div>
+    <p class="lead">การสอบเทียบ ชุดตั้งค่าลำโพง ระดับเสียง ระยะห่าง ครอสโอเวอร์ และตัวกรอง Dirac ของคุณอยู่<b>ในเครื่องรับ</b> สิ่งเหล่านี้ไม่ได้อยู่ในไฟล์สำรอง และการนำเข้าไฟล์สำรองจะไม่กระทบสิ่งเหล่านั้น ซึ่งมีผลทั้งสองทาง ไฟล์สำรองจะไม่กู้คืนเครื่องรับที่คุณรีเซ็ตเป็นค่าจากโรงงาน และก็ไม่จำเป็นต้องทำ เพียงเชื่อมต่อแอปกับเครื่องรับนั้นอีกครั้ง แอปก็จะดึงการตั้งค่ากลับมาจากเครื่องรับเอง</p>
+    <p class="lead">ควรสำรองไว้ก่อนการจัดระเบียบครั้งใหญ่ด้วย ส่งออกไว้ แล้วจัดอินพุตใหม่และสร้างฉากใหม่ได้อย่างเต็มที่ หากชอบแบบเดิมมากกว่า ไฟล์ก็พร้อมอยู่ตรงนั้น</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">คำถามที่พบบ่อย</div>
+      <h2>คำถามที่พบบ่อยเกี่ยวกับการสำรองข้อมูล</h2>
+    </div>
+    <details open><summary>ย้ายไฟล์สำรองระหว่าง Android กับ iPhone ได้ไหม</summary><div class="body">ไฟล์เป็น JSON ธรรมดาและไม่ผูกกับอุปกรณ์ที่สร้างไฟล์ ส่งออกจากเครื่องหนึ่ง ย้ายไฟล์ไปยังอีกเครื่อง แล้วนำเข้าได้เลย</div></details>
+    <details><summary>การนำเข้าจะเขียนทับการสอบเทียบของเครื่องรับของฉันไหม</summary><div class="body">ไม่ ไฟล์สำรองมีเฉพาะการตั้งค่าของแอปเท่านั้น ทุกอย่างที่เครื่องรับจัดเก็บไว้เอง ไม่ว่าจะเป็นการสอบเทียบ พรีเซ็ต ระดับเสียง ระยะห่าง และตัวกรอง Dirac อยู่ในเครื่องรับและจะไม่ถูกแตะต้อง</div></details>
+    <details><summary>ฉากของฉันจะย้ายมาด้วยไหม</summary><div class="body">ได้ พร้อมกับรายการการตั้งค่าที่แต่ละฉากถูกกำหนดให้บันทึกไว้ ดู<a href="/th/guide/scenes/">คู่มือฉาก</a></div></details>
+    <details><summary>ตัวเลือกบันทึกลงอุปกรณ์จะเก็บไฟล์ไว้ที่ไหน</summary><div class="body">ที่ใดก็ได้ที่คุณเลือกในตัวเลือกไฟล์ของระบบ หากไฟล์เพียงแค่ผ่านไปยังโทรศัพท์อีกเครื่อง การแชร์จะเร็วกว่า</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">เนื้อหาเพิ่มเติมของคู่มือ</div>
+      <h2>คู่มือ AVR Maestro เรื่องอื่น ๆ</h2>
+    </div>
+    <p class="lead"><a href="/th/guide/getting-started/">เริ่มต้นใช้งาน</a> &middot; <a href="/th/guide/home/">หน้าจอหลัก</a> &middot; <a href="/th/guide/scenes/">ฉาก</a> &middot; <a href="/th/guide/custom-icons/">ไอคอนกำหนดเอง</a> &middot; <a href="/th/guide/sound/">เสียง</a> &middot; <a href="/th/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/th/guide/speakers/">ลำโพง</a> &middot; <a href="/th/guide/locked-controls/">เหตุใดตัวควบคุมจึงถูกล็อก</a> &middot; <a href="/th/guide/assistant/">ผู้ช่วย</a> &middot; <a href="/th/guide/home-automation/">ระบบบ้านอัตโนมัติ</a> &middot; <a href="/th/guide/home-assistant-dashboard/">แดชบอร์ด Home Assistant</a> &middot; <a href="/th/guide/multi-zone/">โซน</a> &middot; <a href="/th/guide/remote/">รีโมท</a> &middot; <a href="/th/guide/radio/">วิทยุ (FM/AM)</a> &middot; <a href="/th/guide/on-screen-display/">การแสดงผลบนหน้าจอ</a> &middot; <a href="/th/guide/settings/">การตั้งค่า</a> &middot; <a href="/th/guide/languages/">ภาษา</a> &middot; <a href="/th/guide/volume/">การควบคุมระดับเสียง</a> &middot; <a href="/th/guide/now-playing/">กำลังเล่น &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>ตั้งค่าเพียงครั้งเดียว</h2>
+    <p class="lead" style="margin:0 auto 24px">ซื้อครั้งเดียว ไม่มีโฆษณา ไม่มีการสมัครสมาชิก เชื่อมต่อได้ในไม่ถึงหนึ่งนาที</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="ดาวน์โหลดบน Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="ดาวน์โหลดบน App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="ดาวน์โหลดบน Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="ดาวน์โหลดบน Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/th/guide/">กลับไปที่คู่มือผู้ใช้ฉบับเต็ม &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/th/">หน้าแรก</a>
+      <a href="/th/guide/">คู่มือผู้ใช้</a>
+      <a href="/th/guide/getting-started/">เริ่มต้นใช้งาน</a>
+      <a href="/th/receivers/">เครื่องรับ</a>
+      <a href="/th/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/th/audyssey-vs-dirac/">Audyssey เทียบกับ Dirac</a>
+      <a href="/th/best-denon-marantz-app/">ทำไมต้องเปลี่ยน</a>
+      <a href="/th/help/">วิธีใช้</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro เป็นแอปอิสระโดย MiyaraHub Technologies LLC และไม่มีส่วนเกี่ยวข้อง ไม่ได้รับการรับรอง หรือได้รับการสนับสนุนจาก Denon, Marantz, D&amp;M Holdings, Sound United หรือบริษัทอื่นใดที่ระบุไว้ในหน้านี้ Denon, Marantz, HEOS, Audyssey และ Dirac Live เป็นเครื่องหมายการค้าของเจ้าของที่เกี่ยวข้อง ใช้ในที่นี้เพื่อการระบุเท่านั้น</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

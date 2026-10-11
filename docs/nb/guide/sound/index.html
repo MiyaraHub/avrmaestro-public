@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lydfanen: alle lydkontroller på AVR-en din - AVR Maestro</title>
+<meta name="description" content="Alle lydkontroller på Denon- eller Marantz-mottakeren forklart: surroundmoduser, dialogforsterker, DRC, Audyssey, Dirac Live, grafisk EQ, justeringer, tone, IMAX og Auro-3D." />
+<meta name="keywords" content="Denon sound modes app, Marantz surround mode app, Audyssey MultEQ app, Dirac Live app control, Dolby Surround DTS Neural X app, IMAX Enhanced settings app, Auro-3D app, dialog enhancer Denon, dynamic range compression AVR, M-DAX audio restorer" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/nb/guide/sound/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/sound/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/sound/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/sound/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/sound/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/sound/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/sound/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/sound/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/sound/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/sound/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/sound/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/sound/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/sound/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/sound/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/sound/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/sound/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/sound/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/sound/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/sound/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/sound/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/sound/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/sound/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/sound/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/sound/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/sound/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/sound/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/sound/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/sound/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/sound/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/sound/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/sound/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/sound/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="nb_NO" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Lydfanen: alle lydkontroller på AVR-en din - AVR Maestro" />
+<meta property="og:description" content="Alle lydkontroller på Denon- eller Marantz-mottakeren forklart: surroundmoduser, dialogforsterker, DRC, Audyssey, Dirac Live, grafisk EQ, justeringer, tone, IMAX og Auro-3D." />
+<meta property="og:url" content="https://avrmaestro.com/nb/guide/sound/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Lydfanen: alle lydkontroller på AVR-en din - AVR Maestro" />
+<meta name="twitter:description" content="Alle lydkontroller på Denon- eller Marantz-mottakeren forklart: surroundmoduser, dialogforsterker, DRC, Audyssey, Dirac Live, grafisk EQ, justeringer, tone, IMAX og Auro-3D." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro er en uavhengig app for å styre Denon- og Marantz-AV-mottakere over det lokale nettverket ditt.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "nb"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/sound/#article",
+      "headline": "Alle lydkontrollene mottakeren din har, samlet i én lydfane",
+      "description": "Alle lydkontroller på Denon- eller Marantz-mottakeren forklart: surroundmoduser, dialogforsterker, DRC, Audyssey, Dirac Live, grafisk EQ, justeringer, tone, IMAX og Auro-3D.",
+      "image": "https://avrmaestro.com/screenshots/sound-surround.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/sound/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "nb"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/sound/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Hvorfor endrer listen over lydmoduser seg?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fordi mottakerens liste endrer seg. Modusene en Denon eller Marantz godtar, avhenger av hva den dekoder: en tokanalsstrøm tilbyr oppmiksere, en Atmos-strøm tilbyr modusene som støtter Atmos. AVR Maestro leser gjeldende liste fra mottakeren hver gang, i stedet for å vise en fast meny som ville vært feil halve tiden."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hvorfor er en kontroll nedtonet med N/A?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "N/A betyr at mottakeren ikke har noen verdi for den i den nåværende tilstanden - vanligvis fordi det innkommende signalet ikke bærer funksjonen. Trykk på spørsmålstegnet ved siden av raden, så forklarer appen hvilket signal som ville aktivert den. En grå kontroll er aldri en feil som skjules; det er mottakerens eget svar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hva er forskjellen på Kanaler og Nivåer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kanaler (lydfanen) er den live justeringen per kanal for signalet som spilles akkurat nå. Nivåer (fanen Høyttalere) er referansenivået per høyttaler som er lagret i høyttalerpresetet av kalibreringen din. Å justere Kanaler skriver ikke over kalibreringen din."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan jeg bruke toneregulering og Audyssey sammen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ikke mens Dynamic EQ er på - mottakeren tar over eierskapet til tonereguleringen. Slå av Dynamic EQ på Audyssey-siden, så kan Bass og Diskant redigeres igjen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Må jeg være på samme nettverk?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. AVR Maestro snakker direkte med mottakeren din over LAN-et ditt, uten skykonto og uten relétjener imellom. Se Kom i gang."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Hjem",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Brukerguide",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Lyd",
+      "item": "https://avrmaestro.com/guide/sound/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/nb/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Meny" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Søk i guiden..." data-i18n-empty="Ingen treff for" data-i18n-language="Språk">
+      <a href="/nb/">Hjem</a>
+      <a href="/nb/guide/">Brukerguide</a>
+      <a href="/nb/receivers/">Mottakere</a>
+      <a href="/nb/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/nb/best-denon-marantz-app/">Hvorfor bytte</a>
+      <a href="/nb/#top" class="cta">Last ned</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/nb/">Hjem</a> &rsaquo; <a href="/nb/guide/">Brukerveiledning</a> &rsaquo; Lyd</div>
+    <div class="eyebrow">Lydfanen</div>
+    <h1>Alle lydkontrollene mottakeren din har, <span class="g">samlet i én lydfane</span></h1>
+    <p>Lydfanen er ni sider dyp, og den speiler mottakerens egen lydmeny i stedet for en forenklet versjon av den. Denne siden går gjennom alle ni: hva hver kontroll gjør, hva den forventer, og hvorfor mottakeren noen ganger ikke lar deg røre den.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Hva som finnes her</div>
+      <h2>De ni sidene</h2>
+    </div>
+    <table class="t">
+      <thead><tr><th>Side</th><th>Hva den styrer</th></tr></thead>
+      <tbody>
+        <tr><td><a href="#surround">Surround</a></td><td>Lydmodusen, gruppert som Film / Musikk / Spill / Pure, pluss visning av lydfunksjonene</td></tr>
+        <tr><td><a href="#dialog">Dialog &amp; DRC</a></td><td>Styrken på Dialogforsterker og dynamisk områdekomprimering</td></tr>
+        <tr><td><a href="#audyssey">Audyssey</a></td><td>MultEQ, Dynamic EQ, Referansenivåforskyvning, Dynamic Volume, Surroundnivåkompensasjon</td></tr>
+        <tr><td><a href="#dirac">Dirac Live</a></td><td>Filterplassene du har lastet inn, med navn, og Av</td></tr>
+        <tr><td><a href="#geq">Grafisk EQ</a></td><td>En 9-bånds kurve per høyttaler, 63Hz til 16kHz</td></tr>
+        <tr><td><a href="#channels">Kanaler</a></td><td>Justering per kanal i dB for hver høyttaler i gjeldende signal, pluss Bass Sync</td></tr>
+        <tr><td><a href="#tone">Tone</a></td><td>Toneregulering, Bass, Diskant, DAC-filter, Lydgjenoppretter (M-DAX)</td></tr>
+        <tr><td><a href="#imax">IMAX</a></td><td>IMAX Enhanced-modus og egen HPF, LPF og subwoofer-ruting</td></tr>
+        <tr><td><a href="#auro">Auro-3D</a></td><td>Auromatic-preset, Styrke og Auro-3D-modus</td></tr>
+      </tbody>
+    </table>
+    <div class="note">Mottakeren din bestemmer hvilke av disse som vises. En mottaker uten Auro-3D-lisens har rett og slett ingen Auro-3D-side, og en uten IMAX Enhanced-dekoder har ingen IMAX-side. AVR Maestro spør mottakeren hva den har i stedet for å anta noe ut fra modellen.</div>
+  </div>
+</section>
+
+<section id="surround">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Side én</div>
+      <h2>Surround: modusen, og hva mottakeren faktisk gjør</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Kortet øverst viser <b>gjeldende modus</b> nøyaktig slik mottakeren rapporterer den. Under er modusene gruppert i <b>Film</b>, <b>Musikk</b>, <b>Spill</b> og <b>Pure</b>, og du får bare tilbud om modusene mottakeren godtar for signalet den dekoder akkurat nå.</p>
+        <ul class="plain">
+          <li><b>Stereo, Dolby Surround, DTS Neural:X, Auro-3D, Auro Surround, Multi Ch Stereo</b> og de andre vises slik mottakeren din og den innkommende strømmen tillater.</li>
+          <li><b>Lydfunksjoner</b> under er en live-visning, ikke en ønskeliste: Neural:X, IMAX Enhanced, Cinema EQ, Senterspredning, Lydstyrkehåndtering, Høyttalervirtualisering og de andre viser hver <b>Aktiv</b>, <b>Inaktiv</b> eller <b>N/A</b>.</li>
+          <li><b>N/A</b> betyr at gjeldende signal ikke kan bruke funksjonen. Trykk på spørsmålstegnet ved siden av, så forklarer appen hvilket signal som kan.</li>
+        </ul>
+      </div>
+      <img alt="Surround-siden med gjeldende modus og visningen av lydfunksjoner" src="/screenshots/sound-surround.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="dialog">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Side to</div>
+      <h2>Dialog &amp; DRC: forståelighet og kveldslytting</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <ul class="plain">
+          <li><b>Dialogforsterker</b> - Av, Lav, Middels eller Høy. Løfter forståeligheten i senterkanalen uten å røre kalibreringen din.</li>
+          <li><b>Dynamisk områdekomprimering</b> - Av, Lav, Middels, Høy eller Automatisk. Presser sammen forskjellen mellom hvisking og eksplosjoner, som er akkurat det du vil ha sent på kvelden.</li>
+        </ul>
+        <p class="lead">DRC er det tydeligste eksemplet på hvordan AVR Maestro håndterer en kontroll mottakeren ikke vil godta. Komprimeringsdata ligger <b>inne i en Dolby-bitstrøm</b>, så på en PCM-, DTS- eller nettverksstereokilde finnes det ingenting å komprimere. I stedet for å la deg trykke på en knapp som ikke gjør noe, gråer appen ut raden og skriver hvorfor: bytt til Dolby Digital-, Dolby Digital Plus-, Dolby TrueHD- eller Dolby Atmos-innhold for å bruke den.</p>
+      </div>
+      <img alt="Dialog og DRC, med Dynamisk områdekomprimering utgrået og forklart" src="/screenshots/sound-dialog-drc.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="audyssey">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Side tre</div>
+      <h2>Audyssey: hele kalibreringsmenyen, ikke bare MultEQ</h2>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px">
+      <figure><img alt="Audyssey-siden med MultEQ, Dynamic EQ, Referansenivåforskyvning, Dynamic Volume og Surroundnivåkompensasjon" src="/screenshots/sound-audyssey.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Hver Audyssey-kontroll, live</figcaption></figure>
+      <figure><img alt="Audyssey-siden som melder at Dirac eier dette høyttalerpresetet" src="/screenshots/sound-audyssey-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>På et Dirac-preset sier den fra</figcaption></figure>
+    </div>
+    <ul class="plain" style="margin-top:26px">
+      <li><b>MultEQ</b> - Referanse, Bypass V/H, Flat eller Av. Referanse er den kalibrerte huskurven; Flat fjerner høyfrekvensfallet; Bypass V/H lar frontparet stå ukorrigert; Av gir EQ-en tilbake til deg.</li>
+      <li><b>Dynamic EQ</b> - På eller Av. Holder tonebalansen riktig når du skrur ned volumet, i stedet for at bassen blir tynn.</li>
+      <li><b>Referansenivåforskyvning</b> - 0, 5, 10 eller 15 dB. Forteller Dynamic EQ hvor langt under referansenivå innholdet ble mastret. 0 dB passer for film; de høyere forskyvningene passer for musikk og TV.</li>
+      <li><b>Dynamic Volume</b> - Av, Lett, Middels eller Kraftig. Jevner ut høye reklamer mot stille dialog.</li>
+      <li><b>Surroundnivåkompensasjon</b> - Av, Lett, Middels eller Kraftig.</li>
+    </ul>
+    <div class="note">Om denne siden kan redigeres, avhenger av hvilket system som eier gjeldende høyttalerpreset. Se <a href="/nb/guide/locked-controls/">hvorfor en kontroll er låst</a>.</div>
+  </div>
+</section>
+
+<section id="dirac">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Side fire</div>
+      <h2>Dirac Live: filtrene dine, med navnene du ga dem</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Hvis du har kjørt Dirac Live, ligger filtrene du eksporterte i nummererte plasser på mottakeren. AVR Maestro lister dem <b>med navnet du lagret dem under</b>, med plassnummeret under, pluss en <b>Av</b>-oppføring for å kjøre presetet helt uten filter. Ett trykk bytter filter.</p>
+        <p class="lead">På et høyttalerpreset uten Dirac-filter sier siden fra om det, i stedet for å vise en tom liste.</p>
+      </div>
+      <img alt="Dirac Live-siden med filterplasser oppført med lagrede navn" src="/screenshots/sound-dirac.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="geq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Side fem</div>
+      <h2>Grafisk EQ: ni bånd, per høyttaler</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">En ekte editor, ikke en bryter: ni bånd fra 63Hz til 16kHz, -20 til +6 dB, som du drar på grafen. Velg <b>Alle</b>, <b>Venstre/Høyre</b> eller <b>Hver</b> høyttaler, bruk <b>Kopier</b> for å starte fra den målte Audyssey-kurven din, <b>Tilbakestill</b> for å flate ut, og linjen med ventende endringer for å bruke dem.</p>
+        <p class="lead">Mottakeren kjører romkorrigering <b>eller</b> manuell EQ, aldri begge, så denne siden er låst så lenge MultEQ eller Dirac kjører - og den sier hvilken av dem.</p>
+        <p class="lead"><a href="/nb/guide/graphic-eq/">Hele guiden til grafisk EQ &rarr;</a></p>
+      </div>
+      <img alt="Editoren for grafisk EQ med en 9-bånds kurve per høyttaler" src="/screenshots/graphic-eq.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="channels">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Side seks</div>
+      <h2>Kanaler: juster hvilken som helst høyttaler mens filmen går</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Justering per kanal i dB for hver høyttaler som finnes i <b>gjeldende signal</b> - Front venstre, Front høyre, Senter, surroundene, surround bak, begge subwooferne og høydelaget, hver med kortnavnet under, så du slipper å gjette hvilken som er hvilken.</p>
+        <ul class="plain">
+          <li><b>Dra i glideren</b> for store endringer, eller trykk på <b>pluss og minus</b> for ett fint steg, begge mens du lytter.</li>
+          <li><b>Tilbakestill alt</b> setter alle kanaler tilbake til 0 dB.</li>
+          <li><b>Bass Sync</b> nederst tidsjusterer LFE-kanalen mot hovedkanalene.</li>
+        </ul>
+        <p class="lead">Dette er de levende justeringene per signal. <b>Referansenivåene</b> per høyttaler som er lagret i høyttalerpresetet, ligger i stedet under <a href="/nb/guide/speakers/">Høyttalere-fanen</a>, og appen forklarer forskjellen i sidens eget infokort.</p>
+      </div>
+      <img alt="Kanalsiden med en nivåglider og fine pluss/minus-steg for hver høyttaler" src="/screenshots/sound-channels.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="tone">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Side sju</div>
+      <h2>Tone: bass, diskant, DAC-filteret og M-DAX</h2>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px">
+      <figure><img alt="Tone-siden med Bass, Diskant, DAC-filter og Lydgjenoppretter" src="/screenshots/sound-tone.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Tone, åpen for redigering</figcaption></figure>
+      <figure><img alt="Tone-siden med kontrollene låst av Dynamic EQ" src="/screenshots/sound-tone-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Dynamic EQ tar over tonekontrollene</figcaption></figure>
+    </div>
+    <ul class="plain" style="margin-top:26px">
+      <li><b>Toneregulering</b> - hovedbryteren. Bass og Diskant når bare mottakeren så lenge denne er aktiv.</li>
+      <li><b>Bass</b> og <b>Diskant</b> - -6 dB til +6 dB i trinn på 1 dB.</li>
+      <li><b>DAC-filter</b> - Filter 1 er varmere med et langsomt fall, Filter 2 er en skarpere referanserespons.</li>
+      <li><b>Lydgjenoppretter (M-DAX)</b> - Av, Lav, Middels eller Høy. Gjenskaper detaljer som gikk tapt i komprimert lyd eller strømmelyd, noe du vil ha på en radiostrøm på 128k, men ikke på en tapsfri plate.</li>
+    </ul>
+    <div class="note">Audyssey Dynamic EQ eier tonekontrollene så lenge den kjører: mottakeren tar dem over, og AVR Maestro viser et banner som sier det, i stedet for at du blir stående og lure på hvorfor Bass ikke gjør noe.</div>
+  </div>
+</section>
+
+<section id="imax">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Side åtte</div>
+      <h2>IMAX: hele menyen for Enhanced-innstillinger</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">På en mottaker med IMAX Enhanced viser appen hele menyen, ikke bare av/på:</p>
+        <ul class="plain">
+          <li><b>IMAX-modus</b> - Automatisk eller Av.</li>
+          <li><b>Lydinnstillinger</b> - Automatisk følger IMAX-anbefalingen; Manuell åpner de fire kontrollene under.</li>
+          <li><b>Høypassfilter</b> - 40Hz til 250Hz.</li>
+          <li><b>Lavpassfilter</b> - 70Hz til 250Hz.</li>
+          <li><b>Subwoofer</b> - På eller Av, og <b>Subwoofer-utgang</b> - LFE+Main eller LFE.</li>
+        </ul>
+      </div>
+      <img alt="IMAX-siden med modus, filtre og subwoofer-ruting" src="/screenshots/sound-imax.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="auro">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Side ni</div>
+      <h2>Auro-3D: oppmiksing med form</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <ul class="plain">
+          <li><b>Auromatic 3D-preset</b> - Liten, Middels, Stor, Tale eller Film. Velger rommet og innholdstypen oppmikseren sikter mot.</li>
+          <li><b>Styrke</b> - 0 til 15, for hvor mye høydeinformasjon Auromatic skaper.</li>
+          <li><b>Auro-3D-modus</b> - Direct, eller Kanalutvidelse.</li>
+        </ul>
+        <p class="lead">Disse gjelder bare mens en Auro-modus er valgt på Surround-siden, og siden finnes bare på en mottaker som har Auro-3D-dekoderen.</p>
+      </div>
+      <img alt="Auro-3D-siden med preset, styrke og modus" src="/screenshots/sound-auro3d.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Vanlige spørsmål</div>
+      <h2>Vanlige spørsmål om Lyd-fanen</h2>
+    </div>
+    <details open><summary>Hvorfor endrer listen over lydmoduser seg?</summary><div class="body">Fordi mottakerens liste endrer seg. Modusene en Denon eller Marantz godtar, avhenger av hva den dekoder: en tokanalsstrøm tilbyr oppmiksere, en Atmos-strøm tilbyr modusene som støtter Atmos. AVR Maestro leser gjeldende liste fra mottakeren hver gang, i stedet for å vise en fast meny som ville vært feil halve tiden.</div></details>
+    <details><summary>Hvorfor er en kontroll nedtonet med N/A?</summary><div class="body">N/A betyr at mottakeren ikke har noen verdi for den i den nåværende tilstanden - vanligvis fordi det innkommende signalet ikke bærer funksjonen. Trykk på spørsmålstegnet ved siden av raden, så forklarer appen hvilket signal som ville aktivert den. En grå kontroll er aldri en feil som skjules; det er mottakerens eget svar.</div></details>
+    <details><summary>Hva er forskjellen på Kanaler og Nivåer?</summary><div class="body">Kanaler (lydfanen) er den live justeringen per kanal for signalet som spilles akkurat nå. Nivåer (fanen Høyttalere) er referansenivået per høyttaler som er lagret i høyttalerpresetet av kalibreringen din. Å justere Kanaler skriver ikke over kalibreringen din.</div></details>
+    <details><summary>Kan jeg bruke toneregulering og Audyssey sammen?</summary><div class="body">Ikke mens Dynamic EQ er på - mottakeren tar over eierskapet til tonereguleringen. Slå av Dynamic EQ på Audyssey-siden, så kan Bass og Diskant redigeres igjen.</div></details>
+    <details><summary>Må jeg være på samme nettverk?</summary><div class="body">Ja. AVR Maestro snakker direkte med mottakeren din over det lokale nettverket, uten skykonto og uten en relay-server imellom. Se <a href="/nb/guide/getting-started/">Kom i gang</a>.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Mer av guiden</div>
+      <h2>Andre AVR Maestro-guider</h2>
+    </div>
+    <p class="lead"><a href="/nb/guide/getting-started/">Kom i gang</a> &middot; <a href="/nb/guide/home/">Startskjerm</a> &middot; <a href="/nb/guide/scenes/">Scener</a> &middot; <a href="/nb/guide/custom-icons/">Egendefinerte ikoner</a> &middot; <a href="/nb/guide/graphic-eq/">Grafisk EQ</a> &middot; <a href="/nb/guide/speakers/">Høyttalere</a> &middot; <a href="/nb/guide/locked-controls/">Hvorfor en kontroll er låst</a> &middot; <a href="/nb/guide/assistant/">Assistenten</a> &middot; <a href="/nb/guide/home-automation/">Hjemmeautomatisering</a> &middot; <a href="/nb/guide/home-assistant-dashboard/">Home Assistant-dashbord</a> &middot; <a href="/nb/guide/multi-zone/">Soner</a> &middot; <a href="/nb/guide/remote/">Fjernkontroll</a> &middot; <a href="/nb/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/nb/guide/on-screen-display/">Skjermmeny</a> &middot; <a href="/nb/guide/settings/">Innstillinger</a> &middot; <a href="/nb/guide/languages/">Språk</a> &middot; <a href="/nb/guide/volume/">Volumkontroller</a> &middot; <a href="/nb/guide/backup/">Sikkerhetskopi &amp; gjenoppretting</a> &middot; <a href="/nb/guide/now-playing/">Spilles nå &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Hele lydmenyen, rett fra sofaen</h2>
+    <p class="lead" style="margin:0 auto 24px">Engangskjøp, ingen reklame, ingen abonnement. Koble til på under et minutt.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Hent den på Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Last ned på App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Last ned på Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Hent den på Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/nb/guide/">Tilbake til hele brukerguiden &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/nb/">Hjem</a>
+      <a href="/nb/guide/">Brukerguide</a>
+      <a href="/nb/guide/getting-started/">Kom i gang</a>
+      <a href="/nb/receivers/">Mottakere</a>
+      <a href="/nb/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/nb/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/nb/best-denon-marantz-app/">Hvorfor bytte</a>
+      <a href="/nb/help/">Hjelp</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro er en uavhengig app fra MiyaraHub Technologies LLC og er ikke tilknyttet, godkjent eller sponset av Denon, Marantz, D&amp;M Holdings, Sound United eller noe annet selskap som nevnes på denne siden. Denon, Marantz, HEOS, Audyssey, Dirac Live, IMAX, Auro-3D og Dolby Atmos er varemerker som tilhører sine respektive eiere, og brukes her kun til identifikasjon.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

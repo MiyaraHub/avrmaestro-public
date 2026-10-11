@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="hi" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>वॉल्यूम सीमा, पावर-ऑन लेवल &amp; म्यूट गहराई - AVR Maestro</title>
+<meta name="description" content="अपने Denon या Marantz के लिए वॉल्यूम सीमा सेट करें, पावर-ऑन लेवल चुनें, तय करें कि म्यूट कितना घटाए, और वॉल्यूम को 0 से 98 में या डेसिबल में पढ़ें।" />
+<meta name="keywords" content="Denon volume limit app, Marantz power on level, AVR mute level -20 dB, receiver volume in decibels app, Denon volume scale absolute relative, protect speakers volume limit" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/hi/guide/volume/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/volume/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/volume/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/volume/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/volume/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/volume/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/volume/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/volume/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/volume/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/volume/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/volume/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/volume/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/volume/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/volume/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/volume/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/volume/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/volume/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/volume/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/volume/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/volume/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/volume/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/volume/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/volume/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/volume/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/volume/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/volume/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/volume/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/volume/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/volume/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/volume/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/volume/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/volume/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="hi_IN" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="वॉल्यूम सीमा, पावर-ऑन लेवल &amp; म्यूट गहराई - AVR Maestro" />
+<meta property="og:description" content="अपने Denon या Marantz के लिए वॉल्यूम सीमा सेट करें, पावर-ऑन लेवल चुनें, तय करें कि म्यूट कितना घटाए, और वॉल्यूम को 0 से 98 में या डेसिबल में पढ़ें।" />
+<meta property="og:url" content="https://avrmaestro.com/hi/guide/volume/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="वॉल्यूम सीमा, पावर-ऑन लेवल &amp; म्यूट गहराई - AVR Maestro" />
+<meta name="twitter:description" content="अपने Denon या Marantz के लिए वॉल्यूम सीमा सेट करें, पावर-ऑन लेवल चुनें, तय करें कि म्यूट कितना घटाए, और वॉल्यूम को 0 से 98 में या डेसिबल में पढ़ें।" />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro एक स्वतंत्र ऐप है, जो आपके लोकल नेटवर्क पर Denon और Marantz AV रिसीवर को कंट्रोल करता है।",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "hi"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/volume/#article",
+      "headline": "वॉल्यूम कंट्रोल: एक सीमा, एक वेक-अप लेवल, और ऐसा म्यूट जो वही करे जो आप चाहते हैं",
+      "description": "अपने Denon या Marantz के लिए वॉल्यूम सीमा सेट करें, पावर-ऑन लेवल चुनें, तय करें कि म्यूट कितना घटाए, और वॉल्यूम को 0 से 98 में या डेसिबल में पढ़ें।",
+      "image": "https://avrmaestro.com/screenshots/volume-controls.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/volume/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "hi"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/volume/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "क्या वॉल्यूम सीमा असली रिमोट पर भी लागू होती है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "हाँ। यह सीमा रिसीवर की सेटिंग है, ऐप की नहीं, इसलिए यह हर रास्ते को रोकती है: ऐप, साथ आने वाला रिमोट, फ्रंट-पैनल डायल और आपके नेटवर्क का कोई भी दूसरा कंट्रोलर।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या ये सेटिंग Zone 2 और Zone 3 पर लागू होती हैं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Volume Controls मुख्य ज़ोन के लिए है। हर ज़ोन का अपना वॉल्यूम, और अपना पावर और इनपुट, Zones टैब में होता है।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "समीक्षाओं में डेसिबल लिखे होते हैं तो ऐप 0 से 98 क्यों दिखाता है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ये एक ही डायल के दो रूप हैं। Volume Scale को -79.5 से 18.0 dB पर बदलें और रीडआउट वैसा हो जाता है जैसा कैलिब्रेशन लेवल आमतौर पर बताए जाते हैं, जहाँ 0.0 dB रेफ़रेंस है।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या मैं अपने फ़ोन के वॉल्यूम बटन इस्तेमाल कर सकता हूँ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "हाँ, Android और iPhone पर। जब AVR Maestro सामने खुला हो तो डिवाइस के वॉल्यूम बटन सीधे रिसीवर को चलाते हैं, हर दबाव पर एक कदम और दबाए रखने पर लगातार बढ़ना; Settings, Audio के अंदर एक स्विच डिवाइस को उसके बटन वापस दे देता है।"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "होम",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "उपयोगकर्ता गाइड",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "वॉल्यूम कंट्रोल",
+      "item": "https://avrmaestro.com/guide/volume/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/hi/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="मेन्यू" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="गाइड में खोजें..." data-i18n-empty="कोई परिणाम नहीं मिला:" data-i18n-language="भाषा">
+      <a href="/hi/">होम</a>
+      <a href="/hi/guide/">उपयोगकर्ता गाइड</a>
+      <a href="/hi/receivers/">रिसीवर</a>
+      <a href="/hi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hi/best-denon-marantz-app/">बदलाव क्यों करें</a>
+      <a href="/hi/#top" class="cta">डाउनलोड करें</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/hi/">होम</a> &rsaquo; <a href="/hi/guide/">उपयोगकर्ता गाइड</a> &rsaquo; वॉल्यूम नियंत्रण</div>
+    <div class="eyebrow">सेटिंग &rsaquo; वॉल्यूम नियंत्रण</div>
+    <h1>वॉल्यूम कंट्रोल: एक सीमा, एक वेक-अप लेवल, और <span class="g">ऐसा म्यूट जो वही करे जो आप चाहते हैं</span></h1>
+    <p>चार सेटिंग जो मिलकर तय करती हैं कि आपका रिसीवर अधिकतम कितना तेज़ हो सकता है, जागने पर क्या करता है, और म्यूट उसे कितना नीचे गिराता है। ये रिसीवर पर ही रहती हैं, इसलिए आप ऐप, असली रिमोट या फ्रंट पैनल, किसी से भी चलाएँ, ये लागू रहती हैं।</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">यह कहां मिलेगा</div>
+        <h2>सेटिंग &rsaquo; वॉल्यूम नियंत्रण</h2>
+        <p class="lead"><b>Settings</b> खोलें और <b>Volume Controls</b> तक स्क्रॉल करें - “Volume limit, power-on level, and mute depth”। इस पेज की हर चीज़ सीधे रिसीवर में लिखी जाती है, इसलिए ऐप बंद करने के बाद भी बनी रहती है और आप जिस भी तरीके से उसे चलाएँ, लागू होती है।</p>
+      </div>
+      <img alt="Volume Controls पेज, जिसमें वॉल्यूम स्केल, सीमा, पावर-ऑन लेवल और म्यूट लेवल हैं" src="/screenshots/volume-controls.png" width="1324" height="2644" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">एक-एक करके</div>
+      <h2>हर सेटिंग क्या करती है</h2>
+    </div>
+
+    <h3 style="margin-top:26px">वॉल्यूम स्केल</h3>
+    <p class="lead">वॉल्यूम कैसे पढ़ा जाए, स्क्रीन पर भी और रिसीवर के अपने डिस्प्ले पर भी। <b>0 - 98</b> वह सापेक्ष स्केल है जिसे ज़्यादातर लोग जानते हैं; <b>-79.5 से 18.0 dB</b> निरपेक्ष स्केल है, जहाँ 0.0 dB रेफ़रेंस लेवल है। अगर आपने कभी किसी समीक्षा में “-15 dB” देखा हो और सोचा हो कि यह आपके डायल पर कहाँ आता है, तो इसका जवाब यही स्विच देता है।</p>
+
+    <h3 style="margin-top:26px">वॉल्यूम सीमा</h3>
+    <p class="lead">एक कठोर ऊपरी सीमा। एक बार सेट होने पर <b>कुछ भी</b> इसके आगे नहीं जाता - न ऐप, न असली रिमोट, न फ्रंट-पैनल डायल, क्योंकि सीमा ऐप में नहीं बल्कि रिसीवर पर रहती है। इसका सीधा उपयोग गलत टैप से स्पीकरों या कमरे में बैठे लोगों को बचाना है, और घर आए मेहमान को रिमोट देने से पहले यही सेटिंग लगानी चाहिए। <b>बंद</b> करने से सीमा हट जाती है।</p>
+
+    <h3 style="margin-top:26px">पावर-ऑन लेवल</h3>
+    <p class="lead"><b>Use last volume</b> डिफ़ॉल्ट रूप से चालू रहता है: रिसीवर उसी वॉल्यूम पर जागता है जिस पर आपने उसे बंद किया था। इसे बंद करें और आप एक तय लेवल सेट कर सकते हैं, ताकि ऊँची आवाज़ में देर रात का सेशन अगली सुबह अप्रिय झटका न बन जाए।</p>
+
+    <h3 style="margin-top:26px">म्यूट लेवल</h3>
+    <p class="lead">म्यूट वॉल्यूम को कितना गिराता है। <b>Full</b> पूरी तरह शांत कर देता है। <b>-40 dB</b> और <b>-20 dB</b> इसके बजाय आवाज़ घटाते हैं, जो तब बेहतर विकल्प है जब आप फ़िल्म का सिरा खोए बिना बातचीत करना चाहते हों।</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ऐप में अन्य जगहों पर</div>
+      <h2>वे कंट्रोल जो आप रोज़ इस्तेमाल करते हैं</h2>
+    </div>
+    <ul class="plain">
+      <li><b>होम डैशबोर्ड</b> पर मुख्य ज़ोन का मास्टर वॉल्यूम, म्यूट और पावर मिलता है।</li>
+      <li><b>Remote टैब</b> में D-pad और ट्रांसपोर्ट कीज़ के बगल में एक वॉल्यूम रॉकर मिलता है, जिसमें चलते-चलते लेवल दिखता है। <a href="/hi/guide/remote/">रिमोट गाइड &rarr;</a></li>
+      <li><b>हर प्लस और माइनस वॉल्यूम बटन</b> - होम डैशबोर्ड, ज़ोन कार्ड और Remote टैब पर - एक टैप पर एक कदम चलता है और दबाए रखने पर चलता रहता है, ठीक असली रिमोट की तरह। छोड़ते ही वह एक कदम के भीतर रुक जाता है।</li>
+      <li><b>आपके फ़ोन के वॉल्यूम बटन</b>, Android और iPhone पर, ऐप सामने होने पर रिसीवर को चलाते हैं, इसलिए आप बिना देखे वॉल्यूम बदल सकते हैं। दबाए रखने पर भी यह लगातार बढ़ता है।</li>
+      <li><b>हर ज़ोन</b> का अपना वॉल्यूम होता है, जो मुख्य ज़ोन से स्वतंत्र है। <a href="/hi/guide/multi-zone/">ज़ोन गाइड &rarr;</a></li>
+      <li><b>सीन</b> Master Volume को कैप्चर कर सकते हैं, इसलिए किसी सीन को बुलाने पर बाकी सब के साथ लेवल भी सेट हो जाता है। <a href="/hi/guide/scenes/">सीन गाइड &rarr;</a></li>
+      <li>आपके TV पर दिखने वाले <b>ऑन-स्क्रीन वॉल्यूम रीडआउट</b> को हिलाया या पूरी तरह बंद किया जा सकता है। <a href="/hi/guide/on-screen-display/">On-Screen Display गाइड &rarr;</a></li>
+    </ul>
+    <div class="note">वॉल्यूम बदलाव जानबूझकर नपे-तुले अंतराल पर भेजे जाते हैं, हर पिक्सेल पर एक नहीं, इसलिए रॉकर दबाए रखने या स्लाइडर घुमाने पर वॉल्यूम सहजता से बढ़ता है, और रिसीवर पर ऐसे कमांड नहीं लदते जिन्हें वह कतार में रखकर देर से लागू करता।</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">आम सवाल</div>
+      <h2>वॉल्यूम के अक्सर पूछे जाने वाले सवाल</h2>
+    </div>
+    <details open><summary>क्या वॉल्यूम सीमा असली रिमोट पर भी लागू होती है?</summary><div class="body">हाँ। यह सीमा रिसीवर की सेटिंग है, ऐप की नहीं, इसलिए यह हर रास्ते को रोकती है: ऐप, साथ आने वाला रिमोट, फ्रंट-पैनल डायल और आपके नेटवर्क का कोई भी दूसरा कंट्रोलर।</div></details>
+    <details><summary>क्या ये सेटिंग Zone 2 और Zone 3 पर लागू होती हैं?</summary><div class="body">Volume Controls मुख्य ज़ोन के लिए है। हर ज़ोन का अपना वॉल्यूम, और अपना पावर और इनपुट, Zones टैब में होता है।</div></details>
+    <details><summary>समीक्षाओं में डेसिबल लिखे होते हैं तो ऐप 0 से 98 क्यों दिखाता है?</summary><div class="body">ये एक ही डायल के दो रूप हैं। Volume Scale को -79.5 से 18.0 dB पर बदलें और रीडआउट वैसा हो जाता है जैसा कैलिब्रेशन लेवल आमतौर पर बताए जाते हैं, जहाँ 0.0 dB रेफ़रेंस है।</div></details>
+    <details><summary>क्या मैं अपने फ़ोन के वॉल्यूम बटन इस्तेमाल कर सकता हूँ?</summary><div class="body">हाँ, Android और iPhone पर। जब AVR Maestro सामने खुला हो तो डिवाइस के वॉल्यूम बटन सीधे रिसीवर को चलाते हैं, हर दबाव पर एक कदम और दबाए रखने पर लगातार बढ़ना; Settings, Audio के अंदर एक स्विच डिवाइस को उसके बटन वापस दे देता है।</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">गाइड के और हिस्से</div>
+      <h2>AVR Maestro की अन्य गाइड</h2>
+    </div>
+    <p class="lead"><a href="/hi/guide/getting-started/">शुरुआत करें</a> &middot; <a href="/hi/guide/home/">होम स्क्रीन</a> &middot; <a href="/hi/guide/scenes/">सीन</a> &middot; <a href="/hi/guide/custom-icons/">कस्टम आइकन</a> &middot; <a href="/hi/guide/sound/">ध्वनि</a> &middot; <a href="/hi/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/hi/guide/speakers/">स्पीकर</a> &middot; <a href="/hi/guide/locked-controls/">कंट्रोल लॉक क्यों है</a> &middot; <a href="/hi/guide/assistant/">असिस्टेंट</a> &middot; <a href="/hi/guide/home-automation/">होम ऑटोमेशन</a> &middot; <a href="/hi/guide/home-assistant-dashboard/">Home Assistant डैशबोर्ड</a> &middot; <a href="/hi/guide/multi-zone/">ज़ोन</a> &middot; <a href="/hi/guide/remote/">रिमोट</a> &middot; <a href="/hi/guide/radio/">रेडियो (FM/AM)</a> &middot; <a href="/hi/guide/on-screen-display/">ऑन-स्क्रीन डिस्प्ले</a> &middot; <a href="/hi/guide/settings/">सेटिंग्स</a> &middot; <a href="/hi/guide/languages/">भाषाएं</a> &middot; <a href="/hi/guide/backup/">बैकअप &amp; रिस्टोर</a> &middot; <a href="/hi/guide/now-playing/">अभी बज रहा है &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>सीमा एक बार तय करें, फिर निश्चिंत रहें</h2>
+    <p class="lead" style="margin:0 auto 24px">एक बार की खरीदारी, कोई विज्ञापन नहीं, कोई सब्सक्रिप्शन नहीं। एक मिनट से भी कम में कनेक्ट करें।</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Google Play पर पाएँ" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="App Store से डाउनलोड करें" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Mac App Store से डाउनलोड करें" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Microsoft Store पर पाएँ" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/hi/guide/">पूरी यूज़र गाइड पर वापस जाएँ &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/hi/">होम</a>
+      <a href="/hi/guide/">उपयोगकर्ता गाइड</a>
+      <a href="/hi/guide/getting-started/">शुरुआत करें</a>
+      <a href="/hi/receivers/">रिसीवर</a>
+      <a href="/hi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hi/audyssey-vs-dirac/">Audyssey बनाम Dirac</a>
+      <a href="/hi/best-denon-marantz-app/">बदलाव क्यों करें</a>
+      <a href="/hi/help/">सहायता</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro, MiyaraHub Technologies LLC का एक स्वतंत्र ऐप है और Denon, Marantz, D&amp;M Holdings, Sound United या इस पेज पर नामित किसी भी अन्य कंपनी से संबद्ध, उनके द्वारा समर्थित या प्रायोजित नहीं है। Denon, Marantz, HEOS, Audyssey और Dirac Live अपने-अपने स्वामियों के ट्रेडमार्क हैं, जिनका उपयोग यहाँ केवल पहचान के लिए किया गया है।</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

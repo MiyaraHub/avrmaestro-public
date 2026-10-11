@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="cs" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard Home Assistant pro Denon a Marantz - AVR Maestro</title>
+<meta name="description" content="Sestavte si dashboard Home Assistant pro svůj přijímač Denon nebo Marantz: karty z HACS, ID entit, YAML pro každou kartu, skutečná hlasitost v dB, Scény a historie." />
+<meta name="keywords" content="Home Assistant Denon dashboard, Marantz Home Assistant card, mushroom card AV receiver, Home Assistant receiver volume dB, denonavr dashboard, AVR Maestro Home Assistant example" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/cs/guide/home-assistant-dashboard/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-assistant-dashboard/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="cs_CZ" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Dashboard Home Assistant pro Denon a Marantz - AVR Maestro" />
+<meta property="og:description" content="Sestavte si dashboard Home Assistant pro svůj přijímač Denon nebo Marantz: karty z HACS, ID entit, YAML pro každou kartu, skutečná hlasitost v dB, Scény a historie." />
+<meta property="og:url" content="https://avrmaestro.com/cs/guide/home-assistant-dashboard/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Dashboard Home Assistant pro Denon a Marantz - AVR Maestro" />
+<meta name="twitter:description" content="Sestavte si dashboard Home Assistant pro svůj přijímač Denon nebo Marantz: karty z HACS, ID entit, YAML pro každou kartu, skutečná hlasitost v dB, Scény a historie." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro je nezávislá aplikace pro ovládání AV přijímačů Denon a Marantz přes vaši místní síť.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "cs"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
+      "headline": "Postavte si tento dashboard Home Assistant zhruba za hodinu",
+      "description": "Sestavte si dashboard Home Assistant pro svůj přijímač Denon nebo Marantz: karty z HACS, ID entit, YAML pro každou kartu, skutečná hlasitost v dB, Scény a historie.",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "datePublished": "2026-08-23",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-assistant-dashboard/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "cs"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Potřebuji k tomu vlastní karty z HACS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "K tomu, aby to fungovalo, ne. Každý ovládací prvek na této stránce běží z obyčejné tlačítkové karty Home Assistant. Mushroom, button-card, card-mod a apexcharts-card jsou to, co dává dashboardu vzhled ze snímků obrazovky, a každá sekce níže říká, kterou z nich používá a o co bez ní přijdete."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Proč se některá tlačítka rozsvěcují a jiná ne?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tlačítko se rozsvítí, když Home Assistant dokáže z vašeho přijímače přečíst odpovídající stav. Zdroj, surroundový režim, hlasitost a ztlumení se vracejí z vlastní entity přehrávače médií v přijímači, takže ty se zvýrazňují. Křivku Audyssey, slot Dirac, stmívač, režim eco a předvolbu reproduktorů integrace Denon nezveřejňuje, takže Home Assistant nemá jak zjistit, která je aktivní, a tlačítka zůstanou nerozsvícená, dokud na některé neklepnete."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mohu zobrazit skutečnou hlasitost v dB místo procent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano. Home Assistant publikuje volume_level jako hlavní hlasitost přijímače vydělenou 100 a u přijímačů Denon a Marantz je MV 80 referenční hodnotou 0 dB. Takže dB se rovná volume_level krát 100 minus 80. Hodnota volume_level 0,67 odpovídá hlavní hlasitosti 67, tedy -13,0 dB."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Budou moje ID entit odpovídat těm v tomto návodu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vzor ano, prostřední část ne. AVR Maestro pojmenovává své skripty podle MAC adresy přijímače, takže přejmenování aktualizuje stejný skript, místo aby vznikla jeho kopie. U vás to bude script.avr_maestro_, pak vašich dvanáct znaků a nakonec název ovládacího prvku. V Home Assistantu otevřete Nástroje pro vývojáře, pak Stavy, a vyfiltrujte avr_maestro, abyste viděli svůj vlastní seznam."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Domů",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Uživatelská příručka",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Domácí automatizace",
+      "item": "https://avrmaestro.com/guide/home-automation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Dashboard",
+      "item": "https://avrmaestro.com/guide/home-assistant-dashboard/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/cs/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Nabídka" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Hledat v příručce..." data-i18n-empty="Žádné výsledky pro" data-i18n-language="Jazyk">
+      <a href="/cs/">Domů</a>
+      <a href="/cs/guide/">Uživatelská příručka</a>
+      <a href="/cs/receivers/">Přijímače</a>
+      <a href="/cs/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/cs/best-denon-marantz-app/">Proč přejít</a>
+      <a href="/cs/#top" class="cta">Stáhnout</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/cs/">Domů</a> &rsaquo; <a href="/cs/guide/">Uživatelská příručka</a> &rsaquo; <a href="/cs/guide/home-automation/">Domácí automatizace</a> &rsaquo; Dashboard</div>
+    <div class="eyebrow">Home Assistant &middot; krok za krokem</div>
+    <h1>Postavte si tento dashboard pro Home Assistant <span class="g">zhruba za hodinu</span></h1>
+    <p>Deset kroků, YAML každé karty a kompletní zobrazení, které vložíte najednou. Vytvořeno a nafoceno na skutečném Marantz CINEMA 30. Změňte dva řetězce a je váš.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <figure class="hero-shot">
+      <img alt="Hotový dashboard: hlavní karta přehrávání, hlasitost s předvolbami v dB, mřížka zdrojů, surroundové režimy, korekce prostoru, scény a graf hlasitosti" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <figcaption>Co budete stavět</figcaption>
+    </figure>
+    <div class="note"><b>Spěcháte?</b> Přeskočte na <a href="#whole">krok 10</a>, stáhněte si kompletní zobrazení, změňte dva řetězce a vložte ho. Kroky mezi tím vysvětlují, co každá část dělá, abyste ji mohli upravit.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Než začnete</h2>
+    </div>
+    <ul class="plain">
+      <li><b>AVR Maestro je propojen s Home Assistant a synchronizace proběhla.</b> <a href="/cs/guide/home-automation/">Průvodce nastavením</a> to popisuje. Než na svých ovládacích prvcích začnete cokoli stavět, měli byste je v Home Assistant vidět.</li>
+      <li><b>Váš přijímač je přidán do Home Assistant.</b> Nastavení &rsaquo; Zařízení &amp; služby &rsaquo; Přidat integraci &rsaquo; <b>Denon AVR</b> a poté jeho místní IP adresa. Právě to dává dashboardu živý stav.</li>
+      <li><b>Váš přijímač je během stavby zapnutý.</b> Polovina toho, co budete psát, čte živé hodnoty, a přijímač v pohotovostním režimu nepublikuje téměř nic.</li>
+    </ul>
+    <p class="lead">Dashboard je napájen dvěma zdroji a rozdíl mezi nimi je důležitý v každém z kroků níže.</p>
+    <table class="t">
+      <thead><tr><th>Pochází z</th><th>Poskytuje</th></tr></thead>
+      <tbody>
+        <tr><td>Synchronizované skripty AVR Maestro</td><td>Každý <b>ovládací prvek</b>. Vstupy, surroundové režimy, Audyssey, Dirac, Smart Selects, předvolby, stmívač, eco, vaše Scény.</td></tr>
+        <tr><td>Entita přehrávače médií z integrace Denon AVR</td><td>Živý <b>stav</b>. Napájení, zvolený zdroj, surroundový režim, hlasitost, ztlumení.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Krok 1</div>
+      <h2>Nainstalujte čtyři karty z HACS</h2>
+    </div>
+    <p class="lead">Všechny čtyři jsou ve výchozím obchodě HACS. V Home Assistantu: <b>HACS &rsaquo; Frontend &rsaquo; Prozkoumat &amp; stáhnout repozitáře</b>, vyhledejte název, klikněte na Stáhnout a poté znovu načtěte prohlížeč.</p>
+    <table class="t">
+      <thead><tr><th>Hledejte</th><th>Použito pro</th><th>Pokud ji vynecháte</th></tr></thead>
+      <tbody>
+        <tr><td><b>Mushroom</b></td><td>Každou ovládací dlaždici a posuvník hlasitosti</td><td>Použijte běžnou kartu <code>button</code>. Funguje, jen vypadá hranatěji.</td></tr>
+        <tr><td><b>button-card</b></td><td>Záhlaví sekcí s živým popiskem</td><td>Použijte kartu <code>markdown</code> nebo obyčejné nadpisy.</td></tr>
+        <tr><td><b>card-mod</b></td><td>Barvy a rozsvícený stav aktivní dlaždice</td><td>Všechno stále funguje. Jen se nic nerozsvítí.</td></tr>
+        <tr><td><b>apexcharts-card</b></td><td>Grafy historie</td><td>Použijte vestavěnou kartu <code>history-graph</code>.</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><b>Žádná z nich není pro funkčnost nutná.</b> Každý ovládací prvek níže běží z běžné tlačítkové karty Home Assistantu namířené na stejný skript. Vlastní karty jsou make-up, ne instalatérství.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Krok 2</div>
+      <h2>Najděte svá dvě ID entit</h2>
+    </div>
+    <p class="lead">Každý úryvek na této stránce používá dva zástupné symboly. Najděte ty své jednou a zbytek je jen kopírování a vkládání.</p>
+    <ul class="plain">
+      <li><b><code>media_player.your_receiver</code></b> &rarr; Nastavení &rsaquo; Zařízení &amp; služby &rsaquo; váš přijímač &rsaquo; entita přehrávače médií. Něco jako <code>media_player.marantz_cinema_30</code>.</li>
+      <li><b><code>script.avr_maestro_MAC_...</code></b> &rarr; Nástroje pro vývojáře &rsaquo; Stavy a do filtru entit zadejte <code>avr_maestro</code>. Zobrazí se celý seznam vašich ovládacích prvků.</li>
+    </ul>
+    <p class="lead">Prostřední část každého ID skriptu je MAC adresa vašeho přijímače, dvanáct malých písmen, u všech stejná. Zkopírujte si ji jednou. Všude, kde tato stránka píše <code>MAC</code>, dosaďte své.</p>
+    <div class="note"><b>Ignorujte všechny, které obsahují <code>unavailable</code>.</b> Starší verze pojmenovávaly skripty podle názvu přijímače, nikoli podle MAC adresy. Pokud jste synchronizovali tehdy, jsou tyto starší skripty stále v seznamu a jsou mrtvé. Živé jsou ty pojmenované podle MAC.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Krok 3</div>
+      <h2>Vytvořte zobrazení</h2>
+    </div>
+    <ol class="plain">
+      <li><b>1.</b> Nastavení &rsaquo; Dashboardy &rsaquo; Přidat dashboard &rsaquo; Nový dashboard od nuly. Pojmenujte ho, jak chcete.</li>
+      <li><b>2.</b> Otevřete ho a vpravo nahoře klikněte na ikonu tužky pro úpravy.</li>
+      <li><b>3.</b> Přidejte zobrazení a zvolte rozvržení <b>Sekce</b>. Ne Zdivo. Právě Sekce zajistí, že se na telefonu správně přeskupí.</li>
+      <li><b>4.</b> V nastavení zobrazení nastavte <b>Maximální počet sloupců</b> na 3 a zapněte <b>Husté umístění sekcí</b>.</li>
+    </ol>
+    <p class="lead">Od teď je každý krok stejný: přidejte sekci a vložte do ní karty. YAML vložíte přes nabídku se třemi tečkami na kartě a volbu <b>Upravit v YAML</b> nebo přes nabídku se třemi tečkami na dashboardu a <b>Editor surové konfigurace</b>, kam vložíte všechno najednou.</p>
+<pre class="code"><span class="c"># The view's own settings, if you prefer to type them</span>
+type: sections
+title: AVR Maestro
+icon: mdi:audio-video
+max_columns: 3
+dense_section_placement: true</pre>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Krok 4</div>
+      <h2>Přidejte ovládací prvek</h2>
+    </div>
+    <p class="lead">Začněte tím nejjednodušším, co na ploše je, abyste věděli, že jsou vaše ID entit správně, dřív než začnete stavět něco složitého. Přidejte sekci, přidejte kartu, Upravit v YAML, vložte:</p>
+<pre class="code">type: button
+name: Pure Direct
+icon: mdi:speaker
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_mode_pure_direct</pre>
+    <p class="capt">Běžný Home Assistant. HACS není potřeba.</p>
+    <p class="lead">Klepněte na něj. Pokud se přijímač změní, vaše ID jsou správná a vše níže bude fungovat. Pokud se nic nestane, vraťte se ke kroku 2.</p>
+  </div>
+</section>
+
+<section id="highlight">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Krok 5</div>
+      <h2>Ať se rozsvítí, když je právě aktivní</h2>
+    </div>
+    <p class="lead">Tohle je vzor, který stojí za to se naučit, a každá dlaždice zdroje a surroundu na ploše je jeho kopií. Karta odešle skript a barvu si bere z entity přijímače, takže vstup, na kterém skutečně jste, svítí a ostatní ne.</p>
+    <figure><img alt="Mřížka zdrojů, kde Nvidia Shield svítí oranžově a ostatních dvanáct vstupů je tmavých" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Jedna rozsvícená dlaždice, dvanáct tmavých</figcaption></figure>
+<pre class="code">type: custom:mushroom-template-card
+entity: script.avr_maestro_MAC_input_cd
+icon: mdi:disc
+primary: CD
+icon_color: >-
+  {{ 'orange' if (state_attr('media_player.your_receiver','source') or '')|lower
+     == 'cd' else 'grey' }}
+layout: vertical
+fill_container: true
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_input_cd
+card_mod:
+  style: |
+    ha-card {
+      border-radius: 14px;
+    {% if (state_attr('media_player.your_receiver','source') or '')|lower == 'cd' %}
+      background: linear-gradient(160deg, rgba(226,86,10,0.34), rgba(15,15,17,0.88));
+      border: 1px solid rgba(255,122,24,0.80);
+    {% else %}
+      background: rgba(15,15,17,0.72);
+      border: 1px solid rgba(255,122,24,0.14);
+    {% endif %}
+    }</pre>
+    <p class="capt">U každého vstupu změníte tři věci: skript, ikonu a řetězec, se kterým se porovnává.</p>
+    <p class="lead">Dvě věci musí sedět, jinak se dlaždice nikdy nerozsvítí:</p>
+    <ul class="plain">
+      <li><b>Porovnávejte s tím, co váš přijímač skutečně hlásí.</b> Nástroje pro vývojáře &rsaquo; Stavy, vaše entita přehrávače médií, přečtěte si atributy <code>source_list</code> a <code>sound_mode_list</code>. To jsou přesné řetězce. Porovnávejte malými písmeny, jako výše.</li>
+      <li><b>Přejmenovaný vstup hlásí své nové jméno.</b> Přejmenujte GAME1 na „Xbox“ na přijímači a ten bude hlásit <code>Xbox</code>, zatímco ovládací prvek AVR Maestro se pořád jmenuje <code>input_game1</code>. Porovnávejte s tím, co hlásí přijímač, ne s názvem skriptu.</li>
+    </ul>
+    <p class="lead">Surroundové režimy jsou stejná karta s <code>sound_mode</code> místo <code>source</code>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Krok 6</div>
+      <h2>Dejte každé sekci živé záhlaví</h2>
+    </div>
+    <p class="lead">Obyčejný nadpis je mrtvé místo. Dejte pod něj živou hodnotu a z „Zdroje“ se stane „Zdroje / Právě na Nvidia Shield“.</p>
+<pre class="code">type: custom:button-card
+name: Sources
+icon: mdi:video-input-hdmi
+color_type: label-card
+entity: media_player.your_receiver
+show_label: true
+label: >-
+  [[[ var v = states["media_player.your_receiver"].attributes.source;
+      return v ? ("Now on " + v) : "Receiver in standby"; ]]]
+tap_action:
+  action: none
+styles:
+  grid:
+    - grid-template-areas: '"i n" "i l"'
+    - grid-template-columns: min-content auto
+  name:
+    - font-size: 13px
+    - letter-spacing: 3px
+    - text-transform: uppercase
+    - justify-self: start
+  label:
+    - font-size: 11px
+    - justify-self: start</pre>
+    <p class="capt">Právě dvouřádková mřížka dá popisek pod nadpis místo vedle něj.</p>
+    <p class="lead">U záhlaví Surround vyměňte <code>attributes.source</code> za <code>attributes.sound_mode</code> a podobně u dalších.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Krok 7</div>
+      <h2>Zobrazte hlasitost v dB</h2>
+    </div>
+    <p class="lead">Home Assistant hlásí hlasitost jako zlomek. Nikdo nenastavuje přijímač na „0,67“. Jeden řádek matematiky to spraví a celá sekce začne vypadat jako přijímač.</p>
+    <figure><img alt="Sekce hlasitosti: posuvník, nahoru, dolů, ztlumení a čtyři předvolby v dB" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Noc, Dialog, Film a Hlasitě, každá popsaná hodnotou dB, kterou nastavuje</figcaption></figure>
+    <div class="note"><b>Převod.</b> Home Assistant publikuje <code>volume_level</code> jako hlavní hlasitost vydělenou 100 a u přijímačů Denon a Marantz je MV 80 referenční hodnotou 0 dB. Takže <b>dB = volume_level &times; 100 &minus; 80</b>. Hodnota <code>volume_level</code> 0,67 odpovídá hlavní hlasitosti 67, tedy &minus;13,0 dB.</div>
+<pre class="code"><span class="c"># The readout</span>
+type: custom:mushroom-template-card
+entity: media_player.your_receiver
+icon: mdi:volume-high
+primary: >-
+  {% set v = state_attr('media_player.your_receiver','volume_level') %}
+  {% if v is not none %}{{ (v * 100 - 80) | round(1) }} dB{% else %}Standby{% endif %}
+secondary: Master volume
+layout: vertical</pre>
+<pre class="code"><span class="c"># The slider. media_controls must be empty or the bar becomes a power button</span>
+type: custom:mushroom-media-player-card
+entity: media_player.your_receiver
+volume_controls:
+  - volume_set
+media_controls: []
+show_volume_level: true</pre>
+<pre class="code"><span class="c"># A preset. 0.50 is master volume 50, which is -30 dB</span>
+type: custom:mushroom-template-card
+entity: media_player.your_receiver
+icon: mdi:weather-night
+primary: Night
+secondary: "-30 dB"
+tap_action:
+  action: perform-action
+  perform_action: media_player.volume_set
+  target:
+    entity_id: media_player.your_receiver
+  data:
+    volume_level: 0.50</pre>
+    <div class="note"><b>Nejhlasitější předvolbu volte uvážlivě.</b> Výše uvedená sada končí na &minus;10 dB. Na dashboard se omylem trefíte mnohem snadněji než na dálkový ovladač a referenční úroveň na velkém přijímači je opravdu hlasitá.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Krok 8</div>
+      <h2>Přidejte své Scény</h2>
+    </div>
+    <p class="lead">Název čtěte ze skriptu, místo abyste ho psali ručně, a přejmenování Scény v AVR Maestro přejmenuje dlaždici bez jakékoli úpravy dashboardu.</p>
+    <figure><img alt="Čtyři dlaždice scén, každá s výčtem nastavení, která scéna obnoví" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Každá dlaždice říká, co její scéna skutečně obnoví</figcaption></figure>
+<pre class="code">type: custom:mushroom-template-card
+entity: script.avr_maestro_MAC_scene_1234567890123
+icon: mdi:theater
+primary: >-
+  {{ state_attr('script.avr_maestro_MAC_scene_1234567890123','friendly_name')
+     | replace('AVR Maestro - ', '') | replace(' (Your Receiver)', '') }}
+secondary: >-
+  {% set t = states.script['avr_maestro_MAC_scene_1234567890123'].attributes.last_triggered %}
+  {{ 'recalled ' ~ relative_time(t) ~ ' ago' if t else 'not run yet' }}
+multiline_secondary: true
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_scene_1234567890123</pre>
+    <p class="capt">Dvě volání replace() ořezávají z popisného názvu předponu a název přijímače.</p>
+    <p class="lead">Druhý řádek stojí za tu minutu navíc. Zeď efektně pojmenovaných tlačítek vám ve 11 večer nic neřekne; řádek s popisem, co každé obnoví, vám řekne, které zmáčknout.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Krok 9</div>
+      <h2>Přidejte historii</h2>
+    </div>
+    <p class="lead">Entitu přehrávače médií přijímače zaznamenává Home Assistant jako každou jinou, takže historii poslechu máte zadarmo. Všechno níže pochází z té jediné entity: žádné další senzory, žádní pomocníci, nic, co by bylo třeba předem nastavovat.</p>
+    <figure><img alt="Pět grafů historie: napájení a aktivita, hlavní hlasitost v dB, hlasitost podle dne, používaný zdroj a surroundový režim" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Pět grafů, jedna entita, sedm dní</figcaption></figure>
+    <p class="lead">Prostá časová osa stavů nepotřebuje žádné vlastní karty a je to ta, kterou stojí za to mít především:</p>
+<pre class="code">type: history-graph
+hours_to_show: 168
+entities:
+  - entity: media_player.your_receiver
+    name: Receiver</pre>
+    <p class="capt">Zapnuto, vypnuto a co přijímač dělal, v průběhu týdne.</p>
+    <p class="lead">Hlasitost v dB používá stejný převod jako krok 7:</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+header:
+  show: true
+  title: Master volume, last 7 days
+series:
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Master volume
+    type: line
+    curve: smooth
+    unit: dB
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100 - 80;"
+    extend_to: now
+    group_by:
+      duration: 1h
+      func: last
+      fill: last
+apex_config:
+  chart:
+    height: 240
+  yaxis:
+    min: -60
+    max: 0</pre>
+    <p class="capt">group_by s fill: last promění řídké události ve spojitou čáru. Osa y musí být v apex_config, aby se projevila.</p>
+    <p class="lead">Denní průměr a špička promění zubatou čáru v něco s tvarem:</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+span:
+  end: day
+header:
+  show: true
+  title: Master volume by day in dB, average and peak
+series:
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Day average
+    type: column
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100;"
+    group_by: {duration: 1d, func: avg, fill: 'null'}
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Day peak
+    type: line
+    curve: smooth
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100;"
+    group_by: {duration: 1d, func: max, fill: 'null'}
+apex_config:
+  yaxis:
+    min: 0
+    max: 80
+    labels:
+      formatter: "EVAL:function (v) { return (v - 80).toFixed(0); }"
+  tooltip:
+    y:
+      formatter: "EVAL:function (v) { return v == null ? '' : (v - 80).toFixed(1) + ' dB'; }"</pre>
+    <p class="capt">Dvě řady ze stejného atributu, seskupené podle dne.</p>
+    <div class="note"><b>Proč tento graf vykresluje 0 až 80 a formátuje na dB, místo aby vykresloval dB.</b> Sloupce rostou od základny osy. Vykreslíte-li přímo dB, každý sloupec visí dolů od 0, takže dlouhý sloupec znamená ticho, což se čte pozpátku. Vykreslete surové číslo hlavní hlasitosti a 80 odečtěte ve formátovačích osy a tooltipu, a sloupce porostou nahoru, zatímco vše, co čtenář vidí, jsou stále dB. <code>fill: 'null'</code> znamená, že den bez měření nedostane žádný sloupec, místo aby se přenesla hodnota ze včerejška.</div>
+    <p class="lead">A dva grafy, které odpovídají na otázku „na čem se skutečně dívám a v jakém režimu“: zdroj a surroundový režim, vykreslené jako časová osa toho, co bylo zvoleno.</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+span:
+  end: day
+header:
+  show: true
+  title: Source in use, last 7 days
+series:
+  - entity: media_player.your_receiver
+    attribute: source
+    name: Source
+    type: line
+    curve: stepline
+    stroke_width: 3
+    extend_to: now
+    float_precision: 0
+    transform: |
+      if (x == null) return null;
+      var m = ["Phono", "NET", "Xbox", "Nvidia Shield"];
+      var i = m.indexOf(x);
+      return i &lt; 0 ? 0 : i + 1;
+apex_config:
+  yaxis:
+    min: 0
+    max: 4
+    tickAmount: 4
+    labels:
+      formatter: >-
+        EVAL:function (v) { return ["Other", "Phono", "HEOS Net", "Xbox",
+        "Shield"][Math.round(v)] || ''; }
+  tooltip:
+    y:
+      formatter: >-
+        EVAL:function (v) { return v == null ? 'off' : ["Other", "Phono",
+        "HEOS Net", "Xbox", "Shield"][Math.round(v)] || 'Other'; }</pre>
+    <p class="capt">Své vlastní zdroje vložte do pole transform i do obou polí formátovačů. Index 0 ponechte jako „Other“.</p>
+    <p class="lead">Osa grafu potřebuje čísla, takže <code>transform</code> přiřadí každému názvu zdroje pozici a formátovače ji pro popisky a tooltip převedou zpět. Zajistěte, aby bylo mapování <b>úplné</b>: <code>null</code> (přijímač vypnutý) zůstane mezerou a cokoli, co není ve vašem seznamu, spadne do „Other“, takže se obojí nikdy nemůže splést. Stejná karta s <code>sound_mode</code> vám dá surroundový režim, s řetězci velkými písmeny přesně tak, jak je hlásí váš přijímač.</p>
+    <div class="note"><b>U těch dvou posledních ponechte <code>stepline</code>.</b> Zdroj nebo surroundový režim je kategorie, ne číslo. Vyhlaďte křivku a čára se vznese mezi Shield a Xbox přes všechno, co leží mezi nimi na ose, a nakreslí vstup, který nikdy nebyl zvolen. Hlasitost je skutečná veličina a vyhlazuje se poctivě; kategorie ne.</div>
+    <div class="note"><b>Nejdřív zkontrolujte retenci recorderu.</b> Home Assistant ve výchozím nastavení uchovává deset dní, takže sedm dní je asi tak maximum, co smysluplně chcete. Chcete-li jít dál do minulosti, potřebujete šablonový senzor <code>state_class: measurement</code>, který Home Assistant uchovává jako dlouhodobé statistiky po léta.</div>
+    <div class="note"><b>Chybějící den je obvykle správně.</b> Home Assistant zaznamenává změny, ne vzorky. Nechte přijímač dva dny na jednom vstupu s jednou hlasitostí a nezapíše nic, takže ten den nemá sloupec. Vypadá to jako ztráta dat a je to pravý opak: nic se nestalo.</div>
+  </div>
+</section>
+
+<section id="whole">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Krok 10</div>
+      <h2>Nebo si vezměte všechno</h2>
+    </div>
+    <p class="lead">Kompletní zobrazení, každá sekce a každá karta, se zástupnými symboly místo ID entit.</p>
+    <ol class="plain">
+      <li><b>1.</b> <a href="/cs/guide/home-assistant-dashboard/avr-maestro-dashboard.yaml" download>Stáhněte si YAML zobrazení</a>.</li>
+      <li><b>2.</b> Otevřete ho v libovolném textovém editoru a nahraďte dva řetězce všude, kde se objevují: <code>YOUR_RECEIVER</code> názvem entity vašeho přehrávače médií a <code>YOURMAC</code> dvanácti znaky vašeho přijímače z kroku 2.</li>
+      <li><b>3.</b> V Home Assistantu otevřete svůj dashboard, ikonu tužky, nabídku se třemi tečkami, <b>Editor surové konfigurace</b> a vložte to jako zobrazení.</li>
+    </ol>
+    <div class="note"><b>ID vašich Scén nebudou odpovídat.</b> Skripty scén se jmenují podle doby, kdy byla Scéna vytvořena, takže čtyři ve vašem souboru ve vašem systému neexistují: tyto karty se zobrazí a nic nedělají. Nahraďte jejich ID entit vlastními z kroku 2 nebo sekci Scén smažte a znovu ji postavte podle kroku 8.</div>
+    <div class="note"><b>Dvě další věci, které čekejte.</b> Grafy zdrojů a surroundu nesou názvy zdrojů z přijímače, na kterém to vzniklo, takže ta pole upravte, jak popisuje krok 9. A popisky dlaždic jsou anglicky; nic v souboru není přeloženo.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Pokud se dlaždice nikdy nerozsvítí</h2>
+    </div>
+    <p class="lead">Než usoudíte, že jste to postavili špatně: některé se rozsvítit nemohou a stojí za to vědět které.</p>
+    <p class="lead">Dlaždice může zobrazit svůj stav, jen když ho Home Assistant dokáže přečíst, a váš přijímač čte ze dvou míst. Integrace Denon AVR publikuje základní údaje na entitě přehrávače médií. AVR Maestro publikuje zbytek: vytvoří senzor <b>Status Bridge</b>, <code>sensor.avr_maestro_your_receiver</code>, a zapisuje na něj jako atributy hodnoty, které už má.</p>
+    <table class="t">
+      <thead><tr><th>Na entitě přehrávače médií</th><th>Na senzoru Status Bridge</th></tr></thead>
+      <tbody>
+        <tr><td>Napájení</td><td>Křivka Audyssey MultEQ</td></tr>
+        <tr><td>Zvolený zdroj</td><td>Dynamic Volume a referenční úroveň</td></tr>
+        <tr><td>Surroundový režim</td><td>Který slot Dirac je načten</td></tr>
+        <tr><td>Hlasitost a ztlumení</td><td>Stmívač předního panelu, režim Eco</td></tr>
+        <tr><td>Dynamic EQ, někdy</td><td>Předvolba reproduktorů, tón a desítky dalších</td></tr>
+      </tbody>
+    </table>
+    <p class="lead">Oba sloupce jsou nyní čitelné. Hodnotu přehrávače médií vezměte z <code>states['media_player.your_receiver'].attributes</code> a hodnotu Status Bridge pomocí <code>state_attr('sensor.avr_maestro_your_receiver','dirac_slot')</code>, aby se dlaždice rozsvítila pro nastavení, které je skutečně aktivní, a nejen spouštěla skript, který ho mění.</p>
+    <p class="lead">Změřeno na přijímači, na kterém to vzniklo: entita přehrávače médií nese asi dvacet ze šedesáti ovládacích prvků a senzor Status Bridge publikuje zhruba čtyřicet dalších. Dohromady může dashboard číst téměř vše, co umí měnit - rozdíl mezi zdí tlačítek a skutečným ovládacím panelem.</p>
+    <div class="note"><b>Pokud hodnota může znamenat dvě věci, řekněte to.</b> Dynamic EQ přichází jako <code>true</code>, <code>false</code> nebo vůbec. Pokud „vůbec“ bereme jako „vypnuto“, dostane vaše zeď sebevědomě špatnou odpověď.</div>
+<pre class="code">icon_color: >-
+  {% set d = state_attr('media_player.your_receiver','dynamic_eq') %}
+  {{ 'orange' if d is true else 'grey' }}
+secondary: >-
+  {% set d = state_attr('media_player.your_receiver','dynamic_eq') %}
+  {% if d is none %}state not published{% elif d %}on{% else %}off{% endif %}</pre>
+    <p class="capt">Tři stavy, ne dva.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Další věci, které stojí za to vědět</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Dlaždice vycházejí o třetinu užší, než čekáte.</b> V sekci přes 3 sloupce má vnitřní mřížka <b>36</b> sloupců, ne 12. Pro čtyři dlaždice vedle sebe nastavte <code>grid_options: {columns: 9}</code>. Pro šest vedle sebe 6.</li>
+      <li><b>Posuvník hlasitosti ukazuje tlačítko napájení místo lišty.</b> To je <code>media_controls</code> s <code>on_off</code> uvnitř. Nastavte <code>media_controls: []</code>.</li>
+      <li><b>Popisky se ořezávají.</b> „Volume Down“ se změní na „Volume Do...“. Zkraťte na „Vol Down“ nebo dlaždici rozšiřte.</li>
+      <li><b>Popisy scén se ořezávají.</b> Přidejte <code>multiline_secondary: true</code>.</li>
+      <li><b>Rovná čára z grafu apexcharts zmizí.</b> To způsobuje <code>experimental.color_threshold</code>. Čáru kreslí jako svislý přechod a dokonale vodorovný segment má nulovou výšku, přes kterou by se přechod táhl, takže se vykreslí neviditelně. 43hodinová relace na jedné hlasitosti zmizela úplně. Použijte plnou <code>color</code>.</li>
+      <li><b>Na telefonu se přeskupí samo.</b> Zobrazení Sekce se při úzké šířce poskládají do jednoho sloupce, aniž byste cokoli nastavovali.</li>
+    </ul>
+    <figure><img alt="Stejný dashboard v šířce telefonu, přeskupený do jednoho sloupce" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Stejný dashboard v šířce telefonu: tři sloupce se stanou jedním a nic pro to nebylo nastaveno</figcaption></figure>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Časté dotazy</div>
+      <h2>K dashboardu odpovědi</h2>
+    </div>
+    <details open><summary>Potřebuji k tomu vlastní karty z HACS?</summary><div class="body">K tomu, aby to fungovalo, ne. Každý ovládací prvek na této stránce běží z obyčejné tlačítkové karty Home Assistant. Mushroom, button-card, card-mod a apexcharts-card jsou to, co dává dashboardu vzhled ze snímků obrazovky, a každá sekce níže říká, kterou z nich používá a o co bez ní přijdete.</div></details>
+    <details><summary>Proč se některá tlačítka rozsvěcují a jiná ne?</summary><div class="body">Tlačítko se rozsvítí, když Home Assistant dokáže z vašeho přijímače přečíst odpovídající stav. Zdroj, surroundový režim, hlasitost a ztlumení přicházejí z entity přehrávače médií přijímače, takže se zvýrazní. Křivku Audyssey, slot Dirac, stmívač, režim Eco a předvolbu reproduktorů integrace Denon nepublikuje, takže Home Assistant nemá jak zjistit, které je aktivní, a tlačítka zůstanou nerozsvícená, dokud na některé neklepnete.</div></details>
+    <details><summary>Mohu zobrazit skutečnou hlasitost v dB místo procent?</summary><div class="body">Ano. Home Assistant publikuje volume_level jako hlavní hlasitost přijímače vydělenou 100 a u přijímačů Denon a Marantz je MV 80 referenční hodnotou 0 dB. Takže dB se rovná volume_level krát 100 minus 80. Hodnota volume_level 0,67 odpovídá hlavní hlasitosti 67, tedy -13,0 dB.</div></details>
+    <details><summary>Budou moje ID entit odpovídat těm v tomto návodu?</summary><div class="body">Vzor ano, prostřední část ne. AVR Maestro pojmenovává své skripty podle MAC adresy přijímače, takže přejmenování aktualizuje stejný skript, místo aby vznikla jeho kopie. U vás to bude script.avr_maestro_, pak vašich dvanáct znaků a nakonec název ovládacího prvku. V Home Assistantu otevřete Nástroje pro vývojáře, pak Stavy, a vyfiltrujte avr_maestro, abyste viděli svůj vlastní seznam.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Další z průvodce</div>
+      <h2>Další průvodce aplikací AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/cs/guide/getting-started/">Začínáme</a> &middot; <a href="/cs/guide/home/">Domovská obrazovka</a> &middot; <a href="/cs/guide/scenes/">Scény</a> &middot; <a href="/cs/guide/custom-icons/">Vlastní ikony</a> &middot; <a href="/cs/guide/sound/">Zvuk</a> &middot; <a href="/cs/guide/graphic-eq/">Grafický ekvalizér</a> &middot; <a href="/cs/guide/speakers/">Reproduktory</a> &middot; <a href="/cs/guide/locked-controls/">Proč je ovládací prvek uzamčen</a> &middot; <a href="/cs/guide/assistant/">Asistent</a> &middot; <a href="/cs/guide/home-automation/">Domácí automatizace</a> &middot; <a href="/cs/guide/multi-zone/">Zóny</a> &middot; <a href="/cs/guide/remote/">Dálkový ovladač</a> &middot; <a href="/cs/guide/radio/">Rádio (FM/AM)</a> &middot; <a href="/cs/guide/on-screen-display/">Zobrazení na obrazovce</a> &middot; <a href="/cs/guide/settings/">Nastavení</a> &middot; <a href="/cs/guide/languages/">Jazyky</a> &middot; <a href="/cs/guide/volume/">Ovládání hlasitosti</a> &middot; <a href="/cs/guide/backup/">Záloha &amp; obnova</a> &middot; <a href="/cs/guide/now-playing/">Právě se přehrává &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Celý váš přijímač na jedné zdi</h2>
+    <p class="lead" style="margin:0 auto 24px">Domácí automatizace je jediné placené odemčení v AVR Maestro. Všechno ostatní, včetně AI asistenta přímo v zařízení, je v ceně.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Stáhnout z Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Stáhnout z App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Stáhnout z Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Stáhnout z Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/cs/guide/home-automation/">Zpět na Domácí automatizaci &rarr;</a> &middot; <a href="/cs/guide/">Celá uživatelská příručka &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/cs/">Domů</a>
+      <a href="/cs/guide/">Uživatelská příručka</a>
+      <a href="/cs/guide/getting-started/">Začínáme</a>
+      <a href="/cs/receivers/">Přijímače</a>
+      <a href="/cs/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/cs/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/cs/best-denon-marantz-app/">Proč přejít</a>
+      <a href="/cs/help/">Nápověda</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro je nezávislá aplikace společnosti MiyaraHub Technologies LLC a není nijak spojena se společnostmi Denon, Marantz, D&amp;M Holdings, Sound United ani žádnou jinou společností uvedenou na této stránce, ani jimi není schválena či sponzorována. Denon, Marantz, HEOS, Home Assistant, Mushroom, HACS, Audyssey a Nvidia Shield jsou ochranné známky nebo projekty svých příslušných vlastníků a jsou zde použity pouze k identifikaci.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Limite de volume, niveau à la mise sous tension &amp; profondeur de sourdine - AVR Maestro</title>
+<meta name="description" content="Définissez une limite de volume pour votre Denon ou Marantz, choisissez le niveau à la mise sous tension, réglez l'atténuation de la sourdine et lisez le volume de 0 à 98 ou en décibels." />
+<meta name="keywords" content="Denon volume limit app, Marantz power on level, AVR mute level -20 dB, receiver volume in decibels app, Denon volume scale absolute relative, protect speakers volume limit" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/fr/guide/volume/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/volume/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/volume/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/volume/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/volume/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/volume/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/volume/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/volume/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/volume/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/volume/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/volume/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/volume/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/volume/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/volume/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/volume/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/volume/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/volume/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/volume/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/volume/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/volume/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/volume/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/volume/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/volume/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/volume/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/volume/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/volume/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/volume/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/volume/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/volume/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/volume/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/volume/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/volume/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Limite de volume, niveau à la mise sous tension &amp; profondeur de sourdine - AVR Maestro" />
+<meta property="og:description" content="Définissez une limite de volume pour votre Denon ou Marantz, choisissez le niveau à la mise sous tension, réglez l'atténuation de la sourdine et lisez le volume de 0 à 98 ou en décibels." />
+<meta property="og:url" content="https://avrmaestro.com/fr/guide/volume/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Limite de volume, niveau à la mise sous tension &amp; profondeur de sourdine - AVR Maestro" />
+<meta name="twitter:description" content="Définissez une limite de volume pour votre Denon ou Marantz, choisissez le niveau à la mise sous tension, réglez l'atténuation de la sourdine et lisez le volume de 0 à 98 ou en décibels." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro est une application indépendante pour contrôler les récepteurs AV Denon et Marantz via votre réseau local.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/volume/#article",
+      "headline": "Contrôles de volume : un plafond, un niveau de réveil et une sourdine qui fait ce que vous voulez",
+      "description": "Définissez une limite de volume pour votre Denon ou Marantz, choisissez le niveau à la mise sous tension, réglez l'atténuation de la sourdine et lisez le volume de 0 à 98 ou en décibels.",
+      "image": "https://avrmaestro.com/screenshots/volume-controls.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/volume/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "fr"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/volume/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "La limite de volume s'applique-t-elle aussi à la télécommande physique ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. La limite est un réglage du récepteur, pas de l'app : elle plafonne donc toutes les voies, l'app, la télécommande fournie, la molette de la façade et tout autre contrôleur de votre réseau."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ces réglages s'appliquent-ils à la zone 2 et à la zone 3 ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les contrôles de volume concernent la zone principale. Chaque zone a son propre volume, ainsi que sa propre alimentation et sa propre entrée, dans l'onglet Zones."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourquoi l'app affiche-t-elle de 0 à 98 alors que les tests citent des décibels ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ce sont deux vues du même bouton. Passez l'échelle de volume sur -79.5 à 18.0 dB et l'affichage correspond à la façon dont les niveaux de calibration sont habituellement cités, où 0.0 dB est la référence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Puis-je utiliser les boutons de volume de mon téléphone ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, sur Android et sur iPhone. Tant qu'AVR Maestro est au premier plan, les boutons de volume de l'appareil pilotent directement le récepteur, un pas par pression et une montée progressive en maintenant ; un interrupteur sous Paramètres, Audio rend ses boutons à l'appareil."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guide de l'utilisateur",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Commandes de volume",
+      "item": "https://avrmaestro.com/guide/volume/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/fr/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Rechercher dans le guide..." data-i18n-empty="Aucun résultat pour" data-i18n-language="Langue">
+      <a href="/fr/">Accueil</a>
+      <a href="/fr/guide/">Guide de l'utilisateur</a>
+      <a href="/fr/receivers/">Récepteurs</a>
+      <a href="/fr/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/fr/best-denon-marantz-app/">Pourquoi changer</a>
+      <a href="/fr/#top" class="cta">Télécharger</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/fr/">Accueil</a> &rsaquo; <a href="/fr/guide/">Guide d'utilisation</a> &rsaquo; Contrôles de volume</div>
+    <div class="eyebrow">Paramètres &rsaquo; Contrôles de volume</div>
+    <h1>Contrôles de volume : un plafond, un niveau de réveil et <span class="g">une sourdine qui fait ce que vous voulez</span></h1>
+    <p>Quatre réglages qui décident ensemble du volume maximal que peut atteindre votre récepteur, de ce qu'il fait à son réveil et de la profondeur de la sourdine. Ils résident dans le récepteur, ils tiennent donc que vous utilisiez l'app, la télécommande physique ou la façade.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Où la trouver</div>
+        <h2>Paramètres &rsaquo; Contrôles de volume</h2>
+        <p class="lead">Ouvrez <b>Paramètres</b> et faites défiler jusqu'à <b>Contrôles de volume</b> - « Limite de volume, niveau à la mise sous tension et profondeur de sourdine ». Tout ce qui figure sur cette page est écrit directement dans le récepteur : cela survit à la fermeture de l'app et s'applique à tous les modes de contrôle.</p>
+      </div>
+      <img alt="La page Contrôles de volume avec échelle de volume, limite, niveau à la mise sous tension et niveau de sourdine" src="/screenshots/volume-controls.png" width="1324" height="2644" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Un par un</div>
+      <h2>Ce que fait chaque réglage</h2>
+    </div>
+
+    <h3 style="margin-top:26px">Échelle de volume</h3>
+    <p class="lead">La façon dont le volume s'affiche, à l'écran comme sur l'afficheur du récepteur. <b>0 - 98</b> est l'échelle relative que la plupart des gens connaissent ; <b>-79.5 à 18.0 dB</b> est l'échelle absolue, où 0.0 dB est le niveau de référence. Si vous avez déjà lu dans un test « -15 dB » en vous demandant à quoi cela correspond sur votre bouton, c'est cet interrupteur qui répond.</p>
+
+    <h3 style="margin-top:26px">Limite de volume</h3>
+    <p class="lead">Un plafond strict. Une fois défini, <b>rien</b> ne le dépasse - ni l'app, ni la télécommande physique, ni la molette de la façade, car la limite réside dans le récepteur et non dans l'app. L'usage évident est de protéger les enceintes, ou une pièce pleine de monde, d'un toucher malencontreux, et c'est le réglage à utiliser avant de passer la télécommande à un invité. <b>Désactivé</b> supprime le plafond.</p>
+
+    <h3 style="margin-top:26px">Niveau à la mise sous tension</h3>
+    <p class="lead"><b>Utiliser le dernier volume</b> est activé par défaut : le récepteur se réveille au niveau où il était quand vous l'avez éteint. Désactivez-le et vous pouvez imposer un niveau fixe, pour qu'une séance tardive à fort volume ne devienne jamais une mauvaise surprise le lendemain matin.</p>
+
+    <h3 style="margin-top:26px">Niveau de sourdine</h3>
+    <p class="lead">La profondeur à laquelle la sourdine fait chuter le volume. <b>Total</b> le coupe complètement. <b>-40 dB</b> et <b>-20 dB</b> atténuent seulement, ce qui est le meilleur choix quand vous voulez discuter pendant un film sans en perdre le fil.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Ailleurs dans l'app</div>
+      <h2>Les commandes que vous utilisez tous les jours</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Le tableau de bord Accueil</b> regroupe le volume général, la sourdine et l'alimentation de la zone principale.</li>
+      <li><b>L'onglet Télécommande</b> vous offre une bascule de volume à côté du pavé directionnel et des touches de transport, avec le niveau affiché au fur et à mesure. <a href="/fr/guide/remote/">Guide de la télécommande &rarr;</a></li>
+      <li><b>Chaque bouton plus et moins du volume</b> - sur le tableau de bord Accueil, les cartes de zone et l'onglet Télécommande - avance d'un pas à chaque toucher et continue tant que vous maintenez, comme la télécommande physique. Relâchez et il s'arrête à un pas près.</li>
+      <li><b>Les boutons de volume de votre téléphone</b>, sur Android et iPhone, pilotent le récepteur tant que l'app est au premier plan, pour ajuster sans regarder. Les maintenir enfoncés fait aussi monter progressivement.</li>
+      <li><b>Chaque zone</b> a son propre volume, indépendant de celui de la zone principale. <a href="/fr/guide/multi-zone/">Guide des zones &rarr;</a></li>
+      <li>Les <b>scènes</b> peuvent mémoriser le volume général : en rappeler une règle donc le niveau avec tout le reste. <a href="/fr/guide/scenes/">Guide des scènes &rarr;</a></li>
+      <li><b>L'affichage du volume à l'écran</b> sur votre téléviseur peut être déplacé ou complètement désactivé. <a href="/fr/guide/on-screen-display/">Guide de l'affichage à l'écran &rarr;</a></li>
+    </ul>
+    <div class="note">Les changements de volume sont volontairement cadencés plutôt qu'envoyés un par pixel : maintenir la bascule ou balayer le curseur produit donc une montée fluide, sans noyer le récepteur sous des commandes qu'il mettrait en file d'attente et appliquerait en retard.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Questions fréquentes</div>
+      <h2>FAQ du volume</h2>
+    </div>
+    <details open><summary>La limite de volume s'applique-t-elle aussi à la télécommande physique ?</summary><div class="body">Oui. La limite est un réglage du récepteur, pas de l'app : elle plafonne donc toutes les voies, l'app, la télécommande fournie, la molette de la façade et tout autre contrôleur de votre réseau.</div></details>
+    <details><summary>Ces réglages s'appliquent-ils à la zone 2 et à la zone 3 ?</summary><div class="body">Les contrôles de volume concernent la zone principale. Chaque zone a son propre volume, ainsi que sa propre alimentation et sa propre entrée, dans l'onglet Zones.</div></details>
+    <details><summary>Pourquoi l'app affiche-t-elle de 0 à 98 alors que les tests citent des décibels ?</summary><div class="body">Ce sont deux vues du même bouton. Passez l'échelle de volume sur -79.5 à 18.0 dB et l'affichage correspond à la façon dont les niveaux de calibration sont habituellement cités, où 0.0 dB est la référence.</div></details>
+    <details><summary>Puis-je utiliser les boutons de volume de mon téléphone ?</summary><div class="body">Oui, sur Android et sur iPhone. Tant qu'AVR Maestro est au premier plan, les boutons de volume de l'appareil pilotent directement le récepteur, un pas par pression et une montée progressive en maintenant ; un interrupteur sous Paramètres, Audio rend ses boutons à l'appareil.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">La suite du guide</div>
+      <h2>Autres guides AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/fr/guide/getting-started/">Prise en main</a> &middot; <a href="/fr/guide/home/">Écran d'accueil</a> &middot; <a href="/fr/guide/scenes/">Scènes</a> &middot; <a href="/fr/guide/custom-icons/">Icônes personnalisées</a> &middot; <a href="/fr/guide/sound/">Son</a> &middot; <a href="/fr/guide/graphic-eq/">Égaliseur graphique</a> &middot; <a href="/fr/guide/speakers/">Enceintes</a> &middot; <a href="/fr/guide/locked-controls/">Pourquoi une commande est verrouillée</a> &middot; <a href="/fr/guide/assistant/">L'assistant</a> &middot; <a href="/fr/guide/home-automation/">Domotique</a> &middot; <a href="/fr/guide/home-assistant-dashboard/">Tableau de bord Home Assistant</a> &middot; <a href="/fr/guide/multi-zone/">Zones</a> &middot; <a href="/fr/guide/remote/">Télécommande</a> &middot; <a href="/fr/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/fr/guide/on-screen-display/">Affichage à l'écran</a> &middot; <a href="/fr/guide/settings/">Paramètres</a> &middot; <a href="/fr/guide/languages/">Langues</a> &middot; <a href="/fr/guide/backup/">Sauvegarde &amp; restauration</a> &middot; <a href="/fr/guide/now-playing/">Lecture en cours &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Fixez le plafond une fois, détendez-vous ensuite</h2>
+    <p class="lead" style="margin:0 auto 24px">Achat unique, sans publicité, sans abonnement. Connexion en moins d'une minute.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Disponible sur Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Télécharger dans l'App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Télécharger dans le Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Disponible sur le Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/fr/guide/">Retour au guide d'utilisation complet &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/fr/">Accueil</a>
+      <a href="/fr/guide/">Guide de l'utilisateur</a>
+      <a href="/fr/guide/getting-started/">Prise en main</a>
+      <a href="/fr/receivers/">Récepteurs</a>
+      <a href="/fr/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/fr/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/fr/best-denon-marantz-app/">Pourquoi changer</a>
+      <a href="/fr/help/">Aide</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro est une application indépendante de MiyaraHub Technologies LLC, sans affiliation, approbation ni parrainage de la part de Denon, Marantz, D&amp;M Holdings, Sound United ou de toute autre société citée sur cette page. Denon, Marantz, HEOS, Audyssey et Dirac Live sont des marques commerciales de leurs propriétaires respectifs, utilisées ici à des fins d'identification uniquement.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

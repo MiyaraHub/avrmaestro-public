@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pl" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Limit głośności, poziom po włączeniu &amp; głębokość wyciszenia - AVR Maestro</title>
+<meta name="description" content="Ustaw limit głośności w swoim Denonie lub Marantzu, wybierz poziom po włączeniu, określ, jak mocno Wyciszenie tłumi dźwięk, i odczytuj głośność w skali od 0 do 98 lub w decybelach." />
+<meta name="keywords" content="Denon volume limit app, Marantz power on level, AVR mute level -20 dB, receiver volume in decibels app, Denon volume scale absolute relative, protect speakers volume limit" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/pl/guide/volume/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/volume/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/volume/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/volume/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/volume/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/volume/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/volume/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/volume/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/volume/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/volume/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/volume/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/volume/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/volume/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/volume/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/volume/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/volume/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/volume/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/volume/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/volume/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/volume/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/volume/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/volume/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/volume/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/volume/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/volume/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/volume/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/volume/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/volume/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/volume/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/volume/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/volume/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/volume/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="pl_PL" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Limit głośności, poziom po włączeniu &amp; głębokość wyciszenia - AVR Maestro" />
+<meta property="og:description" content="Ustaw limit głośności w swoim Denonie lub Marantzu, wybierz poziom po włączeniu, określ, jak mocno Wyciszenie tłumi dźwięk, i odczytuj głośność w skali od 0 do 98 lub w decybelach." />
+<meta property="og:url" content="https://avrmaestro.com/pl/guide/volume/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Limit głośności, poziom po włączeniu &amp; głębokość wyciszenia - AVR Maestro" />
+<meta name="twitter:description" content="Ustaw limit głośności w swoim Denonie lub Marantzu, wybierz poziom po włączeniu, określ, jak mocno Wyciszenie tłumi dźwięk, i odczytuj głośność w skali od 0 do 98 lub w decybelach." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro to niezależna aplikacja do sterowania amplitunerami AV Denon i Marantz przez sieć lokalną.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "pl"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/volume/#article",
+      "headline": "Sterowanie głośnością: sufit, poziom po włączeniu i Wyciszenie, które robi to, co chcesz",
+      "description": "Ustaw limit głośności w swoim Denonie lub Marantzu, wybierz poziom po włączeniu, określ, jak mocno Wyciszenie tłumi dźwięk, i odczytuj głośność w skali od 0 do 98 lub w decybelach.",
+      "image": "https://avrmaestro.com/screenshots/volume-controls.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/volume/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "pl"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/volume/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Czy limit głośności dotyczy też fizycznego pilota?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tak. Limit jest ustawieniem amplitunera, a nie aplikacji, więc ogranicza każdą drogę: aplikację, dołączony pilot, pokrętło na panelu przednim i każdy inny kontroler w Twojej sieci."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Czy te ustawienia dotyczą Strefy 2 i Strefy 3?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sterowanie głośnością obejmuje strefę główną. Każda strefa ma własną głośność, zasilanie i wejście na karcie Strefy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Dlaczego aplikacja pokazuje od 0 do 98, skoro recenzje podają decybele?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To dwa widoki tego samego pokrętła. Przełącz Skalę głośności na od -79.5 do 18.0 dB, a odczyt będzie zgodny ze sposobem, w jaki zwykle podaje się poziomy kalibracji, gdzie 0.0 dB to poziom referencyjny."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Czy mogę używać przycisków głośności w telefonie?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tak, na Androidzie i na iPhonie. Gdy AVR Maestro jest na pierwszym planie, przyciski głośności urządzenia sterują amplitunerem bezpośrednio: jeden krok na naciśnięcie i płynna zmiana przy przytrzymaniu; przełącznik w Ustawienia, Audio zwraca urządzeniu jego przyciski."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Strona główna",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Przewodnik użytkownika",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Sterowanie głośnością",
+      "item": "https://avrmaestro.com/guide/volume/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/pl/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Przeszukaj przewodnik..." data-i18n-empty="Brak wyników dla" data-i18n-language="Język">
+      <a href="/pl/">Strona główna</a>
+      <a href="/pl/guide/">Przewodnik użytkownika</a>
+      <a href="/pl/receivers/">Amplitunery</a>
+      <a href="/pl/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/pl/best-denon-marantz-app/">Dlaczego warto przejść</a>
+      <a href="/pl/#top" class="cta">Pobierz</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/pl/">Strona główna</a> &rsaquo; <a href="/pl/guide/">Poradnik użytkownika</a> &rsaquo; Sterowanie głośnością</div>
+    <div class="eyebrow">Ustawienia &rsaquo; Sterowanie głośnością</div>
+    <h1>Sterowanie głośnością: sufit, poziom po włączeniu i <span class="g">Wyciszenie, które robi to, co chcesz</span></h1>
+    <p>Cztery ustawienia, które razem decydują, jak głośno amplituner może kiedykolwiek zagrać, co robi po włączeniu i jak głęboko Wyciszenie go ścisza. Znajdują się w amplitunerze, więc obowiązują niezależnie od tego, czy używasz aplikacji, fizycznego pilota czy panelu przedniego.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Gdzie to znaleźć</div>
+        <h2>Ustawienia &rsaquo; Sterowanie głośnością</h2>
+        <p class="lead">Otwórz <b>Ustawienia</b> i przewiń do <b>Sterowanie głośnością</b> - „Limit głośności, poziom po włączeniu i głębokość wyciszenia”. Wszystko na tej stronie jest zapisywane bezpośrednio w amplitunerze, więc przetrwa zamknięcie aplikacji i obowiązuje w każdym sposobie sterowania.</p>
+      </div>
+      <img alt="Strona Sterowanie głośnością ze skalą głośności, limitem, poziomem po włączeniu i poziomem wyciszenia" src="/screenshots/volume-controls.png" width="1324" height="2644" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Po kolei</div>
+      <h2>Co robi każde ustawienie</h2>
+    </div>
+
+    <h3 style="margin-top:26px">Skala głośności</h3>
+    <p class="lead">Jak głośność jest odczytywana, zarówno na ekranie, jak i na własnym wyświetlaczu amplitunera. <b>0 - 98</b> to skala względna, którą zna większość osób; <b>od -79.5 do 18.0 dB</b> to skala bezwzględna, gdzie 0.0 dB to poziom referencyjny. Jeśli kiedykolwiek widziałeś w recenzji „-15 dB” i zastanawiałeś się, jak to się ma do Twojego pokrętła, ten przełącznik odpowiada na to pytanie.</p>
+
+    <h3 style="margin-top:26px">Limit głośności</h3>
+    <p class="lead">Twardy sufit. Po ustawieniu <b>nic</b> go nie przekroczy - ani aplikacja, ani fizyczny pilot, ani pokrętło na panelu przednim, bo limit żyje w amplitunerze, a nie w aplikacji. Oczywiste zastosowanie to ochrona głośników lub pokoju pełnego ludzi przed przypadkowym dotknięciem i to właśnie to ustawienie warto włączyć, zanim oddasz pilota gościowi. <b>Wyłączone</b> usuwa ograniczenie.</p>
+
+    <h3 style="margin-top:26px">Poziom po włączeniu</h3>
+    <p class="lead"><b>Użyj ostatniej głośności</b> jest domyślnie włączone: amplituner budzi się z takim poziomem, jaki miał w chwili wyłączenia. Wyłącz to, a możesz ustawić stały poziom, żeby późna sesja przy dużej głośności nie zamieniła się następnego ranka w niemiłą niespodziankę.</p>
+
+    <h3 style="margin-top:26px">Poziom wyciszenia</h3>
+    <p class="lead">Jak głęboko Wyciszenie obniża głośność. <b>Pełne</b> wycisza całkowicie. <b>-40 dB</b> i <b>-20 dB</b> tłumią zamiast tego, co jest lepszym wyborem, gdy chcesz porozmawiać podczas filmu i nie zgubić wątku.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Gdzie indziej w aplikacji</div>
+      <h2>Elementy sterowania, których używasz na co dzień</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Pulpit główny</b> zawiera główną głośność, wyciszenie i zasilanie strefy głównej.</li>
+      <li><b>Karta Pilot</b> daje przycisk głośności obok krzyżaka i klawiszy transportu, z poziomem pokazywanym na bieżąco. <a href="/pl/guide/remote/">Przewodnik po pilocie &rarr;</a></li>
+      <li><b>Każdy przycisk głośności plus i minus</b> - na pulpicie głównym, kartach stref i karcie Pilot - zmienia o jeden krok po dotknięciu i krokuje dalej, gdy go przytrzymasz, tak jak fizyczny pilot. Puść, a zatrzyma się w ciągu jednego kroku.</li>
+      <li><b>Przyciski głośności w telefonie</b>, na Androidzie i iPhonie, sterują amplitunerem, gdy aplikacja jest na wierzchu, więc możesz regulować bez patrzenia. Przytrzymanie też zmienia płynnie.</li>
+      <li><b>Każda strefa</b> ma własną głośność, niezależną od głównej. <a href="/pl/guide/multi-zone/">Przewodnik po strefach &rarr;</a></li>
+      <li><b>Sceny</b> mogą zapisać Master Volume, więc przywołanie sceny ustawia poziom razem z całą resztą. <a href="/pl/guide/scenes/">Przewodnik po scenach &rarr;</a></li>
+      <li><b>Wskaźnik głośności na ekranie</b> telewizora można przesunąć lub całkowicie wyłączyć. <a href="/pl/guide/on-screen-display/">Przewodnik po menu ekranowym &rarr;</a></li>
+    </ul>
+    <div class="note">Zmiany głośności są celowo rozłożone w czasie, a nie wysyłane po jednej na piksel, więc przytrzymanie przycisku lub przesuwanie suwaka zmienia głośność płynnie, zamiast zalewać amplituner poleceniami, które ustawiłyby się w kolejce i zostały zastosowane z opóźnieniem.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Częste pytania</div>
+      <h2>FAQ o głośności</h2>
+    </div>
+    <details open><summary>Czy limit głośności dotyczy też fizycznego pilota?</summary><div class="body">Tak. Limit jest ustawieniem amplitunera, a nie aplikacji, więc ogranicza każdą drogę: aplikację, dołączony pilot, pokrętło na panelu przednim i każdy inny kontroler w Twojej sieci.</div></details>
+    <details><summary>Czy te ustawienia dotyczą Strefy 2 i Strefy 3?</summary><div class="body">Sterowanie głośnością obejmuje strefę główną. Każda strefa ma własną głośność, zasilanie i wejście na karcie Strefy.</div></details>
+    <details><summary>Dlaczego aplikacja pokazuje od 0 do 98, skoro recenzje podają decybele?</summary><div class="body">To dwa widoki tego samego pokrętła. Przełącz Skalę głośności na od -79.5 do 18.0 dB, a odczyt będzie zgodny ze sposobem, w jaki zwykle podaje się poziomy kalibracji, gdzie 0.0 dB to poziom referencyjny.</div></details>
+    <details><summary>Czy mogę używać przycisków głośności w telefonie?</summary><div class="body">Tak, na Androidzie i na iPhonie. Gdy AVR Maestro jest na pierwszym planie, przyciski głośności urządzenia sterują amplitunerem bezpośrednio: jeden krok na naciśnięcie i płynna zmiana przy przytrzymaniu; przełącznik w Ustawienia, Audio zwraca urządzeniu jego przyciski.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Więcej z przewodnika</div>
+      <h2>Inne przewodniki AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/pl/guide/getting-started/">Pierwsze kroki</a> &middot; <a href="/pl/guide/home/">Ekran główny</a> &middot; <a href="/pl/guide/scenes/">Sceny</a> &middot; <a href="/pl/guide/custom-icons/">Własne ikony</a> &middot; <a href="/pl/guide/sound/">Dźwięk</a> &middot; <a href="/pl/guide/graphic-eq/">Korektor graficzny</a> &middot; <a href="/pl/guide/speakers/">Głośniki</a> &middot; <a href="/pl/guide/locked-controls/">Dlaczego element jest zablokowany</a> &middot; <a href="/pl/guide/assistant/">Asystent</a> &middot; <a href="/pl/guide/home-automation/">Automatyka domowa</a> &middot; <a href="/pl/guide/home-assistant-dashboard/">Panel Home Assistant</a> &middot; <a href="/pl/guide/multi-zone/">Strefy</a> &middot; <a href="/pl/guide/remote/">Pilot</a> &middot; <a href="/pl/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/pl/guide/on-screen-display/">Wyświetlacz ekranowy</a> &middot; <a href="/pl/guide/settings/">Ustawienia</a> &middot; <a href="/pl/guide/languages/">Języki</a> &middot; <a href="/pl/guide/backup/">Kopia zapasowa &amp; przywracanie</a> &middot; <a href="/pl/guide/now-playing/">Teraz odtwarzane &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Ustaw sufit raz i zapomnij</h2>
+    <p class="lead" style="margin:0 auto 24px">Jednorazowy zakup, bez reklam, bez subskrypcji. Połączenie zajmuje mniej niż minutę.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Pobierz z Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Pobierz z App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Pobierz z Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Pobierz z Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/pl/guide/">Wróć do pełnego Podręcznika użytkownika &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/pl/">Strona główna</a>
+      <a href="/pl/guide/">Przewodnik użytkownika</a>
+      <a href="/pl/guide/getting-started/">Pierwsze kroki</a>
+      <a href="/pl/receivers/">Amplitunery</a>
+      <a href="/pl/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/pl/audyssey-vs-dirac/">Audyssey a Dirac</a>
+      <a href="/pl/best-denon-marantz-app/">Dlaczego warto przejść</a>
+      <a href="/pl/help/">Pomoc</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro to niezależna aplikacja firmy MiyaraHub Technologies LLC i nie jest powiązana z Denon, Marantz, D&amp;M Holdings, Sound United ani żadną inną firmą wymienioną na tej stronie, ani przez nie zatwierdzona czy sponsorowana. Denon, Marantz, HEOS, Audyssey i Dirac Live są znakami towarowymi swoich właścicieli, użytymi tutaj wyłącznie w celach identyfikacyjnych.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

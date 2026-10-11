@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="hu" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hangzás fül: az AVR minden hangvezérlője - AVR Maestro</title>
+<meta name="description" content="A Denonod vagy Marantzod minden hangvezérlője elmagyarázva: térhatású módok, Dialog Enhancer, DRC, Audyssey, Dirac Live, Graphic EQ, finomhangolások, hangszín, IMAX és Auro-3D." />
+<meta name="keywords" content="Denon sound modes app, Marantz surround mode app, Audyssey MultEQ app, Dirac Live app control, Dolby Surround DTS Neural X app, IMAX Enhanced settings app, Auro-3D app, dialog enhancer Denon, dynamic range compression AVR, M-DAX audio restorer" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/hu/guide/sound/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/sound/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/sound/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/sound/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/sound/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/sound/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/sound/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/sound/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/sound/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/sound/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/sound/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/sound/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/sound/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/sound/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/sound/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/sound/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/sound/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/sound/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/sound/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/sound/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/sound/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/sound/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/sound/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/sound/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/sound/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/sound/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/sound/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/sound/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/sound/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/sound/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/sound/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/sound/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="hu_HU" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Hangzás fül: az AVR minden hangvezérlője - AVR Maestro" />
+<meta property="og:description" content="A Denonod vagy Marantzod minden hangvezérlője elmagyarázva: térhatású módok, Dialog Enhancer, DRC, Audyssey, Dirac Live, Graphic EQ, finomhangolások, hangszín, IMAX és Auro-3D." />
+<meta property="og:url" content="https://avrmaestro.com/hu/guide/sound/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Hangzás fül: az AVR minden hangvezérlője - AVR Maestro" />
+<meta name="twitter:description" content="A Denonod vagy Marantzod minden hangvezérlője elmagyarázva: térhatású módok, Dialog Enhancer, DRC, Audyssey, Dirac Live, Graphic EQ, finomhangolások, hangszín, IMAX és Auro-3D." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "Az AVR Maestro egy független alkalmazás Denon és Marantz AV-erősítők vezérlésére a helyi hálózaton keresztül.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "hu"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/sound/#article",
+      "headline": "A készüléked minden hangvezérlője egyetlen Hangzás fülön",
+      "description": "A Denonod vagy Marantzod minden hangvezérlője elmagyarázva: térhatású módok, Dialog Enhancer, DRC, Audyssey, Dirac Live, Graphic EQ, finomhangolások, hangszín, IMAX és Auro-3D.",
+      "image": "https://avrmaestro.com/screenshots/sound-surround.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/sound/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "hu"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/sound/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Miért változik a hangzásmódok listája?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mert a készülék listája változik. Azt, hogy egy Denon vagy Marantz mely módokat fogadja el, az határozza meg, mit dekódol éppen: egy kétcsatornás adatfolyamnál az upmixerek érhetők el, egy Atmos adatfolyamnál az Atmos-képes módok. Az AVR Maestro minden alkalommal a készüléktől olvassa ki az aktuális listát, ahelyett hogy egy rögzített menüt mutatna, amely az idő felében téves lenne."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Miért szürke egy vezérlő N/A felirattal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Az N/A azt jelenti, hogy a készüléknek az adott állapotban nincs értéke hozzá - általában azért, mert a bejövő jel nem hordozza a funkciót. Koppints a sor melletti kérdőjelre, és az alkalmazás elmagyarázza, melyik jel tenné elérhetővé. A szürke vezérlő soha nem egy elrejtett hiba; a készülék saját válasza."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mi a különbség a Csatornák és a Szintek között?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Csatornák (Hangzás fül) a most lejátszott jel élő, csatornánkénti finomhangolása. A Szintek (Hangszórók fül) a hangszóró-előbeállításban, a kalibrációd által tárolt, hangszórónkénti referenciaszint. A Csatornák módosítása nem írja felül a kalibrációdat."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Használhatom együtt a Hangszínszabályzót és az Audyssey-t?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nem, amíg a Dynamic EQ be van kapcsolva - a készülék átveszi a hangszínszabályzók felett az irányítást. Kapcsold ki a Dynamic EQ-t az Audyssey oldalon, és a Basszus és a Magas újra szerkeszthető lesz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ugyanazon a hálózaton kell lennem?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Igen. Az AVR Maestro közvetlenül, a LAN-on keresztül beszél a készülékeddel, felhőfiók és közvetítő szerver nélkül. Lásd: Első lépések."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Kezdőlap",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Felhasználói útmutató",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Hangzás",
+      "item": "https://avrmaestro.com/guide/sound/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/hu/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menü" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Keresés az útmutatóban..." data-i18n-empty="Nincs találat erre:" data-i18n-language="Nyelv">
+      <a href="/hu/">Kezdőlap</a>
+      <a href="/hu/guide/">Felhasználói útmutató</a>
+      <a href="/hu/receivers/">Készülékek</a>
+      <a href="/hu/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hu/best-denon-marantz-app/">Miért érdemes váltani</a>
+      <a href="/hu/#top" class="cta">Letöltés</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/hu/">Főoldal</a> &rsaquo; <a href="/hu/guide/">Felhasználói útmutató</a> &rsaquo; Hang</div>
+    <div class="eyebrow">A Hangzás fül</div>
+    <h1>A készüléked minden hangvezérlője, <span class="g">egyetlen Hangzás fülön</span></h1>
+    <p>A Hangzás fül kilenc oldal mély, és a készüléked saját hangmenüjét tükrözi, nem annak egyszerűsített változatát. Ez az oldal mind a kilencet végigjárja: mit csinál az egyes vezérlő, mit vár, és miért nem engedi néha a készülék, hogy hozzányúlj.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Mi van itt</div>
+      <h2>A kilenc oldal</h2>
+    </div>
+    <table class="t">
+      <thead><tr><th>Oldal</th><th>Mit vezérel</th></tr></thead>
+      <tbody>
+        <tr><td><a href="#surround">Térhatású</a></td><td>A hangzásmód Film / Zene / Játék / Pure csoportokba rendezve, plusz a hangfunkciók élő kijelzése</td></tr>
+        <tr><td><a href="#dialog">Párbeszéd &amp; DRC</a></td><td>A Dialog Enhancer erőssége és a dinamikatartomány-tömörítés</td></tr>
+        <tr><td><a href="#audyssey">Audyssey</a></td><td>MultEQ, Dynamic EQ, Reference Level Offset, Dynamic Volume, Surround Level Compensation</td></tr>
+        <tr><td><a href="#dirac">Dirac Live</a></td><td>A betöltött szűrőhelyek név szerint, és a Ki állás</td></tr>
+        <tr><td><a href="#geq">Grafikus EQ</a></td><td>9 sávos görbe hangszórónként, 63Hz-től 16kHz-ig</td></tr>
+        <tr><td><a href="#channels">Csatornák</a></td><td>Csatornánkénti szintkorrekció dB-ben az aktuális jel minden hangszórójához, plusz Bass Sync</td></tr>
+        <tr><td><a href="#tone">Hangszín</a></td><td>Hangszínszabályzó, basszus, magas hangok, DAC-szűrő, Audio Restorer (M-DAX)</td></tr>
+        <tr><td><a href="#imax">IMAX</a></td><td>Az IMAX Enhanced mód és saját HPF, LPF és mélysugárzó-irányítás</td></tr>
+        <tr><td><a href="#auro">Auro-3D</a></td><td>Auromatic előbeállítás, erősség és Auro 3D mód</td></tr>
+      </tbody>
+    </table>
+    <div class="note">A vevőkészülék dönti el, melyik jelenik meg ezek közül. Az Auro-3D licenc nélküli készüléknek egyszerűen nincs Auro-3D oldala, az IMAX Enhanced dekóder nélkülinek pedig nincs IMAX oldala. Az AVR Maestro megkérdezi a készüléket, mije van, ahelyett hogy típust találgatna.</div>
+  </div>
+</section>
+
+<section id="surround">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Első oldal</div>
+      <h2>Térhatás: a mód, és amit a vevőkészülék valójában csinál</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">A felső kártya a <b>jelenlegi módot</b> mutatja pontosan úgy, ahogy a vevőkészülék jelenti. Alatta a módok <b>Film</b>, <b>Zene</b>, <b>Játék</b> és <b>Pure</b> csoportokba vannak rendezve, és csak azok a módok érhetők el, amelyeket a készülék az éppen dekódolt jelhez elfogad.</p>
+        <ul class="plain">
+          <li><b>Stereo, Dolby Surround, DTS Neural:X, Auro-3D, Auro Surround, Multi Ch Stereo</b> és a többi, ahogy a készüléked és a bejövő adatfolyam engedi.</li>
+          <li>Az alatta lévő <b>Hangfunkciók</b> élő kijelzés, nem kívánságlista: a Neural:X, IMAX Enhanced, Cinema EQ, Center Spread, Loudness Management, Speaker Virtualizer és társaik mind <b>Aktív</b>, <b>Inaktív</b> vagy <b>N/A</b> állapotot mutatnak.</li>
+          <li>Az <b>N/A</b> azt jelenti, hogy az aktuális jel nem tudja használni az adott funkciót. Koppints mellette a kérdőjelre, és az alkalmazás elmagyarázza, milyen jel kellene hozzá.</li>
+        </ul>
+      </div>
+      <img alt="A Térhatás oldal az aktuális móddal és a hangfunkciók kijelzésével" src="/screenshots/sound-surround.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="dialog">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Második oldal</div>
+      <h2>Párbeszéd &amp; DRC: érthetőség és esti hallgatás</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <ul class="plain">
+          <li><b>Dialog Enhancer</b> - Ki, Alacsony, Közepes vagy Magas. Kiemeli a középcsatorna érthetőségét anélkül, hogy a kalibrációhoz hozzányúlna.</li>
+          <li><b>Dynamic Range Compression</b> - Ki, Alacsony, Közepes, Magas vagy Automatikus. Összehúzza a suttogások és a robbanások közti különbséget, ami késő este pontosan az, amit szeretnél.</li>
+        </ul>
+        <p class="lead">A DRC a legjobb példa arra, hogyan kezeli az AVR Maestro azt a vezérlőt, amelyet a vevőkészülék nem fogad el. A tömörítési adatok <b>egy Dolby bitfolyamon belül</b> utaznak, így PCM, DTS vagy hálózati sztereó forrásnál nincs mit tömöríteni. Ahelyett, hogy olyan gombot nyomatnának veled, amely semmit sem csinál, az alkalmazás szürkévé teszi a sort, és kiírja az okot: a használatához válts Dolby Digital, Dolby Digital Plus, Dolby TrueHD vagy Dolby Atmos tartalomra.</p>
+      </div>
+      <img alt="Párbeszéd és DRC, a Dynamic Range Compression szürkítve és megmagyarázva" src="/screenshots/sound-dialog-drc.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="audyssey">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Harmadik oldal</div>
+      <h2>Audyssey: a teljes kalibrációs menü, nem csak a MultEQ</h2>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px">
+      <figure><img alt="Az Audyssey oldal MultEQ, Dynamic EQ, Reference Level Offset, Dynamic Volume és Surround Level Compensation beállításokkal" src="/screenshots/sound-audyssey.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Minden Audyssey-vezérlő, élőben</figcaption></figure>
+      <figure><img alt="Az Audyssey oldal azt jelzi, hogy ezt a Hangszóró-előbeállítást a Dirac birtokolja" src="/screenshots/sound-audyssey-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Dirac előbeállításnál ezt ki is írja</figcaption></figure>
+    </div>
+    <ul class="plain" style="margin-top:26px">
+      <li><b>MultEQ</b> - Reference, Bypass LR, Flat vagy Off. A Reference a kalibrált alapgörbe; a Flat megszünteti a magas frekvenciák lecsengését; a Bypass LR a két első hangszórót korrekció nélkül hagyja; az Off visszaadja neked az EQ irányítását.</li>
+      <li><b>Dynamic EQ</b> - Be vagy Ki. Megőrzi a hangszín egyensúlyát, ha lejjebb veszed a hangerőt, ahelyett hogy a basszus elvékonyodna.</li>
+      <li><b>Reference Level Offset</b> - 0, 5, 10 vagy 15 dB. Megmondja a Dynamic EQ-nak, mennyivel a referenciaszint alatt masterelték a tartalmat. A 0 dB filmhez való, a magasabb értékek zenéhez és tévéhez.</li>
+      <li><b>Dynamic Volume</b> - Ki, Enyhe, Közepes vagy Erős. Kiegyenlíti a hangos reklámokat és a halk párbeszédeket.</li>
+      <li><b>Surround Level Compensation</b> - Ki, Enyhe, Közepes vagy Erős.</li>
+    </ul>
+    <div class="note">Hogy ez az oldal szerkeszthető-e, az attól függ, melyik rendszer birtokolja az aktuális hangszóró-előbeállítást. Lásd: <a href="/hu/guide/locked-controls/">miért van zárolva egy vezérlő</a>.</div>
+  </div>
+</section>
+
+<section id="dirac">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Negyedik oldal</div>
+      <h2>Dirac Live: a szűrőid, az általad adott nevekkel</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Ha futtattál már Dirac Live-ot, az exportált szűrők számozott helyeken ülnek a vevőkészüléken. Az AVR Maestro <b>a mentéskor adott név szerint</b> listázza őket, alattuk a hely számával, plusz egy <b>Off</b> bejegyzéssel, amellyel az előbeállítás szűrő nélkül fut. Egyetlen koppintással szűrőt válthatsz.</p>
+        <p class="lead">Ha egy hangszóró-előbeállításhoz nincs Dirac-szűrő betöltve, az oldal ezt egyszerűen kiírja, ahelyett hogy üres listát mutatna.</p>
+      </div>
+      <img alt="A Dirac Live oldal a szűrőhelyek mentett neveivel" src="/screenshots/sound-dirac.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="geq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Ötödik oldal</div>
+      <h2>Grafikus EQ: kilenc sáv, hangszórónként</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Valódi szerkesztő, nem kapcsoló: kilenc sáv 63Hz-től 16kHz-ig, -20-tól +6 dB-ig, a grafikonon húzva. Válaszd az <b>Összes</b>, <b>Bal/Jobb</b> vagy <b>Mindegyik</b> hangszórót, a <b>Másolás</b> gombbal indulj a mért Audyssey-görbéből, az <b>Alaphelyzet</b> kiegyenesít, a függőben lévő módosítások sávja pedig alkalmazza a változtatásokat.</p>
+        <p class="lead">A vevőkészülék vagy a szobakorrekciót <b>vagy</b> a kézi EQ-t futtatja, soha mindkettőt, ezért ez az oldal zárolva van, amíg a MultEQ vagy a Dirac fut - és kiírja, melyik.</p>
+        <p class="lead"><a href="/hu/guide/graphic-eq/">A teljes Grafikus EQ útmutató &rarr;</a></p>
+      </div>
+      <img alt="A Grafikus EQ szerkesztő 9 sávos görbével hangszórónként" src="/screenshots/graphic-eq.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="channels">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Hatodik oldal</div>
+      <h2>Csatornák: bármelyik hangszórót hangolhatod film közben is</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Csatornánkénti szintkorrekció dB-ben minden hangszóróhoz, amely szerepel az <b>aktuális jelben</b> - elülső bal, elülső jobb, közép, térhatású, hátsó térhatású, mindkét mélysugárzó és a magassági réteg, mindegyik alatt a rövid nevével, így nem kell találgatni, melyik micsoda.</p>
+        <ul class="plain">
+          <li><b>Húzd a csúszkát</b> nagy mozdulatokhoz, vagy koppints a <b>plusz és mínusz</b> gombra egyetlen finom lépésért - mindkettő hallgatás közben is működik.</li>
+          <li>Az <b>Összes alaphelyzetbe állítása</b> minden csatornát visszaállít 0 dB-re.</li>
+          <li>Alul a <b>Bass Sync</b> időben igazítja az LFE csatornát a főcsatornákhoz.</li>
+        </ul>
+        <p class="lead">Ezek az élő, jelenkénti korrekciók. A hangszóró-előbeállításban tárolt hangszóránkénti <b>referenciaszintek</b> ehelyett a <a href="/hu/guide/speakers/">Hangszórók fülön</a> találhatók, és az alkalmazás az oldal saját infókártyáján elmagyarázza a különbséget.</p>
+      </div>
+      <img alt="A Csatornák oldal szintcsúszkával és finom plusz/mínusz lépésekkel minden hangszóróhoz" src="/screenshots/sound-channels.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="tone">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Hetedik oldal</div>
+      <h2>Hangszín: basszus, magas hangok, a DAC-szűrő és az M-DAX</h2>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px">
+      <figure><img alt="A Hangszín oldal Basszus, Magas, DAC-szűrő és Audio Restorer beállításokkal" src="/screenshots/sound-tone.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Hangszín, szabadon szerkeszthető</figcaption></figure>
+      <figure><img alt="A Hangszín oldal a Dynamic EQ által zárolt vezérlőkkel" src="/screenshots/sound-tone-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>A Dynamic EQ átveszi a hangszínszabályzókat</figcaption></figure>
+    </div>
+    <ul class="plain" style="margin-top:26px">
+      <li><b>Hangszínszabályzó</b> - a főkapcsoló. A basszus és a magas hangok csak akkor jutnak el a vevőkészülékig, ha ez aktív.</li>
+      <li><b>Basszus</b> és <b>Magas</b> - -6 dB-től +6 dB-ig, 1 dB-es lépésekben.</li>
+      <li><b>DAC-szűrő</b> - az 1. szűrő melegebb, lassú lecsengéssel; a 2. szűrő élesebb, referencia jellegű válasz.</li>
+      <li><b>Audio Restorer (M-DAX)</b> - Ki, Alacsony, Közepes vagy Magas. Visszaépíti a tömörített vagy streamelt hangból elveszett részleteket, ami egy 128k-s rádiós streamnél pont jó, egy veszteségmentes lemeznél viszont pont nem.</li>
+    </ul>
+    <div class="note">Amíg az Audyssey Dynamic EQ fut, ő birtokolja a hangszínszabályzókat: a vevőkészülék átveszi őket, az AVR Maestro pedig egy szalaggal jelzi ezt, ahelyett hogy azon törnéd a fejed, miért nem csinál semmit a basszus.</div>
+  </div>
+</section>
+
+<section id="imax">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Nyolcadik oldal</div>
+      <h2>IMAX: a teljes Enhanced beállítómenü</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">IMAX Enhanced készüléken az alkalmazás a teljes menüt elérhetővé teszi, nem csak a be/ki kapcsolót:</p>
+        <ul class="plain">
+          <li><b>IMAX Mode</b> - Automatikus vagy Ki.</li>
+          <li><b>Audio Settings</b> - az Automatikus az IMAX ajánlását követi; a Kézi megnyitja az alábbi négy vezérlőt.</li>
+          <li><b>High Pass Filter</b> - 40Hz-től 250Hz-ig.</li>
+          <li><b>Low Pass Filter</b> - 70Hz-től 250Hz-ig.</li>
+          <li><b>Mélysugárzó</b> - Be vagy Ki, és <b>Subwoofer Output</b> - LFE+Main vagy LFE.</li>
+        </ul>
+      </div>
+      <img alt="Az IMAX oldal a móddal, a szűrőkkel és a mélysugárzó-irányítással" src="/screenshots/sound-imax.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="auro">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Kilencedik oldal</div>
+      <h2>Auro-3D: felkeverés formával</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <ul class="plain">
+          <li><b>Auromatic 3D előbeállítás</b> - Small, Medium, Large, Speech vagy Movie. Kiválasztja a helyiség- és tartalomjelleget, amelyre a felkeverő céloz.</li>
+          <li><b>Erősség</b> - 0-tól 15-ig: mennyi magassági információt generál az Auromatic.</li>
+          <li><b>Auro 3D mód</b> - Direct vagy Channel Expansion.</li>
+        </ul>
+        <p class="lead">Ezek csak akkor érvényesek, ha a Térhatás oldalon Auro mód van kiválasztva, az oldal pedig csak az Auro-3D dekóderrel rendelkező készüléken van jelen.</p>
+      </div>
+      <img alt="Az Auro-3D oldal előbeállítással, erősséggel és móddal" src="/screenshots/sound-auro3d.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Gyakori kérdések</div>
+      <h2>Hang fül - GYIK</h2>
+    </div>
+    <details open><summary>Miért változik a hangzásmódok listája?</summary><div class="body">Mert a készülék listája változik. Azt, hogy egy Denon vagy Marantz mely módokat fogadja el, az határozza meg, mit dekódol éppen: egy kétcsatornás adatfolyamnál az upmixerek érhetők el, egy Atmos adatfolyamnál az Atmos-képes módok. Az AVR Maestro minden alkalommal a készüléktől olvassa ki az aktuális listát, ahelyett hogy egy rögzített menüt mutatna, amely az idő felében téves lenne.</div></details>
+    <details><summary>Miért szürke egy vezérlő N/A felirattal?</summary><div class="body">Az N/A azt jelenti, hogy a készüléknek az adott állapotban nincs értéke hozzá - általában azért, mert a bejövő jel nem hordozza a funkciót. Koppints a sor melletti kérdőjelre, és az alkalmazás elmagyarázza, melyik jel tenné elérhetővé. A szürke vezérlő soha nem egy elrejtett hiba; a készülék saját válasza.</div></details>
+    <details><summary>Mi a különbség a Csatornák és a Szintek között?</summary><div class="body">A Csatornák (Hangzás fül) a most lejátszott jel élő, csatornánkénti finomhangolása. A Szintek (Hangszórók fül) a hangszóró-előbeállításban, a kalibrációd által tárolt, hangszórónkénti referenciaszint. A Csatornák módosítása nem írja felül a kalibrációdat.</div></details>
+    <details><summary>Használhatom együtt a Hangszínszabályzót és az Audyssey-t?</summary><div class="body">Nem, amíg a Dynamic EQ be van kapcsolva - a készülék átveszi a hangszínszabályzók felett az irányítást. Kapcsold ki a Dynamic EQ-t az Audyssey oldalon, és a Basszus és a Magas újra szerkeszthető lesz.</div></details>
+    <details><summary>Ugyanazon a hálózaton kell lennem?</summary><div class="body">Igen. Az AVR Maestro közvetlenül a helyi hálózaton beszél a vevőkészülékeddel, felhőfiók és közvetítő szerver nélkül. Lásd: <a href="/hu/guide/getting-started/">Első lépések</a>.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Az útmutató további részei</div>
+      <h2>További AVR Maestro útmutatók</h2>
+    </div>
+    <p class="lead"><a href="/hu/guide/getting-started/">Első lépések</a> &middot; <a href="/hu/guide/home/">Kezdőképernyő</a> &middot; <a href="/hu/guide/scenes/">Jelenetek</a> &middot; <a href="/hu/guide/custom-icons/">Egyéni ikonok</a> &middot; <a href="/hu/guide/graphic-eq/">Grafikus EQ</a> &middot; <a href="/hu/guide/speakers/">Hangszórók</a> &middot; <a href="/hu/guide/locked-controls/">Miért zárolt egy vezérlő</a> &middot; <a href="/hu/guide/assistant/">Az asszisztens</a> &middot; <a href="/hu/guide/home-automation/">Otthonautomatizálás</a> &middot; <a href="/hu/guide/home-assistant-dashboard/">Home Assistant irányítópult</a> &middot; <a href="/hu/guide/multi-zone/">Zónák</a> &middot; <a href="/hu/guide/remote/">Távirányító</a> &middot; <a href="/hu/guide/radio/">Rádió (FM/AM)</a> &middot; <a href="/hu/guide/on-screen-display/">Képernyőkijelző</a> &middot; <a href="/hu/guide/settings/">Beállítások</a> &middot; <a href="/hu/guide/languages/">Nyelvek</a> &middot; <a href="/hu/guide/volume/">Hangerő-szabályzók</a> &middot; <a href="/hu/guide/backup/">Mentés &amp; visszaállítás</a> &middot; <a href="/hu/guide/now-playing/">Most szól &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>A teljes hangmenü, a kanapéról</h2>
+    <p class="lead" style="margin:0 auto 24px">Egyszeri vásárlás, hirdetések és előfizetés nélkül. Csatlakozás egy percen belül.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Töltse le a Google Playről" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Letöltés az App Store-ból" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Letöltés a Mac App Store-ból" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Töltse le a Microsoft Store-ból" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/hu/guide/">Vissza a teljes Felhasználói útmutatóhoz &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/hu/">Kezdőlap</a>
+      <a href="/hu/guide/">Felhasználói útmutató</a>
+      <a href="/hu/guide/getting-started/">Első lépések</a>
+      <a href="/hu/receivers/">Készülékek</a>
+      <a href="/hu/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hu/audyssey-vs-dirac/">Audyssey és Dirac</a>
+      <a href="/hu/best-denon-marantz-app/">Miért érdemes váltani</a>
+      <a href="/hu/help/">Súgó</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">Az AVR Maestro a MiyaraHub Technologies LLC független alkalmazása, amely nem áll kapcsolatban a Denon, Marantz, D&amp;M Holdings, Sound United vagy bármely más, ezen az oldalon említett céggel, azok nem támogatják és nem szponzorálják. A Denon, Marantz, HEOS, Audyssey, Dirac Live, IMAX, Auro-3D és Dolby Atmos a megfelelő tulajdonosaik védjegyei, itt kizárólag azonosításra használjuk őket.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

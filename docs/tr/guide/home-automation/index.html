@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Denon &amp; Marantz için Home Assistant &amp; Hubitat - AVR Maestro</title>
+<meta name="description" content="AVR Maestro'yu Home Assistant veya Hubitat'a bağlayın; Sahneleriniz telefonunuz olmadan çalışan yerel betiklere dönüşsün. Sesli kontrol, canlı durum ve webhook'lar." />
+<meta name="keywords" content="Denon Home Assistant, Marantz Home Assistant, AV receiver Alexa, receiver Google Assistant, receiver Siri Shortcuts, Hubitat AV receiver, receiver webhooks, Denon voice control" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/tr/guide/home-automation/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-automation/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-automation/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-automation/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-automation/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-automation/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-automation/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-automation/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-automation/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-automation/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-automation/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-automation/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-automation/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-automation/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-automation/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-automation/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-automation/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-automation/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-automation/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-automation/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-automation/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-automation/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-automation/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-automation/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-automation/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-automation/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-automation/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-automation/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-automation/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-automation/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-automation/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-automation/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="tr_TR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Denon &amp; Marantz için Home Assistant &amp; Hubitat - AVR Maestro" />
+<meta property="og:description" content="AVR Maestro'yu Home Assistant veya Hubitat'a bağlayın; Sahneleriniz telefonunuz olmadan çalışan yerel betiklere dönüşsün. Sesli kontrol, canlı durum ve webhook'lar." />
+<meta property="og:url" content="https://avrmaestro.com/tr/guide/home-automation/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Denon &amp; Marantz için Home Assistant &amp; Hubitat - AVR Maestro" />
+<meta name="twitter:description" content="AVR Maestro'yu Home Assistant veya Hubitat'a bağlayın; Sahneleriniz telefonunuz olmadan çalışan yerel betiklere dönüşsün. Sesli kontrol, canlı durum ve webhook'lar." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro, Denon ve Marantz AV alıcılarını yerel ağınız üzerinden kontrol etmeniz için geliştirilmiş bağımsız bir uygulamadır.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "tr"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-automation/#article",
+      "headline": "Home Assistant ve Hubitat: sahneleriniz, telefonunuz olmadan çalışıyor",
+      "description": "AVR Maestro'yu Home Assistant veya Hubitat'a bağlayın; Sahneleriniz telefonunuz olmadan çalışan yerel betiklere dönüşsün. Sesli kontrol, canlı durum ve webhook'lar.",
+      "image": "https://avrmaestro.com/screenshots/home-assistant.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-automation/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "tr"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-automation/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Sesli kontrolün çalışması için telefonumun açık olması gerekir mi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hayır. AVR Maestro sahnelerinizi yerel Home Assistant betiklerine derler. Home Assistant alıcıyla yerel ağınızda doğrudan konuşur; telefonunuz kapalı, uykuda ya da başka bir ülkede olabilir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Alıcımı hangi sesli asistanlar kontrol edebilir?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zaten hangisini kullanıyorsanız. AVR Maestro kendi ses katmanını eklemez - betikleri Home Assistant veya Hubitat'a yayınlar, bunlar da güvendiğiniz hub tarafından Alexa, Google Assistant veya Siri Kestirmelerine sunulur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Yapay zeka asistanı ücretli kilidin parçası mı?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hayır. Cihaz üzerindeki yapay zeka asistanı ücretsizdir. Ev Otomasyonu - Home Assistant, Hubitat ve giden webhook'lar - AVR Maestro'daki tek ücretli kilittir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ev ağımdan dışarı bir şey çıkıyor mu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kontrol için hayır. Uygulama alıcınızla ve hub'ınızla kendi ağınız üzerinden konuşur. Hiçbir şey bir MiyaraHub sunucusu üzerinden geçmez. Bir webhook, işaret ettiğiniz yere gider; bu sizin tercihinizdir."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Ana Sayfa",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Kullanım Kılavuzu",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Ev Otomasyonu",
+      "item": "https://avrmaestro.com/guide/home-automation/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/tr/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menü" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Kılavuzda ara..." data-i18n-empty="Eşleşme bulunamadı:" data-i18n-language="Dil">
+      <a href="/tr/">Ana Sayfa</a>
+      <a href="/tr/guide/">Kullanım Kılavuzu</a>
+      <a href="/tr/receivers/">Alıcılar</a>
+      <a href="/tr/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/tr/best-denon-marantz-app/">Neden geçmelisiniz</a>
+      <a href="/tr/#top" class="cta">İndir</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/tr/">Ana Sayfa</a> &rsaquo; <a href="/tr/guide/">Kullanım Kılavuzu</a> &rsaquo; Ev Otomasyonu</div>
+    <div class="eyebrow">Home Assistant &middot; Hubitat &middot; Webhook'lar</div>
+    <h1>Home Assistant ve Hubitat: sahneleriniz, <span class="g">telefonunuz olmadan</span> çalışıyor</h1>
+    <p>AVR Maestro'yu Home Assistant veya Hubitat'a bağlayın; oluşturduğunuz her sahne hub'ınızda yerel bir betiğe dönüşsün. Bundan sonra hub, kendi ağınızda alıcıyla doğrudan konuşur - böylece “Alexa, film gecesi” telefonunuz kapalıyken, uykudayken ya da başka bir ülkedeyken bile çalışır.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+      <figure><img alt="Home Assistant, Hubitat ve Webhook'lar içeren AVR Maestro Ev Otomasyonu merkezi" src="/screenshots/home-automation.png" width="1324" height="2644" decoding="async" /><figcaption>Tek merkez, üç çıkış yolu</figcaption></figure>
+      <figure><img alt="Alıcı varlığı otomatik bulunmuş şekilde Home Assistant'a bağlı AVR Maestro" src="/screenshots/home-assistant.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Bağlandı, alıcı varlığınız sizin için bulundu</figcaption></figure>
+      <figure><img alt="Asma kilitli ve Nelerin dahil olduğunu gör düğmeli, kilitli Ev Otomasyonu" src="/screenshots/home-automation-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Kilit açılmadan önce neleri kapsadığını söyler</figcaption></figure>
+    </div>
+
+    <div class="section-head" style="margin-top:36px">
+      <h2>Neden uygulama olmadan çalışıyor</h2>
+    </div>
+    <p class="lead">Çoğu entegrasyon telefonunuzu aracı yapar: komutu telefon duyar, telefon gönderir ve otomasyon yalnızca telefon uyanık ve ağdayken çalışır.</p>
+    <p class="lead">AVR Maestro bunu yapmaz. Sahnelerinizi hub'ınızda duran betiklere <b>derler</b> ve hub komutları alıcınızın yerel IP adresine gönderir. Eşitleme bittiğinde uygulamanın işi biter.</p>
+    <ul class="plain">
+      <li><b>Önce yerel:</b> hiçbir şey bir MiyaraHub sunucusu üzerinden geçmez. Hub'ınız ve alıcınız birbirleriyle konuşur.</li>
+      <li><b>Telefondan bağımsız:</b> bir sahne yayınlandıktan sonra, onu oluşturan telefonda uygulama kurulu olsun ya da olmasın çalışır.</li>
+      <li><b>Sizin asistanınız, bizimki değil:</b> Alexa, Google Assistant ve Siri Kestirmeleri bu betiklere güvendiğiniz hub üzerinden ulaşır. AVR Maestro kendi ses katmanını eklemez.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Home Assistant, baştan sona</h2>
+    </div>
+    <ul class="plain">
+      <li><b>1. Önce alıcınızı Home Assistant'a ekleyin.</b> Ayarlar &rsaquo; Cihazlar &amp; Hizmetler &rsaquo; Entegrasyon Ekle &rsaquo; <b>Denon AVR</b> (veya <b>HEOS</b>), ardından alıcınızın yerel IP adresi. Home Assistant bunun için bir medya oynatıcı varlığı oluşturur.</li>
+      <li><b>2. AVR Maestro'da Ayarlar &rsaquo; Ev Otomasyonu bölümünü açın</b> ve Home Assistant kartına dokunun.</li>
+      <li><b>3. Home Assistant adresinizi girin</b> - <code>http://192.168.1.150:8123</code> gibi yerel bir adres ya da harici Nabu Casa URL'niz.</li>
+      <li><b>4. Giriş yapın ve yetkilendirin.</b> Güvenli bir uygulama içi tarayıcı Home Assistant'ın kendi giriş ekranını açar. Kimlik bilgileriniz Home Assistant'a gider, bize asla.</li>
+      <li><b>5. Alıcınızı kendisi bulur.</b> Uygulama medya oynatıcı varlıklarınızı tarar, model, ad ve surround yeteneğine göre puanlar, ardından doğru varlığı sizin için doldurur.</li>
+      <li><b>6. Eşitleyin.</b> Sahneleriniz betiklere dönüştürülür ve yüklenir. Bundan sonra bir sahneyi düzenlemek betiğini arka planda günceller - hatırlanacak bir düğme yok.</li>
+    </ul>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Eşitlendikten sonra</div>
+        <h2>Bakmaya değer bir gösterge paneli kurun</h2>
+        <p>Home Assistant artık alıcınıza söylenebilecek her şey için bir kontrole sahip ve bunları nasıl düzenleyeceğiniz konusunda hiçbir fikri yok. <a href="/tr/guide/home-assistant-dashboard/">Gösterge paneli örneği</a> tam YAML ile bir düzenleme: yanan karoyla gösterilen kaynak ve surround, gerçek dB cinsinden ses, kendi adlarını okuyan Sahneleriniz ve Home Assistant'ın neyi görüp neyi göremediğinin dürüst bir haritası.</p>
+      </div>
+      <img alt="AVR Maestro ile eşitlenen kontrollerle kurulmuş bir Home Assistant gösterge paneli" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Yalnızca sahneler değil</div>
+        <h2>Hoparlör Ön Ayarları, Dirac ve Audyssey de</h2>
+        <p><b>Gelişmiş Kontrolleri Senkronize Et</b> seçeneğini açın; uygulama yalnızca sahneleriniz için değil, çok daha fazlası için betik yayınlar: her Hoparlör Ön Ayarı, her Dirac Live filtre yuvası, her Audyssey eğrisi. Bir Cinema 30 üzerinde tam eşitleme yetmişin üzerinde betik getirir; böylece bir gösterge paneli düğmesi ya da bir sesli komut, bir sahneyi çağırır gibi bir Dirac filtresi yükleyebilir veya oda eğrisini değiştirebilir.</p>
+      </div>
+      <img alt="Gelişmiş Kontrolleri Senkronize Et seçeneği açık olan AVR Maestro Home Assistant ekranı" src="/screenshots/ha-app-controls.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Yalnızca yazmaz, okur da</div>
+        <h2>Home Assistant neyin etkin olduğunu görebilir</h2>
+        <p>Bir betik çalıştırılabilir ama okunamaz; bu yüzden ilk gösterge panelleri Audyssey eğrisini ya da Dirac yuvasını değiştirebiliyor, ama hangisinin açık olduğunu gösteremiyordu. Uygulamanın zaten elinde olan okumalar - canlı surround modu, etkin Dirac filtresi, hoparlör ön ayarı, kararma ve düzinelercesi - artık alıcının durum sensöründe öznitelik olarak yayınlanıyor; böylece bir karo gerçekten çalışan ayar için yanabiliyor.</p>
+      </div>
+      <img alt="Home Assistant'a Hoparlör Ön Ayarı, Dirac Live ve Audyssey kontrol betikleri yayınlayan AVR Maestro" src="/screenshots/ha-sync-advanced.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Her oda</div>
+        <h2>Diğer bölgeleriniz, aynı gösterge panelinden</h2>
+        <p>Bölge 2 ve Bölge 3 için güç, ses ve sessize alma kendi betikleri olarak yayınlanır; böylece bir veranda ya da ikinci bir oda, ana bölgenin hep yaptığı gibi bir gösterge paneline ya da sesli asistana yanıt verir. Yalnızca alıcınızın gerçekten bildirdiği bölgeler düğme alır; iki bölgeli bir alıcıda hiçbir zaman Bölge 3 türemez.</p>
+      </div>
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Eski bir sürümle eşitlediyseniz</div>
+        <h2>Betik kimlikleriniz bir kez değişir</h2>
+        <p>Betikler eskiden sahnenin <em>ve</em> alıcının adına göre adlandırılıyordu; bu yüzden ikisinden birini yeniden adlandırmak eski betiği geride bırakıyor ve sessizce ikincisini oluşturuyordu. Artık sahnenin adına ve alıcının MAC adresine göre adlandırılıyorlar; yeniden adlandırmanın betiği çatallamak yerine aynı betiği güncellemesini sağlayan budur.</p>
+        <p>Bu değişiklikten sonraki ilk eşitleme eski betiklerin yerine yenilerini koyar. <b>Eski kimlikler üzerine kurduğunuz her şey bir kez yeniden yönlendirilmelidir</b> - bir gösterge paneli düğmesi, bir otomasyon, bir sesli takma ad. Yeni varlık kimliğini bulmak için betiği Home Assistant'ta açın.</p>
+        <p>Varlıklar artık alıcıdan da okunuyor - otuz iki karakterlik makine tanımlayıcısı yerine <code>cinema30</code> - böylece liste okunabilir ve otomatik tamamlama onları bulur. Önceki sürümlerden kimlikler çalışmaya devam eder.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Hubitat</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Hubitat, <b>Maker API</b> üzerinden desteklenir ve uygulamada BETA olarak işaretlidir; bunun nedeni bitmemiş olması değil, Home Assistant yolundan daha yeni olmasıdır.</p>
+        <ul class="plain">
+          <li><b>Hub IP</b> - Hubitat'ınızın yerel ağdaki adresi.</li>
+          <li><b>Maker API Uygulama Kimliği</b> - Maker API uygulamasının kendi URL'sindeki sayı.</li>
+          <li><b>Erişim Belirteci</b> - Maker API'yi etkinleştirdiğinizde verilir.</li>
+        </ul>
+        <p class="lead">Önce hub'da Maker API'yi etkinleştirin (Uygulamalar &rsaquo; Yerleşik Uygulama Ekle &rsaquo; Maker API); üçünü de size verir. Bunları yapıştırın; AVR Maestro alıcınızı bulur, sahnelerinizi komut dizileri olarak yayınlar ve canlı durumu geri iter; böylece bir Hubitat gösterge paneli alıcıya en son söylenenı değil, alıcının gerçekte ne yaptığını yansıtır.</p>
+      </div>
+      <img alt="Hub IP, Maker API Uygulama Kimliği ve erişim belirteci içeren Hubitat kurulum ekranı" src="/screenshots/hubitat.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Webhook'lar</h2>
+    </div>
+    <p class="lead">Home Assistant ve Hubitat komutları alıcıya <em>gönderir</em>. Webhook'lar ters yöne gider: alıcı bir şey yaptığında bunu başka her şeye bildirin. Alıcıyı açın, AVR Maestro seçtiğiniz bir adrese küçük bir mesaj gönderir - o mesaj webhook'tur.</p>
+
+    <div class="note"><b>Telefondan bağımsız olmayan tek bölüm bu.</b> Eşitlenen sahneleriniz hub'ınızda betik olur ve uygulama yakında olsun ya da olmasın çalışır. Webhook'lar farklıdır: alıcıyı izleyen AVR Maestro'dur, bu yüzden bir tetik, uygulama onu görebilen bir cihazda açıkken ateşlenir. Hiçbir şey çalışmıyorken bir şeyin tetiklenmesini istiyorsanız, onu hub'ınızda alıcı varlığının etrafında kurun.</div>
+
+    <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px;margin-top:22px">
+      <figure><img alt="Açıklama kartı olan ve henüz tetik içermeyen Webhook'lar ekranı" src="/screenshots/webhooks.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Siz bir tane ekleyene kadar boş</figcaption></figure>
+      <figure><img alt="Otomasyon Tetikleyicisi Ekle sayfası: tetikleme olayı, nereye gönderileceği ve bir webhook kimliği" src="/screenshots/webhook-trigger.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Bir olay, bir hedef, bir kimlik</figcaption></figure>
+    </div>
+
+    <h3 style="margin-top:34px">Dört tetik</h3>
+    <table class="t" style="margin-top:14px">
+      <thead><tr><th>Tetikleme Olayı</th><th>Ne zaman ateşlenir</th><th>Daraltılabilir</th></tr></thead>
+      <tbody>
+        <tr><td>Alıcı Gücü AÇIK</td><td>Alıcı beklemeden çıkar</td><td>-</td></tr>
+        <tr><td>Alıcı Gücü KAPALI</td><td>Alıcı beklemeye geçer</td><td>-</td></tr>
+        <tr><td>Etkin Giriş Değişti</td><td>Seçili kaynak değişir</td><td>Tek bir giriş, <em>Yalnızca giriş kaynağı için tetikle</em> altında</td></tr>
+        <tr><td>Sahne Çağrıldı</td><td>Bir Sahne uygulanır</td><td>Tek bir sahne, <em>Sahne Seç</em> altında</td></tr>
+      </tbody>
+    </table>
+
+    <p class="lead" style="margin-top:22px">Onları gürültülü değil işe yarar yapan, daraltmaktır. Her girişte “Etkin Giriş Değişti” bir yangın hortumudur; aynı tetik projektörünüzün bağlı olduğu tek girişe sabitlendiğinde bir ışık anahtarına dönüşür.</p>
+    <p class="lead">Giriş listesi kendi alıcınızın bildirdiği listedir; yani yeniden adlandırdığınız ya da gizlediğiniz her kaynağı zaten yansıtır. Sahne listesi sizin kendi sahnelerinizdir.</p>
+
+    <div class="section-head" style="margin-top:44px">
+      <h2>Adım adım bir tane kurmak</h2>
+    </div>
+    <p class="lead">Bu, çoğu kişinin istediği Home Assistant yoludur. Önce Home Assistant tarafını yapın - uygulamanın işaret edecek bir şeye ihtiyacı var.</p>
+
+    <h3 style="margin-top:28px">Home Assistant'ta</h3>
+    <ul class="plain">
+      <li><b>1. Ayarlar &rsaquo; Otomasyonlar &amp; Sahneler &rsaquo; Otomasyon Oluştur &rsaquo; Yeni otomasyon oluştur.</b></li>
+      <li><b>2. Tetikleyici Ekle &rsaquo; Webhook.</b> Home Assistant sizin için uzun, rastgele bir Webhook kimliği üretir.</li>
+      <li><b>3. Onu tanıyacağınız bir şeyle değiştirin</b> - <code>avr-power-on</code>, <code>avr-movie-night</code>. Home Assistant'ınızda benzersiz olduğu sürece her ad olur. Not alın; aynısını AVR Maestro'ya yazacaksınız.</li>
+      <li><b>4. Webhook'un ayarları altında <em>POST</em> yöntemine izin verin.</b> AVR Maestro'nun gönderdiği budur. Yalnızca yerel olması sorun değil - uygulama kendi ağınızda.</li>
+      <li><b>5. Ne yapmasını istiyorsanız ekleyin</b> - ışıkları kısın, panjurları kapatın, bir sahne başlatın - ve otomasyonu kaydedin.</li>
+    </ul>
+
+    <h3 style="margin-top:28px">AVR Maestro içinde</h3>
+    <ul class="plain">
+      <li><b>1. Ayarlar &rsaquo; Ev Otomasyonu &rsaquo; Webhook'lar</b>, ardından <b>İlk Tetikleyiciyi Ekle</b> - ya da bir tane olduktan sonra <b>+</b> düğmesi.</li>
+      <li><b>2. Tetikleme Olayı</b> - neyin tetiklemesi gerektiğini seçin. <em>Etkin Giriş Değişti</em> ya da <em>Sahne Çağrıldı</em> seçmek, daraltmak için ikinci bir kutu ekler.</li>
+      <li><b>3. Nereye gönderileceği</b> - <b>Home Assistant</b> üzerinde bırakın. Adres zaten bilinir, çünkü onu bu aynı ekranda daha önce bağlamıştınız.</li>
+      <li><b>4. Webhook Kimliği</b> - Home Assistant'ta kullandığınız kimliğin aynısını yazın. Başka hiçbir şeyin eşleşmesi gerekmez. Altında uygulama göndereceği tam adresi - <code>Sends to http://your-ha:8123/api/webhook/avr-power-on</code> - yazar; böylece kaydetmeden önce kontrol edebilirsiniz.</li>
+      <li><b>5. Kaydedin.</b> Ardından listedeki tetikte <b>Test</b> düğmesine basın. Home Assistant otomasyonunuz hemen çalışmalı.</li>
+    </ul>
+
+    <div class="note" style="margin-top:24px"><b>Home Assistant yolu için asla URL yazmazsınız.</b> Uygulama onu bağladığınız Home Assistant'tan oluşturur ve o adresi <em>tetik her ateşlendiğinde</em> yeniden arar. Home Assistant'ı yeni bir porta, yeni bir ana makine adına ya da bir Nabu Casa adresine taşıyın; daha önce yaptığınız her webhook onu takip eder. Yeniden eşitlenecek bir şey yok, basılacak bir düğme yok.</div>
+
+    <div class="note">Sayfada <b>Home Assistant henüz bağlı değil</b> yazıyorsa, önce bu sayfanın üstündeki Home Assistant kartını yapın. Webhook yolunun üzerine kurulacak bir adrese ihtiyacı var.</div>
+
+    <h3 style="margin-top:34px">Home Assistant olmayan bir yere göndermek</h3>
+    <p class="lead"><b>Nereye gönderileceği</b> seçeneğini <b>Diğer</b> yapın ve <b>Webhook URL'si</b> alanına tam bir URL yapıştırın. POST kabul eden her şey çalışır - bir Node-RED akışı, bir IFTTT uygulaması, bir NAS üzerindeki betik, bir Hubitat Maker API uç noktası. Bu yol adresi tam yazdığınız gibi saklar; hedef taşınırsa tetiği düzenlersiniz.</p>
+
+    <div class="section-head" style="margin-top:44px">
+      <h2>Gerçekte ne gönderilir</h2>
+    </div>
+    <p class="lead">Küçük bir JSON gövdesi. Aynı ekrandaki <b>Ne gönderdiği</b> kartı, seçtiğiniz tetik için bunu düz bir dille söyler; böylece tahmin yürütmeniz gerekmez - otomasyonunuzun okuduğu alan adları şunlardır:</p>
+    <table class="t" style="margin-top:14px">
+      <thead><tr><th>Tetik</th><th>Mesajdaki alanlar</th></tr></thead>
+      <tbody>
+        <tr><td>Alıcı Gücü AÇIK / KAPALI</td><td><code>event</code>, <code>timestamp</code></td></tr>
+        <tr><td>Etkin Giriş Değişti</td><td>...ayrıca <code>source</code></td></tr>
+        <tr><td>Sahne Çağrıldı</td><td>...ayrıca <code>sceneId</code> ve <code>sceneName</code></td></tr>
+      </tbody>
+    </table>
+    <p class="lead" style="margin-top:20px">Bir Home Assistant otomasyonunda bunlar <code>{{ trigger.json.event }}</code>, <code>{{ trigger.json.source }}</code> vb. olarak gelir. Bunları okuyabilir ya da tamamen yok sayıp yalnızca tetiğin ateşlendiği gerçeğine göre davranabilirsiniz. Çoğu kişi ikincisini yapar.</p>
+    <p class="lead">Farklı bir biçime ihtiyacınız varsa - kendi biçimini bekleyen bir hizmet - o kartın altındaki <b>Bunun yerine kendi JSON'umu gönder</b> seçeneğini açın ve oraya yazın. Katlanmış durumda ve Gelişmiş olarak işaretli, çünkü neredeyse kimsenin buna ihtiyacı yok; teşvik edilmediği için değil.</p>
+
+    <div class="note">Ekranın adı <b>Webhook'lar</b>, çünkü onlar tam olarak bunlar. Hub'ınızın <em>üzerinde</em> çalışan otomasyonları arıyorsanız, bunlar yukarıdaki Home Assistant ve Hubitat kartlarıdır - eşitlenen bir Sahne orada bir betik olur, burada bir webhook değil.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Bir webhook ulaşmadığında</h2>
+    </div>
+    <p class="lead">Kontrol etmeye değer sırayla, çünkü ilk ikisi neredeyse her zaman sebeptir:</p>
+    <ul class="plain">
+      <li><b>Önce Test'e basın.</b> Gerçek tetiğin gönderdiği mesajın aynısını aynı adrese gönderir ve üç şeyden hangisinin olduğunu söyler: iletildi, iletilmedi ya da tetiğin kendi anahtarı kapalı olduğu için atlandı. Test iletiyor ama gerçek olay iletmiyorsa sorun tetiktedir - çoğunlukla gerçekte geçmediğiniz bir girişe daraltılmış bir <em>Etkin Giriş Değişti</em>.</li>
+      <li><b>Kimliğin tam eşleştiğini kontrol edin.</b> Home Assistant webhook kimlikleri büyük/küçük harfe duyarlıdır ve başıboş bir boşluğa tahammül etmez. Uygulama, göndereceği tam adresi alanın altında yazar - bunu otomasyonunuzdakiyle karşılaştırın.</li>
+      <li><b>Otomasyonun POST'a izin verdiğini kontrol edin.</b> Yalnızca GET'e izin veren bir Home Assistant webhook tetiği, AVR Maestro'nun gönderdiğini sessizce yok sayar.</li>
+      <li><b>Tetiğin anahtarının açık olduğunu kontrol edin.</b> Her birinin listede kendi düğmesi vardır ve kapalı bir tetik başarısız olmaz, atlanır.</li>
+      <li><b>Tetikler tek bir alıcıya aittir.</b> Baktığınız liste, şu an seçili alıcının listesidir. Başka bir alıcının kendi listesi vardır; bu yüzden burada yapılan bir kural farklı bir oda için ateşlenmez.</li>
+      <li><b>Uygulamanın izliyor olması gerekir.</b> Alıcının değiştiğini fark eden AVR Maestro'dur; bu yüzden uygulama kapalıyken cebinizdeki bir telefondan hiçbir şey ateşlenmez. Bu, bu bölümün başında anlatılan bir ödünleşimdir, arıza değil.</li>
+      <li><b>Webhook'lar Ev Otomasyonu'nun parçasıdır.</b> O kilit açık değilse tetikler görünür ama hiçbir şey gönderilmez ve Test, işe yaramış gibi davranmak yerine bunu söyler.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Neyin ücretli, neyin ücretsiz olduğu</div>
+        <h2>Ev Otomasyonu tek kilittir. Yapay zeka asistanı ücretsizdir.</h2>
+        <p><b>Ev Otomasyonu (Pro)</b> - Home Assistant, Hubitat ve giden webhook'lar - tek seferlik bir kilittir. AVR Maestro'daki geri kalan her şey, cihaz üzerindeki yapay zeka asistanı dahil, uygulamaya dahildir.</p>
+        <p>Sesli kontrol alıcınıza hub'ınız aracılığıyla, Ev Otomasyonu <em>üzerinden</em> ulaşır. AVR Maestro kendi ses tanımasını çalıştırmaz.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Sık sorulan sorular</div>
+      <h2>Ev Otomasyonu, yanıtlandı</h2>
+    </div>
+    <details open><summary>Sesli kontrolün çalışması için telefonumun açık olması gerekir mi?</summary><div class="body">Hayır. AVR Maestro sahnelerinizi yerel Home Assistant betiklerine derler. Home Assistant alıcıyla yerel ağınızda doğrudan konuşur; telefonunuz kapalı, uykuda ya da başka bir ülkede olabilir.</div></details>
+    <details><summary>Alıcımı hangi sesli asistanlar kontrol edebilir?</summary><div class="body">Zaten hangisini kullanıyorsanız. AVR Maestro kendi ses katmanını eklemez - betikleri Home Assistant veya Hubitat'a yayınlar, bunlar da güvendiğiniz hub tarafından Alexa, Google Assistant veya Siri Kestirmelerine sunulur.</div></details>
+    <details><summary>Yapay zeka asistanı ücretli kilidin parçası mı?</summary><div class="body">Hayır. Cihaz üzerindeki yapay zeka asistanı ücretsizdir. Ev Otomasyonu - Home Assistant, Hubitat ve giden webhook'lar - AVR Maestro'daki tek ücretli kilittir.</div></details>
+    <details><summary>Ev ağımdan dışarı bir şey çıkıyor mu?</summary><div class="body">Kontrol için hayır. Uygulama alıcınızla ve hub'ınızla kendi ağınız üzerinden konuşur. Hiçbir şey bir MiyaraHub sunucusu üzerinden geçmez. Bir webhook, işaret ettiğiniz yere gider; bu sizin tercihinizdir.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Rehberin devamı</div>
+      <h2>Diğer AVR Maestro rehberleri</h2>
+    </div>
+    <p class="lead"><a href="/tr/guide/getting-started/">Başlarken</a> &middot; <a href="/tr/guide/home/">Ana Ekran</a> &middot; <a href="/tr/guide/scenes/">Sahneler</a> &middot; <a href="/tr/guide/custom-icons/">Özel Simgeler</a> &middot; <a href="/tr/guide/sound/">Ses</a> &middot; <a href="/tr/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/tr/guide/speakers/">Hoparlörler</a> &middot; <a href="/tr/guide/locked-controls/">Bir kontrol neden kilitli</a> &middot; <a href="/tr/guide/assistant/">Asistan</a> &middot; <a href="/tr/guide/home-assistant-dashboard/">Home Assistant panosu</a> &middot; <a href="/tr/guide/multi-zone/">Bölgeler</a> &middot; <a href="/tr/guide/remote/">Uzaktan Kumanda</a> &middot; <a href="/tr/guide/radio/">Radyo (FM/AM)</a> &middot; <a href="/tr/guide/on-screen-display/">Ekran Menüsü</a> &middot; <a href="/tr/guide/settings/">Ayarlar</a> &middot; <a href="/tr/guide/languages/">Diller</a> &middot; <a href="/tr/guide/volume/">Ses Kontrolleri</a> &middot; <a href="/tr/guide/backup/">Yedekleme &amp; Geri Yükleme</a> &middot; <a href="/tr/guide/now-playing/">Şimdi Çalıyor &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Sahneleriniz, telefonunuz olmadan çalışıyor</h2>
+    <p class="lead" style="margin:0 auto 24px">Ev Otomasyonu tek seferlik bir kilittir. Yapay zeka asistanı dahil uygulamadaki geri kalan her şey dahildir.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Google Play üzerinden edinin" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="App Store üzerinden indirin" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Mac App Store üzerinden indirin" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Microsoft Store üzerinden edinin" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/tr/guide/">Tam Kullanım Kılavuzuna dön &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/tr/">Ana Sayfa</a>
+      <a href="/tr/guide/">Kullanım Kılavuzu</a>
+      <a href="/tr/guide/getting-started/">Başlarken</a>
+      <a href="/tr/receivers/">Alıcılar</a>
+      <a href="/tr/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/tr/audyssey-vs-dirac/">Audyssey ve Dirac</a>
+      <a href="/tr/best-denon-marantz-app/">Neden geçmelisiniz</a>
+      <a href="/tr/help/">Yardım</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro, MiyaraHub Technologies LLC tarafından geliştirilen bağımsız bir uygulamadır; Denon, Marantz, D&amp;M Holdings, Sound United veya bu sayfada adı geçen başka hiçbir şirketle bağlantılı değildir, onlar tarafından onaylanmamış veya desteklenmemiştir. Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant ve Siri ilgili sahiplerinin ticari markalarıdır ve burada yalnızca tanımlama amacıyla kullanılmıştır.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

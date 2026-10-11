@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ro" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fila Sunet: toate controalele audio ale AVR-ului dvs. - AVR Maestro</title>
+<meta name="description" content="Fiecare control audio al Denon-ului sau Marantz-ului dvs., explicat: moduri surround, Dialog Enhancer, DRC, Audyssey, Dirac Live, Graphic EQ, ajustări, Tone, IMAX și Auro-3D." />
+<meta name="keywords" content="Denon sound modes app, Marantz surround mode app, Audyssey MultEQ app, Dirac Live app control, Dolby Surround DTS Neural X app, IMAX Enhanced settings app, Auro-3D app, dialog enhancer Denon, dynamic range compression AVR, M-DAX audio restorer" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/ro/guide/sound/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/sound/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/sound/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/sound/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/sound/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/sound/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/sound/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/sound/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/sound/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/sound/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/sound/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/sound/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/sound/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/sound/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/sound/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/sound/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/sound/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/sound/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/sound/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/sound/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/sound/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/sound/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/sound/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/sound/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/sound/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/sound/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/sound/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/sound/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/sound/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/sound/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/sound/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/sound/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="ro_RO" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Fila Sunet: toate controalele audio ale AVR-ului dvs. - AVR Maestro" />
+<meta property="og:description" content="Fiecare control audio al Denon-ului sau Marantz-ului dvs., explicat: moduri surround, Dialog Enhancer, DRC, Audyssey, Dirac Live, Graphic EQ, ajustări, Tone, IMAX și Auro-3D." />
+<meta property="og:url" content="https://avrmaestro.com/ro/guide/sound/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Fila Sunet: toate controalele audio ale AVR-ului dvs. - AVR Maestro" />
+<meta name="twitter:description" content="Fiecare control audio al Denon-ului sau Marantz-ului dvs., explicat: moduri surround, Dialog Enhancer, DRC, Audyssey, Dirac Live, Graphic EQ, ajustări, Tone, IMAX și Auro-3D." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro este o aplicație independentă pentru controlul receiverelor AV Denon și Marantz prin rețeaua dumneavoastră locală.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "ro"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/sound/#article",
+      "headline": "Toate controalele audio ale receiverului dvs., într-o singură filă Sunet",
+      "description": "Fiecare control audio al Denon-ului sau Marantz-ului dvs., explicat: moduri surround, Dialog Enhancer, DRC, Audyssey, Dirac Live, Graphic EQ, ajustări, Tone, IMAX și Auro-3D.",
+      "image": "https://avrmaestro.com/screenshots/sound-surround.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/sound/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "ro"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/sound/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "De ce se schimbă lista modurilor de sunet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pentru că lista receiverului se schimbă. Modurile pe care un Denon sau Marantz le acceptă depind de ce decodează: un flux pe două canale oferă upmixere, un flux Atmos oferă modurile compatibile Atmos. AVR Maestro citește lista curentă de pe receiver de fiecare dată, în loc să afișeze un meniu fix care ar fi greșit jumătate din timp."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "De ce este un control estompat cu N/A?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "N/A înseamnă că receiverul nu are nicio valoare pentru el în starea curentă - de obicei pentru că semnalul de intrare nu conține funcția respectivă. Atingeți semnul întrebării de lângă rând și aplicația explică ce semnal l-ar activa. Un control estompat nu este niciodată o eroare ascunsă; este răspunsul propriu al receiverului."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Care este diferența dintre Canale și Niveluri?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Canale (fila Sunet) este ajustarea în timp real, pe canal, pentru semnalul care se redă chiar acum. Niveluri (fila Difuzoare) este nivelul de referință pe difuzor, stocat în Speaker Preset de calibrarea dvs. Ajustarea Canalelor nu rescrie calibrarea."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pot folosi Tone Control și Audyssey împreună?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nu cât timp Dynamic EQ este pornit - receiverul preia controlul asupra reglajelor de ton. Dezactivați Dynamic EQ în pagina Audyssey, iar Grave și Acute devin din nou editabile."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Trebuie să fiu în aceeași rețea?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Da. AVR Maestro comunică direct cu receiverul dvs. prin LAN, fără cont în cloud și fără server de releu între ele. Vedeți Primii pași."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Acasă",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Ghid de utilizare",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Sunet",
+      "item": "https://avrmaestro.com/guide/sound/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/ro/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Meniu" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Căutați în ghid..." data-i18n-empty="Niciun rezultat pentru" data-i18n-language="Limbă">
+      <a href="/ro/">Acasă</a>
+      <a href="/ro/guide/">Ghid de utilizare</a>
+      <a href="/ro/receivers/">Receivere</a>
+      <a href="/ro/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ro/best-denon-marantz-app/">De ce să treceți la el</a>
+      <a href="/ro/#top" class="cta">Descarcă</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/ro/">Acasă</a> &rsaquo; <a href="/ro/guide/">Ghid de utilizare</a> &rsaquo; Sunet</div>
+    <div class="eyebrow">Fila Sunet</div>
+    <h1>Toate controalele audio ale receiverului dvs., <span class="g">într-o singură filă Sunet</span></h1>
+    <p>Fila Sunet are nouă pagini și reflectă meniul audio propriu al receiverului, nu o versiune simplificată a acestuia. Această pagină le parcurge pe toate nouă: ce face fiecare control, ce așteaptă și de ce receiverul uneori nu vă lasă să îl atingeți.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Ce găsiți aici</div>
+      <h2>Cele nouă pagini</h2>
+    </div>
+    <table class="t">
+      <thead><tr><th>Pagină</th><th>Ce controlează</th></tr></thead>
+      <tbody>
+        <tr><td><a href="#surround">Surround</a></td><td>Modul de sunet, grupat în Film / Muzică / Joc / Pur, plus afișajul funcțiilor audio</td></tr>
+        <tr><td><a href="#dialog">Dialog &amp; DRC</a></td><td>Intensitatea Dialog Enhancer și Dynamic Range Compression</td></tr>
+        <tr><td><a href="#audyssey">Audyssey</a></td><td>MultEQ, Dynamic EQ, Reference Level Offset, Dynamic Volume, Surround Level Compensation</td></tr>
+        <tr><td><a href="#dirac">Dirac Live</a></td><td>Sloturile de filtre încărcate, după nume, și Oprit</td></tr>
+        <tr><td><a href="#geq">Graphic EQ</a></td><td>O curbă pe 9 benzi pentru fiecare difuzor, de la 63Hz la 16kHz</td></tr>
+        <tr><td><a href="#channels">Canale</a></td><td>Ajustare pe canal în dB pentru fiecare difuzor din semnalul curent, plus Bass Sync</td></tr>
+        <tr><td><a href="#tone">Ton</a></td><td>Control ton, Grave, Acute, filtru DAC, Audio Restorer (M-DAX)</td></tr>
+        <tr><td><a href="#imax">IMAX</a></td><td>Modul IMAX Enhanced, cu propriile HPF, LPF și rutare a subwooferului</td></tr>
+        <tr><td><a href="#auro">Auro-3D</a></td><td>Presetarea Auromatic, Intensitate și Auro 3D Mode</td></tr>
+      </tbody>
+    </table>
+    <div class="note">Receiverul tău decide care dintre acestea apar. Un model fără licență Auro-3D pur și simplu nu are pagina Auro-3D, iar unul fără decodor IMAX Enhanced nu are pagina IMAX. AVR Maestro îl întreabă pe receiver ce are, în loc să presupună un model.</div>
+  </div>
+</section>
+
+<section id="surround">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pagina unu</div>
+      <h2>Surround: modul și ce face de fapt receiverul</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Cardul de sus arată <b>modul curent</b> exact așa cum îl raportează receiverul. Dedesubt, modurile sunt grupate în <b>Film</b>, <b>Muzică</b>, <b>Joc</b> și <b>Pur</b>, iar sunt oferite doar modurile pe care receiverul le acceptă pentru semnalul pe care îl decodează chiar acum.</p>
+        <ul class="plain">
+          <li><b>Stereo, Dolby Surround, DTS Neural:X, Auro-3D, Auro Surround, Multi Ch Stereo</b> și celelalte apar în funcție de modelul tău și de fluxul primit.</li>
+          <li><b>Audio Features</b> de dedesubt este un afișaj în timp real, nu o listă de dorințe: Neural:X, IMAX Enhanced, Cinema EQ, Center Spread, Loudness Management, Speaker Virtualizer și celelalte arată fiecare <b>Activ</b>, <b>Inactiv</b> sau <b>N/A</b>.</li>
+          <li><b>N/A</b> înseamnă că semnalul curent nu poate folosi acea funcție. Atinge semnul întrebării de lângă ea și aplicația îți explică ce semnal ar putea.</li>
+        </ul>
+      </div>
+      <img alt="Pagina Surround, cu modul curent și afișajul funcțiilor audio" src="/screenshots/sound-surround.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="dialog">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pagina doi</div>
+      <h2>Dialog &amp; DRC: inteligibilitate și ascultare noaptea</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <ul class="plain">
+          <li><b>Dialog Enhancer</b> - Oprit, Scăzut, Mediu sau Ridicat. Ridică inteligibilitatea canalului central fără să-ți afecteze calibrarea.</li>
+          <li><b>Dynamic Range Compression</b> - Oprit, Scăzut, Mediu, Ridicat sau Automat. Strânge diferența dintre șoapte și explozii, exact ce îți dorești târziu în noapte.</li>
+        </ul>
+        <p class="lead">DRC este cel mai clar exemplu al felului în care AVR Maestro tratează un control pe care receiverul nu îl acceptă. Datele de compresie sunt transportate <b>în interiorul unui flux Dolby</b>, deci pe o sursă PCM, DTS sau stereo din rețea nu e nimic de comprimat. În loc să te lase să apeși un buton care nu face nimic, aplicația estompează rândul și afișează motivul: treci pe conținut Dolby Digital, Dolby Digital Plus, Dolby TrueHD sau Dolby Atmos ca să-l folosești.</p>
+      </div>
+      <img alt="Dialog și DRC, cu Dynamic Range Compression estompat și explicat" src="/screenshots/sound-dialog-drc.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="audyssey">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pagina trei</div>
+      <h2>Audyssey: întregul meniu de calibrare, nu doar MultEQ</h2>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px">
+      <figure><img alt="Pagina Audyssey cu MultEQ, Dynamic EQ, Reference Level Offset, Dynamic Volume și Surround Level Compensation" src="/screenshots/sound-audyssey.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Fiecare control Audyssey, în timp real</figcaption></figure>
+      <figure><img alt="Pagina Audyssey care raportează că Dirac deține acest Speaker Preset" src="/screenshots/sound-audyssey-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Pe o presetare Dirac, aplicația spune asta</figcaption></figure>
+    </div>
+    <ul class="plain" style="margin-top:26px">
+      <li><b>MultEQ</b> - Reference, Bypass LR, Flat sau Oprit. Reference este curba calibrată a casei; Flat elimină atenuarea frecvențelor înalte; Bypass LR lasă perechea frontală necorectată; Oprit îți redă controlul asupra egalizării.</li>
+      <li><b>Dynamic EQ</b> - Pornit sau Oprit. Păstrează echilibrul tonal corect pe măsură ce scazi volumul, în loc să lase basul să se subțieze.</li>
+      <li><b>Reference Level Offset</b> - 0, 5, 10 sau 15 dB. Îi spune lui Dynamic EQ cu cât sub nivelul de referință a fost masterizat conținutul tău. 0 dB se potrivește filmelor; offseturile mai mari se potrivesc muzicii și TV-ului.</li>
+      <li><b>Dynamic Volume</b> - Oprit, Ușoară, Medie sau Puternică. Egalizează reclamele zgomotoase față de dialogurile line.</li>
+      <li><b>Surround Level Compensation</b> - Oprit, Redusă, Medie sau Ridicată.</li>
+    </ul>
+    <div class="note">Dacă această pagină poate fi editată depinde de sistemul care deține Speaker Preset-ul curent. Vezi <a href="/ro/guide/locked-controls/">de ce este blocat un control</a>.</div>
+  </div>
+</section>
+
+<section id="dirac">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pagina patru</div>
+      <h2>Dirac Live: filtrele tale, cu numele pe care le-ai dat</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Dacă ai rulat Dirac Live, filtrele exportate se află în sloturi numerotate pe receiver. AVR Maestro le listează <b>după numele sub care le-ai salvat</b>, cu numărul slotului dedesubt, plus o intrare <b>Oprit</b> pentru a rula presetarea fără niciun filtru. O singură atingere schimbă filtrul.</p>
+        <p class="lead">Pe un Speaker Preset fără filtru Dirac încărcat, pagina spune asta direct, în loc să afișeze o listă goală.</p>
+      </div>
+      <img alt="Pagina Dirac Live, cu sloturile de filtre listate după numele salvate" src="/screenshots/sound-dirac.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="geq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pagina cinci</div>
+      <h2>Graphic EQ: nouă benzi, pentru fiecare difuzor</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Un editor adevărat, nu un comutator: nouă benzi de la 63Hz la 16kHz, de la -20 la +6 dB, trase pe grafic. Alege difuzorul <b>Toate</b>, <b>Stânga/Dreapta</b> sau <b>Fiecare</b>, folosește <b>Copiază</b> ca să pornești de la curba Audyssey măsurată, <b>Resetează</b> ca să aplatizezi curba și bara de modificări în așteptare pentru a aplica.</p>
+        <p class="lead">Receiverul rulează corecția camerei <b>sau</b> egalizarea manuală, niciodată pe amândouă, așa că această pagină este blocată oricând rulează MultEQ sau Dirac - și îți spune care dintre ele.</p>
+        <p class="lead"><a href="/ro/guide/graphic-eq/">Ghidul complet Graphic EQ &rarr;</a></p>
+      </div>
+      <img alt="Editorul Graphic EQ cu o curbă pe 9 benzi pentru fiecare difuzor" src="/screenshots/graphic-eq.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="channels">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pagina șase</div>
+      <h2>Canale: ajustează orice difuzor în timp ce filmul rulează</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Ajustare pe canal în dB pentru fiecare difuzor prezent în <b>semnalul curent</b> - Față stânga, Față dreapta, Central, surround-urile, surround-urile din spate, ambele subwoofere și stratul de înălțime, fiecare cu numele scurt dedesubt, ca să nu mai ghicești care e care.</p>
+        <ul class="plain">
+          <li><b>Trage de slider</b> pentru o schimbare mare sau atinge <b>plus și minus</b> pentru un pas fin, ambele în timp ce asculți.</li>
+          <li><b>Resetează tot</b> readuce fiecare canal la 0 dB.</li>
+          <li><b>Bass Sync</b>, de jos, aliniază în timp canalul LFE față de cele principale.</li>
+        </ul>
+        <p class="lead">Acestea sunt ajustările live, pe semnal. <b>Nivelurile de referință</b> ale fiecărui difuzor, stocate în Speaker Preset, se găsesc în schimb în <a href="/ro/guide/speakers/">fila Difuzoare</a>, iar aplicația explică diferența în cardul de informații al paginii.</p>
+      </div>
+      <img alt="Pagina Canale, cu un slider de nivel și pași fini plus/minus pentru fiecare difuzor" src="/screenshots/sound-channels.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="tone">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pagina șapte</div>
+      <h2>Ton: grave, acute, filtrul DAC și M-DAX</h2>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px">
+      <figure><img alt="Pagina Ton cu Grave, Acute, Filtru DAC și Audio Restorer" src="/screenshots/sound-tone.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Ton, liber de editat</figcaption></figure>
+      <figure><img alt="Pagina Ton cu controalele blocate de Dynamic EQ" src="/screenshots/sound-tone-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Dynamic EQ preia controalele de ton</figcaption></figure>
+    </div>
+    <ul class="plain" style="margin-top:26px">
+      <li><b>Control ton</b> - comutatorul principal. Gravele și acutele ajung la receiver doar cât timp acesta este activ.</li>
+      <li><b>Grave</b> și <b>Acute</b> - de la -6 dB la +6 dB, în pași de 1 dB.</li>
+      <li><b>Filtru DAC</b> - Filtrul 1 este mai cald, cu atenuare lentă, Filtrul 2 este un răspuns de referință mai abrupt.</li>
+      <li><b>Audio Restorer (M-DAX)</b> - Oprit, Scăzut, Medie sau Ridicată. Reface detaliile pierdute în audio comprimat sau în streaming, exact ce îți trebuie pe un stream radio de 128k și nu ce îți trebuie pe un disc lossless.</li>
+    </ul>
+    <div class="note">Audyssey Dynamic EQ deține controalele de ton cât timp rulează: receiverul le preia, iar AVR Maestro afișează un banner care spune asta, ca să nu te întrebi de ce Gravele nu fac nimic.</div>
+  </div>
+</section>
+
+<section id="imax">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pagina opt</div>
+      <h2>IMAX: meniul complet de setări Enhanced</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Pe un model cu IMAX Enhanced, aplicația expune întregul meniu, nu doar pornit/oprit:</p>
+        <ul class="plain">
+          <li><b>IMAX Mode</b> - Automat sau Oprit.</li>
+          <li><b>Audio Settings</b> - Automat urmează recomandarea IMAX; Manual deschide cele patru controale de mai jos.</li>
+          <li><b>High Pass Filter</b> - de la 40Hz până la 250Hz.</li>
+          <li><b>Low Pass Filter</b> - de la 70Hz până la 250Hz.</li>
+          <li><b>Subwoofer</b> - Pornit sau Oprit, și <b>Subwoofer Output</b> - LFE+Main sau LFE.</li>
+        </ul>
+      </div>
+      <img alt="Pagina IMAX, cu mod, filtre și rutarea subwooferului" src="/screenshots/sound-imax.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="auro">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pagina nouă</div>
+      <h2>Auro-3D: upmixing cu formă</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <ul class="plain">
+          <li><b>Auromatic 3D Preset</b> - Mic, Mediu, Mare, Vorbire sau Film. Alege camera și caracterul conținutului pe care îl vizează upmixerul.</li>
+          <li><b>Intensitate</b> - de la 0 la 15, pentru cât de multă informație de înălțime generează Auromatic.</li>
+          <li><b>Auro 3D Mode</b> - Direct sau Channel Expansion.</li>
+        </ul>
+        <p class="lead">Acestea se aplică doar cât timp este selectat un mod Auro pe pagina Surround, iar pagina există doar pe un model care are decodorul Auro-3D.</p>
+      </div>
+      <img alt="Pagina Auro-3D, cu presetare, intensitate și mod" src="/screenshots/sound-auro3d.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Întrebări frecvente</div>
+      <h2>Întrebări frecvente despre fila Sunet</h2>
+    </div>
+    <details open><summary>De ce se schimbă lista modurilor de sunet?</summary><div class="body">Pentru că lista receiverului se schimbă. Modurile pe care un Denon sau Marantz le acceptă depind de ce decodează: un flux pe două canale oferă upmixere, un flux Atmos oferă modurile compatibile Atmos. AVR Maestro citește lista curentă de pe receiver de fiecare dată, în loc să afișeze un meniu fix care ar fi greșit jumătate din timp.</div></details>
+    <details><summary>De ce este un control estompat cu N/A?</summary><div class="body">N/A înseamnă că receiverul nu are nicio valoare pentru el în starea curentă - de obicei pentru că semnalul de intrare nu conține funcția respectivă. Atingeți semnul întrebării de lângă rând și aplicația explică ce semnal l-ar activa. Un control estompat nu este niciodată o eroare ascunsă; este răspunsul propriu al receiverului.</div></details>
+    <details><summary>Care este diferența dintre Canale și Niveluri?</summary><div class="body">Canale (fila Sunet) este ajustarea în timp real, pe canal, pentru semnalul care se redă chiar acum. Niveluri (fila Difuzoare) este nivelul de referință pe difuzor, stocat în Speaker Preset de calibrarea dvs. Ajustarea Canalelor nu rescrie calibrarea.</div></details>
+    <details><summary>Pot folosi Tone Control și Audyssey împreună?</summary><div class="body">Nu cât timp Dynamic EQ este pornit - receiverul preia controlul asupra reglajelor de ton. Dezactivați Dynamic EQ în pagina Audyssey, iar Grave și Acute devin din nou editabile.</div></details>
+    <details><summary>Trebuie să fiu în aceeași rețea?</summary><div class="body">Da. AVR Maestro vorbește direct cu receiverul tău prin LAN, fără cont în cloud și fără server intermediar. Vezi <a href="/ro/guide/getting-started/">Primii pași</a>.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Mai multe din ghid</div>
+      <h2>Alte ghiduri AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/ro/guide/getting-started/">Primii pași</a> &middot; <a href="/ro/guide/home/">Ecranul principal</a> &middot; <a href="/ro/guide/scenes/">Scene</a> &middot; <a href="/ro/guide/custom-icons/">Pictograme personalizate</a> &middot; <a href="/ro/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/ro/guide/speakers/">Difuzoare</a> &middot; <a href="/ro/guide/locked-controls/">De ce este blocat un control</a> &middot; <a href="/ro/guide/assistant/">Asistentul</a> &middot; <a href="/ro/guide/home-automation/">Automatizare Locuință</a> &middot; <a href="/ro/guide/home-assistant-dashboard/">Panou Home Assistant</a> &middot; <a href="/ro/guide/multi-zone/">Zone</a> &middot; <a href="/ro/guide/remote/">Telecomandă</a> &middot; <a href="/ro/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/ro/guide/on-screen-display/">Afișaj pe ecran</a> &middot; <a href="/ro/guide/settings/">Setări</a> &middot; <a href="/ro/guide/languages/">Limbi</a> &middot; <a href="/ro/guide/volume/">Comenzi de volum</a> &middot; <a href="/ro/guide/backup/">Copie de rezervă &amp; restaurare</a> &middot; <a href="/ro/guide/now-playing/">Se redă acum &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Tot meniul audio, de pe canapea</h2>
+    <p class="lead" style="margin:0 auto 24px">Achiziție unică, fără reclame, fără abonamente. Conectați-vă în mai puțin de un minut.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Descărcați de pe Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Descărcați din App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Descărcați din Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Descărcați din Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/ro/guide/">Înapoi la Ghidul complet de utilizare &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/ro/">Acasă</a>
+      <a href="/ro/guide/">Ghid de utilizare</a>
+      <a href="/ro/guide/getting-started/">Primii pași</a>
+      <a href="/ro/receivers/">Receivere</a>
+      <a href="/ro/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ro/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/ro/best-denon-marantz-app/">De ce să treceți la el</a>
+      <a href="/ro/help/">Ajutor</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro este o aplicație independentă a MiyaraHub Technologies LLC și nu este afiliată, susținută sau sponsorizată de Denon, Marantz, D&amp;M Holdings, Sound United sau orice altă companie menționată pe această pagină. Denon, Marantz, HEOS, Audyssey, Dirac Live, IMAX, Auro-3D și Dolby Atmos sunt mărci comerciale ale deținătorilor lor respectivi, folosite aici doar pentru identificare.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

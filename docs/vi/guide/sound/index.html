@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="vi" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thẻ Âm thanh: Mọi điều khiển âm thanh trên AVR của bạn - AVR Maestro</title>
+<meta name="description" content="Giải thích mọi điều khiển âm thanh trên Denon hoặc Marantz của bạn: chế độ vòm, Dialog Enhancer, DRC, Audyssey, Dirac Live, Graphic EQ, trim, Âm sắc, IMAX và Auro-3D." />
+<meta name="keywords" content="Denon sound modes app, Marantz surround mode app, Audyssey MultEQ app, Dirac Live app control, Dolby Surround DTS Neural X app, IMAX Enhanced settings app, Auro-3D app, dialog enhancer Denon, dynamic range compression AVR, M-DAX audio restorer" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/vi/guide/sound/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/sound/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/sound/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/sound/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/sound/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/sound/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/sound/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/sound/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/sound/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/sound/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/sound/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/sound/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/sound/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/sound/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/sound/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/sound/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/sound/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/sound/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/sound/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/sound/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/sound/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/sound/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/sound/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/sound/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/sound/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/sound/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/sound/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/sound/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/sound/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/sound/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/sound/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/sound/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="vi_VN" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Thẻ Âm thanh: Mọi điều khiển âm thanh trên AVR của bạn - AVR Maestro" />
+<meta property="og:description" content="Giải thích mọi điều khiển âm thanh trên Denon hoặc Marantz của bạn: chế độ vòm, Dialog Enhancer, DRC, Audyssey, Dirac Live, Graphic EQ, trim, Âm sắc, IMAX và Auro-3D." />
+<meta property="og:url" content="https://avrmaestro.com/vi/guide/sound/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Thẻ Âm thanh: Mọi điều khiển âm thanh trên AVR của bạn - AVR Maestro" />
+<meta name="twitter:description" content="Giải thích mọi điều khiển âm thanh trên Denon hoặc Marantz của bạn: chế độ vòm, Dialog Enhancer, DRC, Audyssey, Dirac Live, Graphic EQ, trim, Âm sắc, IMAX và Auro-3D." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro là ứng dụng độc lập để điều khiển các receiver AV Denon và Marantz qua mạng nội bộ của bạn.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "vi"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/sound/#article",
+      "headline": "Mọi điều khiển âm thanh mà receiver của bạn có, trong một thẻ Âm thanh",
+      "description": "Giải thích mọi điều khiển âm thanh trên Denon hoặc Marantz của bạn: chế độ vòm, Dialog Enhancer, DRC, Audyssey, Dirac Live, Graphic EQ, trim, Âm sắc, IMAX và Auro-3D.",
+      "image": "https://avrmaestro.com/screenshots/sound-surround.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/sound/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "vi"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/sound/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Vì sao danh sách chế độ âm thanh lại thay đổi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vì danh sách của receiver thay đổi. Các chế độ mà Denon hay Marantz chấp nhận phụ thuộc vào thứ nó đang giải mã: luồng hai kênh cho các bộ upmix, luồng Atmos cho các chế độ hỗ trợ Atmos. AVR Maestro đọc danh sách hiện tại từ receiver mỗi lần, thay vì hiện một menu cố định mà một nửa thời gian sẽ sai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vì sao một điều khiển bị mờ với N/A?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "N/A nghĩa là receiver không có giá trị cho mục đó ở trạng thái hiện tại - thường vì tín hiệu đầu vào không mang tính năng đó. Chạm dấu hỏi bên cạnh hàng và ứng dụng sẽ giải thích tín hiệu nào sẽ kích hoạt nó. Một điều khiển bị mờ không phải là lỗi bị che giấu; đó là câu trả lời của chính receiver."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Khác biệt giữa Kênh và Mức là gì?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kênh (thẻ Âm thanh) là phần trim từng kênh trực tiếp cho tín hiệu đang phát ngay lúc này. Mức (thẻ Loa) là mức tham chiếu của từng loa, được lưu trong Speaker Preset bởi quá trình hiệu chỉnh của bạn. Chỉnh Kênh không ghi đè lên hiệu chỉnh của bạn."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Tôi có thể dùng Điều khiển âm sắc cùng với Audyssey không?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Không khi Dynamic EQ đang bật - receiver sẽ nắm quyền điều khiển âm sắc. Hãy tắt Dynamic EQ ở trang Audyssey và Bass cùng Treble sẽ chỉnh được trở lại."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Tôi có cần dùng cùng một mạng không?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Có. AVR Maestro nói chuyện trực tiếp với receiver của bạn qua mạng LAN, không cần tài khoản đám mây và không có máy chủ trung gian nào. Xem Bắt đầu."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Trang chủ",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Hướng dẫn sử dụng",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Âm thanh",
+      "item": "https://avrmaestro.com/guide/sound/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/vi/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Tìm trong hướng dẫn..." data-i18n-empty="Không có kết quả cho" data-i18n-language="Ngôn ngữ">
+      <a href="/vi/">Trang chủ</a>
+      <a href="/vi/guide/">Hướng dẫn sử dụng</a>
+      <a href="/vi/receivers/">Receiver</a>
+      <a href="/vi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/vi/best-denon-marantz-app/">Vì sao nên chuyển</a>
+      <a href="/vi/#top" class="cta">Tải về</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/vi/">Trang chủ</a> &rsaquo; <a href="/vi/guide/">Hướng dẫn sử dụng</a> &rsaquo; Âm thanh</div>
+    <div class="eyebrow">Thẻ Âm thanh</div>
+    <h1>Mọi điều khiển âm thanh mà receiver của bạn có, <span class="g">trong một thẻ Âm thanh</span></h1>
+    <p>Thẻ Âm thanh sâu tới chín trang, và nó phản chiếu menu âm thanh của chính receiver chứ không phải một phiên bản đơn giản hóa. Trang này đi qua cả chín trang: mỗi điều khiển làm gì, nó cần gì, và vì sao đôi khi receiver không cho bạn chạm vào.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Có gì ở đây</div>
+      <h2>Chín trang</h2>
+    </div>
+    <table class="t">
+      <thead><tr><th>Trang</th><th>Điều khiển những gì</th></tr></thead>
+      <tbody>
+        <tr><td><a href="#surround">Vòm</a></td><td>Chế độ âm thanh, được nhóm thành Phim / Nhạc / Trò chơi / Pure, cùng bảng hiển thị các tính năng âm thanh</td></tr>
+        <tr><td><a href="#dialog">Dialog &amp; DRC</a></td><td>Cường độ Dialog Enhancer và nén dải động (Dynamic Range Compression)</td></tr>
+        <tr><td><a href="#audyssey">Audyssey</a></td><td>MultEQ, Dynamic EQ, Reference Level Offset, Dynamic Volume, Surround Level Compensation</td></tr>
+        <tr><td><a href="#dirac">Dirac Live</a></td><td>Các vị trí bộ lọc bạn đã nạp theo tên, và tùy chọn Tắt</td></tr>
+        <tr><td><a href="#geq">Graphic EQ</a></td><td>Đường cong 9 băng tần cho từng loa, từ 63Hz đến 16kHz</td></tr>
+        <tr><td><a href="#channels">Kênh</a></td><td>Tinh chỉnh theo từng kênh bằng dB cho mọi loa trong tín hiệu hiện tại, cộng với Bass Sync</td></tr>
+        <tr><td><a href="#tone">Âm sắc</a></td><td>Tone Control, Bass, Treble, bộ lọc DAC, Audio Restorer (M-DAX)</td></tr>
+        <tr><td><a href="#imax">IMAX</a></td><td>Chế độ IMAX Enhanced cùng HPF, LPF và định tuyến loa siêu trầm riêng của nó</td></tr>
+        <tr><td><a href="#auro">Auro-3D</a></td><td>Cấu hình Auromatic, Cường độ và Chế độ Auro 3D</td></tr>
+      </tbody>
+    </table>
+    <div class="note">Receiver của bạn quyết định trang nào sẽ xuất hiện. Máy không có giấy phép Auro-3D sẽ không có trang Auro-3D, và máy không có bộ giải mã IMAX Enhanced sẽ không có trang IMAX. AVR Maestro hỏi thẳng receiver xem nó có gì thay vì tự đoán theo kiểu máy.</div>
+  </div>
+</section>
+
+<section id="surround">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Trang một</div>
+      <h2>Surround: chế độ âm thanh và những gì receiver đang thực sự làm</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Thẻ trên cùng hiển thị <b>chế độ hiện tại</b> đúng như receiver báo cáo. Bên dưới, các chế độ được chia thành <b>Phim</b>, <b>Nhạc</b>, <b>Trò chơi</b> và <b>Pure</b>, và chỉ những chế độ mà receiver chấp nhận cho tín hiệu đang giải mã lúc này mới được đưa ra.</p>
+        <ul class="plain">
+          <li><b>Stereo, Dolby Surround, DTS Neural:X, Auro-3D, Auro Surround, Multi Ch Stereo</b> và các chế độ khác sẽ xuất hiện tùy theo máy của bạn và luồng tín hiệu đầu vào.</li>
+          <li><b>Tính năng âm thanh</b> ở bên dưới là bảng hiển thị trực tiếp, không phải danh sách ước muốn: Neural:X, IMAX Enhanced, Cinema EQ, Center Spread, Loudness Management, Speaker Virtualizer và các tính năng khác đều hiện <b>Đang hoạt động</b>, <b>Không hoạt động</b> hoặc <b>N/A</b>.</li>
+          <li><b>N/A</b> nghĩa là tín hiệu hiện tại không dùng được tính năng đó. Chạm vào dấu hỏi bên cạnh và ứng dụng sẽ giải thích loại tín hiệu nào mới dùng được.</li>
+        </ul>
+      </div>
+      <img alt="Trang Surround hiển thị chế độ hiện tại và bảng các tính năng âm thanh" src="/screenshots/sound-surround.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="dialog">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Trang hai</div>
+      <h2>Dialog &amp; DRC: nghe rõ lời thoại và nghe đêm</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <ul class="plain">
+          <li><b>Dialog Enhancer</b> - Tắt, Thấp, Trung bình hoặc Cao. Làm lời thoại ở kênh trung tâm rõ hơn mà không đụng đến hiệu chỉnh của bạn.</li>
+          <li><b>Dynamic Range Compression</b> - Tắt, Thấp, Trung bình, Cao hoặc Tự động. Thu hẹp khoảng cách giữa tiếng thì thầm và tiếng nổ, đúng thứ bạn cần khi xem khuya.</li>
+        </ul>
+        <p class="lead">DRC là ví dụ rõ nhất cho cách AVR Maestro xử lý một điều khiển mà receiver sẽ không chấp nhận. Dữ liệu nén được truyền <b>bên trong luồng bitstream Dolby</b>, nên với nguồn PCM, DTS hoặc stereo qua mạng thì không có gì để nén. Thay vì để bạn bấm một nút chẳng có tác dụng, ứng dụng làm mờ dòng đó và ghi rõ lý do: hãy chuyển sang nội dung Dolby Digital, Dolby Digital Plus, Dolby TrueHD hoặc Dolby Atmos để dùng.</p>
+      </div>
+      <img alt="Dialog và DRC, với Dynamic Range Compression bị làm mờ kèm lời giải thích" src="/screenshots/sound-dialog-drc.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="audyssey">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Trang ba</div>
+      <h2>Audyssey: toàn bộ menu hiệu chỉnh, không chỉ MultEQ</h2>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px">
+      <figure><img alt="Trang Audyssey với MultEQ, Dynamic EQ, Reference Level Offset, Dynamic Volume và Surround Level Compensation" src="/screenshots/sound-audyssey.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Mọi điều khiển Audyssey, trực tiếp</figcaption></figure>
+      <figure><img alt="Trang Audyssey báo rằng Dirac sở hữu Speaker Preset này" src="/screenshots/sound-audyssey-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Khi dùng cấu hình Dirac, ứng dụng sẽ báo rõ</figcaption></figure>
+    </div>
+    <ul class="plain" style="margin-top:26px">
+      <li><b>MultEQ</b> - Reference, Bypass LR, Flat hoặc Tắt. Reference là đường cong chuẩn đã hiệu chỉnh; Flat loại bỏ độ suy giảm tần số cao; Bypass LR để cặp loa trước không bị hiệu chỉnh; Tắt trả lại EQ cho bạn tự quyết.</li>
+      <li><b>Dynamic EQ</b> - Bật hoặc Tắt. Giữ cân bằng âm sắc đúng khi bạn giảm âm lượng, thay vì để bass bị mỏng đi.</li>
+      <li><b>Reference Level Offset</b> - 0, 5, 10 hoặc 15 dB. Cho Dynamic EQ biết nội dung của bạn được master thấp hơn mức tham chiếu bao nhiêu. 0 dB hợp với phim; các mức lệch cao hơn hợp với nhạc và TV.</li>
+      <li><b>Dynamic Volume</b> - Tắt, Nhẹ, Trung bình hoặc Mạnh. Cân bằng quảng cáo ồn ào với lời thoại nhỏ.</li>
+      <li><b>Surround Level Compensation</b> - Tắt, Nhẹ, Trung bình hoặc Nặng.</li>
+    </ul>
+    <div class="note">Trang này có chỉnh sửa được hay không tùy thuộc vào hệ thống nào đang quản lý Speaker Preset hiện tại. Xem <a href="/vi/guide/locked-controls/">vì sao một điều khiển bị khóa</a>.</div>
+  </div>
+</section>
+
+<section id="dirac">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Trang bốn</div>
+      <h2>Dirac Live: các bộ lọc của bạn, theo tên bạn đã đặt</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Nếu bạn đã chạy Dirac Live, các bộ lọc bạn xuất ra nằm trong những vị trí được đánh số trên receiver. AVR Maestro liệt kê chúng <b>theo tên bạn đã lưu</b>, kèm số vị trí bên dưới, cùng một mục <b>Tắt</b> để chạy preset mà không dùng bộ lọc nào. Chỉ một chạm là đổi bộ lọc.</p>
+        <p class="lead">Với Speaker Preset chưa nạp bộ lọc Dirac nào, trang sẽ nói thẳng điều đó thay vì hiển thị một danh sách trống.</p>
+      </div>
+      <img alt="Trang Dirac Live liệt kê các vị trí bộ lọc theo tên đã lưu" src="/screenshots/sound-dirac.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="geq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Trang năm</div>
+      <h2>Graphic EQ: chín băng tần, cho từng loa</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Một trình chỉnh sửa thực thụ, không phải một công tắc: chín băng tần từ 63Hz đến 16kHz, từ -20 đến +6 dB, kéo trực tiếp trên đồ thị. Chọn loa <b>Tất cả</b>, <b>Trái/Phải</b> hoặc <b>Từng</b> loa, dùng <b>Sao chép</b> để bắt đầu từ đường cong Audyssey đã đo của bạn, <b>Đặt lại</b> để về phẳng, và thanh thay đổi đang chờ để áp dụng.</p>
+        <p class="lead">Receiver chạy hiệu chỉnh phòng <b>hoặc</b> EQ thủ công, không bao giờ cả hai, nên trang này bị khóa bất cứ khi nào MultEQ hoặc Dirac đang chạy - và ứng dụng nói rõ là cái nào.</p>
+        <p class="lead"><a href="/vi/guide/graphic-eq/">Hướng dẫn Graphic EQ đầy đủ &rarr;</a></p>
+      </div>
+      <img alt="Trình chỉnh sửa Graphic EQ với đường cong 9 băng tần cho từng loa" src="/screenshots/graphic-eq.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="channels">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Trang sáu</div>
+      <h2>Kênh: chỉnh bất kỳ loa nào ngay khi phim đang chạy</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Tinh chỉnh theo từng kênh bằng dB cho mọi loa có mặt trong <b>tín hiệu hiện tại</b> - Trước Trái, Trước Phải, Trung tâm, các loa vòm, các loa vòm sau, cả hai loa siêu trầm và lớp loa cao, mỗi loa có tên viết tắt bên dưới nên không phải đoán cái nào là cái nào.</p>
+        <ul class="plain">
+          <li><b>Kéo thanh trượt</b> để chỉnh nhiều, hoặc chạm <b>cộng và trừ</b> để chỉnh từng bước nhỏ, cả hai đều thực hiện được khi bạn đang nghe.</li>
+          <li><b>Đặt lại tất cả</b> đưa mọi kênh về 0 dB.</li>
+          <li><b>Bass Sync</b> ở dưới cùng căn thời gian kênh LFE với các kênh chính.</li>
+        </ul>
+        <p class="lead">Đây là các mức tinh chỉnh trực tiếp theo từng tín hiệu. Các <b>mức tham chiếu</b> của từng loa lưu trên Speaker Preset nằm ở <a href="/vi/guide/speakers/">tab Loa</a>, và ứng dụng giải thích sự khác biệt ngay trong thẻ thông tin của trang.</p>
+      </div>
+      <img alt="Trang Kênh với thanh trượt mức và các bước cộng/trừ tinh chỉnh cho mọi loa" src="/screenshots/sound-channels.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="tone">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Trang bảy</div>
+      <h2>Âm sắc: bass, treble, bộ lọc DAC và M-DAX</h2>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px">
+      <figure><img alt="Trang Âm sắc với Bass, Treble, Bộ lọc DAC và Audio Restorer" src="/screenshots/sound-tone.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Âm sắc, tự do chỉnh sửa</figcaption></figure>
+      <figure><img alt="Trang Âm sắc với các điều khiển bị Dynamic EQ khóa" src="/screenshots/sound-tone-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Dynamic EQ nắm quyền điều khiển âm sắc</figcaption></figure>
+    </div>
+    <ul class="plain" style="margin-top:26px">
+      <li><b>Tone Control</b> - công tắc chính. Bass và Treble chỉ có tác dụng với receiver khi mục này đang bật.</li>
+      <li><b>Bass</b> và <b>Treble</b> - từ -6 dB đến +6 dB, mỗi bước 1 dB.</li>
+      <li><b>Bộ lọc DAC</b> - Filter 1 ấm hơn với độ suy giảm chậm, Filter 2 là đáp ứng tham chiếu sắc nét hơn.</li>
+      <li><b>Audio Restorer (M-DAX)</b> - Tắt, Thấp, TB hoặc Cao. Khôi phục chi tiết bị mất ở âm thanh nén hoặc phát trực tuyến, rất hợp với một luồng radio 128k và không hợp với đĩa lossless.</li>
+    </ul>
+    <div class="note">Audyssey Dynamic EQ nắm quyền điều khiển âm sắc khi đang chạy: receiver tiếp quản chúng, và AVR Maestro hiện một banner nói rõ điều đó thay vì để bạn tự hỏi vì sao Bass không có tác dụng.</div>
+  </div>
+</section>
+
+<section id="imax">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Trang tám</div>
+      <h2>IMAX: menu cài đặt Enhanced đầy đủ</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Trên máy có IMAX Enhanced, ứng dụng đưa ra toàn bộ menu chứ không chỉ công tắc bật/tắt:</p>
+        <ul class="plain">
+          <li><b>Chế độ IMAX</b> - Tự động hoặc Tắt.</li>
+          <li><b>Cài đặt âm thanh</b> - Tự động theo khuyến nghị của IMAX; Thủ công mở bốn điều khiển bên dưới.</li>
+          <li><b>High Pass Filter</b> - từ 40Hz đến 250Hz.</li>
+          <li><b>Low Pass Filter</b> - từ 70Hz đến 250Hz.</li>
+          <li><b>Loa siêu trầm</b> - Bật hoặc Tắt, và <b>Đầu ra loa siêu trầm</b> - LFE+Main hoặc LFE.</li>
+        </ul>
+      </div>
+      <img alt="Trang IMAX với chế độ, bộ lọc và định tuyến loa siêu trầm" src="/screenshots/sound-imax.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="auro">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Trang chín</div>
+      <h2>Auro-3D: upmix có chủ đích</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <ul class="plain">
+          <li><b>Cấu hình Auromatic 3D</b> - Nhỏ, Trung bình, Lớn, Giọng nói hoặc Phim. Chọn đặc tính phòng và nội dung mà bộ upmix hướng tới.</li>
+          <li><b>Cường độ</b> - từ 0 đến 15, quyết định Auromatic tạo ra bao nhiêu thông tin kênh cao.</li>
+          <li><b>Chế độ Auro 3D</b> - Trực tiếp, hoặc Mở rộng kênh.</li>
+        </ul>
+        <p class="lead">Các mục này chỉ có tác dụng khi một chế độ Auro được chọn ở trang Surround, và trang này chỉ có trên máy được trang bị bộ giải mã Auro-3D.</p>
+      </div>
+      <img alt="Trang Auro-3D với cấu hình, cường độ và chế độ" src="/screenshots/sound-auro3d.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Câu hỏi thường gặp</div>
+      <h2>Câu hỏi thường gặp về tab Âm thanh</h2>
+    </div>
+    <details open><summary>Vì sao danh sách chế độ âm thanh lại thay đổi?</summary><div class="body">Vì danh sách của receiver thay đổi. Các chế độ mà Denon hay Marantz chấp nhận phụ thuộc vào thứ nó đang giải mã: luồng hai kênh cho các bộ upmix, luồng Atmos cho các chế độ hỗ trợ Atmos. AVR Maestro đọc danh sách hiện tại từ receiver mỗi lần, thay vì hiện một menu cố định mà một nửa thời gian sẽ sai.</div></details>
+    <details><summary>Vì sao một điều khiển bị mờ với N/A?</summary><div class="body">N/A nghĩa là receiver không có giá trị cho mục đó ở trạng thái hiện tại - thường vì tín hiệu đầu vào không mang tính năng đó. Chạm dấu hỏi bên cạnh hàng và ứng dụng sẽ giải thích tín hiệu nào sẽ kích hoạt nó. Một điều khiển bị mờ không phải là lỗi bị che giấu; đó là câu trả lời của chính receiver.</div></details>
+    <details><summary>Khác biệt giữa Kênh và Mức là gì?</summary><div class="body">Kênh (thẻ Âm thanh) là phần trim từng kênh trực tiếp cho tín hiệu đang phát ngay lúc này. Mức (thẻ Loa) là mức tham chiếu của từng loa, được lưu trong Speaker Preset bởi quá trình hiệu chỉnh của bạn. Chỉnh Kênh không ghi đè lên hiệu chỉnh của bạn.</div></details>
+    <details><summary>Tôi có thể dùng Điều khiển âm sắc cùng với Audyssey không?</summary><div class="body">Không khi Dynamic EQ đang bật - receiver sẽ nắm quyền điều khiển âm sắc. Hãy tắt Dynamic EQ ở trang Audyssey và Bass cùng Treble sẽ chỉnh được trở lại.</div></details>
+    <details><summary>Tôi có cần dùng cùng một mạng không?</summary><div class="body">Có. AVR Maestro trò chuyện trực tiếp với receiver của bạn qua mạng LAN, không cần tài khoản đám mây và không có máy chủ trung gian. Xem <a href="/vi/guide/getting-started/">Bắt đầu</a>.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Xem thêm trong hướng dẫn</div>
+      <h2>Các hướng dẫn khác về AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/vi/guide/getting-started/">Bắt đầu</a> &middot; <a href="/vi/guide/home/">Màn hình chính</a> &middot; <a href="/vi/guide/scenes/">Cảnh</a> &middot; <a href="/vi/guide/custom-icons/">Biểu tượng tùy chỉnh</a> &middot; <a href="/vi/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/vi/guide/speakers/">Loa</a> &middot; <a href="/vi/guide/locked-controls/">Vì sao một điều khiển bị khóa</a> &middot; <a href="/vi/guide/assistant/">Trợ lý</a> &middot; <a href="/vi/guide/home-automation/">Home Automation</a> &middot; <a href="/vi/guide/home-assistant-dashboard/">Bảng điều khiển Home Assistant</a> &middot; <a href="/vi/guide/multi-zone/">Vùng</a> &middot; <a href="/vi/guide/remote/">Điều khiển từ xa</a> &middot; <a href="/vi/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/vi/guide/on-screen-display/">Hiển thị trên màn hình</a> &middot; <a href="/vi/guide/settings/">Cài đặt</a> &middot; <a href="/vi/guide/languages/">Ngôn ngữ</a> &middot; <a href="/vi/guide/volume/">Điều khiển âm lượng</a> &middot; <a href="/vi/guide/backup/">Sao lưu &amp; Khôi phục</a> &middot; <a href="/vi/guide/now-playing/">Đang phát &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Toàn bộ menu âm thanh, ngay từ ghế sofa</h2>
+    <p class="lead" style="margin:0 auto 24px">Mua một lần, không quảng cáo, không đăng ký. Kết nối trong chưa đầy một phút.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Tải trên Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Tải trên App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Tải trên Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Tải trên Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/vi/guide/">Quay lại Hướng dẫn sử dụng đầy đủ &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/vi/">Trang chủ</a>
+      <a href="/vi/guide/">Hướng dẫn sử dụng</a>
+      <a href="/vi/guide/getting-started/">Bắt đầu</a>
+      <a href="/vi/receivers/">Receiver</a>
+      <a href="/vi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/vi/audyssey-vs-dirac/">Audyssey so với Dirac</a>
+      <a href="/vi/best-denon-marantz-app/">Vì sao nên chuyển</a>
+      <a href="/vi/help/">Trợ giúp</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro là ứng dụng độc lập của MiyaraHub Technologies LLC và không có liên kết, không được bảo trợ hay tài trợ bởi Denon, Marantz, D&amp;M Holdings, Sound United hay bất kỳ công ty nào khác được nhắc đến trên trang này. Denon, Marantz, HEOS, Audyssey, Dirac Live, IMAX, Auro-3D và Dolby Atmos là nhãn hiệu của các chủ sở hữu tương ứng, chỉ được dùng ở đây với mục đích nhận diện.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

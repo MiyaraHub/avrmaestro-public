@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="cs" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Home Assistant &amp; Hubitat pro Denon &amp; Marantz - AVR Maestro</title>
+<meta name="description" content="Propojte AVR Maestro s Home Assistantem nebo Hubitatem a vaše Scény se stanou nativními skripty, které běží bez telefonu. Hlasové ovládání, živý stav a webhooky." />
+<meta name="keywords" content="Denon Home Assistant, Marantz Home Assistant, AV receiver Alexa, receiver Google Assistant, receiver Siri Shortcuts, Hubitat AV receiver, receiver webhooks, Denon voice control" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/cs/guide/home-automation/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-automation/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-automation/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-automation/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-automation/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-automation/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-automation/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-automation/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-automation/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-automation/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-automation/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-automation/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-automation/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-automation/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-automation/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-automation/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-automation/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-automation/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-automation/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-automation/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-automation/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-automation/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-automation/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-automation/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-automation/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-automation/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-automation/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-automation/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-automation/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-automation/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-automation/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-automation/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="cs_CZ" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Home Assistant &amp; Hubitat pro Denon &amp; Marantz - AVR Maestro" />
+<meta property="og:description" content="Propojte AVR Maestro s Home Assistantem nebo Hubitatem a vaše Scény se stanou nativními skripty, které běží bez telefonu. Hlasové ovládání, živý stav a webhooky." />
+<meta property="og:url" content="https://avrmaestro.com/cs/guide/home-automation/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Home Assistant &amp; Hubitat pro Denon &amp; Marantz - AVR Maestro" />
+<meta name="twitter:description" content="Propojte AVR Maestro s Home Assistantem nebo Hubitatem a vaše Scény se stanou nativními skripty, které běží bez telefonu. Hlasové ovládání, živý stav a webhooky." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro je nezávislá aplikace pro ovládání AV přijímačů Denon a Marantz přes vaši místní síť.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "cs"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-automation/#article",
+      "headline": "Home Assistant a Hubitat: vaše scény běží bez telefonu",
+      "description": "Propojte AVR Maestro s Home Assistantem nebo Hubitatem a vaše Scény se stanou nativními skripty, které běží bez telefonu. Hlasové ovládání, živý stav a webhooky.",
+      "image": "https://avrmaestro.com/screenshots/home-assistant.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-automation/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "cs"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-automation/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Musí být pro hlasové ovládání můj telefon zapnutý?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ne. AVR Maestro zkompiluje vaše scény do nativních skriptů Home Assistantu. Home Assistant komunikuje s přijímačem přímo ve vaší místní síti, takže telefon může být vypnutý, uspaný nebo v jiné zemi."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Které hlasové asistenty mohou můj přijímač ovládat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ten, který už používáte. AVR Maestro nepřidává vlastní hlasovou vrstvu - publikuje skripty do Home Assistantu nebo Hubitatu a ty zpřístupní Alexe, Asistentu Google nebo Zkratkám Siri hub, kterému už důvěřujete."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Je AI asistent součástí placeného odemčení?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ne. AI asistent přímo v zařízení je zdarma. Domácí automatizace - Home Assistant, Hubitat a odchozí webhooky - je jediné placené odemčení v AVR Maestro."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Opouští něco moji domácí síť?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ne kvůli ovládání. Aplikace komunikuje s vaším přijímačem a hubem přes vaši vlastní síť. Nic neprochází přes server MiyaraHub. Webhook jde tam, kam ho nasměrujete, a to je vaše volba."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Domů",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Uživatelská příručka",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Domácí automatizace",
+      "item": "https://avrmaestro.com/guide/home-automation/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/cs/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Nabídka" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Hledat v příručce..." data-i18n-empty="Žádné výsledky pro" data-i18n-language="Jazyk">
+      <a href="/cs/">Domů</a>
+      <a href="/cs/guide/">Uživatelská příručka</a>
+      <a href="/cs/receivers/">Přijímače</a>
+      <a href="/cs/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/cs/best-denon-marantz-app/">Proč přejít</a>
+      <a href="/cs/#top" class="cta">Stáhnout</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/cs/">Domů</a> &rsaquo; <a href="/cs/guide/">Uživatelská příručka</a> &rsaquo; Domácí automatizace</div>
+    <div class="eyebrow">Home Assistant &middot; Hubitat &middot; Webhooky</div>
+    <h1>Home Assistant a Hubitat: vaše scény běží <span class="g">bez telefonu</span></h1>
+    <p>Propojte AVR Maestro s Home Assistantem nebo Hubitatem a každá scéna, kterou jste vytvořili, se stane nativním skriptem na vašem hubu. Od té chvíle s přijímačem komunikuje přímo hub, ve vaší vlastní síti - takže „Alexo, filmový večer“ funguje, i když je telefon vypnutý, uspaný nebo v jiné zemi.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+      <figure><img alt="Hub Domácí automatizace AVR Maestro s Home Assistantem, Hubitatem a webhooky" src="/screenshots/home-automation.png" width="1324" height="2644" decoding="async" /><figcaption>Jeden hub, tři cesty ven</figcaption></figure>
+      <figure><img alt="AVR Maestro propojený s Home Assistantem, entita přijímače nalezena automaticky" src="/screenshots/home-assistant.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Propojeno, entita vašeho přijímače nalezena za vás</figcaption></figure>
+      <figure><img alt="Zamčená Domácí automatizace s visacím zámkem a tlačítkem Zjistit, co je zahrnuto" src="/screenshots/home-automation-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Před odemčením říká, co pokrývá</figcaption></figure>
+    </div>
+
+    <div class="section-head" style="margin-top:36px">
+      <h2>Proč běží bez aplikace</h2>
+    </div>
+    <p class="lead">Většina integrací dělá z telefonu prostředníka: telefon slyší příkaz, telefon ho odešle a automatizace funguje, jen když je telefon vzhůru a v síti.</p>
+    <p class="lead">AVR Maestro to nedělá. Vaše scény <b>zkompiluje</b> do skriptů, které žijí na vašem hubu, a hub posílá příkazy na místní IP adresu vašeho přijímače. Práce aplikace končí, když skončí synchronizace.</p>
+    <ul class="plain">
+      <li><b>Nejdřív lokálně:</b> nic neprochází přes server MiyaraHub. Váš hub a váš přijímač spolu komunikují přímo.</li>
+      <li><b>Nezávislé na telefonu:</b> jakmile je scéna publikována, běží bez ohledu na to, zda je aplikace nainstalovaná v telefonu, který ji vytvořil.</li>
+      <li><b>Váš asistent, ne náš:</b> Alexa, Asistent Google i Zkratky Siri se k těmto skriptům dostanou přes hub, kterému už důvěřujete. AVR Maestro nepřidává žádnou vlastní hlasovou vrstvu.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Home Assistant od začátku do konce</h2>
+    </div>
+    <ul class="plain">
+      <li><b>1. Nejprve přidejte svůj přijímač do Home Assistant.</b> Nastavení &rsaquo; Zařízení &amp; služby &rsaquo; Přidat integraci &rsaquo; <b>Denon AVR</b> (nebo <b>HEOS</b>) a poté místní IP adresa vašeho přijímače. Home Assistant pro něj vytvoří entitu přehrávače médií.</li>
+      <li><b>2. V AVR Maestro otevřete Nastavení &rsaquo; Domácí automatizace</b> a klepněte na kartu Home Assistant.</li>
+      <li><b>3. Zadejte adresu svého Home Assistantu</b> - místní, například <code>http://192.168.1.150:8123</code>, nebo svou externí adresu Nabu Casa.</li>
+      <li><b>4. Přihlaste se a autorizujte.</b> Otevře se zabezpečený prohlížeč v aplikaci s přihlášením přímo do Home Assistantu. Vaše přihlašovací údaje jdou do Home Assistantu, nikdy k nám.</li>
+      <li><b>5. Přijímač najde sám.</b> Aplikace prohledá vaše entity přehrávačů médií, ohodnotí je podle modelu, názvu a surroundových schopností a doplní správnou entitu za vás.</li>
+      <li><b>6. Synchronizujte.</b> Vaše scény se sestaví do skriptů a nahrají. Poté úprava scény aktualizuje její skript na pozadí - nemusíte si pamatovat žádné tlačítko.</li>
+    </ul>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Jakmile je synchronizováno</div>
+        <h2>Postavte dashboard, na který stojí za to se dívat</h2>
+        <p>Home Assistant má nyní ovládací prvek pro všechno, co lze přijímači říct, a naprosto žádný názor na to, jak je uspořádat. <a href="/cs/guide/home-assistant-dashboard/">Příklad dashboardu</a> je jedno uspořádání s kompletním YAML: dlaždice zdrojů a surroundu, které se rozsvítí, když jsou aktivní, hlasitost ve skutečných dB, Scény čtoucí vlastní názvy a poctivá mapa toho, co Home Assistant vidí a co ne.</p>
+      </div>
+      <img alt="Dashboard Home Assistantu postavený ze synchronizovaných ovládacích prvků AVR Maestro" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Nejen scény</div>
+        <h2>I Předvolby reproduktorů, Dirac a Audyssey</h2>
+        <p>Zapněte <b>Synchronizovat pokročilé ovládací prvky</b> a aplikace publikuje skript pro mnohem víc než jen vaše scény: každou Předvolbu reproduktorů, každý slot filtru Dirac Live a každou křivku Audyssey. Úplná synchronizace na Cinema 30 přistane na více než sedmdesáti skriptech, takže tlačítko na dashboardu nebo hlasový příkaz může načíst filtr Dirac nebo přepnout křivku prostoru stejně, jako vyvolá scénu.</p>
+      </div>
+      <img alt="Obrazovka Home Assistant v AVR Maestro se zapnutou volbou Synchronizovat pokročilé ovládací prvky" src="/screenshots/ha-app-controls.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Nejen zapisuje, i čte</div>
+        <h2>Home Assistant vidí, co je aktivní</h2>
+        <p>Skript lze spustit, ale nikdy přečíst, takže rané dashboardy uměly přepnout křivku Audyssey nebo slot Dirac, ale neměly jak ukázat, který byl zapnutý. Hodnoty, které aplikace už má - živý surroundový režim, aktivní filtr Dirac, předvolba reproduktorů, stmívač a desítky dalších - se nyní publikují jako atributy na stavovém senzoru přijímače, takže se dlaždice může rozsvítit pro nastavení, které skutečně běží.</p>
+      </div>
+      <img alt="AVR Maestro publikuje do Home Assistantu skripty Předvolby reproduktorů, Dirac Live a Audyssey" src="/screenshots/ha-sync-advanced.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Každá místnost</div>
+        <h2>Vaše ostatní zóny ze stejného dashboardu</h2>
+        <p>Napájení, hlasitost a ztlumení pro Zónu 2 a Zónu 3 se publikují jako vlastní skripty, takže terasa nebo druhá místnost reaguje na dashboard či hlasového asistenta stejně jako hlavní zóna odjakživa. Tlačítka dostanou jen zóny, které váš přijímač skutečně hlásí, takže dvouzónový přijímač nikdy nevyroste o Zónu 3.</p>
+      </div>
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Pokud jste synchronizovali ve starší verzi</div>
+        <h2>ID vašich skriptů se jednou změní</h2>
+        <p>Skripty se dřív jmenovaly podle scény <em>a</em> přijímače, takže přejmenování kteréhokoli z nich zanechalo starý skript a tiše vytvořilo druhý. Nyní se jmenují podle scény a MAC adresy přijímače, díky čemuž přejmenování aktualizuje stejný skript, místo aby ho rozštěpilo.</p>
+        <p>První synchronizace po této změně nahradí staré skripty novými. <b>Cokoli, co jste postavili na starých ID, je třeba jednou přesměrovat</b> - tlačítko dashboardu, automatizaci, hlasový alias. Otevřete skript v Home Assistantu a zjistíte jeho nové ID entity.</p>
+        <p>Entity se nyní jmenují i podle přijímače - <code>cinema30</code> místo třiceti dvou znaků strojového identifikátoru - takže seznam je čitelný a automatické doplňování je najde. ID z dřívějších verzí dál fungují.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Hubitat</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Hubitat je podporován přes své <b>Maker API</b> a v aplikaci je označen jako BETA, protože je novější než cesta přes Home Assistant, ne proto, že by byl nedokončený.</p>
+        <ul class="plain">
+          <li><b>IP adresa hubu</b> - adresa vašeho Hubitatu v LAN.</li>
+          <li><b>ID aplikace Maker API</b> - číslo v adrese vlastní aplikace Maker API.</li>
+          <li><b>Přístupový token</b> - vydá ho Maker API, když ho povolíte.</li>
+        </ul>
+        <p class="lead">Nejdřív povolte Maker API na hubu (Apps &rsaquo; Add Built-In App &rsaquo; Maker API) a dostanete všechny tři údaje. Vložte je a AVR Maestro najde váš přijímač, publikuje vaše scény jako sekvence příkazů a posílá zpět živý stav, aby dashboard Hubitatu odrážel, co přijímač skutečně dělá, a ne to, co mu bylo naposledy řečeno.</p>
+      </div>
+      <img alt="Obrazovka nastavení Hubitatu s IP adresou hubu, ID aplikace Maker API a přístupovým tokenem" src="/screenshots/hubitat.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Webhooky</h2>
+    </div>
+    <p class="lead">Home Assistant a Hubitat posílají příkazy <em>do</em> přijímače. Webhooky jdou opačným směrem: když přijímač něco udělá, dají vědět čemukoli jinému. Zapněte přijímač a AVR Maestro odešle malou zprávu na adresu, kterou zvolíte - ta zpráva je webhook.</p>
+
+    <div class="note"><b>Tohle je jediná část, která není nezávislá na telefonu.</b> Vaše synchronizované scény se stanou skripty na hubu a běží, ať je aplikace kdekoli poblíž, nebo ne. U webhooků je to jinak: AVR Maestro je ten, kdo přijímač sleduje, takže se spouštěč aktivuje, jen když je aplikace otevřená na zařízení, které na přijímač dosáhne. Pokud chcete, aby se něco spustilo, když neběží nic, postavte to na svém hubu kolem entity přijímače.</div>
+
+    <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px;margin-top:22px">
+      <figure><img alt="Obrazovka Webhooky s kartou vysvětlení a zatím bez spouštěčů" src="/screenshots/webhooks.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Prázdné, dokud nějaký nepřidáte</figcaption></figure>
+      <figure><img alt="List Přidat spouštěč automatizace: událost spouštěče, kam ji poslat a ID webhooku" src="/screenshots/webhook-trigger.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Událost, cíl, ID</figcaption></figure>
+    </div>
+
+    <h3 style="margin-top:34px">Čtyři spouštěče</h3>
+    <table class="t" style="margin-top:14px">
+      <thead><tr><th>Událost spouštěče</th><th>Spustí se, když</th><th>Lze zúžit na</th></tr></thead>
+      <tbody>
+        <tr><td>Zapnutí přijímače</td><td>Přijímač vyjde z pohotovostního režimu</td><td>-</td></tr>
+        <tr><td>Vypnutí přijímače</td><td>Přijímač přejde do pohotovostního režimu</td><td>-</td></tr>
+        <tr><td>Změna aktivního vstupu</td><td>Změní se zvolený zdroj</td><td>Jeden vstup, v části <em>Spustit jen pro vstupní zdroj</em></td></tr>
+        <tr><td>Vyvolání scény</td><td>Je použita Scéna</td><td>Jedna scéna, v části <em>Vybrat scénu</em></td></tr>
+      </tbody>
+    </table>
+
+    <p class="lead" style="margin-top:22px">Zúžení je to, co z nich dělá užitečné nástroje místo hluku. „Změna aktivního vstupu“ na každém vstupu je požární hadice; stejný spouštěč připnutý na jediný vstup, kde sedí váš projektor, je vypínač světla.</p>
+    <p class="lead">Seznam vstupů je ten, který hlásí váš vlastní přijímač, takže už odráží každý zdroj, který jste přejmenovali nebo skryli. Seznam scén jsou vaše vlastní scény.</p>
+
+    <div class="section-head" style="margin-top:44px">
+      <h2>Nastavení krok za krokem</h2>
+    </div>
+    <p class="lead">Toto je cesta přes Home Assistant, kterou chce většina lidí. Nejdřív udělejte polovinu v Home Assistantu - aplikace potřebuje, na co ukázat.</p>
+
+    <h3 style="margin-top:28px">V Home Assistantu</h3>
+    <ul class="plain">
+      <li><b>1. Nastavení &rsaquo; Automatizace &amp; scény &rsaquo; Vytvořit automatizaci &rsaquo; Vytvořit novou automatizaci.</b></li>
+      <li><b>2. Přidat spouštěč &rsaquo; Webhook.</b> Home Assistant vám vygeneruje dlouhé náhodné ID webhooku.</li>
+      <li><b>3. Nahraďte ho něčím, co poznáte</b> - <code>avr-power-on</code>, <code>avr-movie-night</code>. Funguje jakýkoli název, pokud je ve vašem Home Assistantu jedinečný. Zapište si ho; stejný zadáte do AVR Maestro.</li>
+      <li><b>4. V nastavení webhooku povolte <em>POST</em>.</b> To AVR Maestro posílá. Jen místní přístup stačí - aplikace je ve vaší vlastní síti.</li>
+      <li><b>5. Přidejte, cokoli má udělat</b> - ztlumit světla, zatáhnout žaluzie, spustit scénu - a automatizaci uložte.</li>
+    </ul>
+
+    <h3 style="margin-top:28px">V AVR Maestro</h3>
+    <ul class="plain">
+      <li><b>1. Nastavení &rsaquo; Domácí automatizace &rsaquo; Webhooky</b>, poté <b>Přidat první spouštěč</b> - nebo tlačítko <b>+</b>, když už nějaký máte.</li>
+      <li><b>2. Událost spouštěče</b> - vyberte, co má spouštěč aktivovat. Volba <em>Změna aktivního vstupu</em> nebo <em>Vyvolání scény</em> přidá druhé pole pro zúžení.</li>
+      <li><b>3. Kam to poslat</b> - nechte <b>Home Assistant</b>. Adresa je už známá, protože jste ho propojili dříve na této stejné obrazovce.</li>
+      <li><b>4. ID webhooku</b> - zadejte stejné ID, jaké jste použili v Home Assistantu. Nic jiného se shodovat nemusí. Pod ním aplikace vypíše přesnou adresu, na kterou bude posílat - <code>Sends to http://your-ha:8123/api/webhook/avr-power-on</code> - takže ji můžete před uložením zkontrolovat.</li>
+      <li><b>5. Uložte.</b> Poté v seznamu u spouštěče stiskněte <b>Test</b>. Vaše automatizace v Home Assistantu by se měla okamžitě spustit.</li>
+    </ul>
+
+    <div class="note" style="margin-top:24px"><b>Pro cestu přes Home Assistant nikdy nezadáváte URL.</b> Aplikace ji sestaví z propojeného Home Assistantu a tu adresu vyhledá <em>při každém spuštění spouštěče</em>. Přesuňte Home Assistant na nový port, nový název hostitele nebo adresu Nabu Casa a každý webhook, který jste už vytvořili, ho bude následovat. Není co znovu synchronizovat a není žádné tlačítko ke stisknutí.</div>
+
+    <div class="note">Pokud list říká <b>Home Assistant zatím není propojen</b>, udělejte nejdřív kartu Home Assistant nahoře na této stránce. Cesta přes webhook potřebuje adresu, na které se dá stavět.</div>
+
+    <h3 style="margin-top:34px">Odesílání jinam než do Home Assistantu</h3>
+    <p class="lead">Přepněte <b>Kam to poslat</b> na <b>Jiné</b> a do pole <b>URL webhooku</b> vložte celou URL. Funguje cokoli, co přijímá POST - tok Node-RED, applet IFTTT, skript na NAS, koncový bod Maker API Hubitatu. Tato cesta ukládá adresu přesně tak, jak jste ji napsali, takže když se cíl přesune, upravíte spouštěč.</p>
+
+    <div class="section-head" style="margin-top:44px">
+      <h2>Co se skutečně odesílá</h2>
+    </div>
+    <p class="lead">Malé tělo JSON. Karta <b>Co se odesílá</b> na stejné obrazovce to pro zvolený spouštěč říká srozumitelně, takže nikdy nemusíte hádat - a toto jsou názvy polí, které vaše automatizace čte:</p>
+    <table class="t" style="margin-top:14px">
+      <thead><tr><th>Spouštěč</th><th>Pole ve zprávě</th></tr></thead>
+      <tbody>
+        <tr><td>Zapnutí / vypnutí přijímače</td><td><code>event</code>, <code>timestamp</code></td></tr>
+        <tr><td>Změna aktivního vstupu</td><td>...a navíc <code>source</code></td></tr>
+        <tr><td>Vyvolání scény</td><td>...a navíc <code>sceneId</code> a <code>sceneName</code></td></tr>
+      </tbody>
+    </table>
+    <p class="lead" style="margin-top:20px">V automatizaci Home Assistantu přicházejí jako <code>{{ trigger.json.event }}</code>, <code>{{ trigger.json.source }}</code> a tak dále. Můžete je číst, nebo je úplně ignorovat a jednat jen podle toho, že se spustil. Většina lidí volí to druhé.</p>
+    <p class="lead">Pokud potřebujete jiný tvar - službu, která očekává vlastní formát - otevřete pod touto kartou <b>Poslat místo toho vlastní JSON</b> a napište ho tam. Je sbalený a označený jako Pokročilé, protože ho skoro nikdo nepotřebuje, ne proto, že by se nedoporučoval.</p>
+
+    <div class="note">Obrazovka se jmenuje <b>Webhooky</b>, protože to jsou. Pokud hledáte automatizace, které běží <em>na</em> vašem hubu, jsou to karty Home Assistant a Hubitat výše - synchronizovaná Scéna se tam stane skriptem, ne tady webhookem.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Když webhook nedorazí</h2>
+    </div>
+    <p class="lead">V pořadí, v jakém to stojí za to kontrolovat, protože první dvě to jsou skoro vždy:</p>
+    <ul class="plain">
+      <li><b>Nejdřív stiskněte Test.</b> Pošle stejnou zprávu jako skutečný spouštěč, na stejnou adresu, a řekne vám, který ze tří případů nastal: doručeno, nedoručeno, nebo přeskočeno, protože je vypínač spouštěče vypnutý. Pokud Test doručí a skutečná událost ne, problém je ve spouštěči - nejčastěji <em>Změna aktivního vstupu</em> zúžená na vstup, na který ve skutečnosti nepřepínáte.</li>
+      <li><b>Zkontrolujte, že se ID shoduje přesně.</b> ID webhooků Home Assistantu rozlišují velká a malá písmena a nesnesou zbloudilou mezeru. Aplikace pod polem vypíše úplnou adresu, na kterou bude posílat - porovnejte ji s tou ve své automatizaci.</li>
+      <li><b>Zkontrolujte, že automatizace povoluje POST.</b> Spouštěč webhooku v Home Assistantu, který povoluje jen GET, tiše ignoruje to, co AVR Maestro posílá.</li>
+      <li><b>Zkontrolujte, že je vypínač spouštěče zapnutý.</b> Každý má v seznamu vlastní přepínač a vypnutý spouštěč se přeskočí, ne že by selhal.</li>
+      <li><b>Spouštěče patří jednomu přijímači.</b> Seznam, který vidíte, je seznam pro právě zvolený přijímač. Jiný přijímač má vlastní, takže pravidlo vytvořené tady se pro jinou místnost nespustí.</li>
+      <li><b>Aplikace musí sledovat.</b> Změnu přijímače si všimne AVR Maestro, takže se nic nespustí z telefonu v kapse se zavřenou aplikací. To je kompromis popsaný na začátku této sekce, ne závada.</li>
+      <li><b>Webhooky jsou součástí Domácí automatizace.</b> Bez tohoto odemčení jsou spouštěče vidět, ale nic se neodesílá, a Test to řekne, místo aby předstíral, že to fungovalo.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Co je placené a co ne</div>
+        <h2>Domácí automatizace je jediné odemčení. AI asistent je zdarma.</h2>
+        <p><b>Domácí automatizace (Pro)</b> - Home Assistant, Hubitat a odchozí webhooky - je jednorázové odemčení. Všechno ostatní v AVR Maestro, včetně AI asistenta přímo v zařízení, je součástí aplikace.</p>
+        <p>Hlasové ovládání se k přijímači dostává <em>přes</em> Domácí automatizaci, prostřednictvím vašeho hubu. AVR Maestro nemá vlastní rozpoznávání hlasu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Časté dotazy</div>
+      <h2>Domácí automatizace, odpovědi</h2>
+    </div>
+    <details open><summary>Musí být pro hlasové ovládání můj telefon zapnutý?</summary><div class="body">Ne. AVR Maestro zkompiluje vaše scény do nativních skriptů Home Assistantu. Home Assistant komunikuje s přijímačem přímo ve vaší místní síti, takže telefon může být vypnutý, uspaný nebo v jiné zemi.</div></details>
+    <details><summary>Které hlasové asistenty mohou můj přijímač ovládat?</summary><div class="body">Ten, který už používáte. AVR Maestro nepřidává vlastní hlasovou vrstvu - publikuje skripty do Home Assistantu nebo Hubitatu a ty zpřístupní Alexe, Asistentu Google nebo Zkratkám Siri hub, kterému už důvěřujete.</div></details>
+    <details><summary>Je AI asistent součástí placeného odemčení?</summary><div class="body">Ne. AI asistent přímo v zařízení je zdarma. Domácí automatizace - Home Assistant, Hubitat a odchozí webhooky - je jediné placené odemčení v AVR Maestro.</div></details>
+    <details><summary>Opouští něco moji domácí síť?</summary><div class="body">Ne kvůli ovládání. Aplikace komunikuje s vaším přijímačem a hubem přes vaši vlastní síť. Nic neprochází přes server MiyaraHub. Webhook jde tam, kam ho nasměrujete, a to je vaše volba.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Další z průvodce</div>
+      <h2>Další průvodce aplikací AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/cs/guide/getting-started/">Začínáme</a> &middot; <a href="/cs/guide/home/">Domovská obrazovka</a> &middot; <a href="/cs/guide/scenes/">Scény</a> &middot; <a href="/cs/guide/custom-icons/">Vlastní ikony</a> &middot; <a href="/cs/guide/sound/">Zvuk</a> &middot; <a href="/cs/guide/graphic-eq/">Grafický ekvalizér</a> &middot; <a href="/cs/guide/speakers/">Reproduktory</a> &middot; <a href="/cs/guide/locked-controls/">Proč je ovládací prvek uzamčen</a> &middot; <a href="/cs/guide/assistant/">Asistent</a> &middot; <a href="/cs/guide/home-assistant-dashboard/">Dashboard Home Assistant</a> &middot; <a href="/cs/guide/multi-zone/">Zóny</a> &middot; <a href="/cs/guide/remote/">Dálkový ovladač</a> &middot; <a href="/cs/guide/radio/">Rádio (FM/AM)</a> &middot; <a href="/cs/guide/on-screen-display/">Zobrazení na obrazovce</a> &middot; <a href="/cs/guide/settings/">Nastavení</a> &middot; <a href="/cs/guide/languages/">Jazyky</a> &middot; <a href="/cs/guide/volume/">Ovládání hlasitosti</a> &middot; <a href="/cs/guide/backup/">Záloha &amp; obnova</a> &middot; <a href="/cs/guide/now-playing/">Právě se přehrává &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Vaše scény běží bez telefonu</h2>
+    <p class="lead" style="margin:0 auto 24px">Domácí automatizace je jednorázové odemčení. Všechno ostatní v aplikaci, včetně AI asistenta, je v ceně.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Stáhnout z Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Stáhnout z App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Stáhnout z Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Stáhnout z Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/cs/guide/">Zpět na celého Uživatelského průvodce &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/cs/">Domů</a>
+      <a href="/cs/guide/">Uživatelská příručka</a>
+      <a href="/cs/guide/getting-started/">Začínáme</a>
+      <a href="/cs/receivers/">Přijímače</a>
+      <a href="/cs/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/cs/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/cs/best-denon-marantz-app/">Proč přejít</a>
+      <a href="/cs/help/">Nápověda</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro je nezávislá aplikace společnosti MiyaraHub Technologies LLC a není nijak spojena se společnostmi Denon, Marantz, D&amp;M Holdings, Sound United ani žádnou jinou společností uvedenou na této stránce, ani jimi není schválena či sponzorována. Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant a Siri jsou ochranné známky svých příslušných vlastníků a jsou zde použity pouze k identifikaci.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

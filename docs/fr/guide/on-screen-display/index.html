@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Affichage à l'écran : volume &amp; 21:9 - AVR Maestro</title>
+<meta name="description" content="Contrôlez l'affichage à l'écran de votre Denon ou Marantz depuis votre téléphone : position de l'indicateur de volume ou désactivation, bandeau d'informations, positionnement 21:9 et économiseur d'écran." />
+<meta name="keywords" content="Denon on screen display app, Marantz OSD settings, AVR volume readout off, receiver info banner, 21:9 constant height AVR, Denon screen saver, AVR OSD phone" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/fr/guide/on-screen-display/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/on-screen-display/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/on-screen-display/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/on-screen-display/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/on-screen-display/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/on-screen-display/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/on-screen-display/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/on-screen-display/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/on-screen-display/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/on-screen-display/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/on-screen-display/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/on-screen-display/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/on-screen-display/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/on-screen-display/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/on-screen-display/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/on-screen-display/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/on-screen-display/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/on-screen-display/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/on-screen-display/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/on-screen-display/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/on-screen-display/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/on-screen-display/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/on-screen-display/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/on-screen-display/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/on-screen-display/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/on-screen-display/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/on-screen-display/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Affichage à l'écran : volume &amp; 21:9 - AVR Maestro" />
+<meta property="og:description" content="Contrôlez l'affichage à l'écran de votre Denon ou Marantz depuis votre téléphone : position de l'indicateur de volume ou désactivation, bandeau d'informations, positionnement 21:9 et économiseur d'écran." />
+<meta property="og:url" content="https://avrmaestro.com/fr/guide/on-screen-display/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Affichage à l'écran : volume &amp; 21:9 - AVR Maestro" />
+<meta name="twitter:description" content="Contrôlez l'affichage à l'écran de votre Denon ou Marantz depuis votre téléphone : position de l'indicateur de volume ou désactivation, bandeau d'informations, positionnement 21:9 et économiseur d'écran." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro est une application indépendante pour contrôler les récepteurs AV Denon et Marantz via votre réseau local.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/on-screen-display/#article",
+      "headline": "L'affichage à l'écran, depuis votre fauteuil",
+      "description": "Contrôlez l'affichage à l'écran de votre Denon ou Marantz depuis votre téléphone : position de l'indicateur de volume ou désactivation, bandeau d'informations, positionnement 21:9 et économiseur d'écran.",
+      "image": "https://avrmaestro.com/screenshots/on-screen-display.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/on-screen-display/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "fr"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/on-screen-display/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Puis-je empêcher le numéro du volume de s'afficher sur ma TV ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Ouvrez Paramètres puis Affichage à l'écran dans AVR Maestro et réglez Volume sur Désactivé. Vous pouvez aussi le déplacer entre le bas et le haut de l'écran sans quitter votre fauteuil."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "À quoi sert le mode 21:9 ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Il repositionne les menus à l'écran du récepteur pour un écran 21:9 à hauteur constante, afin qu'un projecteur ne les coupe pas en haut et en bas. Activez-le uniquement si vous avez ce type d'installation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourquoi vois-je moins d'options que sur les captures d'écran ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Parce que votre récepteur en signale moins. AVR Maestro demande au châssis quelles options d'affichage à l'écran il propose et n'affiche que celles-ci. Un récepteur plus ancien sans économiseur d'écran ne reçoit tout simplement pas cette carte, plutôt qu'une commande qui échouerait."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guide de l'utilisateur",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Affichage à l'écran",
+      "item": "https://avrmaestro.com/guide/on-screen-display/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/fr/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Rechercher dans le guide..." data-i18n-empty="Aucun résultat pour" data-i18n-language="Langue">
+      <a href="/fr/">Accueil</a>
+      <a href="/fr/guide/">Guide de l'utilisateur</a>
+      <a href="/fr/receivers/">Récepteurs</a>
+      <a href="/fr/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/fr/best-denon-marantz-app/">Pourquoi changer</a>
+      <a href="/fr/#top" class="cta">Télécharger</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/fr/">Accueil</a> &rsaquo; <a href="/fr/guide/">Guide d'utilisation</a> &rsaquo; Affichage à l'écran</div>
+    <div class="eyebrow">Ce que votre récepteur dessine sur la TV</div>
+    <h1>L'affichage à l'écran, <span class="g">depuis votre fauteuil</span></h1>
+    <p>Le numéro de volume qui surgit en plein film, le bandeau lors d'un changement de source, l'écran de lecture en cours qui reste affiché pendant la musique : tout se règle dans le menu de configuration du récepteur, ce qui obligeait à se lever et à afficher ce menu sur l'écran que vous regardiez. AVR Maestro le place sur votre téléphone.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+      <figure><img alt="Les réglages d'affichage à l'écran dans AVR Maestro" src="/screenshots/on-screen-display.png" width="1324" height="2644" decoding="async" /><figcaption>Toutes les options signalées par le récepteur, et seulement celles-ci</figcaption></figure>
+    </div>
+
+    <div class="section-head" style="margin-top:36px">
+      <h2>Ce que vous pouvez modifier</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Volume :</b> <b>Bas</b>, <b>Haut</b> ou <b>Désactivé</b>. L'endroit où s'affiche l'indicateur de volume quand vous le modifiez, ou s'il s'affiche tout court. Désactivé est l'option que tout le monde cherche pendant un film.</li>
+      <li><b>Infos :</b> le bandeau d'état que le récepteur affiche lors d'un changement de source ou de mode son.</li>
+      <li><b>Lecture en cours :</b> indique si l'écran de lecture en cours reste affiché pendant la lecture d'une source réseau, ou s'efface après un instant.</li>
+      <li><b>Mode 21:9 :</b> repositionne les menus du récepteur pour un écran 21:9 à hauteur constante, afin qu'un projecteur ne les coupe pas.</li>
+      <li><b>Économiseur d'écran :</b> déplace l'image à l'écran après une période d'immobilité, ce qui protège un écran sujet au marquage.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Seulement ce que votre récepteur propose</div>
+        <h2>Votre châssis décide de ce que vous voyez</h2>
+        <p>Tous les récepteurs n'ont pas les cinq options. Plutôt que d'afficher une commande qui échouerait, AVR Maestro demande au châssis quelles options d'affichage à l'écran il publie et n'affiche que celles-ci : un récepteur plus ancien sans économiseur d'écran ne reçoit donc tout simplement pas cette carte.</p>
+        <p>Si un réglage existe mais que le récepteur n'a pas répondu cette fois, l'application le dit clairement et propose de réessayer. Elle ne présente jamais « nous n'avons pas pu lire ceci » comme « votre récepteur n'a pas cette option » : ce sont deux réponses différentes, et une seule est vraie.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Questions fréquentes</div>
+      <h2>L'affichage à l'écran, vos questions</h2>
+    </div>
+    <details open><summary>Puis-je empêcher le numéro du volume de s'afficher sur ma TV ?</summary><div class="body">Oui. Ouvrez Paramètres puis Affichage à l'écran dans AVR Maestro et réglez Volume sur Désactivé. Vous pouvez aussi le déplacer entre le bas et le haut de l'écran sans quitter votre fauteuil.</div></details>
+    <details><summary>À quoi sert le mode 21:9 ?</summary><div class="body">Il repositionne les menus à l'écran du récepteur pour un écran 21:9 à hauteur constante, afin qu'un projecteur ne les coupe pas en haut et en bas. Activez-le uniquement si vous avez ce type d&#x27;installation.</div></details>
+    <details><summary>Pourquoi vois-je moins d'options que sur les captures d'écran ?</summary><div class="body">Parce que votre récepteur en signale moins. AVR Maestro demande au châssis quelles options d'affichage à l'écran il propose et n'affiche que celles-ci. Un récepteur plus ancien sans économiseur d'écran ne reçoit tout simplement pas cette carte, plutôt qu'une commande qui échouerait.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">La suite du guide</div>
+      <h2>Autres guides AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/fr/guide/getting-started/">Prise en main</a> &middot; <a href="/fr/guide/home/">Écran d'accueil</a> &middot; <a href="/fr/guide/scenes/">Scènes</a> &middot; <a href="/fr/guide/custom-icons/">Icônes personnalisées</a> &middot; <a href="/fr/guide/sound/">Son</a> &middot; <a href="/fr/guide/graphic-eq/">Égaliseur graphique</a> &middot; <a href="/fr/guide/speakers/">Enceintes</a> &middot; <a href="/fr/guide/locked-controls/">Pourquoi une commande est verrouillée</a> &middot; <a href="/fr/guide/assistant/">L'assistant</a> &middot; <a href="/fr/guide/home-automation/">Domotique</a> &middot; <a href="/fr/guide/home-assistant-dashboard/">Tableau de bord Home Assistant</a> &middot; <a href="/fr/guide/multi-zone/">Zones</a> &middot; <a href="/fr/guide/remote/">Télécommande</a> &middot; <a href="/fr/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/fr/guide/settings/">Paramètres</a> &middot; <a href="/fr/guide/languages/">Langues</a> &middot; <a href="/fr/guide/volume/">Contrôles de volume</a> &middot; <a href="/fr/guide/backup/">Sauvegarde &amp; restauration</a> &middot; <a href="/fr/guide/now-playing/">Lecture en cours &amp; HEOS</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/fr/">Accueil</a>
+      <a href="/fr/guide/">Guide de l'utilisateur</a>
+      <a href="/fr/guide/getting-started/">Prise en main</a>
+      <a href="/fr/receivers/">Récepteurs</a>
+      <a href="/fr/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/fr/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/fr/best-denon-marantz-app/">Pourquoi changer</a>
+      <a href="/fr/help/">Aide</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro est une application indépendante de MiyaraHub Technologies LLC et n'est ni affiliée à, ni approuvée par, ni sponsorisée par Denon, Marantz, D&amp;M Holdings, Sound United ou toute autre société citée sur cette page. Denon, Marantz et Audyssey sont des marques de leurs propriétaires respectifs, utilisées ici à des fins d'identification uniquement.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="hu" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hangszóró-beállítás: szintek, válaszfrekvenciák &amp; előbeállítások - AVR Maestro</title>
+<meta name="description" content="Hangszóró-beállító műhely a Denon vagy Marantz készülékedhez, a telefonodról: elrendezés, távolságok, csatornaszintek, válaszfrekvenciák, mélysugárzó és hangszóró-előbeállítások, élő kiolvasással." />
+<meta name="keywords" content="Denon speaker setup app, Marantz speaker setup, AV receiver speaker levels app, crossover setting app, speaker preset app, channel level trim app, amp assign Denon Marantz, subwoofer setting app" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/hu/guide/speakers/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/speakers/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/speakers/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/speakers/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/speakers/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/speakers/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/speakers/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/speakers/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/speakers/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/speakers/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/speakers/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/speakers/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/speakers/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/speakers/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/speakers/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/speakers/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/speakers/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/speakers/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/speakers/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/speakers/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/speakers/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/speakers/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/speakers/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/speakers/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/speakers/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/speakers/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/speakers/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/speakers/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/speakers/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/speakers/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/speakers/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/speakers/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="hu_HU" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Hangszóró-beállítás: szintek, válaszfrekvenciák &amp; előbeállítások - AVR Maestro" />
+<meta property="og:description" content="Hangszóró-beállító műhely a Denon vagy Marantz készülékedhez, a telefonodról: elrendezés, távolságok, csatornaszintek, válaszfrekvenciák, mélysugárzó és hangszóró-előbeállítások, élő kiolvasással." />
+<meta property="og:url" content="https://avrmaestro.com/hu/guide/speakers/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Hangszóró-beállítás: szintek, válaszfrekvenciák &amp; előbeállítások - AVR Maestro" />
+<meta name="twitter:description" content="Hangszóró-beállító műhely a Denon vagy Marantz készülékedhez, a telefonodról: elrendezés, távolságok, csatornaszintek, válaszfrekvenciák, mélysugárzó és hangszóró-előbeállítások, élő kiolvasással." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "Az AVR Maestro egy független alkalmazás Denon és Marantz AV-erősítők vezérlésére a helyi hálózaton keresztül.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "hu"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/speakers/#article",
+      "headline": "Önálló Hangszórók műhely",
+      "description": "Hangszóró-beállító műhely a Denon vagy Marantz készülékedhez, a telefonodról: elrendezés, távolságok, csatornaszintek, válaszfrekvenciák, mélysugárzó és hangszóró-előbeállítások, élő kiolvasással.",
+      "image": "https://avrmaestro.com/screenshots/speakers-layout.png",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/speakers/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "hu"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/speakers/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Beállíthatom a távolságokat és a szinteket az alkalmazásból?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Igen - erősítő-hozzárendelés és elrendezés, hangszóránkénti távolságok, csatornaszintek, válaszfrekvenciák és mélysugárzó-beállítások, mind élőben kiolvasva, és az aktív hangszóró-előbeállítást követve."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Miért vannak zárolva egyes hangszóró-képernyők?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ha az előbeállításon Dirac Live szűrő aktív, a Dirac birtokolja az elrendezést, a távolságokat és a válaszfrekvenciákat. Az alkalmazás zárat mutat ahelyett, hogy olyan módosításokat engedne elküldeni, amelyeket a vevőkészülék elutasítana. Ezek szerkesztéséhez válts nem Dirac előbeállításra. Bővebben az Audyssey & Dirac útmutatóban."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mik azok a hangszóró-előbeállítások?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Az 1. és a 2. előbeállítás mindegyike saját elrendezést, távolságokat, szinteket, válaszfrekvenciákat és kalibrációt tárol. Az alkalmazásban válthatsz köztük; minden Hangszórók képernyő az aktív előbeállítást követi. Az egyetlen előbeállítással rendelkező készülékeken (például az AVR-X4500H) a választó rejtve marad."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Elküldhetem az LFE csatornát az első hangszóróimra mélysugárzó nélkül?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Igen, ha a készülék támogatja. Ha a főhangszórók a Válaszfrekvenciák között Full Range értékre vannak állítva, és a vevőkészülék nem irányítja az LFE-t mélysugárzóra, a Basszus képernyő LFE Distribution funkciója hangszóránkénti szinttel küldi az LFE (.1) csatornát ezekre a hangszórókra. Az AVR Maestro csak akkor kínálja fel, ha a vevőkészülék ténylegesen engedi - ha a hangszórók nem Full Range módban vannak, vagy egy mélysugárzó az LFE-t kapja, a készülék zárolja a beállítást, és az alkalmazás pontosan megmutatja, miért. Soha nem irányíthat basszust olyan hangszóróra, amelyet a készülék tilt. Ugyanezen a képernyőn az LPF for LFE vezérlő az LFE csatorna aluláteresztő határfrekvenciáját állítja."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Kezdőlap",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Felhasználói útmutató",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Hangszórók",
+      "item": "https://avrmaestro.com/guide/speakers/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/hu/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menü" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Keresés az útmutatóban..." data-i18n-empty="Nincs találat erre:" data-i18n-language="Nyelv">
+      <a href="/hu/">Kezdőlap</a>
+      <a href="/hu/guide/">Felhasználói útmutató</a>
+      <a href="/hu/receivers/">Készülékek</a>
+      <a href="/hu/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hu/best-denon-marantz-app/">Miért érdemes váltani</a>
+      <a href="/hu/#top" class="cta">Letöltés</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/hu/">Főoldal</a> &rsaquo; <a href="/hu/guide/">Felhasználói útmutató</a> &rsaquo; Hangszórók</div>
+    <div class="eyebrow">Hangszóró-beállítás &amp; előbeállítások</div>
+    <h1>Önálló <span class="g">Hangszórók</span> műhely</h1>
+    <p>Elrendezés, távolságok, szintek, válaszfrekvenciák, mélysugárzó, basszuskezelés és hangszóró-előbeállítások - a teljes beállítócsomag, élőben kiolvasva a Denon vagy Marantz vevőkészülékedből, minden képernyő az aktív hangszóró-előbeállítást követve.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+      <figure><img alt="Hangszóró-elrendezés és Amp Assign" src="/screenshots/speakers-layout.png" width="1324" height="2644" decoding="async" /><figcaption>Elrendezés &amp; Amp Assign</figcaption></figure>
+      <figure><img alt="Hangszóró-távolságok" src="/screenshots/speakers-distances.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Távolságok</figcaption></figure>
+      <figure><img alt="Csatornaszintek" src="/screenshots/speakers-levels.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Szintek</figcaption></figure>
+      <figure><img alt="Hangszóró-előbeállítások" src="/screenshots/speakers-preset.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Hangszóró-előbeállítások</figcaption></figure>
+      <figure><img alt="Hangszóránkénti válaszfrekvenciák" src="/screenshots/speakers-crossovers.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Válaszfrekvenciák</figcaption></figure>
+      <figure><img alt="LPF for LFE és LFE Distribution" src="/screenshots/speakers-bass.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Basszuskezelés</figcaption></figure>
+      <figure><img alt="A Subwoofer Outputot a Dirac Live zárolja" src="/screenshots/speakers-subwoofer-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Mélysugárzó-kimenet</figcaption></figure>
+    </div>
+    <div class="section-head" style="margin-top:36px">
+      <h2>Minden beállítóképernyő, a telefonodon</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Hangszóró-elrendezés:</b> erősítő-hozzárendelés és hangszóránkénti Spkr / Pre-out konfiguráció.</li>
+      <li><b>Távolságok:</b> hangszóránkénti távolság az ülőhelyedtől, a vevőkészülék mértékegységében (m vagy ft).</li>
+      <li><b>Szintek:</b> hangszóránkénti szintkorrekció.</li>
+      <li><b>Válaszfrekvenciák:</b> az a frekvencia, amely alatt a basszus a mélysugárzóra irányítódik (csak a „small” hangszórók jelennek meg; a „large” hangszórók teljes tartományban futnak).</li>
+      <li><b>Mélysugárzó:</b> a mélysugárzó-kimenet beállításai.</li>
+      <li><b>Basszus:</b> LPF for LFE (az LFE csatorna aluláteresztő határfrekvenciája) és LFE Distribution (az LFE .1 csatorna irányítása a teljes tartományú hangszórókra - csak akkor érhető el, ha a vevőkészülék engedi).</li>
+      <li><b>Előbeállítás:</b> váltás az 1. és a 2. hangszóró-előbeállítás között - mindegyik saját elrendezést, távolságokat, szinteket, válaszfrekvenciákat és kalibrációt tárol. Az egyetlen előbeállítással rendelkező készülékeken (például az AVR-X4500H) a választó rejtve marad ahelyett, hogy a semmibe vezető kapcsolót kínálna.</li>
+      <li><b>Elülső hangszóró:</b> mely első kapcsokat hajtja meg a vevőkészülék - A, B vagy A+B - azokon a készülékeken, amelyek ezt kínálják. Ahol a vevőkészülék szürkévé tette a beállítást, az alkalmazás kiírja, hogy zárolva van, ahelyett hogy úgy tenne, mintha a módosítás érvényesülne.</li>
+    </ul>
+
+    <div class="section-head" style="margin-top:36px">
+      <h2>Lásd, mi szól éppen, csatornánként</h2>
+    </div>
+    <div class="gallery">
+      <figure><img alt="Az AVR Maestro hangszórórácsa a bemeneti és kimeneti csatornákkal, amelyek szám lejátszása közben világítanak" src="/screenshots/speaker-grid-live.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Bemenet és kimenet egymás mellett, élőben</figcaption></figure>
+    </div>
+    <p class="lead">Koppints a hangszóró-elrendezésre, és rácsként nyílik meg: balra az, amit a bejövő jel hordoz, jobbra az, amit a vevőkészülék ténylegesen meghajt. Egy sztereó szám két bemeneti csatornát mutat tizenegy kimenet mellett, és látod, ahogy a felkeverés dolgozik.</p>
+    <ul class="plain">
+      <li><b>A vevőkészülék maga nevezi meg a hangszóróit.</b> Minden felirat a vezetékről érkezik, így az olyan hangszórókat tartalmazó készülék is a helyükön jeleníti meg őket, amelyekről ez az alkalmazás még sosem hallott.</li>
+      <li><b>Három állapot, nem kettő:</b> szól, csatlakoztatva van de néma, és hiányzik. Az a hangszóró, amelyről a vevőkészülék azt mondja, hogy nincs ebben a jelben, egyáltalán nem jelenik meg.</li>
+      <li><b>Tedd oda, ahová szeretnéd:</b> a rács Kezdőképernyő-kártyaként és a Távvezérlő fülön is elérhető.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Okos a Diracnál</div>
+        <h2>Nem enged olyan módosítást, amelyet a vevőkészülék elutasítana</h2>
+        <p class="lead">A fenti képernyők szabványos hangszóró-előbeállításon teljesen szerkeszthetők. De ha egy előbeállításon <b>Dirac Live szűrő aktív</b>, a Dirac birtokolja az elrendezést, a távolságokat és a válaszfrekvenciákat - ezért ahelyett, hogy olyan módosításokat engedne, amelyeket a vevőkészülék szó nélkül figyelmen kívül hagyna, az AVR Maestro egyértelmű zárat mutat, és pontosan megmondja, miért. Szerkesztésükhöz válts nem Dirac előbeállításra.</p>
+      </div>
+      <img alt="Dirac által zárolt hangszóró-képernyő" src="/screenshots/speakers-layout-locked.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+    <div class="note">Régebbi firmware? Néhány 2025 előtti vevőkészüléken (az X4500H / X6700H / S960H / X4700H kategória) a készülék nem tudja hálózaton át az alkalmazásnak szolgáltatni a Speaker Layout vagy a Subwoofer Output képernyőt. Ahelyett, hogy elromlott képernyőt mutatna, az AVR Maestro egy egykoppintásos gombot ad, amely egyenesen a vevőkészülék saját webes vezérlésére visz ezekhez a módosításokhoz - a Hangszórók csomag többi része normálisan működik. Az újabb firmware-rel rendelkező készülékek minden képernyőt közvetlenül szolgáltatnak.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Gyakori kérdések</div>
+      <h2>Hangszóró-beállítás - GYIK</h2>
+    </div>
+    <details open><summary>Beállíthatom a távolságokat és a szinteket az alkalmazásból?</summary><div class="body">Igen - erősítő-hozzárendelés és elrendezés, hangszóránkénti távolságok, csatornaszintek, válaszfrekvenciák és mélysugárzó-beállítások, mind élőben kiolvasva, és az aktív hangszóró-előbeállítást követve.</div></details>
+    <details><summary>Miért vannak zárolva egyes hangszóró-képernyők?</summary><div class="body">Ha az előbeállításon Dirac Live szűrő aktív, a Dirac birtokolja az elrendezést, a távolságokat és a válaszfrekvenciákat. Az alkalmazás zárat mutat ahelyett, hogy olyan módosításokat engedne elküldeni, amelyeket a vevőkészülék elutasítana. Ezek szerkesztéséhez válts nem Dirac előbeállításra. Bővebben az <a href="/hu/audyssey-dirac-control/">Audyssey &amp; Dirac útmutatóban</a>.</div></details>
+    <details><summary>Mik azok a hangszóró-előbeállítások?</summary><div class="body">Az 1. és a 2. előbeállítás mindegyike saját elrendezést, távolságokat, szinteket, válaszfrekvenciákat és kalibrációt tárol. Az alkalmazásban válthatsz köztük; minden Hangszórók képernyő az aktív előbeállítást követi. Az egyetlen előbeállítással rendelkező készülékeken (például az AVR-X4500H) a választó rejtve marad.</div></details>
+    <details><summary>Elküldhetem az LFE csatornát az első hangszóróimra mélysugárzó nélkül?</summary><div class="body">Igen, ha a készülék támogatja. Ha a főhangszórók a Válaszfrekvenciák között Full Range értékre vannak állítva, és a vevőkészülék nem irányítja az LFE-t mélysugárzóra, a Basszus képernyő LFE Distribution funkciója hangszóránkénti szinttel küldi az LFE (.1) csatornát ezekre a hangszórókra. Az AVR Maestro csak akkor kínálja fel, ha a vevőkészülék ténylegesen engedi - ha a hangszórók nem Full Range módban vannak, vagy egy mélysugárzó az LFE-t kapja, a készülék zárolja a beállítást, és az alkalmazás pontosan megmutatja, miért. Soha nem irányíthat basszust olyan hangszóróra, amelyet a készülék tilt. Ugyanezen a képernyőn az LPF for LFE vezérlő az LFE csatorna aluláteresztő határfrekvenciáját állítja.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Az útmutató további részei</div>
+      <h2>További AVR Maestro útmutatók</h2>
+    </div>
+    <p class="lead"><a href="/hu/guide/getting-started/">Első lépések</a> &middot; <a href="/hu/guide/home/">Kezdőképernyő</a> &middot; <a href="/hu/guide/scenes/">Jelenetek</a> &middot; <a href="/hu/guide/custom-icons/">Egyéni ikonok</a> &middot; <a href="/hu/guide/sound/">Hang</a> &middot; <a href="/hu/guide/graphic-eq/">Grafikus EQ</a> &middot; <a href="/hu/guide/locked-controls/">Miért zárolt egy vezérlő</a> &middot; <a href="/hu/guide/assistant/">Az asszisztens</a> &middot; <a href="/hu/guide/home-automation/">Otthonautomatizálás</a> &middot; <a href="/hu/guide/home-assistant-dashboard/">Home Assistant irányítópult</a> &middot; <a href="/hu/guide/multi-zone/">Zónák</a> &middot; <a href="/hu/guide/remote/">Távirányító</a> &middot; <a href="/hu/guide/radio/">Rádió (FM/AM)</a> &middot; <a href="/hu/guide/on-screen-display/">Képernyőkijelző</a> &middot; <a href="/hu/guide/settings/">Beállítások</a> &middot; <a href="/hu/guide/languages/">Nyelvek</a> &middot; <a href="/hu/guide/volume/">Hangerő-szabályzók</a> &middot; <a href="/hu/guide/backup/">Mentés &amp; visszaállítás</a> &middot; <a href="/hu/guide/now-playing/">Most szól &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Hangold be a hangszóróidat a kanapéról</h2>
+    <p class="lead" style="margin:0 auto 24px">Egyszeri vásárlás, hirdetések és előfizetés nélkül. Csatlakozás egy percen belül.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Töltse le a Google Playről" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Letöltés az App Store-ból" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Letöltés a Mac App Store-ból" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Töltse le a Microsoft Store-ból" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/hu/guide/">Vissza a teljes Felhasználói útmutatóhoz &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/hu/">Kezdőlap</a>
+      <a href="/hu/guide/">Felhasználói útmutató</a>
+      <a href="/hu/guide/getting-started/">Első lépések</a>
+      <a href="/hu/receivers/">Készülékek</a>
+      <a href="/hu/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hu/audyssey-vs-dirac/">Audyssey és Dirac</a>
+      <a href="/hu/best-denon-marantz-app/">Miért érdemes váltani</a>
+      <a href="/hu/help/">Súgó</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">Az AVR Maestro a MiyaraHub Technologies LLC független alkalmazása, amely nem áll kapcsolatban a Denon, a Marantz, a D&amp;M Holdings, a Sound United vagy az oldalon említett más vállalatokkal, és tőlük nem kapott támogatást vagy jóváhagyást. A Denon, a Marantz, a HEOS, az Audyssey és a Dirac Live tulajdonosaik védjegyei, itt kizárólag azonosítási célból szerepelnek.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

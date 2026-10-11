@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="el" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Home Assistant &amp; Hubitat για Denon &amp; Marantz - AVR Maestro</title>
+<meta name="description" content="Συνδέστε το AVR Maestro με το Home Assistant ή το Hubitat και οι Σκηνές σας γίνονται εγγενή σενάρια που τρέχουν χωρίς το κινητό σας. Φωνητικός έλεγχος, ζωντανή κατάσταση και webhooks." />
+<meta name="keywords" content="Denon Home Assistant, Marantz Home Assistant, AV receiver Alexa, receiver Google Assistant, receiver Siri Shortcuts, Hubitat AV receiver, receiver webhooks, Denon voice control" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/el/guide/home-automation/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-automation/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-automation/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-automation/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-automation/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-automation/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-automation/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-automation/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-automation/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-automation/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-automation/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-automation/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-automation/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-automation/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-automation/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-automation/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-automation/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-automation/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-automation/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-automation/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-automation/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-automation/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-automation/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-automation/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-automation/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-automation/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-automation/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-automation/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-automation/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-automation/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-automation/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-automation/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="el_GR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Home Assistant &amp; Hubitat για Denon &amp; Marantz - AVR Maestro" />
+<meta property="og:description" content="Συνδέστε το AVR Maestro με το Home Assistant ή το Hubitat και οι Σκηνές σας γίνονται εγγενή σενάρια που τρέχουν χωρίς το κινητό σας. Φωνητικός έλεγχος, ζωντανή κατάσταση και webhooks." />
+<meta property="og:url" content="https://avrmaestro.com/el/guide/home-automation/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Home Assistant &amp; Hubitat για Denon &amp; Marantz - AVR Maestro" />
+<meta name="twitter:description" content="Συνδέστε το AVR Maestro με το Home Assistant ή το Hubitat και οι Σκηνές σας γίνονται εγγενή σενάρια που τρέχουν χωρίς το κινητό σας. Φωνητικός έλεγχος, ζωντανή κατάσταση και webhooks." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "Το AVR Maestro είναι μια ανεξάρτητη εφαρμογή για τον έλεγχο δεκτών AV Denon και Marantz μέσω του τοπικού σας δικτύου.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "el"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-automation/#article",
+      "headline": "Home Assistant και Hubitat: οι σκηνές σας, χωρίς το κινητό σας",
+      "description": "Συνδέστε το AVR Maestro με το Home Assistant ή το Hubitat και οι Σκηνές σας γίνονται εγγενή σενάρια που τρέχουν χωρίς το κινητό σας. Φωνητικός έλεγχος, ζωντανή κατάσταση και webhooks.",
+      "image": "https://avrmaestro.com/screenshots/home-assistant.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-automation/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "el"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-automation/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Χρειάζεται το κινητό μου να είναι ανοιχτό για να λειτουργεί ο φωνητικός έλεγχος;",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Όχι. Το AVR Maestro μεταγλωττίζει τις σκηνές σας σε εγγενή σενάρια του Home Assistant. Το Home Assistant μιλά απευθείας με τον δέκτη στο τοπικό σας δίκτυο, οπότε το κινητό σας μπορεί να είναι σβηστό, σε αναστολή ή σε άλλη χώρα."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ποιοι φωνητικοί βοηθοί μπορούν να ελέγξουν τον δέκτη μου;",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Όποιος ήδη χρησιμοποιείτε. Το AVR Maestro δεν προσθέτει δικό του επίπεδο φωνής - δημοσιεύει σενάρια στο Home Assistant ή στο Hubitat, και αυτά εκτίθενται στους Alexa, Google Assistant ή Siri Shortcuts από τον κόμβο που ήδη εμπιστεύεστε."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Είναι ο βοηθός AI μέρος της πληρωμένης ξεκλείδωτης λειτουργίας;",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Όχι. Ο βοηθός AI που τρέχει στη συσκευή είναι δωρεάν. Ο Αυτοματισμός Σπιτιού - Home Assistant, Hubitat και εξερχόμενα webhooks - είναι η μοναδική πληρωμένη ξεκλείδωτη λειτουργία στο AVR Maestro."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Φεύγει κάτι από το οικιακό μου δίκτυο;",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Όχι για τον έλεγχο. Η εφαρμογή μιλά με τον δέκτη σας και με τον κόμβο σας μέσω του δικού σας δικτύου. Τίποτα δεν περνά από διακομιστή της MiyaraHub. Ένα webhook πηγαίνει όπου το κατευθύνετε, και αυτό είναι δική σας επιλογή."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Αρχική",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Οδηγός Χρήσης",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Αυτοματισμός Σπιτιού",
+      "item": "https://avrmaestro.com/guide/home-automation/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/el/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Μενού" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Αναζήτηση στον οδηγό..." data-i18n-empty="Δεν βρέθηκαν αποτελέσματα για" data-i18n-language="Γλώσσα">
+      <a href="/el/">Αρχική</a>
+      <a href="/el/guide/">Οδηγός Χρήσης</a>
+      <a href="/el/receivers/">Δέκτες</a>
+      <a href="/el/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/el/best-denon-marantz-app/">Γιατί να αλλάξετε</a>
+      <a href="/el/#top" class="cta">Λήψη</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/el/">Αρχική</a> &rsaquo; <a href="/el/guide/">Οδηγός χρήσης</a> &rsaquo; Αυτοματισμός Σπιτιού</div>
+    <div class="eyebrow">Home Assistant &middot; Hubitat &middot; Webhooks</div>
+    <h1>Home Assistant και Hubitat: οι σκηνές σας, <span class="g">χωρίς το κινητό σας</span></h1>
+    <p>Συνδέστε το AVR Maestro με το Home Assistant ή το Hubitat και κάθε σκηνή που έχετε φτιάξει γίνεται εγγενές σενάριο στον κόμβο σας. Από εκεί και πέρα ο κόμβος μιλά απευθείας με τον δέκτη, στο δικό σας δίκτυο - έτσι το «Alexa, βραδιά ταινίας» λειτουργεί με το κινητό σας σβηστό, σε αναστολή ή σε άλλη χώρα.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+      <figure><img alt="Ο κόμβος Αυτοματισμού Σπιτιού του AVR Maestro με Home Assistant, Hubitat και Webhooks" src="/screenshots/home-automation.png" width="1324" height="2644" decoding="async" /><figcaption>Ένας κόμβος, τρεις έξοδοι</figcaption></figure>
+      <figure><img alt="Το AVR Maestro συνδεδεμένο με το Home Assistant, με την οντότητα του δέκτη να εντοπίζεται αυτόματα" src="/screenshots/home-assistant.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Συνδεδεμένο, με την οντότητα του δέκτη σας να βρίσκεται για εσάς</figcaption></figure>
+      <figure><img alt="Ο Αυτοματισμός Σπιτιού κλειδωμένος, με λουκέτο και κουμπί «Δείτε τι περιλαμβάνεται»" src="/screenshots/home-automation-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Πριν το ξεκλείδωμα, λέει τι καλύπτει</figcaption></figure>
+    </div>
+
+    <div class="section-head" style="margin-top:36px">
+      <h2>Γιατί λειτουργεί χωρίς την εφαρμογή</h2>
+    </div>
+    <p class="lead">Οι περισσότερες ενσωματώσεις κάνουν το κινητό σας μεσάζοντα: το κινητό ακούει την εντολή, το κινητό την στέλνει, και ο αυτοματισμός λειτουργεί μόνο όσο το κινητό είναι ξύπνιο και στο δίκτυο.</p>
+    <p class="lead">Το AVR Maestro δεν το κάνει αυτό. <b>Μεταγλωττίζει</b> τις σκηνές σας σε σενάρια που ζουν στον κόμβο σας, και ο κόμβος στέλνει τις εντολές στην τοπική IP του δέκτη σας. Η δουλειά της εφαρμογής τελειώνει όταν ολοκληρωθεί ο συγχρονισμός.</p>
+    <ul class="plain">
+      <li><b>Πρώτα το τοπικό:</b> τίποτα δεν περνά από διακομιστή της MiyaraHub. Ο κόμβος και ο δέκτης σας μιλούν μεταξύ τους.</li>
+      <li><b>Ανεξάρτητο από το κινητό:</b> μόλις δημοσιευτεί μια σκηνή, τρέχει είτε η εφαρμογή είναι εγκατεστημένη είτε όχι στο κινητό που τη δημιούργησε.</li>
+      <li><b>Ο δικός σας βοηθός, όχι ο δικός μας:</b> οι Alexa, Google Assistant και Siri Shortcuts φτάνουν όλοι σε αυτά τα σενάρια μέσω του κόμβου που ήδη εμπιστεύεστε. Το AVR Maestro δεν προσθέτει δικό του επίπεδο φωνής.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Home Assistant, από την αρχή ως το τέλος</h2>
+    </div>
+    <ul class="plain">
+      <li><b>1. Προσθέστε πρώτα τον δέκτη σας στο Home Assistant.</b> Ρυθμίσεις &rsaquo; Συσκευές &amp; υπηρεσίες &rsaquo; Προσθήκη ενσωμάτωσης &rsaquo; <b>Denon AVR</b> (ή <b>HEOS</b>), και μετά την τοπική IP του δέκτη σας. Το Home Assistant δημιουργεί για αυτόν μια οντότητα media player.</li>
+      <li><b>2. Ανοίξτε το Settings &rsaquo; Home Automation στο AVR Maestro</b> και πατήστε την κάρτα Home Assistant.</li>
+      <li><b>3. Εισαγάγετε τη διεύθυνση του Home Assistant σας</b> - μια τοπική όπως <code>http://192.168.1.150:8123</code>, ή το εξωτερικό σας URL Nabu Casa.</li>
+      <li><b>4. Συνδεθείτε και εξουσιοδοτήστε.</b> Ένας ασφαλής περιηγητής εντός της εφαρμογής ανοίγει τη σελίδα σύνδεσης του ίδιου του Home Assistant. Τα διαπιστευτήριά σας πηγαίνουν στο Home Assistant, ποτέ σε εμάς.</li>
+      <li><b>5. Βρίσκει μόνη της τον δέκτη σας.</b> Η εφαρμογή σαρώνει τις οντότητες media player και τις βαθμολογεί με βάση το μοντέλο, το όνομα και τις δυνατότητες surround, και μετά συμπληρώνει για εσάς τη σωστή οντότητα.</li>
+      <li><b>6. Συγχρονισμός.</b> Οι σκηνές σας μετατρέπονται σε σενάρια και ανεβαίνουν. Από εκεί και πέρα, η επεξεργασία μιας σκηνής ενημερώνει το σενάριό της στο παρασκήνιο - δεν υπάρχει κουμπί να θυμάστε.</li>
+    </ul>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Μόλις συγχρονιστεί</div>
+        <h2>Φτιάξτε ένα dashboard που αξίζει να βλέπετε</h2>
+        <p>Το Home Assistant έχει πλέον ένα χειριστήριο για όλα όσα μπορείτε να πείτε στον δέκτη σας να κάνει, και καμία άποψη για το πώς να τα διατάξετε. <a href="/el/guide/home-assistant-dashboard/">Το παράδειγμα dashboard</a> είναι μία διάταξη με πλήρες YAML: πλακίδια πηγής και surround που φωτίζονται όταν είναι τα ενεργά, ένταση σε πραγματικά dB, Σκηνές που διαβάζουν τα δικά τους ονόματα και έναν τίμιο χάρτη του τι μπορεί και τι δεν μπορεί να δει το Home Assistant.</p>
+      </div>
+      <img alt="Ένα dashboard του Home Assistant χτισμένο από τα συγχρονισμένα χειριστήρια του AVR Maestro" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Όχι μόνο σκηνές</div>
+        <h2>Και Προεπιλογές Ηχείων, Dirac και Audyssey</h2>
+        <p>Ενεργοποιήστε το <b>Sync Advanced Controls</b> και η εφαρμογή δημοσιεύει σενάριο για πολύ περισσότερα από τις σκηνές σας: κάθε Προεπιλογή Ηχείων, κάθε θέση φίλτρου Dirac Live, κάθε καμπύλη Audyssey. Ένας πλήρης συγχρονισμός σε Cinema 30 φτάνει πάνω από εβδομήντα σενάρια, οπότε ένα κουμπί dashboard ή μια φωνητική εντολή μπορεί να φορτώσει ένα φίλτρο Dirac ή να αλλάξει την καμπύλη δωματίου με τον ίδιο τρόπο που ανακαλεί μια σκηνή.</p>
+      </div>
+      <img alt="Η οθόνη Home Assistant του AVR Maestro με ενεργοποιημένο το Sync Advanced Controls" src="/screenshots/ha-app-controls.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Διαβάζει, δεν γράφει μόνο</div>
+        <h2>Το Home Assistant μπορεί να δει τι είναι ενεργό</h2>
+        <p>Ένα σενάριο μπορεί να εκτελεστεί αλλά ποτέ να διαβαστεί, οπότε τα πρώτα dashboard μπορούσαν να αλλάξουν την καμπύλη Audyssey ή τη θέση Dirac χωρίς κανέναν τρόπο να δείξουν ποια ήταν ενεργή. Οι μετρήσεις που η εφαρμογή ήδη διαθέτει - η ζωντανή λειτουργία surround, το ενεργό φίλτρο Dirac, η προεπιλογή ηχείων, το dimmer και δεκάδες ακόμη - δημοσιεύονται πλέον ως χαρακτηριστικά στον αισθητήρα κατάστασης του δέκτη, ώστε ένα πλακίδιο να φωτίζεται για τη ρύθμιση που πραγματικά τρέχει.</p>
+      </div>
+      <img alt="Το AVR Maestro δημοσιεύει στο Home Assistant σενάρια ελέγχου για Προεπιλογές Ηχείων, Dirac Live και Audyssey" src="/screenshots/ha-sync-advanced.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Κάθε χώρος</div>
+        <h2>Οι άλλες ζώνες σας, από το ίδιο dashboard</h2>
+        <p>Η ενεργοποίηση, η ένταση και η σίγαση για τη Ζώνη 2 και τη Ζώνη 3 δημοσιεύονται ως δικά τους σενάρια, οπότε μια βεράντα ή ένα δεύτερο δωμάτιο ανταποκρίνεται σε ένα dashboard ή σε έναν φωνητικό βοηθό όπως πάντα η κύρια ζώνη. Κουμπιά παίρνουν μόνο οι ζώνες που αναφέρει πραγματικά ο δέκτης σας, οπότε ένας δέκτης δύο ζωνών δεν αποκτά ποτέ Ζώνη 3.</p>
+      </div>
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Αν συγχρονίσατε με παλαιότερη έκδοση</div>
+        <h2>Τα ID των σεναρίων σας αλλάζουν μία φορά</h2>
+        <p>Τα σενάρια ονομάζονταν με βάση τη σκηνή <em>και</em> τον δέκτη, οπότε η μετονομασία οποιουδήποτε από τα δύο άφηνε πίσω το παλιό σενάριο και δημιουργούσε αθόρυβα ένα δεύτερο. Πλέον ονομάζονται με βάση τη σκηνή και τη διεύθυνση MAC του δέκτη, κάτι που κάνει μια μετονομασία να ενημερώνει το ίδιο σενάριο αντί να το διχάζει.</p>
+        <p>Ο πρώτος συγχρονισμός μετά από αυτή την αλλαγή αντικαθιστά τα παλιά σενάρια με τα νέα. <b>Ό,τι έχετε χτίσει πάνω στα παλιά ID χρειάζεται να ξαναδειχτεί μία φορά</b> - ένα κουμπί dashboard, ένας αυτοματισμός, ένα φωνητικό alias. Ανοίξτε το σενάριο στο Home Assistant για να βρείτε το νέο ID οντότητάς του.</p>
+        <p>Οι οντότητες πλέον διαβάζονται και από τον δέκτη - <code>cinema30</code> αντί για τριάντα δύο χαρακτήρες αναγνωριστικού μηχανής - ώστε η λίστα να είναι ευανάγνωστη και η αυτόματη συμπλήρωση να τις βρίσκει. Τα ID από προηγούμενες εκδόσεις εξακολουθούν να λειτουργούν.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Hubitat</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Το Hubitat υποστηρίζεται μέσω του <b>Maker API</b> του, και επισημαίνεται ως BETA στην εφαρμογή επειδή είναι νεότερο από τη διαδρομή του Home Assistant, όχι επειδή είναι ημιτελές.</p>
+        <ul class="plain">
+          <li><b>Hub IP</b> - η διεύθυνση του Hubitat σας στο τοπικό δίκτυο.</li>
+          <li><b>Maker API App ID</b> - ο αριθμός στο δικό της URL της εφαρμογής Maker API.</li>
+          <li><b>Access Token</b> - εκδίδεται από το Maker API όταν το ενεργοποιείτε.</li>
+        </ul>
+        <p class="lead">Ενεργοποιήστε πρώτα το Maker API στον κόμβο (Apps &rsaquo; Add Built-In App &rsaquo; Maker API) και σας δίνει και τα τρία. Επικολλήστε τα και το AVR Maestro εντοπίζει τον δέκτη σας, δημοσιεύει τις σκηνές σας ως ακολουθίες εντολών και στέλνει πίσω την κατάσταση σε πραγματικό χρόνο, ώστε ένα dashboard Hubitat να αντικατοπτρίζει τι κάνει πραγματικά ο δέκτης και όχι τι του ζητήθηκε τελευταία φορά.</p>
+      </div>
+      <img alt="Η οθόνη ρύθμισης Hubitat με Hub IP, Maker API App ID και access token" src="/screenshots/hubitat.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Webhooks</h2>
+    </div>
+    <p class="lead">Το Home Assistant και το Hubitat στέλνουν εντολές <em>προς</em> τον δέκτη. Τα webhooks πάνε προς την άλλη κατεύθυνση: όταν ο δέκτης κάνει κάτι, ενημερώστε οτιδήποτε άλλο γι' αυτό. Ενεργοποιήστε τον δέκτη και το AVR Maestro στέλνει ένα μικρό μήνυμα σε μια διεύθυνση της επιλογής σας - αυτό το μήνυμα είναι το webhook.</p>
+
+    <div class="note"><b>Αυτό είναι το μόνο σημείο που δεν είναι ανεξάρτητο από το κινητό.</b> Οι συγχρονισμένες σκηνές σας γίνονται σενάρια στον κόμβο σας και τρέχουν είτε η εφαρμογή είναι κοντά είτε όχι. Τα webhooks είναι διαφορετικά: το AVR Maestro είναι αυτό που παρακολουθεί τον δέκτη, οπότε ένας ενεργοποιητής ενεργοποιείται όσο η εφαρμογή είναι ανοιχτή σε μια συσκευή που τον βλέπει. Αν θέλετε κάτι να ενεργοποιείται χωρίς να τρέχει τίποτα, χτίστε το στον κόμβο σας γύρω από την οντότητα του δέκτη.</div>
+
+    <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px;margin-top:22px">
+      <figure><img alt="Η οθόνη Webhooks με την κάρτα επεξήγησής της και χωρίς ακόμη ενεργοποιητές" src="/screenshots/webhooks.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Άδεια μέχρι να προσθέσετε έναν</figcaption></figure>
+      <figure><img alt="Το φύλλο Προσθήκη Ενεργοποιητή Αυτοματισμού: συμβάν ενεργοποίησης, προορισμός αποστολής και ένα webhook ID" src="/screenshots/webhook-trigger.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Ένα συμβάν, ένας προορισμός, ένα ID</figcaption></figure>
+    </div>
+
+    <h3 style="margin-top:34px">Οι τέσσερις ενεργοποιητές</h3>
+    <table class="t" style="margin-top:14px">
+      <thead><tr><th>Συμβάν Ενεργοποίησης</th><th>Ενεργοποιείται όταν</th><th>Μπορεί να περιοριστεί σε</th></tr></thead>
+      <tbody>
+        <tr><td>Ενεργοποίηση Δέκτη (ON)</td><td>Ο δέκτης βγαίνει από την αναμονή</td><td>-</td></tr>
+        <tr><td>Απενεργοποίηση Δέκτη (OFF)</td><td>Ο δέκτης μπαίνει σε αναμονή</td><td>-</td></tr>
+        <tr><td>Αλλαγή Ενεργής Εισόδου</td><td>Αλλάζει η επιλεγμένη πηγή</td><td>Μία είσοδος, στο <em>Only trigger for input source</em></td></tr>
+        <tr><td>Ανάκληση Σκηνής</td><td>Εφαρμόζεται μια Σκηνή</td><td>Μία σκηνή, στο <em>Select Scene</em></td></tr>
+      </tbody>
+    </table>
+
+    <p class="lead" style="margin-top:22px">Ο περιορισμός είναι αυτός που τους κάνει χρήσιμους αντί για θορυβώδεις. Το «Αλλαγή Ενεργής Εισόδου» σε κάθε είσοδο είναι πυροσβεστικός σωλήνας· ο ίδιος ενεργοποιητής καρφωμένος στην είσοδο όπου βρίσκεται ο προβολέας σας είναι διακόπτης φωτός.</p>
+    <p class="lead">Η λίστα εισόδων είναι αυτή που αναφέρει ο δικός σας δέκτης, οπότε αντικατοπτρίζει ήδη κάθε πηγή που έχετε μετονομάσει ή κρύψει. Η λίστα σκηνών είναι οι δικές σας σκηνές.</p>
+
+    <div class="section-head" style="margin-top:44px">
+      <h2>Ρύθμιση ενός, βήμα προς βήμα</h2>
+    </div>
+    <p class="lead">Αυτή είναι η διαδρομή του Home Assistant, αυτή που θέλουν οι περισσότεροι. Κάντε πρώτα το μισό του Home Assistant - η εφαρμογή χρειάζεται κάτι για να δείχνει.</p>
+
+    <h3 style="margin-top:28px">Στο Home Assistant</h3>
+    <ul class="plain">
+      <li><b>1. Settings &rsaquo; Automations &amp; Scenes &rsaquo; Create Automation &rsaquo; Create new automation.</b></li>
+      <li><b>2. Add Trigger &rsaquo; Webhook.</b> Το Home Assistant δημιουργεί για εσάς ένα μακρύ τυχαίο Webhook ID.</li>
+      <li><b>3. Αντικαταστήστε το με κάτι που θα αναγνωρίζετε</b> - <code>avr-power-on</code>, <code>avr-movie-night</code>. Κάθε όνομα δουλεύει αρκεί να είναι μοναδικό στο Home Assistant σας. Σημειώστε το· θα πληκτρολογήσετε το ίδιο στο AVR Maestro.</li>
+      <li><b>4. Στις ρυθμίσεις του webhook, επιτρέψτε <em>POST</em>.</b> Αυτό στέλνει το AVR Maestro. Το Local-only είναι εντάξει - η εφαρμογή βρίσκεται στο δικό σας δίκτυο.</li>
+      <li><b>5. Προσθέστε ό,τι θέλετε να κάνει</b> - χαμηλώστε τα φώτα, κλείστε τα στόρια, ξεκινήστε μια σκηνή - και αποθηκεύστε τον αυτοματισμό.</li>
+    </ul>
+
+    <h3 style="margin-top:28px">Στο AVR Maestro</h3>
+    <ul class="plain">
+      <li><b>1. Settings &rsaquo; Home Automation &rsaquo; Webhooks</b>, και μετά <b>Add First Trigger</b> - ή το κουμπί <b>+</b> όταν έχετε ήδη έναν.</li>
+      <li><b>2. Trigger Event</b> - επιλέξτε τι θα τον πυροδοτεί. Αν επιλέξετε <em>Active Input Changed</em> ή <em>Scene Recalled</em>, προστίθεται ένα δεύτερο πλαίσιο για περιορισμό.</li>
+      <li><b>3. Where to send it</b> - αφήστε το στο <b>Home Assistant</b>. Η διεύθυνση είναι ήδη γνωστή, επειδή το συνδέσατε νωρίτερα σε αυτή την ίδια οθόνη.</li>
+      <li><b>4. Webhook ID</b> - πληκτρολογήστε το ίδιο ID που χρησιμοποιήσατε στο Home Assistant. Τίποτε άλλο δεν χρειάζεται να ταιριάζει. Από κάτω, η εφαρμογή γράφει την ακριβή διεύθυνση στην οποία θα στείλει - <code>Sends to http://your-ha:8123/api/webhook/avr-power-on</code> - ώστε να την ελέγξετε πριν αποθηκεύσετε.</li>
+      <li><b>5. Αποθήκευση.</b> Μετά πατήστε <b>Test</b> στον ενεργοποιητή στη λίστα. Ο αυτοματισμός σας στο Home Assistant θα πρέπει να τρέξει αμέσως.</li>
+    </ul>
+
+    <div class="note" style="margin-top:24px"><b>Δεν πληκτρολογείτε ποτέ URL για τη διαδρομή του Home Assistant.</b> Η εφαρμογή το χτίζει από το Home Assistant που συνδέσατε, και αναζητά αυτή τη διεύθυνση <em>κάθε φορά που ενεργοποιείται ένας ενεργοποιητής</em>. Μετακινήστε το Home Assistant σε νέα θύρα, νέο όνομα κεντρικού υπολογιστή ή διεύθυνση Nabu Casa, και κάθε webhook που έχετε ήδη φτιάξει ακολουθεί. Δεν υπάρχει τίποτα να ξανασυγχρονίσετε και κανένα κουμπί να πατήσετε.</div>
+
+    <div class="note">Αν το φύλλο γράφει <b>Home Assistant is not linked yet</b>, κάντε πρώτα την κάρτα Home Assistant στην κορυφή αυτής της σελίδας. Η διαδρομή webhook χρειάζεται μια διεύθυνση για να βασιστεί.</div>
+
+    <h3 style="margin-top:34px">Αποστολή κάπου που δεν είναι το Home Assistant</h3>
+    <p class="lead">Αλλάξτε το <b>Where to send it</b> σε <b>Other</b> και επικολλήστε ένα πλήρες URL στο <b>Webhook URL</b>. Λειτουργεί οτιδήποτε δέχεται POST - μια ροή Node-RED, ένα applet IFTTT, ένα σενάριο σε NAS, ένα endpoint του Hubitat Maker API. Αυτή η διαδρομή αποθηκεύει τη διεύθυνση ακριβώς όπως την πληκτρολογήσατε, οπότε αν ο προορισμός μετακινηθεί, επεξεργάζεστε τον ενεργοποιητή.</p>
+
+    <div class="section-head" style="margin-top:44px">
+      <h2>Τι στέλνεται πραγματικά</h2>
+    </div>
+    <p class="lead">Ένα μικρό σώμα JSON. Η κάρτα <b>What it sends</b> στην ίδια οθόνη το περιγράφει σε απλή γλώσσα για τον ενεργοποιητή που επιλέξατε, ώστε να μη χρειάζεται να μαντεύετε - και αυτά είναι τα ονόματα πεδίων που διαβάζει ο αυτοματισμός σας:</p>
+    <table class="t" style="margin-top:14px">
+      <thead><tr><th>Ενεργοποιητής</th><th>Πεδία στο μήνυμα</th></tr></thead>
+      <tbody>
+        <tr><td>Ενεργοποίηση / Απενεργοποίηση Δέκτη (ON / OFF)</td><td><code>event</code>, <code>timestamp</code></td></tr>
+        <tr><td>Αλλαγή Ενεργής Εισόδου</td><td>...συν <code>source</code></td></tr>
+        <tr><td>Ανάκληση Σκηνής</td><td>...συν <code>sceneId</code> και <code>sceneName</code></td></tr>
+      </tbody>
+    </table>
+    <p class="lead" style="margin-top:20px">Σε έναν αυτοματισμό του Home Assistant αυτά φτάνουν ως <code>{{ trigger.json.event }}</code>, <code>{{ trigger.json.source }}</code> και ούτω καθεξής. Μπορείτε να τα διαβάσετε, ή να τα αγνοήσετε εντελώς και να αντιδράσετε απλώς στο γεγονός ότι ενεργοποιήθηκε. Οι περισσότεροι κάνουν το δεύτερο.</p>
+    <p class="lead">Αν χρειάζεστε διαφορετική μορφή - μια υπηρεσία που περιμένει τη δική της μορφή - ανοίξτε το <b>Send my own JSON instead</b> κάτω από αυτή την κάρτα και γράψτε την εκεί. Είναι διπλωμένο και σημειωμένο ως Advanced επειδή σχεδόν κανείς δεν το χρειάζεται, όχι επειδή αποθαρρύνεται.</p>
+
+    <div class="note">Η οθόνη λέγεται <b>Webhooks</b> επειδή αυτό ακριβώς είναι. Αν ψάχνετε τους αυτοματισμούς που τρέχουν <em>στον</em> κόμβο σας, αυτοί είναι οι κάρτες Home Assistant και Hubitat παραπάνω - μια συγχρονισμένη Σκηνή γίνεται εκεί σενάριο, όχι webhook εδώ.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Όταν ένα webhook δεν φτάνει</h2>
+    </div>
+    <p class="lead">Με τη σειρά που αξίζει να ελέγξετε, επειδή τα δύο πρώτα είναι σχεδόν πάντα η αιτία:</p>
+    <ul class="plain">
+      <li><b>Πατήστε πρώτα Test.</b> Στέλνει το ίδιο μήνυμα με τον πραγματικό ενεργοποιητή, στην ίδια διεύθυνση, και σας λέει ποιο από τρία πράγματα συνέβη: παραδόθηκε, δεν παραδόθηκε, ή παραλείφθηκε επειδή ο διακόπτης του ίδιου του ενεργοποιητή είναι κλειστός. Αν το Test παραδίδει και το πραγματικό συμβάν όχι, το πρόβλημα είναι ο ενεργοποιητής - συχνότερα ένα <em>Active Input Changed</em> περιορισμένο σε είσοδο στην οποία δεν αλλάζετε πραγματικά.</li>
+      <li><b>Ελέγξτε ότι το ID ταιριάζει ακριβώς.</b> Τα webhook ID του Home Assistant κάνουν διάκριση πεζών-κεφαλαίων και δεν ανέχονται ένα κενό που περίσσεψε. Η εφαρμογή εμφανίζει την πλήρη διεύθυνση στην οποία θα στείλει κάτω από το πεδίο - συγκρίνετέ την με αυτήν στον αυτοματισμό σας.</li>
+      <li><b>Ελέγξτε ότι ο αυτοματισμός επιτρέπει POST.</b> Ένας ενεργοποιητής webhook του Home Assistant που επιτρέπει μόνο GET αγνοεί σιωπηλά ό,τι στέλνει το AVR Maestro.</li>
+      <li><b>Ελέγξτε ότι ο διακόπτης του ενεργοποιητή είναι ανοιχτός.</b> Καθένας έχει τον δικό του διακόπτη στη λίστα, και ένας απενεργοποιημένος ενεργοποιητής παραλείπεται αντί να αποτυγχάνει.</li>
+      <li><b>Οι ενεργοποιητές ανήκουν σε έναν δέκτη.</b> Η λίστα που βλέπετε είναι η λίστα του δέκτη που είναι τώρα επιλεγμένος. Ένας άλλος δέκτης έχει τη δική του, οπότε ένας κανόνας που φτιάξατε εδώ δεν ενεργοποιείται για διαφορετικό δωμάτιο.</li>
+      <li><b>Η εφαρμογή πρέπει να παρακολουθεί.</b> Το AVR Maestro είναι αυτό που αντιλαμβάνεται ότι ο δέκτης άλλαξε, οπότε τίποτα δεν ενεργοποιείται από ένα κινητό στην τσέπη σας με την εφαρμογή κλειστή. Αυτός είναι ο συμβιβασμός που περιγράφεται στην αρχή αυτής της ενότητας, όχι βλάβη.</li>
+      <li><b>Τα webhooks είναι μέρος του Αυτοματισμού Σπιτιού.</b> Χωρίς αυτό το ξεκλείδωμα οι ενεργοποιητές φαίνονται αλλά δεν στέλνεται τίποτα, και το Test το λέει αντί να προσποιείται ότι δούλεψε.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Τι είναι πληρωμένο και τι όχι</div>
+        <h2>Ο Αυτοματισμός Σπιτιού είναι το μοναδικό ξεκλείδωμα. Ο βοηθός AI είναι δωρεάν.</h2>
+        <p><b>Ο Αυτοματισμός Σπιτιού (Pro)</b> - Home Assistant, Hubitat και εξερχόμενα webhooks - είναι ένα εφάπαξ ξεκλείδωμα. Όλα τα υπόλοιπα στο AVR Maestro, συμπεριλαμβανομένου του βοηθού AI που τρέχει στη συσκευή, περιλαμβάνονται στην εφαρμογή.</p>
+        <p>Ο φωνητικός έλεγχος φτάνει στον δέκτη σας <em>μέσω</em> του Αυτοματισμού Σπιτιού, με τη μεσολάβηση του κόμβου σας. Το AVR Maestro δεν τρέχει δική του αναγνώριση φωνής.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Συχνές ερωτήσεις</div>
+      <h2>Αυτοματισμός Σπιτιού, με απαντήσεις</h2>
+    </div>
+    <details open><summary>Χρειάζεται το κινητό μου να είναι ανοιχτό για να λειτουργεί ο φωνητικός έλεγχος;</summary><div class="body">Όχι. Το AVR Maestro μεταγλωττίζει τις σκηνές σας σε εγγενή σενάρια του Home Assistant. Το Home Assistant μιλά απευθείας με τον δέκτη στο τοπικό σας δίκτυο, οπότε το κινητό σας μπορεί να είναι σβηστό, σε αναστολή ή σε άλλη χώρα.</div></details>
+    <details><summary>Ποιοι φωνητικοί βοηθοί μπορούν να ελέγξουν τον δέκτη μου;</summary><div class="body">Όποιος ήδη χρησιμοποιείτε. Το AVR Maestro δεν προσθέτει δικό του επίπεδο φωνής - δημοσιεύει σενάρια στο Home Assistant ή στο Hubitat, και αυτά εκτίθενται στους Alexa, Google Assistant ή Siri Shortcuts από τον κόμβο που ήδη εμπιστεύεστε.</div></details>
+    <details><summary>Είναι ο βοηθός AI μέρος της πληρωμένης ξεκλείδωτης λειτουργίας;</summary><div class="body">Όχι. Ο βοηθός AI που τρέχει στη συσκευή είναι δωρεάν. Ο Αυτοματισμός Σπιτιού - Home Assistant, Hubitat και εξερχόμενα webhooks - είναι η μοναδική πληρωμένη ξεκλείδωτη λειτουργία στο AVR Maestro.</div></details>
+    <details><summary>Φεύγει κάτι από το οικιακό μου δίκτυο;</summary><div class="body">Όχι για τον έλεγχο. Η εφαρμογή μιλά με τον δέκτη σας και με τον κόμβο σας μέσω του δικού σας δικτύου. Τίποτα δεν περνά από διακομιστή της MiyaraHub. Ένα webhook πηγαίνει όπου το κατευθύνετε, και αυτό είναι δική σας επιλογή.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Περισσότερα από τον οδηγό</div>
+      <h2>Άλλοι οδηγοί του AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/el/guide/getting-started/">Ξεκινώντας</a> &middot; <a href="/el/guide/home/">Αρχική οθόνη</a> &middot; <a href="/el/guide/scenes/">Σκηνές</a> &middot; <a href="/el/guide/custom-icons/">Προσαρμοσμένα εικονίδια</a> &middot; <a href="/el/guide/sound/">Ήχος</a> &middot; <a href="/el/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/el/guide/speakers/">Ηχεία</a> &middot; <a href="/el/guide/locked-controls/">Γιατί ένα χειριστήριο είναι κλειδωμένο</a> &middot; <a href="/el/guide/assistant/">Ο Βοηθός</a> &middot; <a href="/el/guide/home-assistant-dashboard/">Πίνακας ελέγχου Home Assistant</a> &middot; <a href="/el/guide/multi-zone/">Ζώνες</a> &middot; <a href="/el/guide/remote/">Τηλεχειριστήριο</a> &middot; <a href="/el/guide/radio/">Ραδιόφωνο (FM/AM)</a> &middot; <a href="/el/guide/on-screen-display/">Ενδείξεις οθόνης</a> &middot; <a href="/el/guide/settings/">Ρυθμίσεις</a> &middot; <a href="/el/guide/languages/">Γλώσσες</a> &middot; <a href="/el/guide/volume/">Χειριστήρια έντασης</a> &middot; <a href="/el/guide/backup/">Αντίγραφο ασφαλείας &amp; επαναφορά</a> &middot; <a href="/el/guide/now-playing/">Αναπαράγεται τώρα &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Οι σκηνές σας, χωρίς το κινητό σας</h2>
+    <p class="lead" style="margin:0 auto 24px">Ο Αυτοματισμός Σπιτιού είναι ένα εφάπαξ ξεκλείδωμα. Όλα τα υπόλοιπα στην εφαρμογή, συμπεριλαμβανομένου του βοηθού AI, περιλαμβάνονται.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Διαθέσιμο στο Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Λήψη από το App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Λήψη από το Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Διαθέσιμο στο Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/el/guide/">Πίσω στον πλήρη Οδηγό Χρήσης &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/el/">Αρχική</a>
+      <a href="/el/guide/">Οδηγός Χρήσης</a>
+      <a href="/el/guide/getting-started/">Πρώτα βήματα</a>
+      <a href="/el/receivers/">Δέκτες</a>
+      <a href="/el/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/el/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/el/best-denon-marantz-app/">Γιατί να αλλάξετε</a>
+      <a href="/el/help/">Βοήθεια</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">Το AVR Maestro είναι μια ανεξάρτητη εφαρμογή της MiyaraHub Technologies LLC και δεν σχετίζεται με, δεν υποστηρίζεται και δεν χρηματοδοτείται από τις Denon, Marantz, D&amp;M Holdings, Sound United ή οποιαδήποτε άλλη εταιρεία αναφέρεται σε αυτή τη σελίδα. Οι Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant και Siri είναι εμπορικά σήματα των αντίστοιχων κατόχων τους και χρησιμοποιούνται εδώ μόνο για αναγνώριση.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

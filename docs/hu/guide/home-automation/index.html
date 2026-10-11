@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="hu" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Home Assistant &amp; Hubitat Denon &amp; Marantz készülékekhez - AVR Maestro</title>
+<meta name="description" content="Kapcsold össze az AVR Maestro-t a Home Assistanttal vagy a Hubitattal, és a Jeleneteid a telefonod nélkül futó, natív szkriptekké válnak. Hangvezérlés, élő állapot és webhookok." />
+<meta name="keywords" content="Denon Home Assistant, Marantz Home Assistant, AV receiver Alexa, receiver Google Assistant, receiver Siri Shortcuts, Hubitat AV receiver, receiver webhooks, Denon voice control" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/hu/guide/home-automation/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-automation/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-automation/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-automation/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-automation/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-automation/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-automation/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-automation/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-automation/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-automation/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-automation/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-automation/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-automation/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-automation/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-automation/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-automation/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-automation/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-automation/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-automation/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-automation/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-automation/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-automation/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-automation/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-automation/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-automation/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-automation/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-automation/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-automation/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-automation/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-automation/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-automation/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-automation/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="hu_HU" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Home Assistant &amp; Hubitat Denon &amp; Marantz készülékekhez - AVR Maestro" />
+<meta property="og:description" content="Kapcsold össze az AVR Maestro-t a Home Assistanttal vagy a Hubitattal, és a Jeleneteid a telefonod nélkül futó, natív szkriptekké válnak. Hangvezérlés, élő állapot és webhookok." />
+<meta property="og:url" content="https://avrmaestro.com/hu/guide/home-automation/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Home Assistant &amp; Hubitat Denon &amp; Marantz készülékekhez - AVR Maestro" />
+<meta name="twitter:description" content="Kapcsold össze az AVR Maestro-t a Home Assistanttal vagy a Hubitattal, és a Jeleneteid a telefonod nélkül futó, natív szkriptekké válnak. Hangvezérlés, élő állapot és webhookok." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "Az AVR Maestro egy független alkalmazás Denon és Marantz AV-erősítők vezérlésére a helyi hálózaton keresztül.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "hu"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-automation/#article",
+      "headline": "Home Assistant és Hubitat: a jeleneteid, a telefonod nélkül futva",
+      "description": "Kapcsold össze az AVR Maestro-t a Home Assistanttal vagy a Hubitattal, és a Jeleneteid a telefonod nélkül futó, natív szkriptekké válnak. Hangvezérlés, élő állapot és webhookok.",
+      "image": "https://avrmaestro.com/screenshots/home-assistant.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-automation/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "hu"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-automation/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Be kell lennie kapcsolva a telefonomnak a hangvezérléshez?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nem. Az AVR Maestro a jeleneteidet natív Home Assistant szkriptekké fordítja. A Home Assistant közvetlenül a helyi hálózaton beszél a készülékkel, így a telefonod lehet kikapcsolva, alvó módban, vagy akár egy másik országban."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mely hangasszisztensek vezérelhetik a készülékemet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Amelyiket már használod. Az AVR Maestro nem tesz hozzá saját hangréteget - szkripteket tesz közzé a Home Assistantban vagy a Hubitatban, és ezeket a már megbízott hubod teszi elérhetővé az Alexa, a Google Assistant vagy a Siri Shortcuts számára."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Az AI-asszisztens a fizetős feloldás része?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nem. Az eszközön futó AI-asszisztens ingyenes. Az Otthon-automatizálás - Home Assistant, Hubitat és kimenő webhookok - az AVR Maestro egyetlen fizetős feloldása."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Elhagy valami az otthoni hálózatomat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A vezérléshez nem. Az alkalmazás a saját hálózatodon beszél a készülékeddel és a hubbal. Semmi sem megy át MiyaraHub szerveren. A webhook oda megy, ahova te irányítod, ez a te döntésed."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Kezdőlap",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Felhasználói útmutató",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Otthon-automatizálás",
+      "item": "https://avrmaestro.com/guide/home-automation/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/hu/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menü" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Keresés az útmutatóban..." data-i18n-empty="Nincs találat erre:" data-i18n-language="Nyelv">
+      <a href="/hu/">Kezdőlap</a>
+      <a href="/hu/guide/">Felhasználói útmutató</a>
+      <a href="/hu/receivers/">Készülékek</a>
+      <a href="/hu/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hu/best-denon-marantz-app/">Miért érdemes váltani</a>
+      <a href="/hu/#top" class="cta">Letöltés</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/hu/">Főoldal</a> &rsaquo; <a href="/hu/guide/">Felhasználói útmutató</a> &rsaquo; Otthonautomatizálás</div>
+    <div class="eyebrow">Home Assistant &middot; Hubitat &middot; Webhookok</div>
+    <h1>Home Assistant és Hubitat: a jeleneteid, <span class="g">a telefonod nélkül</span> futva</h1>
+    <p>Kapcsold össze az AVR Maestro-t a Home Assistanttal vagy a Hubitattal, és minden megépített jeleneted natív szkriptté válik a hubodon. Ettől kezdve a hub közvetlenül, a saját hálózatodon beszél a készülékkel - így az „Alexa, filmes est” működik akkor is, ha a telefonod ki van kapcsolva, alszik, vagy egy másik országban van.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+      <figure><img alt="Az AVR Maestro Otthon-automatizálás hub a Home Assistanttal, a Hubitattal és a Webhookokkal" src="/screenshots/home-automation.png" width="1324" height="2644" decoding="async" /><figcaption>Egy hub, három kijárat</figcaption></figure>
+      <figure><img alt="Az AVR Maestro összekapcsolva a Home Assistanttal, a készülék entitásának automatikus felismerésével" src="/screenshots/home-assistant.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Összekapcsolva, a készülék entitását megtalálták helyetted</figcaption></figure>
+      <figure><img alt="Zárolt Otthon-automatizálás lakattal és a Nézd meg, mi tartozik hozzá gombbal" src="/screenshots/home-automation-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>A feloldás előtt megmondja, mit tartalmaz</figcaption></figure>
+    </div>
+
+    <div class="section-head" style="margin-top:36px">
+      <h2>Miért fut az alkalmazás nélkül</h2>
+    </div>
+    <p class="lead">A legtöbb integráció a telefonodat teszi közvetítővé: a telefon hallja a parancsot, a telefon küldi el, az automatizálás pedig csak addig működik, amíg a telefon ébren van és a hálózaton.</p>
+    <p class="lead">Az AVR Maestro ezt nem csinálja. A jeleneteidet olyan szkriptekké <b>fordítja</b>, amelyek a hubodon élnek, és a hub küldi a parancsokat a készüléked helyi IP-címére. Az alkalmazás dolga a szinkronizálás végén véget ér.</p>
+    <ul class="plain">
+      <li><b>Elsősorban helyi:</b> semmi sem megy át MiyaraHub szerveren. A hubod és a készüléked egymással beszél.</li>
+      <li><b>Telefonfüggetlen:</b> a közzétett jelenet akkor is fut, ha az alkalmazás nincs telepítve azon a telefonon, amelyen létrehozták.</li>
+      <li><b>A te asszisztensed, nem a miénk:</b> az Alexa, a Google Assistant és a Siri Shortcuts is a már megbízott hubodon keresztül éri el ezeket a szkripteket. Az AVR Maestro nem ad hozzá saját hangréteget.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Home Assistant, az elejétől a végéig</h2>
+    </div>
+    <ul class="plain">
+      <li><b>1. Először add hozzá a készülékedet a Home Assistant-hoz.</b> Beállítások &rsaquo; Eszközök &amp; szolgáltatások &rsaquo; Integráció hozzáadása &rsaquo; <b>Denon AVR</b> (vagy <b>HEOS</b>), majd a készüléked helyi IP-címe. A Home Assistant létrehoz hozzá egy médialejátszó entitást.</li>
+      <li><b>2. Nyisd meg az AVR Maestro-ban a Beállítások &rsaquo; Otthon-automatizálás oldalt</b>, és koppints a Home Assistant kártyára.</li>
+      <li><b>3. Add meg a Home Assistant címedet</b> - egy helyit, például <code>http://192.168.1.150:8123</code>, vagy a külső Nabu Casa URL-edet.</li>
+      <li><b>4. Jelentkezz be és engedélyezd.</b> Egy biztonságos beépített böngésző megnyitja a Home Assistant saját bejelentkezését. A hitelesítő adataid a Home Assistanthoz kerülnek, soha nem hozzánk.</li>
+      <li><b>5. Magától megtalálja a készüléket.</b> Az alkalmazás átvizsgálja a médialejátszó entitásaidat, modell, név és térhatású képesség alapján pontozza őket, majd kitölti helyetted a megfelelő entitást.</li>
+      <li><b>6. Szinkronizálás.</b> A jeleneteidből szkriptek épülnek, és feltöltődnek. Ezután egy jelenet szerkesztése a háttérben frissíti a szkriptjét - nincs gomb, amire emlékezned kellene.</li>
+    </ul>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">A szinkronizálás után</div>
+        <h2>Építs egy irányítópultot, amire jó ránézni</h2>
+        <p>A Home Assistantban most már van vezérlő mindenre, amit a készüléknek mondhatsz, de egyáltalán nincs véleménye arról, hogyan rendezd el őket. <a href="/hu/guide/home-assistant-dashboard/">Az irányítópult-példa</a> egy elrendezés a teljes YAML-lal: forrás- és térhatású csempék, amelyek világítanak, ha ők az aktívak, hangerő valódi dB-ben, a saját nevüket olvasó Jeleneteid, és őszinte térkép arról, mit lát és mit nem lát a Home Assistant.</p>
+      </div>
+      <img alt="Az AVR Maestro szinkronizált vezérlőiből épített Home Assistant irányítópult" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Nem csak jelenetek</div>
+        <h2>Hangszóró-előbeállítások, Dirac és Audyssey is</h2>
+        <p>Kapcsold be a <b>Speciális vezérlők szinkronizálása</b> opciót, és az alkalmazás jóval több mint a jeleneteid számára tesz közzé szkriptet: minden Hangszóró-előbeállításhoz, minden Dirac Live szűrőfoglalathoz, minden Audyssey görbéhez. Egy Cinema 30 teljes szinkronizálása hetven fölötti szkriptet hoz létre, így egy irányítópult-gomb vagy egy hangparancs ugyanúgy betölthet egy Dirac szűrőt vagy válthat térkorrekciós görbét, ahogy egy jelenetet hív elő.</p>
+      </div>
+      <img alt="Az AVR Maestro Home Assistant képernyője bekapcsolt Speciális vezérlők szinkronizálásával" src="/screenshots/ha-app-controls.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Olvas, nem csak ír</div>
+        <h2>A Home Assistant látja, mi az aktív</h2>
+        <p>Egy szkriptet futtatni lehet, de olvasni nem, így a korai irányítópultok át tudták kapcsolni az Audyssey görbét vagy a Dirac foglalatot, de nem tudták megmutatni, melyik volt bekapcsolva. Az értékek, amelyeket az alkalmazás már birtokol - az élő térhatású mód, az aktív Dirac szűrő, a hangszóró-előbeállítás, a fényerőszabályzó és még tucatnyi más - mostantól attribútumként jelennek meg a készülék állapotszenzorán, így a csempe arra a beállításra világíthat, amely tényleg fut.</p>
+      </div>
+      <img alt="Az AVR Maestro Hangszóró-előbeállítás, Dirac Live és Audyssey vezérlőszkripteket tesz közzé a Home Assistantban" src="/screenshots/ha-sync-advanced.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Minden helyiség</div>
+        <h2>A többi zónád ugyanabból az irányítópultból</h2>
+        <p>A Zóna 2 és Zóna 3 tápellátása, hangereje és némítása külön szkriptként jelenik meg, így a terasz vagy egy második helyiség úgy válaszol egy irányítópultra vagy hangasszisztensre, ahogy a főzóna mindig is. Csak azokhoz a zónákhoz készülnek gombok, amelyeket a készüléked ténylegesen jelent, így egy kétzónás készüléken sosem lesz Zóna 3.</p>
+      </div>
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Ha régebbi verzióval szinkronizáltál</div>
+        <h2>A szkriptazonosítóid egyszer megváltoznak</h2>
+        <p>A szkriptek korábban a jelenetről <em>és</em> a készülékről kapták a nevüket, így bármelyik átnevezése után a régi szkript megmaradt, és csendben létrejött egy második. Mostantól a jelenetről és a készülék MAC-címéről kapják a nevüket, ettől frissít egy átnevezés ugyanazt a szkriptet, ahelyett hogy másodpéldányt hozna létre.</p>
+        <p>A változás utáni első szinkronizálás kicseréli a régi szkripteket az újakra. <b>Mindent, amit a régi azonosítókra építettél, egyszer újra kell irányítani</b> - irányítópult-gombot, automatizálást, hangaliast. Nyisd meg a szkriptet a Home Assistantban, hogy megtaláld az új entitásazonosítóját.</p>
+        <p>Az entitások mostantól a készülékről is olvasnak - <code>cinema30</code> a harminckét karakternyi gépi azonosító helyett - így a lista olvasható, és az automatikus kiegészítés megtalálja őket. A korábbi verziók azonosítói tovább működnek.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Hubitat</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">A Hubitatot a <b>Maker API</b> támogatja, és az alkalmazásban BETA jelölést kap, mert újabb a Home Assistant útvonalnál, nem azért, mert befejezetlen.</p>
+        <ul class="plain">
+          <li><b>Hub IP</b> - a Hubitatod címe a LAN-on.</li>
+          <li><b>Maker API App ID</b> - a szám a Maker API alkalmazás saját URL-jében.</li>
+          <li><b>Access Token</b> - a Maker API adja ki, amikor engedélyezed.</li>
+        </ul>
+        <p class="lead">Előbb engedélyezd a Maker API-t a hubon (Apps &rsaquo; Add Built-In App &rsaquo; Maker API), és mind a hármat megkapod. Illeszd be őket, és az AVR Maestro felfedezi a készülékedet, parancssorozatként közzéteszi a jeleneteidet, és visszaküldi az élő állapotot, így egy Hubitat irányítópult azt tükrözi, amit a készülék ténylegesen csinál, nem azt, amit utoljára mondtak neki.</p>
+      </div>
+      <img alt="A Hubitat beállítóképernyő a hub IP-vel, a Maker API App ID-vel és a hozzáférési tokennel" src="/screenshots/hubitat.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Webhookok</h2>
+    </div>
+    <p class="lead">A Home Assistant és a Hubitat parancsokat küld <em>a</em> készüléknek. A webhookok a másik irányba mennek: ha a készülék csinál valamit, szólnak róla bárki másnak. Kapcsold be a készüléket, és az AVR Maestro egy kis üzenetet küld egy általad választott címre - ez az üzenet a webhook.</p>
+
+    <div class="note"><b>Ez az egyetlen rész, amely nem telefonfüggetlen.</b> A szinkronizált jeleneteid szkriptekké válnak a hubodon, és akkor is futnak, ha az alkalmazás sehol sincs a közelben. A webhookok mások: az AVR Maestro figyeli a készüléket, ezért egy trigger csak akkor aktiválódik, amíg az alkalmazás nyitva van egy olyan eszközön, amely látja azt. Ha azt szeretnéd, hogy valami úgy is elinduljon, hogy semmi sem fut, a hubodon építsd meg a készülék entitása köré.</div>
+
+    <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px;margin-top:22px">
+      <figure><img alt="A Webhookok képernyő a magyarázókártyájával és még trigger nélkül" src="/screenshots/webhooks.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Üres, amíg nem adsz hozzá egyet</figcaption></figure>
+      <figure><img alt="Az Automatizálási trigger hozzáadása lap: kiváltó esemény, hová küldje, és egy webhook-azonosító" src="/screenshots/webhook-trigger.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Egy esemény, egy cél, egy azonosító</figcaption></figure>
+    </div>
+
+    <h3 style="margin-top:34px">A négy trigger</h3>
+    <table class="t" style="margin-top:14px">
+      <thead><tr><th>Kiváltó esemény</th><th>Akkor aktiválódik, amikor</th><th>Szűkíthető erre</th></tr></thead>
+      <tbody>
+        <tr><td>Készülék bekapcsolva</td><td>A készülék kilép a készenléti állapotból</td><td>-</td></tr>
+        <tr><td>Készülék kikapcsolva</td><td>A készülék készenléti állapotba lép</td><td>-</td></tr>
+        <tr><td>Aktív bemenet módosult</td><td>A kiválasztott forrás megváltozik</td><td>Egy bemenet, itt: <em>Csak ennél a bemeneti forrásnál aktiválódjon</em></td></tr>
+        <tr><td>Jelenet előhívva</td><td>Egy Jelenet alkalmazásra kerül</td><td>Egy jelenet, itt: <em>Jelenet kiválasztása</em></td></tr>
+      </tbody>
+    </table>
+
+    <p class="lead" style="margin-top:22px">A szűkítéstől lesznek hasznosak a zaj helyett. Az „Aktív bemenet módosult” minden bemeneten egy tűzoltótömlő; ugyanez a trigger arra az egy bemenetre rögzítve, amelyen a projektorod van, egy villanykapcsoló.</p>
+    <p class="lead">A bemeneti lista az, amelyet a saját készüléked jelent, így már tükrözi az átnevezett vagy elrejtett forrásokat. A jelenetlista a saját jeleneteidből áll.</p>
+
+    <div class="section-head" style="margin-top:44px">
+      <h2>Beállítás lépésről lépésre</h2>
+    </div>
+    <p class="lead">Ez a Home Assistant útvonal, amelyet a legtöbben szeretnének. Először a Home Assistant felével végezz - az alkalmazásnak kell valami, amire mutathat.</p>
+
+    <h3 style="margin-top:28px">A Home Assistantban</h3>
+    <ul class="plain">
+      <li><b>1. Beállítások &rsaquo; Automatizálások &amp; jelenetek &rsaquo; Automatizálás létrehozása &rsaquo; Új automatizálás létrehozása.</b></li>
+      <li><b>2. Trigger hozzáadása &rsaquo; Webhook.</b> A Home Assistant generál neked egy hosszú, véletlenszerű Webhook ID-t.</li>
+      <li><b>3. Cseréld le valamire, amit felismersz</b> - <code>avr-power-on</code>, <code>avr-movie-night</code>. Bármilyen név jó, amíg egyedi a Home Assistantodon. Írd fel; ugyanezt gépeled be az AVR Maestro-ba.</li>
+      <li><b>4. A webhook beállításainál engedélyezd a <em>POST</em> metódust.</b> Ezt küldi az AVR Maestro. A csak helyi is rendben van - az alkalmazás a saját hálózatodon van.</li>
+      <li><b>5. Add hozzá, amit szeretnél, hogy csináljon</b> - fények tompítása, redőny lehúzása, jelenet indítása - és mentsd az automatizálást.</li>
+    </ul>
+
+    <h3 style="margin-top:28px">Az AVR Maestro-ban</h3>
+    <ul class="plain">
+      <li><b>1. Beállítások &rsaquo; Otthon-automatizálás &rsaquo; Webhookok</b>, majd <b>Első trigger hozzáadása</b> - vagy a <b>+</b> gomb, ha már van egy.</li>
+      <li><b>2. Kiváltó esemény</b> - válaszd ki, minek kell elindítania. Az <em>Aktív bemenet módosult</em> vagy a <em>Jelenet előhívva</em> választása egy második mezőt ad a szűkítéshez.</li>
+      <li><b>3. Hová legyen elküldve</b> - hagyd a <b>Home Assistant</b> értéken. A cím már ismert, mert ugyanezen a képernyőn korábban összekapcsoltad.</li>
+      <li><b>4. Webhook-azonosító</b> - írd be ugyanazt az azonosítót, amelyet a Home Assistantban használtál. Semmi másnak nem kell egyeznie. Alatta az alkalmazás kiírja a pontos címet, ahova küldeni fog - <code>Sends to http://your-ha:8123/api/webhook/avr-power-on</code> - így mentés előtt ellenőrizheted.</li>
+      <li><b>5. Mentés.</b> Aztán nyomd meg a <b>Teszt</b> gombot a listában a triggeren. A Home Assistant automatizálásodnak azonnal le kell futnia.</li>
+    </ul>
+
+    <div class="note" style="margin-top:24px"><b>A Home Assistant útvonalhoz soha nem gépelsz be URL-t.</b> Az alkalmazás az összekapcsolt Home Assistantból építi fel, és ezt a címet <em>a trigger minden aktiválásakor</em> újra megkeresi. Ha a Home Assistantot új portra, új gépnévre vagy Nabu Casa címre költözteted, minden már elkészített webhookod követi. Nincs mit újra szinkronizálni, és nincs gomb, amit nyomni kéne.</div>
+
+    <div class="note">Ha a lap azt írja: <b>A Home Assistant még nincs összekapcsolva</b>, előbb végezd el az oldal tetején lévő Home Assistant kártyát. A webhook útvonalhoz kell egy cím, amire építhet.</div>
+
+    <h3 style="margin-top:34px">Küldés máshová, mint a Home Assistantba</h3>
+    <p class="lead">Állítsd a <b>Hová legyen elküldve</b> mezőt <b>Egyéb</b> értékre, és illessz be egy teljes URL-t a <b>Webhook URL</b> mezőbe. Bármi működik, ami fogad egy POST kérést - egy Node-RED folyamat, egy IFTTT applet, egy szkript egy NAS-on, egy Hubitat Maker API végpont. Ez az útvonal pontosan úgy tárolja a címet, ahogy beírtad, így ha a cél elköltözik, a triggert kell szerkesztened.</p>
+
+    <div class="section-head" style="margin-top:44px">
+      <h2>Mi kerül tényleges elküldésre</h2>
+    </div>
+    <p class="lead">Egy kis JSON-törzs. Ugyanezen a képernyőn a <b>Mit küld</b> kártya érthető nyelven elmondja a kiválasztott triggerhez, így soha nem kell találgatnod - és az automatizálásod ezeket a mezőneveket olvassa:</p>
+    <table class="t" style="margin-top:14px">
+      <thead><tr><th>Trigger</th><th>Az üzenet mezői</th></tr></thead>
+      <tbody>
+        <tr><td>Készülék be / ki</td><td><code>event</code>, <code>timestamp</code></td></tr>
+        <tr><td>Aktív bemenet módosult</td><td>...valamint <code>source</code></td></tr>
+        <tr><td>Jelenet előhívva</td><td>...valamint <code>sceneId</code> és <code>sceneName</code></td></tr>
+      </tbody>
+    </table>
+    <p class="lead" style="margin-top:20px">Egy Home Assistant automatizálásban ezek így érkeznek: <code>{{ trigger.json.event }}</code>, <code>{{ trigger.json.source }}</code> és így tovább. Elolvashatod őket, vagy teljesen figyelmen kívül hagyhatod, és csak arra reagálsz, hogy az aktiválódott. A legtöbben ez utóbbit teszik.</p>
+    <p class="lead">Ha más alakra van szükséged - egy szolgáltatás, amely a saját formátumát várja - nyisd meg a kártya alatt a <b>Saját JSON küldése helyette</b> opciót, és írd meg ott. Összecsukva van, és Speciális jelölést kapott, mert szinte senkinek sem kell, nem azért, mert nem ajánlott.</p>
+
+    <div class="note">A képernyő neve <b>Webhookok</b>, mert azok. Ha olyan automatizálásokat keresel, amelyek a hubodon <em>futnak</em>, azok a fenti Home Assistant és Hubitat kártyák - egy szinkronizált Jelenet ott szkriptté válik, nem itt webhookká.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Ha egy webhook nem érkezik meg</h2>
+    </div>
+    <p class="lead">Az ellenőrzés érdemes sorrendje ez, mert az első kettő szinte mindig az oka:</p>
+    <ul class="plain">
+      <li><b>Előbb nyomd meg a Tesztet.</b> Ugyanazt az üzenetet küldi, mint a valódi trigger, ugyanarra a címre, és megmondja, a három közül mi történt: kézbesítve, nem kézbesítve, vagy kihagyva, mert a trigger saját kapcsolója ki van kapcsolva. Ha a Teszt kézbesít, a valódi esemény viszont nem, akkor a trigger a hibás - leggyakrabban egy olyan <em>Aktív bemenet módosult</em>, amely olyan bemenetre van szűkítve, amelyre valójában nem váltasz.</li>
+      <li><b>Ellenőrizd, hogy az azonosító pontosan egyezik.</b> A Home Assistant webhook-azonosítói megkülönböztetik a kis- és nagybetűt, és nem tűrik a felesleges szóközt. Az alkalmazás kiírja a mező alatt a teljes címet, ahova küldeni fog - hasonlítsd össze az automatizálásodban lévővel.</li>
+      <li><b>Ellenőrizd, hogy az automatizálás engedélyezi a POST-ot.</b> Az a Home Assistant webhook trigger, amely csak GET-et enged, csendben figyelmen kívül hagyja, amit az AVR Maestro küld.</li>
+      <li><b>Ellenőrizd, hogy a trigger kapcsolója be van kapcsolva.</b> Mindegyiknek saját kapcsolója van a listában, és a kikapcsolt triggert kihagyja, nem hibával jelzi.</li>
+      <li><b>A triggerek egy készülékhez tartoznak.</b> A lista, amelyet nézel, az éppen kiválasztott készülék listája. Egy másik készüléknek saját van, így az itt létrehozott szabály nem aktiválódik egy másik helyiségnél.</li>
+      <li><b>Az alkalmazásnak figyelnie kell.</b> Az AVR Maestro veszi észre, hogy a készülék megváltozott, így semmi sem aktiválódik a zsebedben lévő telefonról, ha az alkalmazás be van zárva. Ez a szakasz elején leírt kompromisszum, nem hiba.</li>
+      <li><b>A webhookok az Otthon-automatizálás részei.</b> E feloldás nélkül a triggerek láthatók, de semmi sem megy el, és a Teszt ezt kimondja, nem tesz úgy, mintha működött volna.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Mi fizetős és mi nem</div>
+        <h2>Az Otthon-automatizálás az egyetlen feloldás. Az AI-asszisztens ingyenes.</h2>
+        <p>Az <b>Otthon-automatizálás (Pro)</b> - Home Assistant, Hubitat és kimenő webhookok - egyszeri feloldás. Minden más az AVR Maestro-ban, az eszközön futó AI-asszisztenssel együtt, benne van az alkalmazásban.</p>
+        <p>A hangvezérlés a hubodon keresztül, az Otthon-automatizálás <em>által</em> éri el a készüléket. Az AVR Maestro nem futtat saját hangfelismerést.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Gyakori kérdések</div>
+      <h2>Otthon-automatizálás, megválaszolva</h2>
+    </div>
+    <details open><summary>Be kell lennie kapcsolva a telefonomnak a hangvezérléshez?</summary><div class="body">Nem. Az AVR Maestro a jeleneteidet natív Home Assistant szkriptekké fordítja. A Home Assistant közvetlenül a helyi hálózaton beszél a készülékkel, így a telefonod lehet kikapcsolva, alvó módban, vagy akár egy másik országban.</div></details>
+    <details><summary>Mely hangasszisztensek vezérelhetik a készülékemet?</summary><div class="body">Amelyiket már használod. Az AVR Maestro nem tesz hozzá saját hangréteget - szkripteket tesz közzé a Home Assistantban vagy a Hubitatban, és ezeket a már megbízott hubod teszi elérhetővé az Alexa, a Google Assistant vagy a Siri Shortcuts számára.</div></details>
+    <details><summary>Az AI-asszisztens a fizetős feloldás része?</summary><div class="body">Nem. Az eszközön futó AI-asszisztens ingyenes. Az Otthon-automatizálás - Home Assistant, Hubitat és kimenő webhookok - az AVR Maestro egyetlen fizetős feloldása.</div></details>
+    <details><summary>Elhagy valami az otthoni hálózatomat?</summary><div class="body">A vezérléshez nem. Az alkalmazás a saját hálózatodon beszél a készülékeddel és a hubbal. Semmi sem megy át MiyaraHub szerveren. A webhook oda megy, ahova te irányítod, ez a te döntésed.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Az útmutató további részei</div>
+      <h2>További AVR Maestro útmutatók</h2>
+    </div>
+    <p class="lead"><a href="/hu/guide/getting-started/">Első lépések</a> &middot; <a href="/hu/guide/home/">Kezdőképernyő</a> &middot; <a href="/hu/guide/scenes/">Jelenetek</a> &middot; <a href="/hu/guide/custom-icons/">Egyéni ikonok</a> &middot; <a href="/hu/guide/sound/">Hang</a> &middot; <a href="/hu/guide/graphic-eq/">Grafikus EQ</a> &middot; <a href="/hu/guide/speakers/">Hangszórók</a> &middot; <a href="/hu/guide/locked-controls/">Miért zárolt egy vezérlő</a> &middot; <a href="/hu/guide/assistant/">Az asszisztens</a> &middot; <a href="/hu/guide/home-assistant-dashboard/">Home Assistant irányítópult</a> &middot; <a href="/hu/guide/multi-zone/">Zónák</a> &middot; <a href="/hu/guide/remote/">Távirányító</a> &middot; <a href="/hu/guide/radio/">Rádió (FM/AM)</a> &middot; <a href="/hu/guide/on-screen-display/">Képernyőkijelző</a> &middot; <a href="/hu/guide/settings/">Beállítások</a> &middot; <a href="/hu/guide/languages/">Nyelvek</a> &middot; <a href="/hu/guide/volume/">Hangerő-szabályzók</a> &middot; <a href="/hu/guide/backup/">Mentés &amp; visszaállítás</a> &middot; <a href="/hu/guide/now-playing/">Most szól &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>A jeleneteid, a telefonod nélkül futva</h2>
+    <p class="lead" style="margin:0 auto 24px">Az Otthon-automatizálás egyszeri feloldás. Minden más az alkalmazásban, az AI-asszisztenssel együtt, benne van.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Töltse le a Google Playről" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Letöltés az App Store-ból" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Letöltés a Mac App Store-ból" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Töltse le a Microsoft Store-ból" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/hu/guide/">Vissza a teljes Felhasználói útmutatóhoz &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/hu/">Kezdőlap</a>
+      <a href="/hu/guide/">Felhasználói útmutató</a>
+      <a href="/hu/guide/getting-started/">Első lépések</a>
+      <a href="/hu/receivers/">Készülékek</a>
+      <a href="/hu/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hu/audyssey-vs-dirac/">Audyssey és Dirac</a>
+      <a href="/hu/best-denon-marantz-app/">Miért érdemes váltani</a>
+      <a href="/hu/help/">Súgó</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">Az AVR Maestro a MiyaraHub Technologies LLC független alkalmazása, amelyet nem érint, nem támogat és nem szponzorál a Denon, a Marantz, a D&amp;M Holdings, a Sound United, sem más, ezen az oldalon említett cég. A Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant és Siri nevek a megfelelő tulajdonosaik védjegyei, itt kizárólag azonosításra használjuk őket.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

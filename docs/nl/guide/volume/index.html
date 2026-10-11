@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="nl" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Volumelimiet, inschakelniveau &amp; mute-diepte - AVR Maestro</title>
+<meta name="description" content="Stel een volumelimiet in voor je Denon of Marantz, kies het inschakelniveau, bepaal hoe ver Mute dempt en lees het volume af als 0 tot 98 of in decibel." />
+<meta name="keywords" content="Denon volume limit app, Marantz power on level, AVR mute level -20 dB, receiver volume in decibels app, Denon volume scale absolute relative, protect speakers volume limit" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/nl/guide/volume/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/volume/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/volume/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/volume/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/volume/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/volume/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/volume/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/volume/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/volume/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/volume/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/volume/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/volume/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/volume/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/volume/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/volume/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/volume/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/volume/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/volume/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/volume/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/volume/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/volume/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/volume/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/volume/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/volume/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/volume/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/volume/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/volume/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/volume/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/volume/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/volume/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/volume/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/volume/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="nl_NL" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Volumelimiet, inschakelniveau &amp; mute-diepte - AVR Maestro" />
+<meta property="og:description" content="Stel een volumelimiet in voor je Denon of Marantz, kies het inschakelniveau, bepaal hoe ver Mute dempt en lees het volume af als 0 tot 98 of in decibel." />
+<meta property="og:url" content="https://avrmaestro.com/nl/guide/volume/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Volumelimiet, inschakelniveau &amp; mute-diepte - AVR Maestro" />
+<meta name="twitter:description" content="Stel een volumelimiet in voor je Denon of Marantz, kies het inschakelniveau, bepaal hoe ver Mute dempt en lees het volume af als 0 tot 98 of in decibel." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro is een onafhankelijke app voor het bedienen van Denon- en Marantz-AV-receivers via je lokale netwerk.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "nl"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/volume/#article",
+      "headline": "Volumeregeling: een plafond, een opstartniveau en een Mute die doet wat jij wilt",
+      "description": "Stel een volumelimiet in voor je Denon of Marantz, kies het inschakelniveau, bepaal hoe ver Mute dempt en lees het volume af als 0 tot 98 of in decibel.",
+      "image": "https://avrmaestro.com/screenshots/volume-controls.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/volume/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "nl"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/volume/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Geldt de volumelimiet ook voor de fysieke afstandsbediening?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. De limiet is een instelling van de receiver, niet van de app, dus hij geldt voor elke route: de app, de meegeleverde afstandsbediening, de draaiknop op het voorpaneel en elke andere controller op je netwerk."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Gelden deze instellingen ook voor Zone 2 en Zone 3?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Volumeregeling betreft de hoofdzone. Elke zone heeft zijn eigen volume, en zijn eigen aan/uit en ingang, op het tabblad Zones."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Waarom toont de app 0 tot 98 terwijl reviews decibels noemen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Het zijn twee weergaven van dezelfde knop. Zet de Volumeschaal op -79.5 tot 18.0 dB en de uitlezing komt overeen met hoe kalibratieniveaus gewoonlijk worden genoemd, waarbij 0.0 dB het referentieniveau is."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan ik de volumeknoppen van mijn telefoon gebruiken?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, op Android en op iPhone. Zolang AVR Maestro op de voorgrond staat, sturen de volumeknoppen van het apparaat de receiver rechtstreeks aan, een stap per druk en een oplopende reeks als je ingedrukt houdt; met een schakelaar onder Instellingen, Geluid krijgt het apparaat zijn knoppen terug."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Start",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Handleiding",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Volumebediening",
+      "item": "https://avrmaestro.com/guide/volume/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/nl/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Zoek in de handleiding..." data-i18n-empty="Geen resultaten voor" data-i18n-language="Taal">
+      <a href="/nl/">Start</a>
+      <a href="/nl/guide/">Handleiding</a>
+      <a href="/nl/receivers/">Receivers</a>
+      <a href="/nl/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/nl/best-denon-marantz-app/">Waarom overstappen</a>
+      <a href="/nl/#top" class="cta">Downloaden</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/nl/">Home</a> &rsaquo; <a href="/nl/guide/">Gebruikershandleiding</a> &rsaquo; Volumebediening</div>
+    <div class="eyebrow">Instellingen &rsaquo; Volumeregeling</div>
+    <h1>Volumeregeling: een plafond, een opstartniveau en <span class="g">een Mute die doet wat jij wilt</span></h1>
+    <p>Vier instellingen die samen bepalen hoe luid je receiver ooit kan worden, wat hij doet bij het opstarten en hoe ver Mute hem laat zakken. Ze staan op de receiver, dus ze gelden of je nu de app, de fysieke afstandsbediening of het voorpaneel gebruikt.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Waar je het vindt</div>
+        <h2>Instellingen &rsaquo; Volumeregeling</h2>
+        <p class="lead">Open <b>Instellingen</b> en scrol naar <b>Volumeregeling</b> - "Volumelimiet, inschakelniveau en mute-diepte". Alles op deze pagina wordt rechtstreeks naar de receiver geschreven, dus het blijft behouden als je de app sluit en geldt voor elke manier waarop je hem bedient.</p>
+      </div>
+      <img alt="De pagina Volumeregeling met volumeschaal, limiet, inschakelniveau en mute-niveau" src="/screenshots/volume-controls.png" width="1324" height="2644" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Een voor een</div>
+      <h2>Wat elke instelling doet</h2>
+    </div>
+
+    <h3 style="margin-top:26px">Volumeschaal</h3>
+    <p class="lead">Hoe het volume wordt weergegeven, zowel op het scherm als op het eigen display van de receiver. <b>0 - 98</b> is de relatieve schaal die de meeste mensen kennen; <b>-79.5 tot 18.0 dB</b> is de absolute schaal, waarbij 0.0 dB het referentieniveau is. Als je ooit een review "-15 dB" hebt zien noemen en je afvroeg hoe dat zich verhoudt tot jouw knop, dan is dit de schakelaar die het antwoord geeft.</p>
+
+    <h3 style="margin-top:26px">Volumelimiet</h3>
+    <p class="lead">Een hard plafond. Eenmaal ingesteld gaat <b>niets</b> erboven - niet de app, niet de fysieke afstandsbediening, niet de draaiknop op het voorpaneel, omdat de limiet op de receiver staat en niet in de app. Het voor de hand liggende gebruik is het beschermen van luidsprekers of een kamer vol mensen tegen een verkeerde tik, en het is de instelling om te kiezen voordat je de afstandsbediening aan een logé geeft. <b>Uit</b> haalt het plafond weg.</p>
+
+    <h3 style="margin-top:26px">Inschakelniveau</h3>
+    <p class="lead"><b>Laatste volume gebruiken</b> staat standaard aan: de receiver start op het niveau waarop hij stond toen je hem uitzette. Zet je het uit, dan kun je in plaats daarvan een vast niveau instellen, zodat een late sessie op hoog volume de volgende ochtend nooit een onaangename verrassing wordt.</p>
+
+    <h3 style="margin-top:26px">Mute-niveau</h3>
+    <p class="lead">Hoe ver Mute het volume laat zakken. <b>Volledig</b> maakt het stil. <b>-40 dB</b> en <b>-20 dB</b> dempen in plaats daarvan, wat de betere keuze is als je een gesprek wilt voeren boven een film zonder de draad kwijt te raken.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Elders in de app</div>
+      <h2>De regelingen die je elke dag gebruikt</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Het startscherm</b> bevat het hoofdvolume, mute en aan/uit voor de hoofdzone.</li>
+      <li><b>Het tabblad Afstandsbediening</b> geeft je een volumeschommel naast het D-pad en de transporttoetsen, met het niveau in beeld terwijl je regelt. <a href="/nl/guide/remote/">Gids Afstandsbediening &rarr;</a></li>
+      <li><b>Elke plus- en minknop voor het volume</b> - op het startscherm, de zonekaarten en het tabblad Afstandsbediening - gaat een stap omhoog of omlaag bij een tik en blijft stappen zolang je ingedrukt houdt, zoals de fysieke afstandsbediening. Laat los en het stopt binnen een stap.</li>
+      <li><b>De volumeknoppen van je telefoon</b>, op Android en iPhone, sturen de receiver aan zolang de app op de voorgrond staat, zodat je kunt bijstellen zonder te kijken. Ingedrukt houden loopt ook op.</li>
+      <li><b>Elke zone</b> heeft zijn eigen volume, los van de hoofdzone. <a href="/nl/guide/multi-zone/">Gids Zones &rarr;</a></li>
+      <li><b>Scènes</b> kunnen het Master Volume vastleggen, dus bij het oproepen van een scène wordt het niveau samen met al het andere ingesteld. <a href="/nl/guide/scenes/">Gids Scènes &rarr;</a></li>
+      <li><b>De volume-uitlezing op het scherm</b> van je tv kan worden verplaatst of helemaal worden uitgezet. <a href="/nl/guide/on-screen-display/">Gids On-Screen Display &rarr;</a></li>
+    </ul>
+    <div class="note">Volumewijzigingen worden bewust getempood in plaats van per pixel afgevuurd, zodat het vasthouden van de schommel of het slepen van de schuifregelaar soepel oploopt, in plaats van de receiver te overspoelen met commando's die hij zou opstapelen en te laat zou toepassen.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Veelgestelde vragen</div>
+      <h2>Veelgestelde vragen over volume</h2>
+    </div>
+    <details open><summary>Geldt de volumelimiet ook voor de fysieke afstandsbediening?</summary><div class="body">Ja. De limiet is een instelling van de receiver, niet van de app, dus hij geldt voor elke route: de app, de meegeleverde afstandsbediening, de draaiknop op het voorpaneel en elke andere controller op je netwerk.</div></details>
+    <details><summary>Gelden deze instellingen ook voor Zone 2 en Zone 3?</summary><div class="body">Volumeregeling betreft de hoofdzone. Elke zone heeft zijn eigen volume, en zijn eigen aan/uit en ingang, op het tabblad Zones.</div></details>
+    <details><summary>Waarom toont de app 0 tot 98 terwijl reviews decibels noemen?</summary><div class="body">Het zijn twee weergaven van dezelfde knop. Zet de Volumeschaal op -79.5 tot 18.0 dB en de uitlezing komt overeen met hoe kalibratieniveaus gewoonlijk worden genoemd, waarbij 0.0 dB het referentieniveau is.</div></details>
+    <details><summary>Kan ik de volumeknoppen van mijn telefoon gebruiken?</summary><div class="body">Ja, op Android en op iPhone. Zolang AVR Maestro op de voorgrond staat, sturen de volumeknoppen van het apparaat de receiver rechtstreeks aan, een stap per druk en een oplopende reeks als je ingedrukt houdt; met een schakelaar onder Instellingen, Geluid krijgt het apparaat zijn knoppen terug.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Meer uit de handleiding</div>
+      <h2>Andere AVR Maestro-handleidingen</h2>
+    </div>
+    <p class="lead"><a href="/nl/guide/getting-started/">Aan de slag</a> &middot; <a href="/nl/guide/home/">Startscherm</a> &middot; <a href="/nl/guide/scenes/">Scènes</a> &middot; <a href="/nl/guide/custom-icons/">Aangepaste pictogrammen</a> &middot; <a href="/nl/guide/sound/">Geluid</a> &middot; <a href="/nl/guide/graphic-eq/">Grafische EQ</a> &middot; <a href="/nl/guide/speakers/">Luidsprekers</a> &middot; <a href="/nl/guide/locked-controls/">Waarom een bediening vergrendeld is</a> &middot; <a href="/nl/guide/assistant/">De assistent</a> &middot; <a href="/nl/guide/home-automation/">Domotica</a> &middot; <a href="/nl/guide/home-assistant-dashboard/">Home Assistant-dashboard</a> &middot; <a href="/nl/guide/multi-zone/">Zones</a> &middot; <a href="/nl/guide/remote/">Afstandsbediening</a> &middot; <a href="/nl/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/nl/guide/on-screen-display/">Schermweergave</a> &middot; <a href="/nl/guide/settings/">Instellingen</a> &middot; <a href="/nl/guide/languages/">Talen</a> &middot; <a href="/nl/guide/backup/">Back-up &amp; herstel</a> &middot; <a href="/nl/guide/now-playing/">Nu aan het spelen &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Stel het plafond één keer in en leun daarna achterover</h2>
+    <p class="lead" style="margin:0 auto 24px">Eenmalige aankoop, geen advertenties, geen abonnementen. Binnen een minuut verbonden.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Download via Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Download in de App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Download in de Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Download via de Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/nl/guide/">Terug naar de volledige gebruikershandleiding &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/nl/">Start</a>
+      <a href="/nl/guide/">Handleiding</a>
+      <a href="/nl/guide/getting-started/">Aan de slag</a>
+      <a href="/nl/receivers/">Receivers</a>
+      <a href="/nl/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/nl/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/nl/best-denon-marantz-app/">Waarom overstappen</a>
+      <a href="/nl/help/">Hulp</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro is een onafhankelijke app van MiyaraHub Technologies LLC en is niet gelieerd aan, goedgekeurd door of gesponsord door Denon, Marantz, D&amp;M Holdings, Sound United of enig ander bedrijf dat op deze pagina wordt genoemd. Denon, Marantz, HEOS, Audyssey en Dirac Live zijn handelsmerken van hun respectieve eigenaren en worden hier uitsluitend ter identificatie gebruikt.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

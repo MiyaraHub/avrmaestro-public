@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>사운드 탭: AVR의 모든 오디오 컨트롤 - AVR Maestro</title>
+<meta name="description" content="Denon 또는 Marantz의 모든 오디오 컨트롤을 설명합니다. 서라운드 모드, 다이얼로그 인핸서, DRC, Audyssey, Dirac Live, 그래픽 EQ, 트림, 톤, IMAX, Auro-3D까지 다룹니다." />
+<meta name="keywords" content="Denon sound modes app, Marantz surround mode app, Audyssey MultEQ app, Dirac Live app control, Dolby Surround DTS Neural X app, IMAX Enhanced settings app, Auro-3D app, dialog enhancer Denon, dynamic range compression AVR, M-DAX audio restorer" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/ko/guide/sound/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/sound/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/sound/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/sound/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/sound/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/sound/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/sound/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/sound/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/sound/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/sound/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/sound/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/sound/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/sound/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/sound/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/sound/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/sound/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/sound/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/sound/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/sound/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/sound/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/sound/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/sound/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/sound/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/sound/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/sound/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/sound/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/sound/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/sound/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/sound/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/sound/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/sound/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/sound/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="ko_KR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="사운드 탭: AVR의 모든 오디오 컨트롤 - AVR Maestro" />
+<meta property="og:description" content="Denon 또는 Marantz의 모든 오디오 컨트롤을 설명합니다. 서라운드 모드, 다이얼로그 인핸서, DRC, Audyssey, Dirac Live, 그래픽 EQ, 트림, 톤, IMAX, Auro-3D까지 다룹니다." />
+<meta property="og:url" content="https://avrmaestro.com/ko/guide/sound/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="사운드 탭: AVR의 모든 오디오 컨트롤 - AVR Maestro" />
+<meta name="twitter:description" content="Denon 또는 Marantz의 모든 오디오 컨트롤을 설명합니다. 서라운드 모드, 다이얼로그 인핸서, DRC, Audyssey, Dirac Live, 그래픽 EQ, 트림, 톤, IMAX, Auro-3D까지 다룹니다." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro는 로컬 네트워크를 통해 Denon 및 Marantz AV 리시버를 제어하는 독립 앱입니다.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "ko"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/sound/#article",
+      "headline": "리시버의 모든 오디오 컨트롤을 하나의 사운드 탭에",
+      "description": "Denon 또는 Marantz의 모든 오디오 컨트롤을 설명합니다. 서라운드 모드, 다이얼로그 인핸서, DRC, Audyssey, Dirac Live, 그래픽 EQ, 트림, 톤, IMAX, Auro-3D까지 다룹니다.",
+      "image": "https://avrmaestro.com/screenshots/sound-surround.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/sound/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "ko"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/sound/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "사운드 모드 목록이 바뀌는 이유는 무엇인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "리시버의 목록이 바뀌기 때문입니다. Denon 또는 Marantz가 받아들이는 모드는 디코딩 중인 신호에 따라 달라집니다. 2채널 스트림에서는 업믹서가 제공되고, Atmos 스트림에서는 Atmos를 지원하는 모드가 제공됩니다. AVR Maestro는 절반은 틀릴 고정 메뉴를 보여 주는 대신, 매번 리시버에서 현재 목록을 읽어 옵니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "컨트롤이 N/A로 회색 처리되는 이유는 무엇인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "N/A는 현재 상태에서 리시버에 해당 값이 없다는 뜻이며, 대개 입력 신호에 그 기능이 포함되어 있지 않기 때문입니다. 행 옆의 물음표를 누르면 어떤 신호가 있어야 활성화되는지 앱이 설명해 줍니다. 회색 컨트롤은 숨겨진 버그가 아니라 리시버 자체의 답입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "채널과 레벨은 무엇이 다른가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "채널(사운드 탭)은 지금 재생 중인 신호에 대한 채널별 실시간 트림입니다. 레벨(스피커 탭)은 보정으로 Speaker Preset에 저장된 스피커별 기준 레벨입니다. 채널을 조정해도 보정은 다시 쓰이지 않습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "톤 컨트롤과 Audyssey를 함께 쓸 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dynamic EQ가 켜져 있는 동안에는 불가능합니다. 리시버가 톤 컨트롤을 직접 관리하기 때문입니다. Audyssey 페이지에서 Dynamic EQ를 끄면 저음과 고음을 다시 편집할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "같은 네트워크에 있어야 하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. AVR Maestro는 클라우드 계정이나 중계 서버 없이 LAN을 통해 리시버와 직접 통신합니다. 시작하기를 참고하세요."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "사용 설명서",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "사운드",
+      "item": "https://avrmaestro.com/guide/sound/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/ko/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="메뉴" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="가이드 검색..." data-i18n-empty="검색 결과 없음:" data-i18n-language="언어">
+      <a href="/ko/">홈</a>
+      <a href="/ko/guide/">사용 설명서</a>
+      <a href="/ko/receivers/">리시버</a>
+      <a href="/ko/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ko/best-denon-marantz-app/">갈아타는 이유</a>
+      <a href="/ko/#top" class="cta">다운로드</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/ko/">홈</a> &rsaquo; <a href="/ko/guide/">사용 설명서</a> &rsaquo; 사운드</div>
+    <div class="eyebrow">사운드 탭</div>
+    <h1>리시버의 모든 오디오 컨트롤을 <span class="g">하나의 사운드 탭에</span></h1>
+    <p>사운드 탭은 아홉 페이지로 구성되어 있으며, 단순화한 버전이 아니라 리시버 자체의 오디오 메뉴를 그대로 반영합니다. 이 페이지에서는 아홉 페이지를 모두 살펴봅니다. 각 컨트롤이 하는 일, 필요한 조건, 그리고 리시버가 가끔 조작을 허용하지 않는 이유입니다.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">여기에 있는 항목</div>
+      <h2>아홉 페이지</h2>
+    </div>
+    <table class="t">
+      <thead><tr><th>페이지</th><th>제어하는 항목</th></tr></thead>
+      <tbody>
+        <tr><td><a href="#surround">서라운드</a></td><td>영화 / 음악 / 게임 / 퓨어로 나뉜 사운드 모드와 오디오 기능 표시</td></tr>
+        <tr><td><a href="#dialog">대화 &amp; DRC</a></td><td>Dialog Enhancer 세기와 Dynamic Range Compression</td></tr>
+        <tr><td><a href="#audyssey">Audyssey</a></td><td>MultEQ, Dynamic EQ, Reference Level Offset, Dynamic Volume, Surround Level Compensation</td></tr>
+        <tr><td><a href="#dirac">Dirac Live</a></td><td>불러온 필터 슬롯을 이름으로 표시하고, 끔 옵션도 제공</td></tr>
+        <tr><td><a href="#geq">그래픽 EQ</a></td><td>스피커별 9밴드 곡선, 63Hz에서 16kHz까지</td></tr>
+        <tr><td><a href="#channels">채널</a></td><td>현재 신호에 포함된 모든 스피커의 채널별 트림(dB)과 Bass Sync</td></tr>
+        <tr><td><a href="#tone">톤</a></td><td>톤 컨트롤, 저음, 고음, DAC 필터, Audio Restorer (M-DAX)</td></tr>
+        <tr><td><a href="#imax">IMAX</a></td><td>IMAX Enhanced 모드와 전용 HPF, LPF, 서브우퍼 라우팅</td></tr>
+        <tr><td><a href="#auro">Auro-3D</a></td><td>Auromatic 프리셋, 세기, Auro 3D Mode</td></tr>
+      </tbody>
+    </table>
+    <div class="note">이 가운데 어떤 페이지가 표시될지는 리시버가 결정합니다. Auro-3D 라이선스가 없는 기기에는 Auro-3D 페이지가 없고, IMAX Enhanced 디코더가 없는 기기에는 IMAX 페이지가 없습니다. AVR Maestro는 모델을 짐작하지 않고 리시버에 직접 무엇이 있는지 물어봅니다.</div>
+  </div>
+</section>
+
+<section id="surround">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">첫 번째 페이지</div>
+      <h2>서라운드: 모드, 그리고 리시버가 실제로 하는 일</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">맨 위 카드에는 리시버가 보고하는 그대로의 <b>현재 모드</b>가 표시됩니다. 그 아래에서 모드는 <b>영화</b>, <b>음악</b>, <b>게임</b>, <b>퓨어</b>로 묶여 있으며, 리시버가 지금 디코딩 중인 신호에서 받아들일 수 있는 모드만 나타납니다.</p>
+        <ul class="plain">
+          <li><b>Stereo, Dolby Surround, DTS Neural:X, Auro-3D, Auro Surround, Multi Ch Stereo</b> 등은 기기와 들어오는 스트림이 허용하는 범위에서 표시됩니다.</li>
+          <li>아래의 <b>오디오 기능</b>은 희망 목록이 아니라 실시간 표시입니다. Neural:X, IMAX Enhanced, Cinema EQ, Center Spread, Loudness Management, Speaker Virtualizer 등이 각각 <b>활성화</b>, <b>비활성화</b> 또는 <b>N/A</b>로 나타납니다.</li>
+          <li><b>N/A</b>는 현재 신호로는 해당 기능을 쓸 수 없다는 뜻입니다. 옆의 물음표를 누르면 어떤 신호가 필요한지 앱이 알려 줍니다.</li>
+        </ul>
+      </div>
+      <img alt="현재 모드와 오디오 기능 표시가 보이는 서라운드 페이지" src="/screenshots/sound-surround.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="dialog">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">두 번째 페이지</div>
+      <h2>대화 &amp; DRC: 명료한 대사와 야간 감상</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <ul class="plain">
+          <li><b>Dialog Enhancer</b> - 끔, 낮음, 중간, 높음. 보정 상태는 그대로 두고 센터 채널의 명료도를 높여 줍니다.</li>
+          <li><b>Dynamic Range Compression</b> - 끔, 낮음, 중간, 높음, 자동. 속삭임과 폭발음의 음량 차이를 줄여 주므로 늦은 밤에 딱 알맞습니다.</li>
+        </ul>
+        <p class="lead">DRC는 리시버가 받아들이지 않는 컨트롤을 AVR Maestro가 어떻게 다루는지 보여 주는 가장 좋은 예입니다. 압축 데이터는 <b>Dolby 비트스트림 안에</b> 담겨 있기 때문에 PCM, DTS 또는 네트워크 스테레오 소스에서는 압축할 것이 없습니다. 눌러도 아무 일도 일어나지 않는 버튼을 두는 대신 앱은 해당 항목을 회색으로 처리하고 이유를 표시합니다. 사용하려면 Dolby Digital, Dolby Digital Plus, Dolby TrueHD 또는 Dolby Atmos 콘텐츠로 전환하세요.</p>
+      </div>
+      <img alt="회색으로 표시되고 이유가 설명된 Dynamic Range Compression이 있는 대화 및 DRC 페이지" src="/screenshots/sound-dialog-drc.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="audyssey">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">세 번째 페이지</div>
+      <h2>Audyssey: MultEQ만이 아닌 전체 보정 메뉴</h2>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px">
+      <figure><img alt="MultEQ, Dynamic EQ, Reference Level Offset, Dynamic Volume, Surround Level Compensation이 있는 Audyssey 페이지" src="/screenshots/sound-audyssey.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>모든 Audyssey 컨트롤을 실시간으로</figcaption></figure>
+      <figure><img alt="Dirac이 이 Speaker Preset을 맡고 있다고 알리는 Audyssey 페이지" src="/screenshots/sound-audyssey-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Dirac 프리셋에서는 그렇다고 알려 줍니다</figcaption></figure>
+    </div>
+    <ul class="plain" style="margin-top:26px">
+      <li><b>MultEQ</b> - Reference, Bypass LR, Flat 또는 끔. Reference는 보정된 기본 곡선이고, Flat은 고음역 감쇠를 없애며, Bypass LR은 프런트 좌우 한 쌍을 보정하지 않고 두고, 끔은 EQ를 사용자에게 돌려줍니다.</li>
+      <li><b>Dynamic EQ</b> - 켜짐 또는 꺼짐. 볼륨을 낮춰도 저음이 얇아지지 않고 음색 균형이 유지됩니다.</li>
+      <li><b>Reference Level Offset</b> - 0, 5, 10 또는 15 dB. 콘텐츠가 기준 레벨보다 얼마나 낮게 마스터링되었는지 Dynamic EQ에 알려 줍니다. 0 dB은 영화에, 더 높은 오프셋은 음악과 TV에 적합합니다.</li>
+      <li><b>Dynamic Volume</b> - 끔, 약함, 중간, 강함. 시끄러운 광고와 조용한 대사의 음량을 맞춰 줍니다.</li>
+      <li><b>Surround Level Compensation</b> - 끔, 약함, 중간, 강함.</li>
+    </ul>
+    <div class="note">이 페이지를 편집할 수 있는지는 현재 Speaker Preset을 어느 시스템이 관리하는지에 따라 달라집니다. <a href="/ko/guide/locked-controls/">컨트롤이 잠기는 이유</a>를 참고하세요.</div>
+  </div>
+</section>
+
+<section id="dirac">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">네 번째 페이지</div>
+      <h2>Dirac Live: 직접 붙인 이름으로 보는 필터</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Dirac Live를 실행했다면 내보낸 필터가 리시버의 번호가 매겨진 슬롯에 들어 있습니다. AVR Maestro는 그 필터를 <b>저장할 때 붙인 이름으로</b> 나열하고 그 아래에 슬롯 번호를 보여 주며, 필터 없이 프리셋을 실행하는 <b>끔</b> 항목도 제공합니다. 한 번 누르면 필터가 바뀝니다.</p>
+        <p class="lead">Dirac 필터가 불러와 있지 않은 Speaker Preset에서는 빈 목록을 보여 주는 대신 그 사실을 분명하게 알려 줍니다.</p>
+      </div>
+      <img alt="저장된 이름으로 필터 슬롯을 나열한 Dirac Live 페이지" src="/screenshots/sound-dirac.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="geq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">다섯 번째 페이지</div>
+      <h2>그래픽 EQ: 스피커별 아홉 개 밴드</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">단순한 스위치가 아닌 본격적인 편집기입니다. 63Hz에서 16kHz까지 아홉 개 밴드를 -20에서 +6 dB 범위로 그래프에서 드래그해 조절합니다. 스피커는 <b>전체</b>, <b>좌/우</b>, <b>개별</b> 중에서 선택하고, <b>복사</b>로 측정된 Audyssey 곡선에서 시작하고, <b>초기화</b>로 평탄하게 되돌리며, 대기 중인 변경 사항 막대에서 적용합니다.</p>
+        <p class="lead">리시버는 룸 보정 <b>또는</b> 수동 EQ 중 하나만 사용하며 둘을 동시에 쓰지 않습니다. 그래서 MultEQ나 Dirac이 실행 중일 때는 이 페이지가 잠기고, 어느 쪽 때문인지도 알려 줍니다.</p>
+        <p class="lead"><a href="/ko/guide/graphic-eq/">그래픽 EQ 전체 가이드 &rarr;</a></p>
+      </div>
+      <img alt="스피커별 9밴드 곡선이 있는 그래픽 EQ 편집기" src="/screenshots/graphic-eq.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="channels">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">여섯 번째 페이지</div>
+      <h2>채널: 영화가 재생되는 중에도 모든 스피커를 트림</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead"><b>현재 신호</b>에 있는 모든 스피커의 채널별 트림(dB)입니다. 프런트 좌, 프런트 우, 센터, 서라운드, 서라운드 백, 두 서브우퍼, 하이트 레이어가 있고 각각 아래에 짧은 이름이 붙어 있어 어느 것이 어느 것인지 헷갈리지 않습니다.</p>
+        <ul class="plain">
+          <li>크게 조절할 때는 <b>슬라이더를 드래그</b>하고, 미세하게 한 단계씩 조절할 때는 <b>플러스와 마이너스</b>를 누르세요. 둘 다 들으면서 바로 조절할 수 있습니다.</li>
+          <li><b>모두 초기화</b>를 누르면 모든 채널이 0 dB로 돌아갑니다.</li>
+          <li>맨 아래의 <b>Bass Sync</b>는 LFE 채널을 메인 채널에 맞춰 시간 정렬합니다.</li>
+        </ul>
+        <p class="lead">여기 있는 것은 신호별로 실시간 적용되는 트림입니다. Speaker Preset에 저장된 스피커별 <b>기준 레벨</b>은 대신 <a href="/ko/guide/speakers/">스피커 탭</a>에 있으며, 그 차이는 페이지 자체의 안내 카드에서 설명합니다.</p>
+      </div>
+      <img alt="모든 스피커에 레벨 슬라이더와 미세 조절용 플러스/마이너스 단계가 있는 채널 페이지" src="/screenshots/sound-channels.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="tone">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">일곱 번째 페이지</div>
+      <h2>톤: 저음, 고음, DAC 필터, M-DAX</h2>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px">
+      <figure><img alt="저음, 고음, DAC 필터, Audio Restorer가 있는 톤 페이지" src="/screenshots/sound-tone.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>자유롭게 편집할 수 있는 톤</figcaption></figure>
+      <figure><img alt="Dynamic EQ 때문에 컨트롤이 잠긴 톤 페이지" src="/screenshots/sound-tone-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Dynamic EQ가 톤 컨트롤을 가져갑니다</figcaption></figure>
+    </div>
+    <ul class="plain" style="margin-top:26px">
+      <li><b>톤 컨트롤</b> - 마스터 스위치입니다. 이 기능이 켜져 있을 때만 저음과 고음 값이 리시버에 전달됩니다.</li>
+      <li><b>저음</b>과 <b>고음</b> - -6 dB에서 +6 dB까지 1 dB 단위.</li>
+      <li><b>DAC 필터</b> - Filter 1은 완만하게 감쇠되는 따뜻한 소리이고, Filter 2는 더 가파른 기준 응답입니다.</li>
+      <li><b>Audio Restorer (M-DAX)</b> - 끔, 낮음, 중간, 높음. 압축되었거나 스트리밍된 오디오에서 사라진 디테일을 복원합니다. 128k 라디오 스트림에는 안성맞춤이지만 무손실 디스크에는 맞지 않습니다.</li>
+    </ul>
+    <div class="note">Audyssey Dynamic EQ가 실행되는 동안에는 톤 컨트롤을 관리합니다. 리시버가 제어권을 가져가며, 저음이 왜 반응하지 않는지 궁금하지 않도록 AVR Maestro가 그 사실을 배너로 알려 줍니다.</div>
+  </div>
+</section>
+
+<section id="imax">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">여덟 번째 페이지</div>
+      <h2>IMAX: 전체 Enhanced 설정 메뉴</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">IMAX Enhanced가 있는 기기에서는 앱이 켜기/끄기뿐 아니라 전체 메뉴를 제공합니다.</p>
+        <ul class="plain">
+          <li><b>IMAX Mode</b> - 자동 또는 끔.</li>
+          <li><b>오디오 설정</b> - 자동은 IMAX 권장값을 따르고, 수동은 아래의 네 가지 컨트롤을 엽니다.</li>
+          <li><b>High Pass Filter</b> - 40Hz에서 250Hz까지.</li>
+          <li><b>Low Pass Filter</b> - 70Hz에서 250Hz까지.</li>
+          <li><b>서브우퍼</b> - 켜짐 또는 꺼짐, 그리고 <b>서브우퍼 출력</b> - LFE+Main 또는 LFE.</li>
+        </ul>
+      </div>
+      <img alt="모드, 필터, 서브우퍼 라우팅이 있는 IMAX 페이지" src="/screenshots/sound-imax.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="auro">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">아홉 번째 페이지</div>
+      <h2>Auro-3D: 형태를 갖춘 업믹스</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <ul class="plain">
+          <li><b>Auromatic 3D Preset</b> - 작게, 중간, 크게, 스피치, 영화. 업믹서가 목표로 하는 공간과 콘텐츠의 성격을 고릅니다.</li>
+          <li><b>세기</b> - 0에서 15까지, Auromatic이 생성하는 높이 정보의 양을 정합니다.</li>
+          <li><b>Auro 3D Mode</b> - 다이렉트 또는 Channel Expansion.</li>
+        </ul>
+        <p class="lead">이 설정은 서라운드 페이지에서 Auro 모드를 선택했을 때만 적용되며, 이 페이지는 Auro-3D 디코더가 있는 기기에만 나타납니다.</p>
+      </div>
+      <img alt="프리셋, 세기, 모드가 있는 Auro-3D 페이지" src="/screenshots/sound-auro3d.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">자주 묻는 질문</div>
+      <h2>사운드 탭 자주 묻는 질문</h2>
+    </div>
+    <details open><summary>사운드 모드 목록이 바뀌는 이유는 무엇인가요?</summary><div class="body">리시버의 목록이 바뀌기 때문입니다. Denon 또는 Marantz가 받아들이는 모드는 디코딩 중인 신호에 따라 달라집니다. 2채널 스트림에서는 업믹서가 제공되고, Atmos 스트림에서는 Atmos를 지원하는 모드가 제공됩니다. AVR Maestro는 절반은 틀릴 고정 메뉴를 보여 주는 대신, 매번 리시버에서 현재 목록을 읽어 옵니다.</div></details>
+    <details><summary>컨트롤이 N/A로 회색 처리되는 이유는 무엇인가요?</summary><div class="body">N/A는 현재 상태에서 리시버에 해당 값이 없다는 뜻이며, 대개 입력 신호에 그 기능이 포함되어 있지 않기 때문입니다. 행 옆의 물음표를 누르면 어떤 신호가 있어야 활성화되는지 앱이 설명해 줍니다. 회색 컨트롤은 숨겨진 버그가 아니라 리시버 자체의 답입니다.</div></details>
+    <details><summary>채널과 레벨은 무엇이 다른가요?</summary><div class="body">채널(사운드 탭)은 지금 재생 중인 신호에 대한 채널별 실시간 트림입니다. 레벨(스피커 탭)은 보정으로 Speaker Preset에 저장된 스피커별 기준 레벨입니다. 채널을 조정해도 보정은 다시 쓰이지 않습니다.</div></details>
+    <details><summary>톤 컨트롤과 Audyssey를 함께 쓸 수 있나요?</summary><div class="body">Dynamic EQ가 켜져 있는 동안에는 불가능합니다. 리시버가 톤 컨트롤을 직접 관리하기 때문입니다. Audyssey 페이지에서 Dynamic EQ를 끄면 저음과 고음을 다시 편집할 수 있습니다.</div></details>
+    <details><summary>같은 네트워크에 있어야 하나요?</summary><div class="body">네. AVR Maestro는 클라우드 계정이나 중계 서버 없이 LAN을 통해 리시버와 직접 통신합니다. <a href="/ko/guide/getting-started/">시작하기</a>를 참고하세요.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">가이드 더 보기</div>
+      <h2>다른 AVR Maestro 가이드</h2>
+    </div>
+    <p class="lead"><a href="/ko/guide/getting-started/">시작하기</a> &middot; <a href="/ko/guide/home/">홈 화면</a> &middot; <a href="/ko/guide/scenes/">장면</a> &middot; <a href="/ko/guide/custom-icons/">사용자 지정 아이콘</a> &middot; <a href="/ko/guide/graphic-eq/">그래픽 EQ</a> &middot; <a href="/ko/guide/speakers/">스피커</a> &middot; <a href="/ko/guide/locked-controls/">컨트롤이 잠겨 있는 이유</a> &middot; <a href="/ko/guide/assistant/">어시스턴트</a> &middot; <a href="/ko/guide/home-automation/">홈 오토메이션</a> &middot; <a href="/ko/guide/home-assistant-dashboard/">Home Assistant 대시보드</a> &middot; <a href="/ko/guide/multi-zone/">존</a> &middot; <a href="/ko/guide/remote/">리모컨</a> &middot; <a href="/ko/guide/radio/">라디오 (FM/AM)</a> &middot; <a href="/ko/guide/on-screen-display/">온스크린 디스플레이</a> &middot; <a href="/ko/guide/settings/">설정</a> &middot; <a href="/ko/guide/languages/">언어</a> &middot; <a href="/ko/guide/volume/">볼륨 제어</a> &middot; <a href="/ko/guide/backup/">백업 &amp; 복원</a> &middot; <a href="/ko/guide/now-playing/">지금 재생 중 &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>소파에서 즐기는 모든 오디오 메뉴</h2>
+    <p class="lead" style="margin:0 auto 24px">한 번 구매로 끝, 광고 없음, 구독 없음. 1분 안에 연결할 수 있습니다.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Google Play에서 다운로드" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="App Store에서 다운로드" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Mac App Store에서 다운로드" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Microsoft Store에서 다운로드" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/ko/guide/">전체 사용자 가이드로 돌아가기 &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/ko/">홈</a>
+      <a href="/ko/guide/">사용 설명서</a>
+      <a href="/ko/guide/getting-started/">시작하기</a>
+      <a href="/ko/receivers/">리시버</a>
+      <a href="/ko/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ko/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/ko/best-denon-marantz-app/">갈아타는 이유</a>
+      <a href="/ko/help/">도움말</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro는 MiyaraHub Technologies LLC가 만든 독립 앱이며, Denon, Marantz, D&amp;M Holdings, Sound United 및 이 페이지에 언급된 다른 어떤 회사와도 제휴, 보증 또는 후원 관계가 없습니다. Denon, Marantz, HEOS, Audyssey, Dirac Live, IMAX, Auro-3D, Dolby Atmos는 각 소유자의 상표이며 식별 목적으로만 사용되었습니다.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="vi" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bảng điều khiển Home Assistant cho Denon &amp; Marantz - AVR Maestro</title>
+<meta name="description" content="Dựng bảng điều khiển Home Assistant cho receiver Denon hoặc Marantz của bạn: thẻ HACS, ID thực thể, YAML cho từng thẻ, âm lượng dB thực, Cảnh và lịch sử." />
+<meta name="keywords" content="Home Assistant Denon dashboard, Marantz Home Assistant card, mushroom card AV receiver, Home Assistant receiver volume dB, denonavr dashboard, AVR Maestro Home Assistant example" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/vi/guide/home-assistant-dashboard/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-assistant-dashboard/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="vi_VN" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Bảng điều khiển Home Assistant cho Denon &amp; Marantz - AVR Maestro" />
+<meta property="og:description" content="Dựng bảng điều khiển Home Assistant cho receiver Denon hoặc Marantz của bạn: thẻ HACS, ID thực thể, YAML cho từng thẻ, âm lượng dB thực, Cảnh và lịch sử." />
+<meta property="og:url" content="https://avrmaestro.com/vi/guide/home-assistant-dashboard/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Bảng điều khiển Home Assistant cho Denon &amp; Marantz - AVR Maestro" />
+<meta name="twitter:description" content="Dựng bảng điều khiển Home Assistant cho receiver Denon hoặc Marantz của bạn: thẻ HACS, ID thực thể, YAML cho từng thẻ, âm lượng dB thực, Cảnh và lịch sử." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro là ứng dụng độc lập để điều khiển các receiver AV Denon và Marantz qua mạng nội bộ của bạn.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "vi"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
+      "headline": "Dựng bảng điều khiển Home Assistant này trong khoảng một giờ",
+      "description": "Dựng bảng điều khiển Home Assistant cho receiver Denon hoặc Marantz của bạn: thẻ HACS, ID thực thể, YAML cho từng thẻ, âm lượng dB thực, Cảnh và lịch sử.",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "datePublished": "2026-08-23",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-assistant-dashboard/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "vi"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Tôi có cần thẻ tùy chỉnh từ HACS để dựng cái này không?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Không cần để nó hoạt động. Mọi nút điều khiển trên trang này đều chạy từ thẻ nút thuần của Home Assistant. Mushroom, button-card, card-mod và apexcharts-card là những thứ giúp nó trông như trong ảnh chụp màn hình, và mỗi phần bên dưới đều cho biết nó dùng thẻ nào và bạn mất gì nếu không có."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vì sao một số nút sáng lên còn số khác thì không?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Một nút sáng lên khi Home Assistant đọc được trạng thái tương ứng từ receiver của bạn. Nguồn, chế độ vòm, âm lượng và tắt tiếng được lấy từ chính thực thể media player của receiver, nên những nút đó được tô sáng. Đường cong Audyssey, khe Dirac, dimmer, chế độ eco và speaker preset không được tích hợp Denon công bố, nên Home Assistant không có cách nào biết cái nào đang hoạt động và các nút vẫn tắt cho đến khi bạn chạm vào một nút."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Tôi có thể hiển thị âm lượng dB thực thay vì phần trăm không?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Có. Home Assistant công bố volume_level bằng âm lượng master của receiver chia cho 100, và trên các receiver Denon và Marantz, MV 80 là mốc tham chiếu 0 dB. Vì vậy dB bằng volume_level nhân 100, trừ 80. Giá trị volume_level 0.67 tương ứng âm lượng master 67, tức là -13.0 dB."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ID thực thể của tôi có giống với các ID trong hướng dẫn này không?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Phần đầu và phần cuối thì giống, phần giữa thì không. AVR Maestro đặt tên các tập lệnh theo địa chỉ MAC của receiver để khi đổi tên, tập lệnh cũ được cập nhật thay vì bị tách thành bản sao. Tên của bạn sẽ có dạng script.avr_maestro_ rồi đến mười hai ký tự riêng của bạn, sau đó là tên điều khiển. Hãy mở Developer Tools rồi States trong Home Assistant và lọc theo avr_maestro để xem danh sách của bạn."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Trang chủ",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Hướng dẫn sử dụng",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Home Automation",
+      "item": "https://avrmaestro.com/guide/home-automation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Dashboard",
+      "item": "https://avrmaestro.com/guide/home-assistant-dashboard/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/vi/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Tìm trong hướng dẫn..." data-i18n-empty="Không có kết quả cho" data-i18n-language="Ngôn ngữ">
+      <a href="/vi/">Trang chủ</a>
+      <a href="/vi/guide/">Hướng dẫn sử dụng</a>
+      <a href="/vi/receivers/">Receiver</a>
+      <a href="/vi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/vi/best-denon-marantz-app/">Vì sao nên chuyển</a>
+      <a href="/vi/#top" class="cta">Tải về</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/vi/">Trang chủ</a> &rsaquo; <a href="/vi/guide/">Hướng dẫn sử dụng</a> &rsaquo; <a href="/vi/guide/home-automation/">Home Automation</a> &rsaquo; Bảng điều khiển</div>
+    <div class="eyebrow">Home Assistant &middot; từng bước một</div>
+    <h1>Dựng dashboard Home Assistant này <span class="g">trong khoảng một giờ</span></h1>
+    <p>Mười bước, YAML của từng thẻ, và một view hoàn chỉnh để dán một lần là xong. Được dựng và chụp ảnh trên một chiếc Marantz CINEMA 30 thật. Đổi hai chuỗi là có ngay dashboard của riêng bạn.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <figure class="hero-shot">
+      <img alt="Dashboard hoàn chỉnh: khu vực đang phát, âm lượng với các mức dB cài sẵn, lưới nguồn vào, chế độ surround, hiệu chỉnh phòng nghe, các Cảnh và biểu đồ âm lượng" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <figcaption>Bạn sẽ dựng gì</figcaption>
+    </figure>
+    <div class="note"><b>Đang vội?</b> Chuyển thẳng đến <a href="#whole">bước 10</a>, tải về view hoàn chỉnh, đổi hai chuỗi rồi dán vào. Các bước ở giữa giải thích từng phần hoạt động ra sao để bạn tự chỉnh sửa.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Trước khi bắt đầu</h2>
+    </div>
+    <ul class="plain">
+      <li><b>AVR Maestro đã được liên kết với Home Assistant và đã đồng bộ.</b> <a href="/vi/guide/home-automation/">Hướng dẫn thiết lập</a> sẽ nói rõ phần này. Bạn nên thấy các điều khiển của mình trong Home Assistant trước khi xây dựng bất cứ thứ gì dựa trên chúng.</li>
+      <li><b>Receiver của bạn đã được thêm vào Home Assistant.</b> Cài đặt &rsaquo; Thiết bị &amp; Dịch vụ &rsaquo; Thêm tích hợp &rsaquo; <b>Denon AVR</b>, rồi nhập IP cục bộ của receiver. Đây là thứ giúp bảng điều khiển hiển thị trạng thái trực tiếp.</li>
+      <li><b>Receiver đang bật</b> trong lúc bạn dựng. Một nửa những gì bạn sắp viết đọc giá trị trực tiếp, mà receiver ở chế độ chờ hầu như không công bố gì.</li>
+    </ul>
+    <p class="lead">Dashboard này được nuôi bởi hai nguồn, và sự khác biệt giữa chúng quan trọng ở mọi bước bên dưới.</p>
+    <table class="t">
+      <thead><tr><th>Đến từ</th><th>Cho bạn</th></tr></thead>
+      <tbody>
+        <tr><td>Các tập lệnh đã đồng bộ của AVR Maestro</td><td>Mọi <b>điều khiển</b>. Nguồn vào, chế độ surround, Audyssey, Dirac, Smart Select, preset, độ sáng, eco, các Cảnh của bạn.</td></tr>
+        <tr><td>Thực thể media player của tích hợp Denon AVR</td><td><b>Trạng thái</b> trực tiếp. Nguồn điện, nguồn đang chọn, chế độ surround, âm lượng, tắt tiếng.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Bước 1</div>
+      <h2>Cài bốn thẻ từ HACS</h2>
+    </div>
+    <p class="lead">Cả bốn đều có trong kho HACS mặc định. Trong Home Assistant: <b>HACS &rsaquo; Frontend &rsaquo; Explore &amp; Download Repositories</b>, tìm theo tên, bấm Download, rồi tải lại trình duyệt.</p>
+    <table class="t">
+      <thead><tr><th>Tìm</th><th>Dùng cho</th><th>Nếu bỏ qua</th></tr></thead>
+      <tbody>
+        <tr><td><b>Mushroom</b></td><td>Mọi ô điều khiển và thanh trượt âm lượng</td><td>Dùng thẻ <code>button</code> thông thường. Vẫn chạy, nhưng trông vuông vức hơn.</td></tr>
+        <tr><td><b>button-card</b></td><td>Tiêu đề từng khu vực kèm nhãn trực tiếp</td><td>Dùng thẻ <code>markdown</code>, hoặc tiêu đề thường.</td></tr>
+        <tr><td><b>card-mod</b></td><td>Màu sắc và trạng thái sáng của ô đang hoạt động</td><td>Mọi thứ vẫn chạy. Chỉ là không có gì sáng lên.</td></tr>
+        <tr><td><b>apexcharts-card</b></td><td>Các biểu đồ lịch sử</td><td>Dùng thẻ <code>history-graph</code> có sẵn.</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><b>Không thẻ nào trong số này là bắt buộc để mọi thứ hoạt động.</b> Mọi điều khiển bên dưới đều chạy được bằng thẻ nút gốc của Home Assistant trỏ đến cùng một tập lệnh. Các thẻ tùy chỉnh chỉ là lớp trang điểm, không phải đường ống.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Bước 2</div>
+      <h2>Tìm hai ID thực thể của bạn</h2>
+    </div>
+    <p class="lead">Mọi đoạn mã trên trang này dùng hai chỗ giữ chỗ. Chỉ cần tìm ID của bạn một lần, phần còn lại là sao chép và dán.</p>
+    <ul class="plain">
+      <li><b><code>media_player.your_receiver</code></b> &rarr; Cài đặt &rsaquo; Thiết bị &amp; Dịch vụ &rsaquo; receiver của bạn &rsaquo; thực thể media player. Có dạng như <code>media_player.marantz_cinema_30</code>.</li>
+      <li><b><code>script.avr_maestro_MAC_...</code></b> &rarr; Công cụ nhà phát triển &rsaquo; Trạng thái, rồi nhập <code>avr_maestro</code> vào bộ lọc thực thể. Toàn bộ danh sách điều khiển của bạn sẽ hiện ra.</li>
+    </ul>
+    <p class="lead">Phần giữa của mọi ID tập lệnh là địa chỉ MAC của receiver, gồm mười hai ký tự viết thường, giống nhau ở tất cả. Sao chép một lần. Mọi nơi trang này ghi <code>MAC</code>, hãy điền giá trị của bạn.</p>
+    <div class="note"><b>Bỏ qua những mục có ghi <code>unavailable</code>.</b> Các bản cũ đặt tên tập lệnh theo tên receiver thay vì địa chỉ MAC. Nếu bạn đã đồng bộ từ thời đó, những mục cũ vẫn còn trong danh sách và đã không còn dùng được. Các mục còn sống là những mục đặt tên theo MAC.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Bước 3</div>
+      <h2>Tạo view</h2>
+    </div>
+    <ol class="plain">
+      <li><b>1.</b> Settings &rsaquo; Dashboards &rsaquo; Add Dashboard &rsaquo; New dashboard from scratch. Đặt tên tùy ý.</li>
+      <li><b>2.</b> Mở nó, rồi bấm biểu tượng bút chì ở góc trên bên phải để chỉnh sửa.</li>
+      <li><b>3.</b> Thêm một view và chọn bố cục <b>Sections</b>. Không chọn Masonry. Sections giúp giao diện tự sắp xếp lại gọn gàng trên điện thoại.</li>
+      <li><b>4.</b> Trong cài đặt view, đặt <b>Max columns</b> là 3 và bật <b>Dense section placement</b>.</li>
+    </ol>
+    <p class="lead">Từ đây trở đi, mỗi bước đều là: thêm một section rồi dán các thẻ vào đó. Để dán YAML, dùng menu ba chấm trên thẻ và chọn <b>Edit in YAML</b>, hoặc dùng menu ba chấm của dashboard để vào <b>Raw configuration editor</b> và dán toàn bộ một lần.</p>
+<pre class="code"><span class="c"># The view's own settings, if you prefer to type them</span>
+type: sections
+title: AVR Maestro
+icon: mdi:audio-video
+max_columns: 3
+dense_section_placement: true</pre>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Bước 4</div>
+      <h2>Thêm một điều khiển</h2>
+    </div>
+    <p class="lead">Bắt đầu với thứ đơn giản nhất trên bảng để biết chắc các ID thực thể của bạn đúng trước khi dựng bất cứ thứ gì phức tạp. Thêm một section, thêm một thẻ, chọn Edit in YAML rồi dán:</p>
+<pre class="code">type: button
+name: Pure Direct
+icon: mdi:speaker
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_mode_pure_direct</pre>
+    <p class="capt">Home Assistant gốc. Không cần HACS.</p>
+    <p class="lead">Bấm vào nó. Nếu receiver thay đổi, ID của bạn đúng và mọi thứ bên dưới sẽ chạy. Nếu không có gì xảy ra, hãy quay lại bước 2.</p>
+  </div>
+</section>
+
+<section id="highlight">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Bước 5</div>
+      <h2>Cho nó sáng lên khi đó là mục đang dùng</h2>
+    </div>
+    <p class="lead">Đây là mẫu đáng học nhất, và mọi ô nguồn vào lẫn surround trên bảng đều là bản sao của nó. Thẻ gửi một tập lệnh, rồi tự tô màu dựa trên thực thể receiver, nhờ đó nguồn vào bạn đang dùng sẽ sáng còn các nguồn còn lại thì không.</p>
+    <figure><img alt="Lưới nguồn vào với Nvidia Shield sáng màu cam và mười hai nguồn còn lại tối" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Một ô sáng, mười hai ô tối</figcaption></figure>
+<pre class="code">type: custom:mushroom-template-card
+entity: script.avr_maestro_MAC_input_cd
+icon: mdi:disc
+primary: CD
+icon_color: >-
+  {{ 'orange' if (state_attr('media_player.your_receiver','source') or '')|lower
+     == 'cd' else 'grey' }}
+layout: vertical
+fill_container: true
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_input_cd
+card_mod:
+  style: |
+    ha-card {
+      border-radius: 14px;
+    {% if (state_attr('media_player.your_receiver','source') or '')|lower == 'cd' %}
+      background: linear-gradient(160deg, rgba(226,86,10,0.34), rgba(15,15,17,0.88));
+      border: 1px solid rgba(255,122,24,0.80);
+    {% else %}
+      background: rgba(15,15,17,0.72);
+      border: 1px solid rgba(255,122,24,0.14);
+    {% endif %}
+    }</pre>
+    <p class="capt">Mỗi nguồn vào chỉ cần đổi ba thứ: tập lệnh, biểu tượng và chuỗi dùng để so sánh.</p>
+    <p class="lead">Cần làm đúng hai điều, nếu không ô sẽ không bao giờ sáng:</p>
+    <ul class="plain">
+      <li><b>So sánh với đúng những gì receiver của bạn báo về.</b> Developer Tools &rsaquo; States, chọn thực thể media player của bạn, đọc các thuộc tính <code>source_list</code> và <code>sound_mode_list</code>. Đó chính là những chuỗi chính xác. So sánh bằng chữ thường như ở trên.</li>
+      <li><b>Nguồn vào đã đổi tên sẽ báo về tên mới.</b> Đổi GAME1 thành “Xbox” trên receiver thì nó báo về <code>Xbox</code>, trong khi điều khiển của AVR Maestro vẫn tên là <code>input_game1</code>. Hãy so khớp theo những gì receiver báo về, không phải theo tên tập lệnh.</li>
+    </ul>
+    <p class="lead">Các chế độ surround dùng cùng một thẻ, với <code>sound_mode</code> thay cho <code>source</code>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Bước 6</div>
+      <h2>Cho mỗi section một tiêu đề trực tiếp</h2>
+    </div>
+    <p class="lead">Một tiêu đề trơn là khoảng trống vô ích. Đặt giá trị trực tiếp bên dưới và “Sources” sẽ thành “Sources / Now on Nvidia Shield”.</p>
+<pre class="code">type: custom:button-card
+name: Sources
+icon: mdi:video-input-hdmi
+color_type: label-card
+entity: media_player.your_receiver
+show_label: true
+label: >-
+  [[[ var v = states["media_player.your_receiver"].attributes.source;
+      return v ? ("Now on " + v) : "Receiver in standby"; ]]]
+tap_action:
+  action: none
+styles:
+  grid:
+    - grid-template-areas: '"i n" "i l"'
+    - grid-template-columns: min-content auto
+  name:
+    - font-size: 13px
+    - letter-spacing: 3px
+    - text-transform: uppercase
+    - justify-self: start
+  label:
+    - font-size: 11px
+    - justify-self: start</pre>
+    <p class="capt">Lưới hai dòng là thứ đặt nhãn bên dưới tiêu đề thay vì bên cạnh.</p>
+    <p class="lead">Thay <code>attributes.source</code> bằng <code>attributes.sound_mode</code> ở tiêu đề Surround, và tương tự cho các mục khác.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Bước 7</div>
+      <h2>Hiển thị âm lượng theo dB</h2>
+    </div>
+    <p class="lead">Home Assistant báo âm lượng dưới dạng phân số. Chẳng ai chỉnh receiver về “0.67” cả. Một dòng phép tính sẽ giải quyết chuyện đó và cả khu vực này bắt đầu đọc như một chiếc receiver thực thụ.</p>
+    <figure><img alt="Khu vực âm lượng: thanh trượt, tăng, giảm, tắt tiếng và bốn mức dB cài sẵn" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie và Loud, mỗi mức ghi rõ số dB mà nó đặt</figcaption></figure>
+    <div class="note"><b>Công thức quy đổi.</b> Home Assistant công bố <code>volume_level</code> bằng âm lượng master chia cho 100, và trên các receiver Denon và Marantz, MV 80 là mốc tham chiếu 0 dB. Vì vậy <b>dB = volume_level &times; 100 &minus; 80</b>. Giá trị <code>volume_level</code> 0.67 tương ứng âm lượng master 67, tức là &minus;13.0 dB.</div>
+<pre class="code"><span class="c"># The readout</span>
+type: custom:mushroom-template-card
+entity: media_player.your_receiver
+icon: mdi:volume-high
+primary: >-
+  {% set v = state_attr('media_player.your_receiver','volume_level') %}
+  {% if v is not none %}{{ (v * 100 - 80) | round(1) }} dB{% else %}Standby{% endif %}
+secondary: Master volume
+layout: vertical</pre>
+<pre class="code"><span class="c"># The slider. media_controls must be empty or the bar becomes a power button</span>
+type: custom:mushroom-media-player-card
+entity: media_player.your_receiver
+volume_controls:
+  - volume_set
+media_controls: []
+show_volume_level: true</pre>
+<pre class="code"><span class="c"># A preset. 0.50 is master volume 50, which is -30 dB</span>
+type: custom:mushroom-template-card
+entity: media_player.your_receiver
+icon: mdi:weather-night
+primary: Night
+secondary: "-30 dB"
+tap_action:
+  action: perform-action
+  perform_action: media_player.volume_set
+  target:
+    entity_id: media_player.your_receiver
+  data:
+    volume_level: 0.50</pre>
+    <div class="note"><b>Hãy chọn mức preset lớn nhất của bạn một cách có chủ đích.</b> Bộ trên dừng ở &minus;10 dB. Bấm nhầm trên dashboard dễ hơn nhiều so với trên điều khiển từ xa, và mức tham chiếu trên một chiếc receiver lớn thực sự rất to.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Bước 8</div>
+      <h2>Thêm các Cảnh của bạn</h2>
+    </div>
+    <p class="lead">Đọc tên từ tập lệnh thay vì gõ tay, và khi bạn đổi tên một Cảnh trong AVR Maestro, ô tương ứng tự đổi tên mà không cần sửa dashboard.</p>
+    <figure><img alt="Bốn ô Cảnh, mỗi ô liệt kê các cài đặt mà Cảnh đó khôi phục" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Mỗi ô cho biết Cảnh của nó thực sự khôi phục những gì</figcaption></figure>
+<pre class="code">type: custom:mushroom-template-card
+entity: script.avr_maestro_MAC_scene_1234567890123
+icon: mdi:theater
+primary: >-
+  {{ state_attr('script.avr_maestro_MAC_scene_1234567890123','friendly_name')
+     | replace('AVR Maestro - ', '') | replace(' (Your Receiver)', '') }}
+secondary: >-
+  {% set t = states.script['avr_maestro_MAC_scene_1234567890123'].attributes.last_triggered %}
+  {{ 'recalled ' ~ relative_time(t) ~ ' ago' if t else 'not run yet' }}
+multiline_secondary: true
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_scene_1234567890123</pre>
+    <p class="capt">Hai lệnh replace() cắt tiền tố và tên receiver ra khỏi tên thân thiện.</p>
+    <p class="lead">Một dòng thứ hai rất đáng bỏ thêm một phút. Một bức tường nút đặt tên bay bổng chẳng cho bạn biết gì lúc 11 giờ đêm; một dòng nói rõ mỗi nút khôi phục điều gì sẽ cho bạn biết nên bấm nút nào.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Bước 9</div>
+      <h2>Thêm lịch sử</h2>
+    </div>
+    <p class="lead">Thực thể media player của receiver được Home Assistant ghi lại như mọi thực thể khác, nên bạn có sẵn lịch sử nghe mà không tốn công. Mọi thứ bên dưới đều lấy từ một thực thể duy nhất: không cần thêm cảm biến, không cần helper, không phải cấu hình gì trước.</p>
+    <figure><img alt="Năm biểu đồ lịch sử: nguồn điện và hoạt động, âm lượng master theo dB, âm lượng theo ngày, nguồn vào đang dùng và chế độ surround" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Năm biểu đồ, một thực thể, bảy ngày</figcaption></figure>
+    <p class="lead">Dòng thời gian trạng thái đơn giản không cần thẻ tùy chỉnh nào, và là biểu đồ đáng có nhất:</p>
+<pre class="code">type: history-graph
+hours_to_show: 168
+entities:
+  - entity: media_player.your_receiver
+    name: Receiver</pre>
+    <p class="capt">Bật, tắt và nó đã làm gì, trong suốt một tuần.</p>
+    <p class="lead">Âm lượng theo dB dùng cùng công thức quy đổi như ở bước 7:</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+header:
+  show: true
+  title: Master volume, last 7 days
+series:
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Master volume
+    type: line
+    curve: smooth
+    unit: dB
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100 - 80;"
+    extend_to: now
+    group_by:
+      duration: 1h
+      func: last
+      fill: last
+apex_config:
+  chart:
+    height: 240
+  yaxis:
+    min: -60
+    max: 0</pre>
+    <p class="capt">group_by với fill: last biến các sự kiện thưa thớt thành một đường liền mạch. Trục y phải được đặt trong apex_config thì mới có hiệu lực.</p>
+    <p class="lead">Trung bình và đỉnh theo ngày biến một đường gấp khúc thành thứ có hình dạng rõ ràng:</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+span:
+  end: day
+header:
+  show: true
+  title: Master volume by day in dB, average and peak
+series:
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Day average
+    type: column
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100;"
+    group_by: {duration: 1d, func: avg, fill: 'null'}
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Day peak
+    type: line
+    curve: smooth
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100;"
+    group_by: {duration: 1d, func: max, fill: 'null'}
+apex_config:
+  yaxis:
+    min: 0
+    max: 80
+    labels:
+      formatter: "EVAL:function (v) { return (v - 80).toFixed(0); }"
+  tooltip:
+    y:
+      formatter: "EVAL:function (v) { return v == null ? '' : (v - 80).toFixed(1) + ' dB'; }"</pre>
+    <p class="capt">Hai chuỗi từ cùng một thuộc tính, nhóm theo ngày.</p>
+    <div class="note"><b>Vì sao biểu đồ này vẽ từ 0 đến 80 và định dạng thành dB, thay vì vẽ trực tiếp dB.</b> Các cột mọc lên từ đáy trục. Vẽ thẳng dB thì mọi cột đều treo xuống từ 0, nên cột dài nghĩa là yên tĩnh, đọc ngược hẳn. Hãy vẽ giá trị âm lượng master thô rồi trừ 80 trong bộ định dạng của trục và tooltip, khi đó các cột mọc lên trên còn mọi thứ người xem thấy vẫn là dB. <code>fill: 'null'</code> nghĩa là ngày không có số liệu sẽ không có cột, thay vì kéo giá trị của hôm qua sang.</div>
+    <p class="lead">Và hai biểu đồ trả lời câu hỏi “thực ra tôi xem bằng nguồn nào, ở chế độ nào”: nguồn vào và chế độ surround, vẽ thành dòng thời gian cho biết mục nào đã được chọn.</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+span:
+  end: day
+header:
+  show: true
+  title: Source in use, last 7 days
+series:
+  - entity: media_player.your_receiver
+    attribute: source
+    name: Source
+    type: line
+    curve: stepline
+    stroke_width: 3
+    extend_to: now
+    float_precision: 0
+    transform: |
+      if (x == null) return null;
+      var m = ["Phono", "NET", "Xbox", "Nvidia Shield"];
+      var i = m.indexOf(x);
+      return i &lt; 0 ? 0 : i + 1;
+apex_config:
+  yaxis:
+    min: 0
+    max: 4
+    tickAmount: 4
+    labels:
+      formatter: >-
+        EVAL:function (v) { return ["Other", "Phono", "HEOS Net", "Xbox",
+        "Shield"][Math.round(v)] || ''; }
+  tooltip:
+    y:
+      formatter: >-
+        EVAL:function (v) { return v == null ? 'off' : ["Other", "Phono",
+        "HEOS Net", "Xbox", "Shield"][Math.round(v)] || 'Other'; }</pre>
+    <p class="capt">Hãy đặt các nguồn vào của riêng bạn trong mảng transform và trong cả hai mảng formatter. Giữ chỉ số 0 là “Other”.</p>
+    <p class="lead">Trục biểu đồ cần số, nên <code>transform</code> ánh xạ mỗi tên nguồn vào một vị trí và các formatter ánh xạ ngược lại để hiển thị nhãn và tooltip. Hãy làm cho ánh xạ này <b>đầy đủ</b>: <code>null</code> (receiver tắt) vẫn là một khoảng trống, và bất cứ thứ gì không có trong danh sách của bạn sẽ rơi vào “Other”, nên hai trường hợp không bao giờ bị nhầm lẫn. Cùng thẻ đó với <code>sound_mode</code> cho bạn chế độ surround, với các chuỗi viết hoa đúng như receiver của bạn báo về.</p>
+    <div class="note"><b>Giữ <code>stepline</code> cho hai biểu đồ cuối.</b> Nguồn vào hay chế độ surround là một hạng mục, không phải một con số. Làm mượt đường cong thì đường sẽ lượn từ Shield sang Xbox qua bất cứ thứ gì nằm giữa chúng trên trục, vẽ ra một nguồn vào chưa từng được chọn. Âm lượng là đại lượng thực nên làm mượt vẫn trung thực; còn hạng mục thì không.</div>
+    <div class="note"><b>Hãy kiểm tra thời gian lưu giữ của recorder trước.</b> Home Assistant mặc định giữ mười ngày, nên bảy ngày là mức hợp lý nhất bạn có thể yêu cầu. Muốn xem xa hơn, bạn cần một cảm biến mẫu <code>state_class: measurement</code>, mà Home Assistant lưu thành thống kê dài hạn trong nhiều năm.</div>
+    <div class="note"><b>Thiếu một ngày thường là đúng.</b> Home Assistant ghi lại các thay đổi, không phải các mẫu đo. Để receiver ở một nguồn vào, một mức âm lượng suốt hai ngày thì nó không ghi gì cả, nên ngày đó không có cột. Trông như mất dữ liệu nhưng thực ra ngược lại: không có gì xảy ra.</div>
+  </div>
+</section>
+
+<section id="whole">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Bước 10</div>
+      <h2>Hoặc lấy trọn bộ</h2>
+    </div>
+    <p class="lead">View hoàn chỉnh, mọi section và mọi thẻ, với chỗ giữ chỗ thay cho ID thực thể.</p>
+    <ol class="plain">
+      <li><b>1.</b> <a href="/vi/guide/home-assistant-dashboard/avr-maestro-dashboard.yaml" download>Tải về YAML của giao diện</a>.</li>
+      <li><b>2.</b> Mở nó bằng bất kỳ trình soạn thảo văn bản nào và thay hai chuỗi ở mọi nơi chúng xuất hiện: <code>YOUR_RECEIVER</code> bằng tên thực thể media player của bạn, và <code>YOURMAC</code> bằng mười hai ký tự của receiver bạn lấy ở bước 2.</li>
+      <li><b>3.</b> Trong Home Assistant, mở dashboard của bạn, bấm biểu tượng bút chì, menu ba chấm, <b>Raw configuration editor</b>, rồi dán vào dưới dạng một view.</li>
+    </ol>
+    <div class="note"><b>ID các Cảnh của bạn sẽ không khớp.</b> Tập lệnh Cảnh được đặt tên theo thời điểm Cảnh được tạo, nên bốn Cảnh trong tệp không tồn tại trên hệ thống của bạn: các thẻ đó vẫn hiển thị nhưng không làm gì. Hãy thay ID thực thể của chúng bằng ID của bạn ở bước 2, hoặc xóa section Cảnh và dựng lại theo bước 8.</div>
+    <div class="note"><b>Còn hai điều nữa cần lưu ý.</b> Biểu đồ nguồn vào và surround mang tên nguồn từ receiver dùng để dựng bản này, nên hãy sửa các mảng đó như bước 9 mô tả. Và nhãn của các ô là tiếng Anh; không có gì trong tệp được dịch.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Nếu một ô không bao giờ sáng</h2>
+    </div>
+    <p class="lead">Trước khi cho rằng bạn dựng sai: một số ô không thể sáng lên, và nên biết đó là những ô nào.</p>
+    <p class="lead">Một ô chỉ hiển thị được trạng thái nếu Home Assistant đọc được nó, và Home Assistant đọc receiver của bạn từ hai nơi. Tích hợp Denon AVR công bố những thông tin cơ bản trên thực thể media player. AVR Maestro công bố phần còn lại: nó tạo một cảm biến <b>Status Bridge</b>, <code>sensor.avr_maestro_your_receiver</code>, và ghi các số đọc mà nó đang có vào đó dưới dạng thuộc tính.</p>
+    <table class="t">
+      <thead><tr><th>Trên thực thể media player</th><th>Trên cảm biến Status Bridge</th></tr></thead>
+      <tbody>
+        <tr><td>Nguồn điện</td><td>Đường cong Audyssey MultEQ</td></tr>
+        <tr><td>Nguồn vào đang chọn</td><td>Dynamic Volume và mức tham chiếu</td></tr>
+        <tr><td>Chế độ surround</td><td>Slot Dirac nào đang được nạp</td></tr>
+        <tr><td>Âm lượng và tắt tiếng</td><td>Độ sáng bảng mặt trước, chế độ Eco</td></tr>
+        <tr><td>Dynamic EQ, đôi khi</td><td>Speaker preset, âm sắc và hàng chục thứ khác</td></tr>
+      </tbody>
+    </table>
+    <p class="lead">Giờ cả hai cột đều đọc được. Lấy giá trị media player từ <code>states['media_player.your_receiver'].attributes</code>, và giá trị Status Bridge bằng <code>state_attr('sensor.avr_maestro_your_receiver','dirac_slot')</code>, để ô sáng lên theo cài đặt đang thực sự hoạt động thay vì chỉ kích hoạt tập lệnh thay đổi nó.</p>
+    <p class="lead">Đo trên chiếc receiver dùng để dựng bản này: thực thể media player có khoảng hai mươi trong số sáu mươi điều khiển, và cảm biến Status Bridge công bố thêm khoảng bốn mươi điều khiển nữa. Gộp lại, một dashboard có thể đọc gần như mọi thứ nó có thể thay đổi - khác biệt giữa một bức tường nút bấm và một bề mặt điều khiển thực thụ.</p>
+    <div class="note"><b>Nếu một giá trị có thể mang hai nghĩa, hãy nói rõ.</b> Dynamic EQ trả về <code>true</code>, <code>false</code>, hoặc không trả về gì cả. Coi “không có gì” là “tắt” sẽ đặt một câu trả lời sai mà đầy tự tin lên bức tường của bạn.</div>
+<pre class="code">icon_color: >-
+  {% set d = state_attr('media_player.your_receiver','dynamic_eq') %}
+  {{ 'orange' if d is true else 'grey' }}
+secondary: >-
+  {% set d = state_attr('media_player.your_receiver','dynamic_eq') %}
+  {% if d is none %}state not published{% elif d %}on{% else %}off{% endif %}</pre>
+    <p class="capt">Ba trạng thái, không phải hai.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Một số điều khác đáng biết</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Các ô ra chỉ bằng một phần ba chiều rộng bạn mong đợi.</b> Trong một section trải rộng 3 cột, lưới bên trong có <b>36</b> cột chứ không phải 12. Để có bốn ô trên một hàng, đặt <code>grid_options: {columns: 9}</code>. Sáu ô một hàng thì đặt 6.</li>
+      <li><b>Thanh trượt âm lượng hiện nút nguồn thay vì thanh.</b> Đó là <code>media_controls</code> có chứa <code>on_off</code>. Hãy đặt <code>media_controls: []</code>.</li>
+      <li><b>Nhãn bị cắt bớt.</b> “Volume Down” thành “Volume Do...”. Rút gọn thành “Vol Down”, hoặc mở rộng ô.</li>
+      <li><b>Mô tả Cảnh bị cắt.</b> Thêm <code>multiline_secondary: true</code>.</li>
+      <li><b>Một đường đều biến mất khỏi biểu đồ apexcharts.</b> Đó là <code>experimental.color_threshold</code>. Nó vẽ nét theo dạng chuyển màu dọc, mà một đoạn nằm ngang hoàn toàn thì có chiều cao bằng không để chuyển màu, nên bị vẽ thành vô hình. Một phiên 43 giờ ở cùng một mức âm lượng đã biến mất hoàn toàn. Hãy dùng <code>color</code> đặc.</li>
+      <li><b>Nó tự sắp xếp lại trên điện thoại.</b> Các view Sections tự xếp thành một cột ở chiều rộng hẹp mà không cần cấu hình thêm gì.</li>
+    </ul>
+    <figure><img alt="Cùng dashboard đó ở chiều rộng điện thoại, sắp xếp lại thành một cột" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Cùng dashboard ở chiều rộng điện thoại: ba cột thành một, và không phải cấu hình gì để điều đó xảy ra</figcaption></figure>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Câu hỏi thường gặp</div>
+      <h2>Giải đáp về dashboard</h2>
+    </div>
+    <details open><summary>Tôi có cần thẻ tùy chỉnh từ HACS để dựng cái này không?</summary><div class="body">Không cần để nó hoạt động. Mọi nút điều khiển trên trang này đều chạy từ thẻ nút thuần của Home Assistant. Mushroom, button-card, card-mod và apexcharts-card là những thứ giúp nó trông như trong ảnh chụp màn hình, và mỗi phần bên dưới đều cho biết nó dùng thẻ nào và bạn mất gì nếu không có.</div></details>
+    <details><summary>Vì sao một số nút sáng lên còn số khác thì không?</summary><div class="body">Một nút sáng lên khi Home Assistant đọc được trạng thái tương ứng từ receiver của bạn. Nguồn vào, chế độ surround, âm lượng và tắt tiếng được trả về từ thực thể media player của chính receiver, nên các mục đó được làm nổi bật. Đường cong Audyssey, slot Dirac, độ sáng, chế độ eco và speaker preset không được tích hợp Denon công bố, nên Home Assistant không có cách nào biết mục nào đang hoạt động và các nút sẽ không sáng cho đến khi bạn bấm một nút.</div></details>
+    <details><summary>Tôi có thể hiển thị âm lượng dB thực thay vì phần trăm không?</summary><div class="body">Có. Home Assistant công bố volume_level bằng âm lượng master của receiver chia cho 100, và trên các receiver Denon và Marantz, MV 80 là mốc tham chiếu 0 dB. Vì vậy dB bằng volume_level nhân 100, trừ 80. Giá trị volume_level 0.67 tương ứng âm lượng master 67, tức là -13.0 dB.</div></details>
+    <details><summary>ID thực thể của tôi có giống với các ID trong hướng dẫn này không?</summary><div class="body">Phần đầu và phần cuối thì giống, phần giữa thì không. AVR Maestro đặt tên các tập lệnh theo địa chỉ MAC của receiver để khi đổi tên, tập lệnh cũ được cập nhật thay vì bị tách thành bản sao. Tên của bạn sẽ có dạng script.avr_maestro_ rồi đến mười hai ký tự riêng của bạn, sau đó là tên điều khiển. Hãy mở Developer Tools rồi States trong Home Assistant và lọc theo avr_maestro để xem danh sách của bạn.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Xem thêm trong hướng dẫn</div>
+      <h2>Các hướng dẫn khác về AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/vi/guide/getting-started/">Bắt đầu</a> &middot; <a href="/vi/guide/home/">Màn hình chính</a> &middot; <a href="/vi/guide/scenes/">Cảnh</a> &middot; <a href="/vi/guide/custom-icons/">Biểu tượng tùy chỉnh</a> &middot; <a href="/vi/guide/sound/">Âm thanh</a> &middot; <a href="/vi/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/vi/guide/speakers/">Loa</a> &middot; <a href="/vi/guide/locked-controls/">Vì sao một điều khiển bị khóa</a> &middot; <a href="/vi/guide/assistant/">Trợ lý</a> &middot; <a href="/vi/guide/home-automation/">Home Automation</a> &middot; <a href="/vi/guide/multi-zone/">Vùng</a> &middot; <a href="/vi/guide/remote/">Điều khiển từ xa</a> &middot; <a href="/vi/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/vi/guide/on-screen-display/">Hiển thị trên màn hình</a> &middot; <a href="/vi/guide/settings/">Cài đặt</a> &middot; <a href="/vi/guide/languages/">Ngôn ngữ</a> &middot; <a href="/vi/guide/volume/">Điều khiển âm lượng</a> &middot; <a href="/vi/guide/backup/">Sao lưu &amp; Khôi phục</a> &middot; <a href="/vi/guide/now-playing/">Đang phát &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Toàn bộ receiver của bạn, trên một bức tường</h2>
+    <p class="lead" style="margin:0 auto 24px">Home Automation là tính năng trả phí duy nhất trong AVR Maestro. Mọi thứ khác, kể cả trợ lý AI chạy trên thiết bị, đều được bao gồm.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Tải trên Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Tải trên App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Tải trên Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Tải trên Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/vi/guide/home-automation/">Quay lại Home Automation &rarr;</a> &middot; <a href="/vi/guide/">Toàn bộ Hướng dẫn sử dụng &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/vi/">Trang chủ</a>
+      <a href="/vi/guide/">Hướng dẫn sử dụng</a>
+      <a href="/vi/guide/getting-started/">Bắt đầu</a>
+      <a href="/vi/receivers/">Receiver</a>
+      <a href="/vi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/vi/audyssey-vs-dirac/">Audyssey so với Dirac</a>
+      <a href="/vi/best-denon-marantz-app/">Vì sao nên chuyển</a>
+      <a href="/vi/help/">Trợ giúp</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro là ứng dụng độc lập của MiyaraHub Technologies LLC và không có liên kết, không được bảo trợ hay tài trợ bởi Denon, Marantz, D&amp;M Holdings, Sound United hay bất kỳ công ty nào khác được nêu trên trang này. Denon, Marantz, HEOS, Home Assistant, Mushroom, HACS, Audyssey và Nvidia Shield là nhãn hiệu hoặc dự án của các chủ sở hữu tương ứng, chỉ được dùng ở đây với mục đích nhận diện.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>שליטה בטיונר FM/AM מהטלפון - AVR Maestro</title>
+<meta name="description" content="רדיו FM/AM אמיתי למקלטי Denon ו-Marantz עם טיונר מובנה: תחום ומצב כוונון, כוונון לפי תדר ופריסטים של תחנות בשמות, הכול מהטלפון." />
+<meta name="keywords" content="FM AM tuner app, AV receiver radio app, Denon tuner app, Marantz tuner app, receiver radio presets app, control receiver radio from phone, FM tuner controller" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/he/guide/radio/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/radio/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/radio/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/radio/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/radio/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/radio/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/radio/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/radio/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/radio/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/radio/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/radio/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/radio/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/radio/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/radio/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/radio/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/radio/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/radio/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/radio/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/radio/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/radio/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/radio/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/radio/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/radio/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/radio/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/radio/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/radio/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/radio/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/radio/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/radio/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/radio/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/radio/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/radio/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="he_IL" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="שליטה בטיונר FM/AM מהטלפון - AVR Maestro" />
+<meta property="og:description" content="רדיו FM/AM אמיתי למקלטי Denon ו-Marantz עם טיונר מובנה: תחום ומצב כוונון, כוונון לפי תדר ופריסטים של תחנות בשמות, הכול מהטלפון." />
+<meta property="og:url" content="https://avrmaestro.com/he/guide/radio/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="שליטה בטיונר FM/AM מהטלפון - AVR Maestro" />
+<meta name="twitter:description" content="רדיו FM/AM אמיתי למקלטי Denon ו-Marantz עם טיונר מובנה: תחום ומצב כוונון, כוונון לפי תדר ופריסטים של תחנות בשמות, הכול מהטלפון." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro היא אפליקציה עצמאית לשליטה במקלטי AV של Denon ו-Marantz דרך הרשת המקומית שלכם.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "he"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/radio/#article",
+      "headline": "רדיו FM/AM אמיתי, עם פריסטים בשמות",
+      "description": "רדיו FM/AM אמיתי למקלטי Denon ו-Marantz עם טיונר מובנה: תחום ומצב כוונון, כוונון לפי תדר ופריסטים של תחנות בשמות, הכול מהטלפון.",
+      "image": "https://avrmaestro.com/screenshots/radio.png",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/radio/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "he"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/radio/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "אפשר לשלוט ברדיו FM/AM מהאפליקציה?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "כן, במקלטים עם טיונר מובנה - תצוגה חיה של התחום, התדר והפריסט, מעבר בין FM ל-AM, כוונון אוטומטי או ידני, מקלדת לקפיצה לתדר ורשת פריסטים."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "אפשר לתת שמות לפריסטים?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "כן - לחיצה ארוכה על משבצת שומרת את התחנה הנוכחית, ומאפשרת להוסיף או לשנות תווית (\"Jazz 88\", \"NPR\") או לנקות אותה."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "למה אני לא רואה את לשונית הרדיו?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "היא מופיעה רק במקלטים עם טיונר מובנה. אם יש לכם כזה, ודאו שהטיונר מופיע כקלט והפעילו את הלשונית מחדש דרך הגדרות, התאמת הניווט."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "בית",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "מדריך למשתמש",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "רדיו",
+      "item": "https://avrmaestro.com/guide/radio/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/he/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="תפריט" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="חיפוש במדריך..." data-i18n-empty="אין התאמות עבור" data-i18n-language="שפה">
+      <a href="/he/">בית</a>
+      <a href="/he/guide/">מדריך למשתמש</a>
+      <a href="/he/receivers/">מקלטים</a>
+      <a href="/he/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/he/best-denon-marantz-app/">למה לעבור</a>
+      <a href="/he/#top" class="cta">הורדה</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero split">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="/he/">בית</a> &rsaquo; <a href="/he/guide/">מדריך למשתמש</a> &rsaquo; רדיו</div>
+      <div class="eyebrow">טיונר FM/AM</div>
+      <h1><span class="g">רדיו</span> FM/AM אמיתי, עם פריסטים בשמות</h1>
+      <p>במקלטי Denon ו-Marantz עם טיונר מובנה, AVR Maestro נותנת לכם ממשק רדיו FM/AM אמיתי. כרטיס התחנה מציג את התחום, התדר והפריסט הפעיל, ועוקב אחרי המקלט בזמן אמת.</p>
+    </div>
+    <div class="hero-shot"><img alt="טיונר FM/AM ב-AVR Maestro" src="/screenshots/radio.png" width="1324" height="2648" fetchpriority="high" /></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">איך זה עובד</div>
+      <h2>לכוון, לסרוק ולשמור</h2>
+    </div>
+    <ul class="plain">
+      <li><b>תחום:</b> FM / AM. <b>מצב כוונון:</b> אוטומטי (סריקה לתחנה החזקה הבאה) או ידני (צעד לפי מרווח התחום).</li>
+      <li><b>כוונון:</b> שני כפתורי הכוונון מזיזים את החוגה צעד אחר צעד; <b>הזינו תדר</b> פותח מקלדת לקפיצה ישירה לתחנה (דורש מצב ידני).</li>
+      <li><b>פריסטים:</b> רשת של משבצות פריסט וכפתורי עלייה וירידה. <b>לחיצה ארוכה</b> על משבצת מאפשרת <b>לשמור את התחנה הנוכחית</b>, <b>להוסיף או לשנות תווית</b> ("Jazz 88", "NPR"), או <b>לנקות את התווית</b>.</li>
+    </ul>
+    <div class="note">אם לשונית הרדיו מוסתרת, הוסיפו אותה מחדש דרך <i>הגדרות &rarr; התאמת הניווט</i> - היא מופיעה רק כשהמקלט שלכם חושף טיונר.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">שאלות נפוצות</div>
+      <h2>שאלות נפוצות על הטיונר</h2>
+    </div>
+    <details open><summary>אפשר לשלוט ברדיו FM/AM מהאפליקציה?</summary><div class="body">כן, במקלטים עם טיונר מובנה - תצוגה חיה של התחום, התדר והפריסט, מעבר בין FM ל-AM, כוונון אוטומטי או ידני, מקלדת לקפיצה לתדר ורשת פריסטים.</div></details>
+    <details><summary>אפשר לתת שמות לפריסטים?</summary><div class="body">כן - לחיצה ארוכה על משבצת שומרת את התחנה הנוכחית, ומאפשרת להוסיף או לשנות תווית ("Jazz 88", "NPR") או לנקות אותה.</div></details>
+    <details><summary>למה אני לא רואה את לשונית הרדיו?</summary><div class="body">היא מופיעה רק במקלטים עם טיונר מובנה. אם יש לכם כזה, ודאו שהטיונר מופיע כקלט והפעילו את הלשונית מחדש דרך הגדרות, התאמת הניווט.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">עוד מהמדריך</div>
+      <h2>מדריכים נוספים של AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/he/guide/getting-started/">תחילת העבודה</a> &middot; <a href="/he/guide/home/">מסך הבית</a> &middot; <a href="/he/guide/scenes/">סצנות</a> &middot; <a href="/he/guide/custom-icons/">אייקונים מותאמים אישית</a> &middot; <a href="/he/guide/sound/">צליל</a> &middot; <a href="/he/guide/graphic-eq/">אקולייזר גרפי</a> &middot; <a href="/he/guide/speakers/">רמקולים</a> &middot; <a href="/he/guide/locked-controls/">למה פקד נעול</a> &middot; <a href="/he/guide/assistant/">העוזר</a> &middot; <a href="/he/guide/home-automation/">אוטומציה ביתית</a> &middot; <a href="/he/guide/home-assistant-dashboard/">לוח הבקרה של Home Assistant</a> &middot; <a href="/he/guide/multi-zone/">אזורים</a> &middot; <a href="/he/guide/remote/">שלט</a> &middot; <a href="/he/guide/on-screen-display/">תצוגה על המסך</a> &middot; <a href="/he/guide/settings/">הגדרות</a> &middot; <a href="/he/guide/languages/">שפות</a> &middot; <a href="/he/guide/volume/">פקדי עוצמת קול</a> &middot; <a href="/he/guide/backup/">גיבוי &amp; שחזור</a> &middot; <a href="/he/guide/now-playing/">מתנגן כעת &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>קחו את הרדיו של המקלט אל הטלפון</h2>
+    <p class="lead" style="margin:0 auto 24px">רכישה חד-פעמית, בלי פרסומות, בלי מנויים. מתחברים בפחות מדקה.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="להורדה ב-Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="להורדה ב-App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="להורדה ב-Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="להורדה ב-Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/he/guide/">חזרה למדריך המלא &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/he/">בית</a>
+      <a href="/he/guide/">מדריך למשתמש</a>
+      <a href="/he/guide/getting-started/">להתחלה</a>
+      <a href="/he/receivers/">מקלטים</a>
+      <a href="/he/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/he/audyssey-vs-dirac/">Audyssey מול Dirac</a>
+      <a href="/he/best-denon-marantz-app/">למה לעבור</a>
+      <a href="/he/help/">עזרה</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">פייסבוק</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro היא אפליקציה עצמאית של MiyaraHub Technologies LLC ואינה קשורה, מאושרת או ממומנת על ידי Denon, Marantz, D&amp;M Holdings, Sound United או כל חברה אחרת שמוזכרת בעמוד הזה. Denon, Marantz, HEOS, Audyssey ו-Dirac Live הם סימנים מסחריים של בעליהם, ומשמשים כאן לצורכי זיהוי בלבד.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

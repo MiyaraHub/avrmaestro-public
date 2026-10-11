@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="th" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ตั้งค่าลำโพง: ระดับเสียง ครอสโอเวอร์ &amp; พรีเซ็ต - AVR Maestro</title>
+<meta name="description" content="เวิร์กช็อปตั้งค่าลำโพงสำหรับ Denon หรือ Marantz ของคุณจากโทรศัพท์: ผังลำโพง ระยะห่าง ระดับช่องสัญญาณ ครอสโอเวอร์ ซับวูฟเฟอร์ และพรีเซ็ตลำโพง อ่านค่าสด" />
+<meta name="keywords" content="Denon speaker setup app, Marantz speaker setup, AV receiver speaker levels app, crossover setting app, speaker preset app, channel level trim app, amp assign Denon Marantz, subwoofer setting app" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/th/guide/speakers/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/speakers/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/speakers/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/speakers/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/speakers/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/speakers/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/speakers/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/speakers/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/speakers/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/speakers/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/speakers/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/speakers/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/speakers/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/speakers/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/speakers/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/speakers/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/speakers/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/speakers/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/speakers/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/speakers/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/speakers/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/speakers/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/speakers/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/speakers/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/speakers/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/speakers/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/speakers/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/speakers/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/speakers/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/speakers/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/speakers/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/speakers/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="th_TH" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="ตั้งค่าลำโพง: ระดับเสียง ครอสโอเวอร์ &amp; พรีเซ็ต - AVR Maestro" />
+<meta property="og:description" content="เวิร์กช็อปตั้งค่าลำโพงสำหรับ Denon หรือ Marantz ของคุณจากโทรศัพท์: ผังลำโพง ระยะห่าง ระดับช่องสัญญาณ ครอสโอเวอร์ ซับวูฟเฟอร์ และพรีเซ็ตลำโพง อ่านค่าสด" />
+<meta property="og:url" content="https://avrmaestro.com/th/guide/speakers/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="ตั้งค่าลำโพง: ระดับเสียง ครอสโอเวอร์ &amp; พรีเซ็ต - AVR Maestro" />
+<meta name="twitter:description" content="เวิร์กช็อปตั้งค่าลำโพงสำหรับ Denon หรือ Marantz ของคุณจากโทรศัพท์: ผังลำโพง ระยะห่าง ระดับช่องสัญญาณ ครอสโอเวอร์ ซับวูฟเฟอร์ และพรีเซ็ตลำโพง อ่านค่าสด" />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro เป็นแอปอิสระสำหรับควบคุมเครื่องรับ AV ของ Denon และ Marantz ผ่านเครือข่ายภายในบ้านของคุณ",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "th"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/speakers/#article",
+      "headline": "เวิร์กช็อปลำโพงโดยเฉพาะ",
+      "description": "เวิร์กช็อปตั้งค่าลำโพงสำหรับ Denon หรือ Marantz ของคุณจากโทรศัพท์: ผังลำโพง ระยะห่าง ระดับช่องสัญญาณ ครอสโอเวอร์ ซับวูฟเฟอร์ และพรีเซ็ตลำโพง อ่านค่าสด",
+      "image": "https://avrmaestro.com/screenshots/speakers-layout.png",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/speakers/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "th"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/speakers/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "ตั้งค่าระยะห่างและระดับเสียงจากแอปได้ไหม",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ได้ - การกำหนดแอมป์และผังลำโพง ระยะห่างต่อลำโพง ระดับช่องสัญญาณ ครอสโอเวอร์ และการตั้งค่าซับวูฟเฟอร์ อ่านค่าสดทั้งหมดและทำงานตามชุดตั้งค่าลำโพงที่ใช้อยู่"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ทำไมบางหน้าจอลำโพงถึงถูกล็อก",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "เมื่อฟิลเตอร์ Dirac Live ทำงานอยู่บนพรีเซ็ต Dirac จะเป็นเจ้าของผังลำโพง ระยะห่าง และครอสโอเวอร์ แอปจะแสดงเครื่องหมายล็อกแทนที่จะให้คุณส่งการแก้ไขที่เครื่องรับจะปฏิเสธ สลับไปใช้พรีเซ็ตที่ไม่ใช่ Dirac เพื่อแก้ไข ดูเพิ่มเติมในคู่มือ Audyssey & Dirac"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ชุดตั้งค่าลำโพงคืออะไร",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "พรีเซ็ต 1 และ 2 แต่ละชุดเก็บผังลำโพง ระยะห่าง ระดับเสียง ครอสโอเวอร์ และการปรับเทียบของตัวเอง สลับระหว่างสองชุดได้ในแอป ทุกหน้าจอลำโพงจะทำงานตามพรีเซ็ตที่ใช้อยู่ สำหรับเครื่องรับที่มีพรีเซ็ตเดียว (เช่น AVR-X4500H) ตัวเลือกนี้จะถูกซ่อนไว้"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ส่งช่องสัญญาณ LFE ไปยังลำโพงหน้าโดยไม่มีซับวูฟเฟอร์ได้ไหม",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ได้ บนเครื่องรับที่รองรับ เมื่อลำโพงหลักของคุณตั้งเป็นฟูลเรนจ์ในครอสโอเวอร์ และเครื่องรับไม่ได้ส่ง LFE ไปยังซับวูฟเฟอร์ การกระจาย LFE ในหน้าเบสจะส่งช่องสัญญาณ LFE (.1) ไปยังลำโพงเหล่านั้นพร้อมระดับเสียงต่อลำโพง AVR Maestro จะเสนอตัวเลือกนี้ก็ต่อเมื่อเครื่องรับอนุญาตจริงเท่านั้น - หากลำโพงไม่ได้เป็นฟูลเรนจ์ หรือมีซับวูฟเฟอร์ที่ตั้งค่าให้รับ LFE เครื่องรับจะล็อกการตั้งค่านี้ และแอปจะแสดงเหตุผลอย่างชัดเจน แอปไม่มีทางส่งเบสไปยังลำโพงที่เครื่องรับห้ามไว้ ส่วนตัวควบคุม LPF สำหรับ LFE ในหน้าเดียวกันใช้กำหนดความถี่ตัดโลว์พาสของช่องสัญญาณ LFE"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "หน้าแรก",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "คู่มือผู้ใช้",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "ลำโพง",
+      "item": "https://avrmaestro.com/guide/speakers/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/th/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="เมนู" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="ค้นหาในคู่มือ..." data-i18n-empty="ไม่พบผลลัพธ์สำหรับ" data-i18n-language="ภาษา">
+      <a href="/th/">หน้าแรก</a>
+      <a href="/th/guide/">คู่มือผู้ใช้</a>
+      <a href="/th/receivers/">เครื่องรับ</a>
+      <a href="/th/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/th/best-denon-marantz-app/">ทำไมต้องเปลี่ยน</a>
+      <a href="/th/#top" class="cta">ดาวน์โหลด</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/th/">หน้าแรก</a> &rsaquo; <a href="/th/guide/">คู่มือผู้ใช้</a> &rsaquo; ลำโพง</div>
+    <div class="eyebrow">ตั้งค่าลำโพง &amp; พรีเซ็ต</div>
+    <h1>เวิร์กช็อป<span class="g">ลำโพง</span>โดยเฉพาะ</h1>
+    <p>ผังลำโพง ระยะห่าง ระดับเสียง ครอสโอเวอร์ ซับวูฟเฟอร์ การจัดการเบส และพรีเซ็ตลำโพง - ชุดตั้งค่าครบวงจร อ่านค่าสดจากเครื่องรับ Denon หรือ Marantz ของคุณ โดยทุกหน้าจอทำงานตามชุดตั้งค่าลำโพงที่ใช้อยู่</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+      <figure><img alt="ผังลำโพงและการกำหนดแอมป์" src="/screenshots/speakers-layout.png" width="1324" height="2644" decoding="async" /><figcaption>ผังลำโพง &amp; การกำหนดแอมป์</figcaption></figure>
+      <figure><img alt="ระยะห่างลำโพง" src="/screenshots/speakers-distances.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>ระยะห่าง</figcaption></figure>
+      <figure><img alt="ระดับเสียงช่องสัญญาณ" src="/screenshots/speakers-levels.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>ระดับเสียง</figcaption></figure>
+      <figure><img alt="ชุดตั้งค่าลำโพง" src="/screenshots/speakers-preset.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>ชุดตั้งค่าลำโพง</figcaption></figure>
+      <figure><img alt="ความถี่ครอสโอเวอร์ต่อลำโพง" src="/screenshots/speakers-crossovers.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>ครอสโอเวอร์</figcaption></figure>
+      <figure><img alt="LPF สำหรับ LFE และการกระจาย LFE" src="/screenshots/speakers-bass.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>การจัดการเบส</figcaption></figure>
+      <figure><img alt="เอาต์พุตซับวูฟเฟอร์ถูกล็อกโดย Dirac Live" src="/screenshots/speakers-subwoofer-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>เอาต์พุตซับวูฟเฟอร์</figcaption></figure>
+    </div>
+    <div class="section-head" style="margin-top:36px">
+      <h2>ทุกหน้าจอตั้งค่า บนโทรศัพท์ของคุณ</h2>
+    </div>
+    <ul class="plain">
+      <li><b>ผังลำโพง:</b> การกำหนดแอมป์และการตั้งค่า Spkr / Pre-out ต่อลำโพง</li>
+      <li><b>ระยะห่าง:</b> ระยะห่างของแต่ละลำโพงจากที่นั่งของคุณ ในหน่วยของเครื่องรับ (m หรือ ft)</li>
+      <li><b>ระดับเสียง:</b> ระดับการปรับต่อลำโพง</li>
+      <li><b>ครอสโอเวอร์:</b> ความถี่ที่ต่ำกว่านั้นเบสจะถูกส่งไปยังซับ (แสดงเฉพาะลำโพง "small" ส่วนลำโพง "large" ทำงานเต็มช่วงความถี่)</li>
+      <li><b>ซับวูฟเฟอร์:</b> การตั้งค่าเอาต์พุตซับวูฟเฟอร์</li>
+      <li><b>เบส:</b> LPF สำหรับ LFE (ความถี่ตัดโลว์พาสของช่องสัญญาณ LFE) และการกระจาย LFE (ส่งช่องสัญญาณ LFE .1 ไปยังลำโพงฟูลเรนจ์ - แสดงเฉพาะเมื่อเครื่องรับอนุญาต)</li>
+      <li><b>พรีเซ็ต:</b> สลับระหว่างชุดตั้งค่าลำโพง 1 / 2 - แต่ละชุดเก็บผังลำโพง ระยะห่าง ระดับเสียง ครอสโอเวอร์ และการปรับเทียบของตัวเอง สำหรับเครื่องรับที่มีพรีเซ็ตเดียว (เช่น AVR-X4500H) ตัวเลือกนี้จะถูกซ่อนไว้ แทนที่จะแสดงสวิตช์ที่ไม่พาไปไหน</li>
+      <li><b>ลำโพงหน้า:</b> ขั้วต่อด้านหน้าที่เครื่องรับขับอยู่ - A, B หรือ A+B - บนเครื่องที่มีตัวเลือกนี้ หากเครื่องรับทำการตั้งค่านี้เป็นสีเทา แอปจะบอกว่าถูกล็อก แทนที่จะทำเหมือนว่าการเปลี่ยนแปลงจะมีผล</li>
+    </ul>
+
+    <div class="section-head" style="margin-top:36px">
+      <h2>ดูว่ากำลังเล่นอะไรอยู่จริงๆ ทีละช่องสัญญาณ</h2>
+    </div>
+    <div class="gallery">
+      <figure><img alt="ตารางลำโพงของ AVR Maestro ที่แสดงช่องสัญญาณอินพุตและเอาต์พุตสว่างขึ้นขณะเล่นเพลง" src="/screenshots/speaker-grid-live.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>อินพุตและเอาต์พุต เคียงข้างกัน แบบสด</figcaption></figure>
+    </div>
+    <p class="lead">แตะผังลำโพงแล้วจะเปิดเป็นตาราง: ด้านซ้ายคือสิ่งที่สัญญาณขาเข้ามี ด้านขวาคือสิ่งที่เครื่องรับกำลังขับจริง แทร็กสเตอริโอจะแสดงช่องสัญญาณอินพุตสองช่องเทียบกับเอาต์พุตสิบเอ็ดช่อง และคุณจะเห็นการอัปมิกซ์ทำงานอยู่</p>
+    <ul class="plain">
+      <li><b>เครื่องรับตั้งชื่อลำโพงของมันเอง</b> ทุกป้ายชื่อมาจากสัญญาณที่เครื่องรับส่งมา ดังนั้นเครื่องที่มีลำโพงที่แอปนี้ไม่เคยรู้จักก็ยังแสดงลำโพงเหล่านั้นในตำแหน่งที่ถูกต้อง</li>
+      <li><b>สามสถานะ ไม่ใช่สอง:</b> กำลังเล่น เชื่อมต่อแต่เงียบ และไม่มี ลำโพงที่เครื่องรับบอกว่าไม่อยู่ในสัญญาณนี้จะไม่ถูกวาดเลย</li>
+      <li><b>เพิ่มไว้ตรงที่คุณต้องการ:</b> ตารางนี้ใช้ได้ทั้งเป็นการ์ดบนหน้าแรกและบนแท็บรีโมท</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">ฉลาดเรื่อง Dirac</div>
+        <h2>ไม่ปล่อยให้คุณส่งการแก้ไขที่เครื่องรับจะปฏิเสธ</h2>
+        <p class="lead">หน้าจอด้านบนแก้ไขได้เต็มที่บนชุดตั้งค่าลำโพงแบบมาตรฐาน แต่เมื่อ<b>ฟิลเตอร์ Dirac Live ทำงานอยู่</b>บนพรีเซ็ต Dirac จะเป็นเจ้าของผังลำโพง ระยะห่าง และครอสโอเวอร์ ดังนั้นแทนที่จะให้คุณทำการเปลี่ยนแปลงที่เครื่องรับจะเพิกเฉยไปเงียบๆ AVR Maestro จะแสดงเครื่องหมายล็อกที่ชัดเจนและบอกเหตุผลอย่างตรงไปตรงมา สลับไปใช้พรีเซ็ตที่ไม่ใช่ Dirac เพื่อแก้ไข</p>
+      </div>
+      <img alt="หน้าจอลำโพงที่ถูก Dirac ล็อก" src="/screenshots/speakers-layout-locked.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+    <div class="note">เฟิร์มแวร์เก่า? บนเครื่องรับก่อนปี 2025 บางรุ่น (กลุ่ม X4500H / X6700H / S960H / X4700H) เครื่องรับไม่สามารถส่งหน้าจอผังลำโพงหรือเอาต์พุตซับวูฟเฟอร์ให้แอปผ่านเครือข่ายได้ แทนที่จะแสดงหน้าจอที่เสีย AVR Maestro มีปุ่มแตะครั้งเดียวพาคุณเข้าสู่เว็บควบคุมของเครื่องรับเองเพื่อแก้ไขส่วนนั้น ส่วนที่เหลือของชุดลำโพงยังใช้งานได้ตามปกติ เครื่องรับที่ใช้เฟิร์มแวร์ใหม่กว่าส่งให้ครบทุกหน้าจอโดยตรง</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">คำถามที่พบบ่อย</div>
+      <h2>คำถามที่พบบ่อยเกี่ยวกับการตั้งค่าลำโพง</h2>
+    </div>
+    <details open><summary>ตั้งค่าระยะห่างและระดับเสียงจากแอปได้ไหม</summary><div class="body">ได้ - การกำหนดแอมป์และผังลำโพง ระยะห่างต่อลำโพง ระดับช่องสัญญาณ ครอสโอเวอร์ และการตั้งค่าซับวูฟเฟอร์ อ่านค่าสดทั้งหมดและทำงานตามชุดตั้งค่าลำโพงที่ใช้อยู่</div></details>
+    <details><summary>ทำไมบางหน้าจอลำโพงถึงถูกล็อก</summary><div class="body">เมื่อฟิลเตอร์ Dirac Live ทำงานอยู่บนพรีเซ็ต Dirac จะเป็นเจ้าของผังลำโพง ระยะห่าง และครอสโอเวอร์ แอปจะแสดงเครื่องหมายล็อกแทนที่จะให้คุณส่งการแก้ไขที่เครื่องรับจะปฏิเสธ สลับไปใช้พรีเซ็ตที่ไม่ใช่ Dirac เพื่อแก้ไข ดูเพิ่มเติมใน<a href="/th/audyssey-dirac-control/">คู่มือ Audyssey &amp; Dirac</a></div></details>
+    <details><summary>ชุดตั้งค่าลำโพงคืออะไร</summary><div class="body">พรีเซ็ต 1 และ 2 แต่ละชุดเก็บผังลำโพง ระยะห่าง ระดับเสียง ครอสโอเวอร์ และการปรับเทียบของตัวเอง สลับระหว่างสองชุดได้ในแอป ทุกหน้าจอลำโพงจะทำงานตามพรีเซ็ตที่ใช้อยู่ สำหรับเครื่องรับที่มีพรีเซ็ตเดียว (เช่น AVR-X4500H) ตัวเลือกนี้จะถูกซ่อนไว้</div></details>
+    <details><summary>ส่งช่องสัญญาณ LFE ไปยังลำโพงหน้าโดยไม่มีซับวูฟเฟอร์ได้ไหม</summary><div class="body">ได้ บนเครื่องรับที่รองรับ เมื่อลำโพงหลักของคุณตั้งเป็นฟูลเรนจ์ในครอสโอเวอร์ และเครื่องรับไม่ได้ส่ง LFE ไปยังซับวูฟเฟอร์ การกระจาย LFE ในหน้าเบสจะส่งช่องสัญญาณ LFE (.1) ไปยังลำโพงเหล่านั้นพร้อมระดับเสียงต่อลำโพง AVR Maestro จะเสนอตัวเลือกนี้ก็ต่อเมื่อเครื่องรับอนุญาตจริงเท่านั้น - หากลำโพงไม่ได้เป็นฟูลเรนจ์ หรือมีซับวูฟเฟอร์ที่ตั้งค่าให้รับ LFE เครื่องรับจะล็อกการตั้งค่านี้ และแอปจะแสดงเหตุผลอย่างชัดเจน แอปไม่มีทางส่งเบสไปยังลำโพงที่เครื่องรับห้ามไว้ ส่วนตัวควบคุม LPF สำหรับ LFE ในหน้าเดียวกันใช้กำหนดความถี่ตัดโลว์พาสของช่องสัญญาณ LFE</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">เนื้อหาเพิ่มเติมของคู่มือ</div>
+      <h2>คู่มือ AVR Maestro เรื่องอื่น ๆ</h2>
+    </div>
+    <p class="lead"><a href="/th/guide/getting-started/">เริ่มต้นใช้งาน</a> &middot; <a href="/th/guide/home/">หน้าจอหลัก</a> &middot; <a href="/th/guide/scenes/">ฉาก</a> &middot; <a href="/th/guide/custom-icons/">ไอคอนกำหนดเอง</a> &middot; <a href="/th/guide/sound/">เสียง</a> &middot; <a href="/th/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/th/guide/locked-controls/">เหตุใดตัวควบคุมจึงถูกล็อก</a> &middot; <a href="/th/guide/assistant/">ผู้ช่วย</a> &middot; <a href="/th/guide/home-automation/">ระบบบ้านอัตโนมัติ</a> &middot; <a href="/th/guide/home-assistant-dashboard/">แดชบอร์ด Home Assistant</a> &middot; <a href="/th/guide/multi-zone/">โซน</a> &middot; <a href="/th/guide/remote/">รีโมท</a> &middot; <a href="/th/guide/radio/">วิทยุ (FM/AM)</a> &middot; <a href="/th/guide/on-screen-display/">การแสดงผลบนหน้าจอ</a> &middot; <a href="/th/guide/settings/">การตั้งค่า</a> &middot; <a href="/th/guide/languages/">ภาษา</a> &middot; <a href="/th/guide/volume/">การควบคุมระดับเสียง</a> &middot; <a href="/th/guide/backup/">สำรอง &amp; กู้คืนข้อมูล</a> &middot; <a href="/th/guide/now-playing/">กำลังเล่น &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>จูนลำโพงของคุณให้ลงตัว จากบนโซฟา</h2>
+    <p class="lead" style="margin:0 auto 24px">ซื้อครั้งเดียว ไม่มีโฆษณา ไม่มีการสมัครสมาชิก เชื่อมต่อได้ในไม่ถึงหนึ่งนาที</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="ดาวน์โหลดบน Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="ดาวน์โหลดบน App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="ดาวน์โหลดบน Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="ดาวน์โหลดบน Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/th/guide/">กลับไปที่คู่มือผู้ใช้ฉบับเต็ม &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/th/">หน้าแรก</a>
+      <a href="/th/guide/">คู่มือผู้ใช้</a>
+      <a href="/th/guide/getting-started/">เริ่มต้นใช้งาน</a>
+      <a href="/th/receivers/">เครื่องรับ</a>
+      <a href="/th/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/th/audyssey-vs-dirac/">Audyssey เทียบกับ Dirac</a>
+      <a href="/th/best-denon-marantz-app/">ทำไมต้องเปลี่ยน</a>
+      <a href="/th/help/">วิธีใช้</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro เป็นแอปอิสระโดย MiyaraHub Technologies LLC และไม่มีส่วนเกี่ยวข้อง ไม่ได้รับการรับรอง หรือได้รับการสนับสนุนจาก Denon, Marantz, D&amp;M Holdings, Sound United หรือบริษัทอื่นใดที่ระบุไว้ในหน้านี้ Denon, Marantz, HEOS, Audyssey และ Dirac Live เป็นเครื่องหมายการค้าของเจ้าของที่เกี่ยวข้อง ใช้ในที่นี้เพื่อการระบุเท่านั้น</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

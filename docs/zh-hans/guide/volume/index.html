@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>音量上限、开机音量 &amp; 静音深度 - AVR Maestro</title>
+<meta name="description" content="为您的 Denon 或 Marantz 设置音量上限，选择开机音量，决定静音衰减多少，并可用 0 至 98 或分贝来显示音量。" />
+<meta name="keywords" content="Denon volume limit app, Marantz power on level, AVR mute level -20 dB, receiver volume in decibels app, Denon volume scale absolute relative, protect speakers volume limit" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/zh-hans/guide/volume/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/volume/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/volume/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/volume/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/volume/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/volume/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/volume/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/volume/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/volume/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/volume/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/volume/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/volume/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/volume/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/volume/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/volume/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/volume/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/volume/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/volume/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/volume/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/volume/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/volume/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/volume/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/volume/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/volume/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/volume/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/volume/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/volume/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/volume/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/volume/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/volume/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/volume/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/volume/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="zh_CN" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="音量上限、开机音量 &amp; 静音深度 - AVR Maestro" />
+<meta property="og:description" content="为您的 Denon 或 Marantz 设置音量上限，选择开机音量，决定静音衰减多少，并可用 0 至 98 或分贝来显示音量。" />
+<meta property="og:url" content="https://avrmaestro.com/zh-hans/guide/volume/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="音量上限、开机音量 &amp; 静音深度 - AVR Maestro" />
+<meta name="twitter:description" content="为您的 Denon 或 Marantz 设置音量上限，选择开机音量，决定静音衰减多少，并可用 0 至 98 或分贝来显示音量。" />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro 是一款独立应用，可通过本地网络控制 Denon 和 Marantz AV 接收机。",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "zh-Hans"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/volume/#article",
+      "headline": "音量控制：一个上限、一个开机音量，和一个称心如意的静音",
+      "description": "为您的 Denon 或 Marantz 设置音量上限，选择开机音量，决定静音衰减多少，并可用 0 至 98 或分贝来显示音量。",
+      "image": "https://avrmaestro.com/screenshots/volume-controls.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/volume/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "zh-Hans"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/volume/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "音量上限对实体遥控器也有效吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "有效。该上限是接收机的设置，而不是应用的设置，因此对所有控制途径都生效：应用、随机遥控器、前面板旋钮，以及您网络中的其他任何控制器。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "这些设置适用于分区 2 和分区 3 吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "音量控制涉及主分区。每个分区都有自己的音量，以及各自的电源和输入源，在分区标签页中设置。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "为什么评测中用分贝，而应用显示的是 0 至 98？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "这是同一个旋钮的两种显示方式。把音量刻度切换为 -79.5 至 18.0 dB，读数就和校准电平的常见表述一致，其中 0.0 dB 为参考电平。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "可以使用手机的音量键吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以，Android 和 iPhone 均支持。AVR Maestro 位于前台时，设备的音量键直接控制接收机，按一下调一步，按住则持续渐变；在设置的音频中有一个开关，可把音量键还给设备。"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "主页",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "用户指南",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "音量控制",
+      "item": "https://avrmaestro.com/guide/volume/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/zh-hans/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="菜单" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="搜索指南…" data-i18n-empty="没有找到匹配项：" data-i18n-language="语言">
+      <a href="/zh-hans/">主页</a>
+      <a href="/zh-hans/guide/">用户指南</a>
+      <a href="/zh-hans/receivers/">接收机</a>
+      <a href="/zh-hans/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/zh-hans/best-denon-marantz-app/">为什么要换</a>
+      <a href="/zh-hans/#top" class="cta">下载</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/zh-hans/">首页</a> &rsaquo; <a href="/zh-hans/guide/">用户指南</a> &rsaquo; 音量控制</div>
+    <div class="eyebrow">设置 &rsaquo; 音量控制</div>
+    <h1>音量控制：一个上限、一个开机音量，和<span class="g">一个称心如意的静音</span></h1>
+    <p>四项设置共同决定接收机最大能有多响、开机时是什么音量，以及静音时降多少。它们保存在接收机上，因此无论您使用应用、实体遥控器还是前面板，都同样有效。</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">在哪里设置</div>
+        <h2>设置 &rsaquo; 音量控制</h2>
+        <p class="lead">打开<b>设置</b>并滚动到<b>音量控制</b> - “音量上限、开机音量和静音深度”。此页面上的所有内容都会直接写入接收机，所以关闭应用后依然有效，并适用于您控制它的所有方式。</p>
+      </div>
+      <img alt="音量控制页面，包含音量刻度、上限、开机音量和静音电平" src="/screenshots/volume-controls.png" width="1324" height="2644" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">逐项说明</div>
+      <h2>每项设置的作用</h2>
+    </div>
+
+    <h3 style="margin-top:26px">音量刻度</h3>
+    <p class="lead">音量如何显示，包括屏幕上和接收机自己的显示屏上。<b>0 - 98</b> 是大多数人熟悉的相对刻度；<b>-79.5 至 18.0 dB</b> 是绝对刻度，其中 0.0 dB 为参考电平。如果您见过评测写“-15 dB”，却不知道对应旋钮上的什么位置，这个开关就是答案。</p>
+
+    <h3 style="margin-top:26px">音量上限</h3>
+    <p class="lead">一个硬性上限。一旦设定，<b>任何方式</b>都无法超过它：应用不行，实体遥控器不行，前面板旋钮也不行，因为这个上限保存在接收机上，而不是应用里。最明显的用途是防止误触而损坏扬声器或吓到满屋的人，在把遥控器交给来家里的客人之前，就该用它。<b>关</b>则取消上限。</p>
+
+    <h3 style="margin-top:26px">开机音量</h3>
+    <p class="lead"><b>使用上次音量</b>默认开启：接收机开机时恢复到关机前的音量。关闭后，您可以改为固定一个音量，这样前一晚在高音量下听到很晚，第二天早上也不会吓一跳。</p>
+
+    <h3 style="margin-top:26px">静音电平</h3>
+    <p class="lead">静音时音量降低多少。<b>完全</b>表示完全无声。<b>-40 dB</b> 和 <b>-20 dB</b> 则是衰减而非完全静音，想在看电影时聊几句又不想错过剧情，这样更合适。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">应用的其他位置</div>
+      <h2>您每天都会用到的控制</h2>
+    </div>
+    <ul class="plain">
+      <li><b>主页仪表盘</b>提供主分区的总音量、静音和电源。</li>
+      <li><b>遥控标签页</b>在方向键和播放控制键旁边设有音量摇杆，并实时显示音量。<a href="/zh-hans/guide/remote/">遥控指南 &rarr;</a></li>
+      <li><b>每一个音量加减按钮</b>，无论在主页仪表盘、分区卡片还是遥控标签页，点按一下走一步，按住则持续步进，和实体遥控器一样。松手后最多再走一步就会停下。</li>
+      <li><b>您手机的音量键</b>在 Android 和 iPhone 上，应用位于前台时可直接控制接收机，让您不用看屏幕也能调节。按住同样会渐变。</li>
+      <li><b>每个分区</b>都有独立于主分区的音量。<a href="/zh-hans/guide/multi-zone/">分区指南 &rarr;</a></li>
+      <li><b>场景</b>可以记录总音量，因此调用场景时，音量会连同其他设置一并设定。<a href="/zh-hans/guide/scenes/">场景指南 &rarr;</a></li>
+      <li>电视上的<b>屏幕音量读数</b>可以移动，也可以完全关闭。<a href="/zh-hans/guide/on-screen-display/">屏幕显示指南 &rarr;</a></li>
+    </ul>
+    <div class="note">音量变化是刻意控制节奏的，而不是每移动一个像素就发送一次，所以按住摇杆或滑动滑块时是平滑渐变，而不会向接收机塞入一堆命令，导致它排队后延迟执行。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">常见问题</div>
+      <h2>音量常见问题</h2>
+    </div>
+    <details open><summary>音量上限对实体遥控器也有效吗？</summary><div class="body">有效。该上限是接收机的设置，而不是应用的设置，因此对所有控制途径都生效：应用、随机遥控器、前面板旋钮，以及您网络中的其他任何控制器。</div></details>
+    <details><summary>这些设置适用于分区 2 和分区 3 吗？</summary><div class="body">音量控制涉及主分区。每个分区都有自己的音量，以及各自的电源和输入源，在分区标签页中设置。</div></details>
+    <details><summary>为什么评测中用分贝，而应用显示的是 0 至 98？</summary><div class="body">这是同一个旋钮的两种显示方式。把音量刻度切换为 -79.5 至 18.0 dB，读数就和校准电平的常见表述一致，其中 0.0 dB 为参考电平。</div></details>
+    <details><summary>可以使用手机的音量键吗？</summary><div class="body">可以，Android 和 iPhone 均支持。AVR Maestro 位于前台时，设备的音量键直接控制接收机，按一下调一步，按住则持续渐变；在设置的音频中有一个开关，可把音量键还给设备。</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">指南的更多内容</div>
+      <h2>其他 AVR Maestro 指南</h2>
+    </div>
+    <p class="lead"><a href="/zh-hans/guide/getting-started/">快速入门</a> &middot; <a href="/zh-hans/guide/home/">主屏幕</a> &middot; <a href="/zh-hans/guide/scenes/">场景</a> &middot; <a href="/zh-hans/guide/custom-icons/">自定义图标</a> &middot; <a href="/zh-hans/guide/sound/">声音</a> &middot; <a href="/zh-hans/guide/graphic-eq/">图形 EQ</a> &middot; <a href="/zh-hans/guide/speakers/">扬声器</a> &middot; <a href="/zh-hans/guide/locked-controls/">控制项为何被锁定</a> &middot; <a href="/zh-hans/guide/assistant/">助手</a> &middot; <a href="/zh-hans/guide/home-automation/">家庭自动化</a> &middot; <a href="/zh-hans/guide/home-assistant-dashboard/">Home Assistant 仪表板</a> &middot; <a href="/zh-hans/guide/multi-zone/">分区</a> &middot; <a href="/zh-hans/guide/remote/">遥控</a> &middot; <a href="/zh-hans/guide/radio/">收音机 (FM/AM)</a> &middot; <a href="/zh-hans/guide/on-screen-display/">屏幕显示</a> &middot; <a href="/zh-hans/guide/settings/">设置</a> &middot; <a href="/zh-hans/guide/languages/">语言</a> &middot; <a href="/zh-hans/guide/backup/">备份 &amp; 恢复</a> &middot; <a href="/zh-hans/guide/now-playing/">正在播放 &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>上限只需设置一次，之后放心使用</h2>
+    <p class="lead" style="margin:0 auto 24px">一次性购买，无广告，无订阅。不到一分钟即可连接。</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="在 Google Play 获取" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="在 App Store 下载" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="在 Mac App Store 下载" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="在 Microsoft Store 获取" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/zh-hans/guide/">返回完整用户指南 &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/zh-hans/">主页</a>
+      <a href="/zh-hans/guide/">用户指南</a>
+      <a href="/zh-hans/guide/getting-started/">入门指南</a>
+      <a href="/zh-hans/receivers/">接收机</a>
+      <a href="/zh-hans/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/zh-hans/audyssey-vs-dirac/">Audyssey 与 Dirac 对比</a>
+      <a href="/zh-hans/best-denon-marantz-app/">为什么要换</a>
+      <a href="/zh-hans/help/">帮助</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro 是 MiyaraHub Technologies LLC 开发的独立应用，与 Denon、Marantz、D&amp;M Holdings、Sound United 或本页提及的任何其他公司均无关联，也未获得其认可或赞助。Denon、Marantz、HEOS、Audyssey 和 Dirac Live 是其各自所有者的商标，在此仅用于识别。</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="el" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Αντίγραφο Ασφαλείας &amp; Επαναφορά Ρυθμίσεων σε Νέο Τηλέφωνο - AVR Maestro</title>
+<meta name="description" content="Εξαγάγετε όλες τις ρυθμίσεις του AVR Maestro σε ένα αρχείο: δέκτες, ονόματα και εικονίδια εισόδων, Σκηνές, θέμα και προτιμήσεις έντασης. Επαναφέρετέ το σε νέο τηλέφωνο με λίγα πατήματα." />
+<meta name="keywords" content="AVR Maestro backup, transfer AVR app settings new phone, export receiver settings app, restore Denon app config, AVR Maestro migrate device" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/el/guide/backup/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/backup/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/backup/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/backup/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/backup/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/backup/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/backup/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/backup/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/backup/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/backup/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/backup/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/backup/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/backup/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/backup/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/backup/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/backup/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/backup/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/backup/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/backup/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/backup/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/backup/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/backup/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/backup/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/backup/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/backup/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/backup/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/backup/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/backup/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/backup/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/backup/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/backup/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/backup/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="el_GR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Αντίγραφο Ασφαλείας &amp; Επαναφορά Ρυθμίσεων σε Νέο Τηλέφωνο - AVR Maestro" />
+<meta property="og:description" content="Εξαγάγετε όλες τις ρυθμίσεις του AVR Maestro σε ένα αρχείο: δέκτες, ονόματα και εικονίδια εισόδων, Σκηνές, θέμα και προτιμήσεις έντασης. Επαναφέρετέ το σε νέο τηλέφωνο με λίγα πατήματα." />
+<meta property="og:url" content="https://avrmaestro.com/el/guide/backup/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Αντίγραφο Ασφαλείας &amp; Επαναφορά Ρυθμίσεων σε Νέο Τηλέφωνο - AVR Maestro" />
+<meta name="twitter:description" content="Εξαγάγετε όλες τις ρυθμίσεις του AVR Maestro σε ένα αρχείο: δέκτες, ονόματα και εικονίδια εισόδων, Σκηνές, θέμα και προτιμήσεις έντασης. Επαναφέρετέ το σε νέο τηλέφωνο με λίγα πατήματα." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "Το AVR Maestro είναι μια ανεξάρτητη εφαρμογή για τον έλεγχο δεκτών AV Denon και Marantz μέσω του τοπικού σας δικτύου.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "el"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/backup/#article",
+      "headline": "Αντίγραφο Ασφαλείας & Επαναφορά: ολόκληρη η ρύθμισή σας, σε ένα αρχείο",
+      "description": "Εξαγάγετε όλες τις ρυθμίσεις του AVR Maestro σε ένα αρχείο: δέκτες, ονόματα και εικονίδια εισόδων, Σκηνές, θέμα και προτιμήσεις έντασης. Επαναφέρετέ το σε νέο τηλέφωνο με λίγα πατήματα.",
+      "image": "https://avrmaestro.com/screenshots/backup-restore.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/backup/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "el"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/backup/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Μπορώ να μεταφέρω ένα αντίγραφο ασφαλείας ανάμεσα σε Android και iPhone;",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Το αρχείο είναι απλό JSON και δεν είναι δεμένο με τη συσκευή που το δημιούργησε. Εξαγάγετέ το από τη μία, περάστε το αρχείο στην άλλη και εισαγάγετέ το."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Θα αντικαταστήσει η εισαγωγή τη βαθμονόμηση του δέκτη μου;",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Όχι. Ένα αντίγραφο ασφαλείας περιέχει μόνο ρυθμίσεις της εφαρμογής. Ό,τι αποθηκεύει ο ίδιος ο δέκτης - βαθμονόμηση, προεπιλογές, επίπεδα, αποστάσεις, φίλτρα Dirac - βρίσκεται στον δέκτη και μένει ανέγγιχτο."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Μεταφέρονται και οι Σκηνές μου;",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ναι, μαζί με τις ρυθμίσεις που είχε οριστεί να καταγράφει κάθε Σκηνή. Δείτε τον οδηγό των Σκηνών."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Πού αποθηκεύει το αρχείο η επιλογή «Αποθήκευση στη συσκευή»;",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Όπου επιλέξετε στον επιλογέα αρχείων του συστήματός σας. Η Κοινή χρήση είναι η πιο γρήγορη διαδρομή αν το αρχείο απλώς περνά από εκεί προς άλλο τηλέφωνο."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Αρχική",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Οδηγός Χρήσης",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Αντίγραφο Ασφαλείας & Επαναφορά",
+      "item": "https://avrmaestro.com/guide/backup/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/el/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Μενού" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Αναζήτηση στον οδηγό..." data-i18n-empty="Δεν βρέθηκαν αποτελέσματα για" data-i18n-language="Γλώσσα">
+      <a href="/el/">Αρχική</a>
+      <a href="/el/guide/">Οδηγός Χρήσης</a>
+      <a href="/el/receivers/">Δέκτες</a>
+      <a href="/el/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/el/best-denon-marantz-app/">Γιατί να αλλάξετε</a>
+      <a href="/el/#top" class="cta">Λήψη</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/el/">Αρχική</a> &rsaquo; <a href="/el/guide/">Οδηγός χρήσης</a> &rsaquo; Αντίγραφο ασφαλείας &amp; επαναφορά</div>
+    <div class="eyebrow">Ρυθμίσεις &rsaquo; Αντίγραφο Ασφαλείας &amp; Επαναφορά</div>
+    <h1>Αντίγραφο Ασφαλείας &amp; Επαναφορά: ολόκληρη η ρύθμισή σας, <span class="g">σε ένα αρχείο</span></h1>
+    <p>Το να μετονομάσετε κάθε είσοδο, να διαλέξετε εικόνα για την καθεμία, να ταξινομήσετε τις πηγές σας και να φτιάξετε ένα σύνολο Σκηνών είναι πραγματική δουλειά. Πρέπει να επιβιώνει σε ένα νέο τηλέφωνο, και επιβιώνει: μία εξαγωγή, μία εισαγωγή και η νέα συσκευή μοιάζει ακριβώς με την παλιά.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Εξαγωγή</div>
+        <h2>Αποθήκευση στη συσκευή ή άμεση κοινή χρήση</h2>
+        <p class="lead">Ανοίξτε τις <b>Ρυθμίσεις</b>, μεταβείτε στο <b>Αντίγραφο Ασφαλείας &amp; Επαναφορά</b> και επιλέξτε:</p>
+        <ul class="plain">
+          <li><b>Αποθήκευση στη συσκευή</b> - γράφει ένα μοναδικό αρχείο JSON όπου του υποδείξετε.</li>
+          <li><b>Κοινή χρήση</b> - το παραδίδει στο συνηθισμένο μενού κοινής χρήσης, ώστε να πάει κατευθείαν στο άλλο τηλέφωνο, σε μια υπηρεσία αποθήκευσης στο cloud ή σε ένα μήνυμα προς τον εαυτό σας.</li>
+        </ul>
+        <p class="lead">Είναι ένα απλό αρχείο κειμένου. Τίποτα σε αυτό δεν είναι δεμένο με τη συσκευή από την οποία προήλθε.</p>
+      </div>
+      <img alt="Η σελίδα Αντίγραφο Ασφαλείας και Επαναφορά με εξαγωγή και εισαγωγή" src="/screenshots/backup-restore.png" width="1324" height="2644" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Τα περιεχόμενα</div>
+      <h2>Τι μεταφέρεται μαζί σας</h2>
+    </div>
+    <table class="t">
+      <thead><tr><th>Περιλαμβάνεται</th><th>Σημασία</th></tr></thead>
+      <tbody>
+        <tr><td>Ρυθμισμένοι δέκτες</td><td>Κάθε συσκευή που έχετε προσθέσει, με τη διεύθυνση και τις ρυθμίσεις της</td></tr>
+        <tr><td>Σειρά πηγών ανά συσκευή</td><td>Η σειρά στην οποία τοποθετήσατε τις εισόδους σας, διατηρημένη ανά δέκτη</td></tr>
+        <tr><td>Θέμα και Θέμα Χρωμάτων</td><td>Το χρώμα έμφασης και οι επιλογές εμφάνισής σας</td></tr>
+        <tr><td>Κλίμακα οθόνης και widget</td><td>Μέγεθος κειμένου και widget</td></tr>
+        <tr><td>Προτιμήσεις έντασης</td><td>Η συμπεριφορά της έντασης από την πλευρά της εφαρμογής</td></tr>
+        <tr><td>Κατάσταση καρτών επεξήγησης</td><td>Ποια πληροφοριακά banner έχετε κλείσει, ώστε να παραμένουν κλειστά</td></tr>
+        <tr><td>Αποθηκευμένες διερευνήσεις</td><td>Τα αποτελέσματα για HEOS, λειτουργίες και δυνατότητες μουσικής, ώστε το νέο τηλέφωνο να μην ξεκινά από το μηδέν</td></tr>
+      </tbody>
+    </table>
+    <div class="note">Τα προσαρμοσμένα ονόματα και εικόνες εισόδων αποτελούν μέρος της ρύθμισης του δέκτη σας, οπότε μεταφέρονται μαζί της. Δείτε τον <a href="/el/guide/custom-icons/">οδηγό Προσαρμοσμένων Εικονιδίων</a>.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Εισαγωγή</div>
+      <h2>Επαναφορά στο νέο τηλέφωνο</h2>
+    </div>
+    <ol class="plain">
+      <li>Εγκαταστήστε το AVR Maestro στη νέα συσκευή και βεβαιωθείτε ότι βρίσκεται στο ίδιο δίκτυο με τον δέκτη σας.</li>
+      <li>Ανοίξτε <b>Ρυθμίσεις &rsaquo; Αντίγραφο Ασφαλείας &amp; Επαναφορά</b>.</li>
+      <li>Πατήστε <b>Εισαγωγή ρυθμίσεων από αρχείο</b> και επιλέξτε το αντίγραφο ασφαλείας.</li>
+      <li><b>Επανεκκινήστε την εφαρμογή.</b> Σας το λέει και η ίδια η εφαρμογή - η επανεκκίνηση εξασφαλίζει ότι κάθε επαναφερμένη ρύθμιση τίθεται σε ισχύ σωστά.</li>
+    </ol>
+    <div class="note"><b>Η εισαγωγή αντικαθιστά, δεν συγχωνεύει.</b> Ό,τι υπάρχει σε εκείνη τη συσκευή αντικαθίσταται από τα περιεχόμενα του αντιγράφου. Αν η τρέχουσα ρύθμιση έχει αξία για εσάς, εξαγάγετέ την πρώτα - κοστίζει δύο πατήματα.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Καλό είναι να γνωρίζετε</div>
+      <h2>Ένα αντίγραφο ασφαλείας αφορά την εφαρμογή, όχι τον δέκτη</h2>
+    </div>
+    <p class="lead">Η βαθμονόμηση, οι Προεπιλογές Ηχείων, τα επίπεδα, οι αποστάσεις, τα crossover και τα φίλτρα Dirac βρίσκονται <b>στον δέκτη</b>. Δεν περιλαμβάνονται στο αντίγραφο ασφαλείας και η εισαγωγή του δεν μπορεί να τα διαταράξει. Αυτό ισχύει και προς τις δύο κατευθύνσεις: ένα αντίγραφο ασφαλείας δεν θα επαναφέρει έναν δέκτη που έχετε επαναφέρει στις εργοστασιακές ρυθμίσεις, και δεν χρειάζεται - όταν συνδέσετε ξανά την εφαρμογή σε εκείνον τον δέκτη, ανακτά τις ρυθμίσεις του από τον ίδιο τον δέκτη.</p>
+    <p class="lead">Είναι επίσης μια λογική προφύλαξη πριν από μια μεγάλη αναδιοργάνωση. Εξαγάγετε, αναδιατάξτε τις εισόδους σας και ξαναχτίστε τις Σκηνές σας ελεύθερα, και αν προτιμούσατε τα πράγματα όπως ήταν, το αρχείο είναι εκεί.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Συχνές ερωτήσεις</div>
+      <h2>Συχνές ερωτήσεις για το αντίγραφο ασφαλείας</h2>
+    </div>
+    <details open><summary>Μπορώ να μεταφέρω ένα αντίγραφο ασφαλείας ανάμεσα σε Android και iPhone;</summary><div class="body">Το αρχείο είναι απλό JSON και δεν είναι δεμένο με τη συσκευή που το δημιούργησε. Εξαγάγετέ το από τη μία, περάστε το αρχείο στην άλλη και εισαγάγετέ το.</div></details>
+    <details><summary>Θα αντικαταστήσει η εισαγωγή τη βαθμονόμηση του δέκτη μου;</summary><div class="body">Όχι. Ένα αντίγραφο ασφαλείας περιέχει μόνο ρυθμίσεις της εφαρμογής. Ό,τι αποθηκεύει ο ίδιος ο δέκτης - βαθμονόμηση, προεπιλογές, επίπεδα, αποστάσεις, φίλτρα Dirac - βρίσκεται στον δέκτη και μένει ανέγγιχτο.</div></details>
+    <details><summary>Μεταφέρονται και οι Σκηνές μου;</summary><div class="body">Ναι, μαζί με τις ρυθμίσεις που είχε οριστεί να καταγράφει κάθε Σκηνή. Δείτε τον <a href="/el/guide/scenes/">οδηγό των Σκηνών</a>.</div></details>
+    <details><summary>Πού αποθηκεύει το αρχείο η επιλογή «Αποθήκευση στη συσκευή»;</summary><div class="body">Όπου επιλέξετε στον επιλογέα αρχείων του συστήματός σας. Η Κοινή χρήση είναι η πιο γρήγορη διαδρομή αν το αρχείο απλώς περνά από εκεί προς άλλο τηλέφωνο.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Περισσότερα από τον οδηγό</div>
+      <h2>Άλλοι οδηγοί του AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/el/guide/getting-started/">Ξεκινώντας</a> &middot; <a href="/el/guide/home/">Αρχική οθόνη</a> &middot; <a href="/el/guide/scenes/">Σκηνές</a> &middot; <a href="/el/guide/custom-icons/">Προσαρμοσμένα εικονίδια</a> &middot; <a href="/el/guide/sound/">Ήχος</a> &middot; <a href="/el/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/el/guide/speakers/">Ηχεία</a> &middot; <a href="/el/guide/locked-controls/">Γιατί ένα χειριστήριο είναι κλειδωμένο</a> &middot; <a href="/el/guide/assistant/">Ο Βοηθός</a> &middot; <a href="/el/guide/home-automation/">Αυτοματισμός Σπιτιού</a> &middot; <a href="/el/guide/home-assistant-dashboard/">Πίνακας ελέγχου Home Assistant</a> &middot; <a href="/el/guide/multi-zone/">Ζώνες</a> &middot; <a href="/el/guide/remote/">Τηλεχειριστήριο</a> &middot; <a href="/el/guide/radio/">Ραδιόφωνο (FM/AM)</a> &middot; <a href="/el/guide/on-screen-display/">Ενδείξεις οθόνης</a> &middot; <a href="/el/guide/settings/">Ρυθμίσεις</a> &middot; <a href="/el/guide/languages/">Γλώσσες</a> &middot; <a href="/el/guide/volume/">Χειριστήρια έντασης</a> &middot; <a href="/el/guide/now-playing/">Αναπαράγεται τώρα &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Ρυθμίστε τον μία φορά</h2>
+    <p class="lead" style="margin:0 auto 24px">Εφάπαξ αγορά, χωρίς διαφημίσεις, χωρίς συνδρομές. Συνδεθείτε σε λιγότερο από ένα λεπτό.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Διαθέσιμο στο Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Λήψη από το App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Λήψη από το Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Διαθέσιμο στο Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/el/guide/">Πίσω στον πλήρη Οδηγό Χρήσης &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/el/">Αρχική</a>
+      <a href="/el/guide/">Οδηγός Χρήσης</a>
+      <a href="/el/guide/getting-started/">Πρώτα βήματα</a>
+      <a href="/el/receivers/">Δέκτες</a>
+      <a href="/el/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/el/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/el/best-denon-marantz-app/">Γιατί να αλλάξετε</a>
+      <a href="/el/help/">Βοήθεια</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">Το AVR Maestro είναι μια ανεξάρτητη εφαρμογή της MiyaraHub Technologies LLC και δεν σχετίζεται με, δεν υποστηρίζεται από και δεν χρηματοδοτείται από τις Denon, Marantz, D&amp;M Holdings, Sound United ή οποιαδήποτε άλλη εταιρεία αναφέρεται σε αυτή τη σελίδα. Οι Denon, Marantz, HEOS, Audyssey και Dirac Live είναι εμπορικά σήματα των αντίστοιχων κατόχων τους και χρησιμοποιούνται εδώ μόνο για αναγνώριση.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

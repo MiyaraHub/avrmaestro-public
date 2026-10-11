@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="hu" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Most szól &amp; HEOS: albumborító és lejátszásvezérlés - AVR Maestro</title>
+<meta name="description" content="Az AVR Maestro Most szól kártyája albumborítót, számot, előadót és állomást mutat lejátszás, szünet, következő és előző vezérlőkkel, élőben a Denonodról vagy Marantzodról HEOS-on keresztül." />
+<meta name="keywords" content="Denon Now Playing app, Marantz HEOS app, HEOS controller app, AVR now playing album art, receiver transport controls app, Denon Marantz music control, HEOS favorites app" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/hu/guide/now-playing/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/now-playing/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/now-playing/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/now-playing/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/now-playing/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/now-playing/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/now-playing/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/now-playing/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/now-playing/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/now-playing/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/now-playing/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/now-playing/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/now-playing/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/now-playing/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/now-playing/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/now-playing/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/now-playing/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/now-playing/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/now-playing/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/now-playing/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/now-playing/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/now-playing/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/now-playing/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/now-playing/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/now-playing/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/now-playing/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/now-playing/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/now-playing/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/now-playing/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/now-playing/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/now-playing/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/now-playing/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="hu_HU" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Most szól &amp; HEOS: albumborító és lejátszásvezérlés - AVR Maestro" />
+<meta property="og:description" content="Az AVR Maestro Most szól kártyája albumborítót, számot, előadót és állomást mutat lejátszás, szünet, következő és előző vezérlőkkel, élőben a Denonodról vagy Marantzodról HEOS-on keresztül." />
+<meta property="og:url" content="https://avrmaestro.com/hu/guide/now-playing/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Most szól &amp; HEOS: albumborító és lejátszásvezérlés - AVR Maestro" />
+<meta name="twitter:description" content="Az AVR Maestro Most szól kártyája albumborítót, számot, előadót és állomást mutat lejátszás, szünet, következő és előző vezérlőkkel, élőben a Denonodról vagy Marantzodról HEOS-on keresztül." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "Az AVR Maestro egy független alkalmazás Denon és Marantz AV-erősítők vezérlésére a helyi hálózaton keresztül.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "hu"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/now-playing/#article",
+      "headline": "Most szól: mi szól, egyetlen képernyőn",
+      "description": "Az AVR Maestro Most szól kártyája albumborítót, számot, előadót és állomást mutat lejátszás, szünet, következő és előző vezérlőkkel, élőben a Denonodról vagy Marantzodról HEOS-on keresztül.",
+      "image": "https://avrmaestro.com/screenshots/now-playing.png",
+      "datePublished": "2026-07-28",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/now-playing/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "hu"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/now-playing/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Megmutatja, mi szól éppen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Igen - azoknál a forrásoknál, amelyek HEOS-on keresztül metaadatot jelentenek, albumborítót, számot, előadót vagy állomást és lejátszásvezérlést (lejátszás, szünet, következő, előző) kapsz, élőben a készülékedről."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hogyan böngészhetek zenét?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Koppints a HEOS indítása gombra a Most szól kártyán. Az AVR Maestro megnyitja a hivatalos HEOS alkalmazást az állomások, lejátszási sorok, HEOS szobák és streaming szolgáltatások böngészéséhez. Amint a lejátszás elindul, az AVR Maestro visszaveszi a Most szól kijelzést és a lejátszásvezérlést."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Miért üres a kártya egyes bemeneteken?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Az analóg, optikai/koaxiális és HDMI átengedéses források nem jelentenek számadatokat, ezért nincs mit mutatni. A kártya a HEOS és hálózati forrásoknál töltődik ki, amelyek jelentik ezeket."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hol található a Most szól kártya?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Kezdőlapon, az általad választott modulok mellett - hangerő, forrás, hangzásmód, zónák és más."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Kezdőlap",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Felhasználói útmutató",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Most szól",
+      "item": "https://avrmaestro.com/guide/now-playing/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/hu/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menü" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Keresés az útmutatóban..." data-i18n-empty="Nincs találat erre:" data-i18n-language="Nyelv">
+      <a href="/hu/">Kezdőlap</a>
+      <a href="/hu/guide/">Felhasználói útmutató</a>
+      <a href="/hu/receivers/">Készülékek</a>
+      <a href="/hu/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hu/best-denon-marantz-app/">Miért érdemes váltani</a>
+      <a href="/hu/#top" class="cta">Letöltés</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/hu/">Főoldal</a> &rsaquo; <a href="/hu/guide/">Felhasználói útmutató</a> &rsaquo; Most szól</div>
+    <div class="eyebrow">Most szól &amp; HEOS</div>
+    <h1>Most szól: mi szól, <span class="g">egyetlen képernyőn</span></h1>
+    <p>Ha a forrás metaadatot jelent, az AVR Maestro Most szól kártyája az albumborítót, a számot és a lejátszásvezérlést közvetlenül a kezdőképernyődre teszi - böngészéshez átadja a HEOS-nak, majd abban a pillanatban visszaveszi, hogy a zene elindul.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+      <figure><img alt="Az AVR Maestro Most szól kártyája albumborítóval és lejátszásvezérlőkkel" src="/screenshots/now-playing.png" width="1324" height="2644" decoding="async" /><figcaption>Albumborító, számadatok és lejátszásvezérlés, élőben HEOS-on keresztül</figcaption></figure>
+      <figure><img alt="HEOS kedvencek és állomások böngészése az AVR Maestro alkalmazásban" src="/screenshots/now-playing-heos.png" width="575" height="1280" loading="lazy" decoding="async" /><figcaption>Indítsd el a HEOS-t állomások, lejátszási sorok és kedvencek böngészéséhez</figcaption></figure>
+    </div>
+    <div class="section-head" style="margin-top:36px">
+      <h2>Minden, amit hallgatsz, egyetlen kártyán</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Albumborító és számadatok:</b> a kártya megmutatja a borítót, a számot, valamint az előadót vagy az állomást, ami éppen szól.</li>
+      <li><b>Lejátszásvezérlés:</b> lejátszás, szünet, következő és előző, közvetlenül a kártyán - nem kell a távirányító után nyúlni.</li>
+      <li><b>HEOS indítása böngészéshez:</b> koppints rá, hogy megnyisd a hivatalos HEOS alkalmazást állomások, lejátszási sorok, HEOS szobák és streaming szolgáltatások eléréséhez. Indíts el ott valamit, és az AVR Maestro visszaveszi a Most szól kijelzést, a lejátszásvezérlést és a modulokat.</li>
+      <li><b>A kezdőképernyőd része:</b> a Most szól kártya a hangerő-, forrás- és hangzásmód-modulok mellett él, így azt, hogy mi szól, mindig egy pillantás választja el tőled.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="note">A kártya a metaadatot jelentő HEOS és hálózati forrásoknál töltődik ki. Az analóg, optikai/koaxiális és HDMI átengedéses források nem küldenek számadatokat a készüléknek, ezért ezeken a kártya üres marad - ez a forrás sajátossága, nem az alkalmazásé.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Gyakori kérdések</div>
+      <h2>Most szól GYIK</h2>
+    </div>
+    <details open><summary>Megmutatja, mi szól éppen?</summary><div class="body">Igen - azoknál a forrásoknál, amelyek HEOS-on keresztül metaadatot jelentenek, albumborítót, számot, előadót vagy állomást és lejátszásvezérlést (lejátszás, szünet, következő, előző) kapsz, élőben a készülékedről.</div></details>
+    <details><summary>Hogyan böngészhetek zenét?</summary><div class="body">Koppints a Most szól kártyán a <b>HEOS indítása</b> gombra. Az AVR Maestro megnyitja a hivatalos HEOS alkalmazást, hogy böngészhess az állomások, a lejátszási sorok, a HEOS-szobák és a streamingszolgáltatások között. Amint elindul a lejátszás, az AVR Maestro ismét átveszi a most szóló kijelzőt és a lejátszásvezérlést.</div></details>
+    <details><summary>Miért üres a kártya egyes bemeneteken?</summary><div class="body">Az analóg, optikai/koaxiális és HDMI átengedéses források nem jelentenek számadatokat, ezért nincs mit mutatni. A kártya a HEOS és hálózati forrásoknál töltődik ki, amelyek jelentik ezeket.</div></details>
+    <details><summary>Hol található a Most szól kártya?</summary><div class="body">A <a href="/hu/guide/home/">Kezdőképernyőn</a>, az általad kiválasztott modulok mellett - hangerő, forrás, hangzásmód, zónák és még sok más.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Az útmutató további részei</div>
+      <h2>További AVR Maestro útmutatók</h2>
+    </div>
+    <p class="lead"><a href="/hu/guide/getting-started/">Első lépések</a> &middot; <a href="/hu/guide/home/">Kezdőképernyő</a> &middot; <a href="/hu/guide/scenes/">Jelenetek</a> &middot; <a href="/hu/guide/custom-icons/">Egyéni ikonok</a> &middot; <a href="/hu/guide/sound/">Hang</a> &middot; <a href="/hu/guide/graphic-eq/">Grafikus EQ</a> &middot; <a href="/hu/guide/speakers/">Hangszórók</a> &middot; <a href="/hu/guide/locked-controls/">Miért zárolt egy vezérlő</a> &middot; <a href="/hu/guide/assistant/">Az asszisztens</a> &middot; <a href="/hu/guide/home-automation/">Otthonautomatizálás</a> &middot; <a href="/hu/guide/home-assistant-dashboard/">Home Assistant irányítópult</a> &middot; <a href="/hu/guide/multi-zone/">Zónák</a> &middot; <a href="/hu/guide/remote/">Távirányító</a> &middot; <a href="/hu/guide/radio/">Rádió (FM/AM)</a> &middot; <a href="/hu/guide/on-screen-display/">Képernyőkijelző</a> &middot; <a href="/hu/guide/settings/">Beállítások</a> &middot; <a href="/hu/guide/languages/">Nyelvek</a> &middot; <a href="/hu/guide/volume/">Hangerő-szabályzók</a> &middot; <a href="/hu/guide/backup/">Mentés &amp; visszaállítás</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Lásd, mi szól - a kanapéról</h2>
+    <p class="lead" style="margin:0 auto 24px">Egyszeri vásárlás, hirdetések és előfizetés nélkül. Csatlakozás egy percen belül.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Töltse le a Google Playről" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Letöltés az App Store-ból" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Letöltés a Mac App Store-ból" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Töltse le a Microsoft Store-ból" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/hu/guide/">Vissza a teljes Felhasználói útmutatóhoz &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/hu/">Kezdőlap</a>
+      <a href="/hu/guide/">Felhasználói útmutató</a>
+      <a href="/hu/guide/getting-started/">Első lépések</a>
+      <a href="/hu/receivers/">Készülékek</a>
+      <a href="/hu/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hu/audyssey-vs-dirac/">Audyssey és Dirac</a>
+      <a href="/hu/best-denon-marantz-app/">Miért érdemes váltani</a>
+      <a href="/hu/help/">Súgó</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">Az AVR Maestro a MiyaraHub Technologies LLC független alkalmazása, amely nem áll kapcsolatban a Denon, a Marantz, a D&amp;M Holdings, a Sound United vagy az oldalon említett más vállalatokkal, és tőlük nem kapott támogatást vagy jóváhagyást. A Denon, a Marantz, a HEOS, az Audyssey és a Dirac Live tulajdonosaik védjegyei, itt kizárólag azonosítási célból szerepelnek.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

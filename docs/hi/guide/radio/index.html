@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="hi" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>अपने फ़ोन से FM/AM ट्यूनर कंट्रोल - AVR Maestro</title>
+<meta name="description" content="बिल्ट-इन ट्यूनर वाले Denon और Marantz रिसीवर के लिए एक असली FM/AM रेडियो: बैंड और ट्यून मोड, फ़्रीक्वेंसी से ट्यूनिंग, और नाम वाले स्टेशन प्रीसेट, सब आपके फ़ोन से।" />
+<meta name="keywords" content="FM AM tuner app, AV receiver radio app, Denon tuner app, Marantz tuner app, receiver radio presets app, control receiver radio from phone, FM tuner controller" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/hi/guide/radio/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/radio/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/radio/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/radio/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/radio/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/radio/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/radio/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/radio/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/radio/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/radio/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/radio/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/radio/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/radio/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/radio/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/radio/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/radio/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/radio/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/radio/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/radio/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/radio/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/radio/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/radio/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/radio/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/radio/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/radio/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/radio/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/radio/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/radio/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/radio/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/radio/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/radio/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/radio/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="hi_IN" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="अपने फ़ोन से FM/AM ट्यूनर कंट्रोल - AVR Maestro" />
+<meta property="og:description" content="बिल्ट-इन ट्यूनर वाले Denon और Marantz रिसीवर के लिए एक असली FM/AM रेडियो: बैंड और ट्यून मोड, फ़्रीक्वेंसी से ट्यूनिंग, और नाम वाले स्टेशन प्रीसेट, सब आपके फ़ोन से।" />
+<meta property="og:url" content="https://avrmaestro.com/hi/guide/radio/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="अपने फ़ोन से FM/AM ट्यूनर कंट्रोल - AVR Maestro" />
+<meta name="twitter:description" content="बिल्ट-इन ट्यूनर वाले Denon और Marantz रिसीवर के लिए एक असली FM/AM रेडियो: बैंड और ट्यून मोड, फ़्रीक्वेंसी से ट्यूनिंग, और नाम वाले स्टेशन प्रीसेट, सब आपके फ़ोन से।" />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro एक स्वतंत्र ऐप है, जो आपके लोकल नेटवर्क पर Denon और Marantz AV रिसीवर को कंट्रोल करता है।",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "hi"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/radio/#article",
+      "headline": "नाम वाले प्रीसेट के साथ एक असली FM/AM रेडियो",
+      "description": "बिल्ट-इन ट्यूनर वाले Denon और Marantz रिसीवर के लिए एक असली FM/AM रेडियो: बैंड और ट्यून मोड, फ़्रीक्वेंसी से ट्यूनिंग, और नाम वाले स्टेशन प्रीसेट, सब आपके फ़ोन से।",
+      "image": "https://avrmaestro.com/screenshots/radio.png",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/radio/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "hi"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/radio/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "क्या मैं ऐप से FM/AM रेडियो कंट्रोल कर सकता हूं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "जी हां, बिल्ट-इन ट्यूनर वाले रिसीवर पर - लाइव बैंड/फ़्रीक्वेंसी/प्रीसेट डिस्प्ले, FM/AM स्विचिंग, Auto या Manual ट्यूनिंग, सीधे फ़्रीक्वेंसी पर जाने के लिए कीपैड, और प्रीसेट ग्रिड।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या मैं अपने प्रीसेट को नाम दे सकता हूं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "जी हां - मौजूदा स्टेशन सेव करने के लिए किसी स्लॉट को देर तक दबाएं, लेबल (“Jazz 88”, “NPR”) जोड़ें या बदलें, या उसे हटा दें।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "मुझे Radio टैब क्यों नहीं दिख रहा?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "यह सिर्फ़ बिल्ट-इन ट्यूनर वाले रिसीवर पर दिखता है। अगर आपके रिसीवर में ट्यूनर है, तो देखें कि वह इनपुट के रूप में दिख रहा है और टैब को Settings, Customize Navigation से दोबारा चालू करें।"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "होम",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "उपयोगकर्ता गाइड",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "रेडियो",
+      "item": "https://avrmaestro.com/guide/radio/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/hi/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="मेन्यू" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="गाइड में खोजें..." data-i18n-empty="कोई परिणाम नहीं मिला:" data-i18n-language="भाषा">
+      <a href="/hi/">होम</a>
+      <a href="/hi/guide/">उपयोगकर्ता गाइड</a>
+      <a href="/hi/receivers/">रिसीवर</a>
+      <a href="/hi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hi/best-denon-marantz-app/">बदलाव क्यों करें</a>
+      <a href="/hi/#top" class="cta">डाउनलोड करें</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero split">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="/hi/">होम</a> &rsaquo; <a href="/hi/guide/">उपयोगकर्ता गाइड</a> &rsaquo; रेडियो</div>
+      <div class="eyebrow">FM/AM ट्यूनर</div>
+      <h1>नाम वाले प्रीसेट के साथ एक असली FM/AM <span class="g">रेडियो</span></h1>
+      <p>बिल्ट-इन ट्यूनर वाले Denon और Marantz रिसीवर पर AVR Maestro आपको एक असली FM/AM रेडियो इंटरफ़ेस देता है। स्टेशन कार्ड लाइव बैंड, फ़्रीक्वेंसी और सक्रिय प्रीसेट दिखाता है और रिसीवर के साथ रीयल टाइम में चलता है।</p>
+    </div>
+    <div class="hero-shot"><img alt="AVR Maestro में FM/AM ट्यूनर" src="/screenshots/radio.png" width="1324" height="2648" fetchpriority="high" /></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">यह कैसे काम करता है</div>
+      <h2>ट्यून करें, स्कैन करें और सेव करें</h2>
+    </div>
+    <ul class="plain">
+      <li><b>बैंड:</b> FM / AM। <b>ट्यून मोड:</b> Auto (अगले मज़बूत स्टेशन तक स्कैन) या Manual (बैंड के इंक्रीमेंट के हिसाब से कदम-कदम पर)।</li>
+      <li><b>ट्यून:</b> दो Tune बटन डायल को आगे-पीछे करते हैं; <b>फ़्रीक्वेंसी दर्ज करें</b> सीधे किसी स्टेशन पर जाने के लिए कीपैड खोलता है (Manual मोड ज़रूरी है)।</li>
+      <li><b>प्रीसेट:</b> प्रीसेट स्लॉट का ग्रिड और ऊपर/नीचे स्टेपर। किसी स्लॉट को <b>देर तक दबाकर</b> <b>मौजूदा स्टेशन सेव करें</b>, <b>लेबल जोड़ें / नाम बदलें</b> (“Jazz 88”, “NPR”), या <b>लेबल हटाएं</b>।</li>
+    </ul>
+    <div class="note">अगर Radio टैब छिपा है, तो उसे <i>Settings &rarr; Customize Navigation</i> से दोबारा जोड़ें - यह तभी दिखता है जब आपका रिसीवर ट्यूनर उपलब्ध कराता है।</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">आम सवाल</div>
+      <h2>ट्यूनर FAQ</h2>
+    </div>
+    <details open><summary>क्या मैं ऐप से FM/AM रेडियो कंट्रोल कर सकता हूं?</summary><div class="body">जी हां, बिल्ट-इन ट्यूनर वाले रिसीवर पर - लाइव बैंड/फ़्रीक्वेंसी/प्रीसेट डिस्प्ले, FM/AM स्विचिंग, Auto या Manual ट्यूनिंग, सीधे फ़्रीक्वेंसी पर जाने के लिए कीपैड, और प्रीसेट ग्रिड।</div></details>
+    <details><summary>क्या मैं अपने प्रीसेट को नाम दे सकता हूं?</summary><div class="body">जी हां - मौजूदा स्टेशन सेव करने के लिए किसी स्लॉट को देर तक दबाएं, लेबल (“Jazz 88”, “NPR”) जोड़ें या बदलें, या उसे हटा दें।</div></details>
+    <details><summary>मुझे Radio टैब क्यों नहीं दिख रहा?</summary><div class="body">यह सिर्फ़ बिल्ट-इन ट्यूनर वाले रिसीवर पर दिखता है। अगर आपके रिसीवर में ट्यूनर है, तो देखें कि वह इनपुट के रूप में दिख रहा है और टैब को Settings, Customize Navigation से दोबारा चालू करें।</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">गाइड के और हिस्से</div>
+      <h2>AVR Maestro की अन्य गाइड</h2>
+    </div>
+    <p class="lead"><a href="/hi/guide/getting-started/">शुरुआत करें</a> &middot; <a href="/hi/guide/home/">होम स्क्रीन</a> &middot; <a href="/hi/guide/scenes/">सीन</a> &middot; <a href="/hi/guide/custom-icons/">कस्टम आइकन</a> &middot; <a href="/hi/guide/sound/">ध्वनि</a> &middot; <a href="/hi/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/hi/guide/speakers/">स्पीकर</a> &middot; <a href="/hi/guide/locked-controls/">कंट्रोल लॉक क्यों है</a> &middot; <a href="/hi/guide/assistant/">असिस्टेंट</a> &middot; <a href="/hi/guide/home-automation/">होम ऑटोमेशन</a> &middot; <a href="/hi/guide/home-assistant-dashboard/">Home Assistant डैशबोर्ड</a> &middot; <a href="/hi/guide/multi-zone/">ज़ोन</a> &middot; <a href="/hi/guide/remote/">रिमोट</a> &middot; <a href="/hi/guide/on-screen-display/">ऑन-स्क्रीन डिस्प्ले</a> &middot; <a href="/hi/guide/settings/">सेटिंग्स</a> &middot; <a href="/hi/guide/languages/">भाषाएं</a> &middot; <a href="/hi/guide/volume/">वॉल्यूम नियंत्रण</a> &middot; <a href="/hi/guide/backup/">बैकअप &amp; रिस्टोर</a> &middot; <a href="/hi/guide/now-playing/">अभी बज रहा है &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>अपने रिसीवर का रेडियो अपने फ़ोन पर लाएं</h2>
+    <p class="lead" style="margin:0 auto 24px">एक बार की खरीदारी, कोई विज्ञापन नहीं, कोई सब्सक्रिप्शन नहीं। एक मिनट से भी कम में कनेक्ट करें।</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Google Play पर पाएँ" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="App Store से डाउनलोड करें" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Mac App Store से डाउनलोड करें" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Microsoft Store पर पाएँ" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/hi/guide/">पूरी यूज़र गाइड पर वापस जाएँ &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/hi/">होम</a>
+      <a href="/hi/guide/">उपयोगकर्ता गाइड</a>
+      <a href="/hi/guide/getting-started/">शुरुआत करें</a>
+      <a href="/hi/receivers/">रिसीवर</a>
+      <a href="/hi/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hi/audyssey-vs-dirac/">Audyssey बनाम Dirac</a>
+      <a href="/hi/best-denon-marantz-app/">बदलाव क्यों करें</a>
+      <a href="/hi/help/">सहायता</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro, MiyaraHub Technologies LLC का एक स्वतंत्र ऐप है और Denon, Marantz, D&amp;M Holdings, Sound United या इस पेज पर नामित किसी भी अन्य कंपनी से संबद्ध, उनके द्वारा समर्थित या प्रायोजित नहीं है। Denon, Marantz, HEOS, Audyssey और Dirac Live अपने-अपने स्वामियों के ट्रेडमार्क हैं, जिनका उपयोग यहाँ केवल पहचान के लिए किया गया है।</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

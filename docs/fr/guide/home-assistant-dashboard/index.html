@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tableau de bord Home Assistant pour Denon &amp; Marantz - AVR Maestro</title>
+<meta name="description" content="Créez un tableau de bord Home Assistant pour votre récepteur Denon ou Marantz : cartes HACS, identifiants d'entités, YAML pour chaque carte, vrai volume en dB, Scènes et historique." />
+<meta name="keywords" content="Home Assistant Denon dashboard, Marantz Home Assistant card, mushroom card AV receiver, Home Assistant receiver volume dB, denonavr dashboard, AVR Maestro Home Assistant example" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/fr/guide/home-assistant-dashboard/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-assistant-dashboard/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Tableau de bord Home Assistant pour Denon &amp; Marantz - AVR Maestro" />
+<meta property="og:description" content="Créez un tableau de bord Home Assistant pour votre récepteur Denon ou Marantz : cartes HACS, identifiants d'entités, YAML pour chaque carte, vrai volume en dB, Scènes et historique." />
+<meta property="og:url" content="https://avrmaestro.com/fr/guide/home-assistant-dashboard/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Tableau de bord Home Assistant pour Denon &amp; Marantz - AVR Maestro" />
+<meta name="twitter:description" content="Créez un tableau de bord Home Assistant pour votre récepteur Denon ou Marantz : cartes HACS, identifiants d'entités, YAML pour chaque carte, vrai volume en dB, Scènes et historique." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro est une application indépendante pour contrôler les récepteurs AV Denon et Marantz via votre réseau local.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
+      "headline": "Créez ce tableau de bord Home Assistant en environ une heure",
+      "description": "Créez un tableau de bord Home Assistant pour votre récepteur Denon ou Marantz : cartes HACS, identifiants d'entités, YAML pour chaque carte, vrai volume en dB, Scènes et historique.",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "datePublished": "2026-08-23",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-assistant-dashboard/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "fr"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Ai-je besoin de cartes personnalisées HACS pour le construire ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pas pour qu'il fonctionne. Chaque commande de cette page repose sur une simple carte bouton de Home Assistant. Mushroom, button-card, card-mod et apexcharts-card lui donnent l'apparence des captures d'écran, et chaque section ci-dessous indique laquelle elle utilise et ce que vous perdez sans elle."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourquoi certains boutons s'allument-ils et d'autres non ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un bouton s'allume quand Home Assistant peut lire l'état correspondant sur votre récepteur. La source, le mode surround, le volume et la sourdine remontent de l'entité lecteur multimédia du récepteur lui-même, ces boutons s'allument donc. La courbe Audyssey, l'emplacement Dirac, la luminosité, le mode eco et le préréglage d'enceintes ne sont pas publiés par l'intégration Denon : Home Assistant ne peut donc pas savoir lequel est actif, et les boutons restent éteints tant que vous n'en touchez pas un."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Puis-je afficher le vrai volume en dB plutôt qu'un pourcentage ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Home Assistant publie volume_level sous la forme du volume principal du récepteur divisé par 100, et sur les récepteurs Denon et Marantz, MV 80 correspond à la référence 0 dB. Donc les dB valent volume_level multiplié par 100, moins 80. Un volume_level de 0.67 correspond à un volume principal de 67, soit -13.0 dB."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mes ID d'entités seront-ils identiques à ceux de ce guide ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le début et la fin, oui, mais pas le milieu. AVR Maestro nomme ses scripts d'après l'adresse MAC du récepteur, de sorte qu'un renommage met à jour le même script au lieu d'en créer un second. Les vôtres s'écriront script.avr_maestro_ suivi de vos douze caractères, puis du nom du contrôle. Ouvrez Outils de développement puis États dans Home Assistant et filtrez sur avr_maestro pour voir votre propre liste."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guide de l'utilisateur",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Domotique",
+      "item": "https://avrmaestro.com/guide/home-automation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Tableau de bord",
+      "item": "https://avrmaestro.com/guide/home-assistant-dashboard/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/fr/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Rechercher dans le guide..." data-i18n-empty="Aucun résultat pour" data-i18n-language="Langue">
+      <a href="/fr/">Accueil</a>
+      <a href="/fr/guide/">Guide de l'utilisateur</a>
+      <a href="/fr/receivers/">Récepteurs</a>
+      <a href="/fr/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/fr/best-denon-marantz-app/">Pourquoi changer</a>
+      <a href="/fr/#top" class="cta">Télécharger</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/fr/">Accueil</a> &rsaquo; <a href="/fr/guide/">Guide d'utilisation</a> &rsaquo; <a href="/fr/guide/home-automation/">Domotique</a> &rsaquo; Tableau de bord</div>
+    <div class="eyebrow">Home Assistant &middot; pas à pas</div>
+    <h1>Créez ce tableau de bord Home Assistant <span class="g">en environ une heure</span></h1>
+    <p>Dix étapes, le YAML de chaque carte et une vue complète à coller d'un seul coup. Conçu et photographié sur un vrai Marantz CINEMA 30. Changez deux chaînes de texte et il est à vous.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <figure class="hero-shot">
+      <img alt="Le tableau de bord terminé : un bandeau de lecture en cours, le volume avec des préréglages en dB, une grille de sources, les modes surround, la correction acoustique, des scènes et un graphique de volume" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <figcaption>Ce que vous allez construire</figcaption>
+    </figure>
+    <div class="note"><b>Pressé ?</b> Passez directement à l'<a href="#whole">étape 10</a>, téléchargez la vue complète, changez deux chaînes de texte et collez-la. Les étapes intermédiaires expliquent le rôle de chaque élément pour que vous puissiez le modifier.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Avant de commencer</h2>
+    </div>
+    <ul class="plain">
+      <li><b>AVR Maestro est lié à Home Assistant et la synchronisation est faite.</b> <a href="/fr/guide/home-automation/">Le guide de configuration</a> explique comment. Vous devriez voir vos commandes dans Home Assistant avant de construire quoi que ce soit par-dessus.</li>
+      <li><b>Votre récepteur est ajouté à Home Assistant.</b> Paramètres &rsaquo; Appareils et services &rsaquo; Ajouter une intégration &rsaquo; <b>Denon AVR</b>, puis son IP locale. C'est ce qui donne au tableau de bord son état en direct.</li>
+      <li><b>Votre récepteur est allumé</b> pendant que vous construisez. La moitié de ce que vous allez écrire lit des valeurs en direct, et un récepteur en veille ne publie presque rien.</li>
+    </ul>
+    <p class="lead">Deux sources alimentent ce tableau de bord, et la différence compte à chaque étape ci-dessous.</p>
+    <table class="t">
+      <thead><tr><th>Provient de</th><th>Vous donne</th></tr></thead>
+      <tbody>
+        <tr><td>Les scripts synchronisés d'AVR Maestro</td><td>Chaque <b>contrôle</b>. Entrées, modes surround, Audyssey, Dirac, Smart Selects, préréglages, variateur, mode éco, vos Scènes.</td></tr>
+        <tr><td>L'entité lecteur multimédia de l'intégration Denon AVR</td><td>L'<b>état</b> en direct. Alimentation, source sélectionnée, mode surround, volume, sourdine.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Étape 1</div>
+      <h2>Installez quatre cartes depuis HACS</h2>
+    </div>
+    <p class="lead">Les quatre se trouvent dans la boutique HACS par défaut. Dans Home Assistant : <b>HACS &rsaquo; Interface &rsaquo; Explorer &amp; télécharger des dépôts</b>, cherchez le nom, cliquez sur Télécharger, puis rechargez votre navigateur.</p>
+    <table class="t">
+      <thead><tr><th>Rechercher</th><th>Sert à</th><th>Si vous l'ignorez</th></tr></thead>
+      <tbody>
+        <tr><td><b>Mushroom</b></td><td>Chaque tuile de contrôle, et le curseur de volume</td><td>Utilisez une carte <code>button</code> simple. Ça fonctionne, c'est juste plus carré.</td></tr>
+        <tr><td><b>button-card</b></td><td>Les en-têtes de section avec une étiquette en direct</td><td>Utilisez une carte <code>markdown</code>, ou de simples titres.</td></tr>
+        <tr><td><b>card-mod</b></td><td>Les couleurs, et l'état allumé de la tuile active</td><td>Tout fonctionne quand même. Rien ne s'allume.</td></tr>
+        <tr><td><b>apexcharts-card</b></td><td>Les graphiques d'historique</td><td>Utilisez la carte <code>history-graph</code> intégrée.</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><b>Aucune n'est indispensable pour que ça marche.</b> Chaque contrôle ci-dessous fonctionne avec une carte bouton standard de Home Assistant pointant vers le même script. Les cartes personnalisées, c'est du maquillage, pas de la plomberie.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Étape 2</div>
+      <h2>Trouvez vos deux ID d'entités</h2>
+    </div>
+    <p class="lead">Chaque extrait de cette page utilise deux paramètres fictifs. Trouvez les vôtres une fois, et le reste n'est plus que du copier-coller.</p>
+    <ul class="plain">
+      <li><b><code>media_player.your_receiver</code></b> &rarr; Paramètres &rsaquo; Appareils et services &rsaquo; votre récepteur &rsaquo; l'entité lecteur multimédia. Quelque chose comme <code>media_player.marantz_cinema_30</code>.</li>
+      <li><b><code>script.avr_maestro_MAC_...</code></b> &rarr; Outils de développement &rsaquo; États, puis saisissez <code>avr_maestro</code> dans le filtre d'entités. Toute votre liste de commandes apparaît.</li>
+    </ul>
+    <p class="lead">Le milieu de chaque ID de script est l'adresse MAC de votre récepteur, douze caractères en minuscules, identiques partout. Copiez-la une fois. Partout où cette page écrit <code>MAC</code>, mettez la vôtre.</p>
+    <div class="note"><b>Ignorez ceux qui contiennent <code>unavailable</code>.</b> Les anciennes versions nommaient les scripts d'après le nom du récepteur plutôt que son adresse MAC. Si vous avez synchronisé à l'époque, ces anciens scripts sont toujours listés et sont morts. Les scripts actifs sont ceux nommés d'après l'adresse MAC.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Étape 3</div>
+      <h2>Créez la vue</h2>
+    </div>
+    <ol class="plain">
+      <li><b>1.</b> Paramètres &rsaquo; Tableaux de bord &rsaquo; Ajouter un tableau de bord &rsaquo; Nouveau tableau de bord à partir de zéro. Donnez-lui le nom que vous voulez.</li>
+      <li><b>2.</b> Ouvrez-le, puis cliquez sur l'icône crayon en haut à droite pour modifier.</li>
+      <li><b>3.</b> Ajoutez une vue et choisissez la disposition <b>Sections</b>. Pas Masonry. C'est Sections qui permet un réagencement correct sur téléphone.</li>
+      <li><b>4.</b> Dans les paramètres de la vue, réglez <b>Colonnes maximales</b> sur 3 et activez <b>Placement dense des sections</b>.</li>
+    </ol>
+    <p class="lead">À partir de là, chaque étape consiste à ajouter une section, puis à y coller des cartes. Pour coller du YAML, utilisez le menu à trois points d'une carte et choisissez <b>Modifier en YAML</b>, ou le menu à trois points du tableau de bord pour accéder à l'<b>éditeur de configuration brute</b> et tout coller d'un coup.</p>
+<pre class="code"><span class="c"># The view's own settings, if you prefer to type them</span>
+type: sections
+title: AVR Maestro
+icon: mdi:audio-video
+max_columns: 3
+dense_section_placement: true</pre>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Étape 4</div>
+      <h2>Ajoutez un contrôle</h2>
+    </div>
+    <p class="lead">Commencez par l'élément le plus simple du tableau, pour vérifier que vos ID d'entités sont corrects avant de construire quoi que ce soit de compliqué. Ajoutez une section, ajoutez une carte, Modifier en YAML, collez :</p>
+<pre class="code">type: button
+name: Pure Direct
+icon: mdi:speaker
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_mode_pure_direct</pre>
+    <p class="capt">Home Assistant standard. Pas besoin de HACS.</p>
+    <p class="lead">Appuyez dessus. Si le récepteur réagit, vos ID sont corrects et tout ce qui suit fonctionnera. Si rien ne se passe, retournez à l'étape 2.</p>
+  </div>
+</section>
+
+<section id="highlight">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Étape 5</div>
+      <h2>Faites-la s'allumer quand elle est active</h2>
+    </div>
+    <p class="lead">C'est le modèle qui vaut la peine d'être appris, et chaque tuile de source et de surround du tableau en est une copie. La carte envoie un script et se colore d'après l'entité du récepteur, de sorte que l'entrée sur laquelle vous êtes vraiment est allumée et les autres ne le sont pas.</p>
+    <figure><img alt="La grille de sources avec Nvidia Shield allumée en orange et les douze autres entrées éteintes" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Une tuile allumée, douze éteintes</figcaption></figure>
+<pre class="code">type: custom:mushroom-template-card
+entity: script.avr_maestro_MAC_input_cd
+icon: mdi:disc
+primary: CD
+icon_color: >-
+  {{ 'orange' if (state_attr('media_player.your_receiver','source') or '')|lower
+     == 'cd' else 'grey' }}
+layout: vertical
+fill_container: true
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_input_cd
+card_mod:
+  style: |
+    ha-card {
+      border-radius: 14px;
+    {% if (state_attr('media_player.your_receiver','source') or '')|lower == 'cd' %}
+      background: linear-gradient(160deg, rgba(226,86,10,0.34), rgba(15,15,17,0.88));
+      border: 1px solid rgba(255,122,24,0.80);
+    {% else %}
+      background: rgba(15,15,17,0.72);
+      border: 1px solid rgba(255,122,24,0.14);
+    {% endif %}
+    }</pre>
+    <p class="capt">Modifiez trois choses par entrée : le script, l'icône et la chaîne de comparaison.</p>
+    <p class="lead">Deux points à soigner, sinon une tuile ne s'allumera jamais :</p>
+    <ul class="plain">
+      <li><b>Comparez avec ce que votre récepteur indique réellement.</b> Outils de développement &rsaquo; États, votre entité lecteur multimédia, lisez les attributs <code>source_list</code> et <code>sound_mode_list</code>. Ce sont les chaînes exactes. Comparez en minuscules, comme ci-dessus.</li>
+      <li><b>Une entrée renommée indique son nouveau nom.</b> Renommez GAME1 en « Xbox » sur le récepteur et il indique <code>Xbox</code>, alors que le contrôle AVR Maestro s'appelle toujours <code>input_game1</code>. Basez-vous sur ce que le récepteur indique, pas sur le nom du script.</li>
+    </ul>
+    <p class="lead">Les modes surround utilisent la même carte, avec <code>sound_mode</code> à la place de <code>source</code>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Étape 6</div>
+      <h2>Donnez à chaque section un en-tête en direct</h2>
+    </div>
+    <p class="lead">Un simple titre est de l'espace perdu. Placez la valeur en direct dessous et « Sources » devient « Sources / Actuellement sur Nvidia Shield ».</p>
+<pre class="code">type: custom:button-card
+name: Sources
+icon: mdi:video-input-hdmi
+color_type: label-card
+entity: media_player.your_receiver
+show_label: true
+label: >-
+  [[[ var v = states["media_player.your_receiver"].attributes.source;
+      return v ? ("Now on " + v) : "Receiver in standby"; ]]]
+tap_action:
+  action: none
+styles:
+  grid:
+    - grid-template-areas: '"i n" "i l"'
+    - grid-template-columns: min-content auto
+  name:
+    - font-size: 13px
+    - letter-spacing: 3px
+    - text-transform: uppercase
+    - justify-self: start
+  label:
+    - font-size: 11px
+    - justify-self: start</pre>
+    <p class="capt">C'est la grille à deux lignes qui place l'étiquette sous le titre plutôt qu'à côté.</p>
+    <p class="lead">Remplacez <code>attributes.source</code> par <code>attributes.sound_mode</code> dans l'en-tête Surround, et ainsi de suite.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Étape 7</div>
+      <h2>Affichez le volume en dB</h2>
+    </div>
+    <p class="lead">Home Assistant indique le volume sous forme de fraction. Personne ne règle un récepteur sur « 0.67 ». Une ligne de calcul règle le problème et toute la section se met à ressembler à un vrai récepteur.</p>
+    <figure><img alt="La section volume : un curseur, plus, moins, sourdine et quatre préréglages en dB" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie et Loud, chacun étiqueté avec les dB qu'il applique</figcaption></figure>
+    <div class="note"><b>La conversion.</b> Home Assistant publie <code>volume_level</code> sous la forme du volume principal divisé par 100, et sur les récepteurs Denon et Marantz, MV 80 correspond à la référence 0 dB. Donc <b>dB = volume_level &times; 100 &minus; 80</b>. Un <code>volume_level</code> de 0.67 correspond à un volume principal de 67, soit &minus;13.0 dB.</div>
+<pre class="code"><span class="c"># The readout</span>
+type: custom:mushroom-template-card
+entity: media_player.your_receiver
+icon: mdi:volume-high
+primary: >-
+  {% set v = state_attr('media_player.your_receiver','volume_level') %}
+  {% if v is not none %}{{ (v * 100 - 80) | round(1) }} dB{% else %}Standby{% endif %}
+secondary: Master volume
+layout: vertical</pre>
+<pre class="code"><span class="c"># The slider. media_controls must be empty or the bar becomes a power button</span>
+type: custom:mushroom-media-player-card
+entity: media_player.your_receiver
+volume_controls:
+  - volume_set
+media_controls: []
+show_volume_level: true</pre>
+<pre class="code"><span class="c"># A preset. 0.50 is master volume 50, which is -30 dB</span>
+type: custom:mushroom-template-card
+entity: media_player.your_receiver
+icon: mdi:weather-night
+primary: Night
+secondary: "-30 dB"
+tap_action:
+  action: perform-action
+  perform_action: media_player.volume_set
+  target:
+    entity_id: media_player.your_receiver
+  data:
+    volume_level: 0.50</pre>
+    <div class="note"><b>Choisissez votre préréglage le plus fort avec discernement.</b> Celui ci-dessus s'arrête à &minus;10 dB. Il est bien plus facile de toucher un tableau de bord par accident qu'une télécommande, et le niveau de référence sur un gros récepteur est vraiment fort.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Étape 8</div>
+      <h2>Ajoutez vos Scènes</h2>
+    </div>
+    <p class="lead">Lisez le nom depuis le script au lieu de le saisir, et renommer une Scène dans AVR Maestro renomme la tuile sans aucune modification du tableau de bord.</p>
+    <figure><img alt="Quatre tuiles de scène, chacune listant les réglages que cette scène restaure" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Chaque tuile indique ce que sa scène restaure réellement</figcaption></figure>
+<pre class="code">type: custom:mushroom-template-card
+entity: script.avr_maestro_MAC_scene_1234567890123
+icon: mdi:theater
+primary: >-
+  {{ state_attr('script.avr_maestro_MAC_scene_1234567890123','friendly_name')
+     | replace('AVR Maestro - ', '') | replace(' (Your Receiver)', '') }}
+secondary: >-
+  {% set t = states.script['avr_maestro_MAC_scene_1234567890123'].attributes.last_triggered %}
+  {{ 'recalled ' ~ relative_time(t) ~ ' ago' if t else 'not run yet' }}
+multiline_secondary: true
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_scene_1234567890123</pre>
+    <p class="capt">Les deux appels replace() retirent le préfixe et le nom du récepteur du nom convivial.</p>
+    <p class="lead">Une deuxième ligne vaut la minute supplémentaire. Un mur de boutons aux noms évocateurs ne vous dit rien à 11 heures du soir ; une ligne indiquant ce que chacun restaure vous dit lequel presser.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Étape 9</div>
+      <h2>Ajoutez l'historique</h2>
+    </div>
+    <p class="lead">L'entité lecteur multimédia du récepteur est enregistrée par Home Assistant comme n'importe quelle autre, vous obtenez donc un historique d'écoute gratuitement. Tout ce qui suit provient de cette seule entité : aucun capteur supplémentaire, aucun assistant, rien à configurer au préalable.</p>
+    <figure><img alt="Cinq graphiques d'historique : alimentation et activité, volume principal en dB, volume par jour, source utilisée et mode surround" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Cinq graphiques, une entité, sept jours</figcaption></figure>
+    <p class="lead">La simple chronologie d'états n'a besoin d'aucune carte personnalisée, et c'est celle qui vaut le plus la peine d'être installée :</p>
+<pre class="code">type: history-graph
+hours_to_show: 168
+entities:
+  - entity: media_player.your_receiver
+    name: Receiver</pre>
+    <p class="capt">Allumé, éteint, et ce qu'il faisait, sur une semaine.</p>
+    <p class="lead">Le volume en dB utilise la même conversion qu'à l'étape 7 :</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+header:
+  show: true
+  title: Master volume, last 7 days
+series:
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Master volume
+    type: line
+    curve: smooth
+    unit: dB
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100 - 80;"
+    extend_to: now
+    group_by:
+      duration: 1h
+      func: last
+      fill: last
+apex_config:
+  chart:
+    height: 240
+  yaxis:
+    min: -60
+    max: 0</pre>
+    <p class="capt">group_by avec fill: last transforme des événements espacés en une ligne continue. L'axe des ordonnées doit être placé dans apex_config pour être pris en compte.</p>
+    <p class="lead">Une moyenne et un pic quotidiens donnent une forme à une courbe en dents de scie :</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+span:
+  end: day
+header:
+  show: true
+  title: Master volume by day in dB, average and peak
+series:
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Day average
+    type: column
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100;"
+    group_by: {duration: 1d, func: avg, fill: 'null'}
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Day peak
+    type: line
+    curve: smooth
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100;"
+    group_by: {duration: 1d, func: max, fill: 'null'}
+apex_config:
+  yaxis:
+    min: 0
+    max: 80
+    labels:
+      formatter: "EVAL:function (v) { return (v - 80).toFixed(0); }"
+  tooltip:
+    y:
+      formatter: "EVAL:function (v) { return v == null ? '' : (v - 80).toFixed(1) + ' dB'; }"</pre>
+    <p class="capt">Deux séries issues du même attribut, regroupées par jour.</p>
+    <div class="note"><b>Pourquoi celui-ci trace de 0 à 80 et met en forme en dB, au lieu de tracer les dB.</b> Les barres partent du plancher de l'axe. Tracez directement les dB et chaque barre pend depuis 0, si bien qu'une longue barre signifie un volume faible, ce qui se lit à l'envers. Tracez le nombre brut du volume principal et soustrayez 80 dans les formateurs de l'axe et de l'infobulle, et les barres montent vers le haut alors que tout ce que le lecteur voit reste en dB. <code>fill: 'null'</code> signifie qu'un jour sans mesure n'a pas de barre, au lieu de reprendre celle de la veille.</div>
+    <p class="lead">Et les deux qui répondent à « sur quoi est-ce que je regarde vraiment, et dans quel mode » : la source et le mode surround, tracés sous forme de chronologie de celui qui était sélectionné.</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+span:
+  end: day
+header:
+  show: true
+  title: Source in use, last 7 days
+series:
+  - entity: media_player.your_receiver
+    attribute: source
+    name: Source
+    type: line
+    curve: stepline
+    stroke_width: 3
+    extend_to: now
+    float_precision: 0
+    transform: |
+      if (x == null) return null;
+      var m = ["Phono", "NET", "Xbox", "Nvidia Shield"];
+      var i = m.indexOf(x);
+      return i &lt; 0 ? 0 : i + 1;
+apex_config:
+  yaxis:
+    min: 0
+    max: 4
+    tickAmount: 4
+    labels:
+      formatter: >-
+        EVAL:function (v) { return ["Other", "Phono", "HEOS Net", "Xbox",
+        "Shield"][Math.round(v)] || ''; }
+  tooltip:
+    y:
+      formatter: >-
+        EVAL:function (v) { return v == null ? 'off' : ["Other", "Phono",
+        "HEOS Net", "Xbox", "Shield"][Math.round(v)] || 'Other'; }</pre>
+    <p class="capt">Mettez vos propres sources dans le tableau transform et dans les deux tableaux de formateurs. Gardez l'indice 0 sur « Other ».</p>
+    <p class="lead">Un axe de graphique a besoin de nombres, donc <code>transform</code> associe chaque nom de source à une position et les formateurs refont la correspondance inverse pour les étiquettes et l'infobulle. Rendez la correspondance <b>totale</b> : <code>null</code> (récepteur éteint) reste un trou, et tout ce qui n'est pas dans votre liste tombe dans « Other », si bien que les deux ne peuvent jamais être confondus. La même carte avec <code>sound_mode</code> vous donne le mode surround, avec les chaînes en majuscules exactement comme votre récepteur les indique.</p>
+    <div class="note"><b>Gardez <code>stepline</code> sur ces deux derniers.</b> Une source ou un mode surround est une catégorie, pas un nombre. Lissez la courbe et la ligne glisse de Shield à Xbox en passant par tout ce qui se trouve entre les deux sur l'axe, dessinant une entrée qui n'a jamais été sélectionnée. Le volume est une vraie quantité et se lisse honnêtement ; une catégorie, non.</div>
+    <div class="note"><b>Vérifiez d'abord la rétention de votre recorder.</b> Home Assistant conserve dix jours par défaut, donc sept jours est à peu près le maximum utile. Pour remonter plus loin, il vous faut un capteur modèle <code>state_class: measurement</code>, que Home Assistant conserve en statistiques à long terme pendant des années.</div>
+    <div class="note"><b>Un jour manquant est généralement normal.</b> Home Assistant enregistre les changements, pas des échantillons. Laissez le récepteur sur une entrée à un volume pendant deux jours et il n'écrit rien du tout, donc ce jour n'a pas de barre. On dirait une perte de données, c'est l'inverse : il ne s'est rien passé.</div>
+  </div>
+</section>
+
+<section id="whole">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Étape 10</div>
+      <h2>Ou prenez le tout</h2>
+    </div>
+    <p class="lead">La vue complète, chaque section et chaque carte, avec des paramètres fictifs à la place des ID d'entités.</p>
+    <ol class="plain">
+      <li><b>1.</b> <a href="/fr/guide/home-assistant-dashboard/avr-maestro-dashboard.yaml" download>Téléchargez le YAML de la vue</a>.</li>
+      <li><b>2.</b> Ouvrez-le dans n'importe quel éditeur de texte et remplacez deux chaînes, partout où elles apparaissent : <code>YOUR_RECEIVER</code> par le nom de votre entité lecteur multimédia, et <code>YOURMAC</code> par les douze caractères de votre récepteur relevés à l'étape 2.</li>
+      <li><b>3.</b> Dans Home Assistant, ouvrez votre tableau de bord, l'icône crayon, le menu à trois points, l'<b>éditeur de configuration brute</b>, et collez-le comme une vue.</li>
+    </ol>
+    <div class="note"><b>Vos ID de scènes ne correspondront pas.</b> Les scripts de scène sont nommés d'après le moment où la Scène a été créée, donc les quatre du fichier n'existent pas sur votre système : ces cartes s'afficheront sans rien faire. Remplacez leurs ID d'entités par les vôtres relevés à l'étape 2, ou supprimez la section Scènes et reconstruisez-la avec l'étape 8.</div>
+    <div class="note"><b>Deux autres points à prévoir.</b> Les graphiques de source et de surround reprennent les noms de sources du récepteur sur lequel ceci a été conçu, modifiez donc ces tableaux comme l'explique l'étape 9. Et les étiquettes des tuiles sont en anglais ; rien dans le fichier n'est traduit.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Si une tuile ne s'allume jamais</h2>
+    </div>
+    <p class="lead">Avant de croire que vous vous êtes trompé : certaines ne peuvent pas s'allumer, et mieux vaut savoir lesquelles.</p>
+    <p class="lead">Une tuile ne peut afficher son état que si Home Assistant peut le lire, et il lit votre récepteur à deux endroits. L'intégration Denon AVR publie l'essentiel sur l'entité lecteur multimédia. AVR Maestro publie le reste : il crée un capteur <b>Status Bridge</b>, <code>sensor.avr_maestro_your_receiver</code>, et y écrit sous forme d'attributs les valeurs qu'il connaît déjà.</p>
+    <table class="t">
+      <thead><tr><th>Sur l'entité lecteur multimédia</th><th>Sur le capteur Status Bridge</th></tr></thead>
+      <tbody>
+        <tr><td>Alimentation</td><td>Courbe Audyssey MultEQ</td></tr>
+        <tr><td>Source sélectionnée</td><td>Dynamic Volume et niveau de référence</td></tr>
+        <tr><td>Mode surround</td><td>Quel emplacement Dirac est chargé</td></tr>
+        <tr><td>Volume et sourdine</td><td>Variateur de la façade, mode Éco</td></tr>
+        <tr><td>Dynamic EQ, parfois</td><td>Préréglage d'enceintes, tonalité, et des dizaines d'autres</td></tr>
+      </tbody>
+    </table>
+    <p class="lead">Les deux colonnes sont désormais lisibles. Prenez une valeur du lecteur multimédia depuis <code>states['media_player.your_receiver'].attributes</code>, et une valeur du Status Bridge avec <code>state_attr('sensor.avr_maestro_your_receiver','dirac_slot')</code>, pour qu'une tuile s'allume pour le réglage réellement actif au lieu de seulement lancer le script qui le modifie.</p>
+    <p class="lead">Mesuré sur le récepteur utilisé pour ce guide : l'entité lecteur multimédia porte environ vingt des soixante contrôles, et le capteur Status Bridge en publie environ quarante de plus. À eux deux, un tableau de bord peut lire presque tout ce qu'il peut modifier - la différence entre un mur de boutons et une vraie surface de contrôle.</p>
+    <div class="note"><b>Si une valeur peut avoir deux sens, dites-le.</b> Dynamic EQ arrive sous la forme <code>true</code>, <code>false</code>, ou pas du tout. Traiter « pas du tout » comme « désactivé » affiche sur votre mur une réponse fausse mais pleine d'assurance.</div>
+<pre class="code">icon_color: >-
+  {% set d = state_attr('media_player.your_receiver','dynamic_eq') %}
+  {{ 'orange' if d is true else 'grey' }}
+secondary: >-
+  {% set d = state_attr('media_player.your_receiver','dynamic_eq') %}
+  {% if d is none %}state not published{% elif d %}on{% else %}off{% endif %}</pre>
+    <p class="capt">Trois états, pas deux.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Autres points à connaître</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Les tuiles font un tiers de la largeur attendue.</b> Dans une section couvrant 3 colonnes, la grille interne compte <b>36</b> colonnes, et non 12. Pour quatre tuiles en largeur, réglez <code>grid_options: {columns: 9}</code>. Pour six en largeur, 6.</li>
+      <li><b>Le curseur de volume affiche un bouton d'alimentation au lieu d'une barre.</b> C'est <code>media_controls</code> avec <code>on_off</code> dedans. Réglez <code>media_controls: []</code>.</li>
+      <li><b>Les étiquettes sont tronquées.</b> « Volume Down » devient « Volume Do... ». Raccourcissez en « Vol Down », ou élargissez la tuile.</li>
+      <li><b>Les descriptions de scènes sont coupées.</b> Ajoutez <code>multiline_secondary: true</code>.</li>
+      <li><b>Une ligne stable disparaît d'un graphique apexcharts.</b> C'est <code>experimental.color_threshold</code>. Il dessine le trait avec un dégradé vertical, et un segment parfaitement horizontal a une hauteur nulle sur laquelle appliquer le dégradé, donc il devient invisible. Une session de 43 heures à un seul volume a ainsi disparu complètement. Utilisez un <code>color</code> uni.</li>
+      <li><b>Il se réagence tout seul sur téléphone.</b> Les vues Sections s'empilent sur une seule colonne en largeur étroite sans aucune configuration supplémentaire.</li>
+    </ul>
+    <figure><img alt="Le même tableau de bord en largeur de téléphone, réagencé sur une seule colonne" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Même tableau de bord en largeur de téléphone : les trois colonnes n'en font plus qu'une, et rien n'a été configuré pour cela</figcaption></figure>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Questions fréquentes</div>
+      <h2>Le tableau de bord, vos questions</h2>
+    </div>
+    <details open><summary>Ai-je besoin de cartes personnalisées HACS pour le construire ?</summary><div class="body">Pas pour qu'il fonctionne. Chaque commande de cette page repose sur une simple carte bouton de Home Assistant. Mushroom, button-card, card-mod et apexcharts-card lui donnent l'apparence des captures d'écran, et chaque section ci-dessous indique laquelle elle utilise et ce que vous perdez sans elle.</div></details>
+    <details><summary>Pourquoi certains boutons s'allument-ils et d'autres non ?</summary><div class="body">Un bouton s'allume quand Home Assistant peut lire l&#x27;état correspondant sur votre récepteur. La source, le mode surround, le volume et la sourdine remontent de l'entité lecteur multimédia du récepteur lui-même, donc ceux-là s'allument. La courbe Audyssey, l'emplacement Dirac, le variateur, le mode éco et le préréglage d'enceintes ne sont pas publiés par l'intégration Denon, donc Home Assistant ne peut pas savoir lequel est actif et les boutons restent éteints tant que vous n'en touchez pas un.</div></details>
+    <details><summary>Puis-je afficher le vrai volume en dB plutôt qu'un pourcentage ?</summary><div class="body">Oui. Home Assistant publie volume_level sous la forme du volume principal de l&#x27;ampli divisé par 100, et sur les récepteurs Denon et Marantz, MV 80 correspond à la référence 0 dB. Donc les dB valent volume_level multiplié par 100, moins 80. Un volume_level de 0.67 correspond à un volume principal de 67, soit -13.0 dB.</div></details>
+    <details><summary>Mes ID d'entités seront-ils identiques à ceux de ce guide ?</summary><div class="body">Le début et la fin, oui, mais pas le milieu. AVR Maestro nomme ses scripts d&#x27;après l'adresse MAC du récepteur, de sorte qu'un renommage met à jour le même script au lieu d'en créer un second. Les vôtres s'écriront script.avr_maestro_ suivi de vos douze caractères, puis du nom du contrôle. Ouvrez Outils de développement puis États dans Home Assistant et filtrez sur avr_maestro pour voir votre propre liste.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">La suite du guide</div>
+      <h2>Autres guides AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/fr/guide/getting-started/">Prise en main</a> &middot; <a href="/fr/guide/home/">Écran d'accueil</a> &middot; <a href="/fr/guide/scenes/">Scènes</a> &middot; <a href="/fr/guide/custom-icons/">Icônes personnalisées</a> &middot; <a href="/fr/guide/sound/">Son</a> &middot; <a href="/fr/guide/graphic-eq/">Égaliseur graphique</a> &middot; <a href="/fr/guide/speakers/">Enceintes</a> &middot; <a href="/fr/guide/locked-controls/">Pourquoi une commande est verrouillée</a> &middot; <a href="/fr/guide/assistant/">L'assistant</a> &middot; <a href="/fr/guide/home-automation/">Domotique</a> &middot; <a href="/fr/guide/multi-zone/">Zones</a> &middot; <a href="/fr/guide/remote/">Télécommande</a> &middot; <a href="/fr/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/fr/guide/on-screen-display/">Affichage à l'écran</a> &middot; <a href="/fr/guide/settings/">Paramètres</a> &middot; <a href="/fr/guide/languages/">Langues</a> &middot; <a href="/fr/guide/volume/">Contrôles de volume</a> &middot; <a href="/fr/guide/backup/">Sauvegarde &amp; restauration</a> &middot; <a href="/fr/guide/now-playing/">Lecture en cours &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Tout votre récepteur, sur un seul mur</h2>
+    <p class="lead" style="margin:0 auto 24px">Domotique est le seul déverrouillage payant d'AVR Maestro. Tout le reste, y compris l'assistant IA embarqué, est inclus.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Disponible sur Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Télécharger dans l'App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Télécharger dans le Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Disponible sur le Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/fr/guide/home-automation/">Retour à la domotique &rarr;</a> &middot; <a href="/fr/guide/">Guide d'utilisation complet &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/fr/">Accueil</a>
+      <a href="/fr/guide/">Guide de l'utilisateur</a>
+      <a href="/fr/guide/getting-started/">Prise en main</a>
+      <a href="/fr/receivers/">Récepteurs</a>
+      <a href="/fr/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/fr/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/fr/best-denon-marantz-app/">Pourquoi changer</a>
+      <a href="/fr/help/">Aide</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro est une application indépendante de MiyaraHub Technologies LLC et n'est ni affiliée à, ni approuvée par, ni parrainée par Denon, Marantz, D&amp;M Holdings, Sound United ou toute autre société citée sur cette page. Denon, Marantz, HEOS, Home Assistant, Mushroom, HACS, Audyssey et Nvidia Shield sont des marques ou des projets de leurs propriétaires respectifs, utilisés ici à des fins d'identification uniquement.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

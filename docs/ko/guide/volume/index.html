@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>볼륨 제한, 전원 켤 때 볼륨 &amp; 음소거 깊이 - AVR Maestro</title>
+<meta name="description" content="Denon 또는 Marantz의 볼륨 제한을 설정하고, 전원을 켤 때의 볼륨을 고르고, 음소거가 얼마나 낮출지 정하고, 볼륨을 0에서 98 또는 데시벨로 표시하세요." />
+<meta name="keywords" content="Denon volume limit app, Marantz power on level, AVR mute level -20 dB, receiver volume in decibels app, Denon volume scale absolute relative, protect speakers volume limit" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/ko/guide/volume/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/volume/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/volume/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/volume/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/volume/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/volume/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/volume/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/volume/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/volume/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/volume/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/volume/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/volume/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/volume/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/volume/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/volume/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/volume/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/volume/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/volume/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/volume/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/volume/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/volume/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/volume/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/volume/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/volume/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/volume/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/volume/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/volume/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/volume/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/volume/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/volume/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/volume/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/volume/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="ko_KR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="볼륨 제한, 전원 켤 때 볼륨 &amp; 음소거 깊이 - AVR Maestro" />
+<meta property="og:description" content="Denon 또는 Marantz의 볼륨 제한을 설정하고, 전원을 켤 때의 볼륨을 고르고, 음소거가 얼마나 낮출지 정하고, 볼륨을 0에서 98 또는 데시벨로 표시하세요." />
+<meta property="og:url" content="https://avrmaestro.com/ko/guide/volume/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="볼륨 제한, 전원 켤 때 볼륨 &amp; 음소거 깊이 - AVR Maestro" />
+<meta name="twitter:description" content="Denon 또는 Marantz의 볼륨 제한을 설정하고, 전원을 켤 때의 볼륨을 고르고, 음소거가 얼마나 낮출지 정하고, 볼륨을 0에서 98 또는 데시벨로 표시하세요." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro는 로컬 네트워크를 통해 Denon 및 Marantz AV 리시버를 제어하는 독립 앱입니다.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "ko"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/volume/#article",
+      "headline": "볼륨 컨트롤: 상한선, 켤 때의 볼륨, 그리고 원하는 대로 동작하는 음소거",
+      "description": "Denon 또는 Marantz의 볼륨 제한을 설정하고, 전원을 켤 때의 볼륨을 고르고, 음소거가 얼마나 낮출지 정하고, 볼륨을 0에서 98 또는 데시벨로 표시하세요.",
+      "image": "https://avrmaestro.com/screenshots/volume-controls.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/volume/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "ko"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/volume/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "볼륨 제한은 실제 리모컨에도 적용되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 이 제한은 앱 설정이 아니라 리시버 설정이므로 앱, 기본 리모컨, 전면 패널 다이얼, 네트워크의 다른 모든 컨트롤러까지 모든 경로를 제한합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "이 설정은 Zone 2와 Zone 3에도 적용되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "볼륨 컨트롤은 메인 존을 다룹니다. 각 존은 자체 볼륨과 전원, 입력을 존 탭에서 따로 가지고 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "리뷰에서는 데시벨로 말하는데 앱에는 0에서 98로 표시되는 이유는 무엇인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "같은 다이얼을 다르게 표시한 것입니다. 볼륨 스케일을 -79.5에서 18.0 dB로 바꾸면 0.0 dB이 기준인, 보정 레벨을 흔히 표기하는 방식과 표시가 일치합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "휴대폰의 볼륨 버튼을 사용할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네, Android와 iPhone 모두 가능합니다. AVR Maestro가 전면에 있는 동안 기기의 볼륨 버튼이 리시버를 직접 제어하며, 한 번 누를 때마다 한 단계씩, 누르고 있으면 계속 올라가거나 내려갑니다. 설정, 오디오에 있는 스위치로 버튼을 기기에 되돌려 줄 수 있습니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "사용 설명서",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "볼륨 컨트롤",
+      "item": "https://avrmaestro.com/guide/volume/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/ko/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="메뉴" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="가이드 검색..." data-i18n-empty="검색 결과 없음:" data-i18n-language="언어">
+      <a href="/ko/">홈</a>
+      <a href="/ko/guide/">사용 설명서</a>
+      <a href="/ko/receivers/">리시버</a>
+      <a href="/ko/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ko/best-denon-marantz-app/">갈아타는 이유</a>
+      <a href="/ko/#top" class="cta">다운로드</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/ko/">홈</a> &rsaquo; <a href="/ko/guide/">사용 설명서</a> &rsaquo; 볼륨 제어</div>
+    <div class="eyebrow">설정 &rsaquo; 볼륨 컨트롤</div>
+    <h1>볼륨 컨트롤: 상한선, 켤 때의 볼륨, 그리고 <span class="g">원하는 대로 동작하는 음소거</span></h1>
+    <p>리시버가 낼 수 있는 최대 음량, 켜질 때의 동작, 음소거가 얼마나 낮출지를 함께 정하는 네 가지 설정입니다. 설정이 리시버에 저장되므로 앱, 실제 리모컨, 전면 패널 중 무엇을 쓰든 그대로 적용됩니다.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">설정 위치</div>
+        <h2>설정 &rsaquo; 볼륨 컨트롤</h2>
+        <p class="lead"><b>설정</b>을 열고 <b>볼륨 컨트롤</b>까지 스크롤하세요 - "볼륨 제한, 전원 켤 때 볼륨, 음소거 깊이". 이 페이지의 모든 내용은 리시버에 바로 기록되므로 앱을 닫아도 유지되고 어떤 방식으로 제어하든 적용됩니다.</p>
+      </div>
+      <img alt="볼륨 스케일, 제한, 전원 켤 때 볼륨, 음소거 레벨이 있는 볼륨 컨트롤 페이지" src="/screenshots/volume-controls.png" width="1324" height="2644" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">하나씩 살펴보기</div>
+      <h2>각 설정의 역할</h2>
+    </div>
+
+    <h3 style="margin-top:26px">볼륨 스케일</h3>
+    <p class="lead">화면과 리시버 자체 디스플레이에 볼륨이 어떻게 표시되는지 정합니다. <b>0 - 98</b>은 대부분의 사람들에게 익숙한 상대 스케일이고, <b>-79.5 ~ 18.0 dB</b>는 0.0 dB이 기준 레벨인 절대 스케일입니다. 리뷰에서 "-15 dB"라고 한 것이 내 다이얼에서는 어디쯤인지 궁금했다면, 그 답을 주는 스위치가 바로 이것입니다.</p>
+
+    <h3 style="margin-top:26px">볼륨 제한</h3>
+    <p class="lead">넘을 수 없는 상한선입니다. 한번 설정하면 <b>그 무엇도</b> 이를 넘지 못합니다. 제한이 앱이 아닌 리시버에 저장되므로 앱도, 실제 리모컨도, 전면 패널 다이얼도 마찬가지입니다. 실수로 잘못 눌러도 스피커나 주변 사람들이 놀라지 않도록 지켜 주는 용도이며, 손님에게 리모컨을 건네기 전에 설정해 둘 만한 항목입니다. <b>끔</b>을 선택하면 상한선이 사라집니다.</p>
+
+    <h3 style="margin-top:26px">전원 켤 때 볼륨</h3>
+    <p class="lead"><b>마지막 볼륨 사용</b>이 기본으로 켜져 있어, 리시버는 끄기 직전의 볼륨으로 켜집니다. 이를 끄면 고정된 볼륨을 지정할 수 있어, 밤늦게 큰 소리로 즐긴 뒤에도 다음 날 아침 깜짝 놀랄 일이 없습니다.</p>
+
+    <h3 style="margin-top:26px">음소거 레벨</h3>
+    <p class="lead">음소거가 볼륨을 얼마나 낮출지 정합니다. <b>완전</b>은 소리를 완전히 끕니다. <b>-40 dB</b>와 <b>-20 dB</b>는 완전히 끄는 대신 줄여 주므로, 영화를 보다가 흐름을 놓치지 않고 대화를 나누고 싶을 때 더 좋은 선택입니다.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">앱의 다른 곳에서</div>
+      <h2>매일 쓰는 컨트롤</h2>
+    </div>
+    <ul class="plain">
+      <li><b>홈 대시보드</b>에는 메인 존의 마스터 볼륨, 음소거, 전원이 있습니다.</li>
+      <li><b>리모컨 탭</b>에는 방향 패드와 재생 키 옆에 볼륨 로커가 있고, 조절하는 동안 레벨이 표시됩니다. <a href="/ko/guide/remote/">리모컨 가이드 &rarr;</a></li>
+      <li><b>모든 볼륨 플러스 및 마이너스 버튼</b> - 홈 대시보드, 존 카드, 리모컨 탭 - 은 한 번 누르면 한 단계 움직이고, 누르고 있으면 실제 리모컨처럼 계속 움직입니다. 손을 떼면 한 단계 안에 멈춥니다.</li>
+      <li><b>휴대폰의 볼륨 버튼</b>은 Android와 iPhone에서 앱이 앞에 있는 동안 리시버를 제어하므로 화면을 보지 않고도 조절할 수 있습니다. 누르고 있으면 이 역시 계속 움직입니다.</li>
+      <li><b>각 존</b>은 메인과 별개로 자체 볼륨을 가지고 있습니다. <a href="/ko/guide/multi-zone/">존 가이드 &rarr;</a></li>
+      <li><b>장면</b>은 마스터 볼륨을 저장할 수 있어서, 장면을 불러오면 다른 모든 설정과 함께 볼륨도 맞춰집니다. <a href="/ko/guide/scenes/">장면 가이드 &rarr;</a></li>
+      <li>TV에 표시되는 <b>화면 볼륨 표시</b>는 위치를 옮기거나 완전히 끌 수 있습니다. <a href="/ko/guide/on-screen-display/">On-Screen Display 가이드 &rarr;</a></li>
+    </ul>
+    <div class="note">볼륨 변경은 픽셀 하나마다 보내지 않고 일정한 간격으로 전달되도록 일부러 조절했습니다. 그래서 로커를 누르고 있거나 슬라이더를 쓸어도, 리시버가 쌓아 두었다가 뒤늦게 처리할 명령이 몰리지 않고 부드럽게 변합니다.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">자주 묻는 질문</div>
+      <h2>볼륨 자주 묻는 질문</h2>
+    </div>
+    <details open><summary>볼륨 제한은 실제 리모컨에도 적용되나요?</summary><div class="body">네. 이 제한은 앱 설정이 아니라 리시버 설정이므로 앱, 기본 리모컨, 전면 패널 다이얼, 네트워크의 다른 모든 컨트롤러까지 모든 경로를 제한합니다.</div></details>
+    <details><summary>이 설정은 Zone 2와 Zone 3에도 적용되나요?</summary><div class="body">볼륨 컨트롤은 메인 존을 다룹니다. 각 존은 자체 볼륨과 전원, 입력을 존 탭에서 따로 가지고 있습니다.</div></details>
+    <details><summary>리뷰에서는 데시벨로 말하는데 앱에는 0에서 98로 표시되는 이유는 무엇인가요?</summary><div class="body">같은 다이얼을 다르게 표시한 것입니다. 볼륨 스케일을 -79.5에서 18.0 dB로 바꾸면 0.0 dB이 기준인, 보정 레벨을 흔히 표기하는 방식과 표시가 일치합니다.</div></details>
+    <details><summary>휴대폰의 볼륨 버튼을 사용할 수 있나요?</summary><div class="body">네, Android와 iPhone 모두 가능합니다. AVR Maestro가 전면에 있는 동안 기기의 볼륨 버튼이 리시버를 직접 제어하며, 한 번 누를 때마다 한 단계씩, 누르고 있으면 계속 올라가거나 내려갑니다. 설정, 오디오에 있는 스위치로 버튼을 기기에 되돌려 줄 수 있습니다.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">가이드 더 보기</div>
+      <h2>다른 AVR Maestro 가이드</h2>
+    </div>
+    <p class="lead"><a href="/ko/guide/getting-started/">시작하기</a> &middot; <a href="/ko/guide/home/">홈 화면</a> &middot; <a href="/ko/guide/scenes/">장면</a> &middot; <a href="/ko/guide/custom-icons/">사용자 지정 아이콘</a> &middot; <a href="/ko/guide/sound/">사운드</a> &middot; <a href="/ko/guide/graphic-eq/">그래픽 EQ</a> &middot; <a href="/ko/guide/speakers/">스피커</a> &middot; <a href="/ko/guide/locked-controls/">컨트롤이 잠겨 있는 이유</a> &middot; <a href="/ko/guide/assistant/">어시스턴트</a> &middot; <a href="/ko/guide/home-automation/">홈 오토메이션</a> &middot; <a href="/ko/guide/home-assistant-dashboard/">Home Assistant 대시보드</a> &middot; <a href="/ko/guide/multi-zone/">존</a> &middot; <a href="/ko/guide/remote/">리모컨</a> &middot; <a href="/ko/guide/radio/">라디오 (FM/AM)</a> &middot; <a href="/ko/guide/on-screen-display/">온스크린 디스플레이</a> &middot; <a href="/ko/guide/settings/">설정</a> &middot; <a href="/ko/guide/languages/">언어</a> &middot; <a href="/ko/guide/backup/">백업 &amp; 복원</a> &middot; <a href="/ko/guide/now-playing/">지금 재생 중 &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>상한선을 한 번만 정해 두면 마음 편히 즐길 수 있습니다</h2>
+    <p class="lead" style="margin:0 auto 24px">한 번 구매로 끝, 광고 없음, 구독 없음. 1분 안에 연결할 수 있습니다.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Google Play에서 다운로드" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="App Store에서 다운로드" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Mac App Store에서 다운로드" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Microsoft Store에서 다운로드" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/ko/guide/">전체 사용자 가이드로 돌아가기 &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/ko/">홈</a>
+      <a href="/ko/guide/">사용 설명서</a>
+      <a href="/ko/guide/getting-started/">시작하기</a>
+      <a href="/ko/receivers/">리시버</a>
+      <a href="/ko/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ko/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/ko/best-denon-marantz-app/">갈아타는 이유</a>
+      <a href="/ko/help/">도움말</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro는 MiyaraHub Technologies LLC가 만든 독립 앱이며, Denon, Marantz, D&amp;M Holdings, Sound United 및 이 페이지에 언급된 어떤 회사와도 제휴, 보증, 후원 관계가 없습니다. Denon, Marantz, HEOS, Audyssey, Dirac Live는 각 소유자의 상표이며, 식별 목적으로만 사용되었습니다.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

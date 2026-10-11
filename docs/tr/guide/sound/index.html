@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ses Sekmesi: AVR'nizdeki Her Ses Kontrolü - AVR Maestro</title>
+<meta name="description" content="Denon veya Marantz cihazınızdaki her ses kontrolü açıklamalı: surround modları, Diyalog Güçlendirici, DRC, Audyssey, Dirac Live, Graphic EQ, kanal ayarları, Ton, IMAX ve Auro-3D." />
+<meta name="keywords" content="Denon sound modes app, Marantz surround mode app, Audyssey MultEQ app, Dirac Live app control, Dolby Surround DTS Neural X app, IMAX Enhanced settings app, Auro-3D app, dialog enhancer Denon, dynamic range compression AVR, M-DAX audio restorer" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/tr/guide/sound/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/sound/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/sound/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/sound/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/sound/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/sound/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/sound/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/sound/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/sound/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/sound/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/sound/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/sound/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/sound/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/sound/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/sound/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/sound/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/sound/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/sound/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/sound/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/sound/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/sound/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/sound/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/sound/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/sound/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/sound/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/sound/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/sound/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/sound/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/sound/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/sound/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/sound/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/sound/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="tr_TR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Ses Sekmesi: AVR'nizdeki Her Ses Kontrolü - AVR Maestro" />
+<meta property="og:description" content="Denon veya Marantz cihazınızdaki her ses kontrolü açıklamalı: surround modları, Diyalog Güçlendirici, DRC, Audyssey, Dirac Live, Graphic EQ, kanal ayarları, Ton, IMAX ve Auro-3D." />
+<meta property="og:url" content="https://avrmaestro.com/tr/guide/sound/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Ses Sekmesi: AVR'nizdeki Her Ses Kontrolü - AVR Maestro" />
+<meta name="twitter:description" content="Denon veya Marantz cihazınızdaki her ses kontrolü açıklamalı: surround modları, Diyalog Güçlendirici, DRC, Audyssey, Dirac Live, Graphic EQ, kanal ayarları, Ton, IMAX ve Auro-3D." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro, Denon ve Marantz AV alıcılarını yerel ağınız üzerinden kontrol etmeniz için geliştirilmiş bağımsız bir uygulamadır.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "tr"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/sound/#article",
+      "headline": "Alıcınızdaki her ses kontrolü, tek bir Ses sekmesinde",
+      "description": "Denon veya Marantz cihazınızdaki her ses kontrolü açıklamalı: surround modları, Diyalog Güçlendirici, DRC, Audyssey, Dirac Live, Graphic EQ, kanal ayarları, Ton, IMAX ve Auro-3D.",
+      "image": "https://avrmaestro.com/screenshots/sound-surround.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/sound/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "tr"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/sound/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Ses modları listesi neden değişiyor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Çünkü alıcının listesi değişiyor. Bir Denon ya da Marantz alıcının kabul ettiği modlar, neyi çözdüğüne bağlıdır: iki kanallı bir akış upmixer'ları, bir Atmos akışı Atmos uyumlu modları sunar. AVR Maestro, yarı yarıya yanlış olacak sabit bir menü göstermek yerine güncel listeyi her seferinde alıcıdan okur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bir kontrol neden N/A ile gri görünüyor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "N/A, alıcının mevcut durumda bunun için bir değeri olmadığı anlamına gelir - genellikle gelen sinyal özelliği taşımadığı için. Satırın yanındaki soru işaretine dokunun, uygulama hangi sinyalin bunu etkinleştireceğini açıklar. Gri bir kontrol asla gizlenen bir hata değildir; alıcının kendi yanıtıdır."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kanallar ile Seviyeler arasındaki fark nedir?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kanallar (Ses sekmesi), şu anda çalan sinyal için canlı kanal başına ayardır. Seviyeler (Hoparlörler sekmesi) ise kalibrasyonunuzla Hoparlör Ön Ayarında saklanan hoparlör başına referans seviyesidir. Kanalları ayarlamak kalibrasyonunuzu yeniden yazmaz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ton Kontrolü ile Audyssey'i birlikte kullanabilir miyim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dynamic EQ açıkken hayır - alıcı ton kontrollerinin sahipliğini üstlenir. Audyssey sayfasından Dynamic EQ seçeneğini kapatın, Bas ve Tiz yeniden düzenlenebilir olur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Aynı ağda olmam gerekir mi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Evet. AVR Maestro alıcınızla doğrudan yerel ağınız üzerinden konuşur; arada bulut hesabı da aktarma sunucusu da yoktur. Bkz. Başlarken."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Ana Sayfa",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Kullanım Kılavuzu",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Ses",
+      "item": "https://avrmaestro.com/guide/sound/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/tr/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menü" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Kılavuzda ara..." data-i18n-empty="Eşleşme bulunamadı:" data-i18n-language="Dil">
+      <a href="/tr/">Ana Sayfa</a>
+      <a href="/tr/guide/">Kullanım Kılavuzu</a>
+      <a href="/tr/receivers/">Alıcılar</a>
+      <a href="/tr/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/tr/best-denon-marantz-app/">Neden geçmelisiniz</a>
+      <a href="/tr/#top" class="cta">İndir</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/tr/">Ana Sayfa</a> &rsaquo; <a href="/tr/guide/">Kullanım Kılavuzu</a> &rsaquo; Ses</div>
+    <div class="eyebrow">Ses sekmesi</div>
+    <h1>Alıcınızdaki her ses kontrolü, <span class="g">tek bir Ses sekmesinde</span></h1>
+    <p>Ses sekmesi dokuz sayfa derinliğindedir ve alıcınızın kendi ses menüsünün basitleştirilmiş bir sürümü yerine onu olduğu gibi yansıtır. Bu sayfa dokuzunu da gezdirir: her kontrolün ne yaptığı, ne beklediği ve alıcının neden bazen ona dokunmanıza izin vermediği.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Burada neler var</div>
+      <h2>Dokuz sayfa</h2>
+    </div>
+    <table class="t">
+      <thead><tr><th>Sayfa</th><th>Neyi kontrol eder</th></tr></thead>
+      <tbody>
+        <tr><td><a href="#surround">Surround</a></td><td>Film / Müzik / Oyun / Pure olarak gruplanmış ses modu ve ses özellikleri göstergesi</td></tr>
+        <tr><td><a href="#dialog">Diyalog &amp; DRC</a></td><td>Diyalog Güçlendirici düzeyi ve Dinamik Aralık Sıkıştırması</td></tr>
+        <tr><td><a href="#audyssey">Audyssey</a></td><td>MultEQ, Dynamic EQ, Reference Level Offset, Dynamic Volume, Surround Level Compensation</td></tr>
+        <tr><td><a href="#dirac">Dirac Live</a></td><td>Yüklü filtre yuvalarınız adlarıyla ve Kapalı seçeneği</td></tr>
+        <tr><td><a href="#geq">Grafik EQ</a></td><td>Hoparlör başına 9 bantlı eğri, 63Hz ile 16kHz arası</td></tr>
+        <tr><td><a href="#channels">Kanallar</a></td><td>Mevcut sinyaldeki her hoparlör için kanal başına dB cinsinden ayar ve Bass Sync</td></tr>
+        <tr><td><a href="#tone">Ton</a></td><td>Ton Kontrolü, Bas, Tiz, DAC filtresi, Ses Onarıcı (M-DAX)</td></tr>
+        <tr><td><a href="#imax">IMAX</a></td><td>IMAX Enhanced modu ve kendi HPF, LPF ve subwoofer yönlendirmesi</td></tr>
+        <tr><td><a href="#auro">Auro-3D</a></td><td>Auromatic ön ayarı, Güç ve Auro 3D Modu</td></tr>
+      </tbody>
+    </table>
+    <div class="note">Bunlardan hangilerinin görüneceğine alıcınız karar verir. Auro-3D lisansı olmayan bir model basitçe Auro-3D sayfasına sahip olmaz, IMAX Enhanced çözücüsü olmayan modelde de IMAX sayfası bulunmaz. AVR Maestro, bir model varsaymak yerine alıcıya neyi desteklediğini sorar.</div>
+  </div>
+</section>
+
+<section id="surround">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Birinci sayfa</div>
+      <h2>Surround: mod ve alıcının gerçekte yaptığı iş</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Üstteki kart, alıcının bildirdiği <b>geçerli modu</b> olduğu gibi gösterir. Altında modlar <b>Film</b>, <b>Müzik</b>, <b>Oyun</b> ve <b>Pure</b> olarak gruplanır ve yalnızca alıcının şu anda çözdüğü sinyal için kabul edeceği modlar sunulur.</p>
+        <ul class="plain">
+          <li><b>Stereo, Dolby Surround, DTS Neural:X, Auro-3D, Auro Surround, Multi Ch Stereo</b> ve diğerleri, modelinizin ve gelen akışın izin verdiği ölçüde görünür.</li>
+          <li>Altındaki <b>Ses Özellikleri</b> bir dilek listesi değil, canlı bir göstergedir: Neural:X, IMAX Enhanced, Cinema EQ, Center Spread, Loudness Management, Speaker Virtualizer ve benzerlerinin her biri <b>Etkin</b>, <b>Devre Dışı</b> veya <b>N/A</b> olarak görünür.</li>
+          <li><b>N/A</b>, mevcut sinyalin o özelliği kullanamadığı anlamına gelir. Yanındaki soru işaretine dokunun, uygulama hangi sinyalin kullanabileceğini açıklasın.</li>
+        </ul>
+      </div>
+      <img alt="Geçerli modu ve ses özellikleri göstergesini gösteren Surround sayfası" src="/screenshots/sound-surround.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="dialog">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">İkinci sayfa</div>
+      <h2>Diyalog &amp; DRC: anlaşılırlık ve gece dinlemesi</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <ul class="plain">
+          <li><b>Diyalog Güçlendirici</b> - Kapalı, Düşük, Orta veya Yüksek. Kalibrasyonunuza dokunmadan orta kanalın anlaşılırlığını artırır.</li>
+          <li><b>Dinamik Aralık Sıkıştırması</b> - Kapalı, Düşük, Orta, Yüksek veya Otomatik. Fısıltılarla patlamalar arasındaki farkı daraltır, gece geç saatlerde tam da istediğiniz şey budur.</li>
+        </ul>
+        <p class="lead">DRC, alıcının kabul etmediği bir kontrolü AVR Maestro'nun nasıl ele aldığının en net örneğidir. Sıkıştırma verisi <b>bir Dolby bit akışının içinde</b> taşınır, bu yüzden PCM, DTS veya ağ stereo kaynağında sıkıştırılacak bir şey yoktur. Uygulama, hiçbir işe yaramayan bir düğmeye basmanıza izin vermek yerine satırı griye çevirir ve nedenini yazar: kullanmak için Dolby Digital, Dolby Digital Plus, Dolby TrueHD veya Dolby Atmos içeriğine geçin.</p>
+      </div>
+      <img alt="Dinamik Aralık Sıkıştırması gri ve açıklamalı olarak gösterilen Diyalog ve DRC sayfası" src="/screenshots/sound-dialog-drc.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="audyssey">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Üçüncü sayfa</div>
+      <h2>Audyssey: yalnızca MultEQ değil, kalibrasyon menüsünün tamamı</h2>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px">
+      <figure><img alt="MultEQ, Dynamic EQ, Reference Level Offset, Dynamic Volume ve Surround Level Compensation içeren Audyssey sayfası" src="/screenshots/sound-audyssey.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Her Audyssey kontrolü, canlı</figcaption></figure>
+      <figure><img alt="Bu Hoparlör Ön Ayarının sahibinin Dirac olduğunu bildiren Audyssey sayfası" src="/screenshots/sound-audyssey-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Dirac ön ayarında bunu açıkça belirtir</figcaption></figure>
+    </div>
+    <ul class="plain" style="margin-top:26px">
+      <li><b>MultEQ</b> - Reference, Bypass LR, Flat veya Kapalı. Reference kalibre edilmiş ev eğrisidir; Flat yüksek frekans düşüşünü kaldırır; Bypass LR ön çifti düzeltmesiz bırakır; Kapalı ise EQ'yu size geri verir.</li>
+      <li><b>Dynamic EQ</b> - Açık veya Kapalı. Ses kısıldıkça basın incelmesi yerine tonal dengeyi korur.</li>
+      <li><b>Reference Level Offset</b> - 0, 5, 10 veya 15 dB. Dynamic EQ'ya içeriğinizin referans seviyenin ne kadar altında masterlandığını söyler. 0 dB filme uygundur; daha yüksek ofsetler müzik ve TV için uygundur.</li>
+      <li><b>Dynamic Volume</b> - Kapalı, Hafif, Orta veya Ağır. Yüksek sesli reklamları kısık diyalogla dengeler.</li>
+      <li><b>Surround Level Compensation</b> - Kapalı, Hafif, Orta veya Ağır.</li>
+    </ul>
+    <div class="note">Bu sayfanın düzenlenebilir olup olmadığı, geçerli Hoparlör Ön Ayarının hangi sisteme ait olduğuna bağlıdır. Bkz. <a href="/tr/guide/locked-controls/">bir kontrol neden kilitli</a>.</div>
+  </div>
+</section>
+
+<section id="dirac">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Dördüncü sayfa</div>
+      <h2>Dirac Live: filtreleriniz, verdiğiniz adlarla</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Dirac Live çalıştırdıysanız, dışa aktardığınız filtreler alıcıda numaralı yuvalarda durur. AVR Maestro bunları <b>kaydettiğiniz adla</b>, altında yuva numarasıyla listeler; ön ayarı hiç filtre olmadan çalıştırmak için bir <b>Kapalı</b> girişi de bulunur. Tek dokunuşla filtre değiştirirsiniz.</p>
+        <p class="lead">Dirac filtresi yüklü olmayan bir Hoparlör Ön Ayarında sayfa, boş bir liste göstermek yerine bunu açıkça söyler.</p>
+      </div>
+      <img alt="Filtre yuvalarını kaydedilen adlarıyla listeleyen Dirac Live sayfası" src="/screenshots/sound-dirac.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="geq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Beşinci sayfa</div>
+      <h2>Grafik EQ: hoparlör başına dokuz bant</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Basit bir anahtar değil, gerçek bir düzenleyici: 63Hz ile 16kHz arasında dokuz bant, -20 ile +6 dB arası, grafik üzerinde sürüklenir. <b>Tümü</b>, <b>Sol/Sağ</b> veya <b>Her Biri</b> hoparlörü seçin, ölçülmüş Audyssey eğrinizden başlamak için <b>Kopyala</b>'yı, düzleştirmek için <b>Sıfırla</b>'yı ve uygulamak için bekleyen değişiklikler çubuğunu kullanın.</p>
+        <p class="lead">Alıcı oda düzeltmesini <b>ya da</b> manuel EQ'yu çalıştırır, hiçbir zaman ikisini birden değil; bu yüzden MultEQ veya Dirac çalışırken bu sayfa kilitlenir ve hangisinin çalıştığını söyler.</p>
+        <p class="lead"><a href="/tr/guide/graphic-eq/">Grafik EQ rehberinin tamamı &rarr;</a></p>
+      </div>
+      <img alt="Hoparlör başına 9 bantlı eğri sunan Grafik EQ düzenleyicisi" src="/screenshots/graphic-eq.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="channels">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Altıncı sayfa</div>
+      <h2>Kanallar: film sürerken istediğiniz hoparlörü ayarlayın</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead"><b>Mevcut sinyalde</b> bulunan her hoparlör için kanal başına dB cinsinden ayar - Ön Sol, Ön Sağ, Orta, surround'lar, arka surround'lar, her iki subwoofer ve yükseklik katmanı; her birinin altında kısa adı yer alır, böylece hangisinin hangisi olduğunu tahmin etmeniz gerekmez.</p>
+        <ul class="plain">
+          <li>Büyük bir değişiklik için <b>kaydırıcıyı sürükleyin</b> ya da tek bir ince adım için <b>artı ve eksiye</b> dokunun; ikisi de siz dinlerken çalışır.</li>
+          <li><b>Tümünü Sıfırla</b> her kanalı 0 dB'ye geri getirir.</li>
+          <li>En altta <b>Bass Sync</b>, LFE kanalını ana kanallarla zaman hizasına getirir.</li>
+        </ul>
+        <p class="lead">Bunlar sinyale göre canlı ayarlardır. Hoparlör Ön Ayarında saklanan hoparlör başına <b>referans seviyeleri</b> ise bunun yerine <a href="/tr/guide/speakers/">Hoparlörler sekmesinde</a> yer alır; aradaki farkı uygulama sayfanın kendi bilgi kartında açıklar.</p>
+      </div>
+      <img alt="Her hoparlör için seviye kaydırıcısı ve ince artı/eksi adımları olan Kanallar sayfası" src="/screenshots/sound-channels.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="tone">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Yedinci sayfa</div>
+      <h2>Ton: bas, tiz, DAC filtresi ve M-DAX</h2>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px">
+      <figure><img alt="Bas, Tiz, DAC Filtresi ve Ses Onarıcı içeren Ton sayfası" src="/screenshots/sound-tone.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Ton, serbestçe düzenlenebilir</figcaption></figure>
+      <figure><img alt="Kontrolleri Dynamic EQ tarafından kilitlenmiş Ton sayfası" src="/screenshots/sound-tone-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>Ton kontrollerini Dynamic EQ devralır</figcaption></figure>
+    </div>
+    <ul class="plain" style="margin-top:26px">
+      <li><b>Ton Kontrolü</b> - ana anahtar. Bas ve Tiz yalnızca bu etkinken alıcıya ulaşır.</li>
+      <li><b>Bas</b> ve <b>Tiz</b> - 1 dB'lik adımlarla -6 dB ile +6 dB arası.</li>
+      <li><b>DAC Filtresi</b> - Filtre 1 yavaş düşüşlü, daha sıcak bir sestir; Filtre 2 daha keskin bir referans yanıtıdır.</li>
+      <li><b>Ses Onarıcı (M-DAX)</b> - Kapalı, Düşük, Orta veya Yüksek. Sıkıştırılmış veya akış sesinde kaybolan ayrıntıyı yeniden kurar; 128k bir radyo yayınında istediğiniz şey budur, kayıpsız bir diskte ise istemeyeceğiniz şey.</li>
+    </ul>
+    <div class="note">Audyssey Dynamic EQ çalışırken ton kontrollerini o yönetir: alıcı bunları devralır ve AVR Maestro, Bas'ın neden bir şey yapmadığını merak etmenize bırakmak yerine bunu söyleyen bir afiş gösterir.</div>
+  </div>
+</section>
+
+<section id="imax">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Sekizinci sayfa</div>
+      <h2>IMAX: Enhanced ayarlar menüsünün tamamı</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">IMAX Enhanced bulunan bir modelde uygulama yalnızca aç/kapat değil, menünün tamamını sunar:</p>
+        <ul class="plain">
+          <li><b>IMAX Modu</b> - Otomatik veya Kapalı.</li>
+          <li><b>Ses Ayarları</b> - Otomatik, IMAX önerisini izler; Elle ise aşağıdaki dört kontrolü açar.</li>
+          <li><b>High Pass Filter</b> - 40Hz ile 250Hz arası.</li>
+          <li><b>Low Pass Filter</b> - 70Hz ile 250Hz arası.</li>
+          <li><b>Subwoofer</b> - Açık veya Kapalı ve <b>Subwoofer Çıkışı</b> - LFE+Main veya LFE.</li>
+        </ul>
+      </div>
+      <img alt="Mod, filtreler ve subwoofer yönlendirmesini içeren IMAX sayfası" src="/screenshots/sound-imax.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section id="auro">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Dokuzuncu sayfa</div>
+      <h2>Auro-3D: biçimli bir yükseltme</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <ul class="plain">
+          <li><b>Auromatic 3D Ön Ayarı</b> - Küçük, Orta, Büyük, Konuşma veya Film. Yükseltmenin hedeflediği oda ve içerik karakterini seçer.</li>
+          <li><b>Güç</b> - 0 ile 15 arası; Auromatic'in ne kadar yükseklik bilgisi üreteceğini belirler.</li>
+          <li><b>Auro 3D Modu</b> - Doğrudan veya Kanal Genişletme.</li>
+        </ul>
+        <p class="lead">Bunlar yalnızca Surround sayfasında bir Auro modu seçiliyken geçerlidir ve sayfa yalnızca Auro-3D çözücüsü bulunan bir modelde yer alır.</p>
+      </div>
+      <img alt="Ön ayar, güç ve modu içeren Auro-3D sayfası" src="/screenshots/sound-auro3d.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Sık sorulan sorular</div>
+      <h2>Ses sekmesi SSS</h2>
+    </div>
+    <details open><summary>Ses modları listesi neden değişiyor?</summary><div class="body">Çünkü alıcının listesi değişiyor. Bir Denon ya da Marantz alıcının kabul ettiği modlar, neyi çözdüğüne bağlıdır: iki kanallı bir akış upmixer'ları, bir Atmos akışı Atmos uyumlu modları sunar. AVR Maestro, yarı yarıya yanlış olacak sabit bir menü göstermek yerine güncel listeyi her seferinde alıcıdan okur.</div></details>
+    <details><summary>Bir kontrol neden N/A ile gri görünüyor?</summary><div class="body">N/A, alıcının mevcut durumda bunun için bir değeri olmadığı anlamına gelir - genellikle gelen sinyal özelliği taşımadığı için. Satırın yanındaki soru işaretine dokunun, uygulama hangi sinyalin bunu etkinleştireceğini açıklar. Gri bir kontrol asla gizlenen bir hata değildir; alıcının kendi yanıtıdır.</div></details>
+    <details><summary>Kanallar ile Seviyeler arasındaki fark nedir?</summary><div class="body">Kanallar (Ses sekmesi), şu anda çalan sinyal için canlı kanal başına ayardır. Seviyeler (Hoparlörler sekmesi) ise kalibrasyonunuzla Hoparlör Ön Ayarında saklanan hoparlör başına referans seviyesidir. Kanalları ayarlamak kalibrasyonunuzu yeniden yazmaz.</div></details>
+    <details><summary>Ton Kontrolü ile Audyssey'i birlikte kullanabilir miyim?</summary><div class="body">Dynamic EQ açıkken hayır - alıcı ton kontrollerinin sahipliğini üstlenir. Audyssey sayfasından Dynamic EQ seçeneğini kapatın, Bas ve Tiz yeniden düzenlenebilir olur.</div></details>
+    <details><summary>Aynı ağda olmam gerekir mi?</summary><div class="body">Evet. AVR Maestro alıcınızla doğrudan yerel ağınız üzerinden konuşur; arada bulut hesabı da aktarma sunucusu da yoktur. Bkz. <a href="/tr/guide/getting-started/">Başlarken</a>.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Rehberin devamı</div>
+      <h2>Diğer AVR Maestro rehberleri</h2>
+    </div>
+    <p class="lead"><a href="/tr/guide/getting-started/">Başlarken</a> &middot; <a href="/tr/guide/home/">Ana Ekran</a> &middot; <a href="/tr/guide/scenes/">Sahneler</a> &middot; <a href="/tr/guide/custom-icons/">Özel Simgeler</a> &middot; <a href="/tr/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/tr/guide/speakers/">Hoparlörler</a> &middot; <a href="/tr/guide/locked-controls/">Bir kontrol neden kilitli</a> &middot; <a href="/tr/guide/assistant/">Asistan</a> &middot; <a href="/tr/guide/home-automation/">Ev Otomasyonu</a> &middot; <a href="/tr/guide/home-assistant-dashboard/">Home Assistant panosu</a> &middot; <a href="/tr/guide/multi-zone/">Bölgeler</a> &middot; <a href="/tr/guide/remote/">Uzaktan Kumanda</a> &middot; <a href="/tr/guide/radio/">Radyo (FM/AM)</a> &middot; <a href="/tr/guide/on-screen-display/">Ekran Menüsü</a> &middot; <a href="/tr/guide/settings/">Ayarlar</a> &middot; <a href="/tr/guide/languages/">Diller</a> &middot; <a href="/tr/guide/volume/">Ses Kontrolleri</a> &middot; <a href="/tr/guide/backup/">Yedekleme &amp; Geri Yükleme</a> &middot; <a href="/tr/guide/now-playing/">Şimdi Çalıyor &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Tüm ses menüsü, koltuğunuzdan</h2>
+    <p class="lead" style="margin:0 auto 24px">Tek seferlik satın alma, reklamsız, abonelik yok. Bir dakikadan kısa sürede bağlanın.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Google Play üzerinden edinin" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="App Store üzerinden indirin" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Mac App Store üzerinden indirin" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Microsoft Store üzerinden edinin" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/tr/guide/">Tam Kullanım Kılavuzuna dön &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/tr/">Ana Sayfa</a>
+      <a href="/tr/guide/">Kullanım Kılavuzu</a>
+      <a href="/tr/guide/getting-started/">Başlarken</a>
+      <a href="/tr/receivers/">Alıcılar</a>
+      <a href="/tr/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/tr/audyssey-vs-dirac/">Audyssey ve Dirac</a>
+      <a href="/tr/best-denon-marantz-app/">Neden geçmelisiniz</a>
+      <a href="/tr/help/">Yardım</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro, MiyaraHub Technologies LLC tarafından geliştirilen bağımsız bir uygulamadır; Denon, Marantz, D&amp;M Holdings, Sound United veya bu sayfada adı geçen başka hiçbir şirketle bağlantılı değildir, onlar tarafından onaylanmamış veya desteklenmemiştir. Denon, Marantz, HEOS, Audyssey, Dirac Live, IMAX, Auro-3D ve Dolby Atmos, ilgili sahiplerinin ticari markalarıdır ve burada yalnızca tanımlama amacıyla kullanılmıştır.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

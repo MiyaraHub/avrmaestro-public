@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Controllo del sintonizzatore FM/AM dal telefono - AVR Maestro</title>
+<meta name="description" content="Una vera radio FM/AM per i ricevitori Denon e Marantz con sintonizzatore integrato: banda e modalità di sintonia, sintonia per frequenza e preset delle stazioni con nome, direttamente dal telefono." />
+<meta name="keywords" content="FM AM tuner app, AV receiver radio app, Denon tuner app, Marantz tuner app, receiver radio presets app, control receiver radio from phone, FM tuner controller" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/it/guide/radio/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/radio/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/radio/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/radio/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/radio/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/radio/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/radio/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/radio/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/radio/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/radio/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/radio/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/radio/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/radio/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/radio/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/radio/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/radio/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/radio/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/radio/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/radio/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/radio/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/radio/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/radio/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/radio/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/radio/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/radio/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/radio/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/radio/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/radio/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/radio/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/radio/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/radio/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/radio/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="it_IT" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Controllo del sintonizzatore FM/AM dal telefono - AVR Maestro" />
+<meta property="og:description" content="Una vera radio FM/AM per i ricevitori Denon e Marantz con sintonizzatore integrato: banda e modalità di sintonia, sintonia per frequenza e preset delle stazioni con nome, direttamente dal telefono." />
+<meta property="og:url" content="https://avrmaestro.com/it/guide/radio/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Controllo del sintonizzatore FM/AM dal telefono - AVR Maestro" />
+<meta name="twitter:description" content="Una vera radio FM/AM per i ricevitori Denon e Marantz con sintonizzatore integrato: banda e modalità di sintonia, sintonia per frequenza e preset delle stazioni con nome, direttamente dal telefono." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro è un'app indipendente per controllare i ricevitori AV Denon e Marantz tramite la tua rete locale.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "it"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/radio/#article",
+      "headline": "Una vera radio FM/AM, con preset dotati di nome",
+      "description": "Una vera radio FM/AM per i ricevitori Denon e Marantz con sintonizzatore integrato: banda e modalità di sintonia, sintonia per frequenza e preset delle stazioni con nome, direttamente dal telefono.",
+      "image": "https://avrmaestro.com/screenshots/radio.png",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/radio/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "it"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/radio/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Posso controllare la radio FM/AM dall'app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sì, sui ricevitori con sintonizzatore integrato: visualizzazione in tempo reale di banda, frequenza e preset, passaggio FM/AM, sintonia Automatica o Manuale, un tastierino per saltare a una frequenza e una griglia di preset."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Posso dare un nome ai miei preset?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sì: tieni premuto uno slot per salvare la stazione attuale, aggiungere o rinominare un'etichetta («Jazz 88», «NPR») oppure cancellarla."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Perché non vedo la scheda Radio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Compare solo sui ricevitori con sintonizzatore integrato. Se il tuo ne ha uno, verifica che il sintonizzatore risulti tra gli ingressi e riattiva la scheda da Impostazioni, Personalizza la navigazione."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guida utente",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Radio",
+      "item": "https://avrmaestro.com/guide/radio/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/it/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Cerca nella guida..." data-i18n-empty="Nessun risultato per" data-i18n-language="Lingua">
+      <a href="/it/">Home</a>
+      <a href="/it/guide/">Guida utente</a>
+      <a href="/it/receivers/">Ricevitori</a>
+      <a href="/it/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/it/best-denon-marantz-app/">Perché cambiare</a>
+      <a href="/it/#top" class="cta">Scarica</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero split">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="/it/">Home</a> &rsaquo; <a href="/it/guide/">Guida utente</a> &rsaquo; Radio</div>
+      <div class="eyebrow">Sintonizzatore FM/AM</div>
+      <h1>Una vera <span class="g">radio</span> FM/AM, con preset dotati di nome</h1>
+      <p>Sui ricevitori Denon e Marantz con sintonizzatore integrato, AVR Maestro ti offre una vera interfaccia radio FM/AM. La scheda della stazione mostra banda, frequenza e preset attivo in tempo reale e segue il ricevitore istante per istante.</p>
+    </div>
+    <div class="hero-shot"><img alt="Sintonizzatore FM/AM in AVR Maestro" src="/screenshots/radio.png" width="1324" height="2648" fetchpriority="high" /></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Come funziona</div>
+      <h2>Sintonizza, cerca e salva</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Banda:</b> FM / AM. <b>Modalità di sintonia:</b> Automatica (cerca la stazione forte successiva) o Manuale (avanza a passi pari all'incremento della banda).</li>
+      <li><b>Sintonia:</b> i due pulsanti Sintonia fanno avanzare la manopola; <b>Inserisci la frequenza</b> apre un tastierino per saltare direttamente a una stazione (richiede la modalità Manuale).</li>
+      <li><b>Preset:</b> una griglia di slot per i preset più i selettori su/giù. <b>Tieni premuto</b> uno slot per <b>Salvare la stazione attuale</b>, <b>Aggiungere o rinominare l'etichetta</b> («Jazz 88», «NPR») oppure <b>Cancellare l'etichetta</b>.</li>
+    </ul>
+    <div class="note">Se la scheda Radio è nascosta, riaggiungila da <i>Impostazioni &rarr; Personalizza la navigazione</i>: compare solo quando il ricevitore mette a disposizione un sintonizzatore.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Domande frequenti</div>
+      <h2>FAQ sul sintonizzatore</h2>
+    </div>
+    <details open><summary>Posso controllare la radio FM/AM dall'app?</summary><div class="body">Sì, sui ricevitori con sintonizzatore integrato: visualizzazione in tempo reale di banda, frequenza e preset, passaggio FM/AM, sintonia Automatica o Manuale, un tastierino per saltare a una frequenza e una griglia di preset.</div></details>
+    <details><summary>Posso dare un nome ai miei preset?</summary><div class="body">Sì: tieni premuto uno slot per salvare la stazione attuale, aggiungere o rinominare un'etichetta («Jazz 88», «NPR») oppure cancellarla.</div></details>
+    <details><summary>Perché non vedo la scheda Radio?</summary><div class="body">Compare solo sui ricevitori con sintonizzatore integrato. Se il tuo ne ha uno, verifica che il sintonizzatore risulti tra gli ingressi e riattiva la scheda da Impostazioni, Personalizza la navigazione.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Altre parti della guida</div>
+      <h2>Altre guide di AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/it/guide/getting-started/">Per iniziare</a> &middot; <a href="/it/guide/home/">Schermata Home</a> &middot; <a href="/it/guide/scenes/">Scene</a> &middot; <a href="/it/guide/custom-icons/">Icone personalizzate</a> &middot; <a href="/it/guide/sound/">Audio</a> &middot; <a href="/it/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/it/guide/speakers/">Diffusori</a> &middot; <a href="/it/guide/locked-controls/">Perché un controllo è bloccato</a> &middot; <a href="/it/guide/assistant/">L'assistente</a> &middot; <a href="/it/guide/home-automation/">Automazione domestica</a> &middot; <a href="/it/guide/home-assistant-dashboard/">Dashboard di Home Assistant</a> &middot; <a href="/it/guide/multi-zone/">Zone</a> &middot; <a href="/it/guide/remote/">Telecomando</a> &middot; <a href="/it/guide/on-screen-display/">Display su schermo</a> &middot; <a href="/it/guide/settings/">Impostazioni</a> &middot; <a href="/it/guide/languages/">Lingue</a> &middot; <a href="/it/guide/volume/">Controlli del volume</a> &middot; <a href="/it/guide/backup/">Backup &amp; ripristino</a> &middot; <a href="/it/guide/now-playing/">In riproduzione &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Porta la radio del tuo ricevitore sul telefono</h2>
+    <p class="lead" style="margin:0 auto 24px">Acquisto una tantum, niente pubblicità, niente abbonamenti. Connettiti in meno di un minuto.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Scaricalo su Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Scarica dall'App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Scarica dal Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Scaricalo dal Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/it/guide/">Torna alla Guida utente completa &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/it/">Home</a>
+      <a href="/it/guide/">Guida utente</a>
+      <a href="/it/guide/getting-started/">Per iniziare</a>
+      <a href="/it/receivers/">Ricevitori</a>
+      <a href="/it/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/it/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/it/best-denon-marantz-app/">Perché cambiare</a>
+      <a href="/it/help/">Aiuto</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro è un'app indipendente di MiyaraHub Technologies LLC e non è affiliata, approvata né sponsorizzata da Denon, Marantz, D&amp;M Holdings, Sound United o da qualsiasi altra azienda citata in questa pagina. Denon, Marantz, HEOS, Audyssey e Dirac Live sono marchi dei rispettivi proprietari, usati qui solo a scopo di identificazione.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

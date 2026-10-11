@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>휴대폰으로 존 2 &amp; 존 3 제어 - AVR Maestro</title>
+<meta name="description" content="Denon 및 Marantz 리시버의 존 2와 존 3을 독립적으로 제어하세요. 전원, 입력, 볼륨, 음소거, 존별 Smart Select / Quick Select, 존 이름 변경, 존별 지금 재생 중까지 지원합니다." />
+<meta name="keywords" content="multi-zone receiver control app, Zone 2 control app, Zone 3 control app, Denon multi-zone app, Marantz multi-zone, whole house audio receiver app, second zone control, zone quick select, zone smart select, rename zones Denon Marantz" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/ko/guide/multi-zone/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/multi-zone/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/multi-zone/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/multi-zone/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/multi-zone/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/multi-zone/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/multi-zone/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/multi-zone/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/multi-zone/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/multi-zone/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/multi-zone/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/multi-zone/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/multi-zone/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/multi-zone/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/multi-zone/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/multi-zone/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/multi-zone/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/multi-zone/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/multi-zone/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/multi-zone/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/multi-zone/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/multi-zone/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/multi-zone/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/multi-zone/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/multi-zone/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/multi-zone/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/multi-zone/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/multi-zone/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/multi-zone/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/multi-zone/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/multi-zone/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/multi-zone/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="ko_KR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="휴대폰으로 존 2 &amp; 존 3 제어 - AVR Maestro" />
+<meta property="og:description" content="Denon 및 Marantz 리시버의 존 2와 존 3을 독립적으로 제어하세요. 전원, 입력, 볼륨, 음소거, 존별 Smart Select / Quick Select, 존 이름 변경, 존별 지금 재생 중까지 지원합니다." />
+<meta property="og:url" content="https://avrmaestro.com/ko/guide/multi-zone/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="휴대폰으로 존 2 &amp; 존 3 제어 - AVR Maestro" />
+<meta name="twitter:description" content="Denon 및 Marantz 리시버의 존 2와 존 3을 독립적으로 제어하세요. 전원, 입력, 볼륨, 음소거, 존별 Smart Select / Quick Select, 존 이름 변경, 존별 지금 재생 중까지 지원합니다." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro는 로컬 네트워크를 통해 Denon 및 Marantz AV 리시버를 제어하는 독립 앱입니다.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "ko"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/multi-zone/#article",
+      "headline": "멀티 존: 집 전체를 한 손에",
+      "description": "Denon 및 Marantz 리시버의 존 2와 존 3을 독립적으로 제어하세요. 전원, 입력, 볼륨, 음소거, 존별 Smart Select / Quick Select, 존 이름 변경, 존별 지금 재생 중까지 지원합니다.",
+      "image": "https://avrmaestro.com/screenshots/zones.png",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/multi-zone/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "ko"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/multi-zone/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "휴대폰으로 존 2와 존 3을 제어할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 멀티 존 리시버에서는 각 존이 메인 존과 완전히 분리된 자체 전원, 볼륨, 음소거, 입력, 빠른 볼륨 프리셋을 갖고 있으며 실시간으로 동기화됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "존에서도 Smart Select나 Quick Select를 사용할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 각 존 카드에는 리시버가 부르는 이름 그대로 해당 존 전용 슬롯이 표시됩니다. Marantz는 Smart Select, Denon은 Quick Select입니다. 슬롯을 탭하면 불러오고, 길게 누르면 카드에서 바로 해당 존의 현재 상태를 슬롯에 저장합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "존 이름을 바꿀 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 홈 화면에서 존 이름을 길게 누르면 메인 존을 포함해 어떤 존이든 이름을 바꿀 수 있습니다. 이름은 리시버 자체에 기록되므로 제조사 앱과 다른 모든 클라이언트, 구형 본체에서도 그대로 표시됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "각 존에 재생 중인 내용이 표시되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 존이 켜져 있으면 해당 존의 카드에 실시간 HEOS 지금 재생 중 스트림이 재생 컨트롤과 함께 표시됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "장면으로 존을 설정할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 장면은 나머지 설정과 함께 존 2/3의 전원, 입력, 볼륨을 캡처하고 복원할 수 있습니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "사용 설명서",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "멀티 존",
+      "item": "https://avrmaestro.com/guide/multi-zone/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/ko/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="메뉴" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="가이드 검색..." data-i18n-empty="검색 결과 없음:" data-i18n-language="언어">
+      <a href="/ko/">홈</a>
+      <a href="/ko/guide/">사용 설명서</a>
+      <a href="/ko/receivers/">리시버</a>
+      <a href="/ko/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ko/best-denon-marantz-app/">갈아타는 이유</a>
+      <a href="/ko/#top" class="cta">다운로드</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero split">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="/ko/">홈</a> &rsaquo; <a href="/ko/guide/">사용 설명서</a> &rsaquo; 멀티 존</div>
+      <div class="eyebrow">멀티 존</div>
+      <h1>멀티 존: <span class="g">집 전체</span>를 한 손에</h1>
+      <p>멀티 존 Denon 및 Marantz 리시버에서 존 2와 존 3의 전원, 입력, 볼륨을 독립적으로 제어하세요. 장면으로 존 상태를 캡처하고 복원할 수도 있습니다. 주방에서는 음악을, 극장에서는 영화를, 모두 앱 하나로.</p>
+    </div>
+    <div class="hero-shot"><img alt="AVR Maestro의 멀티 존 제어" src="/screenshots/zones.png" width="1324" height="2644" fetchpriority="high" /></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">존이 작동하는 방식</div>
+      <h2>각 존이 완전히 독립적으로</h2>
+      <p class="lead">각 존은 메인 존과 완전히 분리된 자체 전원, 볼륨, 음소거, 입력, 빠른 볼륨 프리셋을 가집니다.</p>
+    </div>
+    <div class="grid">
+      <div class="gcard"><div class="ic">&#128268;</div><h3>독립 전원</h3><p>메인 존에 영향을 주지 않고 존 2 또는 존 3을 켜고 끌 수 있습니다.</p></div>
+      <div class="gcard"><div class="ic">&#127925;</div><h3>고유한 소스 &amp; 볼륨</h3><p>존마다 다른 입력과 볼륨을 설정할 수 있고, 빠른 볼륨 프리셋 칩이 제공됩니다. 프리셋은 기본적으로 부드럽게 변화합니다(설정, 오디오: 점진적 / 다이렉트).</p></div>
+      <div class="gcard"><div class="ic">&#9889;</div><h3>존별 Smart Select / Quick Select</h3><p>카드에서 바로 해당 존 전용 Smart Select 또는 Quick Select 슬롯을 사용하세요. 슬롯을 탭하면 불러오고, 길게 누르면 해당 존의 현재 상태를 저장합니다.</p></div>
+      <div class="gcard"><div class="ic">&#9997;&#65039;</div><h3>존 이름 변경</h3><p>홈 화면에서 존 이름을 길게 누르세요. 메인 존도 가능합니다. 이름은 리시버 자체에 저장되므로 모든 앱에서 동일하게 표시됩니다.</p></div>
+      <div class="gcard"><div class="ic">&#128260;</div><h3>실시간 동기화</h3><p>리시버 패널이나 리모컨으로 존을 바꾸면 앱이 1초 안에 업데이트됩니다.</p></div>
+      <div class="gcard"><div class="ic">&#127911;</div><h3>존별 지금 재생 중</h3><p>존이 켜져 있으면 해당 존의 카드에 실시간 HEOS 스트림이 재생 컨트롤과 함께 표시됩니다.</p></div>
+      <div class="gcard"><div class="ic">&#127917;</div><h3>장면에 포함됨</h3><p><a href="/ko/guide/scenes/">장면</a>은 다른 모든 설정과 함께 존 2/3의 상태를 캡처하고 복원할 수 있습니다.</p></div>
+      <div class="gcard"><div class="ic">&#128241;</div><h3>홈 화면에서</h3><p>컴팩트한 존 위젯으로 홈 화면에서 상태를 한눈에 확인하고 빠르게 제어할 수 있습니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>존을 켜고 원하는 곳으로 연결하기</h2>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(1,1fr);max-width:320px;margin:0 0 26px">
+      <figure><img alt="존 2는 Patio, 존 3은 ZONE3으로 표시되고 각각 자체 전원 컨트롤이 있는 존 탭" src="/screenshots/zones.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>리시버가 인식한 존마다 카드 하나</figcaption></figure>
+    </div>
+    <ul class="plain">
+      <li><b>1. 존 탭을 엽니다.</b> 리시버가 인식한 모든 존에 카드가 하나씩 생깁니다. 존이 하나뿐인 리시버에는 이 탭이 표시되지 않습니다.</li>
+      <li><b>2. 존을 켭니다.</b> 카드의 전원 컨트롤을 사용하세요. 메인 존에는 아무 영향이 없습니다.</li>
+      <li><b>3. 소스를 선택합니다.</b> 목록은 리시버 자체의 목록이며 이름을 바꿨다면 바꾼 이름으로 표시됩니다. 존은 메인 룸과 완전히 다른 입력을 사용할 수 있습니다.</li>
+      <li><b>4. 볼륨을 설정합니다.</b> 존에는 자체 레벨과 자체 음소거가 있고, 빠른 볼륨 칩은 해당 존에 설정해 둔 레벨을 불러옵니다. 설정, 오디오에서 다이렉트로 바꾸지 않는 한 프리셋은 부드럽게 변화합니다.</li>
+      <li><b>5. 선택 사항: 저장합니다.</b> 해당 존 전용 Smart Select 또는 Quick Select 슬롯 중 하나를 길게 눌러 존의 현재 상태를 모두 저장하고, 나중에 탭해서 다시 불러오세요.</li>
+    </ul>
+    <p class="lead" style="margin-top:20px">홈 화면에서 존 이름을 길게 눌러 이름을 바꿀 수 있습니다. 이름은 리시버에 기록되므로 전면 패널과 다른 모든 앱에서도 앱과 같은 이름으로 표시됩니다.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">알아 두세요</div>
+      <h2>메인 존을 꺼도 다른 방이 꺼지지 않는 이유</h2>
+    </div>
+    <p class="lead">Denon 및 Marantz 리시버에는 서로 다른 두 가지 전원 명령이 있으며, 집 안의 다른 곳에서 음악이 재생 중일 때는 그 차이가 중요합니다.</p>
+    <p class="lead">시스템 전체 대기 명령은 본체 전체를 끄며 리시버가 다른 존도 함께 끕니다. Cinema 30에서 측정한 결과, 대기 명령이 도착한 지 1밀리초 만에 본체가 존 2를 꺼짐으로 보고했습니다. 그래서 AVR Maestro의 메인 전원 컨트롤은 의도적으로 <b>메인 존</b> 명령을 대신 보냅니다. 앱에서 극장을 꺼도 주방의 음악은 계속 재생됩니다.</p>
+    <p class="lead">반대도 마찬가지입니다. 완전히 꺼진 리시버에서 메인 존을 켜면 본체가 먼저 깨어나므로, 앱을 쓰기 전에 리시버 전원을 따로 켤 필요가 없습니다.</p>
+    <div class="note">메인 존을 바꿀 때 어떤 존이 함께 꺼진다면, 앱이 아니라 리시버 자체 설정 때문입니다. 일부 모델에는 존 메뉴에 전원 연동 옵션이 있습니다.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">자주 묻는 질문</div>
+      <h2>멀티 존 FAQ</h2>
+    </div>
+    <details open><summary>휴대폰으로 존 2와 존 3을 제어할 수 있나요?</summary><div class="body">네. 멀티 존 리시버에서는 각 존이 메인 존과 완전히 분리된 자체 전원, 볼륨, 음소거, 입력, 빠른 볼륨 프리셋을 갖고 있으며 실시간으로 동기화됩니다.</div></details>
+    <details><summary>존에서도 Smart Select나 Quick Select를 사용할 수 있나요?</summary><div class="body">네. 각 존 카드에는 리시버가 부르는 이름 그대로 해당 존 전용 슬롯이 표시됩니다. Marantz는 Smart Select, Denon은 Quick Select입니다. 슬롯을 탭하면 불러오고, 길게 누르면 카드에서 바로 해당 존의 현재 상태를 슬롯에 저장합니다.</div></details>
+    <details><summary>존 이름을 바꿀 수 있나요?</summary><div class="body">네. 홈 화면에서 존 이름을 길게 누르면 메인 존을 포함해 어떤 존이든 이름을 바꿀 수 있습니다. 이름은 리시버 자체에 기록되므로 제조사 앱과 다른 모든 클라이언트, 구형 본체에서도 그대로 표시됩니다.</div></details>
+    <details><summary>각 존에 재생 중인 내용이 표시되나요?</summary><div class="body">네. 존이 켜져 있으면 해당 존의 카드에 실시간 HEOS 지금 재생 중 스트림이 재생 컨트롤과 함께 표시됩니다.</div></details>
+    <details><summary>장면으로 존을 설정할 수 있나요?</summary><div class="body">네. <a href="/ko/guide/scenes/">장면</a>은 나머지 설정과 함께 존 2/3의 전원, 입력, 볼륨을 캡처하고 복원할 수 있습니다.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">가이드 더 보기</div>
+      <h2>다른 AVR Maestro 가이드</h2>
+    </div>
+    <p class="lead"><a href="/ko/guide/getting-started/">시작하기</a> &middot; <a href="/ko/guide/home/">홈 화면</a> &middot; <a href="/ko/guide/scenes/">장면</a> &middot; <a href="/ko/guide/custom-icons/">사용자 지정 아이콘</a> &middot; <a href="/ko/guide/sound/">사운드</a> &middot; <a href="/ko/guide/graphic-eq/">그래픽 EQ</a> &middot; <a href="/ko/guide/speakers/">스피커</a> &middot; <a href="/ko/guide/locked-controls/">컨트롤이 잠겨 있는 이유</a> &middot; <a href="/ko/guide/assistant/">어시스턴트</a> &middot; <a href="/ko/guide/home-automation/">홈 오토메이션</a> &middot; <a href="/ko/guide/home-assistant-dashboard/">Home Assistant 대시보드</a> &middot; <a href="/ko/guide/remote/">리모컨</a> &middot; <a href="/ko/guide/radio/">라디오 (FM/AM)</a> &middot; <a href="/ko/guide/on-screen-display/">온스크린 디스플레이</a> &middot; <a href="/ko/guide/settings/">설정</a> &middot; <a href="/ko/guide/languages/">언어</a> &middot; <a href="/ko/guide/volume/">볼륨 제어</a> &middot; <a href="/ko/guide/backup/">백업 &amp; 복원</a> &middot; <a href="/ko/guide/now-playing/">지금 재생 중 &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>모든 방을 한 손에</h2>
+    <p class="lead" style="margin:0 auto 24px">한 번 구매로 끝, 광고 없음, 구독 없음. 1분 안에 연결할 수 있습니다.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Google Play에서 다운로드" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="App Store에서 다운로드" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Mac App Store에서 다운로드" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Microsoft Store에서 다운로드" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/ko/guide/">전체 사용자 가이드로 돌아가기 &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/ko/">홈</a>
+      <a href="/ko/guide/">사용 설명서</a>
+      <a href="/ko/guide/getting-started/">시작하기</a>
+      <a href="/ko/receivers/">리시버</a>
+      <a href="/ko/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ko/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/ko/best-denon-marantz-app/">갈아타는 이유</a>
+      <a href="/ko/help/">도움말</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro는 MiyaraHub Technologies LLC가 만든 독립 앱이며, Denon, Marantz, D&amp;M Holdings, Sound United 및 이 페이지에 언급된 어떤 회사와도 제휴, 보증, 후원 관계가 없습니다. Denon, Marantz, HEOS, Audyssey, Dirac Live는 각 소유자의 상표이며, 식별 목적으로만 사용되었습니다.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

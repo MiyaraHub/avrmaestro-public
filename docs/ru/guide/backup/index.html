@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Резервное копирование &amp; восстановление настроек на новом телефоне - AVR Maestro</title>
+<meta name="description" content="Экспортируйте все настройки AVR Maestro в один файл: ресиверы, названия и значки входов, сцены, тему и параметры громкости. Восстановите его на новом телефоне за несколько касаний." />
+<meta name="keywords" content="AVR Maestro backup, transfer AVR app settings new phone, export receiver settings app, restore Denon app config, AVR Maestro migrate device" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/ru/guide/backup/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/backup/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/backup/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/backup/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/backup/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/backup/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/backup/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/backup/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/backup/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/backup/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/backup/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/backup/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/backup/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/backup/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/backup/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/backup/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/backup/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/backup/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/backup/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/backup/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/backup/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/backup/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/backup/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/backup/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/backup/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/backup/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/backup/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/backup/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/backup/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/backup/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/backup/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/backup/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Резервное копирование &amp; восстановление настроек на новом телефоне - AVR Maestro" />
+<meta property="og:description" content="Экспортируйте все настройки AVR Maestro в один файл: ресиверы, названия и значки входов, сцены, тему и параметры громкости. Восстановите его на новом телефоне за несколько касаний." />
+<meta property="og:url" content="https://avrmaestro.com/ru/guide/backup/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Резервное копирование &amp; восстановление настроек на новом телефоне - AVR Maestro" />
+<meta name="twitter:description" content="Экспортируйте все настройки AVR Maestro в один файл: ресиверы, названия и значки входов, сцены, тему и параметры громкости. Восстановите его на новом телефоне за несколько касаний." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro - независимое приложение для управления AV-ресиверами Denon и Marantz по локальной сети.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "ru"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/backup/#article",
+      "headline": "Резервное копирование & восстановление: вся ваша конфигурация в одном файле",
+      "description": "Экспортируйте все настройки AVR Maestro в один файл: ресиверы, названия и значки входов, сцены, тему и параметры громкости. Восстановите его на новом телефоне за несколько касаний.",
+      "image": "https://avrmaestro.com/screenshots/backup-restore.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/backup/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "ru"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/backup/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли перенести резервную копию между Android и iPhone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Файл представляет собой обычный JSON и не привязан к устройству, на котором был создан. Экспортируйте его на одном устройстве, перенесите файл на другое и импортируйте."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Перезапишет ли импорт калибровку моего ресивера?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Резервная копия содержит только настройки приложения. Всё, что хранит сам ресивер - калибровка, пресеты, уровни, расстояния, фильтры Dirac, - остаётся на ресивере и не затрагивается."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Переносятся ли мои сцены?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, вместе с информацией о том, какие настройки каждая сцена должна была захватывать. См. руководство по сценам."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Куда «Сохранить на устройство» кладёт файл?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Туда, куда вы укажете в системном окне выбора файлов. Если файл лишь проездом на другой телефон, быстрее воспользоваться функцией «Поделиться»."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Руководство пользователя",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Резервное копирование & восстановление",
+      "item": "https://avrmaestro.com/guide/backup/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/ru/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Меню" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Поиск по руководству..." data-i18n-empty="Нет совпадений для" data-i18n-language="Язык">
+      <a href="/ru/">Главная</a>
+      <a href="/ru/guide/">Руководство пользователя</a>
+      <a href="/ru/receivers/">Ресиверы</a>
+      <a href="/ru/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ru/best-denon-marantz-app/">Зачем переходить</a>
+      <a href="/ru/#top" class="cta">Скачать</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/ru/">Главная</a> &rsaquo; <a href="/ru/guide/">Руководство пользователя</a> &rsaquo; Резервное копирование &amp; восстановление</div>
+    <div class="eyebrow">Настройки &rsaquo; Резервное копирование &amp; восстановление</div>
+    <h1>Резервное копирование &amp; восстановление: вся ваша конфигурация <span class="g">в одном файле</span></h1>
+    <p>Переименовать каждый вход, подобрать картинку для каждого, расставить источники по порядку и собрать набор сцен - это настоящая работа. Она должна пережить смену телефона, и так и происходит: один экспорт, один импорт - и новое устройство выглядит точно так же, как старое.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Экспорт</div>
+        <h2>Сохраните на устройство или отправьте сразу</h2>
+        <p class="lead">Откройте <b>Настройки</b>, прокрутите до пункта <b>Резервное копирование &amp; восстановление</b> и выберите:</p>
+        <ul class="plain">
+          <li><b>Сохранить на устройство</b> - записывает один JSON-файл в указанное вами место.</li>
+          <li><b>Поделиться</b> - передаёт файл в привычное меню отправки, так что его можно сразу отправить на другой телефон, в облачное хранилище или написать самому себе.</li>
+        </ul>
+        <p class="lead">Это обычный текстовый файл. Ничто в нём не привязано к устройству, на котором он был создан.</p>
+      </div>
+      <img alt="Страница резервного копирования и восстановления с экспортом и импортом" src="/screenshots/backup-restore.png" width="1324" height="2644" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Содержимое</div>
+      <h2>Что переносится с вами</h2>
+    </div>
+    <table class="t">
+      <thead><tr><th>Входит</th><th>Значение</th></tr></thead>
+      <tbody>
+        <tr><td>Настроенные ресиверы</td><td>Все добавленные вами устройства с их адресами и настройками</td></tr>
+        <tr><td>Порядок источников для каждого устройства</td><td>Порядок, в который вы перетащили входы, - отдельно для каждого ресивера</td></tr>
+        <tr><td>Тема и цветовая тема</td><td>Ваш акцентный цвет и параметры внешнего вида</td></tr>
+        <tr><td>Размер экрана и виджетов</td><td>Размер текста и виджетов</td></tr>
+        <tr><td>Параметры громкости</td><td>Поведение громкости на стороне приложения</td></tr>
+        <tr><td>Состояние поясняющих карточек</td><td>Какие информационные баннеры вы закрыли, чтобы они оставались закрытыми</td></tr>
+        <tr><td>Кэшированные проверки</td><td>Результаты проверки HEOS, функций и музыкальных возможностей, чтобы новый телефон не начинал с нуля</td></tr>
+      </tbody>
+    </table>
+    <div class="note">Пользовательские названия и картинки входов входят в конфигурацию ресивера, поэтому переносятся вместе с ней. См. <a href="/ru/guide/custom-icons/">руководство по пользовательским значкам</a>.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Импорт</div>
+      <h2>Восстановление на новом телефоне</h2>
+    </div>
+    <ol class="plain">
+      <li>Установите AVR Maestro на новое устройство и убедитесь, что оно подключено к той же сети, что и ресивер.</li>
+      <li>Откройте <b>Настройки &rsaquo; Резервное копирование &amp; восстановление</b>.</li>
+      <li>Нажмите <b>Импортировать настройки из файла</b> и выберите резервную копию.</li>
+      <li><b>Перезапустите приложение.</b> Приложение тоже напомнит об этом: именно перезапуск позволяет всем восстановленным настройкам вступить в силу без сбоев.</li>
+    </ol>
+    <div class="note"><b>Импорт заменяет, а не объединяет.</b> Всё, что есть на этом устройстве, будет перезаписано содержимым резервной копии. Если текущая конфигурация вам дорога, сначала экспортируйте её - это два касания.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Полезно знать</div>
+      <h2>Резервная копия - это приложение, а не ресивер</h2>
+    </div>
+    <p class="lead">Калибровка, пресеты колонок, уровни, расстояния, кроссоверы и фильтры Dirac хранятся <b>на ресивере</b>. В резервную копию они не входят, и импорт не может их затронуть. Это работает в обе стороны: резервная копия не восстановит ресивер, сброшенный до заводских настроек, и ей это не нужно - при повторном подключении приложения к этому ресиверу его настройки снова подхватываются с самого ресивера.</p>
+    <p class="lead">Копию также разумно сделать перед большой перестройкой. Экспортируйте, свободно переставляйте входы и пересобирайте сцены, а если старый вариант окажется лучше, файл всегда под рукой.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Частые вопросы</div>
+      <h2>Резервная копия: частые вопросы</h2>
+    </div>
+    <details open><summary>Можно ли перенести резервную копию между Android и iPhone?</summary><div class="body">Файл представляет собой обычный JSON и не привязан к устройству, на котором был создан. Экспортируйте его на одном устройстве, перенесите файл на другое и импортируйте.</div></details>
+    <details><summary>Перезапишет ли импорт калибровку моего ресивера?</summary><div class="body">Нет. Резервная копия содержит только настройки приложения. Всё, что хранит сам ресивер - калибровка, пресеты, уровни, расстояния, фильтры Dirac, - остаётся на ресивере и не затрагивается.</div></details>
+    <details><summary>Переносятся ли мои сцены?</summary><div class="body">Да, вместе с информацией о том, какие настройки каждая сцена должна была захватывать. См. <a href="/ru/guide/scenes/">руководство по сценам</a>.</div></details>
+    <details><summary>Куда «Сохранить на устройство» кладёт файл?</summary><div class="body">Туда, куда вы укажете в системном окне выбора файлов. Если файл лишь проездом на другой телефон, быстрее воспользоваться функцией «Поделиться».</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Другие разделы руководства</div>
+      <h2>Другие руководства по AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/ru/guide/getting-started/">Начало работы</a> &middot; <a href="/ru/guide/home/">Главный экран</a> &middot; <a href="/ru/guide/scenes/">Сцены</a> &middot; <a href="/ru/guide/custom-icons/">Пользовательские значки</a> &middot; <a href="/ru/guide/sound/">Звук</a> &middot; <a href="/ru/guide/graphic-eq/">Графический эквалайзер</a> &middot; <a href="/ru/guide/speakers/">Колонки</a> &middot; <a href="/ru/guide/locked-controls/">Почему элемент заблокирован</a> &middot; <a href="/ru/guide/assistant/">Помощник</a> &middot; <a href="/ru/guide/home-automation/">Автоматизация дома</a> &middot; <a href="/ru/guide/home-assistant-dashboard/">Панель Home Assistant</a> &middot; <a href="/ru/guide/multi-zone/">Зоны</a> &middot; <a href="/ru/guide/remote/">Пульт</a> &middot; <a href="/ru/guide/radio/">Радио (FM/AM)</a> &middot; <a href="/ru/guide/on-screen-display/">Экранное меню</a> &middot; <a href="/ru/guide/settings/">Настройки</a> &middot; <a href="/ru/guide/languages/">Языки</a> &middot; <a href="/ru/guide/volume/">Управление громкостью</a> &middot; <a href="/ru/guide/now-playing/">Сейчас играет &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Настройте один раз</h2>
+    <p class="lead" style="margin:0 auto 24px">Разовая покупка, без рекламы и подписок. Подключение занимает меньше минуты.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Доступно в Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Загрузите в App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Загрузите в Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Доступно в Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/ru/guide/">Назад к полному руководству пользователя &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/ru/">Главная</a>
+      <a href="/ru/guide/">Руководство пользователя</a>
+      <a href="/ru/guide/getting-started/">Начало работы</a>
+      <a href="/ru/receivers/">Ресиверы</a>
+      <a href="/ru/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ru/audyssey-vs-dirac/">Audyssey и Dirac</a>
+      <a href="/ru/best-denon-marantz-app/">Зачем переходить</a>
+      <a href="/ru/help/">Справка</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro - независимое приложение MiyaraHub Technologies LLC, которое не связано с Denon, Marantz, D&amp;M Holdings, Sound United и любыми другими компаниями, упомянутыми на этой странице, и не одобрено и не спонсируется ими. Denon, Marantz, HEOS, Audyssey и Dirac Live - товарные знаки их владельцев, используемые здесь только для идентификации.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

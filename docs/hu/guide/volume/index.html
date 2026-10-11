@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="hu" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hangerőkorlát, bekapcsolási szint &amp; némítási mélység - AVR Maestro</title>
+<meta name="description" content="Állíts be hangerőkorlátot a Denon vagy Marantz készülékedhez, válaszd ki a bekapcsolási szintet, döntsd el, mennyire csillapítson a némítás, és olvasd a hangerőt 0-tól 98-ig vagy decibelben." />
+<meta name="keywords" content="Denon volume limit app, Marantz power on level, AVR mute level -20 dB, receiver volume in decibels app, Denon volume scale absolute relative, protect speakers volume limit" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/hu/guide/volume/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/volume/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/volume/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/volume/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/volume/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/volume/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/volume/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/volume/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/volume/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/volume/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/volume/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/volume/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/volume/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/volume/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/volume/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/volume/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/volume/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/volume/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/volume/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/volume/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/volume/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/volume/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/volume/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/volume/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/volume/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/volume/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/volume/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/volume/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/volume/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/volume/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/volume/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/volume/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="hu_HU" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Hangerőkorlát, bekapcsolási szint &amp; némítási mélység - AVR Maestro" />
+<meta property="og:description" content="Állíts be hangerőkorlátot a Denon vagy Marantz készülékedhez, válaszd ki a bekapcsolási szintet, döntsd el, mennyire csillapítson a némítás, és olvasd a hangerőt 0-tól 98-ig vagy decibelben." />
+<meta property="og:url" content="https://avrmaestro.com/hu/guide/volume/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Hangerőkorlát, bekapcsolási szint &amp; némítási mélység - AVR Maestro" />
+<meta name="twitter:description" content="Állíts be hangerőkorlátot a Denon vagy Marantz készülékedhez, válaszd ki a bekapcsolási szintet, döntsd el, mennyire csillapítson a némítás, és olvasd a hangerőt 0-tól 98-ig vagy decibelben." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "Az AVR Maestro egy független alkalmazás Denon és Marantz AV-erősítők vezérlésére a helyi hálózaton keresztül.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "hu"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/volume/#article",
+      "headline": "Hangerő-vezérlők: plafon, ébredési szint és egy némítás, amely azt teszi, amit akarsz",
+      "description": "Állíts be hangerőkorlátot a Denon vagy Marantz készülékedhez, válaszd ki a bekapcsolási szintet, döntsd el, mennyire csillapítson a némítás, és olvasd a hangerőt 0-tól 98-ig vagy decibelben.",
+      "image": "https://avrmaestro.com/screenshots/volume-controls.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/volume/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "hu"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/volume/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A hangerőkorlát a fizikai távvezérlőre is vonatkozik?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Igen. A korlát a vevőkészülék beállítása, nem az alkalmazásé, ezért minden útvonalon érvényes: az alkalmazásban, a mellékelt távvezérlőn, az előlapi tekerőgombon és a hálózaton lévő bármely más vezérlőn."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ezek a beállítások érvényesek a 2. és 3. zónára is?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Hangerő-vezérlők a fő zónára vonatkoznak. Minden zónának saját hangereje, bekapcsolása és bemenete van a Zónák fülön."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Miért 0-tól 98-ig mutatja az alkalmazás, amikor a tesztek decibelben közlik?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ugyanannak a tekerőnek két nézete. Állítsd a Hangerő-skálát -79.5-től 18.0 dB-ig értékre, és a kijelzés megegyezik azzal, ahogy a kalibrációs szinteket általában megadják, ahol a 0.0 dB a referencia."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Használhatom a telefonom hangerőgombjait?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Igen, Androidon és iPhone-on is. Amíg az AVR Maestro az előtérben van, a készülék hangerőgombjai közvetlenül a vevőkészüléket vezérlik, nyomásonként egy lépést, nyomva tartva pedig folyamatos emelést; a Beállítások, Hang alatti kapcsolóval visszakapod a gombjaidat."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Kezdőlap",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Felhasználói útmutató",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Hangerő-vezérlők",
+      "item": "https://avrmaestro.com/guide/volume/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/hu/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menü" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Keresés az útmutatóban..." data-i18n-empty="Nincs találat erre:" data-i18n-language="Nyelv">
+      <a href="/hu/">Kezdőlap</a>
+      <a href="/hu/guide/">Felhasználói útmutató</a>
+      <a href="/hu/receivers/">Készülékek</a>
+      <a href="/hu/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hu/best-denon-marantz-app/">Miért érdemes váltani</a>
+      <a href="/hu/#top" class="cta">Letöltés</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/hu/">Főoldal</a> &rsaquo; <a href="/hu/guide/">Felhasználói útmutató</a> &rsaquo; Hangerő-szabályzók</div>
+    <div class="eyebrow">Beállítások &rsaquo; Hangerő-vezérlők</div>
+    <h1>Hangerő-vezérlők: plafon, ébredési szint és <span class="g">egy némítás, amely azt teszi, amit akarsz</span></h1>
+    <p>Négy beállítás, amelyek együtt eldöntik, milyen hangos lehet a vevőkészüléked, mit csinál bekapcsoláskor, és mennyire ejti le a némítás a hangerőt. A vevőkészüléken élnek, így érvényesek, akár az alkalmazást, a fizikai távvezérlőt vagy az előlapot használod.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Hol találod</div>
+        <h2>Beállítások &rsaquo; Hangerő-vezérlők</h2>
+        <p class="lead">Nyisd meg a <b>Beállítások</b> menüt, és görgess a <b>Hangerő-vezérlők</b> részhez - „Volume limit, power-on level, and mute depth”. Minden, ami ezen az oldalon van, közvetlenül a vevőkészülékre íródik, így az alkalmazás bezárása után is megmarad, és a vezérlés minden módjára érvényes.</p>
+      </div>
+      <img alt="A Hangerő-vezérlők oldal hangerő-skálával, korláttal, bekapcsolási szinttel és némítási szinttel" src="/screenshots/volume-controls.png" width="1324" height="2644" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Egyenként</div>
+      <h2>Mit csinál az egyes beállítás</h2>
+    </div>
+
+    <h3 style="margin-top:26px">Hangerő-skála</h3>
+    <p class="lead">Hogyan jelenik meg a hangerő, a képernyőn és a vevőkészülék saját kijelzőjén is. A <b>0 - 98</b> a legtöbbek által ismert relatív skála; a <b>-79.5-től 18.0 dB-ig</b> az abszolút skála, ahol a 0.0 dB a referenciaszint. Ha láttál már olyan tesztet, amely „-15 dB”-t említ, és azon tűnődtél, ez hogyan felel meg a te tekerődnek, ez a kapcsoló a válasz.</p>
+
+    <h3 style="margin-top:26px">Hangerőkorlát</h3>
+    <p class="lead">Kemény plafon. Beállítás után <b>semmi</b> nem megy fölé - sem az alkalmazás, sem a fizikai távvezérlő, sem az előlapi tekerő, mert a korlát a vevőkészüléken él, nem az alkalmazásban. Kézenfekvő használat: megvédeni a hangszórókat vagy egy szobányi embert egy félrekoppintástól, és ez az a beállítás, amelyhez nyúlj, mielőtt egy vendégnek odaadod a távvezérlőt. Az <b>Off</b> megszünteti a korlátot.</p>
+
+    <h3 style="margin-top:26px">Bekapcsolási szint</h3>
+    <p class="lead">Az <b>Utolsó hangerő használata</b> alapból be van kapcsolva: a vevőkészülék arra a szintre ébred, amelyen kikapcsoláskor volt. Kapcsold ki, és rögzített szintet adhatsz meg helyette, hogy egy késő esti, hangos hallgatás ne okozzon kellemetlen meglepetést másnap reggel.</p>
+
+    <h3 style="margin-top:26px">Némítási szint</h3>
+    <p class="lead">Mennyire ejti le a hangerőt a némítás. A <b>Full</b> teljesen elnémít. A <b>-40 dB</b> és a <b>-20 dB</b> csak csillapít, ami jobb választás, ha egy film fölött szeretnél beszélgetni anélkül, hogy elveszítenéd a fonalat.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Az alkalmazás más részein</div>
+      <h2>A mindennap használt vezérlők</h2>
+    </div>
+    <ul class="plain">
+      <li><b>A Kezdőlap irányítópult</b> a fő zóna főhangerejét, némítását és bekapcsolását tartalmazza.</li>
+      <li><b>A Távvezérlő fül</b> hangerő-billenőt ad az irányítógomb és a lejátszásvezérlő mellett, a szintet menet közben kijelezve. <a href="/hu/guide/remote/">Távvezérlő útmutató &rarr;</a></li>
+      <li><b>Minden hangerő plusz és mínusz gomb</b> - a Kezdőlap irányítópulton, a zónakártyákon és a Távvezérlő fülön - koppintásra egy lépést lép, és nyomva tartva folytatja a lépkedést, ahogy a fizikai távvezérlő. Engedd el, és egy lépésen belül megáll.</li>
+      <li><b>A telefonod hangerőgombjai</b> Androidon és iPhone-on a vevőkészüléket vezérlik, amíg az alkalmazás elöl van, így ránézés nélkül is állíthatsz. A nyomva tartás itt is folyamatosan emel.</li>
+      <li><b>Minden zónának</b> saját hangereje van, a főzónától függetlenül. <a href="/hu/guide/multi-zone/">Zónák útmutató &rarr;</a></li>
+      <li>A <b>Jelenetek</b> rögzíthetik a főhangerőt, így egy jelenet előhívása a szintet is beállítja mindennel együtt. <a href="/hu/guide/scenes/">Jelenetek útmutató &rarr;</a></li>
+      <li>A tévéd <b>képernyőn megjelenő hangerőkijelzője</b> áthelyezhető vagy teljesen kikapcsolható. <a href="/hu/guide/on-screen-display/">Képernyő-kijelző útmutató &rarr;</a></li>
+    </ul>
+    <div class="note">A hangerőváltozásokat szándékosan ütemezzük, nem pixelenként küldjük, így a billenő tartása vagy a csúszka húzása simán emel, ahelyett hogy elárasztaná a vevőkészüléket olyan parancsokkal, amelyeket az sorba állítana, és későn hajtana végre.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Gyakori kérdések</div>
+      <h2>Hangerő - GYIK</h2>
+    </div>
+    <details open><summary>A hangerőkorlát a fizikai távvezérlőre is vonatkozik?</summary><div class="body">Igen. A korlát a vevőkészülék beállítása, nem az alkalmazásé, ezért minden útvonalon érvényes: az alkalmazásban, a mellékelt távvezérlőn, az előlapi tekerőgombon és a hálózaton lévő bármely más vezérlőn.</div></details>
+    <details><summary>Ezek a beállítások érvényesek a 2. és 3. zónára is?</summary><div class="body">A Hangerő-vezérlők a fő zónára vonatkoznak. Minden zónának saját hangereje, bekapcsolása és bemenete van a Zónák fülön.</div></details>
+    <details><summary>Miért 0-tól 98-ig mutatja az alkalmazás, amikor a tesztek decibelben közlik?</summary><div class="body">Ugyanannak a tekerőnek két nézete. Állítsd a Hangerő-skálát -79.5-től 18.0 dB-ig értékre, és a kijelzés megegyezik azzal, ahogy a kalibrációs szinteket általában megadják, ahol a 0.0 dB a referencia.</div></details>
+    <details><summary>Használhatom a telefonom hangerőgombjait?</summary><div class="body">Igen, Androidon és iPhone-on is. Amíg az AVR Maestro az előtérben van, a készülék hangerőgombjai közvetlenül a vevőkészüléket vezérlik, nyomásonként egy lépést, nyomva tartva pedig folyamatos emelést; a Beállítások, Hang alatti kapcsolóval visszakapod a gombjaidat.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Az útmutató további részei</div>
+      <h2>További AVR Maestro útmutatók</h2>
+    </div>
+    <p class="lead"><a href="/hu/guide/getting-started/">Első lépések</a> &middot; <a href="/hu/guide/home/">Kezdőképernyő</a> &middot; <a href="/hu/guide/scenes/">Jelenetek</a> &middot; <a href="/hu/guide/custom-icons/">Egyéni ikonok</a> &middot; <a href="/hu/guide/sound/">Hang</a> &middot; <a href="/hu/guide/graphic-eq/">Grafikus EQ</a> &middot; <a href="/hu/guide/speakers/">Hangszórók</a> &middot; <a href="/hu/guide/locked-controls/">Miért zárolt egy vezérlő</a> &middot; <a href="/hu/guide/assistant/">Az asszisztens</a> &middot; <a href="/hu/guide/home-automation/">Otthonautomatizálás</a> &middot; <a href="/hu/guide/home-assistant-dashboard/">Home Assistant irányítópult</a> &middot; <a href="/hu/guide/multi-zone/">Zónák</a> &middot; <a href="/hu/guide/remote/">Távirányító</a> &middot; <a href="/hu/guide/radio/">Rádió (FM/AM)</a> &middot; <a href="/hu/guide/on-screen-display/">Képernyőkijelző</a> &middot; <a href="/hu/guide/settings/">Beállítások</a> &middot; <a href="/hu/guide/languages/">Nyelvek</a> &middot; <a href="/hu/guide/backup/">Mentés &amp; visszaállítás</a> &middot; <a href="/hu/guide/now-playing/">Most szól &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Állítsd be egyszer a plafont, aztán dőlj hátra</h2>
+    <p class="lead" style="margin:0 auto 24px">Egyszeri vásárlás, hirdetések és előfizetés nélkül. Csatlakozás egy percen belül.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Töltse le a Google Playről" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Letöltés az App Store-ból" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Letöltés a Mac App Store-ból" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Töltse le a Microsoft Store-ból" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/hu/guide/">Vissza a teljes Felhasználói útmutatóhoz &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/hu/">Kezdőlap</a>
+      <a href="/hu/guide/">Felhasználói útmutató</a>
+      <a href="/hu/guide/getting-started/">Első lépések</a>
+      <a href="/hu/receivers/">Készülékek</a>
+      <a href="/hu/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/hu/audyssey-vs-dirac/">Audyssey és Dirac</a>
+      <a href="/hu/best-denon-marantz-app/">Miért érdemes váltani</a>
+      <a href="/hu/help/">Súgó</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">Az AVR Maestro a MiyaraHub Technologies LLC független alkalmazása, amely nem áll kapcsolatban a Denon, a Marantz, a D&amp;M Holdings, a Sound United vagy az oldalon említett más vállalatokkal, és tőlük nem kapott támogatást vagy jóváhagyást. A Denon, a Marantz, a HEOS, az Audyssey és a Dirac Live tulajdonosaik védjegyei, itt kizárólag azonosítási célból szerepelnek.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

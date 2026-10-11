@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="th" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>การแสดงผลบนหน้าจอ: ตัวเลขระดับเสียง &amp; โหมด 21:9 - AVR Maestro</title>
+<meta name="description" content="ควบคุมการแสดงผลบนหน้าจอของ Denon หรือ Marantz ได้จากโทรศัพท์ ทั้งตำแหน่งหรือการปิดตัวเลขระดับเสียง แบนเนอร์ข้อมูล การจัดตำแหน่ง 21:9 และสกรีนเซฟเวอร์" />
+<meta name="keywords" content="Denon on screen display app, Marantz OSD settings, AVR volume readout off, receiver info banner, 21:9 constant height AVR, Denon screen saver, AVR OSD phone" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/th/guide/on-screen-display/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/on-screen-display/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/on-screen-display/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/on-screen-display/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/on-screen-display/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/on-screen-display/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/on-screen-display/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/on-screen-display/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/on-screen-display/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/on-screen-display/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/on-screen-display/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/on-screen-display/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/on-screen-display/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/on-screen-display/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/on-screen-display/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/on-screen-display/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/on-screen-display/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/on-screen-display/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/on-screen-display/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/on-screen-display/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/on-screen-display/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/on-screen-display/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/on-screen-display/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/on-screen-display/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/on-screen-display/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/on-screen-display/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/on-screen-display/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="th_TH" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="การแสดงผลบนหน้าจอ: ตัวเลขระดับเสียง &amp; โหมด 21:9 - AVR Maestro" />
+<meta property="og:description" content="ควบคุมการแสดงผลบนหน้าจอของ Denon หรือ Marantz ได้จากโทรศัพท์ ทั้งตำแหน่งหรือการปิดตัวเลขระดับเสียง แบนเนอร์ข้อมูล การจัดตำแหน่ง 21:9 และสกรีนเซฟเวอร์" />
+<meta property="og:url" content="https://avrmaestro.com/th/guide/on-screen-display/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="การแสดงผลบนหน้าจอ: ตัวเลขระดับเสียง &amp; โหมด 21:9 - AVR Maestro" />
+<meta name="twitter:description" content="ควบคุมการแสดงผลบนหน้าจอของ Denon หรือ Marantz ได้จากโทรศัพท์ ทั้งตำแหน่งหรือการปิดตัวเลขระดับเสียง แบนเนอร์ข้อมูล การจัดตำแหน่ง 21:9 และสกรีนเซฟเวอร์" />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro เป็นแอปอิสระสำหรับควบคุมเครื่องรับ AV ของ Denon และ Marantz ผ่านเครือข่ายภายในบ้านของคุณ",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "th"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/on-screen-display/#article",
+      "headline": "การแสดงผลบนหน้าจอ ควบคุมได้จากที่นั่งของคุณ",
+      "description": "ควบคุมการแสดงผลบนหน้าจอของ Denon หรือ Marantz ได้จากโทรศัพท์ ทั้งตำแหน่งหรือการปิดตัวเลขระดับเสียง แบนเนอร์ข้อมูล การจัดตำแหน่ง 21:9 และสกรีนเซฟเวอร์",
+      "image": "https://avrmaestro.com/screenshots/on-screen-display.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/on-screen-display/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "th"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/on-screen-display/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "ปิดไม่ให้ตัวเลขระดับเสียงขึ้นบนทีวีได้ไหม",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ได้ เปิดการตั้งค่า แล้วไปที่การแสดงผลบนหน้าจอใน AVR Maestro และตั้งระดับเสียงเป็นปิด คุณยังสลับตำแหน่งระหว่างด้านล่างกับด้านบนของหน้าจอได้โดยไม่ต้องลุกจากที่นั่ง"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "โหมด 21:9 ใช้ทำอะไร",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ปรับตำแหน่งเมนูบนหน้าจอของเครื่องรับให้เหมาะกับหน้าจอ 21:9 แบบความสูงคงที่ เพื่อไม่ให้โปรเจกเตอร์ตัดเมนูส่วนบนและล่างออกไป เปิดใช้เฉพาะเมื่อคุณมีการติดตั้งแบบนั้นเท่านั้น"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ทำไมฉันเห็นตัวเลือกน้อยกว่าในภาพหน้าจอ",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "เพราะเครื่องรับของคุณรายงานตัวเลือกมาน้อยกว่า AVR Maestro จะสอบถามตัวเครื่องว่ามีตัวเลือกการแสดงผลบนหน้าจอใดบ้าง แล้วแสดงเฉพาะตัวเลือกเหล่านั้น เครื่องรับรุ่นเก่าที่ไม่มีสกรีนเซฟเวอร์จะไม่เห็นการ์ดนั้น แทนที่จะเจอปุ่มควบคุมที่ใช้งานไม่ได้"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "หน้าแรก",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "คู่มือผู้ใช้",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "On-Screen Display",
+      "item": "https://avrmaestro.com/guide/on-screen-display/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/th/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="เมนู" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="ค้นหาในคู่มือ..." data-i18n-empty="ไม่พบผลลัพธ์สำหรับ" data-i18n-language="ภาษา">
+      <a href="/th/">หน้าแรก</a>
+      <a href="/th/guide/">คู่มือผู้ใช้</a>
+      <a href="/th/receivers/">เครื่องรับ</a>
+      <a href="/th/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/th/best-denon-marantz-app/">ทำไมต้องเปลี่ยน</a>
+      <a href="/th/#top" class="cta">ดาวน์โหลด</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/th/">หน้าแรก</a> &rsaquo; <a href="/th/guide/">คู่มือผู้ใช้</a> &rsaquo; การแสดงผลบนหน้าจอ</div>
+    <div class="eyebrow">สิ่งที่เครื่องรับของคุณแสดงบนทีวี</div>
+    <h1>การแสดงผลบนหน้าจอ <span class="g">ควบคุมจากที่นั่งของคุณ</span></h1>
+    <p>ตัวเลขระดับเสียงที่แวบขึ้นกลางเรื่อง แบนเนอร์เมื่อเปลี่ยนแหล่งสัญญาณ หน้าจอกำลังเล่นที่ค้างอยู่ตอนฟังเพลง ทั้งหมดนี้อยู่ในเมนูตั้งค่าของเครื่องรับ ซึ่งหมายความว่าต้องลุกขึ้นไปเปิดเมนูบนหน้าจอที่คุณกำลังดูอยู่ AVR Maestro ย้ายทั้งหมดมาไว้บนโทรศัพท์ของคุณแทน</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+      <figure><img alt="การตั้งค่าการแสดงผลบนหน้าจอใน AVR Maestro" src="/screenshots/on-screen-display.png" width="1324" height="2644" decoding="async" /><figcaption>ทุกตัวเลือกที่เครื่องรับรายงาน และมีเฉพาะตัวเลือกเหล่านั้น</figcaption></figure>
+    </div>
+
+    <div class="section-head" style="margin-top:36px">
+      <h2>สิ่งที่คุณเปลี่ยนได้</h2>
+    </div>
+    <ul class="plain">
+      <li><b>ระดับเสียง:</b> <b>ล่าง</b>, <b>บน</b> หรือ <b>ปิด</b> เลือกตำแหน่งที่ตัวเลขระดับเสียงปรากฏเมื่อคุณปรับ หรือจะไม่แสดงเลยก็ได้ ตัวเลือกปิดคือสิ่งที่หลายคนมองหาระหว่างดูหนัง</li>
+      <li><b>ข้อมูล:</b> แบนเนอร์สถานะที่เครื่องรับแสดงเมื่อเปลี่ยนแหล่งสัญญาณหรือโหมดเสียง</li>
+      <li><b>กำลังเล่น:</b> กำหนดว่าหน้าจอกำลังเล่นจะค้างอยู่ขณะเล่นแหล่งสัญญาณเครือข่าย หรือหายไปเองหลังผ่านไปครู่หนึ่ง</li>
+      <li><b>โหมด 21:9:</b> ปรับตำแหน่งเมนูของเครื่องรับให้เหมาะกับหน้าจอ 21:9 แบบความสูงคงที่ เพื่อไม่ให้โปรเจกเตอร์ตัดเมนูออกไป</li>
+      <li><b>สกรีนเซฟเวอร์:</b> เลื่อนภาพบนหน้าจอหลังจากไม่มีการเคลื่อนไหวระยะหนึ่ง ช่วยปกป้องแผงจอที่เสี่ยงภาพติดค้าง</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">เฉพาะสิ่งที่เครื่องรับของคุณมี</div>
+        <h2>ตัวเครื่องของคุณเป็นผู้กำหนดว่าคุณจะเห็นอะไรบ้าง</h2>
+        <p>ไม่ใช่ทุกเครื่องรับที่มีครบทั้งห้าอย่าง แทนที่จะแสดงปุ่มควบคุมที่ใช้งานไม่ได้ AVR Maestro จะสอบถามตัวเครื่องว่าเปิดให้ใช้ตัวเลือกการแสดงผลบนหน้าจอใดบ้าง แล้วแสดงเฉพาะตัวเลือกเหล่านั้น เครื่องรับรุ่นเก่าที่ไม่มีสกรีนเซฟเวอร์จึงไม่เห็นการ์ดนั้น</p>
+        <p>หากมีการตั้งค่านั้นอยู่แต่เครื่องรับไม่ตอบในครั้งนี้ แอปจะบอกตรง ๆ และเสนอให้ลองอีกครั้ง แอปจะไม่ทำให้ “อ่านค่าไม่ได้” กลายเป็น “เครื่องรับของคุณไม่มีฟีเจอร์นี้” เพราะสองอย่างนี้เป็นคนละคำตอบ และมีเพียงอย่างเดียวที่เป็นความจริง</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">คำถามที่พบบ่อย</div>
+      <h2>การแสดงผลบนหน้าจอ ตอบทุกข้อสงสัย</h2>
+    </div>
+    <details open><summary>ปิดไม่ให้ตัวเลขระดับเสียงขึ้นบนทีวีได้ไหม</summary><div class="body">ได้ เปิดการตั้งค่า แล้วไปที่การแสดงผลบนหน้าจอใน AVR Maestro และตั้งระดับเสียงเป็นปิด คุณยังสลับตำแหน่งระหว่างด้านล่างกับด้านบนของหน้าจอได้โดยไม่ต้องลุกจากที่นั่ง</div></details>
+    <details><summary>โหมด 21:9 ใช้ทำอะไร</summary><div class="body">ปรับตำแหน่งเมนูบนหน้าจอของเครื่องรับให้เหมาะกับหน้าจอ 21:9 แบบความสูงคงที่ เพื่อไม่ให้โปรเจกเตอร์ตัดเมนูส่วนบนและล่างออกไป เปิดใช้เฉพาะเมื่อคุณมีการติดตั้งแบบนั้นเท่านั้น</div></details>
+    <details><summary>ทำไมฉันเห็นตัวเลือกน้อยกว่าในภาพหน้าจอ</summary><div class="body">เพราะเครื่องรับของคุณรายงานตัวเลือกมาน้อยกว่า AVR Maestro จะสอบถามตัวเครื่องว่ามีตัวเลือกการแสดงผลบนหน้าจอใดบ้าง แล้วแสดงเฉพาะตัวเลือกเหล่านั้น เครื่องรับรุ่นเก่าที่ไม่มีสกรีนเซฟเวอร์จะไม่เห็นการ์ดนั้น แทนที่จะเจอปุ่มควบคุมที่ใช้งานไม่ได้</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">เนื้อหาเพิ่มเติมของคู่มือ</div>
+      <h2>คู่มือ AVR Maestro เรื่องอื่น ๆ</h2>
+    </div>
+    <p class="lead"><a href="/th/guide/getting-started/">เริ่มต้นใช้งาน</a> &middot; <a href="/th/guide/home/">หน้าจอหลัก</a> &middot; <a href="/th/guide/scenes/">ฉาก</a> &middot; <a href="/th/guide/custom-icons/">ไอคอนกำหนดเอง</a> &middot; <a href="/th/guide/sound/">เสียง</a> &middot; <a href="/th/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/th/guide/speakers/">ลำโพง</a> &middot; <a href="/th/guide/locked-controls/">เหตุใดตัวควบคุมจึงถูกล็อก</a> &middot; <a href="/th/guide/assistant/">ผู้ช่วย</a> &middot; <a href="/th/guide/home-automation/">ระบบบ้านอัตโนมัติ</a> &middot; <a href="/th/guide/home-assistant-dashboard/">แดชบอร์ด Home Assistant</a> &middot; <a href="/th/guide/multi-zone/">โซน</a> &middot; <a href="/th/guide/remote/">รีโมท</a> &middot; <a href="/th/guide/radio/">วิทยุ (FM/AM)</a> &middot; <a href="/th/guide/settings/">การตั้งค่า</a> &middot; <a href="/th/guide/languages/">ภาษา</a> &middot; <a href="/th/guide/volume/">การควบคุมระดับเสียง</a> &middot; <a href="/th/guide/backup/">สำรอง &amp; กู้คืนข้อมูล</a> &middot; <a href="/th/guide/now-playing/">กำลังเล่น &amp; HEOS</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/th/">หน้าแรก</a>
+      <a href="/th/guide/">คู่มือผู้ใช้</a>
+      <a href="/th/guide/getting-started/">เริ่มต้นใช้งาน</a>
+      <a href="/th/receivers/">เครื่องรับ</a>
+      <a href="/th/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/th/audyssey-vs-dirac/">Audyssey เทียบกับ Dirac</a>
+      <a href="/th/best-denon-marantz-app/">ทำไมต้องเปลี่ยน</a>
+      <a href="/th/help/">วิธีใช้</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro เป็นแอปอิสระโดย MiyaraHub Technologies LLC และไม่มีส่วนเกี่ยวข้อง ไม่ได้รับการรับรอง หรือได้รับการสนับสนุนจาก Denon, Marantz, D&amp;M Holdings, Sound United หรือบริษัทอื่นใดที่ระบุในหน้านี้ Denon, Marantz และ Audyssey เป็นเครื่องหมายการค้าของเจ้าของที่เกี่ยวข้อง ใช้ในที่นี้เพื่อระบุผลิตภัณฑ์เท่านั้น</p>
+  </div>
+</footer>
+
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

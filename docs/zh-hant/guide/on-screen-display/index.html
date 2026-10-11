@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>螢幕顯示：音量讀數 &amp; 21:9 - AVR Maestro</title>
+<meta name="description" content="用手機控制 Denon 或 Marantz 的螢幕顯示：音量讀數的位置或關閉、資訊橫幅、21:9 定位與螢幕保護程式。" />
+<meta name="keywords" content="Denon on screen display app, Marantz OSD settings, AVR volume readout off, receiver info banner, 21:9 constant height AVR, Denon screen saver, AVR OSD phone" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/zh-hant/guide/on-screen-display/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/on-screen-display/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/on-screen-display/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/on-screen-display/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/on-screen-display/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/on-screen-display/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/on-screen-display/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/on-screen-display/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/on-screen-display/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/on-screen-display/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/on-screen-display/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/on-screen-display/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/on-screen-display/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/on-screen-display/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/on-screen-display/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/on-screen-display/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/on-screen-display/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/on-screen-display/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/on-screen-display/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/on-screen-display/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/on-screen-display/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/on-screen-display/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/on-screen-display/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/on-screen-display/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/on-screen-display/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/on-screen-display/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/on-screen-display/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/on-screen-display/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:title" content="螢幕顯示：音量讀數 &amp; 21:9 - AVR Maestro" />
+<meta property="og:description" content="用手機控制 Denon 或 Marantz 的螢幕顯示：音量讀數的位置或關閉、資訊橫幅、21:9 定位與螢幕保護程式。" />
+<meta property="og:url" content="https://avrmaestro.com/zh-hant/guide/on-screen-display/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="螢幕顯示：音量讀數 &amp; 21:9 - AVR Maestro" />
+<meta name="twitter:description" content="用手機控制 Denon 或 Marantz 的螢幕顯示：音量讀數的位置或關閉、資訊橫幅、21:9 定位與螢幕保護程式。" />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro 是一款獨立開發的應用程式，可透過區域網路控制 Denon 與 Marantz AV 接收器。",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "zh-Hant"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/on-screen-display/#article",
+      "headline": "螢幕顯示，坐著就能設定",
+      "description": "用手機控制 Denon 或 Marantz 的螢幕顯示：音量讀數的位置或關閉、資訊橫幅、21:9 定位與螢幕保護程式。",
+      "image": "https://avrmaestro.com/screenshots/on-screen-display.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/on-screen-display/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "zh-Hant"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/on-screen-display/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "可以不讓音量數字出現在電視上嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。在 AVR Maestro 中開啟「設定」，再進入「螢幕顯示」，將「音量」設為關閉即可。您也可以不用離開座位，就把它在螢幕底端與頂端之間移動。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "21:9 模式有什麼用途？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "它會重新調整接收器螢幕選單的位置，以配合 21:9 等高螢幕，避免投影機把選單的上下邊緣切掉。只有在您有這類設備時才需要開啟。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "為什麼我看到的選項比截圖少？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "因為您的接收器回報的項目比較少。AVR Maestro 會向機身詢問有哪些螢幕顯示選項，只顯示這些項目。沒有螢幕保護程式的舊款接收器，就不會出現那張卡片，也不會讓您看到一個無法使用的控制項。"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首頁",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "使用指南",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "螢幕顯示",
+      "item": "https://avrmaestro.com/guide/on-screen-display/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/zh-hant/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="選單" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="搜尋指南..." data-i18n-empty="找不到符合的結果：" data-i18n-language="語言">
+      <a href="/zh-hant/">首頁</a>
+      <a href="/zh-hant/guide/">使用指南</a>
+      <a href="/zh-hant/receivers/">接收器</a>
+      <a href="/zh-hant/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/zh-hant/best-denon-marantz-app/">為什麼要換</a>
+      <a href="/zh-hant/#top" class="cta">下載</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/zh-hant/">首頁</a> &rsaquo; <a href="/zh-hant/guide/">使用指南</a> &rsaquo; 螢幕顯示</div>
+    <div class="eyebrow">接收器在電視上顯示的內容</div>
+    <h1>螢幕顯示，<span class="g">坐著就能設定</span></h1>
+    <p>看電影時突然彈出的音量數字、切換訊源時的橫幅、播放音樂時一直停留的正在播放畫面，這一切都藏在接收器的設定選單裡，也就是說您得起身，把選單叫到您正在看的螢幕上。AVR Maestro 則把這些搬到您的手機上。</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+      <figure><img alt="AVR Maestro 中的螢幕顯示設定" src="/screenshots/on-screen-display.png" width="1324" height="2644" decoding="async" /><figcaption>接收器回報的每個選項，而且只有這些</figcaption></figure>
+    </div>
+
+    <div class="section-head" style="margin-top:36px">
+      <h2>您可以變更的項目</h2>
+    </div>
+    <ul class="plain">
+      <li><b>音量：</b><b>底端</b>、<b>頂端</b>或<b>關閉</b>。調整音量時，音量顯示出現在哪裡，或是否顯示。看電影時大家最常去找的就是「關閉」。</li>
+      <li><b>資訊：</b>切換訊源或音效模式時，接收器顯示的狀態橫幅。</li>
+      <li><b>正在播放：</b>播放網路訊源時，正在播放畫面是否持續顯示，或是在片刻後自動消失。</li>
+      <li><b>21:9 模式：</b>重新調整接收器自身選單的位置，以配合 21:9 等高螢幕，避免投影機把選單切掉。</li>
+      <li><b>螢幕保護程式：</b>畫面靜止一段時間後移動螢幕上的影像，保護容易燒屏的面板。</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">只顯示您的接收器擁有的項目</div>
+        <h2>您的機身決定您會看到哪些項目</h2>
+        <p>並非每台接收器都有全部五項。AVR Maestro 不會顯示一個無法使用的控制項，而是向機身詢問它提供哪些螢幕顯示選項，只呈現這些項目，所以沒有螢幕保護程式的舊款接收器，就不會出現那張卡片。</p>
+        <p>如果某項設定存在，但接收器這次沒有回應，應用程式會如實告訴您，並提供重試。它絕不會把「我們讀取不到」說成「您的接收器沒有這項功能」，這是兩種不同的答案，而且只有一種是真的。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">常見問題</div>
+      <h2>螢幕顯示，問與答</h2>
+    </div>
+    <details open><summary>可以不讓音量數字出現在電視上嗎？</summary><div class="body">可以。在 AVR Maestro 中開啟「設定」，再進入「螢幕顯示」，將「音量」設為關閉即可。您也可以不用離開座位，就把它在螢幕底端與頂端之間移動。</div></details>
+    <details><summary>21:9 模式有什麼用途？</summary><div class="body">它會重新調整接收器螢幕選單的位置，以配合 21:9 等高螢幕，避免投影機把選單的上下邊緣切掉。只有在您有這類設備時才需要開啟。</div></details>
+    <details><summary>為什麼我看到的選項比截圖少？</summary><div class="body">因為您的接收器回報的項目比較少。AVR Maestro 會向機身詢問有哪些螢幕顯示選項，只顯示這些項目。沒有螢幕保護程式的舊款接收器，就不會出現那張卡片，也不會讓您看到一個無法使用的控制項。</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">指南的更多內容</div>
+      <h2>其他 AVR Maestro 指南</h2>
+    </div>
+    <p class="lead"><a href="/zh-hant/guide/getting-started/">開始使用</a> &middot; <a href="/zh-hant/guide/home/">主畫面</a> &middot; <a href="/zh-hant/guide/scenes/">場景</a> &middot; <a href="/zh-hant/guide/custom-icons/">自訂圖示</a> &middot; <a href="/zh-hant/guide/sound/">音效</a> &middot; <a href="/zh-hant/guide/graphic-eq/">圖形等化器</a> &middot; <a href="/zh-hant/guide/speakers/">喇叭</a> &middot; <a href="/zh-hant/guide/locked-controls/">控制項為何被鎖定</a> &middot; <a href="/zh-hant/guide/assistant/">助理</a> &middot; <a href="/zh-hant/guide/home-automation/">居家自動化</a> &middot; <a href="/zh-hant/guide/home-assistant-dashboard/">Home Assistant 儀表板</a> &middot; <a href="/zh-hant/guide/multi-zone/">分區</a> &middot; <a href="/zh-hant/guide/remote/">遙控器</a> &middot; <a href="/zh-hant/guide/radio/">廣播 (FM/AM)</a> &middot; <a href="/zh-hant/guide/settings/">設定</a> &middot; <a href="/zh-hant/guide/languages/">語言</a> &middot; <a href="/zh-hant/guide/volume/">音量控制項</a> &middot; <a href="/zh-hant/guide/backup/">備份 &amp; 還原</a> &middot; <a href="/zh-hant/guide/now-playing/">正在播放 &amp; HEOS</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/zh-hant/">首頁</a>
+      <a href="/zh-hant/guide/">使用指南</a>
+      <a href="/zh-hant/guide/getting-started/">入門指南</a>
+      <a href="/zh-hant/receivers/">接收器</a>
+      <a href="/zh-hant/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/zh-hant/audyssey-vs-dirac/">Audyssey 與 Dirac 比較</a>
+      <a href="/zh-hant/best-denon-marantz-app/">為什麼要換</a>
+      <a href="/zh-hant/help/">說明</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro 是 MiyaraHub Technologies LLC 開發的獨立應用程式，與 Denon、Marantz、D&amp;M Holdings、Sound United 或本頁提及的任何其他公司沒有隸屬、背書或贊助關係。Denon、Marantz 與 Audyssey 為其各自所有者的商標，在此僅用於識別。</p>
+  </div>
+</footer>
+
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

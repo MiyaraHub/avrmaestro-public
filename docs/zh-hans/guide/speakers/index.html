@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>扬声器设置：电平、分频 &amp; 预设 - AVR Maestro</title>
+<meta name="description" content="用手机打造 Denon 或 Marantz 的扬声器设置工作台：布局、距离、声道电平、分频、低音炮和扬声器预设，均实时读取。" />
+<meta name="keywords" content="Denon speaker setup app, Marantz speaker setup, AV receiver speaker levels app, crossover setting app, speaker preset app, channel level trim app, amp assign Denon Marantz, subwoofer setting app" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/zh-hans/guide/speakers/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/speakers/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/speakers/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/speakers/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/speakers/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/speakers/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/speakers/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/speakers/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/speakers/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/speakers/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/speakers/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/speakers/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/speakers/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/speakers/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/speakers/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/speakers/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/speakers/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/speakers/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/speakers/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/speakers/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/speakers/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/speakers/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/speakers/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/speakers/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/speakers/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/speakers/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/speakers/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/speakers/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/speakers/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/speakers/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/speakers/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/speakers/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="zh_CN" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="扬声器设置：电平、分频 &amp; 预设 - AVR Maestro" />
+<meta property="og:description" content="用手机打造 Denon 或 Marantz 的扬声器设置工作台：布局、距离、声道电平、分频、低音炮和扬声器预设，均实时读取。" />
+<meta property="og:url" content="https://avrmaestro.com/zh-hans/guide/speakers/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="扬声器设置：电平、分频 &amp; 预设 - AVR Maestro" />
+<meta name="twitter:description" content="用手机打造 Denon 或 Marantz 的扬声器设置工作台：布局、距离、声道电平、分频、低音炮和扬声器预设，均实时读取。" />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro 是一款独立应用，可通过本地网络控制 Denon 和 Marantz AV 接收机。",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "zh-Hans"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/speakers/#article",
+      "headline": "专属的扬声器工作台",
+      "description": "用手机打造 Denon 或 Marantz 的扬声器设置工作台：布局、距离、声道电平、分频、低音炮和扬声器预设，均实时读取。",
+      "image": "https://avrmaestro.com/screenshots/speakers-layout.png",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/speakers/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "zh-Hans"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/speakers/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "可以在应用中设置距离和电平吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。功放分配与布局、各扬声器距离、声道电平、分频和低音炮设置，全部实时读取，并跟随当前的扬声器预设。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "为什么有些扬声器页面被锁定？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "当预设中启用了 Dirac Live 滤波器时，布局、距离和分频由 Dirac 掌管。应用会显示锁定标记，而不是让您推送接收机会拒绝的修改。切换到非 Dirac 预设即可编辑。详见 Audyssey 与 Dirac 指南。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "什么是扬声器预设？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "预设 1 和预设 2 各自保存自己的布局、距离、电平、分频和校准。在应用中即可在两者间切换；所有扬声器页面都会跟随当前预设。对于只有一个预设的接收机（例如 AVR-X4500H），切换选项会保持隐藏。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "没有低音炮时，可以把 LFE 声道送到前置扬声器吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以，前提是接收机支持。当您在分频中把主扬声器设为 Full Range，且接收机没有把 LFE 路由到低音炮时，低音页面的 LFE 分配功能会把 LFE (.1) 声道送到这些扬声器，并可逐只设置电平。AVR Maestro 只在接收机确实允许时才提供该选项：如果扬声器不是 Full Range，或者已配置低音炮来承担 LFE，接收机会锁定该设置，应用会明确告诉您原因。它绝不会把低音路由到接收机禁止的扬声器。同一页面上的 LFE 低通滤波器用于设置 LFE 声道的低通截止频率。"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "主页",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "用户指南",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "扬声器",
+      "item": "https://avrmaestro.com/guide/speakers/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/zh-hans/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="菜单" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="搜索指南…" data-i18n-empty="没有找到匹配项：" data-i18n-language="语言">
+      <a href="/zh-hans/">主页</a>
+      <a href="/zh-hans/guide/">用户指南</a>
+      <a href="/zh-hans/receivers/">接收机</a>
+      <a href="/zh-hans/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/zh-hans/best-denon-marantz-app/">为什么要换</a>
+      <a href="/zh-hans/#top" class="cta">下载</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/zh-hans/">首页</a> &rsaquo; <a href="/zh-hans/guide/">用户指南</a> &rsaquo; 扬声器</div>
+    <div class="eyebrow">扬声器设置 &amp; 预设</div>
+    <h1>专属的<span class="g">扬声器</span>工作台</h1>
+    <p>布局、距离、电平、分频、低音炮、低音管理和扬声器预设，整套设置工具都从您的 Denon 或 Marantz 接收机实时读取，每个页面都跟随当前的扬声器预设。</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+      <figure><img alt="扬声器布局与功放分配" src="/screenshots/speakers-layout.png" width="1324" height="2644" decoding="async" /><figcaption>布局 &amp; 功放分配</figcaption></figure>
+      <figure><img alt="扬声器距离" src="/screenshots/speakers-distances.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>距离</figcaption></figure>
+      <figure><img alt="声道电平" src="/screenshots/speakers-levels.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>电平</figcaption></figure>
+      <figure><img alt="扬声器预设" src="/screenshots/speakers-preset.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>扬声器预设</figcaption></figure>
+      <figure><img alt="各扬声器的分频频率" src="/screenshots/speakers-crossovers.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>分频</figcaption></figure>
+      <figure><img alt="LFE 低通滤波器与 LFE 分配" src="/screenshots/speakers-bass.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>低音管理</figcaption></figure>
+      <figure><img alt="低音炮输出被 Dirac Live 锁定" src="/screenshots/speakers-subwoofer-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>低音炮输出</figcaption></figure>
+    </div>
+    <div class="section-head" style="margin-top:36px">
+      <h2>每个设置页面，都在您的手机上</h2>
+    </div>
+    <ul class="plain">
+      <li><b>扬声器布局：</b>功放分配以及各扬声器的 Spkr / Pre-out 配置。</li>
+      <li><b>距离：</b>各扬声器到您座位的距离，采用接收机使用的单位（m 或 ft）。</li>
+      <li><b>电平：</b>各扬声器的微调电平。</li>
+      <li><b>分频：</b>低于该频率的低音会路由到低音炮（只显示“小”扬声器；“大”扬声器全频段运行）。</li>
+      <li><b>低音炮：</b>低音炮输出设置。</li>
+      <li><b>低音：</b>LFE 低通滤波器（LFE 声道的低通截止频率）和 LFE 分配（将 LFE .1 声道路由到全频段扬声器，仅在接收机允许时提供）。</li>
+      <li><b>预设：</b>在扬声器预设 1 / 2 之间切换，各自保存自己的布局、距离、电平、分频和校准。对于只有一个预设的接收机（例如 AVR-X4500H），切换选项会保持隐藏，而不是给出一个无处可去的开关。</li>
+      <li><b>前置扬声器：</b>接收机驱动哪组前置接线端子，A、B 或 A+B，仅限提供此功能的机型。如果接收机将该设置置灰，应用会说明它已被锁定，而不是假装更改会生效。</li>
+    </ul>
+
+    <div class="section-head" style="margin-top:36px">
+      <h2>逐声道查看究竟在播放什么</h2>
+    </div>
+    <div class="gallery">
+      <figure><img alt="AVR Maestro 扬声器网格，曲目播放时输入和输出声道亮起" src="/screenshots/speaker-grid-live.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>输入与输出，并排实时显示</figcaption></figure>
+    </div>
+    <p class="lead">点按扬声器布局，它会展开为网格：左侧是输入信号携带的内容，右侧是接收机实际驱动的声道。一首立体声曲目会显示两个输入声道对应十一个输出，您能亲眼看到上混在发挥作用。</p>
+    <ul class="plain">
+      <li><b>扬声器的名称由接收机自己提供。</b>每个标签都来自接收机传回的数据，因此即使机型带有本应用从未见过的扬声器，也能画在正确的位置。</li>
+      <li><b>三种状态，而不是两种：</b>正在播放、已连接但无声，以及不存在。接收机表示不在此信号中的扬声器，根本不会绘制。</li>
+      <li><b>想放哪里就放哪里：</b>该网格可作为主页卡片，也可放在遥控标签页中。</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">对 Dirac 了如指掌</div>
+        <h2>不会让您推送接收机会拒绝的修改</h2>
+        <p class="lead">上述页面在标准扬声器预设上完全可编辑。但是当预设中启用了 <b>Dirac Live 滤波器</b>时，布局、距离和分频由 Dirac 掌管，因此 AVR Maestro 不会让您做出接收机会悄悄忽略的更改，而是显示清晰的锁定标记，并明确告诉您原因。切换到非 Dirac 预设即可编辑。</p>
+      </div>
+      <img alt="被 Dirac 锁定的扬声器页面" src="/screenshots/speakers-layout-locked.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+    <div class="note">固件较旧？在一些 2025 年之前的接收机上（X4500H / X6700H / S960H / X4700H 这一类），接收机无法通过网络向应用提供扬声器布局或低音炮输出页面。AVR Maestro 不会显示一个损坏的页面，而是给您一个一键按钮，直接进入接收机自带的网页控制来完成这些编辑，扬声器工具集的其余部分仍正常使用。固件较新的接收机可直接提供所有页面。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">常见问题</div>
+      <h2>扬声器设置常见问题</h2>
+    </div>
+    <details open><summary>可以在应用中设置距离和电平吗？</summary><div class="body">可以。功放分配与布局、各扬声器距离、声道电平、分频和低音炮设置，全部实时读取，并跟随当前的扬声器预设。</div></details>
+    <details><summary>为什么有些扬声器页面被锁定？</summary><div class="body">当预设中启用了 Dirac Live 滤波器时，布局、距离和分频由 Dirac 掌管。应用会显示锁定标记，而不是让您推送接收机会拒绝的修改。切换到非 Dirac 预设即可编辑。详见 <a href="/zh-hans/audyssey-dirac-control/">Audyssey &amp; Dirac 指南</a>。</div></details>
+    <details><summary>什么是扬声器预设？</summary><div class="body">预设 1 和预设 2 各自保存自己的布局、距离、电平、分频和校准。在应用中即可在两者间切换；所有扬声器页面都会跟随当前预设。对于只有一个预设的接收机（例如 AVR-X4500H），切换选项会保持隐藏。</div></details>
+    <details><summary>没有低音炮时，可以把 LFE 声道送到前置扬声器吗？</summary><div class="body">可以，前提是接收机支持。当您在分频中把主扬声器设为 Full Range，且接收机没有把 LFE 路由到低音炮时，低音页面的 LFE 分配功能会把 LFE (.1) 声道送到这些扬声器，并可逐只设置电平。AVR Maestro 只在接收机确实允许时才提供该选项：如果扬声器不是 Full Range，或者已配置低音炮来承担 LFE，接收机会锁定该设置，应用会明确告诉您原因。它绝不会把低音路由到接收机禁止的扬声器。同一页面上的 LFE 低通滤波器用于设置 LFE 声道的低通截止频率。</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">指南的更多内容</div>
+      <h2>其他 AVR Maestro 指南</h2>
+    </div>
+    <p class="lead"><a href="/zh-hans/guide/getting-started/">快速入门</a> &middot; <a href="/zh-hans/guide/home/">主屏幕</a> &middot; <a href="/zh-hans/guide/scenes/">场景</a> &middot; <a href="/zh-hans/guide/custom-icons/">自定义图标</a> &middot; <a href="/zh-hans/guide/sound/">声音</a> &middot; <a href="/zh-hans/guide/graphic-eq/">图形 EQ</a> &middot; <a href="/zh-hans/guide/locked-controls/">控制项为何被锁定</a> &middot; <a href="/zh-hans/guide/assistant/">助手</a> &middot; <a href="/zh-hans/guide/home-automation/">家庭自动化</a> &middot; <a href="/zh-hans/guide/home-assistant-dashboard/">Home Assistant 仪表板</a> &middot; <a href="/zh-hans/guide/multi-zone/">分区</a> &middot; <a href="/zh-hans/guide/remote/">遥控</a> &middot; <a href="/zh-hans/guide/radio/">收音机 (FM/AM)</a> &middot; <a href="/zh-hans/guide/on-screen-display/">屏幕显示</a> &middot; <a href="/zh-hans/guide/settings/">设置</a> &middot; <a href="/zh-hans/guide/languages/">语言</a> &middot; <a href="/zh-hans/guide/volume/">音量控制</a> &middot; <a href="/zh-hans/guide/backup/">备份 &amp; 恢复</a> &middot; <a href="/zh-hans/guide/now-playing/">正在播放 &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>坐在沙发上，把扬声器调到位</h2>
+    <p class="lead" style="margin:0 auto 24px">一次性购买，无广告，无订阅。不到一分钟即可连接。</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="在 Google Play 获取" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="在 App Store 下载" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="在 Mac App Store 下载" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="在 Microsoft Store 获取" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/zh-hans/guide/">返回完整用户指南 &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/zh-hans/">主页</a>
+      <a href="/zh-hans/guide/">用户指南</a>
+      <a href="/zh-hans/guide/getting-started/">入门指南</a>
+      <a href="/zh-hans/receivers/">接收机</a>
+      <a href="/zh-hans/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/zh-hans/audyssey-vs-dirac/">Audyssey 与 Dirac 对比</a>
+      <a href="/zh-hans/best-denon-marantz-app/">为什么要换</a>
+      <a href="/zh-hans/help/">帮助</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro 是 MiyaraHub Technologies LLC 开发的独立应用，与 Denon、Marantz、D&amp;M Holdings、Sound United 或本页提及的任何其他公司均无关联，也未获得其认可或赞助。Denon、Marantz、HEOS、Audyssey 和 Dirac Live 是其各自所有者的商标，在此仅用于识别。</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

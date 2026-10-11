@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Denon &amp; Marantz용 Home Assistant 대시보드 - AVR Maestro</title>
+<meta name="description" content="Denon 또는 Marantz 리시버를 위한 Home Assistant 대시보드를 만들어 보세요. HACS 카드, 엔터티 ID, 모든 카드의 YAML, 실제 dB 볼륨, 장면, 기록까지 다룹니다." />
+<meta name="keywords" content="Home Assistant Denon dashboard, Marantz Home Assistant card, mushroom card AV receiver, Home Assistant receiver volume dB, denonavr dashboard, AVR Maestro Home Assistant example" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/ko/guide/home-assistant-dashboard/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-assistant-dashboard/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="ko_KR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Denon &amp; Marantz용 Home Assistant 대시보드 - AVR Maestro" />
+<meta property="og:description" content="Denon 또는 Marantz 리시버를 위한 Home Assistant 대시보드를 만들어 보세요. HACS 카드, 엔터티 ID, 모든 카드의 YAML, 실제 dB 볼륨, 장면, 기록까지 다룹니다." />
+<meta property="og:url" content="https://avrmaestro.com/ko/guide/home-assistant-dashboard/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Denon &amp; Marantz용 Home Assistant 대시보드 - AVR Maestro" />
+<meta name="twitter:description" content="Denon 또는 Marantz 리시버를 위한 Home Assistant 대시보드를 만들어 보세요. HACS 카드, 엔터티 ID, 모든 카드의 YAML, 실제 dB 볼륨, 장면, 기록까지 다룹니다." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro는 로컬 네트워크를 통해 Denon 및 Marantz AV 리시버를 제어하는 독립 앱입니다.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "ko"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
+      "headline": "약 한 시간이면 이 Home Assistant 대시보드를 만들 수 있습니다",
+      "description": "Denon 또는 Marantz 리시버를 위한 Home Assistant 대시보드를 만들어 보세요. HACS 카드, 엔터티 ID, 모든 카드의 YAML, 실제 dB 볼륨, 장면, 기록까지 다룹니다.",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "datePublished": "2026-08-23",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-assistant-dashboard/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "ko"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "이걸 만들려면 HACS의 사용자 지정 카드가 필요한가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "작동시키는 데는 필요 없습니다. 이 페이지의 모든 컨트롤은 기본 Home Assistant 버튼 카드만으로 동작합니다. 스크린샷과 같은 모양을 만들어 주는 것은 Mushroom, button-card, card-mod, apexcharts-card이며, 아래 각 섹션에서 어떤 것을 쓰는지, 없으면 무엇을 잃는지 설명합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "왜 어떤 버튼은 켜지고 어떤 버튼은 켜지지 않나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Home Assistant가 리시버에서 해당 상태를 읽을 수 있을 때 버튼이 켜집니다. 소스, 서라운드 모드, 볼륨, 음소거는 리시버 자체의 미디어 플레이어 엔터티에서 가져오므로 강조 표시됩니다. Audyssey 곡선, Dirac 슬롯, 디머, 절전 모드, Speaker Preset은 Denon 통합에서 제공하지 않으므로 Home Assistant가 어느 것이 활성화되어 있는지 알 수 없고, 직접 탭하기 전까지 버튼이 꺼진 상태로 남습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "퍼센트 대신 실제 dB 볼륨을 표시할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. Home Assistant는 volume_level을 리시버의 마스터 볼륨을 100으로 나눈 값으로 공개하며, Denon과 Marantz 리시버에서는 MV 80이 0 dB 기준입니다. 따라서 dB는 volume_level에 100을 곱한 값에서 80을 뺀 값입니다. volume_level이 0.67이면 마스터 볼륨 67이고, 이는 -13.0 dB입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "제 엔티티 ID가 이 가이드에 나온 것과 같을까요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "형식은 같지만 중간 부분은 다릅니다. AVR Maestro는 이름을 바꿔도 스크립트가 새로 갈라지지 않고 같은 스크립트가 업데이트되도록 리시버의 MAC 주소를 따라 스크립트 이름을 짓습니다. 내 스크립트는 script.avr_maestro_ 뒤에 내 리시버만의 12자, 그다음 제어 항목 이름이 이어지는 형태입니다. Home Assistant에서 개발자 도구, 상태 순으로 열고 avr_maestro로 필터링하면 내 목록을 볼 수 있습니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "사용 설명서",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Home Automation",
+      "item": "https://avrmaestro.com/guide/home-automation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "대시보드",
+      "item": "https://avrmaestro.com/guide/home-assistant-dashboard/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/ko/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="메뉴" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="가이드 검색..." data-i18n-empty="검색 결과 없음:" data-i18n-language="언어">
+      <a href="/ko/">홈</a>
+      <a href="/ko/guide/">사용 설명서</a>
+      <a href="/ko/receivers/">리시버</a>
+      <a href="/ko/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ko/best-denon-marantz-app/">갈아타는 이유</a>
+      <a href="/ko/#top" class="cta">다운로드</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/ko/">홈</a> &rsaquo; <a href="/ko/guide/">사용 설명서</a> &rsaquo; <a href="/ko/guide/home-automation/">홈 오토메이션</a> &rsaquo; 대시보드</div>
+    <div class="eyebrow">Home Assistant &middot; 단계별 안내</div>
+    <h1>이 Home Assistant 대시보드를 <span class="g">약 한 시간 만에</span> 만들어 보세요</h1>
+    <p>열 단계, 모든 카드의 YAML, 그리고 한 번에 붙여 넣을 수 있는 완성된 뷰까지. 실제 Marantz CINEMA 30으로 만들고 촬영했습니다. 문자열 두 개만 바꾸면 내 대시보드가 됩니다.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <figure class="hero-shot">
+      <img alt="완성된 대시보드: 지금 재생 중 히어로, dB 프리셋이 있는 볼륨, 소스 그리드, 서라운드 모드, 룸 보정, 장면, 볼륨 그래프" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <figcaption>만들게 될 것</figcaption>
+    </figure>
+    <div class="note"><b>바쁘신가요?</b> <a href="#whole">10단계</a>로 바로 가서 완성된 뷰를 내려받고, 문자열 두 개를 바꾼 뒤 붙여 넣으세요. 그 사이의 단계들은 각 부분이 어떤 역할을 하는지 설명하므로 원하는 대로 바꿀 수 있습니다.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>시작하기 전에</h2>
+    </div>
+    <ul class="plain">
+      <li><b>AVR Maestro가 Home Assistant에 연결되어 동기화되었습니다.</b> 이 과정은 <a href="/ko/guide/home-automation/">설정 가이드</a>에서 안내합니다. 그 위에 무언가를 구축하기 전에 Home Assistant에서 컨트롤이 보이는지 확인하세요.</li>
+      <li><b>리시버가 Home Assistant에 추가되었습니다.</b> 설정 &rsaquo; 기기 &amp; 서비스 &rsaquo; 통합 추가 &rsaquo; <b>Denon AVR</b>을 선택한 다음 로컬 IP를 입력하세요. 이렇게 해야 대시보드에 실시간 상태가 표시됩니다.</li>
+      <li><b>만드는 동안 리시버를 켜 두세요.</b> 이제 작성할 내용의 절반은 실시간 값을 읽는데, 대기 모드의 리시버는 거의 아무것도 내보내지 않습니다.</li>
+    </ul>
+    <p class="lead">이 대시보드에는 두 가지 소스가 쓰이며, 아래 모든 단계에서 그 차이가 중요합니다.</p>
+    <table class="t">
+      <thead><tr><th>출처</th><th>제공하는 것</th></tr></thead>
+      <tbody>
+        <tr><td>AVR Maestro가 동기화한 스크립트</td><td>모든 <b>제어 항목</b>. 입력, 서라운드 모드, Audyssey, Dirac, Smart Select, 프리셋, 디머, 절전, 내 장면까지.</td></tr>
+        <tr><td>Denon AVR 통합의 미디어 플레이어 엔티티</td><td>실시간 <b>상태</b>. 전원, 선택된 소스, 서라운드 모드, 볼륨, 음소거.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">1단계</div>
+      <h2>HACS에서 카드 네 개 설치하기</h2>
+    </div>
+    <p class="lead">네 개 모두 기본 HACS 스토어에 있습니다. Home Assistant에서 <b>HACS &rsaquo; 프런트엔드 &rsaquo; 탐색 &amp; 저장소 다운로드</b>로 이동해 이름을 검색하고 다운로드한 다음 브라우저를 새로 고치세요.</p>
+    <table class="t">
+      <thead><tr><th>검색어</th><th>용도</th><th>설치하지 않으면</th></tr></thead>
+      <tbody>
+        <tr><td><b>Mushroom</b></td><td>모든 제어 타일과 볼륨 슬라이더</td><td>일반 <code>button</code> 카드를 사용하세요. 동작은 하지만 모양이 더 각져 보입니다.</td></tr>
+        <tr><td><b>button-card</b></td><td>실시간 라벨이 있는 섹션 헤더</td><td><code>markdown</code> 카드나 일반 제목을 사용하세요.</td></tr>
+        <tr><td><b>card-mod</b></td><td>색상과 활성 타일의 점등 상태</td><td>모든 기능은 그대로 작동합니다. 다만 불이 들어오지 않습니다.</td></tr>
+        <tr><td><b>apexcharts-card</b></td><td>기록 그래프</td><td>내장 <code>history-graph</code> 카드를 사용하세요.</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><b>이 중 어느 것도 작동에 필수는 아닙니다.</b> 아래의 모든 제어 항목은 같은 스크립트를 가리키는 기본 Home Assistant 버튼 카드만으로도 실행됩니다. 커스텀 카드는 배관이 아니라 화장입니다.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">2단계</div>
+      <h2>엔티티 ID 두 개 찾기</h2>
+    </div>
+    <p class="lead">이 페이지의 모든 코드 조각에는 자리 표시자 두 개가 쓰입니다. 내 값을 한 번만 찾아 두면 나머지는 복사해서 붙여 넣기만 하면 됩니다.</p>
+    <ul class="plain">
+      <li><b><code>media_player.your_receiver</code></b> &rarr; 설정 &rsaquo; 기기 &amp; 서비스 &rsaquo; 내 리시버 &rsaquo; 미디어 플레이어 엔티티. 예를 들면 <code>media_player.marantz_cinema_30</code> 같은 형태입니다.</li>
+      <li><b><code>script.avr_maestro_MAC_...</code></b> &rarr; 개발자 도구 &rsaquo; 상태에서 엔티티 필터에 <code>avr_maestro</code>를 입력하세요. 전체 컨트롤 목록이 나타납니다.</li>
+    </ul>
+    <p class="lead">모든 스크립트 ID의 가운데 부분은 리시버의 MAC 주소로, 영문 소문자 12자이며 모든 스크립트에서 같습니다. 한 번만 복사해 두세요. 이 페이지에서 <code>MAC</code>이라고 쓰인 모든 곳에 내 값을 넣으면 됩니다.</p>
+    <div class="note"><b><code>unavailable</code>가 들어간 항목은 무시하세요.</b> 예전 빌드는 MAC 주소 대신 리시버 이름을 따라 스크립트 이름을 지었습니다. 그 시절에 동기화했다면 예전 항목이 아직 목록에 남아 있지만 작동하지 않습니다. 실제로 쓰이는 것은 MAC 주소로 이름 지어진 항목입니다.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">3단계</div>
+      <h2>뷰 만들기</h2>
+    </div>
+    <ol class="plain">
+      <li><b>1.</b> 설정 &rsaquo; 대시보드 &rsaquo; 대시보드 추가 &rsaquo; 새 대시보드(처음부터 만들기). 이름은 원하는 대로 지으세요.</li>
+      <li><b>2.</b> 대시보드를 열고 오른쪽 위의 연필 아이콘을 눌러 편집 모드로 들어갑니다.</li>
+      <li><b>3.</b> 뷰를 추가하고 <b>섹션</b> 레이아웃을 선택하세요. 메이슨리가 아닙니다. 휴대폰에서 제대로 재배치되는 것은 섹션 레이아웃입니다.</li>
+      <li><b>4.</b> 뷰 설정에서 <b>최대 열 수</b>를 3으로 설정하고 <b>밀집 섹션 배치</b>를 켜세요.</li>
+    </ol>
+    <p class="lead">여기서부터 모든 단계는 같습니다. 섹션을 추가하고 그 안에 카드를 붙여 넣으면 됩니다. YAML을 붙여 넣으려면 카드의 점 세 개 메뉴에서 <b>YAML로 편집</b>을 선택하거나, 대시보드의 점 세 개 메뉴에서 <b>원시 구성 편집기</b>를 열어 전체를 한 번에 붙여 넣으세요.</p>
+<pre class="code"><span class="c"># The view's own settings, if you prefer to type them</span>
+type: sections
+title: AVR Maestro
+icon: mdi:audio-video
+max_columns: 3
+dense_section_placement: true</pre>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">4단계</div>
+      <h2>제어 항목 하나 추가하기</h2>
+    </div>
+    <p class="lead">복잡한 것을 만들기 전에 엔티티 ID가 맞는지 확인할 수 있도록 가장 단순한 것부터 시작합니다. 섹션을 추가하고 카드를 추가한 다음 YAML로 편집을 선택해 붙여 넣으세요.</p>
+<pre class="code">type: button
+name: Pure Direct
+icon: mdi:speaker
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_mode_pure_direct</pre>
+    <p class="capt">기본 Home Assistant 기능입니다. HACS는 필요하지 않습니다.</p>
+    <p class="lead">눌러 보세요. 리시버가 반응하면 ID가 맞는 것이고 아래 내용도 모두 작동합니다. 아무 일도 없다면 2단계로 돌아가세요.</p>
+  </div>
+</section>
+
+<section id="highlight">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">5단계</div>
+      <h2>현재 선택된 항목에 불이 들어오게 하기</h2>
+    </div>
+    <p class="lead">꼭 익혀 둘 만한 패턴이며, 보드 위의 모든 소스 타일과 서라운드 타일은 이 패턴의 복사본입니다. 카드는 스크립트를 보내고 리시버 엔티티의 값에 따라 스스로 색을 바꾸므로, 지금 선택된 입력에만 불이 들어오고 나머지는 꺼져 있습니다.</p>
+    <figure><img alt="Nvidia Shield가 주황색으로 켜져 있고 나머지 입력 열두 개는 꺼져 있는 소스 그리드" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>켜진 타일 하나, 꺼진 타일 열두 개</figcaption></figure>
+<pre class="code">type: custom:mushroom-template-card
+entity: script.avr_maestro_MAC_input_cd
+icon: mdi:disc
+primary: CD
+icon_color: >-
+  {{ 'orange' if (state_attr('media_player.your_receiver','source') or '')|lower
+     == 'cd' else 'grey' }}
+layout: vertical
+fill_container: true
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_input_cd
+card_mod:
+  style: |
+    ha-card {
+      border-radius: 14px;
+    {% if (state_attr('media_player.your_receiver','source') or '')|lower == 'cd' %}
+      background: linear-gradient(160deg, rgba(226,86,10,0.34), rgba(15,15,17,0.88));
+      border: 1px solid rgba(255,122,24,0.80);
+    {% else %}
+      background: rgba(15,15,17,0.72);
+      border: 1px solid rgba(255,122,24,0.14);
+    {% endif %}
+    }</pre>
+    <p class="capt">입력마다 세 가지만 바꾸면 됩니다. 스크립트, 아이콘, 그리고 비교할 문자열입니다.</p>
+    <p class="lead">다음 두 가지를 정확히 맞추지 않으면 타일에 불이 들어오지 않습니다.</p>
+    <ul class="plain">
+      <li><b>리시버가 실제로 보고하는 값과 비교하세요.</b> 개발자 도구 &rsaquo; 상태에서 미디어 플레이어 엔티티를 열고 <code>source_list</code>와 <code>sound_mode_list</code> 속성을 확인합니다. 그것이 정확한 문자열입니다. 위 예시처럼 소문자로 비교하세요.</li>
+      <li><b>이름을 바꾼 입력은 새 이름으로 보고됩니다.</b> 리시버에서 GAME1의 이름을 "Xbox"로 바꾸면 <code>Xbox</code>로 보고되지만, AVR Maestro의 제어 항목은 여전히 <code>input_game1</code>라고 불립니다. 스크립트 이름이 아니라 리시버가 보고하는 값을 기준으로 맞추세요.</li>
+    </ul>
+    <p class="lead">서라운드 모드는 <code>source</code> 대신 <code>sound_mode</code>을 쓰는 것만 다른, 같은 카드입니다.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">6단계</div>
+      <h2>각 섹션에 실시간 헤더 달기</h2>
+    </div>
+    <p class="lead">평범한 제목은 낭비되는 공간입니다. 그 아래에 실시간 값을 넣으면 "소스"가 "소스 / 현재 Nvidia Shield"로 바뀝니다.</p>
+<pre class="code">type: custom:button-card
+name: Sources
+icon: mdi:video-input-hdmi
+color_type: label-card
+entity: media_player.your_receiver
+show_label: true
+label: >-
+  [[[ var v = states["media_player.your_receiver"].attributes.source;
+      return v ? ("Now on " + v) : "Receiver in standby"; ]]]
+tap_action:
+  action: none
+styles:
+  grid:
+    - grid-template-areas: '"i n" "i l"'
+    - grid-template-columns: min-content auto
+  name:
+    - font-size: 13px
+    - letter-spacing: 3px
+    - text-transform: uppercase
+    - justify-self: start
+  label:
+    - font-size: 11px
+    - justify-self: start</pre>
+    <p class="capt">2줄 그리드 덕분에 라벨이 제목 옆이 아니라 아래에 놓입니다.</p>
+    <p class="lead">서라운드 헤더에서는 <code>attributes.source</code>을 <code>attributes.sound_mode</code>로 바꾸는 식으로 적용하세요.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">7단계</div>
+      <h2>볼륨을 dB로 표시하기</h2>
+    </div>
+    <p class="lead">Home Assistant는 볼륨을 분수로 보고합니다. 리시버를 "0.67"로 맞추는 사람은 없습니다. 계산식 한 줄이면 해결되고, 섹션 전체가 리시버처럼 읽히기 시작합니다.</p>
+    <figure><img alt="볼륨 섹션: 슬라이더, 올리기, 내리기, 음소거, 그리고 dB 프리셋 네 개" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>나이트, 다이얼로그, 무비, 라우드. 각각 설정되는 dB가 표시됩니다</figcaption></figure>
+    <div class="note"><b>변환 방법.</b> Home Assistant는 <code>volume_level</code>을 마스터 볼륨을 100으로 나눈 값으로 공개하며, Denon과 Marantz 리시버에서는 MV 80이 0 dB 기준입니다. 따라서 <b>dB = volume_level &times; 100 &minus; 80</b>입니다. <code>volume_level</code>이 0.67이면 마스터 볼륨 67이고, 이는 &minus;13.0 dB입니다.</div>
+<pre class="code"><span class="c"># The readout</span>
+type: custom:mushroom-template-card
+entity: media_player.your_receiver
+icon: mdi:volume-high
+primary: >-
+  {% set v = state_attr('media_player.your_receiver','volume_level') %}
+  {% if v is not none %}{{ (v * 100 - 80) | round(1) }} dB{% else %}Standby{% endif %}
+secondary: Master volume
+layout: vertical</pre>
+<pre class="code"><span class="c"># The slider. media_controls must be empty or the bar becomes a power button</span>
+type: custom:mushroom-media-player-card
+entity: media_player.your_receiver
+volume_controls:
+  - volume_set
+media_controls: []
+show_volume_level: true</pre>
+<pre class="code"><span class="c"># A preset. 0.50 is master volume 50, which is -30 dB</span>
+type: custom:mushroom-template-card
+entity: media_player.your_receiver
+icon: mdi:weather-night
+primary: Night
+secondary: "-30 dB"
+tap_action:
+  action: perform-action
+  perform_action: media_player.volume_set
+  target:
+    entity_id: media_player.your_receiver
+  data:
+    volume_level: 0.50</pre>
+    <div class="note"><b>가장 큰 프리셋은 신중하게 정하세요.</b> 위 세트는 &minus;10 dB에서 멈춥니다. 대시보드는 리모컨보다 훨씬 실수로 누르기 쉽고, 대형 리시버의 레퍼런스 레벨은 정말 큰 소리입니다.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">8단계</div>
+      <h2>장면 추가하기</h2>
+    </div>
+    <p class="lead">이름을 직접 입력하지 말고 스크립트에서 읽어 오세요. 그러면 AVR Maestro에서 장면 이름을 바꿀 때 대시보드를 수정하지 않아도 타일 이름이 따라 바뀝니다.</p>
+    <figure><img alt="장면 타일 네 개. 각각 해당 장면이 복원하는 설정을 나열합니다" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>각 타일에 그 장면이 실제로 무엇을 복원하는지 표시됩니다</figcaption></figure>
+<pre class="code">type: custom:mushroom-template-card
+entity: script.avr_maestro_MAC_scene_1234567890123
+icon: mdi:theater
+primary: >-
+  {{ state_attr('script.avr_maestro_MAC_scene_1234567890123','friendly_name')
+     | replace('AVR Maestro - ', '') | replace(' (Your Receiver)', '') }}
+secondary: >-
+  {% set t = states.script['avr_maestro_MAC_scene_1234567890123'].attributes.last_triggered %}
+  {{ 'recalled ' ~ relative_time(t) ~ ' ago' if t else 'not run yet' }}
+multiline_secondary: true
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_scene_1234567890123</pre>
+    <p class="capt">replace() 호출 두 개는 표시 이름에서 접두사와 리시버 이름을 잘라 냅니다.</p>
+    <p class="lead">두 번째 줄은 1분을 더 들일 가치가 있습니다. 거창한 이름의 버튼이 줄지어 있어도 밤 11시에는 아무 정보도 주지 못하지만, 각 버튼이 무엇을 복원하는지 적힌 한 줄이 있으면 무엇을 눌러야 할지 알 수 있습니다.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">9단계</div>
+      <h2>기록 추가하기</h2>
+    </div>
+    <p class="lead">리시버의 미디어 플레이어 엔티티는 다른 엔티티와 마찬가지로 Home Assistant에 기록되므로 청취 기록을 공짜로 얻을 수 있습니다. 아래 내용은 모두 이 엔티티 하나에서 나옵니다. 추가 센서도, 헬퍼도, 미리 설정할 것도 없습니다.</p>
+    <figure><img alt="기록 그래프 다섯 개: 전원 및 활동, dB 단위 마스터 볼륨, 일별 볼륨, 사용한 소스, 서라운드 모드" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>그래프 다섯 개, 엔티티 하나, 7일</figcaption></figure>
+    <p class="lead">기본 상태 타임라인은 커스텀 카드가 전혀 필요 없고, 가장 갖춰 둘 만한 그래프입니다.</p>
+<pre class="code">type: history-graph
+hours_to_show: 168
+entities:
+  - entity: media_player.your_receiver
+    name: Receiver</pre>
+    <p class="capt">일주일 동안의 켜짐, 꺼짐, 그리고 그때 무엇을 하고 있었는지.</p>
+    <p class="lead">dB 볼륨은 7단계와 같은 변환을 사용합니다.</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+header:
+  show: true
+  title: Master volume, last 7 days
+series:
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Master volume
+    type: line
+    curve: smooth
+    unit: dB
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100 - 80;"
+    extend_to: now
+    group_by:
+      duration: 1h
+      func: last
+      fill: last
+apex_config:
+  chart:
+    height: 240
+  yaxis:
+    min: -60
+    max: 0</pre>
+    <p class="capt">fill: last를 지정한 group_by는 드문드문한 이벤트를 연속된 선으로 바꿔 줍니다. y축은 apex_config에 넣어야 적용됩니다.</p>
+    <p class="lead">일별 평균과 최고값을 쓰면 들쭉날쭉한 선이 형태를 갖춘 그래프로 바뀝니다.</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+span:
+  end: day
+header:
+  show: true
+  title: Master volume by day in dB, average and peak
+series:
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Day average
+    type: column
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100;"
+    group_by: {duration: 1d, func: avg, fill: 'null'}
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Day peak
+    type: line
+    curve: smooth
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100;"
+    group_by: {duration: 1d, func: max, fill: 'null'}
+apex_config:
+  yaxis:
+    min: 0
+    max: 80
+    labels:
+      formatter: "EVAL:function (v) { return (v - 80).toFixed(0); }"
+  tooltip:
+    y:
+      formatter: "EVAL:function (v) { return v == null ? '' : (v - 80).toFixed(1) + ' dB'; }"</pre>
+    <p class="capt">같은 속성에서 뽑은 두 시리즈를 일 단위로 묶습니다.</p>
+    <div class="note"><b>이 그래프가 dB를 그리지 않고 0~80 범위를 그린 뒤 dB로 서식을 지정하는 이유.</b> 막대는 축의 바닥에서 위로 자랍니다. dB를 그대로 그리면 모든 막대가 0에서 아래로 매달리므로 긴 막대가 조용함을 뜻하게 되어 거꾸로 읽힙니다. 원래의 마스터 볼륨 값을 그리고 축과 툴팁 서식에서 80을 빼면 막대는 위로 자라면서도 보는 사람에게 보이는 모든 값은 여전히 dB입니다. <code>fill: 'null'</code>는 측정값이 없는 날에 전날 값을 이어 가지 않고 막대를 그리지 않는다는 뜻입니다.</div>
+    <p class="lead">그리고 "나는 실제로 무엇으로, 어떤 모드로 보는가"에 답하는 두 가지, 즉 소스와 서라운드 모드입니다. 어느 것이 선택되었는지를 타임라인으로 그립니다.</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+span:
+  end: day
+header:
+  show: true
+  title: Source in use, last 7 days
+series:
+  - entity: media_player.your_receiver
+    attribute: source
+    name: Source
+    type: line
+    curve: stepline
+    stroke_width: 3
+    extend_to: now
+    float_precision: 0
+    transform: |
+      if (x == null) return null;
+      var m = ["Phono", "NET", "Xbox", "Nvidia Shield"];
+      var i = m.indexOf(x);
+      return i &lt; 0 ? 0 : i + 1;
+apex_config:
+  yaxis:
+    min: 0
+    max: 4
+    tickAmount: 4
+    labels:
+      formatter: >-
+        EVAL:function (v) { return ["Other", "Phono", "HEOS Net", "Xbox",
+        "Shield"][Math.round(v)] || ''; }
+  tooltip:
+    y:
+      formatter: >-
+        EVAL:function (v) { return v == null ? 'off' : ["Other", "Phono",
+        "HEOS Net", "Xbox", "Shield"][Math.round(v)] || 'Other'; }</pre>
+    <p class="capt">내 소스를 transform 배열과 두 formatter 배열에 모두 넣으세요. 인덱스 0은 "Other"로 유지하세요.</p>
+    <p class="lead">차트 축에는 숫자가 필요하므로 <code>transform</code>이 각 소스 이름을 위치로 바꾸고, formatter가 라벨과 툴팁용으로 다시 이름으로 되돌립니다. 매핑은 <b>빠짐없이</b> 만드세요. <code>null</code>(리시버 꺼짐)은 공백으로 남고, 목록에 없는 것은 모두 "Other"로 분류되므로 둘이 헷갈릴 일이 없습니다. 같은 카드에서 <code>sound_mode</code>를 쓰면 서라운드 모드가 되며, 이때 문자열은 리시버가 보고하는 그대로 대문자로 적습니다.</p>
+    <div class="note"><b>마지막 두 그래프에는 <code>stepline</code>을 유지하세요.</b> 소스나 서라운드 모드는 숫자가 아니라 범주입니다. 곡선을 부드럽게 만들면 선이 Shield와 Xbox 사이를 오가며 축에서 둘 사이에 놓인 모든 항목을 지나가게 되어, 한 번도 선택된 적 없는 입력이 그려집니다. 볼륨은 실제 수량이라 부드럽게 해도 정직하지만, 범주는 그렇지 않습니다.</div>
+    <div class="note"><b>먼저 recorder 보관 기간을 확인하세요.</b> Home Assistant는 기본적으로 10일을 보관하므로, 7일이 실질적으로 요청할 수 있는 최대치입니다. 더 거슬러 올라가려면 <code>state_class: measurement</code> 템플릿 센서가 필요하며, Home Assistant는 이를 장기 통계로 수년간 보관합니다.</div>
+    <div class="note"><b>빠진 날이 있는 것은 대개 정상입니다.</b> Home Assistant는 샘플이 아니라 변경 사항을 기록합니다. 리시버를 이틀 동안 같은 입력, 같은 볼륨으로 두면 아무것도 기록되지 않으므로 그날은 막대가 없습니다. 데이터가 유실된 것처럼 보이지만 사실은 그 반대입니다. 아무 일도 일어나지 않았을 뿐입니다.</div>
+  </div>
+</section>
+
+<section id="whole">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">10단계</div>
+      <h2>또는 통째로 가져가기</h2>
+    </div>
+    <p class="lead">모든 섹션과 모든 카드를 담은 완성된 뷰입니다. 엔티티 ID 자리에는 자리 표시자가 들어 있습니다.</p>
+    <ol class="plain">
+      <li><b>1.</b> <a href="/ko/guide/home-assistant-dashboard/avr-maestro-dashboard.yaml" download>뷰 YAML 다운로드</a></li>
+      <li><b>2.</b> 아무 텍스트 편집기에서 열어 나타나는 모든 곳의 문자열 두 개를 바꾸세요. <code>YOUR_RECEIVER</code>은 내 미디어 플레이어 엔티티 이름으로, <code>YOURMAC</code>은 2단계에서 확인한 내 리시버의 12자로 바꿉니다.</li>
+      <li><b>3.</b> Home Assistant에서 대시보드를 열고 연필 아이콘, 점 세 개 메뉴, <b>원시 구성 편집기</b> 순으로 이동해 뷰로 붙여 넣으세요.</li>
+    </ol>
+    <div class="note"><b>장면 ID는 일치하지 않습니다.</b> 장면 스크립트는 장면이 만들어진 시점을 따라 이름이 지어지므로, 파일 속 네 개는 내 시스템에 존재하지 않습니다. 해당 카드는 표시되지만 아무 동작도 하지 않습니다. 2단계에서 확인한 내 엔티티 ID로 바꾸거나, 장면 섹션을 삭제하고 8단계로 다시 만드세요.</div>
+    <div class="note"><b>그 밖에 알아 둘 두 가지.</b> 소스 그래프와 서라운드 그래프에는 이 뷰를 만든 리시버의 소스 이름이 들어 있으므로, 9단계에 설명된 대로 해당 배열을 수정하세요. 그리고 타일 라벨은 영어이며 파일 안의 어떤 것도 번역되어 있지 않습니다.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>타일에 불이 들어오지 않는다면</h2>
+    </div>
+    <p class="lead">잘못 만들었다고 생각하기 전에 확인하세요. 일부는 원래 불이 들어올 수 없으며, 어떤 것이 그런지 알아 둘 가치가 있습니다.</p>
+    <p class="lead">타일은 Home Assistant가 상태를 읽을 수 있어야만 그 상태를 표시할 수 있으며, Home Assistant는 두 곳에서 리시버를 읽습니다. Denon AVR 통합은 미디어 플레이어 엔티티에 기본 항목을 공개합니다. 나머지는 AVR Maestro가 공개합니다. <b>Status Bridge</b> 센서 <code>sensor.avr_maestro_your_receiver</code>를 만들고, 앱이 이미 가지고 있는 값을 속성으로 기록합니다.</p>
+    <table class="t">
+      <thead><tr><th>미디어 플레이어 엔티티</th><th>Status Bridge 센서</th></tr></thead>
+      <tbody>
+        <tr><td>전원</td><td>Audyssey MultEQ 곡선</td></tr>
+        <tr><td>선택된 소스</td><td>Dynamic Volume과 레퍼런스 레벨</td></tr>
+        <tr><td>서라운드 모드</td><td>로드된 Dirac 슬롯</td></tr>
+        <tr><td>볼륨과 음소거</td><td>전면 패널 디머, 절전 모드</td></tr>
+        <tr><td>Dynamic EQ (경우에 따라)</td><td>스피커 프리셋, 톤, 그 밖의 수십 가지</td></tr>
+      </tbody>
+    </table>
+    <p class="lead">이제 두 열 모두 읽을 수 있습니다. 미디어 플레이어 값은 <code>states['media_player.your_receiver'].attributes</code>에서, Status Bridge 값은 <code>state_attr('sensor.avr_maestro_your_receiver','dirac_slot')</code>로 가져오세요. 그러면 타일이 스크립트를 실행하기만 하는 것이 아니라 실제로 활성화된 설정에 맞춰 불이 들어옵니다.</p>
+    <p class="lead">이 대시보드를 만든 리시버에서 측정한 결과, 미디어 플레이어 엔티티는 제어 항목 60개 중 약 20개를 담고 있고 Status Bridge 센서가 약 40개를 더 공개합니다. 둘을 합치면 대시보드가 바꿀 수 있는 거의 모든 것을 읽을 수 있습니다. 버튼의 벽과 컨트롤 서피스의 차이가 바로 여기에 있습니다.</p>
+    <div class="note"><b>값이 두 가지 뜻일 수 있다면 그렇다고 표시하세요.</b> Dynamic EQ는 <code>true</code>, <code>false</code>, 또는 아예 값이 없는 상태로 들어옵니다. "값 없음"을 "꺼짐"으로 취급하면 벽에 자신 있게 틀린 답이 걸리게 됩니다.</div>
+<pre class="code">icon_color: >-
+  {% set d = state_attr('media_player.your_receiver','dynamic_eq') %}
+  {{ 'orange' if d is true else 'grey' }}
+secondary: >-
+  {% set d = state_attr('media_player.your_receiver','dynamic_eq') %}
+  {% if d is none %}state not published{% elif d %}on{% else %}off{% endif %}</pre>
+    <p class="capt">두 가지가 아니라 세 가지 상태입니다.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>그 밖에 알아 둘 것</h2>
+    </div>
+    <ul class="plain">
+      <li><b>타일이 기대한 폭의 3분의 1로 나옵니다.</b> 3열에 걸친 섹션에서는 내부 그리드가 12열이 아니라 <b>36</b>열입니다. 네 개를 가로로 배치하려면 <code>grid_options: {columns: 9}</code>으로 설정하세요. 여섯 개라면 6입니다.</li>
+      <li><b>볼륨 슬라이더가 막대 대신 전원 버튼으로 보입니다.</b> <code>on_off</code>이 들어 있는 <code>media_controls</code> 때문입니다. <code>media_controls: []</code>로 설정하세요.</li>
+      <li><b>라벨이 잘립니다.</b> "Volume Down"이 "Volume Do..."로 보입니다. "Vol Down"으로 줄이거나 타일을 넓히세요.</li>
+      <li><b>장면 설명이 잘립니다.</b> <code>multiline_secondary: true</code>를 추가하세요.</li>
+      <li><b>apexcharts 그래프에서 일정한 선이 사라집니다.</b> <code>experimental.color_threshold</code> 때문입니다. 선을 세로 그라데이션으로 그리는데, 완전히 수평인 구간은 그라데이션을 적용할 높이가 0이어서 보이지 않게 렌더링됩니다. 같은 볼륨으로 43시간 동안 이어진 세션이 통째로 사라진 적도 있습니다. 단색 <code>color</code>을 사용하세요.</li>
+      <li><b>휴대폰에서는 저절로 재배치됩니다.</b> 섹션 뷰는 폭이 좁아지면 별도 설정 없이 한 열로 쌓입니다.</li>
+    </ul>
+    <figure><img alt="같은 대시보드를 휴대폰 폭에서 한 열로 재배치한 모습" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>휴대폰 폭에서의 같은 대시보드: 세 열이 한 열이 되며, 그렇게 되도록 따로 설정한 것은 없습니다</figcaption></figure>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">자주 묻는 질문</div>
+      <h2>대시보드 궁금증 풀이</h2>
+    </div>
+    <details open><summary>이걸 만들려면 HACS의 사용자 지정 카드가 필요한가요?</summary><div class="body">작동시키는 데는 필요 없습니다. 이 페이지의 모든 컨트롤은 기본 Home Assistant 버튼 카드만으로 동작합니다. 스크린샷과 같은 모양을 만들어 주는 것은 Mushroom, button-card, card-mod, apexcharts-card이며, 아래 각 섹션에서 어떤 것을 쓰는지, 없으면 무엇을 잃는지 설명합니다.</div></details>
+    <details><summary>왜 어떤 버튼은 켜지고 어떤 버튼은 켜지지 않나요?</summary><div class="body">Home Assistant가 리시버에서 해당 상태를 읽을 수 있으면 버튼에 불이 들어옵니다. 소스, 서라운드 모드, 볼륨, 음소거는 리시버 자체의 미디어 플레이어 엔티티에서 가져오므로 강조 표시됩니다. Audyssey 곡선, Dirac 슬롯, 디머, 절전 모드, 스피커 프리셋은 Denon 통합이 공개하지 않으므로 Home Assistant가 어느 것이 활성인지 알 방법이 없고, 버튼은 직접 누르기 전까지 꺼진 상태로 남습니다.</div></details>
+    <details><summary>퍼센트 대신 실제 dB 볼륨을 표시할 수 있나요?</summary><div class="body">네. Home Assistant는 volume_level을 리시버의 마스터 볼륨을 100으로 나눈 값으로 공개하며, Denon과 Marantz 리시버에서는 MV 80이 0 dB 기준입니다. 따라서 dB는 volume_level에 100을 곱한 값에서 80을 뺀 값입니다. volume_level이 0.67이면 마스터 볼륨 67이고, 이는 -13.0 dB입니다.</div></details>
+    <details><summary>제 엔티티 ID가 이 가이드에 나온 것과 같을까요?</summary><div class="body">형식은 같지만 중간 부분은 다릅니다. AVR Maestro는 이름을 바꿔도 스크립트가 새로 갈라지지 않고 같은 스크립트가 업데이트되도록 리시버의 MAC 주소를 따라 스크립트 이름을 짓습니다. 내 스크립트는 script.avr_maestro_ 뒤에 내 리시버만의 12자, 그다음 제어 항목 이름이 이어지는 형태입니다. Home Assistant에서 개발자 도구, 상태 순으로 열고 avr_maestro로 필터링하면 내 목록을 볼 수 있습니다.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">가이드 더 보기</div>
+      <h2>다른 AVR Maestro 가이드</h2>
+    </div>
+    <p class="lead"><a href="/ko/guide/getting-started/">시작하기</a> &middot; <a href="/ko/guide/home/">홈 화면</a> &middot; <a href="/ko/guide/scenes/">장면</a> &middot; <a href="/ko/guide/custom-icons/">사용자 지정 아이콘</a> &middot; <a href="/ko/guide/sound/">사운드</a> &middot; <a href="/ko/guide/graphic-eq/">그래픽 EQ</a> &middot; <a href="/ko/guide/speakers/">스피커</a> &middot; <a href="/ko/guide/locked-controls/">컨트롤이 잠겨 있는 이유</a> &middot; <a href="/ko/guide/assistant/">어시스턴트</a> &middot; <a href="/ko/guide/home-automation/">홈 오토메이션</a> &middot; <a href="/ko/guide/multi-zone/">존</a> &middot; <a href="/ko/guide/remote/">리모컨</a> &middot; <a href="/ko/guide/radio/">라디오 (FM/AM)</a> &middot; <a href="/ko/guide/on-screen-display/">온스크린 디스플레이</a> &middot; <a href="/ko/guide/settings/">설정</a> &middot; <a href="/ko/guide/languages/">언어</a> &middot; <a href="/ko/guide/volume/">볼륨 제어</a> &middot; <a href="/ko/guide/backup/">백업 &amp; 복원</a> &middot; <a href="/ko/guide/now-playing/">지금 재생 중 &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>리시버 전체를 한 화면에</h2>
+    <p class="lead" style="margin:0 auto 24px">홈 오토메이션은 AVR Maestro에서 유일한 유료 잠금 해제 항목입니다. 기기 내 AI 어시스턴트를 포함한 나머지는 모두 기본으로 제공됩니다.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Google Play에서 다운로드" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="App Store에서 다운로드" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Mac App Store에서 다운로드" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Microsoft Store에서 다운로드" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/ko/guide/home-automation/">홈 오토메이션으로 돌아가기 &rarr;</a> &middot; <a href="/ko/guide/">전체 사용 설명서 &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/ko/">홈</a>
+      <a href="/ko/guide/">사용 설명서</a>
+      <a href="/ko/guide/getting-started/">시작하기</a>
+      <a href="/ko/receivers/">리시버</a>
+      <a href="/ko/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ko/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/ko/best-denon-marantz-app/">갈아타는 이유</a>
+      <a href="/ko/help/">도움말</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro는 MiyaraHub Technologies LLC가 만든 독립 앱이며, Denon, Marantz, D&amp;M Holdings, Sound United 및 이 페이지에 언급된 어떤 기업과도 제휴, 승인 또는 후원 관계가 없습니다. Denon, Marantz, HEOS, Home Assistant, Mushroom, HACS, Audyssey, Nvidia Shield는 각 소유자의 상표 또는 프로젝트이며, 여기서는 식별 목적으로만 사용되었습니다.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

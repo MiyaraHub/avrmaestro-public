@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>מגבלת עוצמת קול, רמת הדלקה &amp; עומק השתקה - AVR Maestro</title>
+<meta name="description" content="הגדירו מגבלת עוצמת קול ל-Denon או ל-Marantz שלכם, בחרו את רמת ההדלקה, קבעו עד כמה ההשתקה מנמיכה, וקראו את העוצמה כ-0 עד 98 או בדציבלים." />
+<meta name="keywords" content="Denon volume limit app, Marantz power on level, AVR mute level -20 dB, receiver volume in decibels app, Denon volume scale absolute relative, protect speakers volume limit" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/he/guide/volume/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/volume/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/volume/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/volume/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/volume/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/volume/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/volume/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/volume/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/volume/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/volume/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/volume/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/volume/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/volume/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/volume/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/volume/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/volume/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/volume/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/volume/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/volume/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/volume/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/volume/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/volume/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/volume/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/volume/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/volume/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/volume/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/volume/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/volume/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/volume/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/volume/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/volume/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/volume/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="he_IL" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="מגבלת עוצמת קול, רמת הדלקה &amp; עומק השתקה - AVR Maestro" />
+<meta property="og:description" content="הגדירו מגבלת עוצמת קול ל-Denon או ל-Marantz שלכם, בחרו את רמת ההדלקה, קבעו עד כמה ההשתקה מנמיכה, וקראו את העוצמה כ-0 עד 98 או בדציבלים." />
+<meta property="og:url" content="https://avrmaestro.com/he/guide/volume/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="מגבלת עוצמת קול, רמת הדלקה &amp; עומק השתקה - AVR Maestro" />
+<meta name="twitter:description" content="הגדירו מגבלת עוצמת קול ל-Denon או ל-Marantz שלכם, בחרו את רמת ההדלקה, קבעו עד כמה ההשתקה מנמיכה, וקראו את העוצמה כ-0 עד 98 או בדציבלים." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro היא אפליקציה עצמאית לשליטה במקלטי AV של Denon ו-Marantz דרך הרשת המקומית שלכם.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "he"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/volume/#article",
+      "headline": "פקדי עוצמת קול: תקרה, רמת התעוררות, והשתקה שעושה מה שאתם רוצים",
+      "description": "הגדירו מגבלת עוצמת קול ל-Denon או ל-Marantz שלכם, בחרו את רמת ההדלקה, קבעו עד כמה ההשתקה מנמיכה, וקראו את העוצמה כ-0 עד 98 או בדציבלים.",
+      "image": "https://avrmaestro.com/screenshots/volume-controls.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/volume/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "he"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/volume/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "האם מגבלת העוצמה חלה גם על השלט הפיזי?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "כן. המגבלה היא הגדרה של המקלט ולא של האפליקציה, ולכן היא חוסמת כל דרך: האפליקציה, השלט שבאריזה, הגלגל בפאנל הקדמי וכל בקר אחר ברשת שלכם."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "האם ההגדרות האלה חלות על אזור 2 ואזור 3?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "פקדי עוצמת הקול מכסים את האזור הראשי. לכל אזור יש עוצמת קול משלו, וגם הפעלה וקלט משלו, בלשונית האזורים."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "למה האפליקציה מציגה 0 עד 98 כשבביקורות מצטטים דציבלים?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "אלה שתי תצוגות של אותו גלגל. עברו לסולם עוצמת קול של -79.5 עד 18.0 dB והתצוגה תתאים לדרך שבה רמות כיול מצוטטות בדרך כלל, כאשר 0.0 dB הוא רפרנס."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "אפשר להשתמש בכפתורי עוצמת הקול של הטלפון?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "כן, ב-Android וב-iPhone. כשאפליקציית AVR Maestro בחזית, כפתורי עוצמת הקול של המכשיר שולטים במקלט ישירות, צעד אחד בכל לחיצה ועלייה רציפה בהחזקה; מתג תחת הגדרות, שמע מחזיר למכשיר את הכפתורים שלו."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "בית",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "מדריך למשתמש",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "פקדי עוצמת קול",
+      "item": "https://avrmaestro.com/guide/volume/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/he/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="תפריט" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="חיפוש במדריך..." data-i18n-empty="אין התאמות עבור" data-i18n-language="שפה">
+      <a href="/he/">בית</a>
+      <a href="/he/guide/">מדריך למשתמש</a>
+      <a href="/he/receivers/">מקלטים</a>
+      <a href="/he/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/he/best-denon-marantz-app/">למה לעבור</a>
+      <a href="/he/#top" class="cta">הורדה</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/he/">בית</a> &rsaquo; <a href="/he/guide/">מדריך למשתמש</a> &rsaquo; פקדי עוצמת קול</div>
+    <div class="eyebrow">הגדרות &rsaquo; פקדי עוצמת קול</div>
+    <h1>פקדי עוצמת קול: תקרה, רמת התעוררות, ו<span class="g">השתקה שעושה מה שאתם רוצים</span></h1>
+    <p>ארבע הגדרות שביחד קובעות כמה חזק המקלט יכול להגיע אי פעם, מה הוא עושה כשהוא מתעורר, וכמה ההשתקה מנמיכה אותו. הן יושבות במקלט, ולכן הן תקפות בין שאתם משתמשים באפליקציה, בשלט הפיזי או בפאנל הקדמי.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">איפה זה נמצא</div>
+        <h2>הגדרות &rsaquo; פקדי עוצמת קול</h2>
+        <p class="lead">פתחו את <b>הגדרות</b> וגללו אל <b>פקדי עוצמת קול</b> - "מגבלת עוצמה, רמת הדלקה ועומק השתקה". כל מה שבעמוד הזה נכתב ישירות למקלט, ולכן הוא שורד סגירה של האפליקציה וחל על כל דרך שבה אתם שולטים בו.</p>
+      </div>
+      <img alt="עמוד פקדי עוצמת הקול עם סולם עוצמה, מגבלה, רמת הדלקה ורמת השתקה" src="/screenshots/volume-controls.png" width="1324" height="2644" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">אחד אחד</div>
+      <h2>מה כל הגדרה עושה</h2>
+    </div>
+
+    <h3 style="margin-top:26px">סולם עוצמת קול</h3>
+    <p class="lead">איך העוצמה נקראת, גם על המסך וגם בתצוגה של המקלט עצמו. <b>0 - 98</b> הוא הסולם היחסי שרוב האנשים מכירים; <b>-79.5 עד 18.0 dB</b> הוא הסולם המוחלט, שבו 0.0 dB הוא רמת הרפרנס. אם אי פעם ראיתם ביקורת שמצטטת "-15 dB" ותהיתם איך זה מתורגם לגלגל שלכם, זה המתג שעונה על כך.</p>
+
+    <h3 style="margin-top:26px">מגבלת עוצמת קול</h3>
+    <p class="lead">תקרה קשיחה. ברגע שהיא נקבעה, <b>שום דבר</b> לא עובר אותה - לא האפליקציה, לא השלט הפיזי, לא הגלגל בפאנל הקדמי, כי המגבלה יושבת במקלט ולא באפליקציה. השימוש המובן מאליו הוא הגנה על הרמקולים או על חדר מלא אנשים מהקשה שגויה, וזו ההגדרה שכדאי לפנות אליה לפני שמעבירים את השלט לאורח. <b>כבוי</b> מסיר את התקרה.</p>
+
+    <h3 style="margin-top:26px">רמת הדלקה</h3>
+    <p class="lead"><b>שימוש בעוצמה האחרונה</b> פעיל כברירת מחדל: המקלט מתעורר לאותה עוצמה שהייתה כשכיביתם אותו. כבו אותו ותוכלו לקבוע רמה קבועה במקום, כך שהאזנה מאוחרת בעוצמה גבוהה לא תהפוך להפתעה לא נעימה למחרת בבוקר.</p>
+
+    <h3 style="margin-top:26px">רמת השתקה</h3>
+    <p class="lead">עד כמה ההשתקה מנמיכה את העוצמה. <b>מלא</b> משתיק לגמרי. <b>-40 dB</b> ו-<b>-20 dB</b> מנמיכים רק חלקית, וזו הבחירה הטובה יותר כשרוצים לנהל שיחה מעל סרט בלי לאבד את החוט.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">במקומות אחרים באפליקציה</div>
+      <h2>הפקדים שבהם משתמשים כל יום</h2>
+    </div>
+    <ul class="plain">
+      <li><b>לוח הבקרה של מסך הבית</b> כולל את עוצמת הקול הראשית, ההשתקה וההפעלה של האזור הראשי.</li>
+      <li><b>לשונית השלט</b> נותנת לכם נדנדת עוצמה לצד ה-D-pad ומקשי הניגון, כשהרמה מוצגת תוך כדי. <a href="/he/guide/remote/">מדריך השלט &rarr;</a></li>
+      <li><b>כל כפתור פלוס ומינוס של עוצמת הקול</b> - בלוח הבקרה של מסך הבית, בכרטיסי האזורים ובלשונית השלט - זז צעד אחד בהקשה וממשיך לזוז כל עוד מחזיקים, כמו השלט הפיזי. מרפים והוא נעצר בתוך צעד אחד.</li>
+      <li><b>כפתורי עוצמת הקול של הטלפון</b>, ב-Android וב-iPhone, שולטים במקלט כשהאפליקציה בחזית, כך שאפשר לכוון בלי להסתכל. גם החזקה של אחד מהם מעלה בהדרגה.</li>
+      <li><b>לכל אזור</b> יש עוצמת קול משלו, בלתי תלויה בראשית. <a href="/he/guide/multi-zone/">מדריך האזורים &rarr;</a></li>
+      <li><b>סצנות</b> יכולות ללכוד את עוצמת הקול הראשית, כך ששחזור סצנה קובע את הרמה יחד עם כל השאר. <a href="/he/guide/scenes/">מדריך הסצנות &rarr;</a></li>
+      <li><b>תצוגת העוצמה על המסך</b> בטלוויזיה שלכם יכולה לזוז ממקומה או להיכבות לגמרי. <a href="/he/guide/on-screen-display/">מדריך התצוגה על המסך &rarr;</a></li>
+    </ul>
+    <div class="note">שינויי העוצמה נשלחים בקצב מכוון ולא אחד לכל פיקסל, כך שהחזקת הנדנדה או החלקת המחוון מעלות בצורה חלקה, במקום להציף את המקלט בפקודות שיעמדו בתור ויחולו באיחור.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">שאלות נפוצות</div>
+      <h2>שאלות נפוצות על עוצמת הקול</h2>
+    </div>
+    <details open><summary>האם מגבלת העוצמה חלה גם על השלט הפיזי?</summary><div class="body">כן. המגבלה היא הגדרה של המקלט ולא של האפליקציה, ולכן היא חוסמת כל דרך: האפליקציה, השלט שבאריזה, הגלגל בפאנל הקדמי וכל בקר אחר ברשת שלכם.</div></details>
+    <details><summary>האם ההגדרות האלה חלות על אזור 2 ואזור 3?</summary><div class="body">פקדי עוצמת הקול מכסים את האזור הראשי. לכל אזור יש עוצמת קול משלו, וגם הפעלה וקלט משלו, בלשונית האזורים.</div></details>
+    <details><summary>למה האפליקציה מציגה 0 עד 98 כשבביקורות מצטטים דציבלים?</summary><div class="body">אלה שתי תצוגות של אותו גלגל. עברו לסולם עוצמת קול של -79.5 עד 18.0 dB והתצוגה תתאים לדרך שבה רמות כיול מצוטטות בדרך כלל, כאשר 0.0 dB הוא רפרנס.</div></details>
+    <details><summary>אפשר להשתמש בכפתורי עוצמת הקול של הטלפון?</summary><div class="body">כן, ב-Android וב-iPhone. כשאפליקציית AVR Maestro בחזית, כפתורי עוצמת הקול של המכשיר שולטים במקלט ישירות, צעד אחד בכל לחיצה ועלייה רציפה בהחזקה; מתג תחת הגדרות, שמע מחזיר למכשיר את הכפתורים שלו.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">עוד מהמדריך</div>
+      <h2>מדריכים נוספים של AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/he/guide/getting-started/">תחילת העבודה</a> &middot; <a href="/he/guide/home/">מסך הבית</a> &middot; <a href="/he/guide/scenes/">סצנות</a> &middot; <a href="/he/guide/custom-icons/">אייקונים מותאמים אישית</a> &middot; <a href="/he/guide/sound/">צליל</a> &middot; <a href="/he/guide/graphic-eq/">אקולייזר גרפי</a> &middot; <a href="/he/guide/speakers/">רמקולים</a> &middot; <a href="/he/guide/locked-controls/">למה פקד נעול</a> &middot; <a href="/he/guide/assistant/">העוזר</a> &middot; <a href="/he/guide/home-automation/">אוטומציה ביתית</a> &middot; <a href="/he/guide/home-assistant-dashboard/">לוח הבקרה של Home Assistant</a> &middot; <a href="/he/guide/multi-zone/">אזורים</a> &middot; <a href="/he/guide/remote/">שלט</a> &middot; <a href="/he/guide/radio/">רדיו (FM/AM)</a> &middot; <a href="/he/guide/on-screen-display/">תצוגה על המסך</a> &middot; <a href="/he/guide/settings/">הגדרות</a> &middot; <a href="/he/guide/languages/">שפות</a> &middot; <a href="/he/guide/backup/">גיבוי &amp; שחזור</a> &middot; <a href="/he/guide/now-playing/">מתנגן כעת &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>קבעו את התקרה פעם אחת, ותירגעו</h2>
+    <p class="lead" style="margin:0 auto 24px">רכישה חד-פעמית, בלי פרסומות, בלי מנויים. מתחברים בפחות מדקה.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="להורדה ב-Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="להורדה ב-App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="להורדה ב-Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="להורדה ב-Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/he/guide/">חזרה למדריך המלא &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/he/">בית</a>
+      <a href="/he/guide/">מדריך למשתמש</a>
+      <a href="/he/guide/getting-started/">להתחלה</a>
+      <a href="/he/receivers/">מקלטים</a>
+      <a href="/he/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/he/audyssey-vs-dirac/">Audyssey מול Dirac</a>
+      <a href="/he/best-denon-marantz-app/">למה לעבור</a>
+      <a href="/he/help/">עזרה</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">פייסבוק</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro היא אפליקציה עצמאית של MiyaraHub Technologies LLC ואינה קשורה, מאושרת או ממומנת על ידי Denon, Marantz, D&amp;M Holdings, Sound United או כל חברה אחרת שמוזכרת בעמוד הזה. Denon, Marantz, HEOS, Audyssey ו-Dirac Live הם סימנים מסחריים של בעליהם, ומשמשים כאן לצורכי זיהוי בלבד.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>
