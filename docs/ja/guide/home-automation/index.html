@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Denon &amp; Marantz 向け Home Assistant &amp; Hubitat - AVR Maestro</title>
+<meta name="description" content="AVR Maestro を Home Assistant または Hubitat にリンクすれば、シーンがネイティブスクリプトになり、スマートフォンなしで実行できます。音声コントロール、ライブ状態、Webhook に対応。" />
+<meta name="keywords" content="Denon Home Assistant, Marantz Home Assistant, AV receiver Alexa, receiver Google Assistant, receiver Siri Shortcuts, Hubitat AV receiver, receiver webhooks, Denon voice control" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/ja/guide/home-automation/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-automation/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-automation/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-automation/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-automation/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-automation/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:title" content="Denon &amp; Marantz 向け Home Assistant &amp; Hubitat - AVR Maestro" />
+<meta property="og:description" content="AVR Maestro を Home Assistant または Hubitat にリンクすれば、シーンがネイティブスクリプトになり、スマートフォンなしで実行できます。音声コントロール、ライブ状態、Webhook に対応。" />
+<meta property="og:url" content="https://avrmaestro.com/ja/guide/home-automation/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Denon &amp; Marantz 向け Home Assistant &amp; Hubitat - AVR Maestro" />
+<meta name="twitter:description" content="AVR Maestro を Home Assistant または Hubitat にリンクすれば、シーンがネイティブスクリプトになり、スマートフォンなしで実行できます。音声コントロール、ライブ状態、Webhook に対応。" />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestroは、ローカルネットワーク経由でDenonとMarantzのAVレシーバーを操作する独立系アプリです。",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-automation/#article",
+      "headline": "Home Assistant と Hubitat：スマートフォンなしで動くシーン",
+      "description": "AVR Maestro を Home Assistant または Hubitat にリンクすれば、シーンがネイティブスクリプトになり、スマートフォンなしで実行できます。音声コントロール、ライブ状態、Webhook に対応。",
+      "image": "https://avrmaestro.com/screenshots/home-assistant.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-automation/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-automation/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "音声コントロールを使うには、スマートフォンの電源を入れておく必要がありますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "いいえ。AVR Maestro はシーンをネイティブの Home Assistant スクリプトにコンパイルします。Home Assistant はローカルネットワーク上で直接レシーバーと通信するので、スマートフォンの電源が切れていても、スリープ中でも、海外にあっても問題ありません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "どの音声アシスタントでレシーバーを操作できますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "すでにお使いのものなら何でも。AVR Maestro 独自の音声レイヤーは追加しません。スクリプトを Home Assistant または Hubitat に公開し、それをお使いのハブ経由で Alexa、Google Assistant、Siri ショートカットに公開します。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "AIアシスタントは有料アンロックに含まれますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "いいえ。オンデバイスAIアシスタントは無料です。ホームオートメーション（Home Assistant、Hubitat、アウトバウンド Webhook）が、AVR Maestro で唯一の有料アンロックです。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ホームネットワークの外に出る通信はありますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "コントロールに関してはありません。アプリはご自身のネットワーク上で、レシーバーとハブの両方と通信します。MiyaraHub のサーバーを経由することはありません。Webhook は、指定した宛先に送信されます。宛先はあなたが選びます。"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ホーム",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ユーザーガイド",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "ホームオートメーション",
+      "item": "https://avrmaestro.com/guide/home-automation/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/ja/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="メニュー" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="ガイドを検索..." data-i18n-empty="一致する結果がありません:" data-i18n-language="言語">
+      <a href="/ja/">ホーム</a>
+      <a href="/ja/guide/">ユーザーガイド</a>
+      <a href="/ja/receivers/">対応レシーバー</a>
+      <a href="/ja/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ja/best-denon-marantz-app/">乗り換える理由</a>
+      <a href="/ja/#top" class="cta">ダウンロード</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/ja/">ホーム</a> &rsaquo; <a href="/ja/guide/">ユーザーガイド</a> &rsaquo; ホームオートメーション</div>
+    <div class="eyebrow">Home Assistant &middot; Hubitat &middot; Webhook</div>
+    <h1>Home Assistant と Hubitat：<span class="g">スマートフォンなしで</span>動くシーン</h1>
+    <p>AVR Maestro を Home Assistant または Hubitat にリンクすると、作成したすべてのシーンがハブ上のネイティブスクリプトになります。以後はハブがご自身のネットワーク上で直接レシーバーと通信するので、「Alexa、映画の時間」がスマートフォンの電源オフでも、スリープ中でも、海外にあっても動作します。</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+      <figure><img alt="Home Assistant、Hubitat、Webhook を備えた AVR Maestro のホームオートメーションハブ" src="/screenshots/home-automation.png" width="1324" height="2644" decoding="async" /><figcaption>1つのハブ、3つの出口</figcaption></figure>
+      <figure><img alt="Home Assistant にリンクされ、レシーバーのエンティティが自動検出された AVR Maestro" src="/screenshots/home-assistant.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>リンク完了。レシーバーのエンティティも自動で検出</figcaption></figure>
+      <figure><img alt="南京錠アイコンと「含まれる内容を見る」ボタンが表示された、ロック状態のホームオートメーション" src="/screenshots/home-automation-locked.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>アンロック前は、何が含まれるかが表示されます</figcaption></figure>
+    </div>
+
+    <div class="section-head" style="margin-top:36px">
+      <h2>アプリなしで動作する理由</h2>
+    </div>
+    <p class="lead">多くの統合は、スマートフォンを仲介役にします。スマートフォンがコマンドを受け取り、スマートフォンが送信するので、オートメーションはスマートフォンが起動していてネットワークにつながっている間しか動きません。</p>
+    <p class="lead">AVR Maestro は違います。シーンをハブ上に置かれるスクリプトに<b>コンパイル</b>し、ハブがレシーバーのローカルIPにコマンドを送信します。アプリの役目は、同期が終わった時点で完了です。</p>
+    <ul class="plain">
+      <li><b>ローカルファースト：</b>MiyaraHub のサーバーを経由するものは何もありません。ハブとレシーバーが直接やり取りします。</li>
+      <li><b>スマートフォンに依存しない：</b>シーンは一度公開されれば、作成したスマートフォンにアプリが入っているかどうかに関係なく実行されます。</li>
+      <li><b>私たちのではなく、あなたのアシスタント：</b>Alexa、Google Assistant、Siri ショートカットは、すでにお使いのハブを通じてこれらのスクリプトにアクセスします。AVR Maestro 独自の音声レイヤーは追加しません。</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Home Assistant、最初から最後まで</h2>
+    </div>
+    <ul class="plain">
+      <li><b>1. まず、レシーバーを Home Assistant に追加します。</b>設定 &rsaquo; デバイス&amp;サービス &rsaquo; 統合を追加 &rsaquo; <b>Denon AVR</b>（または<b>HEOS</b>）を選び、レシーバーのローカルIPを入力します。Home Assistant がメディアプレーヤーエンティティを作成します。</li>
+      <li><b>2. AVR Maestro で 設定 &rsaquo; ホームオートメーション を開き、</b>Home Assistant カードをタップします。</li>
+      <li><b>3. Home Assistant のアドレスを入力します。</b>ローカルのアドレス（<code>http://192.168.1.150:8123</code>など）か、外部の Nabu Casa URL を指定できます。</li>
+      <li><b>4. ログインして認可します。</b>安全なアプリ内ブラウザが開き、Home Assistant 自身のログイン画面が表示されます。認証情報は Home Assistant に送られ、私たちには届きません。</li>
+      <li><b>5. レシーバーは自動で見つかります。</b>アプリがメディアプレーヤーエンティティをスキャンし、モデル、名前、サラウンド対応状況でスコアを付けて、適切なエンティティを自動入力します。</li>
+      <li><b>6. 同期します。</b>シーンがスクリプトに変換されてアップロードされます。その後は、シーンを編集するとバックグラウンドでスクリプトが更新されるので、覚えておくボタンはありません。</li>
+    </ul>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">同期が終わったら</div>
+        <h2>見応えのあるダッシュボードを作る</h2>
+        <p>Home Assistant には、レシーバーに指示できるすべてのものに対するコントロールが用意されましたが、その並べ方についての意見はありません。<a href="/ja/guide/home-assistant-dashboard/">ダッシュボードの例</a>は、その配置の一例で、YAML全文を掲載しています。選択中のものが点灯するソースとサラウンドのタイル、本物のdBで表示する音量、自分の名前を読み取るシーン、そして Home Assistant が見えるものと見えないものを正直にまとめた一覧です。</p>
+      </div>
+      <img alt="AVR Maestro が同期したコントロールで作った Home Assistant ダッシュボード" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">シーンだけではありません</div>
+        <h2>スピーカープリセット、Dirac、Audyssey も</h2>
+        <p><b>高度なコントロールを同期</b>をオンにすると、アプリはシーンだけでなく、はるかに多くのスクリプトを公開します。すべてのスピーカープリセット、すべての Dirac Live フィルタースロット、各 Audyssey カーブです。Cinema 30 で完全同期すると70を超えるスクリプトが作られ、ダッシュボードのボタンや音声コマンドから、シーンを呼び出すのと同じ感覚で Dirac フィルターを読み込んだり、ルームカーブを切り替えたりできます。</p>
+      </div>
+      <img alt="高度なコントロールの同期をオンにした、AVR Maestro の Home Assistant 画面" src="/screenshots/ha-app-controls.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">書き込むだけでなく、読み取りも</div>
+        <h2>Home Assistant が何が有効かを把握できる</h2>
+        <p>スクリプトは実行できても、読み取ることはできません。そのため初期のダッシュボードでは、Audyssey カーブや Dirac スロットを切り替えられても、どれが有効かを表示する方法がありませんでした。アプリがすでに保持している読み取り値（ライブのサラウンドモード、有効な Dirac フィルター、スピーカープリセット、ディマーなど数十項目）が、レシーバーのステータスセンサーの属性として公開されるようになったので、実際に動作している設定のタイルを点灯できます。</p>
+      </div>
+      <img alt="スピーカープリセット、Dirac Live、Audyssey のコントロールスクリプトを Home Assistant に公開する AVR Maestro" src="/screenshots/ha-sync-advanced.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">すべての部屋に</div>
+        <h2>ほかのゾーンも、同じダッシュボードから</h2>
+        <p>Zone 2 と Zone 3 の電源、音量、ミュートも個別のスクリプトとして公開されるので、テラスや別の部屋でも、メインゾーンと同じようにダッシュボードや音声アシスタントで操作できます。ボタンが作られるのは、レシーバーが実際に報告するゾーンだけなので、2ゾーンのレシーバーに Zone 3 が現れることはありません。</p>
+      </div>
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">古いビルドで同期した場合</div>
+        <h2>スクリプトIDは一度だけ変わります</h2>
+        <p>以前は、スクリプトの名前がシーン<em>と</em>レシーバーに基づいていたため、どちらかの名前を変更すると古いスクリプトが残り、気づかないうちに2つ目が作られていました。現在はシーンとレシーバーのMACアドレスに基づく名前になり、名前を変更しても新しいスクリプトが増えず、同じスクリプトが更新されます。</p>
+        <p>この変更後の最初の同期で、古いスクリプトが新しいものに置き換わります。<b>古いIDで作ったものは、一度だけ指定し直す必要があります。</b>ダッシュボードのボタン、オートメーション、音声エイリアスなどです。Home Assistant でスクリプトを開くと、新しいエンティティIDがわかります。</p>
+        <p>エンティティも、32文字のマシン識別子ではなく<code>cinema30</code>のように、レシーバーから名前を読み取るようになったので、一覧が読みやすくなり、オートコンプリートでも見つかります。以前のバージョンのIDも引き続き使えます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Hubitat</h2>
+    </div>
+    <div class="lockrow">
+      <div>
+        <p class="lead">Hubitat は<b>Maker API</b>経由で対応しています。アプリ内で BETA と表示されているのは、Home Assistant 経由より新しいためで、未完成だからではありません。</p>
+        <ul class="plain">
+          <li><b>ハブIP</b> - LAN上の Hubitat のアドレス。</li>
+          <li><b>Maker API アプリID</b> - Maker API アプリ自身のURLに含まれる番号。</li>
+          <li><b>アクセストークン</b> - Maker API を有効にすると発行されます。</li>
+        </ul>
+        <p class="lead">まずハブで Maker API を有効にしてください（Apps &rsaquo; Add Built-In App &rsaquo; Maker API）。3つの値がすべて表示されます。これらを貼り付けると、AVR Maestro がレシーバーを検出し、シーンをコマンドシーケンスとして公開し、ライブ状態を送り返すので、Hubitat のダッシュボードには、最後に指示した内容ではなく、レシーバーが実際に行っていることが反映されます。</p>
+      </div>
+      <img alt="ハブIP、Maker API アプリID、アクセストークンを入力する Hubitat のセットアップ画面" src="/screenshots/hubitat.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Webhook</h2>
+    </div>
+    <p class="lead">Home Assistant と Hubitat はレシーバー<em>へ</em>コマンドを送ります。Webhook は逆向きで、レシーバーが何かをしたときに、ほかの何かに知らせます。レシーバーの電源を入れると、AVR Maestro が指定したアドレスに小さなメッセージを送信します。そのメッセージが Webhook です。</p>
+
+    <div class="note"><b>ここだけは、スマートフォンに依存しない仕組みではありません。</b>同期したシーンはハブ上のスクリプトになり、アプリが近くになくても実行されます。Webhook は異なります。レシーバーを監視しているのは AVR Maestro なので、トリガーが発火するのは、レシーバーが見えるデバイス上でアプリが開いている間です。何も起動していない状態で発火させたい場合は、ハブ側でレシーバーのエンティティを軸に構築してください。</div>
+
+    <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px;margin-top:22px">
+      <figure><img alt="説明カードが表示され、トリガーがまだない Webhook 画面" src="/screenshots/webhooks.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>追加するまでは空です</figcaption></figure>
+      <figure><img alt="「自動化トリガーを追加」シート：トリガーイベント、送信先、Webhook ID" src="/screenshots/webhook-trigger.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>イベント、送信先、ID</figcaption></figure>
+    </div>
+
+    <h3 style="margin-top:34px">4つのトリガー</h3>
+    <table class="t" style="margin-top:14px">
+      <thead><tr><th>トリガーイベント</th><th>発火するタイミング</th><th>絞り込める対象</th></tr></thead>
+      <tbody>
+        <tr><td>レシーバー電源ON</td><td>レシーバーがスタンバイから復帰したとき</td><td>-</td></tr>
+        <tr><td>レシーバー電源OFF</td><td>レシーバーがスタンバイに入ったとき</td><td>-</td></tr>
+        <tr><td>アクティブな入力の変更</td><td>選択中のソースが変わったとき</td><td><em>この入力のみトリガー</em>で、1つの入力に限定</td></tr>
+        <tr><td>シーンを呼び出し</td><td>シーンが適用されたとき</td><td><em>シーンを選択</em>で、1つのシーンに限定</td></tr>
+      </tbody>
+    </table>
+
+    <p class="lead" style="margin-top:22px">絞り込むことで、ノイズではなく役に立つトリガーになります。すべての入力に対する「アクティブな入力の変更」は情報の洪水ですが、プロジェクターをつないだ入力1つだけに絞った同じトリガーなら、照明のスイッチになります。</p>
+    <p class="lead">入力の一覧はお使いのレシーバーが報告するものなので、名前を変更したソースや非表示にしたソースがすでに反映されています。シーンの一覧は、あなた自身のシーンです。</p>
+
+    <div class="section-head" style="margin-top:44px">
+      <h2>設定手順</h2>
+    </div>
+    <p class="lead">ここで説明するのは、多くの方が使う Home Assistant 経由の方法です。アプリが送信先として指す対象が必要なので、先に Home Assistant 側を設定してください。</p>
+
+    <h3 style="margin-top:28px">Home Assistant で</h3>
+    <ul class="plain">
+      <li><b>1. 設定 &rsaquo; オートメーション&amp;シーン &rsaquo; オートメーションを作成 &rsaquo; 新しいオートメーションを作成。</b></li>
+      <li><b>2. トリガーを追加 &rsaquo; Webhook。</b>Home Assistant が長いランダムな Webhook ID を生成します。</li>
+      <li><b>3. 覚えやすいものに置き換えます。</b><code>avr-power-on</code>、<code>avr-movie-night</code>など。Home Assistant 内で重複しなければ、名前は自由です。AVR Maestro にも同じものを入力するので、書き留めておいてください。</li>
+      <li><b>4. Webhook の設定で、<em>POST</em>を許可します。</b>AVR Maestro が送信するのはこれです。ローカルのみで問題ありません。アプリはご自身のネットワーク上にあります。</li>
+      <li><b>5. 実行したい動作を追加し</b>（照明を暗くする、ブラインドを閉める、シーンを開始するなど）、オートメーションを保存します。</li>
+    </ul>
+
+    <h3 style="margin-top:28px">AVR Maestroでは</h3>
+    <ul class="plain">
+      <li><b>1. 設定 &rsaquo; ホームオートメーション &rsaquo; Webhook</b>を開き、<b>最初のトリガーを追加</b>をタップします。すでにトリガーがある場合は<b>+</b>ボタンです。</li>
+      <li><b>2. トリガーイベント</b> - 何をきっかけに発火させるかを選びます。<em>アクティブな入力の変更</em>や<em>シーンを呼び出し</em>を選ぶと、絞り込み用の2つ目のボックスが表示されます。</li>
+      <li><b>3. 送信先</b> - <b>Home Assistant</b>のままにしておきます。この画面の上のほうですでにリンクしているので、アドレスは既知です。</li>
+      <li><b>4. Webhook ID</b> - Home Assistant で使ったものと同じIDを入力します。ほかに一致させる必要のあるものはありません。その下に、アプリが送信する正確なアドレス<code>Sends to http://your-ha:8123/api/webhook/avr-power-on</code>が表示されるので、保存する前に確認できます。</li>
+      <li><b>5. 保存します。</b>次に、一覧のトリガーで<b>テスト</b>を押してください。Home Assistant のオートメーションがすぐに実行されるはずです。</li>
+    </ul>
+
+    <div class="note" style="margin-top:24px"><b>Home Assistant 経由の場合、URLを入力する必要はありません。</b>アプリはリンクした Home Assistant からURLを組み立て、<em>トリガーが発火するたびに</em>そのアドレスを調べ直します。Home Assistant を新しいポート、新しいホスト名、Nabu Casa のアドレスに移しても、作成済みのすべての Webhook が追従します。再同期も、押すボタンもありません。</div>
+
+    <div class="note">シートに<b>Home Assistant はまだリンクされていません</b>と表示される場合は、先にこのページ上部の Home Assistant カードの手順を行ってください。Webhook 経由には、構築の基になるアドレスが必要です。</div>
+
+    <h3 style="margin-top:34px">Home Assistant 以外に送信する</h3>
+    <p class="lead"><b>送信先</b>を<b>その他</b>に切り替え、<b>Webhook URL</b>に完全なURLを貼り付けます。POST を受け付けるものなら何でも使えます。Node-RED のフロー、IFTTT のアプレット、NAS 上のスクリプト、Hubitat Maker API のエンドポイントなどです。この方法ではアドレスが入力したとおりに保存されるので、宛先が移動したらトリガーを編集してください。</p>
+
+    <div class="section-head" style="margin-top:44px">
+      <h2>実際に送信される内容</h2>
+    </div>
+    <p class="lead">小さなJSON本文です。同じ画面の<b>送信内容</b>カードに、選択したトリガーについて平易な言葉で説明されているので、推測する必要はありません。オートメーションが読み取るフィールド名は次のとおりです：</p>
+    <table class="t" style="margin-top:14px">
+      <thead><tr><th>トリガー</th><th>メッセージに含まれるフィールド</th></tr></thead>
+      <tbody>
+        <tr><td>レシーバー電源ON / OFF</td><td><code>event</code>, <code>timestamp</code></td></tr>
+        <tr><td>アクティブな入力の変更</td><td>...に加えて <code>source</code></td></tr>
+        <tr><td>シーンを呼び出し</td><td>...に加えて<code>sceneId</code>と <code>sceneName</code></td></tr>
+      </tbody>
+    </table>
+    <p class="lead" style="margin-top:20px">Home Assistant のオートメーションでは、これらは<code>{{ trigger.json.event }}</code>、<code>{{ trigger.json.source }}</code>などとして届きます。読み取ることも、完全に無視して発火したという事実だけで動作させることもできます。ほとんどの方は後者です。</p>
+    <p class="lead">別の形式が必要な場合（独自の形式を期待するサービスなど）は、そのカードの下にある<b>代わりに独自のJSONを送信</b>を開いて、そこに記述してください。ほとんど必要とされないため「高度」として折りたたまれていますが、推奨されないわけではありません。</p>
+
+    <div class="note">この画面が<b>Webhook</b>と呼ばれるのは、まさにそれだからです。ハブ<em>上で</em>動作するオートメーションをお探しなら、上にある Home Assistant と Hubitat のカードがそれです。同期したシーンはそこでスクリプトになり、ここで Webhook になるわけではありません。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Webhook が届かないとき</h2>
+    </div>
+    <p class="lead">確認する価値のある順番に並べています。最初の2つが原因であることがほとんどです：</p>
+    <ul class="plain">
+      <li><b>まず「テスト」を押してください。</b>実際のトリガーと同じメッセージを同じアドレスに送信し、次の3つのうちどれが起きたかを知らせます。配信された、配信されなかった、またはトリガー自体のスイッチがオフのためスキップされた、のいずれかです。テストは配信されるのに実際のイベントでは届かない場合は、トリガーに問題があります。多くの場合、<em>アクティブな入力の変更</em>が、実際には切り替えていない入力に絞り込まれています。</li>
+      <li><b>IDが完全に一致しているか確認してください。</b>Home Assistant の Webhook ID は大文字と小文字を区別し、余分なスペースも許されません。アプリは、フィールドの下に送信先の完全なアドレスを表示するので、オートメーション側のものと比較してください。</li>
+      <li><b>オートメーションが POST を許可しているか確認してください。</b>GET のみを許可する Home Assistant の Webhook トリガーは、AVR Maestro が送信するものをエラーも出さずに無視します。</li>
+      <li><b>トリガーのスイッチがオンか確認してください。</b>一覧の各トリガーには個別のトグルがあり、オフのトリガーは失敗ではなくスキップされます。</li>
+      <li><b>トリガーは1台のレシーバーに属します。</b>表示している一覧は、現在選択中のレシーバー用です。別のレシーバーには別の一覧があるので、ここで作ったルールは別の部屋のレシーバーでは発火しません。</li>
+      <li><b>アプリが監視している必要があります。</b>レシーバーの変化に気づくのは AVR Maestro なので、アプリを閉じてポケットに入れたスマートフォンからは何も発火しません。これは、このセクションの冒頭で説明したトレードオフであり、不具合ではありません。</li>
+      <li><b>Webhook はホームオートメーションの一部です。</b>アンロックしていない場合、トリガーは表示されるものの何も送信されず、テストも成功したふりをせず、その旨を表示します。</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">有料のものと無料のもの</div>
+        <h2>アンロックが必要なのはホームオートメーションだけです。AIアシスタントは無料です。</h2>
+        <p><b>ホームオートメーション(Pro)</b>（Home Assistant、Hubitat、アウトバウンド Webhook）は、買い切りのアンロックです。オンデバイスAIアシスタントを含め、AVR Maestro のそのほかの機能はすべてアプリに含まれています。</p>
+        <p>音声コントロールは、ホームオートメーション<em>を通じて</em>、ハブ経由でレシーバーに届きます。AVR Maestro 自身は音声認識を行いません。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">よくある質問</div>
+      <h2>ホームオートメーションのよくある質問</h2>
+    </div>
+    <details open><summary>音声コントロールを使うには、スマートフォンの電源を入れておく必要がありますか？</summary><div class="body">いいえ。AVR Maestro はシーンをネイティブの Home Assistant スクリプトにコンパイルします。Home Assistant はローカルネットワーク上で直接レシーバーと通信するので、スマートフォンの電源が切れていても、スリープ中でも、海外にあっても問題ありません。</div></details>
+    <details><summary>どの音声アシスタントでレシーバーを操作できますか？</summary><div class="body">すでにお使いのものなら何でも。AVR Maestro 独自の音声レイヤーは追加しません。スクリプトを Home Assistant または Hubitat に公開し、それをお使いのハブ経由で Alexa、Google Assistant、Siri ショートカットに公開します。</div></details>
+    <details><summary>AIアシスタントは有料アンロックに含まれますか？</summary><div class="body">いいえ。オンデバイスAIアシスタントは無料です。ホームオートメーション（Home Assistant、Hubitat、アウトバウンド Webhook）が、AVR Maestro で唯一の有料アンロックです。</div></details>
+    <details><summary>ホームネットワークの外に出る通信はありますか？</summary><div class="body">コントロールに関してはありません。アプリはご自身のネットワーク上で、レシーバーとハブの両方と通信します。MiyaraHub のサーバーを経由することはありません。Webhook は、指定した宛先に送信されます。宛先はあなたが選びます。</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ガイドをもっと見る</div>
+      <h2>AVR Maestroのその他のガイド</h2>
+    </div>
+    <p class="lead"><a href="/ja/guide/getting-started/">はじめに</a> &middot; <a href="/ja/guide/home/">ホーム画面</a> &middot; <a href="/ja/guide/scenes/">シーン</a> &middot; <a href="/ja/guide/custom-icons/">カスタムアイコン</a> &middot; <a href="/ja/guide/sound/">サウンド</a> &middot; <a href="/ja/guide/graphic-eq/">グラフィックEQ</a> &middot; <a href="/ja/guide/speakers/">スピーカー</a> &middot; <a href="/ja/guide/locked-controls/">コントロールがロックされる理由</a> &middot; <a href="/ja/guide/assistant/">アシスタント</a> &middot; <a href="/ja/guide/home-assistant-dashboard/">Home Assistantダッシュボード</a> &middot; <a href="/ja/guide/multi-zone/">ゾーン</a> &middot; <a href="/ja/guide/remote/">リモコン</a> &middot; <a href="/ja/guide/radio/">ラジオ(FM/AM)</a> &middot; <a href="/ja/guide/on-screen-display/">オンスクリーンディスプレイ</a> &middot; <a href="/ja/guide/settings/">設定</a> &middot; <a href="/ja/guide/languages/">対応言語</a> &middot; <a href="/ja/guide/volume/">音量コントロール</a> &middot; <a href="/ja/guide/backup/">バックアップ&amp;復元</a> &middot; <a href="/ja/guide/now-playing/">再生中&amp;HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>スマートフォンなしで動くシーン</h2>
+    <p class="lead" style="margin:0 auto 24px">ホームオートメーションは買い切りのアンロックです。AIアシスタントを含め、アプリのそのほかの機能はすべて含まれています。</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Google Playで手に入れよう" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="App Storeからダウンロード" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Mac App Storeからダウンロード" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Microsoft Storeで入手" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/ja/guide/">ユーザーガイド全体に戻る &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/ja/">ホーム</a>
+      <a href="/ja/guide/">ユーザーガイド</a>
+      <a href="/ja/guide/getting-started/">はじめに</a>
+      <a href="/ja/receivers/">対応レシーバー</a>
+      <a href="/ja/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ja/audyssey-vs-dirac/">AudysseyとDirac</a>
+      <a href="/ja/best-denon-marantz-app/">乗り換える理由</a>
+      <a href="/ja/help/">ヘルプ</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro は MiyaraHub Technologies LLC による独立したアプリであり、Denon、Marantz、D&amp;M Holdings、Sound United、およびこのページに記載されているその他の企業とは、提携、承認、後援の関係にありません。Denon、Marantz、HEOS、Home Assistant、Hubitat、Audyssey、Dirac Live、Alexa、Google Assistant、Siri は、それぞれの所有者の商標であり、ここでは識別の目的でのみ使用しています。</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

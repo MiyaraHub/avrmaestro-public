@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zone 2 &amp; Zone 3をスマートフォンから操作 - AVR Maestro</title>
+<meta name="description" content="DenonとMarantzのレシーバーで、Zone 2とZone 3を個別に操作できます。電源、入力、音量、ミュート、ゾーンのSmart Select / Quick Select、ゾーン名の変更、ゾーンごとの再生中表示に対応しています。" />
+<meta name="keywords" content="multi-zone receiver control app, Zone 2 control app, Zone 3 control app, Denon multi-zone app, Marantz multi-zone, whole house audio receiver app, second zone control, zone quick select, zone smart select, rename zones Denon Marantz" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/ja/guide/multi-zone/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/multi-zone/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/multi-zone/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/multi-zone/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/multi-zone/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/multi-zone/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:title" content="Zone 2 &amp; Zone 3をスマートフォンから操作 - AVR Maestro" />
+<meta property="og:description" content="DenonとMarantzのレシーバーで、Zone 2とZone 3を個別に操作できます。電源、入力、音量、ミュート、ゾーンのSmart Select / Quick Select、ゾーン名の変更、ゾーンごとの再生中表示に対応しています。" />
+<meta property="og:url" content="https://avrmaestro.com/ja/guide/multi-zone/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Zone 2 &amp; Zone 3をスマートフォンから操作 - AVR Maestro" />
+<meta name="twitter:description" content="DenonとMarantzのレシーバーで、Zone 2とZone 3を個別に操作できます。電源、入力、音量、ミュート、ゾーンのSmart Select / Quick Select、ゾーン名の変更、ゾーンごとの再生中表示に対応しています。" />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestroは、ローカルネットワーク経由でDenonとMarantzのAVレシーバーを操作する独立系アプリです。",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/multi-zone/#article",
+      "headline": "マルチゾーン: 家中を操る",
+      "description": "DenonとMarantzのレシーバーで、Zone 2とZone 3を個別に操作できます。電源、入力、音量、ミュート、ゾーンのSmart Select / Quick Select、ゾーン名の変更、ゾーンごとの再生中表示に対応しています。",
+      "image": "https://avrmaestro.com/screenshots/zones.png",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/multi-zone/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/multi-zone/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Zone 2やZone 3をスマートフォンから操作できますか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい。マルチゾーン対応のレシーバーでは、各ゾーンにメインゾーンとは完全に独立した電源、音量、ミュート、入力、クイック音量プリセットがあり、リアルタイムに同期します。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ゾーンでSmart SelectやQuick Selectを使えますか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい。各ゾーンのカードには、レシーバーでの呼び方に合わせた、そのゾーン専用のスロットがあります。MarantzならSmart Select、DenonならQuick Selectです。スロットをタップすると呼び出せ、長押しするとそのゾーンの現在の状態をカードから直接保存できます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ゾーンの名前を変更できますか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい。ホーム画面でゾーン名を長押しすると、メインゾーンを含むどのゾーンでも名前を変更できます。名前はレシーバー本体に書き込まれるため、メーカーのアプリや他のすべてのクライアントにも表示されます。古いシャーシでも同様です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "各ゾーンで再生中の内容は表示されますか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい。ゾーンがオンのとき、そのカードにはそのゾーンのHEOSの再生中情報がリアルタイムで表示され、トランスポート操作もできます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "シーンでゾーンの設定を一括で整えられますか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい。シーンは、残りの設定と一緒に、Zone 2/3の電源、入力、音量を保存して復元できます。"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ホーム",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ユーザーガイド",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "マルチゾーン",
+      "item": "https://avrmaestro.com/guide/multi-zone/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/ja/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="メニュー" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="ガイドを検索..." data-i18n-empty="一致する結果がありません:" data-i18n-language="言語">
+      <a href="/ja/">ホーム</a>
+      <a href="/ja/guide/">ユーザーガイド</a>
+      <a href="/ja/receivers/">対応レシーバー</a>
+      <a href="/ja/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ja/best-denon-marantz-app/">乗り換える理由</a>
+      <a href="/ja/#top" class="cta">ダウンロード</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero split">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="/ja/">ホーム</a> &rsaquo; <a href="/ja/guide/">ユーザーガイド</a> &rsaquo; マルチゾーン</div>
+      <div class="eyebrow">マルチゾーン</div>
+      <h1>マルチゾーン: <span class="g">家中</span>を操る</h1>
+      <p>マルチゾーン対応のDenonとMarantzのレシーバーで、Zone 2とZone 3の電源、入力、音量を個別に操作できます。シーンでゾーンの状態を保存・復元することも可能です。キッチンでは音楽、シアターでは映画、すべて1つのアプリから。</p>
+    </div>
+    <div class="hero-shot"><img alt="AVR Maestroのマルチゾーンコントロール" src="/screenshots/zones.png" width="1324" height="2644" fetchpriority="high" /></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ゾーンの仕組み</div>
+      <h2>各ゾーンが完全に独立</h2>
+      <p class="lead">各ゾーンに、メインゾーンとは完全に独立した電源、音量、ミュート、入力、クイック音量プリセットがあります。</p>
+    </div>
+    <div class="grid">
+      <div class="gcard"><div class="ic">&#128268;</div><h3>独立した電源</h3><p>メインゾーンに影響を与えずに、Zone 2やZone 3をオン/オフできます。</p></div>
+      <div class="gcard"><div class="ic">&#127925;</div><h3>独自のソース&amp;音量</h3><p>ゾーンごとに異なる入力と音量を設定でき、クイック音量プリセットのチップも用意されています。プリセットは初期状態でなめらかに変化します(設定、オーディオ: 段階的 / 直接)。</p></div>
+      <div class="gcard"><div class="ic">&#9889;</div><h3>ゾーンのSmart Select / Quick Select</h3><p>ゾーン専用のSmart SelectまたはQuick Selectスロットをカード上に表示。スロットをタップで呼び出し、長押しでそのゾーンの現在の状態を保存できます。</p></div>
+      <div class="gcard"><div class="ic">&#9997;&#65039;</div><h3>どのゾーンも名前を変更可能</h3><p>ホーム画面でゾーン名を長押しします。メインゾーンも対象です。名前はレシーバー本体に保存されるため、すべてのアプリで同じ名前になります。</p></div>
+      <div class="gcard"><div class="ic">&#128260;</div><h3>ライブ同期</h3><p>レシーバー本体のパネルやリモコンでゾーンを変更すると、1秒以内にアプリへ反映されます。</p></div>
+      <div class="gcard"><div class="ic">&#127911;</div><h3>ゾーンごとの再生中表示</h3><p>ゾーンがオンのとき、そのカードにはそのゾーンのHEOSストリームがリアルタイムで表示され、トランスポート操作もできます。</p></div>
+      <div class="gcard"><div class="ic">&#127917;</div><h3>シーンで保存</h3><p><a href="/ja/guide/scenes/">シーン</a>は、ほかの設定と一緒にZone 2/3の状態も保存して復元できます。</p></div>
+      <div class="gcard"><div class="ic">&#128241;</div><h3>ホーム画面で</h3><p>コンパクトなゾーンウィジェットで、ホーム画面から状態をひと目で確認し、すばやく操作できます。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>ゾーンをオンにして、行き先を決める</h2>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(1,1fr);max-width:320px;margin:0 0 26px">
+      <figure><img alt="Zone 2としてPatio、Zone 3としてZONE3を表示し、それぞれに独自の電源コントロールがあるゾーンタブ" src="/screenshots/zones.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>レシーバーが備えるゾーンごとに1枚のカード</figcaption></figure>
+    </div>
+    <ul class="plain">
+      <li><b>1. ゾーンタブを開きます。</b>レシーバーが備えているすべてのゾーンにカードが表示されます。ゾーンが1つだけのレシーバーには、このタブは表示されません。</li>
+      <li><b>2. カードの電源コントロールでゾーンをオンにします。</b>メインゾーンには何も影響しません。</li>
+      <li><b>3. ソースを選びます。</b>リストはレシーバー自身のもので、名前を変更していればその名前で表示されます。ゾーンは、メインルームとはまったく別の入力にもできます。</li>
+      <li><b>4. 音量を設定します。</b>ゾーンには独自の音量とミュートがあり、クイック音量チップでそのゾーンに設定した音量を呼び出せます。設定、オーディオで「直接」に切り替えない限り、プリセットはなめらかに変化します。</li>
+      <li><b>5. 任意: 保存します。</b>ゾーン専用のSmart SelectまたはQuick Selectスロットを長押しすると、そのゾーンの現在の状態がすべて保存されます。あとでタップすれば元に戻せます。</li>
+    </ul>
+    <p class="lead" style="margin-top:20px">ホーム画面でゾーン名を長押しすると名前を変更できます。名前はレシーバーに書き込まれるため、フロントパネルや他のすべてのアプリでもアプリと同じ名前になります。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">知っておきたいこと</div>
+      <h2>メインゾーンの電源を切っても、ほかの部屋が止まらない理由</h2>
+    </div>
+    <p class="lead">DenonとMarantzのレシーバーには2種類の電源コマンドがあり、家のほかの場所で音楽が流れている場合、その違いが重要になります。</p>
+    <p class="lead">システム全体のスタンバイコマンドはシャーシ全体の電源を切り、レシーバーはほかのゾーンも一緒に停止させてしまいます。Cinema 30で計測したところ、スタンバイコマンドが届いてから1ミリ秒後にはシャーシがZone 2のオフを報告していました。そのためAVR Maestroのメイン電源コントロールは、あえて<b>メインゾーン</b>のコマンドを送信します。アプリでシアターの電源を切っても、キッチンの音楽は流れ続けます。</p>
+    <p class="lead">逆の場合も同様です。コールド状態のレシーバーでメインゾーンをオンにすると、先にシャーシが起動するため、アプリを使う前にレシーバーの電源を別途入れる必要はありません。</p>
+    <div class="note">メインゾーンを変更したときにゾーンが自動的にオフになる場合、それはアプリではなくレシーバー自身の設定によるものです。一部のモデルには、ゾーンメニューに電源連動のオプションがあります。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">よくある質問</div>
+      <h2>マルチゾーンに関するよくある質問</h2>
+    </div>
+    <details open><summary>Zone 2やZone 3をスマートフォンから操作できますか?</summary><div class="body">はい。マルチゾーン対応のレシーバーでは、各ゾーンにメインゾーンとは完全に独立した電源、音量、ミュート、入力、クイック音量プリセットがあり、リアルタイムに同期します。</div></details>
+    <details><summary>ゾーンでSmart SelectやQuick Selectを使えますか?</summary><div class="body">はい。各ゾーンのカードには、レシーバーでの呼び方に合わせた、そのゾーン専用のスロットがあります。MarantzならSmart Select、DenonならQuick Selectです。スロットをタップすると呼び出せ、長押しするとそのゾーンの現在の状態をカードから直接保存できます。</div></details>
+    <details><summary>ゾーンの名前を変更できますか?</summary><div class="body">はい。ホーム画面でゾーン名を長押しすると、メインゾーンを含むどのゾーンでも名前を変更できます。名前はレシーバー本体に書き込まれるため、メーカーのアプリや他のすべてのクライアントにも表示されます。古いシャーシでも同様です。</div></details>
+    <details><summary>各ゾーンで再生中の内容は表示されますか?</summary><div class="body">はい。ゾーンがオンのとき、そのカードにはそのゾーンのHEOSの再生中情報がリアルタイムで表示され、トランスポート操作もできます。</div></details>
+    <details><summary>シーンでゾーンの設定を一括で整えられますか?</summary><div class="body">はい。<a href="/ja/guide/scenes/">シーン</a>は、残りの設定と一緒に、Zone 2/3の電源、入力、音量を保存して復元できます。</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ガイドをもっと見る</div>
+      <h2>AVR Maestroのその他のガイド</h2>
+    </div>
+    <p class="lead"><a href="/ja/guide/getting-started/">はじめに</a> &middot; <a href="/ja/guide/home/">ホーム画面</a> &middot; <a href="/ja/guide/scenes/">シーン</a> &middot; <a href="/ja/guide/custom-icons/">カスタムアイコン</a> &middot; <a href="/ja/guide/sound/">サウンド</a> &middot; <a href="/ja/guide/graphic-eq/">グラフィックEQ</a> &middot; <a href="/ja/guide/speakers/">スピーカー</a> &middot; <a href="/ja/guide/locked-controls/">コントロールがロックされる理由</a> &middot; <a href="/ja/guide/assistant/">アシスタント</a> &middot; <a href="/ja/guide/home-automation/">ホームオートメーション</a> &middot; <a href="/ja/guide/home-assistant-dashboard/">Home Assistantダッシュボード</a> &middot; <a href="/ja/guide/remote/">リモコン</a> &middot; <a href="/ja/guide/radio/">ラジオ(FM/AM)</a> &middot; <a href="/ja/guide/on-screen-display/">オンスクリーンディスプレイ</a> &middot; <a href="/ja/guide/settings/">設定</a> &middot; <a href="/ja/guide/languages/">対応言語</a> &middot; <a href="/ja/guide/volume/">音量コントロール</a> &middot; <a href="/ja/guide/backup/">バックアップ&amp;復元</a> &middot; <a href="/ja/guide/now-playing/">再生中&amp;HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>すべての部屋を思いのままに</h2>
+    <p class="lead" style="margin:0 auto 24px">買い切り、広告なし、サブスクリプションなし。1分足らずで接続できます。</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Google Playで手に入れよう" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="App Storeからダウンロード" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Mac App Storeからダウンロード" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Microsoft Storeで入手" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/ja/guide/">ユーザーガイド全体に戻る &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/ja/">ホーム</a>
+      <a href="/ja/guide/">ユーザーガイド</a>
+      <a href="/ja/guide/getting-started/">はじめに</a>
+      <a href="/ja/receivers/">対応レシーバー</a>
+      <a href="/ja/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ja/audyssey-vs-dirac/">AudysseyとDirac</a>
+      <a href="/ja/best-denon-marantz-app/">乗り換える理由</a>
+      <a href="/ja/help/">ヘルプ</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestroは、MiyaraHub Technologies LLCが提供する独立したアプリであり、Denon、Marantz、D&amp;M Holdings、Sound United、およびこのページに記載されたその他の企業と提携、承認、後援の関係にはありません。Denon、Marantz、HEOS、Audyssey、Dirac Liveは、それぞれの所有者の商標であり、ここでは識別の目的でのみ使用しています。</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

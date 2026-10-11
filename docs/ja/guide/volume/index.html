@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>音量制限、電源オン時の音量&amp;ミュート深度 - AVR Maestro</title>
+<meta name="description" content="DenonやMarantzに音量制限を設定し、電源オン時の音量を選び、ミュートでどこまで下げるかを決め、音量を0～98またはデシベルで表示できます。" />
+<meta name="keywords" content="Denon volume limit app, Marantz power on level, AVR mute level -20 dB, receiver volume in decibels app, Denon volume scale absolute relative, protect speakers volume limit" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/ja/guide/volume/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/volume/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/volume/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/volume/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/volume/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/volume/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:title" content="音量制限、電源オン時の音量&amp;ミュート深度 - AVR Maestro" />
+<meta property="og:description" content="DenonやMarantzに音量制限を設定し、電源オン時の音量を選び、ミュートでどこまで下げるかを決め、音量を0～98またはデシベルで表示できます。" />
+<meta property="og:url" content="https://avrmaestro.com/ja/guide/volume/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="音量制限、電源オン時の音量&amp;ミュート深度 - AVR Maestro" />
+<meta name="twitter:description" content="DenonやMarantzに音量制限を設定し、電源オン時の音量を選び、ミュートでどこまで下げるかを決め、音量を0～98またはデシベルで表示できます。" />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestroは、ローカルネットワーク経由でDenonとMarantzのAVレシーバーを操作する独立系アプリです。",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/volume/#article",
+      "headline": "音量コントロール：上限、起動時の音量、そして思いどおりのミュート",
+      "description": "DenonやMarantzに音量制限を設定し、電源オン時の音量を選び、ミュートでどこまで下げるかを決め、音量を0～98またはデシベルで表示できます。",
+      "image": "https://avrmaestro.com/screenshots/volume-controls.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/volume/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/volume/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "音量制限は物理リモコンにも適用されますか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい。この制限はアプリの設定ではなくレシーバーの設定なので、アプリ、付属のリモコン、フロントパネルのダイヤル、ネットワーク上のその他のコントローラーなど、すべての操作経路に適用されます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "これらの設定はZone 2とZone 3にも適用されますか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "音量コントロールの対象はメインゾーンです。各ゾーンには、それぞれ独自の音量、電源、入力があり、ゾーンタブで操作します。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "レビューではデシベルで書かれているのに、アプリが0～98と表示するのはなぜですか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "同じダイヤルを別の見方で表示しているだけです。音量スケールを-79.5～18.0 dBに切り替えると、0.0 dBがリファレンスとなる、キャリブレーションレベルの一般的な表記と同じ表示になります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "スマートフォンの音量ボタンを使えますか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい、AndroidでもiPhoneでも使えます。AVR Maestroが前面にある間は、デバイスの音量ボタンでレシーバーを直接操作でき、1回押すごとに1ステップ、押し続けるとランプ状に変化します。設定のオーディオにあるスイッチで、ボタンをデバイスに戻すこともできます。"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ホーム",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ユーザーガイド",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "音量コントロール",
+      "item": "https://avrmaestro.com/guide/volume/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/ja/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="メニュー" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="ガイドを検索..." data-i18n-empty="一致する結果がありません:" data-i18n-language="言語">
+      <a href="/ja/">ホーム</a>
+      <a href="/ja/guide/">ユーザーガイド</a>
+      <a href="/ja/receivers/">対応レシーバー</a>
+      <a href="/ja/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ja/best-denon-marantz-app/">乗り換える理由</a>
+      <a href="/ja/#top" class="cta">ダウンロード</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/ja/">ホーム</a> &rsaquo; <a href="/ja/guide/">ユーザーガイド</a> &rsaquo; 音量コントロール</div>
+    <div class="eyebrow">設定 &rsaquo; 音量コントロール</div>
+    <h1>音量コントロール：上限、起動時の音量、そして<span class="g">思いどおりのミュート</span></h1>
+    <p>レシーバーが出せる最大音量、起動時の動作、ミュートでどこまで下げるかを決める4つの設定です。これらはレシーバー側に保存されるため、アプリ、物理リモコン、フロントパネルのどれで操作しても有効です。</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">設定の場所</div>
+        <h2>設定 &rsaquo; 音量コントロール</h2>
+        <p class="lead"><b>設定</b>を開いて<b>音量コントロール</b>までスクロールしてください(「音量制限、電源オン時の音量、ミュート深度」)。このページの内容はすべてレシーバーに直接書き込まれるため、アプリを閉じても保持され、あらゆる操作方法に適用されます。</p>
+      </div>
+      <img alt="音量スケール、制限、電源オン時の音量、ミュートレベルを備えた音量コントロールページ" src="/screenshots/volume-controls.png" width="1324" height="2644" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ひとつずつ</div>
+      <h2>各設定の役割</h2>
+    </div>
+
+    <h3 style="margin-top:26px">音量スケール</h3>
+    <p class="lead">画面上でも、レシーバー本体のディスプレイ上でも、音量の表示方法を決めます。<b>0～98</b>は多くの方がご存じの相対スケール、<b>-79.5～18.0 dB</b>は0.0 dBがリファレンスレベルとなる絶対スケールです。レビューで「-15 dB」と書かれていて、自分のダイヤルのどこにあたるのか迷ったことがあれば、その答えを出してくれるのがこのスイッチです。</p>
+
+    <h3 style="margin-top:26px">音量制限</h3>
+    <p class="lead">絶対的な上限です。設定すると、<b>何をしても</b>それを超えることはありません。アプリでも物理リモコンでもフロントパネルのダイヤルでも同じで、制限はアプリではなくレシーバーに保存されているからです。誤タップからスピーカーや周りの人を守るのが主な使い道で、来客にリモコンを渡す前にまず設定したい項目です。<b>オフ</b>にすると上限がなくなります。</p>
+
+    <h3 style="margin-top:26px">電源オン時の音量</h3>
+    <p class="lead"><b>前回の音量を使用</b>は初期設定でオンです。レシーバーは、電源を切ったときの音量で起動します。オフにすると固定の音量を指定できるので、夜遅くに大音量で楽しんでも、翌朝の起動時に驚くことはありません。</p>
+
+    <h3 style="margin-top:26px">ミュートレベル</h3>
+    <p class="lead">ミュートで音量をどこまで下げるかを決めます。<b>フル</b>は完全に無音にします。<b>-40 dB</b>と<b>-20 dB</b>は無音にせず減衰させるだけなので、映画を見ながら会話をしても、話の流れを見失わずに済みます。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">アプリの他の場所では</div>
+      <h2>毎日使うコントロール</h2>
+    </div>
+    <ul class="plain">
+      <li><b>ホームダッシュボード</b>には、メインゾーンのマスター音量、ミュート、電源があります。</li>
+      <li><b>リモコンタブ</b>には、十字キーとトランスポートキーの横に音量ロッカーがあり、操作中のレベルが表示されます。<a href="/ja/guide/remote/">リモコンガイド &rarr;</a></li>
+      <li><b>すべての音量の＋/－ボタン</b>(ホームダッシュボード、ゾーンカード、リモコンタブ)は、タップで1ステップ動き、押し続けると物理リモコンと同じようにステップを繰り返します。指を離せば、1ステップ以内に止まります。</li>
+      <li><b>スマートフォンの音量ボタン</b>は、AndroidでもiPhoneでも、アプリが前面にある間はレシーバーを操作します。手元を見なくても調整でき、長押しでランプ状に変化します。</li>
+      <li><b>各ゾーン</b>には、メインとは独立した音量があります。<a href="/ja/guide/multi-zone/">ゾーンガイド &rarr;</a></li>
+      <li><b>シーン</b>はマスター音量を記録できるので、シーンを呼び出すと、ほかの設定と一緒にレベルも設定されます。<a href="/ja/guide/scenes/">シーンガイド &rarr;</a></li>
+      <li>テレビの<b>画面上の音量表示</b>は、移動したり完全にオフにしたりできます。<a href="/ja/guide/on-screen-display/">オンスクリーンディスプレイガイド &rarr;</a></li>
+    </ul>
+    <div class="note">音量の変更は、1ピクセルごとに送信するのではなく、意図的に間隔を調整して送られます。そのため、ロッカーを押し続けたりスライダーをなぞったりしても、レシーバーにコマンドが溜まって遅れて反映されることなく、なめらかに変化します。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">よくある質問</div>
+      <h2>音量のよくある質問</h2>
+    </div>
+    <details open><summary>音量制限は物理リモコンにも適用されますか?</summary><div class="body">はい。この制限はアプリの設定ではなくレシーバーの設定なので、アプリ、付属のリモコン、フロントパネルのダイヤル、ネットワーク上のその他のコントローラーなど、すべての操作経路に適用されます。</div></details>
+    <details><summary>これらの設定はZone 2とZone 3にも適用されますか?</summary><div class="body">音量コントロールの対象はメインゾーンです。各ゾーンには、それぞれ独自の音量、電源、入力があり、ゾーンタブで操作します。</div></details>
+    <details><summary>レビューではデシベルで書かれているのに、アプリが0～98と表示するのはなぜですか?</summary><div class="body">同じダイヤルを別の見方で表示しているだけです。音量スケールを-79.5～18.0 dBに切り替えると、0.0 dBがリファレンスとなる、キャリブレーションレベルの一般的な表記と同じ表示になります。</div></details>
+    <details><summary>スマートフォンの音量ボタンを使えますか?</summary><div class="body">はい、AndroidでもiPhoneでも使えます。AVR Maestroが前面にある間は、デバイスの音量ボタンでレシーバーを直接操作でき、1回押すごとに1ステップ、押し続けるとランプ状に変化します。設定のオーディオにあるスイッチで、ボタンをデバイスに戻すこともできます。</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ガイドをもっと見る</div>
+      <h2>AVR Maestroのその他のガイド</h2>
+    </div>
+    <p class="lead"><a href="/ja/guide/getting-started/">はじめに</a> &middot; <a href="/ja/guide/home/">ホーム画面</a> &middot; <a href="/ja/guide/scenes/">シーン</a> &middot; <a href="/ja/guide/custom-icons/">カスタムアイコン</a> &middot; <a href="/ja/guide/sound/">サウンド</a> &middot; <a href="/ja/guide/graphic-eq/">グラフィックEQ</a> &middot; <a href="/ja/guide/speakers/">スピーカー</a> &middot; <a href="/ja/guide/locked-controls/">コントロールがロックされる理由</a> &middot; <a href="/ja/guide/assistant/">アシスタント</a> &middot; <a href="/ja/guide/home-automation/">ホームオートメーション</a> &middot; <a href="/ja/guide/home-assistant-dashboard/">Home Assistantダッシュボード</a> &middot; <a href="/ja/guide/multi-zone/">ゾーン</a> &middot; <a href="/ja/guide/remote/">リモコン</a> &middot; <a href="/ja/guide/radio/">ラジオ(FM/AM)</a> &middot; <a href="/ja/guide/on-screen-display/">オンスクリーンディスプレイ</a> &middot; <a href="/ja/guide/settings/">設定</a> &middot; <a href="/ja/guide/languages/">対応言語</a> &middot; <a href="/ja/guide/backup/">バックアップ&amp;復元</a> &middot; <a href="/ja/guide/now-playing/">再生中&amp;HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>上限を一度設定すれば、あとは安心</h2>
+    <p class="lead" style="margin:0 auto 24px">買い切り、広告なし、サブスクリプションなし。1分足らずで接続できます。</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Google Playで手に入れよう" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="App Storeからダウンロード" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Mac App Storeからダウンロード" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Microsoft Storeで入手" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/ja/guide/">ユーザーガイド全体に戻る &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/ja/">ホーム</a>
+      <a href="/ja/guide/">ユーザーガイド</a>
+      <a href="/ja/guide/getting-started/">はじめに</a>
+      <a href="/ja/receivers/">対応レシーバー</a>
+      <a href="/ja/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ja/audyssey-vs-dirac/">AudysseyとDirac</a>
+      <a href="/ja/best-denon-marantz-app/">乗り換える理由</a>
+      <a href="/ja/help/">ヘルプ</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestroは、MiyaraHub Technologies LLCが提供する独立したアプリであり、Denon、Marantz、D&amp;M Holdings、Sound United、およびこのページに記載されたその他の企業と提携、承認、後援の関係にはありません。Denon、Marantz、HEOS、Audyssey、Dirac Liveは、それぞれの所有者の商標であり、ここでは識別の目的でのみ使用しています。</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

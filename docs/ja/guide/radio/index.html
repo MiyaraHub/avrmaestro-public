@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FM/AMチューナーをスマートフォンから操作 - AVR Maestro</title>
+<meta name="description" content="チューナー内蔵のDenon・Marantzレシーバー向けの本格的なFM/AMラジオ。バンドと選局モード、周波数による選局、名前付きプリセットをスマートフォンから操作できます。" />
+<meta name="keywords" content="FM AM tuner app, AV receiver radio app, Denon tuner app, Marantz tuner app, receiver radio presets app, control receiver radio from phone, FM tuner controller" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/ja/guide/radio/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/radio/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/radio/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/radio/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/radio/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/radio/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:title" content="FM/AMチューナーをスマートフォンから操作 - AVR Maestro" />
+<meta property="og:description" content="チューナー内蔵のDenon・Marantzレシーバー向けの本格的なFM/AMラジオ。バンドと選局モード、周波数による選局、名前付きプリセットをスマートフォンから操作できます。" />
+<meta property="og:url" content="https://avrmaestro.com/ja/guide/radio/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="FM/AMチューナーをスマートフォンから操作 - AVR Maestro" />
+<meta name="twitter:description" content="チューナー内蔵のDenon・Marantzレシーバー向けの本格的なFM/AMラジオ。バンドと選局モード、周波数による選局、名前付きプリセットをスマートフォンから操作できます。" />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestroは、ローカルネットワーク経由でDenonとMarantzのAVレシーバーを操作する独立系アプリです。",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/radio/#article",
+      "headline": "名前付きプリセットに対応した本格的なFM/AMラジオ",
+      "description": "チューナー内蔵のDenon・Marantzレシーバー向けの本格的なFM/AMラジオ。バンドと選局モード、周波数による選局、名前付きプリセットをスマートフォンから操作できます。",
+      "image": "https://avrmaestro.com/screenshots/radio.png",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/radio/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/radio/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "アプリからFM/AMラジオを操作できますか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい。チューナー内蔵のレシーバーなら、バンド・周波数・プリセットのライブ表示、FM/AMの切り替え、オートまたはマニュアルの選局、周波数へ直接ジャンプするキーパッド、プリセットグリッドを利用できます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "プリセットに名前を付けられますか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい。スロットを長押しすると、現在の局を保存したり、ラベル(「Jazz 88」「NPR」など)を追加・変更したり、消去したりできます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ラジオタブが表示されないのはなぜですか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ラジオタブは、チューナー内蔵のレシーバーでのみ表示されます。お使いの本体に搭載されている場合は、チューナーが入力として表示されていることを確認し、「設定」の「ナビゲーションをカスタマイズ」からタブを再度有効にしてください。"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ホーム",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ユーザーガイド",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "ラジオ",
+      "item": "https://avrmaestro.com/guide/radio/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/ja/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="メニュー" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="ガイドを検索..." data-i18n-empty="一致する結果がありません:" data-i18n-language="言語">
+      <a href="/ja/">ホーム</a>
+      <a href="/ja/guide/">ユーザーガイド</a>
+      <a href="/ja/receivers/">対応レシーバー</a>
+      <a href="/ja/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ja/best-denon-marantz-app/">乗り換える理由</a>
+      <a href="/ja/#top" class="cta">ダウンロード</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero split">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="/ja/">ホーム</a> &rsaquo; <a href="/ja/guide/">ユーザーガイド</a> &rsaquo; ラジオ</div>
+      <div class="eyebrow">FM/AMチューナー</div>
+      <h1>名前付きプリセットに対応した本格的なFM/AM<span class="g">ラジオ</span></h1>
+      <p>チューナー内蔵のDenon・Marantzレシーバーなら、AVR Maestroで本格的なFM/AMラジオの操作画面を使えます。局カードには現在のバンド、周波数、選択中のプリセットが表示され、レシーバーの状態にリアルタイムで追従します。</p>
+    </div>
+    <div class="hero-shot"><img alt="AVR MaestroのFM/AMチューナー" src="/screenshots/radio.png" width="1324" height="2648" fetchpriority="high" /></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">使い方</div>
+      <h2>選局、スキャン、保存</h2>
+    </div>
+    <ul class="plain">
+      <li><b>バンド:</b>FM / AM。<b>選局モード:</b>オート(次の強い局までスキャン)またはマニュアル(バンドの刻み幅で移動)。</li>
+      <li><b>選局:</b>2つの選局ボタンでダイヤルを1ステップずつ動かします。<b>周波数を入力</b>でキーパッドを開き、目的の局へ直接ジャンプできます(マニュアルモードが必要です)。</li>
+      <li><b>プリセット:</b>プリセットスロットのグリッドと上下ステッパー。スロットを<b>長押し</b>すると、<b>現在の局を保存</b>、<b>ラベルを追加 / 変更</b>(「Jazz 88」「NPR」など)、<b>ラベルを消去</b>が行えます。</li>
+    </ul>
+    <div class="note">ラジオタブが非表示の場合は、<i>設定 &rarr; ナビゲーションをカスタマイズ</i>から再度追加してください。レシーバーがチューナーを公開している場合にのみ表示されます。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">よくある質問</div>
+      <h2>チューナーのよくある質問</h2>
+    </div>
+    <details open><summary>アプリからFM/AMラジオを操作できますか?</summary><div class="body">はい。チューナー内蔵のレシーバーなら、バンド・周波数・プリセットのライブ表示、FM/AMの切り替え、オートまたはマニュアルの選局、周波数へ直接ジャンプするキーパッド、プリセットグリッドを利用できます。</div></details>
+    <details><summary>プリセットに名前を付けられますか?</summary><div class="body">はい。スロットを長押しすると、現在の局を保存したり、ラベル(「Jazz 88」「NPR」など)を追加・変更したり、消去したりできます。</div></details>
+    <details><summary>ラジオタブが表示されないのはなぜですか?</summary><div class="body">ラジオタブは、チューナー内蔵のレシーバーでのみ表示されます。お使いの本体に搭載されている場合は、チューナーが入力として表示されていることを確認し、「設定」の「ナビゲーションをカスタマイズ」からタブを再度有効にしてください。</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ガイドをもっと見る</div>
+      <h2>AVR Maestroのその他のガイド</h2>
+    </div>
+    <p class="lead"><a href="/ja/guide/getting-started/">はじめに</a> &middot; <a href="/ja/guide/home/">ホーム画面</a> &middot; <a href="/ja/guide/scenes/">シーン</a> &middot; <a href="/ja/guide/custom-icons/">カスタムアイコン</a> &middot; <a href="/ja/guide/sound/">サウンド</a> &middot; <a href="/ja/guide/graphic-eq/">グラフィックEQ</a> &middot; <a href="/ja/guide/speakers/">スピーカー</a> &middot; <a href="/ja/guide/locked-controls/">コントロールがロックされる理由</a> &middot; <a href="/ja/guide/assistant/">アシスタント</a> &middot; <a href="/ja/guide/home-automation/">ホームオートメーション</a> &middot; <a href="/ja/guide/home-assistant-dashboard/">Home Assistantダッシュボード</a> &middot; <a href="/ja/guide/multi-zone/">ゾーン</a> &middot; <a href="/ja/guide/remote/">リモコン</a> &middot; <a href="/ja/guide/on-screen-display/">オンスクリーンディスプレイ</a> &middot; <a href="/ja/guide/settings/">設定</a> &middot; <a href="/ja/guide/languages/">対応言語</a> &middot; <a href="/ja/guide/volume/">音量コントロール</a> &middot; <a href="/ja/guide/backup/">バックアップ&amp;復元</a> &middot; <a href="/ja/guide/now-playing/">再生中&amp;HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>レシーバーのラジオを、スマートフォンに</h2>
+    <p class="lead" style="margin:0 auto 24px">買い切り、広告なし、サブスクリプションなし。1分足らずで接続できます。</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Google Playで手に入れよう" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="App Storeからダウンロード" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Mac App Storeからダウンロード" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Microsoft Storeで入手" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/ja/guide/">ユーザーガイド全体に戻る &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/ja/">ホーム</a>
+      <a href="/ja/guide/">ユーザーガイド</a>
+      <a href="/ja/guide/getting-started/">はじめに</a>
+      <a href="/ja/receivers/">対応レシーバー</a>
+      <a href="/ja/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ja/audyssey-vs-dirac/">AudysseyとDirac</a>
+      <a href="/ja/best-denon-marantz-app/">乗り換える理由</a>
+      <a href="/ja/help/">ヘルプ</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestroは、MiyaraHub Technologies LLCが提供する独立したアプリであり、Denon、Marantz、D&amp;M Holdings、Sound United、およびこのページに記載されたその他の企業と提携、承認、後援の関係にはありません。Denon、Marantz、HEOS、Audyssey、Dirac Liveは、それぞれの所有者の商標であり、ここでは識別の目的でのみ使用しています。</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

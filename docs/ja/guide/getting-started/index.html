@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>スマートフォンからDenonやMarantzを操作 - AVR Maestro</title>
+<meta name="description" content="AVR Maestroを始めましょう。5ステップのウェルカムガイドが、ネットワーク上のDenonまたはMarantzのレシーバーを見つけ、アプリを案内し、最初のシーンを作成します。" />
+<meta name="keywords" content="how to control Denon receiver from phone, how to control Marantz from phone, connect AVR Maestro to receiver, Denon network control setup, Marantz network standby, control AV receiver over wifi, add receiver AVR Maestro" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/ja/guide/getting-started/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/getting-started/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/getting-started/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/getting-started/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/getting-started/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/getting-started/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:title" content="スマートフォンからDenonやMarantzを操作 - AVR Maestro" />
+<meta property="og:description" content="AVR Maestroを始めましょう。5ステップのウェルカムガイドが、ネットワーク上のDenonまたはMarantzのレシーバーを見つけ、アプリを案内し、最初のシーンを作成します。" />
+<meta property="og:url" content="https://avrmaestro.com/ja/guide/getting-started/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="スマートフォンからDenonやMarantzを操作 - AVR Maestro" />
+<meta name="twitter:description" content="AVR Maestroを始めましょう。5ステップのウェルカムガイドが、ネットワーク上のDenonまたはMarantzのレシーバーを見つけ、アプリを案内し、最初のシーンを作成します。" />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestroは、ローカルネットワーク経由でDenonとMarantzのAVレシーバーを操作する独立系アプリです。",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/getting-started/#article",
+      "headline": "スマートフォンからDenonやMarantzを操作",
+      "description": "AVR Maestroを始めましょう。5ステップのウェルカムガイドが、ネットワーク上のDenonまたはMarantzのレシーバーを見つけ、アプリを案内し、最初のシーンを作成します。",
+      "image": "https://avrmaestro.com/screenshots/dashboard.png",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-10-09",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/getting-started/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "AVR Maestroでスマートフォンから、DenonまたはMarantzのレシーバーを操作する方法",
+  "totalTime": "PT1M",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "同じネットワークに接続する",
+      "text": "スマートフォンを、レシーバーと同じWi-Fiネットワークに接続します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "ネットワークコントロールを有効にする",
+      "text": "レシーバーで、セットアップ、一般、ネットワークの順に開き、ネットワークスタンバイ/ネットワークコントロールをオンにします。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "AVR Maestroにレシーバーを追加する",
+      "text": "AVR Maestroを開き、「レシーバーを追加」をタップします。画面がネットワークをスキャンし、応答したDenonとMarantzのレシーバーをすべて一覧表示します。お使いのものをタップし、検出されたモデルを確認して保存します。何も応答しない場合は、セットアップ、一般、ネットワーク、情報に表示されるレシーバーのIPアドレスを入力してください。"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ホーム",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ユーザーガイド",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "はじめに",
+      "item": "https://avrmaestro.com/guide/getting-started/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/ja/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="メニュー" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="ガイドを検索..." data-i18n-empty="一致する結果がありません:" data-i18n-language="言語">
+      <a href="/ja/">ホーム</a>
+      <a href="/ja/guide/">ユーザーガイド</a>
+      <a href="/ja/receivers/">対応レシーバー</a>
+      <a href="/ja/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ja/best-denon-marantz-app/">乗り換える理由</a>
+      <a href="/ja/#top" class="cta">ダウンロード</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/ja/">ホーム</a> &rsaquo; <a href="/ja/guide/">ユーザーガイド</a> &rsaquo; はじめに</div>
+    <div class="eyebrow">はじめに</div>
+    <h1>スマートフォンから<span class="g">DenonやMarantz</span>を操作</h1>
+    <p>AVR Maestroは、ネイティブプロトコルを使ってローカルネットワーク経由でレシーバーと通信します。クラウドアカウントも追加のハードウェアも不要です。短いウェルカムガイドに従えば、数分で接続して最初のシーンを作成できます。</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">初回起動</div>
+      <h2>セットアップを進める5ステップのウェルカムガイド</h2>
+      <p class="lead">AVR Maestroを初めて開くと、短いガイドがゼロから最初のシーンまで案内します。上部のバーで進み具合が分かり、<b>戻る</b>で前のどのステップにも戻れます。自分で試したい場合は、いつでも<b>スキップ</b>できます。</p>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="5ステップ中の1: AVR Maestroへようこそ。アプリでできることとできないこと" src="/screenshots/onboarding-welcome.png" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ol class="steps">
+          <li><b>ようこそ。</b>AVR Maestroは、ご自宅のネットワークを通じてDenonやMarantzをフルにコントロールでき、クラウドを一切経由しません。できないことも明確にしています。独立したアプリであり、キャリブレーションツールでもストリーミングアプリでもないので、始める前に何を期待できるかが分かります。</li>
+        </ol>
+      </div>
+    </div>
+    <div class="feat rev">
+      <div class="shots"><img alt="5ステップ中の2: レシーバー。ネットワーク上でMarantz CINEMA 30が見つかった状態" src="/screenshots/onboarding-receivers.png" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ol class="steps" start="2" style="counter-reset:s 1">
+          <li><b>レシーバー。</b>アプリがネットワークをスキャンし、見つかったレシーバーをすべて一覧表示します。お使いのものをタップして追加してください。複数台ある場合は、さらに追加できます。何も表示されませんか?<b>IPアドレスで追加</b>を使うか、<b>代わりにデモを試す</b>をタップして、すぐに試せるシーンが用意されたデモ用レシーバーで操作を体験してください。</li>
+        </ol>
+      </div>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="5ステップ中の3: 各機能の場所。ホーム、サウンド、シーンを表示" src="/screenshots/onboarding-tabs.png" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ol class="steps" start="3" style="counter-reset:s 2">
+          <li><b>各機能の場所。</b>アプリの簡単な案内図です。<b>ホーム</b>は全ゾーンの電源、音量、入力、<b>サウンド</b>はサウンドモード、Audyssey、Dirac、<b>シーン</b>は保存したセットアップです。</li>
+        </ol>
+      </div>
+    </div>
+    <div class="feat rev">
+      <div class="shots"><img alt="5ステップ中の4: シーン。最初のシーンを作成し、シーンがSmart Selectを超える理由" src="/screenshots/onboarding-scenes.png" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ol class="steps" start="4" style="counter-reset:s 3">
+          <li><b>シーン。</b>ワンタップでシーンができること、そしてレシーバー標準のSmart SelectやQuick Selectのスロットをどう超えるのかを紹介します。最大20個のシーン、ホーム画面のウィジェットとショートカット、そしてレシーバーがすべての設定を本当に反映したかどうかを後から確認する機能です。<b>最初のシーンを作成</b>をタップすると、<a href="/ja/guide/scenes/">ガイド付き</a>のシーンビルダーがその場で開きます。</li>
+        </ol>
+      </div>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="5ステップ中の5: 準備完了。サポートとコミュニティ、ログの共有方法を表示" src="/screenshots/onboarding-support.png" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ol class="steps" start="5" style="counter-reset:s 4">
+          <li><b>準備完了です。</b>ヘルプの入手先として、Discordコミュニティとフェイスブックのサポートグループを案内します。うまくいかない場合は、<i>設定 &rarr; アプリについて &rarr; 関連するすべてのログ</i>からログを共有する方法も確認できます。</li>
+        </ol>
+        <div class="note">もう一度ツアーを見たい、あるいは新しいレシーバーにアプリをセットアップしたいときは、<i>設定 &rarr; ウェルカム&amp;セットアップガイド</i>をいつでも開いてください。<a href="/ja/guide/settings/">設定</a>もご覧ください。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="eyebrow">始める前に</div>
+        <h2>必要なもの</h2>
+        <ul class="plain">
+          <li>レシーバーと<b>同じネットワーク</b>上にある、iPhone、iPad、Mac、Androidのスマートフォンまたはタブレット、あるいはWindows PC。</li>
+          <li>アプリが電源を入れて接続できるよう、<b>ネットワークスタンバイ</b>を有効にしたレシーバーの電源が入っていること(<i>セットアップ &rarr; 一般 &rarr; ネットワーク &rarr; ネットワークコントロール &rarr; オン</i>)。</li>
+          <li>それ以外は不要です。アプリがネットワーク上のレシーバーを自動で見つけます。ネットワークの設定で機器同士が見えない場合は、代わりにレシーバーの<b>IPアドレス</b>(<i>セットアップ &rarr; 一般 &rarr; ネットワーク &rarr; 情報</i>)を使います。</li>
+          <li>オプション: <b>Wake-on-LAN</b>を有効にすると、完全なスタンバイ状態からレシーバーの電源を入れられます。</li>
+        </ul>
+      </div>
+      <div>
+        <div class="eyebrow">後からレシーバーを追加する</div>
+        <h2>レシーバーが複数台ありますか?</h2>
+        <ol class="steps">
+          <li><i>設定 &rarr; デバイス</i>を開き、<b>レシーバーを追加</b>をタップします。</li>
+          <li>画面がネットワークをスキャンし、応答したDenonとMarantzのレシーバーをすべて一覧表示します。お使いのものをタップし(何も応答しない場合はIPアドレスを入力し)、アプリがHTTP、Telnet、HEOSを確認します。</li>
+          <li>検出されたモデルと機能を確認して、保存します。</li>
+          <li>レシーバーの切り替えは、<i>設定 &rarr; デバイス</i>からいつでも行えます。アプリが記憶しているのはアドレスではなくレシーバー自体です。ルーターによってアドレスが変わっても、アプリが追従し、一度だけお知らせします。</li>
+        </ol>
+      </div>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px;margin:34px auto 0">
+      <figure><img alt="上部に接続中のレシーバー、デバイスの下にレシーバーを追加が表示された設定画面" src="/screenshots/settings-main.png" width="1324" height="2644" decoding="async" /><figcaption>設定 &rsaquo; デバイス &rsaquo; レシーバーを追加</figcaption></figure>
+      <figure><img alt="レシーバーが接続され、音量、ソース、サウンドモードが表示されたホーム画面" src="/screenshots/dashboard.png" width="1324" height="2644" loading="lazy" decoding="async" /><figcaption>接続済み、ホーム画面にて</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">トラブルシューティング</div>
+      <h2>接続できない場合</h2>
+    </div>
+    <details open><summary>「接続をテスト」が失敗する</summary><div class="body">スマートフォンとレシーバーが同じWi-Fiネットワークとサブネットにあることを確認してください。メッシュシステム、ゲストネットワーク、IoT用のVLANでは、機器同士が分離されることがあります。レシーバー側では、<i>セットアップ &rarr; ネットワーク &rarr; ネットワークコントロール</i>がオンになっている必要があります。DHCPで割り当てられるアドレスは変わるため、レシーバー自身の<i>ネットワーク &rarr; 情報</i>画面でIPアドレスをもう一度確認してください。HTTPは必須で、TelnetとHEOSはあれば望ましい程度です。レシーバーは応答しているのに動作が遅い場合、アプリはアドレスが間違っているとは判断せず、<b>ネットワークが混み合っている可能性</b>をお伝えします。ブラウザーまたは純正アプリでレシーバーが読み込めることを確認し、電源を入れ直してネットワークスタックをクリアしてください。</div></details>
+    <details><summary>数秒おきに接続が切れる</summary><div class="body">長時間稼働し続けると、レシーバーのTelnetポートが固まることがあります。コンセントから電源を抜いて入れ直し、リスナーをクリアしてください。Wi-Fi 6のメッシュ環境では、スマートフォンをレシーバーと同じ帯域に切り替えてください(AVRは通常2.4 GHzで動作し、スマートフォンは5 GHzを優先します)。</div></details>
+    <details><summary>レシーバーが対応しているかどうか、どう確認できますか?</summary><div class="body">モデルだけでなく、ネットワークの状態次第です。レシーバーのWebポータル、HEOSアプリ、Denon/Marantzの純正アプリのすべてから接続できるなら、AVR Maestroからも接続できるはずです。対応モデルの一覧は<a href="/ja/receivers/">対応レシーバー</a>のページをご覧ください。</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ガイドをもっと見る</div>
+      <h2>AVR Maestroのその他のガイド</h2>
+    </div>
+    <p class="lead"><a href="/ja/guide/home/">ホーム画面</a> &middot; <a href="/ja/guide/scenes/">シーン</a> &middot; <a href="/ja/guide/custom-icons/">カスタムアイコン</a> &middot; <a href="/ja/guide/sound/">サウンド</a> &middot; <a href="/ja/guide/graphic-eq/">グラフィックEQ</a> &middot; <a href="/ja/guide/speakers/">スピーカー</a> &middot; <a href="/ja/guide/locked-controls/">コントロールがロックされる理由</a> &middot; <a href="/ja/guide/assistant/">アシスタント</a> &middot; <a href="/ja/guide/home-automation/">ホームオートメーション</a> &middot; <a href="/ja/guide/home-assistant-dashboard/">Home Assistantダッシュボード</a> &middot; <a href="/ja/guide/multi-zone/">ゾーン</a> &middot; <a href="/ja/guide/remote/">リモコン</a> &middot; <a href="/ja/guide/radio/">ラジオ(FM/AM)</a> &middot; <a href="/ja/guide/on-screen-display/">オンスクリーンディスプレイ</a> &middot; <a href="/ja/guide/settings/">設定</a> &middot; <a href="/ja/guide/languages/">対応言語</a> &middot; <a href="/ja/guide/volume/">音量コントロール</a> &middot; <a href="/ja/guide/backup/">バックアップ&amp;復元</a> &middot; <a href="/ja/guide/now-playing/">再生中&amp;HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>接続しましょう</h2>
+    <p class="lead" style="margin:0 auto 24px">買い切り、広告なし、サブスクリプションなし。レシーバーの設定がネットワークの外に出ることもありません。</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Google Playで手に入れよう" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="App Storeからダウンロード" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Mac App Storeからダウンロード" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Microsoft Storeで入手" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/ja/guide/">ユーザーガイド全体に戻る &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/ja/">ホーム</a>
+      <a href="/ja/guide/">ユーザーガイド</a>
+      <a href="/ja/guide/getting-started/">はじめに</a>
+      <a href="/ja/receivers/">対応レシーバー</a>
+      <a href="/ja/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ja/audyssey-vs-dirac/">AudysseyとDirac</a>
+      <a href="/ja/best-denon-marantz-app/">乗り換える理由</a>
+      <a href="/ja/help/">ヘルプ</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestroは、MiyaraHub Technologies LLCが提供する独立したアプリであり、Denon、Marantz、D&amp;M Holdings、Sound United、およびこのページに記載されたその他の企業と提携、承認、後援の関係にはありません。Denon、Marantz、HEOS、Audyssey、Dirac Liveは、それぞれの所有者の商標であり、ここでは識別の目的でのみ使用しています。</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FM/AM-Tunersteuerung vom Smartphone - AVR Maestro</title>
+<meta name="description" content="Ein richtiges FM/AM-Radio für Denon und Marantz Receiver mit eingebautem Tuner: Wellenbereich und Suchlaufmodus, Frequenzeingabe und benannte Senderspeicher auf dem Smartphone." />
+<meta name="keywords" content="FM AM tuner app, AV receiver radio app, Denon tuner app, Marantz tuner app, receiver radio presets app, control receiver radio from phone, FM tuner controller" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/de/guide/radio/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/radio/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/radio/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/radio/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/radio/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/radio/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="de_DE" />
+<meta property="og:title" content="FM/AM-Tunersteuerung vom Smartphone - AVR Maestro" />
+<meta property="og:description" content="Ein richtiges FM/AM-Radio für Denon und Marantz Receiver mit eingebautem Tuner: Wellenbereich und Suchlaufmodus, Frequenzeingabe und benannte Senderspeicher auf dem Smartphone." />
+<meta property="og:url" content="https://avrmaestro.com/de/guide/radio/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="FM/AM-Tunersteuerung vom Smartphone - AVR Maestro" />
+<meta name="twitter:description" content="Ein richtiges FM/AM-Radio für Denon und Marantz Receiver mit eingebautem Tuner: Wellenbereich und Suchlaufmodus, Frequenzeingabe und benannte Senderspeicher auf dem Smartphone." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro ist eine unabhängige App zur Steuerung von Denon- und Marantz-AV-Receivern über Ihr lokales Netzwerk.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/radio/#article",
+      "headline": "Ein echtes FM/AM-Radio mit benannten Senderspeichern",
+      "description": "Ein richtiges FM/AM-Radio für Denon und Marantz Receiver mit eingebautem Tuner: Wellenbereich und Suchlaufmodus, Frequenzeingabe und benannte Senderspeicher auf dem Smartphone.",
+      "image": "https://avrmaestro.com/screenshots/radio.png",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/radio/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/radio/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Kann ich das FM/AM-Radio über die App steuern?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, bei Receivern mit eingebautem Tuner - mit Live-Anzeige von Wellenbereich, Frequenz und Senderspeicher, FM/AM-Umschaltung, automatischem oder manuellem Suchlauf, einem Ziffernblock für die direkte Frequenzeingabe und einem Raster mit Senderspeichern."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann ich meine Senderspeicher benennen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja - halten Sie einen Platz gedrückt, um den aktuellen Sender zu speichern, eine Bezeichnung („Jazz 88“, „NPR“) hinzuzufügen oder umzubenennen oder den Platz zu leeren."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Warum sehe ich den Radio-Tab nicht?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Er erscheint nur bei Receivern mit eingebautem Tuner. Wenn Ihrer einen hat, prüfen Sie, ob der Tuner als Eingang angezeigt wird, und aktivieren Sie den Tab unter Einstellungen, Navigation anpassen wieder."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Start",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Benutzerhandbuch",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Radio",
+      "item": "https://avrmaestro.com/guide/radio/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/de/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menü" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Handbuch durchsuchen..." data-i18n-empty="Keine Treffer für" data-i18n-language="Sprache">
+      <a href="/de/">Start</a>
+      <a href="/de/guide/">Benutzerhandbuch</a>
+      <a href="/de/receivers/">Receiver</a>
+      <a href="/de/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/de/best-denon-marantz-app/">Warum wechseln</a>
+      <a href="/de/#top" class="cta">Herunterladen</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero split">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="/de/">Start</a> &rsaquo; <a href="/de/guide/">Benutzerhandbuch</a> &rsaquo; Radio</div>
+      <div class="eyebrow">FM/AM-Tuner</div>
+      <h1>Ein echtes FM/AM-<span class="g">Radio</span> mit benannten Senderspeichern</h1>
+      <p>Auf Denon und Marantz Receivern mit eingebautem Tuner bietet Ihnen AVR Maestro eine richtige FM/AM-Radiooberfläche. Die Senderkarte zeigt Wellenbereich, Frequenz und aktiven Senderspeicher live an und folgt dem Receiver in Echtzeit.</p>
+    </div>
+    <div class="hero-shot"><img alt="FM/AM-Tuner in AVR Maestro" src="/screenshots/radio.png" width="1324" height="2648" fetchpriority="high" /></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">So funktioniert es</div>
+      <h2>Abstimmen, suchen und speichern</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Wellenbereich:</b> FM / AM. <b>Suchlaufmodus:</b> Automatisch (Suchlauf zum nächsten starken Sender) oder Manuell (Schritte im Raster des Wellenbereichs).</li>
+      <li><b>Abstimmen:</b> die beiden Tune-Tasten verstellen die Skala schrittweise; <b>Frequenz eingeben</b> öffnet einen Ziffernblock, um direkt zu einem Sender zu springen (erfordert den manuellen Modus).</li>
+      <li><b>Senderspeicher:</b> ein Raster aus Speicherplätzen plus Auf-/Ab-Schaltflächen. Halten Sie einen Platz <b>gedrückt</b>, um den <b>aktuellen Sender zu speichern</b>, eine <b>Bezeichnung hinzuzufügen / umzubenennen</b> („Jazz 88“, „NPR“) oder die <b>Bezeichnung zu löschen</b>.</li>
+    </ul>
+    <div class="note">Ist der Radio-Tab ausgeblendet, fügen Sie ihn unter <i>Einstellungen &rarr; Navigation anpassen</i> wieder hinzu - er erscheint nur, wenn Ihr Receiver einen Tuner bereitstellt.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Häufige Fragen</div>
+      <h2>Häufige Fragen zum Tuner</h2>
+    </div>
+    <details open><summary>Kann ich das FM/AM-Radio über die App steuern?</summary><div class="body">Ja, bei Receivern mit eingebautem Tuner - mit Live-Anzeige von Wellenbereich, Frequenz und Senderspeicher, FM/AM-Umschaltung, automatischem oder manuellem Suchlauf, einem Ziffernblock für die direkte Frequenzeingabe und einem Raster mit Senderspeichern.</div></details>
+    <details><summary>Kann ich meine Senderspeicher benennen?</summary><div class="body">Ja - halten Sie einen Platz gedrückt, um den aktuellen Sender zu speichern, eine Bezeichnung („Jazz 88“, „NPR“) hinzuzufügen oder umzubenennen oder den Platz zu leeren.</div></details>
+    <details><summary>Warum sehe ich den Radio-Tab nicht?</summary><div class="body">Er erscheint nur bei Receivern mit eingebautem Tuner. Wenn Ihrer einen hat, prüfen Sie, ob der Tuner als Eingang angezeigt wird, und aktivieren Sie den Tab unter Einstellungen, Navigation anpassen wieder.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Mehr aus der Anleitung</div>
+      <h2>Weitere AVR Maestro Anleitungen</h2>
+    </div>
+    <p class="lead"><a href="/de/guide/getting-started/">Erste Schritte</a> &middot; <a href="/de/guide/home/">Startbildschirm</a> &middot; <a href="/de/guide/scenes/">Szenen</a> &middot; <a href="/de/guide/custom-icons/">Eigene Symbole</a> &middot; <a href="/de/guide/sound/">Ton</a> &middot; <a href="/de/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/de/guide/speakers/">Lautsprecher</a> &middot; <a href="/de/guide/locked-controls/">Warum ein Regler gesperrt ist</a> &middot; <a href="/de/guide/assistant/">Der Assistent</a> &middot; <a href="/de/guide/home-automation/">Hausautomation</a> &middot; <a href="/de/guide/home-assistant-dashboard/">Home Assistant Dashboard</a> &middot; <a href="/de/guide/multi-zone/">Zonen</a> &middot; <a href="/de/guide/remote/">Fernbedienung</a> &middot; <a href="/de/guide/on-screen-display/">Bildschirmmenü</a> &middot; <a href="/de/guide/settings/">Einstellungen</a> &middot; <a href="/de/guide/languages/">Sprachen</a> &middot; <a href="/de/guide/volume/">Lautstärkeregler</a> &middot; <a href="/de/guide/backup/">Sichern &amp; Wiederherstellen</a> &middot; <a href="/de/guide/now-playing/">Jetzt läuft &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Holen Sie das Radio Ihres Receivers aufs Smartphone</h2>
+    <p class="lead" style="margin:0 auto 24px">Einmaliger Kauf, keine Werbung, keine Abos. In unter einer Minute verbunden.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Jetzt bei Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Laden im App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Laden im Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Jetzt im Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/de/guide/">Zurück zur vollständigen Bedienungsanleitung &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/de/">Start</a>
+      <a href="/de/guide/">Benutzerhandbuch</a>
+      <a href="/de/guide/getting-started/">Erste Schritte</a>
+      <a href="/de/receivers/">Receiver</a>
+      <a href="/de/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/de/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/de/best-denon-marantz-app/">Warum wechseln</a>
+      <a href="/de/help/">Hilfe</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro ist eine unabhängige App von MiyaraHub Technologies LLC und steht in keiner Verbindung zu Denon, Marantz, D&amp;M Holdings, Sound United oder einem anderen auf dieser Seite genannten Unternehmen, wird von diesen weder empfohlen noch gesponsert. Denon, Marantz, HEOS, Audyssey und Dirac Live sind Marken ihrer jeweiligen Inhaber und werden hier ausschließlich zur Identifikation verwendet.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

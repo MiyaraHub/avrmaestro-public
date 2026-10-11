@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Denon&amp;Marantz向けHome Assistantダッシュボード - AVR Maestro</title>
+<meta name="description" content="DenonまたはMarantzのレシーバー用のHome Assistantダッシュボードを作成できます。HACSカード、エンティティID、すべてのカードのYAML、実際のdB音量、シーン、履歴まで網羅しています。" />
+<meta name="keywords" content="Home Assistant Denon dashboard, Marantz Home Assistant card, mushroom card AV receiver, Home Assistant receiver volume dB, denonavr dashboard, AVR Maestro Home Assistant example" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/ja/guide/home-assistant-dashboard/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-assistant-dashboard/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:title" content="Denon&amp;Marantz向けHome Assistantダッシュボード - AVR Maestro" />
+<meta property="og:description" content="DenonまたはMarantzのレシーバー用のHome Assistantダッシュボードを作成できます。HACSカード、エンティティID、すべてのカードのYAML、実際のdB音量、シーン、履歴まで網羅しています。" />
+<meta property="og:url" content="https://avrmaestro.com/ja/guide/home-assistant-dashboard/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Denon&amp;Marantz向けHome Assistantダッシュボード - AVR Maestro" />
+<meta name="twitter:description" content="DenonまたはMarantzのレシーバー用のHome Assistantダッシュボードを作成できます。HACSカード、エンティティID、すべてのカードのYAML、実際のdB音量、シーン、履歴まで網羅しています。" />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestroは、ローカルネットワーク経由でDenonとMarantzのAVレシーバーを操作する独立系アプリです。",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
+      "headline": "このHome Assistantダッシュボードを約1時間で作る",
+      "description": "DenonまたはMarantzのレシーバー用のHome Assistantダッシュボードを作成できます。HACSカード、エンティティID、すべてのカードのYAML、実際のdB音量、シーン、履歴まで網羅しています。",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "datePublished": "2026-08-23",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-assistant-dashboard/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "これを作るのにHACSのカスタムカードは必要ですか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "動かすだけなら不要です。このページのすべてのコントロールは、標準のHome Assistantボタンカードで動作します。スクリーンショットのような見た目にしているのは、Mushroom、button-card、card-mod、apexcharts-cardです。各セクションに、どれを使っているか、使わない場合に何が失われるかを記載しています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "光るボタンと光らないボタンがあるのはなぜですか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ボタンが光るのは、Home Assistantがレシーバーから対応する状態を読み取れる場合です。ソース、サラウンドモード、音量、ミュートはレシーバー自身のメディアプレーヤーエンティティから返ってくるため、ハイライトされます。Audysseyカーブ、Dirac スロット、ディマー、ECOモード、スピーカープリセットはDenonインテグレーションが公開していないため、Home Assistantにはどれが有効か分からず、タップするまでボタンは点灯しません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "パーセントの代わりに実際のdB音量を表示できますか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい。Home Assistantはvolume_levelを、レシーバーのマスター音量を100で割った値として公開しており、DenonとMarantzのレシーバーではMV 80が0 dBの基準です。つまり、dBはvolume_levelに100を掛けて80を引いた値になります。volume_levelが0.67ならマスター音量は67で、-13.0 dBです。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "このガイドのエンティティIDと同じになりますか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "パターンは同じですが、途中の部分は異なります。AVR Maestroはスクリプト名にレシーバーのMACアドレスを使うため、名前を変更しても新しいスクリプトが増えず、同じスクリプトが更新されます。お使いの環境では、script.avr_maestro_ に続けて固有の12文字、その後にコントロール名が付いた形になります。Home Assistantで開発者ツール、状態の順に開き、avr_maestroで絞り込むと、ご自身の一覧が確認できます。"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ホーム",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ユーザーガイド",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "ホームオートメーション",
+      "item": "https://avrmaestro.com/guide/home-automation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "ダッシュボード",
+      "item": "https://avrmaestro.com/guide/home-assistant-dashboard/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/ja/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="メニュー" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="ガイドを検索..." data-i18n-empty="一致する結果がありません:" data-i18n-language="言語">
+      <a href="/ja/">ホーム</a>
+      <a href="/ja/guide/">ユーザーガイド</a>
+      <a href="/ja/receivers/">対応レシーバー</a>
+      <a href="/ja/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ja/best-denon-marantz-app/">乗り換える理由</a>
+      <a href="/ja/#top" class="cta">ダウンロード</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/ja/">ホーム</a> &rsaquo; <a href="/ja/guide/">ユーザーガイド</a> &rsaquo; <a href="/ja/guide/home-automation/">ホームオートメーション</a> &rsaquo; ダッシュボード</div>
+    <div class="eyebrow">Home Assistant &middot; ステップバイステップ</div>
+    <h1>この Home Assistant ダッシュボードを<span class="g">約1時間で</span>作ろう</h1>
+    <p>10ステップ、各カードのYAML、そしてひとまとめに貼り付けられる完成ビューまで。実機の Marantz CINEMA 30 で構築し、撮影しました。2か所の文字列を書き換えるだけで、あなた専用のダッシュボードになります。</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <figure class="hero-shot">
+      <img alt="完成したダッシュボード：再生中のヒーロー表示、dBプリセット付きの音量、ソースグリッド、サラウンドモード、ルームコレクション、シーン、音量グラフ" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <figcaption>作るもの</figcaption>
+    </figure>
+    <div class="note"><b>お急ぎですか？</b> <a href="#whole">ステップ 10</a>に進んで完成ビューをダウンロードし、2か所の文字列を書き換えて貼り付けてください。途中のステップでは各パーツの役割を説明しているので、自由にカスタマイズできます。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>始める前に</h2>
+    </div>
+    <ul class="plain">
+      <li><b>AVR Maestro が Home Assistant にリンクされ、同期が完了していること。</b> <a href="/ja/guide/home-automation/">セットアップガイド</a>で手順を説明しています。何かを組み上げる前に、Home Assistant 上でコントロールが表示されていることを確認してください。</li>
+      <li><b>レシーバーが Home Assistant に追加されていること。</b>設定 &rsaquo; デバイス&amp;サービス &rsaquo; 統合を追加 &rsaquo; <b>Denon AVR</b> を選び、レシーバーのローカルIPを入力します。これがダッシュボードのライブ状態の元になります。</li>
+      <li>構築中は<b>レシーバーの電源を入れておいてください。</b>これから書く内容の半分はライブ値を読み取るもので、スタンバイ中のレシーバーはほとんど何も公開しません。</li>
+    </ul>
+    <p class="lead">このダッシュボードには2つの情報源があり、以降のすべてのステップでその違いが重要になります。</p>
+    <table class="t">
+      <thead><tr><th>取得元</th><th>得られるもの</th></tr></thead>
+      <tbody>
+        <tr><td>AVR Maestro が同期したスクリプト</td><td>あらゆる<b>コントロール</b>。入力、サラウンドモード、Audyssey、Dirac、スマートセレクト、プリセット、ディマー、エコ、そしてあなたのシーン。</td></tr>
+        <tr><td>Denon AVR 統合のメディアプレーヤーエンティティ</td><td>ライブの<b>状態</b>。電源、選択中のソース、サラウンドモード、音量、ミュート。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ステップ 1</div>
+      <h2>HACS から4つのカードをインストール</h2>
+    </div>
+    <p class="lead">4つとも HACS の標準ストアにあります。Home Assistant で<b>HACS &rsaquo; フロントエンド &rsaquo; リポジトリを探す&amp;ダウンロード</b>を開き、名前を検索してダウンロードしたら、ブラウザを再読み込みしてください。</p>
+    <table class="t">
+      <thead><tr><th>検索する名前</th><th>用途</th><th>入れない場合</th></tr></thead>
+      <tbody>
+        <tr><td><b>Mushroom</b></td><td>すべてのコントロールタイルと音量スライダー</td><td>標準の<code>button</code>カードを使います。動作はしますが、見た目は角ばります。</td></tr>
+        <tr><td><b>button-card</b></td><td>ライブラベル付きのセクション見出し</td><td><code>markdown</code>カードを使うか、通常の見出しにします。</td></tr>
+        <tr><td><b>card-mod</b></td><td>色と、アクティブなタイルの点灯表示</td><td>すべて問題なく動作します。ただ、何も点灯しません。</td></tr>
+        <tr><td><b>apexcharts-card</b></td><td>履歴グラフ</td><td>組み込みの<code>history-graph</code>カードを使います。</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><b>どれも動作に必須ではありません。</b>以下のコントロールはすべて、同じスクリプトを指す標準の Home Assistant ボタンカードだけで動きます。カスタムカードは配管ではなく、お化粧です。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ステップ 2</div>
+      <h2>2つのエンティティIDを調べる</h2>
+    </div>
+    <p class="lead">このページのすべてのスニペットは2つのプレースホルダーを使います。一度だけ自分のものを調べれば、あとはコピー＆ペーストで済みます。</p>
+    <ul class="plain">
+      <li><b><code>media_player.your_receiver</code></b> &rarr; 設定 &rsaquo; デバイス&amp;サービス &rsaquo; お使いのレシーバー &rsaquo; メディアプレーヤーエンティティ。<code>media_player.marantz_cinema_30</code>のような名前です。</li>
+      <li><b><code>script.avr_maestro_MAC_...</code></b> &rarr; 開発者ツール &rsaquo; 状態を開き、エンティティのフィルターに<code>avr_maestro</code>と入力します。すべてのコントロールの一覧が表示されます。</li>
+    </ul>
+    <p class="lead">すべてのスクリプトIDの中間部分は、レシーバーのMACアドレスを小文字12文字で表したもので、どのスクリプトでも共通です。一度コピーしておいてください。このページで<code>MAC</code>と書かれている箇所には、すべてあなたの値を入れます。</p>
+    <div class="note"><b><code>unavailable</code>と表示されているものは無視してください。</b>古いビルドでは、スクリプトの名前にMACではなくレシーバー名が使われていました。その頃に同期した場合、古いスクリプトが一覧に残っていますが、すでに無効です。有効なのはMAC名のものです。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ステップ 3</div>
+      <h2>ビューを作成する</h2>
+    </div>
+    <ol class="plain">
+      <li><b>1.</b> 設定 &rsaquo; ダッシュボード &rsaquo; ダッシュボードを追加 &rsaquo; 最初から新しいダッシュボード。名前は自由に付けてください。</li>
+      <li><b>2.</b> ダッシュボードを開き、右上の鉛筆アイコンで編集モードにします。</li>
+      <li><b>3.</b> ビューを追加し、レイアウトは<b>セクション</b>を選びます。メイソンリーではありません。スマートフォンできちんと折り返されるのはセクションです。</li>
+      <li><b>4.</b> ビューの設定で<b>最大列数</b>を3にし、<b>高密度セクション配置</b>をオンにします。</li>
+    </ol>
+    <p class="lead">ここから先は、セクションを追加してカードを貼り付ける、の繰り返しです。YAMLを貼り付けるには、カードの3点メニューから<b>YAMLで編集</b>を選ぶか、ダッシュボードの3点メニューから<b>Rawコンフィグレーションエディター</b>を開いて全体を一度に貼り付けます。</p>
+<pre class="code"><span class="c"># The view's own settings, if you prefer to type them</span>
+type: sections
+title: AVR Maestro
+icon: mdi:audio-video
+max_columns: 3
+dense_section_placement: true</pre>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ステップ 4</div>
+      <h2>コントロールを1つ追加する</h2>
+    </div>
+    <p class="lead">複雑なものを作る前に、まず最もシンプルなものから始めて、エンティティIDが正しいことを確認しましょう。セクションを追加し、カードを追加して、YAMLで編集を開き、次を貼り付けます：</p>
+<pre class="code">type: button
+name: Pure Direct
+icon: mdi:speaker
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_mode_pure_direct</pre>
+    <p class="capt">標準の Home Assistant のみ。HACS は不要です。</p>
+    <p class="lead">タップしてみてください。レシーバーが反応すれば、IDは正しく、以降のすべてが動作します。何も起きなければ、ステップ 2 に戻ってください。</p>
+  </div>
+</section>
+
+<section id="highlight">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ステップ 5</div>
+      <h2>現在選択中のものを点灯させる</h2>
+    </div>
+    <p class="lead">これは覚える価値のあるパターンで、ボード上のすべてのソースタイルとサラウンドタイルはこのコピーです。カードはスクリプトを送信し、レシーバーのエンティティから自分の色を決めるので、実際に選択中の入力だけが点灯し、ほかは消えたままになります。</p>
+    <figure><img alt="ソースグリッド。Nvidia Shield がオレンジに点灯し、ほかの12の入力は暗い状態" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>点灯するタイルは1つ、暗いタイルは12個</figcaption></figure>
+<pre class="code">type: custom:mushroom-template-card
+entity: script.avr_maestro_MAC_input_cd
+icon: mdi:disc
+primary: CD
+icon_color: >-
+  {{ 'orange' if (state_attr('media_player.your_receiver','source') or '')|lower
+     == 'cd' else 'grey' }}
+layout: vertical
+fill_container: true
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_input_cd
+card_mod:
+  style: |
+    ha-card {
+      border-radius: 14px;
+    {% if (state_attr('media_player.your_receiver','source') or '')|lower == 'cd' %}
+      background: linear-gradient(160deg, rgba(226,86,10,0.34), rgba(15,15,17,0.88));
+      border: 1px solid rgba(255,122,24,0.80);
+    {% else %}
+      background: rgba(15,15,17,0.72);
+      border: 1px solid rgba(255,122,24,0.14);
+    {% endif %}
+    }</pre>
+    <p class="capt">入力ごとに変更するのは3点：スクリプト、アイコン、比較する文字列です。</p>
+    <p class="lead">次の2点を正しく設定しないと、タイルは決して点灯しません：</p>
+    <ul class="plain">
+      <li><b>レシーバーが実際に報告する値と比較してください。</b>開発者ツール &rsaquo; 状態でメディアプレーヤーエンティティを開き、<code>source_list</code>と<code>sound_mode_list</code>の属性を確認します。これらが正確な文字列です。上記のとおり、小文字で比較してください。</li>
+      <li><b>名前を変更した入力は、新しい名前で報告されます。</b>レシーバーで GAME1 を「Xbox」に変更すると、レシーバーは<code>Xbox</code>と報告しますが、AVR Maestro のコントロールは引き続き<code>input_game1</code>という名前のままです。スクリプト名ではなく、レシーバーが報告する値で照合してください。</li>
+    </ul>
+    <p class="lead">サラウンドモードも同じカードで、<code>source</code>の代わりに<code>sound_mode</code>を使います。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ステップ 6</div>
+      <h2>各セクションにライブ見出しを付ける</h2>
+    </div>
+    <p class="lead">ただのタイトルは無駄なスペースです。その下にライブの値を表示すれば、「ソース」が「ソース / 現在 Nvidia Shield」になります。</p>
+<pre class="code">type: custom:button-card
+name: Sources
+icon: mdi:video-input-hdmi
+color_type: label-card
+entity: media_player.your_receiver
+show_label: true
+label: >-
+  [[[ var v = states["media_player.your_receiver"].attributes.source;
+      return v ? ("Now on " + v) : "Receiver in standby"; ]]]
+tap_action:
+  action: none
+styles:
+  grid:
+    - grid-template-areas: '"i n" "i l"'
+    - grid-template-columns: min-content auto
+  name:
+    - font-size: 13px
+    - letter-spacing: 3px
+    - text-transform: uppercase
+    - justify-self: start
+  label:
+    - font-size: 11px
+    - justify-self: start</pre>
+    <p class="capt">ラベルをタイトルの横ではなく下に置くのは、2行のグリッドの役割です。</p>
+    <p class="lead">サラウンドの見出しなどでは、<code>attributes.source</code>を<code>attributes.sound_mode</code>に置き換えます。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ステップ 7</div>
+      <h2>音量をdBで表示する</h2>
+    </div>
+    <p class="lead">Home Assistant は音量を小数で報告します。レシーバーを「0.67」に設定する人はいません。1行の計算で解決し、セクション全体が本物のレシーバーらしい表示になります。</p>
+    <figure><img alt="音量セクション：スライダー、アップ、ダウン、ミュート、4つのdBプリセット" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night、Dialog、Movie、Loud。それぞれ設定されるdBが表示されます</figcaption></figure>
+    <div class="note"><b>変換方法。</b>Home Assistant は<code>volume_level</code>をマスター音量を100で割った値として公開し、Denon と Marantz のレシーバーでは MV 80 が 0 dB の基準です。したがって<b>dB = volume_level &times; 100 &minus; 80</b>となります。<code>volume_level</code>が 0.67 なら、マスター音量は 67 で、&minus;13.0 dB です。</div>
+<pre class="code"><span class="c"># The readout</span>
+type: custom:mushroom-template-card
+entity: media_player.your_receiver
+icon: mdi:volume-high
+primary: >-
+  {% set v = state_attr('media_player.your_receiver','volume_level') %}
+  {% if v is not none %}{{ (v * 100 - 80) | round(1) }} dB{% else %}Standby{% endif %}
+secondary: Master volume
+layout: vertical</pre>
+<pre class="code"><span class="c"># The slider. media_controls must be empty or the bar becomes a power button</span>
+type: custom:mushroom-media-player-card
+entity: media_player.your_receiver
+volume_controls:
+  - volume_set
+media_controls: []
+show_volume_level: true</pre>
+<pre class="code"><span class="c"># A preset. 0.50 is master volume 50, which is -30 dB</span>
+type: custom:mushroom-template-card
+entity: media_player.your_receiver
+icon: mdi:weather-night
+primary: Night
+secondary: "-30 dB"
+tap_action:
+  action: perform-action
+  perform_action: media_player.volume_set
+  target:
+    entity_id: media_player.your_receiver
+  data:
+    volume_level: 0.50</pre>
+    <div class="note"><b>最大音量のプリセットは慎重に選んでください。</b>上のセットは &minus;10 dB で止めています。ダッシュボードはリモコンよりずっと誤タップしやすく、大型レシーバーのリファレンスレベルは本当に大音量です。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ステップ 8</div>
+      <h2>シーンを追加する</h2>
+    </div>
+    <p class="lead">名前は手入力せず、スクリプトから読み取りましょう。AVR Maestro でシーン名を変更すると、ダッシュボードを編集しなくてもタイルの名前が変わります。</p>
+    <figure><img alt="4つのシーンタイル。それぞれ、そのシーンが復元する設定を一覧表示" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>各タイルに、そのシーンが実際に何を復元するかを表示</figcaption></figure>
+<pre class="code">type: custom:mushroom-template-card
+entity: script.avr_maestro_MAC_scene_1234567890123
+icon: mdi:theater
+primary: >-
+  {{ state_attr('script.avr_maestro_MAC_scene_1234567890123','friendly_name')
+     | replace('AVR Maestro - ', '') | replace(' (Your Receiver)', '') }}
+secondary: >-
+  {% set t = states.script['avr_maestro_MAC_scene_1234567890123'].attributes.last_triggered %}
+  {{ 'recalled ' ~ relative_time(t) ~ ' ago' if t else 'not run yet' }}
+multiline_secondary: true
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_scene_1234567890123</pre>
+    <p class="capt">2つの replace() 呼び出しが、フレンドリー名からプレフィックスとレシーバー名を取り除きます。</p>
+    <p class="lead">2行目を付ける手間は、かける価値があります。凝った名前のボタンがずらりと並んでいても、夜11時にはどれを押せばいいかわかりません。何を復元するかが書いてあれば、すぐに選べます。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ステップ 9</div>
+      <h2>履歴を追加する</h2>
+    </div>
+    <p class="lead">レシーバーのメディアプレーヤーエンティティは、ほかのエンティティと同様に Home Assistant に記録されるので、視聴履歴が無料で手に入ります。以下はすべてこの1つのエンティティから作られます。追加のセンサーもヘルパーも不要で、事前の設定も要りません。</p>
+    <figure><img alt="5つの履歴グラフ：電源とアクティビティ、dB表示のマスター音量、日別の音量、使用したソース、サラウンドモード" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>5つのグラフ、1つのエンティティ、7日間</figcaption></figure>
+    <p class="lead">シンプルな状態タイムラインはカスタムカードがまったく不要で、最も入れる価値があります：</p>
+<pre class="code">type: history-graph
+hours_to_show: 168
+entities:
+  - entity: media_player.your_receiver
+    name: Receiver</pre>
+    <p class="capt">1週間にわたる、オン、オフ、そして何をしていたか。</p>
+    <p class="lead">dB表示の音量には、ステップ 7 と同じ変換を使います：</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+header:
+  show: true
+  title: Master volume, last 7 days
+series:
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Master volume
+    type: line
+    curve: smooth
+    unit: dB
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100 - 80;"
+    extend_to: now
+    group_by:
+      duration: 1h
+      func: last
+      fill: last
+apex_config:
+  chart:
+    height: 240
+  yaxis:
+    min: -60
+    max: 0</pre>
+    <p class="capt">group_by に fill: last を指定すると、まばらなイベントが連続した線になります。y軸の設定は apex_config に書かないと反映されません。</p>
+    <p class="lead">日別の平均とピークにすると、ギザギザの線が意味のある形になります：</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+span:
+  end: day
+header:
+  show: true
+  title: Master volume by day in dB, average and peak
+series:
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Day average
+    type: column
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100;"
+    group_by: {duration: 1d, func: avg, fill: 'null'}
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Day peak
+    type: line
+    curve: smooth
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100;"
+    group_by: {duration: 1d, func: max, fill: 'null'}
+apex_config:
+  yaxis:
+    min: 0
+    max: 80
+    labels:
+      formatter: "EVAL:function (v) { return (v - 80).toFixed(0); }"
+  tooltip:
+    y:
+      formatter: "EVAL:function (v) { return v == null ? '' : (v - 80).toFixed(1) + ' dB'; }"</pre>
+    <p class="capt">同じ属性から2つの系列を作り、日ごとにグループ化します。</p>
+    <div class="note"><b>このグラフがdBで描画せず、0〜80 で描画してdBに整形する理由。</b>棒グラフは軸の下端から伸びます。dBをそのまま描画すると、すべての棒が 0 から下に垂れ下がり、長い棒が小音量という逆の見え方になってしまいます。生のマスター音量の数値を描画し、軸とツールチップのフォーマッターで 80 を引けば、棒は上に伸びたまま、読み手に見えるのはすべてdBになります。<code>fill: 'null'</code>を指定すると、データのない日は前日の値が引き継がれず、棒が表示されません。</div>
+    <p class="lead">そして「実際に何で、どの方式で観ているのか」に答える2つのグラフ：ソースとサラウンドモードを、どれが選択されていたかのタイムラインとして描画します。</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+span:
+  end: day
+header:
+  show: true
+  title: Source in use, last 7 days
+series:
+  - entity: media_player.your_receiver
+    attribute: source
+    name: Source
+    type: line
+    curve: stepline
+    stroke_width: 3
+    extend_to: now
+    float_precision: 0
+    transform: |
+      if (x == null) return null;
+      var m = ["Phono", "NET", "Xbox", "Nvidia Shield"];
+      var i = m.indexOf(x);
+      return i &lt; 0 ? 0 : i + 1;
+apex_config:
+  yaxis:
+    min: 0
+    max: 4
+    tickAmount: 4
+    labels:
+      formatter: >-
+        EVAL:function (v) { return ["Other", "Phono", "HEOS Net", "Xbox",
+        "Shield"][Math.round(v)] || ''; }
+  tooltip:
+    y:
+      formatter: >-
+        EVAL:function (v) { return v == null ? 'off' : ["Other", "Phono",
+        "HEOS Net", "Xbox", "Shield"][Math.round(v)] || 'Other'; }</pre>
+    <p class="capt">ご自身のソースを transform 配列と2つのフォーマッター配列に入れてください。インデックス 0 は「Other」のままにします。</p>
+    <p class="lead">グラフの軸には数値が必要なので、<code>transform</code>が各ソース名を位置に対応付け、フォーマッターがそれをラベルとツールチップ用に名前へ戻します。この対応付けは<b>全域</b>にしてください。<code>null</code>(レシーバーがオフ)は空白のままになり、リストにないものは「Other」に振り分けられるので、両者が混同されることはありません。同じカードで<code>sound_mode</code>を使えばサラウンドモードになります。文字列は、レシーバーが報告するとおりの大文字で記述してください。</p>
+    <div class="note"><b>最後の2つには<code>stepline</code>を付けてください。</b>ソースやサラウンドモードは数値ではなくカテゴリです。曲線を滑らかにすると、Shield と Xbox の間の線が、軸上でその間にあるものを経由して大きく曲がり、一度も選択されていない入力を描いてしまいます。音量は実際の量なので滑らかにしても正確ですが、カテゴリはそうではありません。</div>
+    <div class="note"><b>まずレコーダーの保存期間を確認してください。</b>Home Assistant の既定は10日間なので、実用上は7日間程度が上限です。それ以上さかのぼるには<code>state_class: measurement</code>テンプレートセンサーが必要で、Home Assistant はこれを長期統計として何年も保持します。</div>
+    <div class="note"><b>日が抜けているのは、たいてい正常です。</b>Home Assistant が記録するのはサンプルではなく変化です。レシーバーを1つの入力、1つの音量のまま2日間放置すると、何も書き込まれないため、その日の棒はありません。データ欠損に見えますが、実際は逆で、何も起きなかったということです。</div>
+  </div>
+</section>
+
+<section id="whole">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ステップ 10</div>
+      <h2>または、まるごと使う</h2>
+    </div>
+    <p class="lead">すべてのセクションとカードを含む完成ビュー。エンティティIDの代わりにプレースホルダーが入っています。</p>
+    <ol class="plain">
+      <li><b>1.</b> <a href="/ja/guide/home-assistant-dashboard/avr-maestro-dashboard.yaml" download>ビューのYAMLをダウンロード</a>。</li>
+      <li><b>2.</b> 任意のテキストエディターで開き、出現する箇所すべてで2つの文字列を置き換えます：<code>YOUR_RECEIVER</code>はお使いのメディアプレーヤーエンティティの名前に、<code>YOURMAC</code>はステップ 2 で調べたレシーバーの12文字に置き換えます。</li>
+      <li><b>3.</b> Home Assistant でダッシュボードを開き、鉛筆アイコン、3点メニュー、<b>Rawコンフィグレーションエディター</b>の順に進んで、ビューとして貼り付けます。</li>
+    </ol>
+    <div class="note"><b>シーンのIDは一致しません。</b>シーンのスクリプトは、シーンを作成した日時にちなんで名前が付くため、ファイル内の4つはお使いの環境に存在しません。そのカードは表示されますが、何も実行しません。ステップ 2 で調べた自分のエンティティIDに置き換えるか、シーンのセクションを削除して、ステップ 8 で作り直してください。</div>
+    <div class="note"><b>ほかにも2点ご注意ください。</b>ソースとサラウンドのグラフには、これを作成したレシーバーのソース名が入っているので、ステップ 9 の説明に従って配列を編集してください。また、タイルのラベルは英語で、ファイル内に翻訳されているものはありません。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>タイルが点灯しない場合</h2>
+    </div>
+    <p class="lead">構築を間違えたと考える前に：点灯できないタイルもあります。どれがそうなのかを知っておくと役立ちます。</p>
+    <p class="lead">タイルが状態を表示できるのは、Home Assistant がその状態を読み取れる場合だけで、レシーバーの情報は2か所から取得されます。Denon AVR 統合は、基本的な情報をメディアプレーヤーエンティティに公開します。残りは AVR Maestro が公開します。<b>ステータスブリッジ</b>センサー<code>sensor.avr_maestro_your_receiver</code>を作成し、アプリがすでに保持している読み取り値を属性として書き込みます。</p>
+    <table class="t">
+      <thead><tr><th>メディアプレーヤーエンティティ上</th><th>ステータスブリッジセンサー上</th></tr></thead>
+      <tbody>
+        <tr><td>電源</td><td>Audyssey MultEQ カーブ</td></tr>
+        <tr><td>選択中のソース</td><td>Dynamic Volume とリファレンスレベル</td></tr>
+        <tr><td>サラウンドモード</td><td>読み込まれている Dirac スロット</td></tr>
+        <tr><td>音量とミュート</td><td>フロントパネルディマー、エコモード</td></tr>
+        <tr><td>Dynamic EQ（場合による）</td><td>スピーカープリセット、トーン、ほかにも多数</td></tr>
+      </tbody>
+    </table>
+    <p class="lead">現在は両方の列を読み取れます。メディアプレーヤーの値は<code>states['media_player.your_receiver'].attributes</code>から、ステータスブリッジの値は<code>state_attr('sensor.avr_maestro_your_receiver','dirac_slot')</code>で取得してください。これで、設定を変更するスクリプトを実行するだけでなく、実際に有効な設定のタイルが点灯します。</p>
+    <p class="lead">この構築に使ったレシーバーでの実測：メディアプレーヤーエンティティが持つのは60個のコントロールのうち約20個で、ステータスブリッジセンサーが約40個を追加で公開します。この2つで、ダッシュボードは変更できるもののほぼすべてを読み取れます。ボタンの壁と、本物の操作パネルとの違いはここにあります。</p>
+    <div class="note"><b>値が2通りの意味を持ちうるなら、そのことを明示してください。</b>Dynamic EQ は<code>true</code>、<code>false</code>、または「値なし」で届きます。「値なし」を「オフ」として扱うと、壁に自信満々の間違った答えが表示されます。</div>
+<pre class="code">icon_color: >-
+  {% set d = state_attr('media_player.your_receiver','dynamic_eq') %}
+  {{ 'orange' if d is true else 'grey' }}
+secondary: >-
+  {% set d = state_attr('media_player.your_receiver','dynamic_eq') %}
+  {% if d is none %}state not published{% elif d %}on{% else %}off{% endif %}</pre>
+    <p class="capt">2つではなく、3つの状態。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>知っておくと役立つこと</h2>
+    </div>
+    <ul class="plain">
+      <li><b>タイルの幅が想定の3分の1になる。</b>3列にまたがるセクションでは、内部グリッドは12列ではなく<b>36</b>列です。4つ並べるには<code>grid_options: {columns: 9}</code>を設定します。6つ並べるなら 6 です。</li>
+      <li><b>音量スライダーがバーではなく電源ボタンになる。</b>これは、<code>on_off</code>を含む<code>media_controls</code>が原因です。<code>media_controls: []</code>を設定してください。</li>
+      <li><b>ラベルが途切れる。</b>「Volume Down」が「Volume Do...」になります。「Vol Down」に短縮するか、タイルを広げてください。</li>
+      <li><b>シーンの説明が切れる。</b><code>multiline_secondary: true</code>を追加してください。</li>
+      <li><b>apexcharts のグラフから一定の線が消える。</b>原因は<code>experimental.color_threshold</code>です。線を縦方向のグラデーションで描画しますが、完全に水平な線分は高さがゼロでグラデーションをかけられず、見えなくなります。同じ音量での43時間のセッションが、まるごと消えたこともあります。単色の<code>color</code>を使ってください。</li>
+      <li><b>スマートフォンでは自動で折り返される。</b>セクションビューは、狭い幅では追加設定なしで1列に積み重なります。</li>
+    </ul>
+    <figure><img alt="同じダッシュボードをスマートフォンの幅で表示。1列に折り返されている" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>スマートフォン幅の同じダッシュボード：3列が1列になり、そのための設定は何もしていません</figcaption></figure>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">よくある質問</div>
+      <h2>ダッシュボードのよくある質問</h2>
+    </div>
+    <details open><summary>これを作るのにHACSのカスタムカードは必要ですか?</summary><div class="body">動かすだけなら不要です。このページのすべてのコントロールは、標準のHome Assistantボタンカードで動作します。スクリーンショットのような見た目にしているのは、Mushroom、button-card、card-mod、apexcharts-cardです。各セクションに、どれを使っているか、使わない場合に何が失われるかを記載しています。</div></details>
+    <details><summary>光るボタンと光らないボタンがあるのはなぜですか?</summary><div class="body">Home Assistant がレシーバーから対応する状態を読み取れると、ボタンが点灯します。ソース、サラウンドモード、音量、ミュートは、レシーバーのメディアプレーヤーエンティティから取得されるので、点灯します。Audyssey カーブ、Dirac スロット、ディマー、エコモード、スピーカープリセットは Denon 統合では公開されないため、Home Assistant にはどれが有効か知る手段がなく、タップするまでボタンは点灯しません。</div></details>
+    <details><summary>パーセントの代わりに実際のdB音量を表示できますか?</summary><div class="body">はい。Home Assistant は volume_level を、マスター音量&#x27;を100で割った値として公開し、Denon と Marantz のレシーバーでは MV 80 が 0 dB の基準です。したがって dB は volume_level に 100 を掛けて 80 を引いた値になります。volume_level が 0.67 なら、マスター音量は 67 で、-13.0 dB です。</div></details>
+    <details><summary>このガイドのエンティティIDと同じになりますか?</summary><div class="body">パターンは同じですが、中間部分は異なります。AVR Maestro はスクリプトにMACアドレス&#x27;に基づく名前を付けるため、名前を変更しても新しいスクリプトが増えず、同じスクリプトが更新されます。お使いの環境では、script.avr_maestro_ に続いて、あなた自身の12文字、そしてコントロール名が並びます。Home Assistant で開発者ツール、状態の順に開き、avr_maestro で絞り込むと、ご自身の一覧が表示されます。</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ガイドをもっと見る</div>
+      <h2>AVR Maestroのその他のガイド</h2>
+    </div>
+    <p class="lead"><a href="/ja/guide/getting-started/">はじめに</a> &middot; <a href="/ja/guide/home/">ホーム画面</a> &middot; <a href="/ja/guide/scenes/">シーン</a> &middot; <a href="/ja/guide/custom-icons/">カスタムアイコン</a> &middot; <a href="/ja/guide/sound/">サウンド</a> &middot; <a href="/ja/guide/graphic-eq/">グラフィックEQ</a> &middot; <a href="/ja/guide/speakers/">スピーカー</a> &middot; <a href="/ja/guide/locked-controls/">コントロールがロックされる理由</a> &middot; <a href="/ja/guide/assistant/">アシスタント</a> &middot; <a href="/ja/guide/home-automation/">ホームオートメーション</a> &middot; <a href="/ja/guide/multi-zone/">ゾーン</a> &middot; <a href="/ja/guide/remote/">リモコン</a> &middot; <a href="/ja/guide/radio/">ラジオ(FM/AM)</a> &middot; <a href="/ja/guide/on-screen-display/">オンスクリーンディスプレイ</a> &middot; <a href="/ja/guide/settings/">設定</a> &middot; <a href="/ja/guide/languages/">対応言語</a> &middot; <a href="/ja/guide/volume/">音量コントロール</a> &middot; <a href="/ja/guide/backup/">バックアップ&amp;復元</a> &middot; <a href="/ja/guide/now-playing/">再生中&amp;HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>レシーバーのすべてを、1つの壁に</h2>
+    <p class="lead" style="margin:0 auto 24px">ホームオートメーションは AVR Maestro で唯一の有料アンロックです。オンデバイスAIアシスタントを含め、そのほかはすべて含まれています。</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Google Playで手に入れよう" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="App Storeからダウンロード" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Mac App Storeからダウンロード" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Microsoft Storeで入手" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/ja/guide/home-automation/">ホームオートメーションに戻る &rarr;</a> &middot; <a href="/ja/guide/">ユーザーガイド全文 &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/ja/">ホーム</a>
+      <a href="/ja/guide/">ユーザーガイド</a>
+      <a href="/ja/guide/getting-started/">はじめに</a>
+      <a href="/ja/receivers/">対応レシーバー</a>
+      <a href="/ja/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ja/audyssey-vs-dirac/">AudysseyとDirac</a>
+      <a href="/ja/best-denon-marantz-app/">乗り換える理由</a>
+      <a href="/ja/help/">ヘルプ</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro は MiyaraHub Technologies LLC による独立したアプリであり、Denon、Marantz、D&amp;M Holdings、Sound United、およびこのページに記載されているその他の企業とは、提携、承認、後援の関係にありません。Denon、Marantz、HEOS、Home Assistant、Mushroom、HACS、Audyssey、Nvidia Shield は、それぞれの所有者の商標またはプロジェクトであり、ここでは識別の目的でのみ使用しています。</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

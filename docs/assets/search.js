@@ -1,5 +1,7 @@
 (function () {
-  var INDEX_URL = "/assets/search-index.json";
+  var LANG = (document.documentElement.getAttribute("lang") || "en").toLowerCase();
+  var UI = (document.getElementById("m") || { dataset: {} }).dataset;
+  var INDEX_URL = LANG === "en" ? "/assets/search-index.json" : "/assets/search-index." + LANG + ".json";
   var idx = null, loading = false;
 
   var css = document.createElement("style");
@@ -54,8 +56,8 @@
     box.className = "site-search";
     var input = document.createElement("input");
     input.type = "search";
-    input.placeholder = "Search the guide...";
-    input.setAttribute("aria-label", "Search the AVR Maestro guide");
+    input.placeholder = UI.i18nSearch || "Search the guide...";
+    input.setAttribute("aria-label", UI.i18nSearch || "Search the AVR Maestro guide");
     var panel = document.createElement("div");
     panel.className = "ss-panel";
     box.appendChild(input);
@@ -69,7 +71,7 @@
       results = search(q);
       active = -1;
       if (!results.length) {
-        panel.innerHTML = '<div class="ss-empty">No matches for &ldquo;' + q.replace(/</g, "&lt;") + '&rdquo;</div>';
+        panel.innerHTML = '<div class="ss-empty">' + (UI.i18nEmpty || "No matches for") + ' &ldquo;' + q.replace(/</g, "&lt;") + '&rdquo;</div>';
       } else {
         panel.innerHTML = results.map(function (p) {
           return '<a href="' + p.u + '"><b>' + decode(p.t) + "</b><span>" + decode(p.d) + "</span></a>";

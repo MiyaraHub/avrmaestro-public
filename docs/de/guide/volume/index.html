@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lautstärkebegrenzung, Einschaltlautstärke &amp; Mute-Tiefe - AVR Maestro</title>
+<meta name="description" content="Legen Sie für Ihren Denon oder Marantz eine Lautstärkebegrenzung fest, wählen Sie die Einschaltlautstärke, bestimmen Sie, wie stark Mute dämpft, und lesen Sie die Lautstärke als 0 bis 98 oder in Dezibel ab." />
+<meta name="keywords" content="Denon volume limit app, Marantz power on level, AVR mute level -20 dB, receiver volume in decibels app, Denon volume scale absolute relative, protect speakers volume limit" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/de/guide/volume/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/volume/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/volume/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/volume/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/volume/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/volume/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="de_DE" />
+<meta property="og:title" content="Lautstärkebegrenzung, Einschaltlautstärke &amp; Mute-Tiefe - AVR Maestro" />
+<meta property="og:description" content="Legen Sie für Ihren Denon oder Marantz eine Lautstärkebegrenzung fest, wählen Sie die Einschaltlautstärke, bestimmen Sie, wie stark Mute dämpft, und lesen Sie die Lautstärke als 0 bis 98 oder in Dezibel ab." />
+<meta property="og:url" content="https://avrmaestro.com/de/guide/volume/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Lautstärkebegrenzung, Einschaltlautstärke &amp; Mute-Tiefe - AVR Maestro" />
+<meta name="twitter:description" content="Legen Sie für Ihren Denon oder Marantz eine Lautstärkebegrenzung fest, wählen Sie die Einschaltlautstärke, bestimmen Sie, wie stark Mute dämpft, und lesen Sie die Lautstärke als 0 bis 98 oder in Dezibel ab." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro ist eine unabhängige App zur Steuerung von Denon- und Marantz-AV-Receivern über Ihr lokales Netzwerk.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/volume/#article",
+      "headline": "Lautstärkeregler: eine Obergrenze, ein Startpegel und ein Mute, der tut, was Sie wollen",
+      "description": "Legen Sie für Ihren Denon oder Marantz eine Lautstärkebegrenzung fest, wählen Sie die Einschaltlautstärke, bestimmen Sie, wie stark Mute dämpft, und lesen Sie die Lautstärke als 0 bis 98 oder in Dezibel ab.",
+      "image": "https://avrmaestro.com/screenshots/volume-controls.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/volume/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/volume/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Gilt die Lautstärkebegrenzung auch für die physische Fernbedienung?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Die Begrenzung ist eine Receiver-Einstellung, keine App-Einstellung, und gilt daher für jeden Weg: die App, die mitgelieferte Fernbedienung, den Drehregler an der Frontseite und jeden anderen Controller in Ihrem Netzwerk."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Gelten diese Einstellungen auch für Zone 2 und Zone 3?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die Lautstärkeregler betreffen die Hauptzone. Jede Zone hat im Tab „Zonen“ ihre eigene Lautstärke sowie eigenen Power-Status und Eingang."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Warum zeigt die App 0 bis 98, wenn Testberichte Dezibel nennen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es sind zwei Ansichten desselben Reglers. Stellen Sie die Lautstärkeskala auf -79.5 bis 18.0 dB um, dann entspricht die Anzeige der üblichen Angabe von Kalibrierpegeln, bei der 0.0 dB der Referenzpegel ist."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann ich die Lautstärketasten meines Smartphones nutzen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, unter Android und auf dem iPhone. Solange AVR Maestro im Vordergrund ist, steuern die Lautstärketasten des Geräts den Receiver direkt: ein Schritt pro Druck und eine Rampe bei gedrückter Taste; ein Schalter unter Einstellungen, Audio gibt dem Gerät seine Tasten zurück."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Start",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Benutzerhandbuch",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Lautstärkeregler",
+      "item": "https://avrmaestro.com/guide/volume/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/de/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menü" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Handbuch durchsuchen..." data-i18n-empty="Keine Treffer für" data-i18n-language="Sprache">
+      <a href="/de/">Start</a>
+      <a href="/de/guide/">Benutzerhandbuch</a>
+      <a href="/de/receivers/">Receiver</a>
+      <a href="/de/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/de/best-denon-marantz-app/">Warum wechseln</a>
+      <a href="/de/#top" class="cta">Herunterladen</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/de/">Start</a> &rsaquo; <a href="/de/guide/">Benutzerhandbuch</a> &rsaquo; Lautstärkeregler</div>
+    <div class="eyebrow">Einstellungen &rsaquo; Lautstärkeregler</div>
+    <h1>Lautstärkeregler: eine Obergrenze, ein Startpegel und <span class="g">ein Mute, der tut, was Sie wollen</span></h1>
+    <p>Vier Einstellungen, die zusammen festlegen, wie laut Ihr Receiver überhaupt werden kann, was er beim Einschalten tut und wie weit Mute ihn absenkt. Sie liegen auf dem Receiver und gelten daher, egal ob Sie die App, die physische Fernbedienung oder die Frontblende benutzen.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Wo Sie es finden</div>
+        <h2>Einstellungen &rsaquo; Lautstärkeregler</h2>
+        <p class="lead">Öffnen Sie <b>Einstellungen</b> und scrollen Sie zu <b>Lautstärkeregler</b> - „Lautstärkebegrenzung, Einschaltlautstärke und Mute-Tiefe“. Alles auf dieser Seite wird direkt auf den Receiver geschrieben, bleibt also nach dem Schließen der App erhalten und gilt für jede Art der Bedienung.</p>
+      </div>
+      <img alt="Die Seite Lautstärkeregler mit Lautstärkeskala, Begrenzung, Einschaltlautstärke und Mute-Pegel" src="/screenshots/volume-controls.png" width="1324" height="2644" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Eins nach dem anderen</div>
+      <h2>Was jede Einstellung bewirkt</h2>
+    </div>
+
+    <h3 style="margin-top:26px">Lautstärkeskala</h3>
+    <p class="lead">Wie die Lautstärke angezeigt wird, sowohl auf dem Bildschirm als auch im eigenen Display des Receivers. <b>0 - 98</b> ist die relative Skala, die die meisten kennen; <b>-79.5 bis 18.0 dB</b> ist die absolute Skala, bei der 0.0 dB der Referenzpegel ist. Wenn Sie in einem Testbericht schon einmal „-15 dB“ gelesen haben und sich fragten, wie das auf Ihren Regler passt: Dieser Schalter beantwortet es.</p>
+
+    <h3 style="margin-top:26px">Lautstärkebegrenzung</h3>
+    <p class="lead">Eine harte Obergrenze. Einmal gesetzt, geht <b>nichts</b> darüber hinaus - weder die App noch die physische Fernbedienung noch der Drehregler an der Frontseite, denn die Begrenzung liegt auf dem Receiver und nicht in der App. Der naheliegende Nutzen ist, Lautsprecher oder einen Raum voller Menschen vor einem Fehltipp zu schützen, und sie ist die Einstellung der Wahl, bevor Sie die Fernbedienung einem Hausgast geben. <b>Aus</b> hebt die Obergrenze auf.</p>
+
+    <h3 style="margin-top:26px">Einschaltlautstärke</h3>
+    <p class="lead"><b>Letzte Lautstärke verwenden</b> ist standardmäßig aktiv: Der Receiver startet mit der Lautstärke, die beim Ausschalten eingestellt war. Schalten Sie es aus, können Sie stattdessen einen festen Pegel vorgeben, damit eine späte Session bei hoher Lautstärke am nächsten Morgen nicht zur unangenehmen Überraschung wird.</p>
+
+    <h3 style="margin-top:26px">Mute-Pegel</h3>
+    <p class="lead">Wie weit Mute die Lautstärke absenkt. <b>Full</b> schaltet komplett stumm. <b>-40 dB</b> und <b>-20 dB</b> dämpfen stattdessen, was die bessere Wahl ist, wenn Sie sich über einen Film hinweg unterhalten möchten, ohne den Faden zu verlieren.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">An anderen Stellen der App</div>
+      <h2>Die Regler für den Alltag</h2>
+    </div>
+    <ul class="plain">
+      <li><b>Das Home-Dashboard</b> bietet Hauptlautstärke, Mute und Power für die Hauptzone.</li>
+      <li><b>Der Tab „Fernbedienung“</b> bietet eine Lautstärkewippe neben dem Steuerkreuz und den Transporttasten, mit Anzeige des Pegels während der Bedienung. <a href="/de/guide/remote/">Fernbedienungs-Anleitung &rarr;</a></li>
+      <li><b>Jede Plus- und Minus-Lautstärketaste</b> - im Home-Dashboard, auf den Zonenkarten und im Tab „Fernbedienung“ - geht bei einem Tipp einen Schritt weiter und steppt weiter, solange Sie sie halten, so wie die physische Fernbedienung. Lassen Sie los, und es stoppt innerhalb eines Schritts.</li>
+      <li><b>Die Lautstärketasten Ihres Smartphones</b> steuern unter Android und auf dem iPhone den Receiver, solange die App im Vordergrund ist, sodass Sie ohne Hinsehen regeln können. Auch hier gibt es beim Halten eine Rampe.</li>
+      <li><b>Jede Zone</b> hat ihre eigene Lautstärke, unabhängig von der Hauptzone. <a href="/de/guide/multi-zone/">Zonen-Anleitung &rarr;</a></li>
+      <li><b>Szenen</b> können die Hauptlautstärke erfassen, sodass beim Abrufen einer Szene der Pegel zusammen mit allem anderen gesetzt wird. <a href="/de/guide/scenes/">Szenen-Anleitung &rarr;</a></li>
+      <li><b>Die Lautstärkeanzeige auf dem Bildschirm</b> Ihres Fernsehers lässt sich verschieben oder ganz ausschalten. <a href="/de/guide/on-screen-display/">Anleitung zur Bildschirmanzeige &rarr;</a></li>
+    </ul>
+    <div class="note">Lautstärkeänderungen werden bewusst getaktet und nicht pro Pixel abgefeuert. So läuft die Rampe beim Halten der Wippe oder beim Ziehen des Reglers sanft, statt den Receiver mit Befehlen zu überfluten, die er einreihen und verspätet ausführen würde.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Häufige Fragen</div>
+      <h2>FAQ zur Lautstärke</h2>
+    </div>
+    <details open><summary>Gilt die Lautstärkebegrenzung auch für die physische Fernbedienung?</summary><div class="body">Ja. Die Begrenzung ist eine Receiver-Einstellung, keine App-Einstellung, und gilt daher für jeden Weg: die App, die mitgelieferte Fernbedienung, den Drehregler an der Frontseite und jeden anderen Controller in Ihrem Netzwerk.</div></details>
+    <details><summary>Gelten diese Einstellungen auch für Zone 2 und Zone 3?</summary><div class="body">Die Lautstärkeregler betreffen die Hauptzone. Jede Zone hat im Tab „Zonen“ ihre eigene Lautstärke sowie eigenen Power-Status und Eingang.</div></details>
+    <details><summary>Warum zeigt die App 0 bis 98, wenn Testberichte Dezibel nennen?</summary><div class="body">Es sind zwei Ansichten desselben Reglers. Stellen Sie die Lautstärkeskala auf -79.5 bis 18.0 dB um, dann entspricht die Anzeige der üblichen Angabe von Kalibrierpegeln, bei der 0.0 dB der Referenzpegel ist.</div></details>
+    <details><summary>Kann ich die Lautstärketasten meines Smartphones nutzen?</summary><div class="body">Ja, unter Android und auf dem iPhone. Solange AVR Maestro im Vordergrund ist, steuern die Lautstärketasten des Geräts den Receiver direkt: ein Schritt pro Druck und eine Rampe bei gedrückter Taste; ein Schalter unter Einstellungen, Audio gibt dem Gerät seine Tasten zurück.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Mehr aus der Anleitung</div>
+      <h2>Weitere AVR Maestro Anleitungen</h2>
+    </div>
+    <p class="lead"><a href="/de/guide/getting-started/">Erste Schritte</a> &middot; <a href="/de/guide/home/">Startbildschirm</a> &middot; <a href="/de/guide/scenes/">Szenen</a> &middot; <a href="/de/guide/custom-icons/">Eigene Symbole</a> &middot; <a href="/de/guide/sound/">Ton</a> &middot; <a href="/de/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/de/guide/speakers/">Lautsprecher</a> &middot; <a href="/de/guide/locked-controls/">Warum ein Regler gesperrt ist</a> &middot; <a href="/de/guide/assistant/">Der Assistent</a> &middot; <a href="/de/guide/home-automation/">Hausautomation</a> &middot; <a href="/de/guide/home-assistant-dashboard/">Home Assistant Dashboard</a> &middot; <a href="/de/guide/multi-zone/">Zonen</a> &middot; <a href="/de/guide/remote/">Fernbedienung</a> &middot; <a href="/de/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/de/guide/on-screen-display/">Bildschirmmenü</a> &middot; <a href="/de/guide/settings/">Einstellungen</a> &middot; <a href="/de/guide/languages/">Sprachen</a> &middot; <a href="/de/guide/backup/">Sichern &amp; Wiederherstellen</a> &middot; <a href="/de/guide/now-playing/">Jetzt läuft &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Einmal die Obergrenze setzen, danach entspannen</h2>
+    <p class="lead" style="margin:0 auto 24px">Einmaliger Kauf, keine Werbung, keine Abos. In unter einer Minute verbunden.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="Jetzt bei Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Laden im App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="Laden im Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="Jetzt im Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/de/guide/">Zurück zur vollständigen Bedienungsanleitung &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/de/">Start</a>
+      <a href="/de/guide/">Benutzerhandbuch</a>
+      <a href="/de/guide/getting-started/">Erste Schritte</a>
+      <a href="/de/receivers/">Receiver</a>
+      <a href="/de/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/de/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/de/best-denon-marantz-app/">Warum wechseln</a>
+      <a href="/de/help/">Hilfe</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro ist eine unabhängige App von MiyaraHub Technologies LLC und steht in keiner Verbindung zu Denon, Marantz, D&amp;M Holdings, Sound United oder einem anderen auf dieser Seite genannten Unternehmen, wird von diesen weder empfohlen noch gesponsert. Denon, Marantz, HEOS, Audyssey und Dirac Live sind Marken ihrer jeweiligen Inhaber und werden hier ausschließlich zur Identifikation verwendet.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

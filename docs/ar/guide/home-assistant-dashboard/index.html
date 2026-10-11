@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>لوحة Home Assistant لأجهزة Denon &amp; Marantz - AVR Maestro</title>
+<meta name="description" content="ابنِ لوحة Home Assistant لمستقبل Denon أو Marantz: بطاقات HACS ومعرّفات الكيانات وYAML لكل بطاقة ومستوى صوت حقيقي بوحدة dB والمشاهد والسجل." />
+<meta name="keywords" content="Home Assistant Denon dashboard, Marantz Home Assistant card, mushroom card AV receiver, Home Assistant receiver volume dB, denonavr dashboard, AVR Maestro Home Assistant example" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/ar/guide/home-assistant-dashboard/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-assistant-dashboard/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-assistant-dashboard/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="ar_AR" />
+<meta property="og:title" content="لوحة Home Assistant لأجهزة Denon &amp; Marantz - AVR Maestro" />
+<meta property="og:description" content="ابنِ لوحة Home Assistant لمستقبل Denon أو Marantz: بطاقات HACS ومعرّفات الكيانات وYAML لكل بطاقة ومستوى صوت حقيقي بوحدة dB والمشاهد والسجل." />
+<meta property="og:url" content="https://avrmaestro.com/ar/guide/home-assistant-dashboard/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="لوحة Home Assistant لأجهزة Denon &amp; Marantz - AVR Maestro" />
+<meta name="twitter:description" content="ابنِ لوحة Home Assistant لمستقبل Denon أو Marantz: بطاقات HACS ومعرّفات الكيانات وYAML لكل بطاقة ومستوى صوت حقيقي بوحدة dB والمشاهد والسجل." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro تطبيق مستقل للتحكم في مستقبلات الصوت والفيديو من Denon وMarantz عبر شبكتك المحلية.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
+      "headline": "ابنِ لوحة Home Assistant هذه في ساعة تقريبًا",
+      "description": "ابنِ لوحة Home Assistant لمستقبل Denon أو Marantz: بطاقات HACS ومعرّفات الكيانات وYAML لكل بطاقة ومستوى صوت حقيقي بوحدة dB والمشاهد والسجل.",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "datePublished": "2026-08-23",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-assistant-dashboard/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "هل أحتاج إلى بطاقات مخصصة من HACS لبناء هذه اللوحة؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ليس لكي تعمل. فكل عنصر تحكم في هذه الصفحة يعمل من بطاقة أزرار عادية في Home Assistant. أما Mushroom وbutton-card وcard-mod وapexcharts-card فهي ما يمنحها المظهر الذي تراه في لقطات الشاشة، ويذكر كل قسم أدناه أيها يستخدم وما تخسره بدونه."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "لماذا تضيء بعض الأزرار ولا تضيء أخرى؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "يضيء الزر عندما يستطيع Home Assistant قراءة الحالة المطابقة من مستقبلك. المصدر ووضع الصوت المحيطي ومستوى الصوت والكتم تعود من كيان مشغّل الوسائط الخاص بالمستقبل نفسه، لذا تضيء. أما منحنى Audyssey وفتحة Dirac والإضاءة الخافتة ووضع ECO وSpeaker Preset فلا يعرضها تكامل Denon، فلا يملك Home Assistant وسيلة لمعرفة أيها نشط، وتبقى أزرارها مطفأة إلى أن تضغط على أحدها."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "هل يمكنني عرض مستوى الصوت الحقيقي بوحدة dB بدلًا من نسبة مئوية؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "نعم. ينشر Home Assistant القيمة volume_level بوصفها مستوى الصوت الرئيسي للمستقبل مقسومًا على 100، وفي مستقبلات Denon وMarantz يكون MV 80 هو المرجع 0 dB. أي أن dB تساوي volume_level مضروبًا في 100 ثم مطروحًا منه 80. فالقيمة 0.67 لـ volume_level تعني مستوى صوت رئيسيًا 67، أي -13.0 dB."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "هل ستطابق معرّفات الكيانات لديّ ما في هذا الدليل؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "النمط نفسه سيتطابق، أما الجزء الأوسط فلا. يسمّي AVR Maestro نصوصه البرمجية بعنوان MAC الخاص بالمستقبل، فتؤدي إعادة التسمية إلى تحديث النص نفسه بدلًا من إنشاء نسخة منه. وسيظهر لديك script.avr_maestro_ ثم الاثنا عشر حرفًا الخاصة بك، ثم اسم عنصر التحكم. افتح أدوات المطوّر ثم States في Home Assistant وصفّ النتائج بـ avr_maestro لترى قائمتك."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "الرئيسية",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "دليل المستخدم",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "أتمتة المنزل",
+      "item": "https://avrmaestro.com/guide/home-automation/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "لوحة التحكم",
+      "item": "https://avrmaestro.com/guide/home-assistant-dashboard/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/ar/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="القائمة" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="ابحث في الدليل..." data-i18n-empty="لا توجد نتائج لـ" data-i18n-language="اللغة">
+      <a href="/ar/">الرئيسية</a>
+      <a href="/ar/guide/">دليل المستخدم</a>
+      <a href="/ar/receivers/">المستقبلات</a>
+      <a href="/ar/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ar/best-denon-marantz-app/">لماذا تنتقل إليه</a>
+      <a href="/ar/#top" class="cta">تنزيل</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/ar/">الرئيسية</a> &rsaquo; <a href="/ar/guide/">دليل المستخدم</a> &rsaquo; <a href="/ar/guide/home-automation/">أتمتة المنزل</a> &rsaquo; لوحة التحكم</div>
+    <div class="eyebrow">Home Assistant &middot; خطوة بخطوة</div>
+    <h1>ابنِ لوحة تحكم Home Assistant هذه <span class="g">في ساعة تقريبًا</span></h1>
+    <p>عشر خطوات، وكود YAML لكل بطاقة، وعرض كامل يمكنك لصقه دفعة واحدة. بُنيت والتُقطت صورها على جهاز Marantz CINEMA 30 حقيقي. غيّر نصّين فقط وتصبح لوحتك.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <figure class="hero-shot">
+      <img alt="لوحة التحكم بعد اكتمالها: بطاقة رئيسية للتشغيل الحالي، ومستوى صوت مع إعدادات مسبقة بوحدة dB، وشبكة مصادر، وأوضاع الصوت المحيطي، وتصحيح الغرفة، والمشاهد، ورسم بياني لمستوى الصوت" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <figcaption>ما الذي ستبنيه</figcaption>
+    </figure>
+    <div class="note"><b>على عجل؟</b> انتقل إلى <a href="#whole">الخطوة 10</a>، ونزّل العرض الكامل، وغيّر نصّين والصقه. أما الخطوات التي بينهما فتشرح وظيفة كل جزء لتتمكن من تعديله.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>قبل أن تبدأ</h2>
+    </div>
+    <ul class="plain">
+      <li><b>تم ربط AVR Maestro بـ Home Assistant وأكملت المزامنة.</b> <a href="/ar/guide/home-automation/">دليل الإعداد</a> يشرح ذلك. يجب أن ترى عناصر التحكم في Home Assistant قبل أن تبني أي شيء فوقها.</li>
+      <li><b>تمت إضافة المستقبل إلى Home Assistant.</b> الإعدادات &rsaquo; الأجهزة &amp; الخدمات &rsaquo; إضافة تكامل &rsaquo; <b>Denon AVR</b>، ثم عنوان IP المحلي للمستقبل. هذا ما يمنح لوحة التحكم حالتها المباشرة.</li>
+      <li><b>المستقبل قيد التشغيل</b> أثناء البناء. نصف ما ستكتبه يقرأ قيمًا مباشرة، والمستقبل في وضع الاستعداد لا ينشر تقريبًا أي شيء.</li>
+    </ul>
+    <p class="lead">هناك مصدران يغذّيان لوحة التحكم هذه، والفرق بينهما مهم في كل خطوة أدناه.</p>
+    <table class="t">
+      <thead><tr><th>المصدر</th><th>ما يوفّره لك</th></tr></thead>
+      <tbody>
+        <tr><td>النصوص البرمجية المزامَنة من AVR Maestro</td><td>كل <b>عناصر التحكم</b>: المدخلات، وأوضاع الصوت المحيطي، وAudyssey، وDirac، وSmart Selects، والإعدادات المسبقة، والإضاءة الخافتة، ووضع توفير الطاقة، ومشاهدك.</td></tr>
+        <tr><td>كيان مشغّل الوسائط في تكامل Denon AVR</td><td><b>الحالة</b> المباشرة: الطاقة، والمصدر المحدد، ووضع الصوت المحيطي، ومستوى الصوت، والكتم.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">الخطوة 1</div>
+      <h2>ثبّت أربع بطاقات من HACS</h2>
+    </div>
+    <p class="lead">الأربع كلها موجودة في متجر HACS الافتراضي. في Home Assistant: <b>HACS &rsaquo; الواجهة الأمامية &rsaquo; استكشاف &amp; تنزيل المستودعات</b>، ابحث عن الاسم، ثم نزّل، ثم أعد تحميل المتصفح.</p>
+    <table class="t">
+      <thead><tr><th>ابحث عن</th><th>يُستخدم من أجل</th><th>إن تخطيته</th></tr></thead>
+      <tbody>
+        <tr><td><b>Mushroom</b></td><td>كل بلاطات التحكم، ومنزلق مستوى الصوت</td><td>استخدم بطاقة <code>button</code> عادية. تعمل، لكن شكلها أكثر تربيعًا.</td></tr>
+        <tr><td><b>button-card</b></td><td>عناوين الأقسام مع تسمية مباشرة</td><td>استخدم بطاقة <code>markdown</code>، أو عناوين عادية.</td></tr>
+        <tr><td><b>card-mod</b></td><td>الألوان، والحالة المضاءة للبلاطة النشطة</td><td>كل شيء يعمل كما هو. لكن لا شيء يُضاء.</td></tr>
+        <tr><td><b>apexcharts-card</b></td><td>الرسوم البيانية للسجل</td><td>استخدم بطاقة <code>history-graph</code> المدمجة.</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><b>لا شيء منها مطلوب لكي تعمل اللوحة.</b> كل عنصر تحكم أدناه يعمل ببطاقة زر قياسية من Home Assistant تشير إلى النص البرمجي نفسه. البطاقات المخصصة مجرد مكياج، وليست أنابيب.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">الخطوة 2</div>
+      <h2>اعثر على معرّفَي الكيانين</h2>
+    </div>
+    <p class="lead">كل مقطع في هذه الصفحة يستخدم عنصرَين نائبَين. اعثر على قيمتيك مرة واحدة، والباقي نسخ ولصق.</p>
+    <ul class="plain">
+      <li><b><code>media_player.your_receiver</code></b> &rarr; الإعدادات &rsaquo; الأجهزة &amp; الخدمات &rsaquo; مستقبلك &rsaquo; كيان مشغّل الوسائط. يبدو شيئًا مثل <code>media_player.marantz_cinema_30</code>.</li>
+      <li><b><code>script.avr_maestro_MAC_...</code></b> &rarr; أدوات المطور &rsaquo; الحالات، واكتب <code>avr_maestro</code> في مرشّح الكيانات. ستظهر قائمة التحكم بالكامل.</li>
+    </ul>
+    <p class="lead">الجزء الأوسط من كل معرّف نص برمجي هو عنوان MAC لمستقبلك، اثنا عشر حرفًا صغيرًا، وهو نفسه في جميعها. انسخه مرة واحدة. وفي كل موضع تكتب فيه هذه الصفحة <code>MAC</code>، ضع قيمتك.</p>
+    <div class="note"><b>تجاهل أي معرّف يحمل <code>unavailable</code>.</b> كانت الإصدارات الأقدم تسمّي النصوص البرمجية باسم المستقبل بدل عنوان MAC. إن أجريت المزامنة حينها، فتلك النصوص القديمة لا تزال مدرجة لكنها معطّلة. أما العاملة فهي التي تحمل اسم MAC.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">الخطوة 3</div>
+      <h2>أنشئ العرض</h2>
+    </div>
+    <ol class="plain">
+      <li><b>1.</b> الإعدادات &rsaquo; لوحات التحكم &rsaquo; إضافة لوحة تحكم &rsaquo; لوحة تحكم جديدة من الصفر. سمّها ما شئت.</li>
+      <li><b>2.</b> افتحها، ثم اضغط أيقونة القلم أعلى اليسار للتعديل.</li>
+      <li><b>3.</b> أضف عرضًا، واختر تخطيط <b>الأقسام</b> (Sections). وليس Masonry. فتخطيط الأقسام هو ما يجعل اللوحة تعيد ترتيب نفسها بشكل سليم على الهاتف.</li>
+      <li><b>4.</b> في إعدادات العرض، اضبط <b>الحد الأقصى للأعمدة</b> على 3 وفعّل <b>وضع الأقسام المتراصّة</b>.</li>
+    </ol>
+    <p class="lead">من هنا فصاعدًا كل خطوة هي: أضف قسمًا، ثم الصق بطاقات فيه. للصق YAML، استخدم قائمة النقاط الثلاث في البطاقة واختر <b>التعديل بصيغة YAML</b>، أو قائمة النقاط الثلاث في لوحة التحكم لاختيار <b>محرر الإعدادات الخام</b> للصق كل شيء دفعة واحدة.</p>
+<pre class="code"><span class="c"># The view's own settings, if you prefer to type them</span>
+type: sections
+title: AVR Maestro
+icon: mdi:audio-video
+max_columns: 3
+dense_section_placement: true</pre>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">الخطوة 4</div>
+      <h2>أضف عنصر تحكم</h2>
+    </div>
+    <p class="lead">ابدأ بأبسط شيء في اللوحة، لتتأكد من صحة معرّفات الكيانات قبل أن تبني أي شيء معقّد. أضف قسمًا، ثم بطاقة، ثم التعديل بصيغة YAML، والصق:</p>
+<pre class="code">type: button
+name: Pure Direct
+icon: mdi:speaker
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_mode_pure_direct</pre>
+    <p class="capt">Home Assistant القياسي. لا حاجة إلى HACS.</p>
+    <p class="lead">اضغط عليه. إن تغيّر حال المستقبل فمعرّفاتك صحيحة وكل ما يلي سيعمل. وإن لم يحدث شيء فارجع إلى الخطوة 2.</p>
+  </div>
+</section>
+
+<section id="highlight">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">الخطوة 5</div>
+      <h2>اجعله يُضاء حين يكون هو النشط</h2>
+    </div>
+    <p class="lead">هذا هو النمط الذي يستحق التعلّم، وكل بلاطة مصدر وصوت محيطي في اللوحة نسخة منه. تُرسل البطاقة نصًا برمجيًا وتلوّن نفسها بحسب كيان المستقبل، فيُضاء المدخل الذي تستخدمه فعلًا وتبقى البقية مطفأة.</p>
+    <figure><img alt="شبكة المصادر وقد أُضيء Nvidia Shield باللون البرتقالي بينما بقيت المدخلات الاثنا عشر الأخرى معتمة" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>بلاطة واحدة مضاءة، واثنتا عشرة معتمة</figcaption></figure>
+<pre class="code">type: custom:mushroom-template-card
+entity: script.avr_maestro_MAC_input_cd
+icon: mdi:disc
+primary: CD
+icon_color: >-
+  {{ 'orange' if (state_attr('media_player.your_receiver','source') or '')|lower
+     == 'cd' else 'grey' }}
+layout: vertical
+fill_container: true
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_input_cd
+card_mod:
+  style: |
+    ha-card {
+      border-radius: 14px;
+    {% if (state_attr('media_player.your_receiver','source') or '')|lower == 'cd' %}
+      background: linear-gradient(160deg, rgba(226,86,10,0.34), rgba(15,15,17,0.88));
+      border: 1px solid rgba(255,122,24,0.80);
+    {% else %}
+      background: rgba(15,15,17,0.72);
+      border: 1px solid rgba(255,122,24,0.14);
+    {% endif %}
+    }</pre>
+    <p class="capt">غيّر ثلاثة أشياء لكل مدخل: النص البرمجي، والأيقونة، والنص الذي تُجرى المقارنة معه.</p>
+    <p class="lead">أمران يجب ضبطهما وإلا فلن تُضاء البلاطة أبدًا:</p>
+    <ul class="plain">
+      <li><b>قارن بما يُبلغ عنه مستقبلك فعلًا.</b> أدوات المطور &rsaquo; الحالات، ثم كيان مشغّل الوسائط، واقرأ السمتين <code>source_list</code> و<code>sound_mode_list</code>. هذه هي النصوص الدقيقة. قارن بأحرف صغيرة كما في المثال أعلاه.</li>
+      <li><b>المدخل المعاد تسميته يُبلغ عنه باسمه الجديد.</b> أعد تسمية GAME1 إلى «Xbox» على المستقبل فيُبلغ عنه باسم <code>Xbox</code>، بينما يظل عنصر التحكم في AVR Maestro يحمل اسم <code>input_game1</code>. طابِق ما يُبلغ عنه المستقبل، لا اسم النص البرمجي.</li>
+    </ul>
+    <p class="lead">أوضاع الصوت المحيطي هي البطاقة نفسها مع <code>sound_mode</code> بدلًا من <code>source</code>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">الخطوة 6</div>
+      <h2>امنح كل قسم عنوانًا مباشرًا</h2>
+    </div>
+    <p class="lead">العنوان العادي مساحة ميتة. ضع القيمة المباشرة تحته فيصبح «المصادر» هو «المصادر / يعمل الآن: Nvidia Shield».</p>
+<pre class="code">type: custom:button-card
+name: Sources
+icon: mdi:video-input-hdmi
+color_type: label-card
+entity: media_player.your_receiver
+show_label: true
+label: >-
+  [[[ var v = states["media_player.your_receiver"].attributes.source;
+      return v ? ("Now on " + v) : "Receiver in standby"; ]]]
+tap_action:
+  action: none
+styles:
+  grid:
+    - grid-template-areas: '"i n" "i l"'
+    - grid-template-columns: min-content auto
+  name:
+    - font-size: 13px
+    - letter-spacing: 3px
+    - text-transform: uppercase
+    - justify-self: start
+  label:
+    - font-size: 11px
+    - justify-self: start</pre>
+    <p class="capt">الشبكة ذات السطرين هي ما يضع التسمية تحت العنوان بدلًا من بجانبه.</p>
+    <p class="lead">بدّل <code>attributes.source</code> بـ <code>attributes.sound_mode</code> في عنوان قسم الصوت المحيطي، وهكذا.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">الخطوة 7</div>
+      <h2>اعرض مستوى الصوت بوحدة dB</h2>
+    </div>
+    <p class="lead">يُبلغ Home Assistant عن مستوى الصوت ككسر. لا أحد يضبط مستقبله على «0.67». سطر واحد من الحساب يحل المشكلة ويبدو القسم كله كأنه مستقبل حقيقي.</p>
+    <figure><img alt="قسم مستوى الصوت: منزلق، ورفع، وخفض، وكتم، وأربعة إعدادات مسبقة بوحدة dB" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>ليلي، وحوار، وفيلم، وعالٍ، وعلى كل منها مستوى dB الذي يضبطه</figcaption></figure>
+    <div class="note"><b>التحويل.</b> ينشر Home Assistant القيمة <code>volume_level</code> بوصفها مستوى الصوت الرئيسي مقسومًا على 100، وفي مستقبلات Denon وMarantz يمثل MV 80 المرجع 0 dB. إذن <b>dB = volume_level &times; 100 &minus; 80</b>. فالقيمة <code>volume_level</code> البالغة 0.67 تعني مستوى صوت رئيسيًا 67، أي &minus;13.0 dB.</div>
+<pre class="code"><span class="c"># The readout</span>
+type: custom:mushroom-template-card
+entity: media_player.your_receiver
+icon: mdi:volume-high
+primary: >-
+  {% set v = state_attr('media_player.your_receiver','volume_level') %}
+  {% if v is not none %}{{ (v * 100 - 80) | round(1) }} dB{% else %}Standby{% endif %}
+secondary: Master volume
+layout: vertical</pre>
+<pre class="code"><span class="c"># The slider. media_controls must be empty or the bar becomes a power button</span>
+type: custom:mushroom-media-player-card
+entity: media_player.your_receiver
+volume_controls:
+  - volume_set
+media_controls: []
+show_volume_level: true</pre>
+<pre class="code"><span class="c"># A preset. 0.50 is master volume 50, which is -30 dB</span>
+type: custom:mushroom-template-card
+entity: media_player.your_receiver
+icon: mdi:weather-night
+primary: Night
+secondary: "-30 dB"
+tap_action:
+  action: perform-action
+  perform_action: media_player.volume_set
+  target:
+    entity_id: media_player.your_receiver
+  data:
+    volume_level: 0.50</pre>
+    <div class="note"><b>اختر أعلى إعداد مسبق لديك بتأنٍّ.</b> المجموعة أعلاه تتوقف عند &minus;10 dB. فالوصول بالخطأ إلى لوحة تحكم أسهل بكثير من جهاز التحكم عن بُعد، والمستوى المرجعي على مستقبل كبير مرتفع فعلًا.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">الخطوة 8</div>
+      <h2>أضف مشاهدك</h2>
+    </div>
+    <p class="lead">اقرأ الاسم من النص البرمجي بدل كتابته، وعندما تعيد تسمية مشهد في AVR Maestro تتغير تسمية البلاطة دون أي تعديل في لوحة التحكم.</p>
+    <figure><img alt="أربع بلاطات مشاهد، وكل منها يسرد الإعدادات التي يستعيدها المشهد" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>كل بلاطة تذكر ما يستعيده مشهدها فعلًا</figcaption></figure>
+<pre class="code">type: custom:mushroom-template-card
+entity: script.avr_maestro_MAC_scene_1234567890123
+icon: mdi:theater
+primary: >-
+  {{ state_attr('script.avr_maestro_MAC_scene_1234567890123','friendly_name')
+     | replace('AVR Maestro - ', '') | replace(' (Your Receiver)', '') }}
+secondary: >-
+  {% set t = states.script['avr_maestro_MAC_scene_1234567890123'].attributes.last_triggered %}
+  {{ 'recalled ' ~ relative_time(t) ~ ' ago' if t else 'not run yet' }}
+multiline_secondary: true
+tap_action:
+  action: perform-action
+  perform_action: script.turn_on
+  target:
+    entity_id: script.avr_maestro_MAC_scene_1234567890123</pre>
+    <p class="capt">استدعاءا replace() يقصّان البادئة واسم المستقبل من الاسم الودّي.</p>
+    <p class="lead">السطر الثاني يستحق الدقيقة الإضافية. جدار من الأزرار بأسماء إيحائية لا يخبرك بشيء عند الساعة 11 مساءً، أما سطر يذكر ما يستعيده كل منها فيدلّك على الزر الذي تضغطه.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">الخطوة 9</div>
+      <h2>أضف السجل</h2>
+    </div>
+    <p class="lead">يسجّل Home Assistant كيان مشغّل الوسائط في المستقبل مثل أي كيان آخر، فيتوفر لك سجل استماع مجانًا. كل ما يلي يأتي من كيان واحد: دون مستشعرات إضافية، ودون مساعدات، ودون أي إعداد مسبق.</p>
+    <figure><img alt="خمسة رسوم بيانية للسجل: الطاقة والنشاط، ومستوى الصوت الرئيسي بوحدة dB، ومستوى الصوت حسب اليوم، والمصدر المستخدم، ووضع الصوت المحيطي" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>خمسة رسوم بيانية، وكيان واحد، وسبعة أيام</figcaption></figure>
+    <p class="lead">الخط الزمني للحالة العادي لا يحتاج إلى أي بطاقات مخصصة، وهو الأجدر بالاقتناء:</p>
+<pre class="code">type: history-graph
+hours_to_show: 168
+entities:
+  - entity: media_player.your_receiver
+    name: Receiver</pre>
+    <p class="capt">قيد التشغيل، ومتوقف، وما كان يفعله، على مدى أسبوع.</p>
+    <p class="lead">مستوى الصوت بوحدة dB يستخدم التحويل نفسه الوارد في الخطوة 7:</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+header:
+  show: true
+  title: Master volume, last 7 days
+series:
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Master volume
+    type: line
+    curve: smooth
+    unit: dB
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100 - 80;"
+    extend_to: now
+    group_by:
+      duration: 1h
+      func: last
+      fill: last
+apex_config:
+  chart:
+    height: 240
+  yaxis:
+    min: -60
+    max: 0</pre>
+    <p class="capt">group_by مع fill: last يحوّل الأحداث المتفرقة إلى خط متصل. ويجب وضع المحور الرأسي في apex_config لكي يسري.</p>
+    <p class="lead">المتوسط اليومي والذروة يحوّلان الخط المتعرّج إلى شيء له شكل:</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+span:
+  end: day
+header:
+  show: true
+  title: Master volume by day in dB, average and peak
+series:
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Day average
+    type: column
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100;"
+    group_by: {duration: 1d, func: avg, fill: 'null'}
+  - entity: media_player.your_receiver
+    attribute: volume_level
+    name: Day peak
+    type: line
+    curve: smooth
+    float_precision: 1
+    transform: "return x == null ? null : Number(x) * 100;"
+    group_by: {duration: 1d, func: max, fill: 'null'}
+apex_config:
+  yaxis:
+    min: 0
+    max: 80
+    labels:
+      formatter: "EVAL:function (v) { return (v - 80).toFixed(0); }"
+  tooltip:
+    y:
+      formatter: "EVAL:function (v) { return v == null ? '' : (v - 80).toFixed(1) + ' dB'; }"</pre>
+    <p class="capt">سلسلتان من السمة نفسها، مجمّعتان حسب اليوم.</p>
+    <div class="note"><b>لماذا يرسم هذا الرسم القيم من 0 إلى 80 ثم ينسّقها بوحدة dB، بدل رسم dB مباشرة.</b> الأعمدة تنمو من أرضية المحور. إن رسمت dB مباشرة فستتدلّى كل الأعمدة من الصفر، فيعني العمود الطويل صوتًا هادئًا، وهذا يُقرأ بالمقلوب. ارسم رقم مستوى الصوت الرئيسي الخام واطرح 80 في منسّقَي المحور والتلميح، فتنمو الأعمدة إلى الأعلى بينما يظل كل ما يراه القارئ بوحدة dB. و<code>fill: 'null'</code> تعني أن اليوم الذي لا قراءات فيه لا يحصل على عمود بدل أن تُرحَّل إليه قيمة الأمس.</div>
+    <p class="lead">والرسمان اللذان يجيبان عن سؤال «على ماذا أشاهد فعلًا، وبأي وضع»: المصدر ووضع الصوت المحيطي، مرسومان كخط زمني للمحدَّد منهما.</p>
+<pre class="code">type: custom:apexcharts-card
+graph_span: 7d
+span:
+  end: day
+header:
+  show: true
+  title: Source in use, last 7 days
+series:
+  - entity: media_player.your_receiver
+    attribute: source
+    name: Source
+    type: line
+    curve: stepline
+    stroke_width: 3
+    extend_to: now
+    float_precision: 0
+    transform: |
+      if (x == null) return null;
+      var m = ["Phono", "NET", "Xbox", "Nvidia Shield"];
+      var i = m.indexOf(x);
+      return i &lt; 0 ? 0 : i + 1;
+apex_config:
+  yaxis:
+    min: 0
+    max: 4
+    tickAmount: 4
+    labels:
+      formatter: >-
+        EVAL:function (v) { return ["Other", "Phono", "HEOS Net", "Xbox",
+        "Shield"][Math.round(v)] || ''; }
+  tooltip:
+    y:
+      formatter: >-
+        EVAL:function (v) { return v == null ? 'off' : ["Other", "Phono",
+        "HEOS Net", "Xbox", "Shield"][Math.round(v)] || 'Other'; }</pre>
+    <p class="capt">ضع مصادرك أنت في مصفوفة transform وفي مصفوفتَي المنسّق كلتيهما. أبقِ الفهرس 0 على «Other».</p>
+    <p class="lead">محور الرسم يحتاج إلى أرقام، لذا يربط <code>transform</code> كل اسم مصدر بموضع، وتعيده المنسّقات إلى الاسم في التسميات والتلميح. اجعل الربط <b>شاملًا</b>: يبقى <code>null</code> (المستقبل متوقف) فجوة، وأي شيء ليس في قائمتك يقع في «Other»، فلا يختلط الأمران أبدًا. والبطاقة نفسها مع <code>sound_mode</code> تعطيك وضع الصوت المحيطي، بنصوص بأحرف كبيرة تمامًا كما يبلّغ عنها مستقبلك.</p>
+    <div class="note"><b>أبقِ <code>stepline</code> على هذين الأخيرين.</b> المصدر ووضع الصوت المحيطي فئتان لا رقمان. إن نعّمت المنحنى فسينحرف الخط بين Shield وXbox مارًّا بما يقع بينهما على المحور، راسمًا مدخلًا لم يُحدَّد قط. مستوى الصوت كمية حقيقية ويقبل التنعيم بأمانة، أما الفئة فلا.</div>
+    <div class="note"><b>تحقق من مدة الاحتفاظ في المسجِّل أولًا.</b> يحتفظ Home Assistant بعشرة أيام افتراضيًا، فسبعة أيام هي أقصى ما يمكنك طلبه بفائدة. وللرجوع أبعد تحتاج إلى مستشعر قالب <code>state_class: measurement</code>، يحتفظ به Home Assistant كإحصاءات طويلة الأمد لسنوات.</div>
+    <div class="note"><b>اليوم المفقود صحيح في الغالب.</b> يسجّل Home Assistant التغيرات لا العيّنات. اترك المستقبل على مدخل واحد وبمستوى صوت واحد ليومين فلن يكتب شيئًا على الإطلاق، فلا يكون لذلك اليوم عمود. يبدو كأنه فقدان بيانات، وهو العكس: لم يحدث شيء.</div>
+  </div>
+</section>
+
+<section id="whole">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">الخطوة 10</div>
+      <h2>أو خذ كل شيء جاهزًا</h2>
+    </div>
+    <p class="lead">العرض الكامل، بكل أقسامه وبطاقاته، مع عناصر نائبة بدل معرّفات الكيانات.</p>
+    <ol class="plain">
+      <li><b>1.</b> <a href="/ar/guide/home-assistant-dashboard/avr-maestro-dashboard.yaml" download>نزّل YAML الخاص بالعرض</a>.</li>
+      <li><b>2.</b> افتحه في أي محرر نصوص واستبدل نصّين في كل موضع يظهران فيه: <code>YOUR_RECEIVER</code> باسم كيان مشغّل الوسائط لديك، و<code>YOURMAC</code> بالأحرف الاثني عشر الخاصة بمستقبلك من الخطوة 2.</li>
+      <li><b>3.</b> في Home Assistant افتح لوحة التحكم، ثم أيقونة القلم، ثم قائمة النقاط الثلاث، ثم <b>محرر الإعدادات الخام</b>، والصقه كعرض.</li>
+    </ol>
+    <div class="note"><b>معرّفات مشاهدك لن تتطابق.</b> تُسمّى نصوص المشاهد البرمجية بحسب وقت إنشاء المشهد، فالأربعة الموجودة في الملف غير موجودة على نظامك: ستظهر تلك البطاقات ولن تفعل شيئًا. استبدل معرّفات كياناتها بمعرّفاتك من الخطوة 2، أو احذف قسم المشاهد وأعد بناءه بالخطوة 8.</div>
+    <div class="note"><b>أمران آخران متوقعان.</b> الرسمان البيانيان للمصدر والصوت المحيطي يحملان أسماء المصادر من المستقبل الذي بُنيت عليه اللوحة، فعدّل تلك المصفوفات كما تصف الخطوة 9. وتسميات البلاطات بالإنجليزية؛ لا شيء في الملف مترجم.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>إذا لم تُضاء بلاطة أبدًا</h2>
+    </div>
+    <p class="lead">قبل أن تفترض أنك بنيتها خطأ: بعضها لا يمكن أن يُضاء، ومن المفيد أن تعرف أيها.</p>
+    <p class="lead">لا تستطيع البلاطة عرض حالتها إلا إذا استطاع Home Assistant قراءتها، وهو يقرأ مستقبلك من مكانين. يتولى تكامل Denon AVR نشر الأساسيات على كيان مشغّل الوسائط. ويتولى AVR Maestro نشر الباقي: فهو ينشئ مستشعر <b>Status Bridge</b>، <code>sensor.avr_maestro_your_receiver</code>، ويكتب عليه القراءات التي يحتفظ بها أصلًا كسمات.</p>
+    <table class="t">
+      <thead><tr><th>على كيان مشغّل الوسائط</th><th>على مستشعر Status Bridge</th></tr></thead>
+      <tbody>
+        <tr><td>الطاقة</td><td>منحنى Audyssey MultEQ</td></tr>
+        <tr><td>المصدر المحدد</td><td>Dynamic Volume والمستوى المرجعي</td></tr>
+        <tr><td>وضع الصوت المحيطي</td><td>أي خانة Dirac محمّلة</td></tr>
+        <tr><td>مستوى الصوت والكتم</td><td>إضاءة اللوحة الأمامية الخافتة، ووضع توفير الطاقة</td></tr>
+        <tr><td>Dynamic EQ، أحيانًا</td><td>Speaker Preset، وجرس الصوت، وعشرات غيرها</td></tr>
+      </tbody>
+    </table>
+    <p class="lead">العمودان قابلان للقراءة الآن. خذ قيمة مشغّل الوسائط من <code>states['media_player.your_receiver'].attributes</code>، وقيمة Status Bridge بـ <code>state_attr('sensor.avr_maestro_your_receiver','dirac_slot')</code>، لتُضاء البلاطة للإعداد الفعّال فعلًا بدل أن تكتفي بتشغيل النص البرمجي الذي يغيّره.</p>
+    <p class="lead">قيس على المستقبل الذي بُنيت عليه اللوحة: يحمل كيان مشغّل الوسائط نحو عشرين من أصل ستين عنصر تحكم، وينشر مستشعر Status Bridge نحو أربعين أخرى. وبالاثنين معًا تستطيع لوحة التحكم قراءة كل ما تستطيع تغييره تقريبًا - وهذا هو الفرق بين جدار من الأزرار وسطح تحكم حقيقي.</p>
+    <div class="note"><b>إذا كانت القيمة تحتمل معنيين، فقل ذلك.</b> يصل Dynamic EQ بالقيمة <code>true</code> أو <code>false</code> أو لا يصل إطلاقًا. معاملة «لا يصل إطلاقًا» كأنه «متوقف» تضع على جدارك إجابة خاطئة واثقة.</div>
+<pre class="code">icon_color: >-
+  {% set d = state_attr('media_player.your_receiver','dynamic_eq') %}
+  {{ 'orange' if d is true else 'grey' }}
+secondary: >-
+  {% set d = state_attr('media_player.your_receiver','dynamic_eq') %}
+  {% if d is none %}state not published{% elif d %}on{% else %}off{% endif %}</pre>
+    <p class="capt">ثلاث حالات، لا اثنتان.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>أمور أخرى تستحق المعرفة</h2>
+    </div>
+    <ul class="plain">
+      <li><b>تظهر البلاطات بثلث العرض الذي تتوقعه.</b> في قسم يمتد على 3 أعمدة تكون الشبكة الداخلية <b>36</b> عمودًا لا 12. لأربع بلاطات في الصف اضبط <code>grid_options: {columns: 9}</code>. ولست بلاطات في الصف، 6.</li>
+      <li><b>يعرض منزلق مستوى الصوت زر طاقة بدل الشريط.</b> هذا هو <code>media_controls</code> وفيه <code>on_off</code>. اضبط <code>media_controls: []</code>.</li>
+      <li><b>التسميات تُقطع.</b> يتحول «Volume Down» إلى «Volume Do...». اختصرها إلى «Vol Down»، أو وسّع البلاطة.</li>
+      <li><b>أوصاف المشاهد تُقتطع.</b> أضف <code>multiline_secondary: true</code>.</li>
+      <li><b>يختفي الخط الثابت من رسم apexcharts البياني.</b> هذا هو <code>experimental.color_threshold</code>. فهو يرسم الخط بتدرج رأسي، والمقطع الأفقي تمامًا ارتفاعه صفر فلا يوجد ما يتدرج عبره، فيظهر غير مرئي. جلسة مدتها 43 ساعة بمستوى صوت واحد اختفت كليًا. استخدم <code>color</code> صلبًا.</li>
+      <li><b>يعيد ترتيب نفسه على الهاتف تلقائيًا.</b> تتراص عروض الأقسام في عمود واحد عند العروض الضيقة دون أي إعداد إضافي.</li>
+    </ul>
+    <figure><img alt="لوحة التحكم نفسها بعرض الهاتف، وقد أعادت ترتيب نفسها في عمود واحد" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>لوحة التحكم نفسها بعرض الهاتف: الأعمدة الثلاثة تصبح عمودًا واحدًا، ولم يُضبط شيء لحدوث ذلك</figcaption></figure>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">أسئلة شائعة</div>
+      <h2>لوحة التحكم، بالأجوبة</h2>
+    </div>
+    <details open><summary>هل أحتاج إلى بطاقات مخصصة من HACS لبناء هذه اللوحة؟</summary><div class="body">ليس لكي تعمل. فكل عنصر تحكم في هذه الصفحة يعمل من بطاقة أزرار عادية في Home Assistant. أما Mushroom وbutton-card وcard-mod وapexcharts-card فهي ما يمنحها المظهر الذي تراه في لقطات الشاشة، ويذكر كل قسم أدناه أيها يستخدم وما تخسره بدونه.</div></details>
+    <details><summary>لماذا تضيء بعض الأزرار ولا تضيء أخرى؟</summary><div class="body">يُضاء الزر حين يستطيع Home Assistant قراءة الحالة المطابقة من مستقبلك. المصدر ووضع الصوت المحيطي ومستوى الصوت والكتم تأتي من كيان مشغّل الوسائط الخاص بالمستقبل&#x27;، لذا تُضاء. أما منحنى Audyssey وخانة Dirac والإضاءة الخافتة ووضع توفير الطاقة وSpeaker Preset فلا ينشرها تكامل Denon، فلا يعرف Home Assistant أيها فعّال وتبقى الأزرار غير مضاءة إلى أن تضغط أحدها.</div></details>
+    <details><summary>هل يمكنني عرض مستوى الصوت الحقيقي بوحدة dB بدلًا من نسبة مئوية؟</summary><div class="body">نعم. ينشر Home Assistant القيمة volume_level بوصفها مستوى الصوت الرئيسي للمستقبل&#x27; مقسومًا على 100، وفي مستقبلات Denon وMarantz يمثل MV 80 المرجع 0 dB. إذن dB يساوي volume_level مضروبًا في 100، ناقص 80. فقيمة volume_level البالغة 0.67 تعني مستوى صوت رئيسيًا 67، أي -13.0 dB.</div></details>
+    <details><summary>هل ستطابق معرّفات الكيانات لديّ ما في هذا الدليل؟</summary><div class="body">النمط نعم، أما الجزء الأوسط فلا. يسمّي AVR Maestro نصوصه البرمجية بعنوان MAC الخاص بالمستقبل&#x27; حتى تحدّث إعادة التسمية النص نفسه بدل أن تشعّبه. ستكون نصوصك script.avr_maestro_ ثم أحرفك الاثني عشر، ثم اسم عنصر التحكم. افتح أدوات المطور ثم الحالات في Home Assistant وصفِّ بالنص avr_maestro لترى قائمتك.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">المزيد من الدليل</div>
+      <h2>أدلة AVR Maestro الأخرى</h2>
+    </div>
+    <p class="lead"><a href="/ar/guide/getting-started/">البدء</a> &middot; <a href="/ar/guide/home/">الشاشة الرئيسية</a> &middot; <a href="/ar/guide/scenes/">المشاهد</a> &middot; <a href="/ar/guide/custom-icons/">الأيقونات المخصصة</a> &middot; <a href="/ar/guide/sound/">الصوت</a> &middot; <a href="/ar/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/ar/guide/speakers/">مكبرات الصوت</a> &middot; <a href="/ar/guide/locked-controls/">لماذا يكون أحد عناصر التحكم مقفلًا</a> &middot; <a href="/ar/guide/assistant/">المساعد</a> &middot; <a href="/ar/guide/home-automation/">أتمتة المنزل</a> &middot; <a href="/ar/guide/multi-zone/">المناطق</a> &middot; <a href="/ar/guide/remote/">التحكم عن بُعد</a> &middot; <a href="/ar/guide/radio/">الراديو (FM/AM)</a> &middot; <a href="/ar/guide/on-screen-display/">العرض على الشاشة</a> &middot; <a href="/ar/guide/settings/">الإعدادات</a> &middot; <a href="/ar/guide/languages/">اللغات</a> &middot; <a href="/ar/guide/volume/">عناصر التحكم في مستوى الصوت</a> &middot; <a href="/ar/guide/backup/">النسخ الاحتياطي &amp; الاستعادة</a> &middot; <a href="/ar/guide/now-playing/">قيد التشغيل الآن &amp; HEOS</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>مستقبلك كله، على جدار واحد</h2>
+    <p class="lead" style="margin:0 auto 24px">أتمتة المنزل هي الميزة المدفوعة الوحيدة في AVR Maestro. كل ما عداها، بما في ذلك المساعد الذكي على الجهاز، مشمول.</p>
+    <div class="badges">
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro"><img alt="احصل عليه من Google Play" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="نزّله من App Store" src="https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=app-store&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597"><img alt="نزّله من Mac App Store" src="https://img.shields.io/badge/Mac%20App%20Store-Download-1D1D1F?logo=apple&logoColor=white&style=for-the-badge" /></a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106"><img alt="احصل عليه من Microsoft Store" src="https://img.shields.io/badge/Microsoft%20Store-Download-0078D4?logo=windows&logoColor=white&style=for-the-badge" /></a>
+    </div>
+    <p class="lead" style="margin:18px auto 0;font-size:.92rem"><a href="/ar/guide/home-automation/">العودة إلى أتمتة المنزل &rarr;</a> &middot; <a href="/ar/guide/">دليل المستخدم الكامل &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/ar/">الرئيسية</a>
+      <a href="/ar/guide/">دليل المستخدم</a>
+      <a href="/ar/guide/getting-started/">البدء</a>
+      <a href="/ar/receivers/">المستقبلات</a>
+      <a href="/ar/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ar/audyssey-vs-dirac/">Audyssey مقابل Dirac</a>
+      <a href="/ar/best-denon-marantz-app/">لماذا تنتقل إليه</a>
+      <a href="/ar/help/">المساعدة</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro تطبيق مستقل من MiyaraHub Technologies LLC، وليس تابعًا لـ Denon أو Marantz أو D&amp;M Holdings أو Sound United أو أي شركة أخرى مذكورة في هذه الصفحة، ولا مدعومًا أو مرعيًا منها. Denon وMarantz وHEOS وHome Assistant وMushroom وHACS وAudyssey وNvidia Shield علامات تجارية أو مشاريع تخص مالكيها، وتُستخدم هنا لأغراض التعريف فقط.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>
