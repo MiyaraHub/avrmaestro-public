@@ -132,7 +132,7 @@
       "description": "将 AVR Maestro 关联到 Home Assistant 或 Hubitat，你的场景就会变成无需手机即可运行的原生脚本。支持语音控制、实时状态和 Webhook。",
       "image": "https://avrmaestro.com/screenshots/home-assistant.png",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -187,6 +187,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "控制不会。应用通过你自己的网络与接收机和中枢通信，任何内容都不会经过 MiyaraHub 的服务器。Webhook 会发往你指定的地址，这由你自己决定。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "在另一台设备上购买过家庭自动化，或重新安装过应用？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "打开 设置 › 家庭自动化（专业版），并轻点解锁按钮下方的“恢复购买”。如果您之前用同一个商店账户购买过解锁，它会直接恢复，无需再次付费。"
       }
     }
   ]
@@ -273,7 +281,7 @@
     </div>
     <ul class="plain">
       <li><b>1. 请先将您的接收机添加到 Home Assistant。</b> 设置 &rsaquo; 设备 &amp; 服务 &rsaquo; 添加集成 &rsaquo; <b>Denon AVR</b>（或 <b>HEOS</b>），然后输入接收机的本地 IP。Home Assistant 会为其创建一个媒体播放器实体。</li>
-      <li><b>2. 在 AVR Maestro 中打开设置 &rsaquo; 家庭自动化</b>，然后点按 Home Assistant 卡片。</li>
+      <li><b>2. 在 AVR Maestro 中打开 设置 &rsaquo; 家庭自动化（专业版）</b>，然后轻点 Home Assistant 卡片。</li>
       <li><b>3. 输入你的 Home Assistant 地址</b>：可以是形如 <code>http://192.168.1.150:8123</code> 的本地地址，也可以是你的外部 Nabu Casa URL。</li>
       <li><b>4. 登录并授权。</b>应用会打开一个安全的内置浏览器，显示 Home Assistant 自己的登录页。你的凭据只会发给 Home Assistant，绝不会发给我们。</li>
       <li><b>5. 它会自动找到你的接收机。</b>应用会扫描你的媒体播放器实体，并按型号、名称和环绕声能力打分，然后为你填入正确的实体。</li>
@@ -305,6 +313,14 @@
         <p>脚本只能运行，不能读取，所以早期的仪表盘可以切换 Audyssey 曲线或 Dirac 插槽，却无法显示当前是哪一个。应用已掌握的读数，包括实时环绕声模式、当前的 Dirac 滤波器、扬声器预设、调光以及另外几十项，现在都会作为属性发布到接收机的状态传感器上，因此磁贴可以为真正在运行的设置点亮。</p>
       </div>
       <img alt="AVR Maestro 向 Home Assistant 发布扬声器预设、Dirac Live 和 Audyssey 控制脚本" src="/screenshots/ha-sync-advanced.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">声音模式脚本</div>
+        <h2>导出声音模式 (REST)</h2>
+        <p>在 Home Assistant 部分，<b>导出声音模式 (REST)</b>会打开<b>高级脚本 (REST)</b>：为接收机列出的每种声音模式生成一个 Home Assistant 脚本，这样仪表板按钮或自动化就能直接选择环绕声模式。应用从接收机读取该列表，所以请先打开接收机并进入一次<a href="/zh-hans/guide/sound/">声音标签页</a>；在此之前，它会请您这样做，而不是导出一份空列表。</p>
+      </div>
     </div>
 
     <div class="lockrow" style="margin-top:28px">
@@ -391,7 +407,7 @@
 
     <h3 style="margin-top:28px">在 AVR Maestro 中</h3>
     <ul class="plain">
-      <li><b>1. 设置 &rsaquo; 家庭自动化 &rsaquo; Webhook</b>，然后点击<b>添加第一个触发器</b>；已有触发器后则点击 <b>+</b> 按钮。</li>
+      <li><b>1. 设置 &rsaquo; 家庭自动化（专业版）&rsaquo; Webhook</b>，然后点<b>添加第一个触发器</b> - 已有触发器后则点 <b>+</b> 按钮。</li>
       <li><b>2. 触发事件</b>：选择应由什么来触发它。选择<em>输入源变更</em>或<em>场景已调用</em>时，会多出第二个框用于进一步限定。</li>
       <li><b>3. 发送目的地</b>：保持为 <b>Home Assistant</b>。地址已经知道了，因为你之前已在这个界面中完成了关联。</li>
       <li><b>4. Webhook ID</b>：输入与 Home Assistant 中相同的 ID。其他内容不必匹配。下方应用会写明它将发送到的完整地址 <code>Sends to http://your-ha:8123/api/webhook/avr-power-on</code>，方便你在保存前核对。</li>
@@ -449,6 +465,7 @@
         <div class="eyebrow">哪些付费，哪些不付费</div>
         <h2>家庭自动化是唯一的解锁项。AI 助手是免费的。</h2>
         <p><b>家庭自动化（专业版）</b>，包括 Home Assistant、Hubitat 和出站 Webhook，是一次性解锁。AVR Maestro 中的其他所有功能，包括设备端 AI 助手，都已包含在应用内。</p>
+        <p>已经在这台设备或使用同一商店账户的另一台设备上购买过？轻点解锁按钮下方的<b>恢复购买</b>。</p>
         <p>语音控制是<em>通过</em>家庭自动化，经由你的中枢来控制接收机的。AVR Maestro 本身不运行语音识别。</p>
       </div>
     </div>
@@ -465,6 +482,7 @@
     <details><summary>哪些语音助手可以控制我的接收机？</summary><div class="body">你已经在用的任何一个。AVR Maestro 不会添加自己的语音层，它只是把脚本发布到 Home Assistant 或 Hubitat，再由你信任的这个中枢开放给 Alexa、Google Assistant 或 Siri 快捷指令。</div></details>
     <details><summary>AI 助手属于付费解锁内容吗？</summary><div class="body">不属于。设备端 AI 助手是免费的。家庭自动化，包括 Home Assistant、Hubitat 和出站 Webhook，是 AVR Maestro 中唯一的付费解锁项。</div></details>
     <details><summary>有任何内容会离开我的家庭网络吗？</summary><div class="body">控制不会。应用通过你自己的网络与接收机和中枢通信，任何内容都不会经过 MiyaraHub 的服务器。Webhook 会发往你指定的地址，这由你自己决定。</div></details>
+    <details><summary>在另一台设备上购买过家庭自动化，或重新安装过应用？</summary><div class="body">打开<i>设置 &rsaquo; 家庭自动化（专业版）</i>，并轻点解锁按钮下方的<b>恢复购买</b>。如果您之前用同一个商店账户购买过解锁，它会直接恢复，无需再次付费。</div></details>
   </div>
 </section>
 
@@ -474,7 +492,7 @@
       <div class="eyebrow">指南的更多内容</div>
       <h2>其他 AVR Maestro 指南</h2>
     </div>
-    <p class="lead"><a href="/zh-hans/guide/getting-started/">快速入门</a> &middot; <a href="/zh-hans/guide/home/">主屏幕</a> &middot; <a href="/zh-hans/guide/scenes/">场景</a> &middot; <a href="/zh-hans/guide/custom-icons/">自定义图标</a> &middot; <a href="/zh-hans/guide/sound/">声音</a> &middot; <a href="/zh-hans/guide/graphic-eq/">图形 EQ</a> &middot; <a href="/zh-hans/guide/speakers/">扬声器</a> &middot; <a href="/zh-hans/guide/locked-controls/">控制项为何被锁定</a> &middot; <a href="/zh-hans/guide/assistant/">助手</a> &middot; <a href="/zh-hans/guide/home-assistant-dashboard/">Home Assistant 仪表板</a> &middot; <a href="/zh-hans/guide/multi-zone/">分区</a> &middot; <a href="/zh-hans/guide/remote/">遥控</a> &middot; <a href="/zh-hans/guide/radio/">收音机 (FM/AM)</a> &middot; <a href="/zh-hans/guide/on-screen-display/">屏幕显示</a> &middot; <a href="/zh-hans/guide/settings/">设置</a> &middot; <a href="/zh-hans/guide/languages/">语言</a> &middot; <a href="/zh-hans/guide/volume/">音量控制</a> &middot; <a href="/zh-hans/guide/backup/">备份 &amp; 恢复</a> &middot; <a href="/zh-hans/guide/now-playing/">正在播放 &amp; HEOS</a></p>
+    <p class="lead"><a href="/zh-hans/guide/getting-started/">开始使用</a> &middot; <a href="/zh-hans/guide/receivers/">管理接收机</a> &middot; <a href="/zh-hans/guide/navigation/">应用导航</a> &middot; <a href="/zh-hans/guide/search/">搜索</a> &middot; <a href="/zh-hans/guide/home/">主屏幕</a> &middot; <a href="/zh-hans/guide/volume/">音量控制</a> &middot; <a href="/zh-hans/guide/remote/">遥控</a> &middot; <a href="/zh-hans/guide/multi-zone/">分区</a> &middot; <a href="/zh-hans/guide/now-playing/">正在播放与 HEOS</a> &middot; <a href="/zh-hans/guide/radio/">收音机 (FM/AM)</a> &middot; <a href="/zh-hans/guide/scenes/">场景</a> &middot; <a href="/zh-hans/guide/sound/">声音</a> &middot; <a href="/zh-hans/guide/graphic-eq/">图形均衡器</a> &middot; <a href="/zh-hans/guide/speakers/">扬声器</a> &middot; <a href="/zh-hans/guide/locked-controls/">控件为何被锁定</a> &middot; <a href="/zh-hans/guide/settings/">设置</a> &middot; <a href="/zh-hans/guide/widgets/">小组件</a> &middot; <a href="/zh-hans/guide/custom-icons/">自定义图标</a> &middot; <a href="/zh-hans/guide/on-screen-display/">屏幕显示</a> &middot; <a href="/zh-hans/guide/languages/">语言</a> &middot; <a href="/zh-hans/guide/assistant/">助手</a> &middot; <a href="/zh-hans/guide/home-assistant-dashboard/">Home Assistant 仪表板</a> &middot; <a href="/zh-hans/guide/backup/">备份与恢复</a> &middot; <a href="/zh-hans/guide/glossary/">术语表</a></p>
   </div>
 </section>
 
@@ -510,7 +528,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro 是 MiyaraHub Technologies LLC 推出的独立应用，与 Denon、Marantz、Sound United、Masimo Corporation 或本页提及的任何其他公司均无关联，也未获得其认可。Denon、Marantz、HEOS、Home Assistant、Hubitat、Audyssey、Dirac Live、Alexa、Google Assistant 和 Siri 是其各自所有者的商标，在此仅用于识别。</p>
+    <p class="legal">AVR Maestro 是 MiyaraHub Technologies LLC 开发的独立应用，与 Denon、Marantz、Sound United、Masimo Corporation 或本页提到的任何其他公司没有关联，也未获得其认可。Denon、Marantz、HEOS、Home Assistant、Hubitat、Audyssey、Dirac Live、Alexa、Google Assistant 和 Siri 是其各自所有者的商标，在此仅用于识别。</p>
   </div>
 </footer>
 

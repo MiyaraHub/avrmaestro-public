@@ -132,7 +132,7 @@
       "description": "為電影、音樂、遊戲或深夜聆聽建立一鍵場景：在 Denon 或 Marantz 上設定輸入、音效模式、Audyssey 或 Dirac、電平與分區。立即取得 AVR Maestro。",
       "image": "https://avrmaestro.com/screenshots/scenes-list.png",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-09",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -215,10 +215,18 @@
     },
     {
       "@type": "Question",
+      "name": "套用場景後出現的彩色訊息是什麼意思？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "綠色表示一切都已套用。橙色表示接收器對某項依輸入訊號分別記憶的設定自行選擇了數值，這是正常現象；再點選一次場景即可重試。藍色表示接收器沒有確認部分設定，所以應用程式無法判斷它們是否生效。紅色表示某項設定讀回的數值不同，或接收器拒絕了部分喇叭電平；請再點選一次場景。紅色訊息會停留到您關閉為止。"
+      }
+    },
+    {
+      "@type": "Question",
       "name": "場景與 Smart Select 或 Quick Select 有什麼不同？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Smart Select（Marantz）與 Quick Select（Denon）是同一項接收器功能的兩種名稱：儲存在接收器內的少數幾個欄位，Marantz CINEMA 30 上有五個。AVR Maestro 在應用程式各處都使用您接收器自己的名稱，讓您從主畫面與遙控器觸發它們，也可以重新命名。場景則是 AVR Maestro 自己的功能：每台接收器最多 20 個，各有名稱、圖示與顏色，只保存您所選的設定，還能變成主畫面小工具與捷徑，或傳送到 Home Assistant 或 Hubitat。兩者絕不會互相覆寫。"
+        "text": "Smart Select（Marantz）與 Quick Select（Denon）是同一項接收器功能的兩種名稱：儲存在接收器內的少數插槽，Marantz CINEMA 30 上有五個。AVR Maestro 在應用程式各處都使用您接收器自己的名稱，讓您從主畫面與遙控器觸發它們，也能重新命名。場景則是 AVR Maestro 自己的功能：每台接收器最多 20 個，各有名稱、圖示與顏色，只保存您選擇的設定，並且可以從主畫面小工具觸發，或傳送到 Home Assistant 或 Hubitat。兩者不會互相覆寫。"
       }
     }
   ]
@@ -278,7 +286,7 @@
       <div class="rating" aria-label="使用者平均評價">
         <span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
         <strong class="js-rate-val">4.9</strong>
-        <span>&middot; 截至 <time class="js-rate-asof" datetime="2026-10">2026 年 10 月</time>共 <span class="js-rate-count">286</span> 則評價</span>
+        <span>&middot; <span class="js-rate-count">286</span> 則評分，截至 <time class="js-rate-asof" datetime="2026-10">2026 年 10 月</time></span>
       </div>
       <div class="badges">
         <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro&amp;referrer=utm_source%3Davrmaestro.com%26utm_medium%3Dguide-scenes"><img alt="在 Google Play 取得" src="https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white&style=for-the-badge" /></a>
@@ -385,7 +393,7 @@
       <div class="gcard"><div class="ic">&#127922;</div><h3>Audyssey &amp; Dirac</h3><p>MultEQ、Dynamic EQ、Dynamic Volume、LFC，以及使用中的 Dirac Live 插槽。</p></div>
       <div class="gcard"><div class="ic">&#128266;</div><h3>喇叭 &amp; 電平</h3><p>喇叭預設，以及各聲道與重低音的電平。</p></div>
       <div class="gcard"><div class="ic">&#127968;</div><h3>分區</h3><p>分區 2 與分區 3 的電源、輸入與音量，以及全分區立體聲。</p></div>
-      <div class="gcard"><div class="ic">&#128251;</div><h3>附加功能</h3><p>Eco、睡眠計時器、亮度、HDMI 音訊輸出、調諧器電台，甚至還有應用程式自己的色彩主題。</p></div>
+      <div class="gcard"><div class="ic">&#128251;</div><h3>附加功能</h3><p>Eco、睡眠計時器、亮度、HDMI 音訊輸出、調諧器電台、接收器的設定鎖定，甚至還有應用程式自己的色彩主題。</p></div>
     </div>
     <p class="lead" style="margin-top:20px">實際會出現哪些項目，取決於您的接收器。應用程式只會列出您的機型回報的項目，所以您不會圍繞一個它根本沒有的設定來建立場景。</p>
   </div>
@@ -407,7 +415,7 @@
           <li><b>居家自動化（進階版）</b>會把場景傳送到 Home Assistant 或 Hubitat，讓單一自動化就能同時調暗燈光並設定接收器。請參閱<a href="/zh-hant/guide/home-automation/">居家自動化</a>。</li>
           <li><b>刪除場景</b>會在這裡移除它，而下一次 Home Assistant 同步時，也會移除它所建立的指令碼。</li>
         </ul>
-        <div class="note">拖曳場景的把手即可重新排序清單。場景也會以卡片形式顯示在<a href="/zh-hant/guide/home/">主畫面</a>上，在 Android 上，您還可以從啟動器的小工具清單加入 AVR Scenes 小工具，不必開啟應用程式就能觸發場景。</div>
+        <div class="note">拖曳場景的把手即可重新排序清單。場景也會以卡片顯示在<a href="/zh-hant/guide/home/">主畫面</a>上，您可以不開啟應用程式，直接從手機主畫面觸發：在 Android 上，從啟動器的小工具清單新增 <b>AVR Scenes</b> 小工具；在 iPhone 上，從小工具庫新增<b>場景</b>小工具。請參閱<a href="/zh-hant/guide/widgets/">小工具</a>。</div>
       </div>
     </div>
   </div>
@@ -423,7 +431,7 @@
         <p class="lead">您的接收器本身也有幾個預設欄位。Marantz 稱之為 <b>Smart Select</b>，Denon 則稱之為 <b>Quick Select</b>，而 AVR Maestro 在每個畫面都使用您接收器自己的名稱：主畫面的那一列、遙控器分頁、自訂分頁與設定指南。Marantz CINEMA 30 共有五個。</p>
         <ul>
           <li><b>Smart Select / Quick Select</b> 存放在接收器內。您可以從主畫面或遙控器觸發某個欄位，長按則可重新命名。</li>
-          <li><b>場景</b>存放在應用程式內：每台接收器最多 20 個，各有自己的名稱、圖示與顏色，只保存您選擇的設定，還能變成小工具、捷徑或 Home Assistant 指令碼。</li>
+          <li><b>場景</b>儲存在應用程式中：每台接收器最多 20 個，各有自己的名稱、圖示與顏色，只保存您選擇的設定，並且可以從主畫面小工具觸發，或成為 Home Assistant 指令碼。</li>
         </ul>
         <p class="lead">兩者絕不會互相覆寫，所以可以兩者並用：欄位用於接收器本身的快速切換，其他一切則交給場景。</p>
       </div>
@@ -451,6 +459,23 @@
 <section>
   <div class="wrap">
     <div class="section-head">
+      <div class="eyebrow">點選之後</div>
+      <h2>場景之後的訊息代表什麼</h2>
+      <p class="lead">場景完成後，應用程式會讀回接收器的實際動作，並在畫面底部顯示一則訊息。它的顏色會告訴您結果如何。每則訊息都有關閉按鈕；紅色訊息會停留到您關閉為止。</p>
+    </div>
+    <ul class="plain">
+      <li><b>綠色 - 場景「名稱」已套用。</b>場景保存的一切都已生效。</li>
+      <li><b>橙色 - 接收器選擇了不同的數值。</b><i>您的接收器為以下項目選擇了不同的數值：...</i>接收器會依輸入訊號分別記憶某些設定，並為所列的項目自行選擇了數值。這是正常現象；再點選一次場景即可重試。</li>
+      <li><b>藍色 - 已送出，但未確認。</b><i>您的接收器沒有回報：...</i>或<i>您的接收器沒有確認喇叭電平</i>。應用程式無法判斷這些設定是否生效。它並不是說失敗了。再點選一次場景即可確認。</li>
+      <li><b>紅色 - 某項設定讀回的數值不同。</b><i>您的接收器目前回報以下項目的數值不同：...</i>請再點選一次場景，或檢查接收器。</li>
+      <li><b>紅色 - 喇叭電平被拒絕。</b><i>您的接收器沒有接受這些喇叭電平：...</i>當它正忙於切換音效模式時可能發生。應用程式已經重試過一次；請再點選一次場景來設定它們。</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
       <div class="eyebrow">常見問題</div>
       <h2>場景常見問題</h2>
     </div>
@@ -461,7 +486,8 @@
     <details><summary>套用場景會讓接收器負荷過重嗎？</summary><div class="body">不會。設定會依照安全且有節奏的順序逐一傳送，電源優先，圖磚會顯示「套用中...」，直到接收器全部接收完畢。聲道電平會被讀回確認，接收器漏掉的項目則會再傳送一次。</div></details>
     <details><summary>我之後可以修改場景嗎？</summary><div class="body">可以。長按場景即可看到「套用場景」、「以目前設定更新」、「編輯已擷取的設定」、「重新命名場景」、「變更圖示 &amp; 顏色」、「複製場景」、「居家自動化（進階版）」與「刪除場景」。拖曳場景的把手即可重新排序清單。</div></details>
     <details><summary>場景可以開啟我的接收器嗎？</summary><div class="body">可以。只要包含電源狀態，套用場景時就會先開啟（或關閉）主分區，前提是接收器已啟用網路待機，這樣應用程式才能在它休眠時連上它。</div></details>
-    <details><summary>場景與 Smart Select 或 Quick Select 有什麼不同？</summary><div class="body">Smart Select（Marantz）與 Quick Select（Denon）是同一項接收器功能的兩種名稱：儲存在接收器內的少數幾個欄位，Marantz CINEMA 30 上有五個。AVR Maestro 在應用程式各處都使用您接收器自己的名稱，讓您從主畫面與遙控器觸發它們，也可以重新命名。場景則是 AVR Maestro 自己的功能：每台接收器最多 20 個，各有名稱、圖示與顏色，只保存您所選的設定，還能變成主畫面小工具與捷徑，或傳送到 Home Assistant 或 Hubitat。兩者絕不會互相覆寫。</div></details>
+    <details><summary>套用場景後出現的彩色訊息是什麼意思？</summary><div class="body">綠色表示一切都已套用。橙色表示接收器對某項依輸入訊號分別記憶的設定自行選擇了數值，這是正常現象；再點選一次場景即可重試。藍色表示接收器沒有確認部分設定，所以應用程式無法判斷它們是否生效。紅色表示某項設定讀回的數值不同，或接收器拒絕了部分喇叭電平；請再點選一次場景。紅色訊息會停留到您關閉為止。</div></details>
+    <details><summary>場景與 Smart Select 或 Quick Select 有什麼不同？</summary><div class="body">Smart Select（Marantz）與 Quick Select（Denon）是同一項接收器功能的兩種名稱：儲存在接收器內的少數插槽，Marantz CINEMA 30 上有五個。AVR Maestro 在應用程式各處都使用您接收器自己的名稱，讓您從主畫面與遙控器觸發它們，也能重新命名。場景則是 AVR Maestro 自己的功能：每台接收器最多 20 個，各有名稱、圖示與顏色，只保存您選擇的設定，並且可以從主畫面小工具觸發，或傳送到 Home Assistant 或 Hubitat。兩者不會互相覆寫。</div></details>
   </div>
 </section>
 
@@ -471,7 +497,7 @@
       <div class="eyebrow">指南的更多內容</div>
       <h2>其他 AVR Maestro 指南</h2>
     </div>
-    <p class="lead"><a href="/zh-hant/guide/getting-started/">開始使用</a> &middot; <a href="/zh-hant/guide/home/">主畫面</a> &middot; <a href="/zh-hant/guide/custom-icons/">自訂圖示</a> &middot; <a href="/zh-hant/guide/sound/">音效</a> &middot; <a href="/zh-hant/guide/graphic-eq/">圖形等化器</a> &middot; <a href="/zh-hant/guide/speakers/">喇叭</a> &middot; <a href="/zh-hant/guide/locked-controls/">控制項為何被鎖定</a> &middot; <a href="/zh-hant/guide/assistant/">助理</a> &middot; <a href="/zh-hant/guide/home-automation/">居家自動化</a> &middot; <a href="/zh-hant/guide/home-assistant-dashboard/">Home Assistant 儀表板</a> &middot; <a href="/zh-hant/guide/multi-zone/">分區</a> &middot; <a href="/zh-hant/guide/remote/">遙控器</a> &middot; <a href="/zh-hant/guide/radio/">廣播 (FM/AM)</a> &middot; <a href="/zh-hant/guide/on-screen-display/">螢幕顯示</a> &middot; <a href="/zh-hant/guide/settings/">設定</a> &middot; <a href="/zh-hant/guide/languages/">語言</a> &middot; <a href="/zh-hant/guide/volume/">音量控制項</a> &middot; <a href="/zh-hant/guide/backup/">備份 &amp; 還原</a> &middot; <a href="/zh-hant/guide/now-playing/">正在播放 &amp; HEOS</a></p>
+    <p class="lead"><a href="/zh-hant/guide/getting-started/">入門</a> &middot; <a href="/zh-hant/guide/receivers/">管理接收器</a> &middot; <a href="/zh-hant/guide/navigation/">導覽應用程式</a> &middot; <a href="/zh-hant/guide/search/">搜尋</a> &middot; <a href="/zh-hant/guide/home/">主畫面</a> &middot; <a href="/zh-hant/guide/volume/">音量控制項</a> &middot; <a href="/zh-hant/guide/remote/">遙控器</a> &middot; <a href="/zh-hant/guide/multi-zone/">分區</a> &middot; <a href="/zh-hant/guide/now-playing/">正在播放與 HEOS</a> &middot; <a href="/zh-hant/guide/radio/">收音機（FM/AM）</a> &middot; <a href="/zh-hant/guide/sound/">音效</a> &middot; <a href="/zh-hant/guide/graphic-eq/">圖形等化器</a> &middot; <a href="/zh-hant/guide/speakers/">喇叭</a> &middot; <a href="/zh-hant/guide/locked-controls/">控制項為何鎖定</a> &middot; <a href="/zh-hant/guide/settings/">設定</a> &middot; <a href="/zh-hant/guide/widgets/">小工具</a> &middot; <a href="/zh-hant/guide/custom-icons/">自訂圖示</a> &middot; <a href="/zh-hant/guide/on-screen-display/">螢幕顯示</a> &middot; <a href="/zh-hant/guide/languages/">語言</a> &middot; <a href="/zh-hant/guide/assistant/">助理</a> &middot; <a href="/zh-hant/guide/home-automation/">居家自動化</a> &middot; <a href="/zh-hant/guide/home-assistant-dashboard/">Home Assistant 儀表板</a> &middot; <a href="/zh-hant/guide/backup/">備份與還原</a> &middot; <a href="/zh-hant/guide/glossary/">詞彙表</a></p>
   </div>
 </section>
 
@@ -507,7 +533,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro 是 MiyaraHub Technologies LLC 開發的獨立應用程式，與 Denon、Marantz、Sound United、Masimo Corporation 或本頁提及的任何其他公司沒有隸屬或背書關係。Denon、Marantz、HEOS、Audyssey、Dirac Live 與 Home Assistant 為其各自所有者的商標，在此僅用於識別。</p>
+    <p class="legal">AVR Maestro 是 MiyaraHub Technologies LLC 開發的獨立應用程式，與 Denon、Marantz、Sound United、Masimo Corporation 或本頁提及的任何其他公司皆無關聯，亦未獲其背書。Denon、Marantz、HEOS、Audyssey、Dirac Live 與 Home Assistant 為各自所有者的商標，在此僅供辨識之用。</p>
   </div>
 </footer>
 

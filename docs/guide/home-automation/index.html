@@ -132,7 +132,7 @@
       "description": "Link AVR Maestro to Home Assistant or Hubitat and your Scenes become native scripts that run without your phone. Voice control, live state and webhooks.",
       "image": "https://avrmaestro.com/screenshots/home-assistant.png",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -187,6 +187,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Not for control. The app talks to your receiver and to your hub over your own network. Nothing is routed through a MiyaraHub server. A webhook goes wherever you point it, which is your choice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bought Home Automation on another device, or reinstalled?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Open Settings › Home Automation (Pro) and tap Restore Purchases under the unlock button. If you bought the unlock before with the same store account, it comes back without paying again."
       }
     }
   ]
@@ -273,7 +281,7 @@
     </div>
     <ul class="plain">
       <li><b>1. Add your receiver to Home Assistant first.</b> Settings &rsaquo; Devices &amp; Services &rsaquo; Add Integration &rsaquo; <b>Denon AVR</b> (or <b>HEOS</b>), then your receiver's local IP. Home Assistant creates a media player entity for it.</li>
-      <li><b>2. Open Settings &rsaquo; Home Automation in AVR Maestro</b> and tap the Home Assistant card.</li>
+      <li><b>2. Open Settings &rsaquo; Home Automation (Pro) in AVR Maestro</b> and tap the Home Assistant card.</li>
       <li><b>3. Enter your Home Assistant address</b> - a local one like <code>http://192.168.1.150:8123</code>, or your external Nabu Casa URL.</li>
       <li><b>4. Log in and authorize.</b> A secure in-app browser opens Home Assistant's own login. Your credentials go to Home Assistant, never to us.</li>
       <li><b>5. It finds your receiver by itself.</b> The app scans your media player entities and scores them on model, name and surround capability, then fills in the right entity for you.</li>
@@ -305,6 +313,14 @@
         <p>A script can be run but never read, so early dashboards could switch the Audyssey curve or the Dirac slot with no way to show which one was on. The readings the app already holds - the live surround mode, the active Dirac filter, the speaker preset, the dimmer and dozens more - now publish as attributes on the receiver's status sensor, so a tile can light up for the setting that is actually running.</p>
       </div>
       <img alt="AVR Maestro publishing Speaker Preset, Dirac Live and Audyssey control scripts to Home Assistant" src="../../screenshots/ha-sync-advanced.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Sound modes as scripts</div>
+        <h2>Export Sound Modes (REST)</h2>
+        <p>In the Home Assistant section, <b>Export Sound Modes (REST)</b> opens <b>Advanced Script (REST)</b>: one Home Assistant script for each sound mode your receiver lists, so a dashboard button or an automation can pick a surround mode directly. The app reads that list from the receiver, so turn the receiver on and open the <a href="/guide/sound/">Sound tab</a> once first; until then it asks you to, rather than exporting an empty list.</p>
+      </div>
     </div>
 
     <div class="lockrow" style="margin-top:28px">
@@ -391,7 +407,7 @@
 
     <h3 style="margin-top:28px">In AVR Maestro</h3>
     <ul class="plain">
-      <li><b>1. Settings &rsaquo; Home Automation &rsaquo; Webhooks</b>, then <b>Add First Trigger</b> - or the <b>+</b> button once you have one.</li>
+      <li><b>1. Settings &rsaquo; Home Automation (Pro) &rsaquo; Webhooks</b>, then <b>Add First Trigger</b> - or the <b>+</b> button once you have one.</li>
       <li><b>2. Trigger Event</b> - pick what should set it off. Choosing <em>Active Input Changed</em> or <em>Scene Recalled</em> adds a second box to narrow it down.</li>
       <li><b>3. Where to send it</b> - leave it on <b>Home Assistant</b>. The address is already known, because you linked it earlier on this same screen.</li>
       <li><b>4. Webhook ID</b> - type the same ID you used in Home Assistant. Nothing else has to match. Underneath, the app spells out the exact address it will post to - <code>Sends to http://your-ha:8123/api/webhook/avr-power-on</code> - so you can check it before you save.</li>
@@ -449,6 +465,7 @@
         <div class="eyebrow">What is paid and what is not</div>
         <h2>Home Automation is the one unlock. The AI assistant is free.</h2>
         <p><b>Home Automation (Pro)</b> - Home Assistant, Hubitat and outbound webhooks - is a one-time unlock. Everything else in AVR Maestro, including the on-device AI assistant, is included in the app.</p>
+        <p>Already bought it, on this device or another one with the same store account? Tap <b>Restore Purchases</b> under the unlock button.</p>
         <p>Voice control reaches your receiver <em>through</em> Home Automation, by way of your hub. AVR Maestro does not run its own voice recognition.</p>
       </div>
     </div>
@@ -465,6 +482,7 @@
     <details><summary>Which voice assistants can control my receiver?</summary><div class="body">Whichever one you already use. AVR Maestro does not add its own voice layer - it publishes scripts to Home Assistant or Hubitat, and those are exposed to Alexa, Google Assistant or Siri Shortcuts by the hub you already trust.</div></details>
     <details><summary>Is the AI assistant part of the paid unlock?</summary><div class="body">No. The on-device AI assistant is free. Home Automation - Home Assistant, Hubitat and outbound webhooks - is the one paid unlock in AVR Maestro.</div></details>
     <details><summary>Does anything leave my home network?</summary><div class="body">Not for control. The app talks to your receiver and to your hub over your own network. Nothing is routed through a MiyaraHub server. A webhook goes wherever you point it, which is your choice.</div></details>
+    <details><summary>Bought Home Automation on another device, or reinstalled?</summary><div class="body">Open <i>Settings &rsaquo; Home Automation (Pro)</i> and tap <b>Restore Purchases</b> under the unlock button. If you bought the unlock before with the same store account, it comes back without paying again.</div></details>
   </div>
 </section>
 
@@ -474,7 +492,7 @@
       <div class="eyebrow">More of the guide</div>
       <h2>Other AVR Maestro guides</h2>
     </div>
-    <p class="lead"><a href="/guide/getting-started/">Getting started</a> &middot; <a href="/guide/home/">Home Screen</a> &middot; <a href="/guide/scenes/">Scenes</a> &middot; <a href="/guide/custom-icons/">Custom Icons</a> &middot; <a href="/guide/sound/">Sound</a> &middot; <a href="/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/guide/speakers/">Speakers</a> &middot; <a href="/guide/locked-controls/">Why a control is locked</a> &middot; <a href="/guide/assistant/">The Assistant</a> &middot; <a href="/guide/home-assistant-dashboard/">Home Assistant dashboard</a> &middot; <a href="/guide/multi-zone/">Zones</a> &middot; <a href="/guide/remote/">Remote</a> &middot; <a href="/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/guide/on-screen-display/">On-Screen Display</a> &middot; <a href="/guide/settings/">Settings</a> &middot; <a href="/guide/languages/">Languages</a> &middot; <a href="/guide/volume/">Volume Controls</a> &middot; <a href="/guide/backup/">Backup &amp; Restore</a> &middot; <a href="/guide/now-playing/">Now Playing &amp; HEOS</a></p>
+    <p class="lead"><a href="/guide/getting-started/">Getting started</a> &middot; <a href="/guide/receivers/">Manage receivers</a> &middot; <a href="/guide/navigation/">Navigating the app</a> &middot; <a href="/guide/search/">Search</a> &middot; <a href="/guide/home/">Home Screen</a> &middot; <a href="/guide/volume/">Volume Controls</a> &middot; <a href="/guide/remote/">Remote</a> &middot; <a href="/guide/multi-zone/">Zones</a> &middot; <a href="/guide/now-playing/">Now Playing &amp; HEOS</a> &middot; <a href="/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/guide/scenes/">Scenes</a> &middot; <a href="/guide/sound/">Sound</a> &middot; <a href="/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/guide/speakers/">Speakers</a> &middot; <a href="/guide/locked-controls/">Why a control is locked</a> &middot; <a href="/guide/settings/">Settings</a> &middot; <a href="/guide/widgets/">Widgets</a> &middot; <a href="/guide/custom-icons/">Custom Icons</a> &middot; <a href="/guide/on-screen-display/">On-Screen Display</a> &middot; <a href="/guide/languages/">Languages</a> &middot; <a href="/guide/assistant/">The Assistant</a> &middot; <a href="/guide/home-assistant-dashboard/">Home Assistant dashboard</a> &middot; <a href="/guide/backup/">Backup &amp; Restore</a> &middot; <a href="/guide/glossary/">Glossary</a></p>
   </div>
 </section>
 

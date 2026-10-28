@@ -132,7 +132,7 @@
       "description": "اربط AVR Maestro بـ Home Assistant أو Hubitat فتصبح مشاهدك نصوصًا برمجية أصلية تعمل دون هاتفك. تحكم صوتي وحالة مباشرة وWebhooks.",
       "image": "https://avrmaestro.com/screenshots/home-assistant.png",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -187,6 +187,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "ليس للتحكم. يتحدث التطبيق مع مستقبلك ومع محورك عبر شبكتك الخاصة. لا شيء يمرّ عبر خادم MiyaraHub. أما Webhook فيذهب إلى حيث توجّهه، وهذا قرارك."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "هل اشتريت أتمتة المنزل على جهاز آخر، أو أعدت التثبيت؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "افتح الإعدادات › أتمتة المنزل (Pro) وانقر استعادة الشراء تحت زر الفتح. إذا كنت قد اشتريت الفتح من قبل بحساب المتجر نفسه، فيعود دون دفع مرة أخرى."
       }
     }
   ]
@@ -273,7 +281,7 @@
     </div>
     <ul class="plain">
       <li><b>1. أضف مستقبلك إلى Home Assistant أولًا.</b> الإعدادات &rsaquo; الأجهزة &amp; الخدمات &rsaquo; إضافة تكامل &rsaquo; <b>Denon AVR</b> (أو <b>HEOS</b>)، ثم عنوان IP المحلي لمستقبلك. ينشئ Home Assistant كيان مشغّل وسائط له.</li>
-      <li><b>2. افتح الإعدادات &rsaquo; أتمتة المنزل في AVR Maestro</b> واضغط بطاقة Home Assistant.</li>
+      <li><b>2. افتح الإعدادات &rsaquo; أتمتة المنزل (Pro) في AVR Maestro</b> وانقر بطاقة Home Assistant.</li>
       <li><b>3. أدخل عنوان Home Assistant</b> - عنوانًا محليًا مثل <code>http://192.168.1.150:8123</code>، أو عنوان Nabu Casa الخارجي.</li>
       <li><b>4. سجّل الدخول وامنح التفويض.</b> يفتح متصفح آمن داخل التطبيق صفحة تسجيل الدخول الخاصة بـ Home Assistant نفسه. تذهب بيانات اعتمادك إلى Home Assistant، ولا تصلنا أبدًا.</li>
       <li><b>5. يعثر على مستقبلك بنفسه.</b> يفحص التطبيق كيانات مشغّل الوسائط لديك ويقيّمها بحسب الطراز والاسم وقدرة الصوت المحيطي، ثم يملأ الكيان الصحيح نيابةً عنك.</li>
@@ -305,6 +313,14 @@
         <p>النص البرمجي يمكن تشغيله لكن لا يمكن قراءته، فكانت لوحات التحكم الأولى تستطيع تبديل منحنى Audyssey أو خانة Dirac دون أي وسيلة لإظهار أيهما كان فعّالًا. أما القراءات التي يحتفظ بها التطبيق أصلًا - وضع الصوت المحيطي المباشر، ومرشّح Dirac الفعّال، وSpeaker Preset، والإضاءة الخافتة، وعشرات غيرها - فتُنشر الآن كسمات على مستشعر حالة المستقبل، فيمكن للبلاطة أن تُضاء للإعداد الذي يعمل فعلًا.</p>
       </div>
       <img alt="AVR Maestro ينشر النصوص البرمجية لـ Speaker Preset وDirac Live وAudyssey إلى Home Assistant" src="/screenshots/ha-sync-advanced.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">أوضاع الصوت كنصوص برمجية</div>
+        <h2>تصدير أوضاع الصوت (REST)</h2>
+        <p>في قسم Home Assistant، يفتح <b>تصدير أوضاع الصوت (REST)</b> الخيار <b>نص برمجي متقدم (REST)</b>: نص برمجي واحد لـ Home Assistant لكل وضع صوت يعرضه مستقبلك، ليتمكن زر في لوحة تحكم أو أتمتة من اختيار وضع محيطي مباشرة. يقرأ التطبيق تلك القائمة من المستقبل، لذا شغّل المستقبل وافتح <a href="/ar/guide/sound/">علامة التبويب الصوت</a> مرة واحدة أولًا؛ وإلى ذلك الحين يطلب منك التطبيق ذلك بدلًا من تصدير قائمة فارغة.</p>
+      </div>
     </div>
 
     <div class="lockrow" style="margin-top:28px">
@@ -391,7 +407,7 @@
 
     <h3 style="margin-top:28px">في AVR Maestro</h3>
     <ul class="plain">
-      <li><b>1. الإعدادات &rsaquo; أتمتة المنزل &rsaquo; Webhooks</b>، ثم <b>إضافة أول مشغّل</b> - أو زر <b>+</b> حين يصبح لديك واحد.</li>
+      <li><b>1. الإعدادات &rsaquo; أتمتة المنزل (Pro) &rsaquo; Webhooks</b>، ثم <b>إضافة أول مشغّل</b> - أو زر <b>+</b> بعد أن يكون لديك مشغّل.</li>
       <li><b>2. حدث المشغّل</b> - اختر ما الذي ينبغي أن يطلقه. اختيار <em>تغيّر المدخل النشط</em> أو <em>تم استدعاء المشهد</em> يضيف خانة ثانية للتضييق.</li>
       <li><b>3. وجهة الإرسال</b> - اتركها على <b>Home Assistant</b>. العنوان معروف أصلًا لأنك ربطته سابقًا في الشاشة نفسها.</li>
       <li><b>4. معرّف Webhook</b> - اكتب المعرّف نفسه الذي استخدمته في Home Assistant. لا شيء آخر يجب أن يتطابق. وتحته يكتب التطبيق العنوان الدقيق الذي سينشر إليه - <code>Sends to http://your-ha:8123/api/webhook/avr-power-on</code> - لتتحقق منه قبل الحفظ.</li>
@@ -449,6 +465,7 @@
         <div class="eyebrow">ما المدفوع وما ليس كذلك</div>
         <h2>أتمتة المنزل هي الميزة الوحيدة المدفوعة. المساعد الذكي مجاني.</h2>
         <p><b>أتمتة المنزل (Pro)</b> - Home Assistant وHubitat وطلبات Webhook الصادرة - هي فتح لمرة واحدة. كل ما عداها في AVR Maestro، بما في ذلك المساعد الذكي على الجهاز، مشمول في التطبيق.</p>
+        <p>هل اشتريته بالفعل، على هذا الجهاز أو على جهاز آخر بحساب المتجر نفسه؟ انقر <b>استعادة الشراء</b> تحت زر الفتح.</p>
         <p>يصل التحكم الصوتي إلى مستقبلك <em>عبر</em> أتمتة المنزل، من خلال محورك. لا يشغّل AVR Maestro تعرّفًا صوتيًا خاصًا به.</p>
       </div>
     </div>
@@ -465,6 +482,7 @@
     <details><summary>أي المساعدات الصوتية تستطيع التحكم في مستقبلي؟</summary><div class="body">التي تستخدمها أصلًا. لا يضيف AVR Maestro طبقة صوتية خاصة به - بل ينشر النصوص البرمجية إلى Home Assistant أو Hubitat، ويعرضها المحور الذي تثق به أصلًا على Alexa أو Google Assistant أو اختصارات Siri.</div></details>
     <details><summary>هل المساعد الذكي جزء من الميزة المدفوعة؟</summary><div class="body">لا. المساعد الذكي على الجهاز مجاني. أتمتة المنزل - Home Assistant وHubitat وطلبات Webhook الصادرة - هي الميزة المدفوعة الوحيدة في AVR Maestro.</div></details>
     <details><summary>هل يغادر أي شيء شبكتي المنزلية؟</summary><div class="body">ليس للتحكم. يتحدث التطبيق مع مستقبلك ومع محورك عبر شبكتك الخاصة. لا شيء يمرّ عبر خادم MiyaraHub. أما Webhook فيذهب إلى حيث توجّهه، وهذا قرارك.</div></details>
+    <details><summary>هل اشتريت أتمتة المنزل على جهاز آخر، أو أعدت التثبيت؟</summary><div class="body">افتح <i>الإعدادات &rsaquo; أتمتة المنزل (Pro)</i> وانقر <b>استعادة الشراء</b> تحت زر الفتح. إذا كنت قد اشتريت الفتح من قبل بحساب المتجر نفسه، فيعود دون دفع مرة أخرى.</div></details>
   </div>
 </section>
 
@@ -474,7 +492,7 @@
       <div class="eyebrow">المزيد من الدليل</div>
       <h2>أدلة AVR Maestro الأخرى</h2>
     </div>
-    <p class="lead"><a href="/ar/guide/getting-started/">البدء</a> &middot; <a href="/ar/guide/home/">الشاشة الرئيسية</a> &middot; <a href="/ar/guide/scenes/">المشاهد</a> &middot; <a href="/ar/guide/custom-icons/">الأيقونات المخصصة</a> &middot; <a href="/ar/guide/sound/">الصوت</a> &middot; <a href="/ar/guide/graphic-eq/">المعادِل الرسومي</a> &middot; <a href="/ar/guide/speakers/">مكبرات الصوت</a> &middot; <a href="/ar/guide/locked-controls/">لماذا يكون عنصر التحكم مقفلًا</a> &middot; <a href="/ar/guide/assistant/">المساعد</a> &middot; <a href="/ar/guide/home-assistant-dashboard/">لوحة Home Assistant</a> &middot; <a href="/ar/guide/multi-zone/">المناطق</a> &middot; <a href="/ar/guide/remote/">التحكم عن بُعد</a> &middot; <a href="/ar/guide/radio/">الراديو (FM/AM)</a> &middot; <a href="/ar/guide/on-screen-display/">العرض على الشاشة</a> &middot; <a href="/ar/guide/settings/">الإعدادات</a> &middot; <a href="/ar/guide/languages/">اللغات</a> &middot; <a href="/ar/guide/volume/">عناصر التحكم في مستوى الصوت</a> &middot; <a href="/ar/guide/backup/">النسخ الاحتياطي &amp; الاستعادة</a> &middot; <a href="/ar/guide/now-playing/">قيد التشغيل الآن &amp; HEOS</a></p>
+    <p class="lead"><a href="/ar/guide/getting-started/">البدء</a> &middot; <a href="/ar/guide/receivers/">إدارة المستقبلات</a> &middot; <a href="/ar/guide/navigation/">التنقل في التطبيق</a> &middot; <a href="/ar/guide/search/">البحث</a> &middot; <a href="/ar/guide/home/">الشاشة الرئيسية</a> &middot; <a href="/ar/guide/volume/">عناصر التحكم في مستوى الصوت</a> &middot; <a href="/ar/guide/remote/">جهاز التحكم عن بُعد</a> &middot; <a href="/ar/guide/multi-zone/">المناطق</a> &middot; <a href="/ar/guide/now-playing/">التشغيل الحالي وHEOS</a> &middot; <a href="/ar/guide/radio/">الراديو (FM/AM)</a> &middot; <a href="/ar/guide/scenes/">المشاهد</a> &middot; <a href="/ar/guide/sound/">الصوت</a> &middot; <a href="/ar/guide/graphic-eq/">المعادِل الرسومي</a> &middot; <a href="/ar/guide/speakers/">مكبرات الصوت</a> &middot; <a href="/ar/guide/locked-controls/">لماذا يكون عنصر التحكم مقفلًا</a> &middot; <a href="/ar/guide/settings/">الإعدادات</a> &middot; <a href="/ar/guide/widgets/">الأدوات</a> &middot; <a href="/ar/guide/custom-icons/">الأيقونات المخصصة</a> &middot; <a href="/ar/guide/on-screen-display/">العرض على الشاشة</a> &middot; <a href="/ar/guide/languages/">اللغات</a> &middot; <a href="/ar/guide/assistant/">المساعد</a> &middot; <a href="/ar/guide/home-assistant-dashboard/">لوحة Home Assistant</a> &middot; <a href="/ar/guide/backup/">النسخ الاحتياطي والاستعادة</a> &middot; <a href="/ar/guide/glossary/">المسرد</a></p>
   </div>
 </section>
 
@@ -510,7 +528,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro تطبيق مستقل من MiyaraHub Technologies LLC، وهو غير تابع لـ Denon أو Marantz أو Sound United أو Masimo Corporation أو أي شركة أخرى مذكورة في هذه الصفحة، ولا تؤيده. Denon وMarantz وHEOS وHome Assistant وHubitat وAudyssey وDirac Live وAlexa وGoogle Assistant وSiri علامات تجارية تخص مالكيها، وتُستخدم هنا لأغراض التعريف فقط.</p>
+    <p class="legal">AVR Maestro تطبيق مستقل من MiyaraHub Technologies LLC، وليس تابعًا لـ Denon أو Marantz أو Sound United أو Masimo Corporation أو أي شركة أخرى مذكورة في هذه الصفحة، ولا تؤيده أي منها. Denon وMarantz وHEOS وHome Assistant وHubitat وAudyssey وDirac Live وAlexa وGoogle Assistant وSiri علامات تجارية لأصحابها، وتُستخدم هنا لأغراض التعريف فقط.</p>
   </div>
 </footer>
 

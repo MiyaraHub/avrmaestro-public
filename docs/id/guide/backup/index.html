@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="apple-itunes-app" content="app-id=6762881597" />
 <title>Cadangkan &amp; Pulihkan Pengaturan ke Ponsel Baru - AVR Maestro</title>
-<meta name="description" content="Ekspor semua pengaturan AVR Maestro ke satu file: receiver, nama dan ikon input, Skenario, tema, dan preferensi volume. Pulihkan di ponsel baru hanya dengan beberapa ketukan." />
+<meta name="description" content="Ekspor setup AVR Maestro Anda ke satu file .zip: receiver, Skenario, ikon kustom, urutan input, tema, dan pengaturan volume. Pulihkan di ponsel baru hanya dengan beberapa ketukan." />
 <meta name="keywords" content="AVR Maestro backup, transfer AVR app settings new phone, export receiver settings app, restore Denon app config, AVR Maestro migrate device" />
 <meta name="author" content="MiyaraHub Technologies LLC" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -77,7 +77,7 @@
 <meta property="og:locale:alternate" content="zh_CN" />
 <meta property="og:locale:alternate" content="zh_TW" />
 <meta property="og:title" content="Cadangkan &amp; Pulihkan Pengaturan ke Ponsel Baru - AVR Maestro" />
-<meta property="og:description" content="Ekspor semua pengaturan AVR Maestro ke satu file: receiver, nama dan ikon input, Skenario, tema, dan preferensi volume. Pulihkan di ponsel baru hanya dengan beberapa ketukan." />
+<meta property="og:description" content="Ekspor setup AVR Maestro Anda ke satu file .zip: receiver, Skenario, ikon kustom, urutan input, tema, dan pengaturan volume. Pulihkan di ponsel baru hanya dengan beberapa ketukan." />
 <meta property="og:url" content="https://avrmaestro.com/id/guide/backup/" />
 <meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
 <meta property="og:image:type" content="image/png" />
@@ -86,7 +86,7 @@
 <meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Cadangkan &amp; Pulihkan Pengaturan ke Ponsel Baru - AVR Maestro" />
-<meta name="twitter:description" content="Ekspor semua pengaturan AVR Maestro ke satu file: receiver, nama dan ikon input, Skenario, tema, dan preferensi volume. Pulihkan di ponsel baru hanya dengan beberapa ketukan." />
+<meta name="twitter:description" content="Ekspor setup AVR Maestro Anda ke satu file .zip: receiver, Skenario, ikon kustom, urutan input, tema, dan pengaturan volume. Pulihkan di ponsel baru hanya dengan beberapa ketukan." />
 <meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
 <meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
 <link rel="icon" href="/assets/favicon.ico" sizes="any" />
@@ -129,10 +129,10 @@
       "@type": "TechArticle",
       "@id": "https://avrmaestro.com/guide/backup/#article",
       "headline": "Cadangkan & Pulihkan: seluruh setup Anda, dalam satu file",
-      "description": "Ekspor semua pengaturan AVR Maestro ke satu file: receiver, nama dan ikon input, Skenario, tema, dan preferensi volume. Pulihkan di ponsel baru hanya dengan beberapa ketukan.",
+      "description": "Ekspor setup AVR Maestro Anda ke satu file .zip: receiver, Skenario, ikon kustom, urutan input, tema, dan pengaturan volume. Pulihkan di ponsel baru hanya dengan beberapa ketukan.",
       "image": "https://avrmaestro.com/screenshots/backup-restore.png",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -162,7 +162,7 @@
       "name": "Bisakah saya memindahkan cadangan antara Android dan iPhone?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "File-nya berupa JSON biasa dan tidak terikat pada perangkat yang membuatnya. Ekspor dari satu perangkat, pindahkan file ke perangkat lain, lalu impor."
+        "text": "Ya. Cadangan berupa file .zip yang tidak terikat pada perangkat yang membuatnya. Ekspor dari satu perangkat, pindahkan file ke perangkat lain, lalu impor."
       }
     },
     {
@@ -178,7 +178,15 @@
       "name": "Apakah Skenario saya ikut terbawa?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ya, beserta pengaturan mana saja yang diperintahkan untuk direkam oleh tiap Skenario. Lihat panduan Skenario."
+        "text": "Ya, beserta pengaturan yang disimpan setiap Skenario dan ikon kustomnya. Lihat panduan Skenario."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mengapa saya harus menutup aplikasi di perangkat lain sebelum memulihkan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Jika ponsel atau tablet lain membuka AVR Maestro dan terhubung ke receiver yang sama, dua perangkat dapat berkomunikasi dengan receiver sekaligus selama pemulihan. Itu dapat menyebabkan konflik koneksi yang membuat firmware receiver macet. Tutup aplikasi di perangkat lain, pulihkan, lalu paksa tutup dan buka kembali AVR Maestro di perangkat ini."
       }
     },
     {
@@ -251,12 +259,12 @@
       <div>
         <div class="eyebrow">Ekspor</div>
         <h2>Simpan ke perangkat, atau bagikan langsung</h2>
-        <p class="lead">Buka <b>Pengaturan</b>, gulir ke <b>Cadangkan &amp; Pulihkan</b>, lalu pilih:</p>
-        <ul class="plain">
-          <li><b>Simpan ke perangkat</b> - menulis satu file JSON ke lokasi yang Anda tentukan.</li>
-          <li><b>Bagikan</b> - menyerahkannya ke menu bagikan yang biasa Anda pakai, sehingga bisa langsung dikirim ke ponsel lain, penyimpanan cloud, atau pesan untuk diri sendiri.</li>
-        </ul>
-        <p class="lead">File ini berupa teks biasa. Tidak ada isinya yang terkunci pada perangkat asalnya.</p>
+        <ol class="steps">
+          <li>Buka <b>Pengaturan</b> dan gulir ke <b>Cadangan &amp; Tentang</b>.</li>
+          <li>Ketuk <b>Cadangkan &amp; Pulihkan</b>.</li>
+          <li>Di bawah <b>Ekspor</b>, ketuk <b>Simpan ke perangkat</b> untuk memilih folder bagi file tersebut, atau <b>Bagikan</b> untuk mengirimnya melalui lembar berbagi langsung ke ponsel lain, drive cloud, atau pesan untuk diri Anda sendiri.</li>
+        </ol>
+        <p class="lead">Cadangan berupa satu file <b>.zip</b> dengan nama seperti <b>avr-maestro-backup-</b> diikuti tanggal dan waktu. Di dalamnya terdapat pengaturan Anda dan gambar yang Anda pilih untuk ikon kustom. Tidak ada yang terkunci pada perangkat asalnya.</p>
       </div>
       <img alt="Halaman Cadangkan dan Pulihkan dengan ekspor dan impor" src="/screenshots/backup-restore.png" width="1324" height="2644" decoding="async" />
     </div>
@@ -272,16 +280,18 @@
     <table class="t">
       <thead><tr><th>Disertakan</th><th>Arti</th></tr></thead>
       <tbody>
-        <tr><td>Receiver yang dikonfigurasi</td><td>Setiap perangkat yang telah Anda tambahkan, beserta alamat dan pengaturannya</td></tr>
-        <tr><td>Urutan sumber per perangkat</td><td>Urutan input hasil seretan Anda, disimpan untuk setiap receiver</td></tr>
-        <tr><td>Tema dan Tema Warna</td><td>Warna aksen dan pilihan tampilan Anda</td></tr>
-        <tr><td>Skala tampilan dan widget</td><td>Ukuran teks dan widget</td></tr>
-        <tr><td>Preferensi volume</td><td>Perilaku volume di sisi aplikasi</td></tr>
-        <tr><td>Status kartu penjelasan</td><td>Banner info mana yang sudah Anda tutup, agar tetap tertutup</td></tr>
-        <tr><td>Probe yang di-cache</td><td>Hasil kemampuan HEOS, fitur, dan musik, sehingga ponsel baru tidak mulai dari nol</td></tr>
+        <tr><td>Receiver Anda</td><td>Setiap receiver yang telah Anda tambahkan, beserta alamatnya, dan receiver mana yang dipilih</td></tr>
+        <tr><td>Skenario</td><td>Setiap Skenario untuk tiap receiver, beserta pengaturan yang disimpannya, ikon, dan warnanya</td></tr>
+        <tr><td>Ikon kustom</td><td>Gambar yang Anda pilih untuk input dan Skenario, beserta bentuknya</td></tr>
+        <tr><td>Urutan input</td><td>Urutan input hasil seretan Anda, disimpan untuk setiap receiver</td></tr>
+        <tr><td>Nama slot dan preset</td><td>Nama yang Anda ketik untuk slot Smart Select / Quick Select dan preset tuner</td></tr>
+        <tr><td>Pengaturan audio per receiver</td><td>Langkah volume, pilihan tampilan volume, preset volume bertahap, tombol volume perangkat, dan preset volume cepat Anda</td></tr>
+        <tr><td>Tampilan dan tata letak</td><td>Tema dan warna aksen, bahasa, ukuran teks dan widget, warna widget, tata letak Beranda Anda, navigasi, dan tab tersembunyi</td></tr>
+        <tr><td>Kartu penjelasan</td><td>Kartu info mana yang telah Anda tutup, agar tetap tertutup</td></tr>
+        <tr><td>Hasil pemeriksaan receiver yang tersimpan</td><td>Apa yang sudah dipelajari aplikasi tentang setiap receiver (pemeriksaan HEOS dan fitur), sehingga ponsel baru tidak mulai dari nol</td></tr>
       </tbody>
     </table>
-    <div class="note">Nama dan gambar input kustom adalah bagian dari konfigurasi receiver Anda, jadi ikut terbawa. Lihat <a href="/id/guide/custom-icons/">panduan Ikon Kustom</a>.</div>
+    <div class="note"><b>Tidak disertakan:</b> pengaturan koneksi Home Assistant dan Hubitat Anda. Siapkan <a href="/id/guide/home-automation/">Otomasi Rumah</a> kembali di perangkat baru; skrip Skenario yang sudah ada mempertahankan id-nya, sehingga otomasi yang mengarah ke skrip tersebut tetap berfungsi. Nama input yang Anda ganti disimpan di receiver itu sendiri, sehingga langsung muncul begitu perangkat baru terhubung.</div>
   </div>
 </section>
 
@@ -291,13 +301,15 @@
       <div class="eyebrow">Impor</div>
       <h2>Memulihkan di ponsel baru</h2>
     </div>
-    <ol class="plain">
+    <div class="note"><b>Sebelum memulihkan:</b> jika AVR Maestro terbuka di ponsel atau tablet lain yang terhubung ke receiver yang sama, tutup dahulu di sana. Dua perangkat yang berkomunikasi dengan receiver yang sama saat pemulihan dapat menyebabkan konflik koneksi yang membuat firmware receiver macet. Aplikasi juga memperingatkan Anda tentang hal ini.</div>
+    <ol class="steps">
       <li>Pasang AVR Maestro di perangkat baru dan pastikan perangkat itu berada di jaringan yang sama dengan receiver Anda.</li>
       <li>Buka <b>Pengaturan &rsaquo; Cadangkan &amp; Pulihkan</b>.</li>
-      <li>Ketuk <b>Impor pengaturan dari file</b> lalu pilih cadangannya.</li>
-      <li><b>Mulai ulang aplikasi.</b> Aplikasi juga akan memberi tahu Anda - mulai ulang membuat setiap pengaturan yang dipulihkan berlaku dengan bersih.</li>
+      <li>Di bawah <b>Impor</b>, ketuk <b>Impor pengaturan dari file</b> dan pilih cadangan (.zip, atau file .json dari versi aplikasi yang lebih lama).</li>
+      <li>Periksa ringkasan di <b>Ganti semua pengaturan?</b>: jumlah entri di dalamnya, versi aplikasi, dan waktu ekspor. Ketuk <b>Ganti</b>.</li>
+      <li>Saat Anda melihat <b>Cadangan dipulihkan</b>, ketuk <b>Mengerti</b>, lalu <b>paksa tutup AVR Maestro dan buka kembali</b> agar setiap layar memuat pengaturan yang dipulihkan.</li>
     </ol>
-    <div class="note"><b>Impor menggantikan, bukan menggabungkan.</b> Apa pun yang ada di perangkat itu akan ditimpa dengan isi cadangan. Jika setup saat ini berharga bagi Anda, ekspor dulu - hanya butuh dua ketukan.</div>
+    <div class="note"><b>Impor menggantikan, bukan menggabungkan.</b> Apa pun yang ada di perangkat itu akan dihapus dan diganti dengan isi cadangan, dan ini tidak dapat dibatalkan. Jika setup saat ini berharga bagi Anda, ekspor dahulu.</div>
   </div>
 </section>
 
@@ -318,9 +330,10 @@
       <div class="eyebrow">Pertanyaan umum</div>
       <h2>FAQ Cadangan</h2>
     </div>
-    <details open><summary>Bisakah saya memindahkan cadangan antara Android dan iPhone?</summary><div class="body">File-nya berupa JSON biasa dan tidak terikat pada perangkat yang membuatnya. Ekspor dari satu perangkat, pindahkan file ke perangkat lain, lalu impor.</div></details>
+    <details open><summary>Bisakah saya memindahkan cadangan antara Android dan iPhone?</summary><div class="body">Ya. Cadangan berupa file .zip yang tidak terikat pada perangkat yang membuatnya. Ekspor dari satu perangkat, pindahkan file ke perangkat lain, lalu impor.</div></details>
     <details><summary>Apakah mengimpor akan menimpa kalibrasi receiver saya?</summary><div class="body">Tidak. Cadangan hanya berisi pengaturan aplikasi. Semua yang disimpan receiver - kalibrasi, preset, level, jarak, filter Dirac - tetap di receiver dan tidak tersentuh.</div></details>
-    <details><summary>Apakah Skenario saya ikut terbawa?</summary><div class="body">Ya, beserta pengaturan mana saja yang diperintahkan untuk direkam oleh tiap Skenario. Lihat <a href="/id/guide/scenes/">panduan Skenario</a>.</div></details>
+    <details><summary>Apakah Skenario saya ikut terbawa?</summary><div class="body">Ya, beserta pengaturan yang disimpan setiap Skenario dan ikon kustomnya. Lihat <a href="/id/guide/scenes/">panduan Skenario</a>.</div></details>
+    <details><summary>Mengapa saya harus menutup aplikasi di perangkat lain sebelum memulihkan?</summary><div class="body">Jika ponsel atau tablet lain membuka AVR Maestro dan terhubung ke receiver yang sama, dua perangkat dapat berkomunikasi dengan receiver sekaligus selama pemulihan. Itu dapat menyebabkan konflik koneksi yang membuat firmware receiver macet. Tutup aplikasi di perangkat lain, pulihkan, lalu paksa tutup dan buka kembali AVR Maestro di perangkat ini.</div></details>
     <details><summary>Di mana Simpan ke perangkat menaruh file-nya?</summary><div class="body">Di mana pun yang Anda pilih di pemilih file sistem Anda. Bagikan adalah jalur yang lebih cepat jika file hanya singgah dalam perjalanan ke ponsel lain.</div></details>
   </div>
 </section>
@@ -331,7 +344,7 @@
       <div class="eyebrow">Lainnya dari panduan</div>
       <h2>Panduan AVR Maestro lainnya</h2>
     </div>
-    <p class="lead"><a href="/id/guide/getting-started/">Memulai</a> &middot; <a href="/id/guide/home/">Layar Utama</a> &middot; <a href="/id/guide/scenes/">Skenario</a> &middot; <a href="/id/guide/custom-icons/">Ikon Kustom</a> &middot; <a href="/id/guide/sound/">Suara</a> &middot; <a href="/id/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/id/guide/speakers/">Speaker</a> &middot; <a href="/id/guide/locked-controls/">Mengapa kontrol terkunci</a> &middot; <a href="/id/guide/assistant/">Asisten</a> &middot; <a href="/id/guide/home-automation/">Otomasi Rumah</a> &middot; <a href="/id/guide/home-assistant-dashboard/">Dasbor Home Assistant</a> &middot; <a href="/id/guide/multi-zone/">Zona</a> &middot; <a href="/id/guide/remote/">Remote</a> &middot; <a href="/id/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/id/guide/on-screen-display/">Tampilan Layar</a> &middot; <a href="/id/guide/settings/">Pengaturan</a> &middot; <a href="/id/guide/languages/">Bahasa</a> &middot; <a href="/id/guide/volume/">Kontrol Volume</a> &middot; <a href="/id/guide/now-playing/">Sedang Diputar &amp; HEOS</a></p>
+    <p class="lead"><a href="/id/guide/getting-started/">Memulai</a> &middot; <a href="/id/guide/receivers/">Kelola Receiver</a> &middot; <a href="/id/guide/navigation/">Menavigasi Aplikasi</a> &middot; <a href="/id/guide/search/">Pencarian</a> &middot; <a href="/id/guide/home/">Layar Utama</a> &middot; <a href="/id/guide/volume/">Kontrol Volume</a> &middot; <a href="/id/guide/remote/">Remote</a> &middot; <a href="/id/guide/multi-zone/">Zona</a> &middot; <a href="/id/guide/now-playing/">Sedang Diputar &amp; HEOS</a> &middot; <a href="/id/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/id/guide/scenes/">Skenario</a> &middot; <a href="/id/guide/sound/">Suara</a> &middot; <a href="/id/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/id/guide/speakers/">Speaker</a> &middot; <a href="/id/guide/locked-controls/">Mengapa kontrol terkunci</a> &middot; <a href="/id/guide/settings/">Pengaturan</a> &middot; <a href="/id/guide/widgets/">Widget</a> &middot; <a href="/id/guide/custom-icons/">Ikon Kustom</a> &middot; <a href="/id/guide/on-screen-display/">Tampilan Layar</a> &middot; <a href="/id/guide/languages/">Bahasa</a> &middot; <a href="/id/guide/assistant/">Asisten</a> &middot; <a href="/id/guide/home-automation/">Otomasi Rumah</a> &middot; <a href="/id/guide/home-assistant-dashboard/">Dasbor Home Assistant</a> &middot; <a href="/id/guide/glossary/">Glosarium</a></p>
   </div>
 </section>
 
@@ -367,7 +380,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro adalah aplikasi independen dari MiyaraHub Technologies LLC dan tidak berafiliasi dengan atau didukung oleh Denon, Marantz, Sound United, Masimo Corporation, maupun perusahaan lain yang disebut di halaman ini. Denon, Marantz, HEOS, Audyssey, dan Dirac Live adalah merek dagang dari pemiliknya masing-masing, yang digunakan di sini hanya untuk identifikasi.</p>
+    <p class="legal">AVR Maestro adalah aplikasi independen buatan MiyaraHub Technologies LLC dan tidak berafiliasi dengan atau didukung oleh Denon, Marantz, Sound United, Masimo Corporation, atau perusahaan lain yang disebut di halaman ini. Denon, Marantz, HEOS, Audyssey, dan Dirac Live adalah merek dagang dari pemiliknya masing-masing, dan digunakan di sini hanya untuk identifikasi.</p>
   </div>
 </footer>
 

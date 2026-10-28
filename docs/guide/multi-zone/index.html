@@ -6,7 +6,7 @@
 <meta name="apple-itunes-app" content="app-id=6762881597" />
 <title>Control Zone 2 &amp; Zone 3 From Your Phone - AVR Maestro</title>
 <meta name="description" content="Control Zone 2 and Zone 3 on Denon and Marantz receivers: power, input, volume, mute, Smart Select / Quick Select and now playing. Get AVR Maestro." />
-<meta name="keywords" content="multi-zone receiver control app, Zone 2 control app, Zone 3 control app, Denon multi-zone app, Marantz multi-zone, whole house audio receiver app, second zone control, zone quick select, zone smart select, rename zones Denon Marantz" />
+<meta name="keywords" content="multi-zone receiver control app, Zone 2 control app, Zone 3 control app, Denon multi-zone app, Marantz multi-zone, whole house audio receiver app, second zone control, zone quick select, zone smart select, rename zones Denon Marantz, zone setup readout, Zone 2 volume limit" />
 <meta name="author" content="MiyaraHub Technologies LLC" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="theme-color" content="#ff6e40" />
@@ -132,7 +132,7 @@
       "description": "Control Zone 2 and Zone 3 on Denon and Marantz receivers: power, input, volume, mute, Smart Select / Quick Select and now playing. Get AVR Maestro.",
       "image": "https://avrmaestro.com/screenshots/zones.png",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -187,6 +187,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Yes - when a zone is on, its card shows the live HEOS now-playing stream for that zone with transport controls."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why can't I change the Zone Setup values in the app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Zone Setup block on older receivers (such as the SR7015 and X4500H class) is a readout of the receiver's own zone setup. Change those settings on the receiver itself, in its setup menu; the card shows the new values the next time it reads them."
       }
     },
     {
@@ -265,7 +273,7 @@
     </div>
     <div class="grid">
       <div class="gcard"><div class="ic">&#128268;</div><h3>Independent power</h3><p>Turn Zone 2 or Zone 3 on and off without touching the main zone.</p></div>
-      <div class="gcard"><div class="ic">&#127925;</div><h3>Own source &amp; volume</h3><p>A different input and volume per zone, with quick-volume preset chips - presets ramp smoothly by default (Settings, Audio: Gradual / Direct).</p></div>
+      <div class="gcard"><div class="ic">&#127925;</div><h3>Own source &amp; volume</h3><p>A different input and volume per zone, with quick-volume preset chips - presets ramp smoothly by default (<b>Gradual volume presets</b> under <b>Settings &rsaquo; Manage Receivers &rsaquo; your receiver &rsaquo; Audio</b>).</p></div>
       <div class="gcard"><div class="ic">&#9889;</div><h3>Zone Smart Select / Quick Select</h3><p>The zone's own Smart Select or Quick Select slots, right on the card - tap a slot to recall it, press and hold to save the zone's current state into it.</p></div>
       <div class="gcard"><div class="ic">&#9997;&#65039;</div><h3>Rename any zone</h3><p>Long-press the zone name on the Home screen - main zone included. The name saves to the receiver itself, so every app agrees on it.</p></div>
       <div class="gcard"><div class="ic">&#128260;</div><h3>Live sync</h3><p>Change a zone from the receiver's panel or remote and the app updates within a second.</p></div>
@@ -288,10 +296,31 @@
       <li><b>1. Open the Zones tab.</b> Every zone your receiver declares gets a card. A receiver with one zone does not get the tab.</li>
       <li><b>2. Turn the zone on</b> with the power control on its card. Nothing about the main zone changes.</li>
       <li><b>3. Pick its source.</b> The list is your receiver's own, under any names you have renamed, and a zone can sit on a completely different input to the main room.</li>
-      <li><b>4. Set its volume.</b> The zone has its own level and its own mute, and the quick-volume chips recall levels you set on that zone. Presets ramp smoothly unless you switch to Direct under Settings, Audio.</li>
+      <li><b>4. Set its volume.</b> The zone has its own level and its own mute, and the quick-volume chips recall levels you set on that zone. Presets ramp smoothly unless you turn off <b>Gradual volume presets</b> in <b>Settings &rsaquo; Manage Receivers &rsaquo; your receiver &rsaquo; Audio</b>, which makes a preset jump straight to its level.</li>
       <li><b>5. Optional: save it.</b> Press and hold one of the zone's own Smart Select or Quick Select slots to store everything the zone is doing right now, then tap it later to bring it back.</li>
     </ul>
     <p class="lead" style="margin-top:20px">Rename a zone by long-pressing its name on the Home screen. The name is written to the receiver, so the front panel and every other app agree with the app.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Older receivers</div>
+      <h2>See each zone's setup on the card</h2>
+      <p class="lead">On older receivers such as the SR7015 and X4500H class, the Zone 2 and Zone 3 cards include a <b>Zone Setup</b> block that shows how the receiver's own zone menu is set. Newer receivers such as the Cinema 30 class do not show this block.</p>
+    </div>
+    <p>What you may see, depending on what the receiver reports for that zone:</p>
+    <ul class="plain">
+      <li><b>Bass</b> and <b>Treble</b> in dB.</li>
+      <li><b>High Pass Filter (HPF):</b> On or Off.</li>
+      <li><b>Channel:</b> Stereo or Mono.</li>
+      <li><b>HDMI Audio</b> (Zone 2): Through or PCM.</li>
+      <li><b>Volume Level:</b> Variable, or a fixed level.</li>
+      <li><b>Volume Limit</b> (Off or a level), <b>Power On Volume</b> (Last, Mute or a level) and <b>Mute Level</b> (Full, -20 dB or -40 dB).</li>
+      <li><b>Auto Standby:</b> Off, 2 hours, 4 hours or 8 hours.</li>
+    </ul>
+    <div class="note">This block is read only: <b>Read from the receiver. Change these settings on the receiver itself.</b> A value the app cannot read says <b>Unknown</b>. If the block does not appear, the read failed or the receiver does not offer it; it is tried again the next time you open the Zones tab.</div>
   </div>
 </section>
 
@@ -318,6 +347,7 @@
     <details><summary>Can I use Smart Select or Quick Select in a zone?</summary><div class="body">Yes - each zone card carries the zone's own slots, named the way your receiver names them: Smart Select on a Marantz, Quick Select on a Denon. Tap a slot to recall it; press and hold to save the zone's current state into it, straight from the card.</div></details>
     <details><summary>Can I rename my zones?</summary><div class="body">Yes - long-press the zone name on the Home screen to rename any zone, the main zone included. The name is written to the receiver itself, so it shows in the manufacturer's app and every other client, older chassis included.</div></details>
     <details><summary>Does each zone show what's playing?</summary><div class="body">Yes - when a zone is on, its card shows the live HEOS now-playing stream for that zone with transport controls.</div></details>
+    <details><summary>Why can't I change the Zone Setup values in the app?</summary><div class="body">The Zone Setup block on older receivers (such as the SR7015 and X4500H class) is a readout of the receiver's own zone setup. Change those settings on the receiver itself, in its setup menu; the card shows the new values the next time it reads them.</div></details>
     <details><summary>Can a Scene set up my zones?</summary><div class="body">Yes - a <a href="/guide/scenes/">Scene</a> can capture and restore Zone 2/3 power, input and volume along with the rest of your setup.</div></details>
   </div>
 </section>
@@ -328,7 +358,7 @@
       <div class="eyebrow">More of the guide</div>
       <h2>Other AVR Maestro guides</h2>
     </div>
-    <p class="lead"><a href="/guide/getting-started/">Getting started</a> &middot; <a href="/guide/home/">Home Screen</a> &middot; <a href="/guide/scenes/">Scenes</a> &middot; <a href="/guide/custom-icons/">Custom Icons</a> &middot; <a href="/guide/sound/">Sound</a> &middot; <a href="/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/guide/speakers/">Speakers</a> &middot; <a href="/guide/locked-controls/">Why a control is locked</a> &middot; <a href="/guide/assistant/">The Assistant</a> &middot; <a href="/guide/home-automation/">Home Automation</a> &middot; <a href="/guide/home-assistant-dashboard/">Home Assistant dashboard</a> &middot; <a href="/guide/remote/">Remote</a> &middot; <a href="/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/guide/on-screen-display/">On-Screen Display</a> &middot; <a href="/guide/settings/">Settings</a> &middot; <a href="/guide/languages/">Languages</a> &middot; <a href="/guide/volume/">Volume Controls</a> &middot; <a href="/guide/backup/">Backup &amp; Restore</a> &middot; <a href="/guide/now-playing/">Now Playing &amp; HEOS</a></p>
+    <p class="lead"><a href="/guide/getting-started/">Getting started</a> &middot; <a href="/guide/receivers/">Manage receivers</a> &middot; <a href="/guide/navigation/">Navigating the app</a> &middot; <a href="/guide/search/">Search</a> &middot; <a href="/guide/home/">Home Screen</a> &middot; <a href="/guide/volume/">Volume Controls</a> &middot; <a href="/guide/remote/">Remote</a> &middot; <a href="/guide/now-playing/">Now Playing &amp; HEOS</a> &middot; <a href="/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/guide/scenes/">Scenes</a> &middot; <a href="/guide/sound/">Sound</a> &middot; <a href="/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/guide/speakers/">Speakers</a> &middot; <a href="/guide/locked-controls/">Why a control is locked</a> &middot; <a href="/guide/settings/">Settings</a> &middot; <a href="/guide/widgets/">Widgets</a> &middot; <a href="/guide/custom-icons/">Custom Icons</a> &middot; <a href="/guide/on-screen-display/">On-Screen Display</a> &middot; <a href="/guide/languages/">Languages</a> &middot; <a href="/guide/assistant/">The Assistant</a> &middot; <a href="/guide/home-automation/">Home Automation</a> &middot; <a href="/guide/home-assistant-dashboard/">Home Assistant dashboard</a> &middot; <a href="/guide/backup/">Backup &amp; Restore</a> &middot; <a href="/guide/glossary/">Glossary</a></p>
   </div>
 </section>
 

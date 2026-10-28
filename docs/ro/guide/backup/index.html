@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="apple-itunes-app" content="app-id=6762881597" />
 <title>Copie de rezervă &amp; restaurare a setărilor pe un telefon nou - AVR Maestro</title>
-<meta name="description" content="Exportați toate setările AVR Maestro într-un singur fișier: receivere, denumiri și pictograme de intrări, Scene, temă și preferințe de volum. Restaurați-l pe un telefon nou în câteva atingeri." />
+<meta name="description" content="Exportați configurația AVR Maestro într-un singur fișier .zip: receivere, Scene, pictograme personalizate, ordinea intrărilor, tema și setările de volum. Restaurați-o pe un telefon nou în câteva atingeri." />
 <meta name="keywords" content="AVR Maestro backup, transfer AVR app settings new phone, export receiver settings app, restore Denon app config, AVR Maestro migrate device" />
 <meta name="author" content="MiyaraHub Technologies LLC" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -77,7 +77,7 @@
 <meta property="og:locale:alternate" content="zh_CN" />
 <meta property="og:locale:alternate" content="zh_TW" />
 <meta property="og:title" content="Copie de rezervă &amp; restaurare a setărilor pe un telefon nou - AVR Maestro" />
-<meta property="og:description" content="Exportați toate setările AVR Maestro într-un singur fișier: receivere, denumiri și pictograme de intrări, Scene, temă și preferințe de volum. Restaurați-l pe un telefon nou în câteva atingeri." />
+<meta property="og:description" content="Exportați configurația AVR Maestro într-un singur fișier .zip: receivere, Scene, pictograme personalizate, ordinea intrărilor, tema și setările de volum. Restaurați-o pe un telefon nou în câteva atingeri." />
 <meta property="og:url" content="https://avrmaestro.com/ro/guide/backup/" />
 <meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
 <meta property="og:image:type" content="image/png" />
@@ -86,7 +86,7 @@
 <meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Copie de rezervă &amp; restaurare a setărilor pe un telefon nou - AVR Maestro" />
-<meta name="twitter:description" content="Exportați toate setările AVR Maestro într-un singur fișier: receivere, denumiri și pictograme de intrări, Scene, temă și preferințe de volum. Restaurați-l pe un telefon nou în câteva atingeri." />
+<meta name="twitter:description" content="Exportați configurația AVR Maestro într-un singur fișier .zip: receivere, Scene, pictograme personalizate, ordinea intrărilor, tema și setările de volum. Restaurați-o pe un telefon nou în câteva atingeri." />
 <meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
 <meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
 <link rel="icon" href="/assets/favicon.ico" sizes="any" />
@@ -129,10 +129,10 @@
       "@type": "TechArticle",
       "@id": "https://avrmaestro.com/guide/backup/#article",
       "headline": "Copie de rezervă & restaurare: întreaga dumneavoastră configurație, într-un singur fișier",
-      "description": "Exportați toate setările AVR Maestro într-un singur fișier: receivere, denumiri și pictograme de intrări, Scene, temă și preferințe de volum. Restaurați-l pe un telefon nou în câteva atingeri.",
+      "description": "Exportați configurația AVR Maestro într-un singur fișier .zip: receivere, Scene, pictograme personalizate, ordinea intrărilor, tema și setările de volum. Restaurați-o pe un telefon nou în câteva atingeri.",
       "image": "https://avrmaestro.com/screenshots/backup-restore.png",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -162,7 +162,7 @@
       "name": "Pot muta o copie de rezervă între Android și iPhone?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Fișierul este JSON simplu și nu depinde de dispozitivul care l-a creat. Exportați de pe unul, ajungeți cu fișierul pe celălalt și importați."
+        "text": "Da. Copia de rezervă este un fișier .zip care nu este legat de dispozitivul care l-a scris. Exportați de pe unul, duceți fișierul pe celălalt și importați."
       }
     },
     {
@@ -178,7 +178,15 @@
       "name": "Sunt incluse și Scenele mele?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Da, împreună cu setările pe care fiecare Scenă a fost configurată să le rețină. Consultați ghidul Scene."
+        "text": "Da, cu setările pe care le conține fiecare Scenă și cu pictograma ei personalizată. Vedeți ghidul Scenelor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "De ce ar trebui să închid aplicația pe celelalte dispozitive înainte de restaurare?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dacă un alt telefon sau o altă tabletă are AVR Maestro deschis și conectat la același receiver, două dispozitive pot comunica simultan cu receiverul în timpul restaurării. Acest lucru poate provoca un conflict de conexiune care blochează firmware-ul receiverului. Închideți aplicația pe celălalt dispozitiv, restaurați, apoi forțați închiderea și redeschideți AVR Maestro pe acesta."
       }
     },
     {
@@ -251,12 +259,12 @@
       <div>
         <div class="eyebrow">Export</div>
         <h2>Salvați pe dispozitiv sau trimiteți direct</h2>
-        <p class="lead">Deschideți <b>Setări</b>, derulați până la <b>Copie de rezervă &amp; restaurare</b> și alegeți:</p>
-        <ul class="plain">
-          <li><b>Salvează pe dispozitiv</b> - scrie un singur fișier JSON în locul indicat de dumneavoastră.</li>
-          <li><b>Distribuie</b> - îl trimite către meniul obișnuit de distribuire, astfel încât să poată ajunge direct pe celălalt telefon, într-un spațiu de stocare în cloud sau într-un mesaj către dumneavoastră.</li>
-        </ul>
-        <p class="lead">Este un simplu fișier text. Nimic din el nu este legat de dispozitivul de pe care provine.</p>
+        <ol class="steps">
+          <li>Deschideți <b>Setări</b> și derulați până la <b>Copie de rezervă și despre</b>.</li>
+          <li>Atingeți <b>Copie de rezervă și restaurare</b>.</li>
+          <li>Sub <b>Export</b>, atingeți <b>Salvează pe dispozitiv</b> pentru a alege un folder pentru fișier sau <b>Distribuie</b> pentru a-l trimite, prin meniul de distribuire, direct pe celălalt telefon, într-un cloud drive sau într-un mesaj către dumneavoastră.</li>
+        </ol>
+        <p class="lead">Copia de rezervă este un singur fișier <b>.zip</b>, cu un nume de forma <b>avr-maestro-backup-</b> urmat de data și ora. Înăuntru se află setările dumneavoastră și imaginile alese pentru pictogramele personalizate. Nimic din el nu este legat de dispozitivul de pe care provine.</p>
       </div>
       <img alt="Pagina Copie de rezervă și restaurare, cu export și import" src="/screenshots/backup-restore.png" width="1324" height="2644" decoding="async" />
     </div>
@@ -272,16 +280,18 @@
     <table class="t">
       <thead><tr><th>Inclus</th><th>Semnificație</th></tr></thead>
       <tbody>
-        <tr><td>Receivere configurate</td><td>Fiecare dispozitiv adăugat, cu adresa și setările sale</td></tr>
-        <tr><td>Ordinea surselor pentru fiecare dispozitiv</td><td>Ordinea în care ați tras intrările, păstrată separat pentru fiecare receiver</td></tr>
-        <tr><td>Temă și temă de culoare</td><td>Culoarea de evidențiere și alegerile privind aspectul</td></tr>
-        <tr><td>Scala afișajului și a widgeturilor</td><td>Dimensiunea textului și a widgeturilor</td></tr>
-        <tr><td>Preferințe de volum</td><td>Comportamentul volumului la nivelul aplicației</td></tr>
-        <tr><td>Starea cardurilor explicative</td><td>Ce bannere informative ați închis, astfel încât să rămână închise</td></tr>
-        <tr><td>Verificări din cache</td><td>Rezultatele pentru HEOS, funcții și capabilități muzicale, astfel încât noul telefon să nu înceapă de la zero</td></tr>
+        <tr><td>Receiverele dumneavoastră</td><td>Fiecare receiver adăugat, cu adresa lui, și care dintre ele a fost selectat</td></tr>
+        <tr><td>Scene</td><td>Fiecare Scenă a fiecărui receiver, cu setările pe care le conține, pictograma și culoarea ei</td></tr>
+        <tr><td>Pictograme personalizate</td><td>Imaginile alese pentru intrări și Scene, cu formele lor</td></tr>
+        <tr><td>Ordinea intrărilor</td><td>Ordinea în care ați tras intrările, păstrată separat pentru fiecare receiver</td></tr>
+        <tr><td>Nume de sloturi și de presetări</td><td>Numele introduse de dumneavoastră pentru sloturile Smart Select / Quick Select și pentru presetările tunerului</td></tr>
+        <tr><td>Setări audio per receiver</td><td>Pasul de volum, opțiunile de afișare a volumului, presetările de volum graduale, butoanele de volum ale dispozitivului și presetările dumneavoastră de volum rapid</td></tr>
+        <tr><td>Aspect și dispunere</td><td>Tema și culoarea de accent, limba, dimensiunea textului și a widgeturilor, culorile widgeturilor, dispunerea ecranului Acasă, navigarea și filele ascunse</td></tr>
+        <tr><td>Carduri explicative</td><td>Ce carduri informative ați închis, ca să rămână închise</td></tr>
+        <tr><td>Verificări de receiver păstrate în memorie</td><td>Ce a învățat deja aplicația despre fiecare receiver (HEOS și verificări de funcții), ca telefonul nou să nu o ia de la zero</td></tr>
       </tbody>
     </table>
-    <div class="note">Denumirile și imaginile personalizate ale intrărilor fac parte din configurația receiverului, așa că vin împreună cu ea. Consultați <a href="/ro/guide/custom-icons/">ghidul Pictograme personalizate</a>.</div>
+    <div class="note"><b>Neincluse:</b> setările de conexiune pentru Home Assistant și Hubitat. Configurați din nou <a href="/ro/guide/home-automation/">Automatizarea locuinței</a> pe noul dispozitiv; scripturile existente ale Scenelor își păstrează id-urile, astfel că automatizările care le indică continuă să funcționeze. Numele intrărilor pe care le-ați redenumit sunt stocate chiar pe receiver, deci apar imediat ce noul dispozitiv se conectează.</div>
   </div>
 </section>
 
@@ -291,13 +301,15 @@
       <div class="eyebrow">Import</div>
       <h2>Restaurarea pe noul telefon</h2>
     </div>
-    <ol class="plain">
+    <div class="note"><b>Înainte de restaurare:</b> dacă AVR Maestro este deschis pe un alt telefon sau o altă tabletă conectată la același receiver, închideți-l mai întâi acolo. Două dispozitive care comunică cu același receiver în momentul restaurării pot provoca un conflict de conexiune care blochează firmware-ul receiverului. Aplicația vă avertizează și ea în acest sens.</div>
+    <ol class="steps">
       <li>Instalați AVR Maestro pe noul dispozitiv și asigurați-vă că se află în aceeași rețea cu receiverul.</li>
       <li>Deschideți <b>Setări &rsaquo; Copie de rezervă &amp; restaurare</b>.</li>
-      <li>Atingeți <b>Importă setările din fișier</b> și alegeți copia de rezervă.</li>
-      <li><b>Reporniți aplicația.</b> Aplicația vă spune și ea acest lucru - repornirea face ca toate setările restaurate să intre în vigoare corect.</li>
+      <li>Sub <b>Import</b>, atingeți <b>Importă setările dintr-un fișier</b> și alegeți copia de rezervă (.zip sau un fișier .json dintr-o versiune mai veche a aplicației).</li>
+      <li>Verificați rezumatul din <b>Înlocuiești toate setările?</b>: câte intrări conține, versiunea aplicației și momentul exportului. Atingeți <b>Înlocuiește</b>.</li>
+      <li>Când vedeți <b>Copia de rezervă a fost restaurată</b>, atingeți <b>Am înțeles</b>, apoi <b>forțați închiderea AVR Maestro și deschideți-l din nou</b>, ca fiecare ecran să încarce setările restaurate.</li>
     </ol>
-    <div class="note"><b>Importul înlocuiește, nu îmbină.</b> Tot ce se află pe acel dispozitiv este suprascris cu conținutul copiei de rezervă. Dacă configurația actuală contează pentru dumneavoastră, exportați-o mai întâi - costă două atingeri.</div>
+    <div class="note"><b>Importul înlocuiește, nu îmbină.</b> Tot ce se află pe acel dispozitiv este șters și înlocuit cu conținutul copiei de rezervă, iar acest lucru nu poate fi anulat. Dacă configurația actuală contează pentru dumneavoastră, exportați-o mai întâi.</div>
   </div>
 </section>
 
@@ -318,9 +330,10 @@
       <div class="eyebrow">Întrebări frecvente</div>
       <h2>Întrebări frecvente despre copia de rezervă</h2>
     </div>
-    <details open><summary>Pot muta o copie de rezervă între Android și iPhone?</summary><div class="body">Fișierul este JSON simplu și nu depinde de dispozitivul care l-a creat. Exportați de pe unul, ajungeți cu fișierul pe celălalt și importați.</div></details>
+    <details open><summary>Pot muta o copie de rezervă între Android și iPhone?</summary><div class="body">Da. Copia de rezervă este un fișier .zip care nu este legat de dispozitivul care l-a scris. Exportați de pe unul, duceți fișierul pe celălalt și importați.</div></details>
     <details><summary>Importul îmi va suprascrie calibrarea receiverului?</summary><div class="body">Nu. O copie de rezervă conține doar setările aplicației. Tot ce stochează receiverul - calibrare, presetări, niveluri, distanțe, filtre Dirac - se află pe receiver și rămâne neatins.</div></details>
-    <details><summary>Sunt incluse și Scenele mele?</summary><div class="body">Da, împreună cu setările pe care fiecare Scenă a fost configurată să le rețină. Consultați <a href="/ro/guide/scenes/">ghidul Scene</a>.</div></details>
+    <details><summary>Sunt incluse și Scenele mele?</summary><div class="body">Da, cu setările pe care le conține fiecare Scenă și cu pictograma ei personalizată. Vedeți <a href="/ro/guide/scenes/">ghidul Scenelor</a>.</div></details>
+    <details><summary>De ce ar trebui să închid aplicația pe celelalte dispozitive înainte de restaurare?</summary><div class="body">Dacă un alt telefon sau o altă tabletă are AVR Maestro deschis și conectat la același receiver, două dispozitive pot comunica simultan cu receiverul în timpul restaurării. Acest lucru poate provoca un conflict de conexiune care blochează firmware-ul receiverului. Închideți aplicația pe celălalt dispozitiv, restaurați, apoi forțați închiderea și redeschideți AVR Maestro pe acesta.</div></details>
     <details><summary>Unde salvează fișierul opțiunea Salvează pe dispozitiv?</summary><div class="body">Oriunde alegeți în selectorul de fișiere al sistemului. Distribuirea este varianta mai rapidă dacă fișierul doar trece pe drumul către alt telefon.</div></details>
   </div>
 </section>
@@ -331,7 +344,7 @@
       <div class="eyebrow">Mai multe din ghid</div>
       <h2>Alte ghiduri AVR Maestro</h2>
     </div>
-    <p class="lead"><a href="/ro/guide/getting-started/">Primii pași</a> &middot; <a href="/ro/guide/home/">Ecranul principal</a> &middot; <a href="/ro/guide/scenes/">Scene</a> &middot; <a href="/ro/guide/custom-icons/">Pictograme personalizate</a> &middot; <a href="/ro/guide/sound/">Sunet</a> &middot; <a href="/ro/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/ro/guide/speakers/">Difuzoare</a> &middot; <a href="/ro/guide/locked-controls/">De ce este blocat un control</a> &middot; <a href="/ro/guide/assistant/">Asistentul</a> &middot; <a href="/ro/guide/home-automation/">Automatizare Locuință</a> &middot; <a href="/ro/guide/home-assistant-dashboard/">Panou Home Assistant</a> &middot; <a href="/ro/guide/multi-zone/">Zone</a> &middot; <a href="/ro/guide/remote/">Telecomandă</a> &middot; <a href="/ro/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/ro/guide/on-screen-display/">Afișaj pe ecran</a> &middot; <a href="/ro/guide/settings/">Setări</a> &middot; <a href="/ro/guide/languages/">Limbi</a> &middot; <a href="/ro/guide/volume/">Comenzi de volum</a> &middot; <a href="/ro/guide/now-playing/">Se redă acum &amp; HEOS</a></p>
+    <p class="lead"><a href="/ro/guide/getting-started/">Primii pași</a> &middot; <a href="/ro/guide/receivers/">Gestionarea receiverelor</a> &middot; <a href="/ro/guide/navigation/">Navigarea în aplicație</a> &middot; <a href="/ro/guide/search/">Căutare</a> &middot; <a href="/ro/guide/home/">Ecranul Acasă</a> &middot; <a href="/ro/guide/volume/">Comenzi de volum</a> &middot; <a href="/ro/guide/remote/">Telecomandă</a> &middot; <a href="/ro/guide/multi-zone/">Zone</a> &middot; <a href="/ro/guide/now-playing/">Redare curentă și HEOS</a> &middot; <a href="/ro/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/ro/guide/scenes/">Scene</a> &middot; <a href="/ro/guide/sound/">Sunet</a> &middot; <a href="/ro/guide/graphic-eq/">Egalizator grafic</a> &middot; <a href="/ro/guide/speakers/">Difuzoare</a> &middot; <a href="/ro/guide/locked-controls/">De ce este blocat un control</a> &middot; <a href="/ro/guide/settings/">Setări</a> &middot; <a href="/ro/guide/widgets/">Widgeturi</a> &middot; <a href="/ro/guide/custom-icons/">Pictograme personalizate</a> &middot; <a href="/ro/guide/on-screen-display/">Afișaj pe ecran</a> &middot; <a href="/ro/guide/languages/">Limbi</a> &middot; <a href="/ro/guide/assistant/">Asistentul</a> &middot; <a href="/ro/guide/home-automation/">Automatizare locuință</a> &middot; <a href="/ro/guide/home-assistant-dashboard/">Panoul Home Assistant</a> &middot; <a href="/ro/guide/glossary/">Glosar</a></p>
   </div>
 </section>
 
@@ -367,7 +380,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro este o aplicație independentă creată de MiyaraHub Technologies LLC și nu este afiliată sau susținută de Denon, Marantz, Sound United, Masimo Corporation sau de orice altă companie menționată pe această pagină. Denon, Marantz, HEOS, Audyssey și Dirac Live sunt mărci comerciale ale proprietarilor respectivi, utilizate aici exclusiv pentru identificare.</p>
+    <p class="legal">AVR Maestro este o aplicație independentă a MiyaraHub Technologies LLC și nu este afiliată cu Denon, Marantz, Sound United, Masimo Corporation sau cu vreo altă companie menționată pe această pagină și nici susținută de acestea. Denon, Marantz, HEOS, Audyssey și Dirac Live sunt mărci comerciale ale proprietarilor lor respectivi, utilizate aici doar în scop de identificare.</p>
   </div>
 </footer>
 

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-itunes-app" content="app-id=6762881597" />
+<title>Alıcıları Yönet: Ekleme, Değiştirme ve Kurulum - AVR Maestro</title>
+<meta name="description" content="AVR Maestro'ya bir Denon veya Marantz alıcı ekleyin, alıcılar arasında geçiş yapın ve her birini kurun: yeniden adlandırma, IP değiştirme, Alıcımı Bul, kilitler ve aygıt yazılımı." />
+<meta name="keywords" content="AVR Maestro manage receivers, add Denon receiver to app, switch Marantz receiver, receiver IP address changed, find my receiver, Setup Lock Denon, Remote Lock Marantz, receiver firmware check, AVR Maestro demo mode" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/tr/guide/receivers/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/receivers/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/receivers/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/receivers/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/receivers/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/receivers/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/receivers/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/receivers/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/receivers/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/receivers/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/receivers/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/receivers/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/receivers/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/receivers/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/receivers/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/receivers/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/receivers/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/receivers/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/receivers/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/receivers/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/receivers/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/receivers/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/receivers/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/receivers/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/receivers/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/receivers/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/receivers/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/receivers/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/receivers/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/receivers/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/receivers/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/receivers/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="tr_TR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Alıcıları Yönet: Ekleme, Değiştirme ve Kurulum - AVR Maestro" />
+<meta property="og:description" content="AVR Maestro'ya bir Denon veya Marantz alıcı ekleyin, alıcılar arasında geçiş yapın ve her birini kurun: yeniden adlandırma, IP değiştirme, Alıcımı Bul, kilitler ve aygıt yazılımı." />
+<meta property="og:url" content="https://avrmaestro.com/tr/guide/receivers/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Alıcıları Yönet: Ekleme, Değiştirme ve Kurulum - AVR Maestro" />
+<meta name="twitter:description" content="AVR Maestro'ya bir Denon veya Marantz alıcı ekleyin, alıcılar arasında geçiş yapın ve her birini kurun: yeniden adlandırma, IP değiştirme, Alıcımı Bul, kilitler ve aygıt yazılımı." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro, Denon ve Marantz AV alıcılarını yerel ağınız üzerinden kontrol etmeniz için geliştirilmiş bağımsız bir uygulamadır.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "tr"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/receivers/#article",
+      "headline": "Alıcıları Yönet, alıcı başına bir sayfa",
+      "description": "AVR Maestro'ya bir Denon veya Marantz alıcı ekleyin, alıcılar arasında geçiş yapın ve her birini kurun: yeniden adlandırma, IP değiştirme, Alıcımı Bul, kilitler ve aygıt yazılımı.",
+      "image": "https://avrmaestro.com/assets/og-card.png",
+      "datePublished": "2026-10-28",
+      "dateModified": "2026-10-28",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/receivers/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "tr"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/receivers/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Başka bir alıcıya nasıl geçerim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ana Sayfa sekmesinde, üstteki AVR Maestro'nun yanındaki alıcı adına dokunun ve listeden başka bir alıcı seçin. Ayrıca Ayarlar › Alıcıları Yönet'i açıp bir alıcının satırının başındaki daireye de dokunabilirsiniz. Uygulama Şuna geçildi ve alıcının adıyla onaylar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Alıcım yeni bir IP adresi aldı. Ne yapmalıyım?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Genellikle hiçbir şey: yönlendirici bir alıcıyı taşıdığında uygulama onu yeniden bulur ve onu takip ettiğini size bir kez bildirir. Bulamazsa Ayarlar › Alıcıları Yönet'i açın, alıcıya dokunun ve ağda aramak için Alıcımı Bul'u ya da yeni adresi kendiniz yazmak için IP Değiştir'i kullanın. Alıcı için kaydedilmiş her ayar korunur; yalnızca adres değişir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Neden Ekran ve Kilitler veya Bu alıcı hakkında bölümünü görmüyorum?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bu bölümler alıcıyı canlı okur ve yazar, bu yüzden yalnızca uygulama etkin alıcıya bağlıyken onun için görünürler. Alıcıyı Etkin yap ile etkinleştirin ve bağlanmasını bekleyin."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kurulum Kilidi ile Uzaktan Kilit arasındaki fark nedir?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kurulum Kilidi alıcının kendi kurulum menüsünü kilitler; böylece kilidi açana kadar kurulum ve kalibrasyon ayarları, bu uygulama dahil, kimse tarafından değiştirilemez. Ses ve giriş çalışmaya devam eder. Uzaktan Kilit, alıcının IR uzaktan kumandasını yok saymasını sağlar; uygulama ve ön panel çalışmaya devam eder. Her anahtar yalnızca alıcınız o kilidi bildiriyorsa görünür."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bir alıcıyı sildiğimde ne olur?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Uygulama alıcıyı ve onun için kaydedilmiş tüm ayarları kaldırır. Etkin alıcıysa uygulama başka bir tanesine geçer. Alıcının kendisinde hiçbir şey değişmez ve onu istediğiniz zaman yeniden ekleyebilirsiniz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Uygulamayı alıcı olmadan deneyebilir miyim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Evet. Ayarlar › Alıcıları Yönet'te Demo Modunu Dene'ye ya da Alıcı Ekle ekranında Demo Modunu Keşfet'e dokunun. Demo Modu, uygulamanın içinde simüle edilmiş bir Marantz CINEMA 30 çalıştırır ve ağınız üzerinden hiçbir şey göndermez. Ayarlar › Demo Modundan Çık ile çıkın."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Ana Sayfa",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Kullanım Kılavuzu",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Alıcıları Yönet",
+      "item": "https://avrmaestro.com/guide/receivers/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/tr/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menü" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Kılavuzda ara..." data-i18n-empty="Eşleşme bulunamadı:" data-i18n-language="Dil">
+      <a href="/tr/">Ana Sayfa</a>
+      <a href="/tr/guide/">Kullanım Kılavuzu</a>
+      <a href="/tr/receivers/">Alıcılar</a>
+      <a href="/tr/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/tr/best-denon-marantz-app/">Neden geçmelisiniz</a>
+      <a href="/tr/#top" class="cta">İndir</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/tr/">Ana Sayfa</a> &rsaquo; <a href="/tr/guide/">Kullanıcı Kılavuzu</a> &rsaquo; Alıcıları Yönet</div>
+    <div class="eyebrow">Ayarlar &rsaquo; Alıcıları Yönet</div>
+    <h1>Alıcıları Yönet, <span class="g">alıcı başına bir sayfa</span></h1>
+    <p>Sahip olduğunuz kadar Denon ve Marantz alıcı ekleyin, aralarında iki dokunuşla geçiş yapın ve her birine kendi ses tercihlerini verin. Her alıcının adı, adresi, kilitleri ve aygıt yazılımı için kendi sayfası vardır.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Nerede bulunur</div>
+      <h2>Alıcıları Yönet'i açın</h2>
+    </div>
+    <p class="lead"><b>Ayarlar</b>'ı açın. En üstteki kart <b>Alıcıları Yönet</b>'tir: kaç alıcınız olduğunu ve hangisinin etkin olduğunu gösterir. Ona dokunun.</p>
+    <p class="lead">Göreceğiniz şeyler: "Kurmak için bir alıcıya dokunun. Etkin yapmak için daireye dokunun. Yeniden sıralamak için sürükleyin." satırı, ardından her biri adı, IP adresi ve modeliyle alıcılarınız. Etkin alıcı vurgulanır ve dairesi doludur. Listenin altında <b>Alıcı Ekle</b> düğmesi ve zaten içinde değilseniz bir <b>DEMO MODU</b> bölümü bulunur.</p>
+    <ul class="plain">
+      <li>Kendi sayfasını açmak için <b>bir alıcıya dokunun</b>.</li>
+      <li>O alıcıyı etkin yapmak için bir satırın başındaki <b>daireye dokunun</b>. Uygulama <b>Şuna geçildi</b> ve alıcının adını söyler.</li>
+      <li>Sırayı değiştirmek için bir satırın sonundaki <b>tutamacı sürükleyin</b>. Ana Sayfa'nın üstündeki alıcı listesi aynı sırayı izler.</li>
+      <li>Yeniden Adlandır, IP Değiştir, Alıcımı Bul ve Sil içeren hızlı bir menü için <b>bir alıcıya uzun basın</b>.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Adım adım</div>
+      <h2>Bir alıcı ekleyin</h2>
+    </div>
+    <ol class="steps">
+      <li><i>Ayarlar &rsaquo; Alıcıları Yönet</i>'i açın ve <b>Alıcı Ekle</b>'ye (veya sağ üstteki <b>+</b>'ya) dokunun.</li>
+      <li>iPhone, iPad, Mac, Android ve Windows'ta ekran ağınızı tarar ve <b>Ağınızda bulunan alıcıları</b> listeler. Sizinkine dokunun. Hiçbir şey yanıt vermezse <b>Yeniden tara</b>'ya dokunun ya da alıcının adresini <b>IP Adresi</b> alanına yazıp <b>Test Et ve Kaydet</b>'e dokunun.</li>
+      <li>Uygulama bağlantıyı test eder ve alıcıyı tek seferde kaydeder. Algılanan modeli ve özellikleri görürsünüz ve yeni alıcı etkin alıcı olur.</li>
+    </ol>
+    <div class="note">Alıcının IP adresi, kendi menüsünde <i>Setup &rsaquo; General &rsaquo; Network &rsaquo; Information</i> altındadır. Telefon veya bilgisayar alıcıyla aynı ağda olmalıdır. Ağ kontrol listesi için <a href="/tr/guide/getting-started/">Başlarken</a>'e bakın.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">İki dokunuş</div>
+      <h2>Alıcıları Ana Sayfa'dan değiştirin</h2>
+    </div>
+    <ol class="steps">
+      <li><b>Ana Sayfa</b> sekmesinde, ekranın üstünde <b>AVR Maestro</b>'nun yanında gösterilen alıcı adına dokunun.</li>
+      <li>Etkin olanın yanında bir onay işaretiyle alıcılarınızın bir listesi açılır. Ona geçmek için başka bir alıcıya dokunun ya da tam sayfayı açmak için listenin altındaki <b>Alıcıları Yönet</b>'e dokunun.</li>
+    </ol>
+    <p class="lead">Her alıcı kendi verilerini cihazınızda tutar, bu yüzden geçiş yapmak o alıcının ayarlarını hemen yükler.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Ayarlar &rsaquo; Alıcıları Yönet &rsaquo; alıcınız</div>
+      <h2>Alıcı sayfası</h2>
+      <p class="lead">Sayfasını açmak için bir alıcıya dokunun. En üstteki kart bağlantı durumunu ve ayrıntılarını gösterir. Etkin alıcı değilse, ses sınırları, ekran ve kilitler yalnızca etkin alıcıda değiştirilebildiği için kartın altında bir <b>Etkin yap</b> düğmesi bulunur. Etkinse ama ulaşılamıyorsa sayfa "Uygulama şu anda alıcıya bağlı değil." der.</p>
+    </div>
+
+    <h3 style="margin-top:26px">SES</h3>
+    <p class="lead">Bu alıcı için kendi tercihleriniz. Her alıcı kendi değerlerini tutar. <a href="/tr/guide/volume/">Ses kılavuzu &rarr;</a></p>
+    <ul class="plain">
+      <li><b>Ses Adımı:</b> bir basışın sesi ne kadar hareket ettirdiği; 0,5, 1, 1,5 veya 2 dB. Uygulamadaki her ses düğmesi bunu kullanır.</li>
+      <li><b>Mutlak sesi üstte göster:</b> ses göstergesinde hangi sayının büyük olduğunu değiştirir. Kapalıyken (varsayılan) dB büyük, ses ölçeği küçük gösterilir; açıkken ses ölçeği büyük, dB küçük gösterilir.</li>
+      <li><b>Uzaktan kumanda ses göstergesi:</b> Uzaktan Kumanda sekmesinin dB ölçeğini (<b>Mutlak (dB)</b>, örneğin -40,5 dB) mi yoksa 0-98 ölçeğini (<b>Göreli</b>, örneğin 39,5) mi gösterdiği.</li>
+      <li><b>Kademeli ses ön ayarları:</b> açıkken (varsayılan) bir ses ön ayarına dokunmak sesi küçük adımlarla yükseltir; kapalıyken doğrudan kayıtlı seviyeye atlar.</li>
+      <li><b>Cihaz ses düğmeleri</b> (telefonlar ve tabletler): uygulama açıkken cihazın kendi ses düğmeleri alıcının sesini değiştirir. Varsayılan olarak açıktır; düğmeleri cihaza geri vermek için kapatın.</li>
+      <li><b>Ses Kontrolleri:</b> alıcının kendisine yazılan ses sınırı, açılış seviyesi ve sessize alma derinliği. Uygulama bu alıcıya bağlıyken gösterilir. <a href="/tr/guide/volume/">Ses Kontrolleri kılavuzu &rarr;</a></li>
+    </ul>
+
+    <h3 style="margin-top:26px">EKRAN VE KİLİTLER</h3>
+    <p class="lead">Bağlıyken etkin alıcı için gösterilir.</p>
+    <ul class="plain">
+      <li><b>Ekran Menüsü:</b> ses göstergesi, bilgi banner'ı, şu an çalan ve 21:9. <a href="/tr/guide/on-screen-display/">Ekran Menüsü kılavuzu &rarr;</a></li>
+      <li><b>Kurulum Kilidi:</b> alıcının kendi kurulum menüsünü kilitler. Kilitliyken Ses, Görüntü, Hoparlör ve diğer kurulum ayarları hiçbir yerde değiştirilemez; ne alıcının menüsünde, ne bu uygulamada, ne de web portalında. Ses, giriş ve kararma gibi günlük kontroller çalışmaya devam eder. Açmak önce sorar (<b>Alıcı menüsü kilitlensin mi?</b>, ardından <b>Kilitle</b>); kilidi açmak için anahtarı kapatın.</li>
+      <li><b>Uzaktan Kilit:</b> siz kilidi açana kadar alıcının IR uzaktan kumandasından gelen düğme basışlarını yok saymasını sağlar. Uygulama ve ön panel çalışmaya devam eder.</li>
+    </ul>
+    <div class="note">Kurulum Kilidi ve Uzaktan Kilit yalnızca alıcı durumlarını bildirdiğinde görünür. Alıcınız bir kilit bildirmiyorsa anahtar tahmin edilmek yerine gösterilmez. Uygulamanın başka yerlerinde Kurulum Kilidi yüzünden grileşen bir kontrol <a href="/tr/guide/locked-controls/">Bir kontrol neden kilitli</a> sayfasında açıklanır.</div>
+
+    <h3 style="margin-top:26px">BU ALICI HAKKINDA</h3>
+    <ul class="plain">
+      <li><b>Cihaz Bilgileri:</b> alıcının ayrıntılı durumu.</li>
+      <li><b>Aygıt Yazılımı:</b> yüklü aygıt yazılımı sürümü. Alıcıya bir güncelleme olup olmadığını sormak için <b>Kontrol Et</b>'e dokunun. Alttaki satır, ardından en son aygıt yazılımında olduğunuzu, bir güncelleme olduğunu, bir güncellemenin sürdüğünü veya durumun okunamadığını söyler. Güncelleme uygulamadan değil alıcının kendi Setup menüsünden yüklenir; güncelleme sırasında alıcının gücünü kapatmayın.</li>
+    </ul>
+
+    <h3 style="margin-top:26px">YÖNET</h3>
+    <ul class="plain">
+      <li><b>Yeniden Adlandır:</b> <b>Cihaz Adı</b> alanına yeni bir ad yazın ve <b>Kaydet</b>'e dokunun. Ad yalnızca uygulamada saklanır.</li>
+      <li><b>IP Değiştir:</b> örneğin yönlendiriciniz yeni bir adres verdikten sonra yeni bir <b>IP Adresi veya Ana Bilgisayar Adı</b> yazın ve <b>Kaydet</b>'e dokunun. Alıcı için kaydedilmiş tüm ayarlar korunur; yalnızca adres değişir. Başka bir alıcınızın zaten kullandığı bir adres reddedilir.</li>
+      <li><b>Alıcımı Bul:</b> ağda bu alıcının yeni adresini arar. Alıcınızı başka bir yerde bulursa <b>Bu Adresi Kullan</b>'a dokunun. Kayıtlı adres zaten doğru olduğunda, hiçbir şey yanıt vermediğinde ve sizinki olabilecek birden fazla alıcı olduğunda size bildirir; son durumda hiçbir şeyi değiştirmez ve bunun yerine IP Değiştir'i kullanırsınız.</li>
+      <li><b>Sil:</b> <b>Alıcı silinsin mi?</b> diye sorar ve ardından alıcıyı ve tüm kayıtlı ayarlarını uygulamadan kaldırır. Etkin alıcıyı silmek uygulamayı başka birine geçirir.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Alıcı gerekmez</div>
+        <h2>Demo Modu, girişi ve çıkışı</h2>
+        <p>Demo Modu, uygulamanın içinde simüle edilmiş bir Marantz CINEMA 30 çalıştırır. Her ekran gerçek donanımdaki gibi çalışır ve ağınız üzerinden hiçbir şey gönderilmez.</p>
+        <ol class="steps">
+          <li><i>Ayarlar &rsaquo; Alıcıları Yönet &rsaquo; Demo Modunu Dene</i>'den, Alıcı Ekle ekranındaki <b>Demo Modunu Keşfet</b>'ten ya da karşılama kılavuzundaki <b>Bunun yerine demoyu dene</b>'den <b>başlatın</b>. Demo alıcı etkin olur ve uygulama Ana Sayfa'yı açar.</li>
+          <li><b>Pro'yu önizleyin.</b> Demo çalışırken Ayarlar bir <b>DEMO MODU</b> bölümü gösterir. Buradaki <b>Pro özelliklerini önizle</b> anahtarı, Ev Otomasyonu ve Tetikleyiciler'in kilidini yalnızca bu demo oturumu için açar. Hiçbir şey satın alınmaz.</li>
+          <li><i>Ayarlar &rsaquo; Demo Modundan Çık</i> ile <b>çıkın</b>. Demo alıcı kaldırılır ve uygulama kendi alıcınıza döner.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Sık sorulan sorular</div>
+      <h2>Alıcılar, soru cevap</h2>
+    </div>
+    <details open><summary>Başka bir alıcıya nasıl geçerim?</summary><div class="body">Ana Ekran sekmesinde, üstteki AVR Maestro'nun yanındaki alıcı adına dokunun ve listeden başka bir alıcı seçin. Ayrıca Ayarlar &rsaquo; Alıcıları Yönet bölümünü açıp bir alıcı satırının başındaki daireye de dokunabilirsiniz. Uygulama, Switched to ifadesiyle ve alıcının adıyla onaylar.</div></details>
+    <details><summary>Alıcım yeni bir IP adresi aldı. Ne yapmalıyım?</summary><div class="body">Genellikle hiçbir şey: yönlendirici bir alıcının adresini değiştirdiğinde uygulama alıcıyı yeniden bulur ve onu takip ettiğini size bir kez bildirir. Bulamazsa Ayarlar &rsaquo; Alıcıları Yönet bölümünü açın, alıcıya dokunun ve ağda aramak için Alıcımı Bul'u, yeni adresi kendiniz yazmak için IP'yi Değiştir'i kullanın. Alıcı için kaydedilmiş tüm ayarlar korunur; yalnızca adres değişir.</div></details>
+    <details><summary>Neden Ekran ve Kilitler veya Bu alıcı hakkında bölümlerini görmüyorum?</summary><div class="body">Bu bölümler alıcıyı canlı okur ve yazar, bu yüzden yalnızca uygulama etkin alıcıya bağlıyken onun için görünürler. Alıcıyı Etkin yap ile etkinleştirin ve bağlanmasını bekleyin.</div></details>
+    <details><summary>Kurulum Kilidi ile Uzaktan Kilit arasındaki fark nedir?</summary><div class="body">Kurulum Kilidi alıcının kendi kurulum menüsünü kilitler; böylece kilidi açana kadar kurulum ve kalibrasyon ayarları, bu uygulama dahil, kimse tarafından değiştirilemez. Ses ve giriş çalışmaya devam eder. Uzaktan Kilit, alıcının IR uzaktan kumandasını yok saymasını sağlar; uygulama ve ön panel çalışmaya devam eder. Her anahtar yalnızca alıcınız o kilidi bildiriyorsa görünür.</div></details>
+    <details><summary>Bir alıcıyı sildiğimde ne olur?</summary><div class="body">Uygulama alıcıyı ve onun için kaydedilmiş tüm ayarları kaldırır. Etkin alıcıysa uygulama başka bir tanesine geçer. Alıcının kendisinde hiçbir şey değişmez ve onu istediğiniz zaman yeniden ekleyebilirsiniz.</div></details>
+    <details><summary>Uygulamayı alıcı olmadan deneyebilir miyim?</summary><div class="body">Evet. Ayarlar &rsaquo; Alıcıları Yönet bölümünde Demo Modunu Dene'ye veya Alıcı Ekle ekranında Demo Modunu Keşfet'e dokunun. Demo Modu, uygulamanın içinde simüle edilmiş bir Marantz CINEMA 30 çalıştırır ve ağınız üzerinden hiçbir şey göndermez. Ayarlar &rsaquo; Demo Modundan Çık yolundan çıkabilirsiniz.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Rehberin devamı</div>
+      <h2>Diğer AVR Maestro rehberleri</h2>
+    </div>
+    <p class="lead"><a href="/tr/guide/getting-started/">Başlarken</a> &middot; <a href="/tr/guide/navigation/">Uygulamada gezinme</a> &middot; <a href="/tr/guide/search/">Arama</a> &middot; <a href="/tr/guide/home/">Ana Ekran</a> &middot; <a href="/tr/guide/volume/">Ses Kontrolleri</a> &middot; <a href="/tr/guide/remote/">Uzaktan Kumanda</a> &middot; <a href="/tr/guide/multi-zone/">Bölgeler</a> &middot; <a href="/tr/guide/now-playing/">Şu An Çalıyor ve HEOS</a> &middot; <a href="/tr/guide/radio/">Radyo (FM/AM)</a> &middot; <a href="/tr/guide/scenes/">Sahneler</a> &middot; <a href="/tr/guide/sound/">Ses</a> &middot; <a href="/tr/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/tr/guide/speakers/">Hoparlörler</a> &middot; <a href="/tr/guide/locked-controls/">Bir kontrol neden kilitli</a> &middot; <a href="/tr/guide/settings/">Ayarlar</a> &middot; <a href="/tr/guide/widgets/">Widget'lar</a> &middot; <a href="/tr/guide/custom-icons/">Özel Simgeler</a> &middot; <a href="/tr/guide/on-screen-display/">Ekran Menüsü</a> &middot; <a href="/tr/guide/languages/">Diller</a> &middot; <a href="/tr/guide/assistant/">Asistan</a> &middot; <a href="/tr/guide/home-automation/">Ev Otomasyonu</a> &middot; <a href="/tr/guide/home-assistant-dashboard/">Home Assistant panosu</a> &middot; <a href="/tr/guide/backup/">Yedekleme ve Geri Yükleme</a> &middot; <a href="/tr/guide/glossary/">Sözlük</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/tr/">Ana Sayfa</a>
+      <a href="/tr/guide/">Kullanım Kılavuzu</a>
+      <a href="/tr/guide/getting-started/">Başlarken</a>
+      <a href="/tr/receivers/">Alıcılar</a>
+      <a href="/tr/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/tr/audyssey-vs-dirac/">Audyssey ve Dirac</a>
+      <a href="/tr/best-denon-marantz-app/">Neden geçmelisiniz</a>
+      <a href="/tr/help/">Yardım</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro&amp;referrer=utm_source%3Davrmaestro.com%26utm_medium%3Dguide-receivers">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro, MiyaraHub Technologies LLC tarafından geliştirilen bağımsız bir uygulamadır; Denon, Marantz, Sound United, Masimo Corporation veya bu sayfada adı geçen başka hiçbir şirketle bağlantılı değildir ve bunlar tarafından onaylanmamıştır. Denon, Marantz ve Audyssey, ilgili sahiplerinin ticari markalarıdır ve burada yalnızca tanımlama amacıyla kullanılmıştır.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

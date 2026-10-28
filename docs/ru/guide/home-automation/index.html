@@ -132,7 +132,7 @@
       "description": "Свяжите AVR Maestro с Home Assistant или Hubitat, и ваши сцены станут встроенными скриптами, которые работают без телефона. Голосовое управление, текущее состояние и вебхуки.",
       "image": "https://avrmaestro.com/screenshots/home-assistant.png",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -187,6 +187,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Для управления - нет. Приложение общается с вашим ресивером и хабом по вашей собственной сети. Ничего не проходит через сервер MiyaraHub. Вебхук уходит туда, куда вы его направите, и это ваш выбор."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Купили автоматизацию дома на другом устройстве или переустановили приложение?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Откройте Настройки › Автоматизация дома (Pro) и коснитесь «Восстановить покупки» под кнопкой разблокировки. Если вы уже покупали разблокировку с той же учётной записью магазина, она вернётся без повторной оплаты."
       }
     }
   ]
@@ -273,7 +281,7 @@
     </div>
     <ul class="plain">
       <li><b>1. Сначала добавьте ваш ресивер в Home Assistant.</b> Настройки &rsaquo; Устройства &amp; службы &rsaquo; Добавить интеграцию &rsaquo; <b>Denon AVR</b> (или <b>HEOS</b>), затем локальный IP вашего ресивера. Home Assistant создаст для него сущность медиаплеера.</li>
-      <li><b>2. Откройте в AVR Maestro Настройки &rsaquo; Автоматизация дома</b> и нажмите карточку Home Assistant.</li>
+      <li><b>2. Откройте Настройки &rsaquo; Автоматизация дома (Pro) в AVR Maestro</b> и коснитесь карточки Home Assistant.</li>
       <li><b>3. Введите адрес вашего Home Assistant</b> - локальный вроде <code>http://192.168.1.150:8123</code> или внешний URL Nabu Casa.</li>
       <li><b>4. Войдите и авторизуйтесь.</b> Откроется защищённый браузер внутри приложения со стандартным входом Home Assistant. Ваши учётные данные уходят в Home Assistant, а не к нам.</li>
       <li><b>5. Он сам находит ваш ресивер.</b> Приложение сканирует объекты медиаплееров, оценивает их по модели, названию и возможностям объёмного звука и подставляет нужный объект за вас.</li>
@@ -305,6 +313,14 @@
         <p>Скрипт можно запустить, но нельзя прочитать, поэтому ранние дашборды могли переключить кривую Audyssey или слот Dirac, но не могли показать, какой был включён. Показания, которые у приложения уже есть - текущий режим объёмного звука, активный фильтр Dirac, пресет колонок, диммер и десятки других - теперь публикуются как атрибуты на датчике состояния ресивера, и плитка может загореться для настройки, которая действительно работает.</p>
       </div>
       <img alt="AVR Maestro публикует в Home Assistant скрипты пресетов колонок, Dirac Live и Audyssey" src="/screenshots/ha-sync-advanced.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Режимы звука как скрипты</div>
+        <h2>Экспортировать режимы звука (REST)</h2>
+        <p>В разделе Home Assistant <b>Экспортировать режимы звука (REST)</b> открывает <b>Расширенный скрипт (REST)</b>: по одному скрипту Home Assistant для каждого режима звука, который перечисляет ваш ресивер, чтобы кнопка на панели или автоматизация могли напрямую выбрать режим объёмного звука. Приложение считывает этот список с ресивера, поэтому сначала включите ресивер и один раз откройте <a href="/ru/guide/sound/">вкладку «Звук»</a>; до тех пор оно просит вас об этом, а не экспортирует пустой список.</p>
+      </div>
     </div>
 
     <div class="lockrow" style="margin-top:28px">
@@ -391,7 +407,7 @@
 
     <h3 style="margin-top:28px">В AVR Maestro</h3>
     <ul class="plain">
-      <li><b>1. Настройки &rsaquo; Автоматизация дома &rsaquo; Вебхуки</b>, затем <b>Добавить первый триггер</b> - или кнопка <b>+</b>, когда один уже есть.</li>
+      <li><b>1. Настройки &rsaquo; Автоматизация дома (Pro) &rsaquo; Вебхуки</b>, затем <b>Добавить первый триггер</b> - или кнопка <b>+</b>, когда у вас уже есть один.</li>
       <li><b>2. Событие триггера</b> - выберите, что должно его запускать. Выбор <em>Активный вход изменён</em> или <em>Сцена вызвана</em> добавляет второе поле для сужения.</li>
       <li><b>3. Куда отправлять</b> - оставьте <b>Home Assistant</b>. Адрес уже известен, потому что вы связали его ранее на этом же экране.</li>
       <li><b>4. ID вебхука</b> - введите тот же ID, что и в Home Assistant. Больше ничего совпадать не должно. Под полем приложение показывает точный адрес, на который будет отправлять, - <code>Sends to http://your-ha:8123/api/webhook/avr-power-on</code> - так что перед сохранением можно проверить.</li>
@@ -449,6 +465,7 @@
         <div class="eyebrow">Что платно, а что нет</div>
         <h2>Автоматизация дома - единственная разблокировка. AI-помощник бесплатный.</h2>
         <p><b>Автоматизация дома (Pro)</b> - Home Assistant, Hubitat и исходящие вебхуки - разблокируется один раз. Всё остальное в AVR Maestro, включая AI-помощника на устройстве, входит в приложение.</p>
+        <p>Уже купили, на этом устройстве или другом с той же учётной записью магазина? Коснитесь <b>Восстановить покупки</b> под кнопкой разблокировки.</p>
         <p>Голосовое управление достигает вашего ресивера <em>через</em> автоматизацию дома, посредством вашего хаба. AVR Maestro не использует собственное распознавание голоса.</p>
       </div>
     </div>
@@ -465,6 +482,7 @@
     <details><summary>Какие голосовые ассистенты могут управлять моим ресивером?</summary><div class="body">Любой, которым вы уже пользуетесь. AVR Maestro не добавляет собственный голосовой слой - он публикует скрипты в Home Assistant или Hubitat, а хаб, которому вы уже доверяете, открывает их для Alexa, Google Assistant или Siri Shortcuts.</div></details>
     <details><summary>Входит ли AI-помощник в платную разблокировку?</summary><div class="body">Нет. AI-помощник на устройстве бесплатный. Автоматизация дома - Home Assistant, Hubitat и исходящие вебхуки - единственная платная разблокировка в AVR Maestro.</div></details>
     <details><summary>Покидает ли что-нибудь мою домашнюю сеть?</summary><div class="body">Для управления - нет. Приложение общается с вашим ресивером и хабом по вашей собственной сети. Ничего не проходит через сервер MiyaraHub. Вебхук уходит туда, куда вы его направите, и это ваш выбор.</div></details>
+    <details><summary>Купили автоматизацию дома на другом устройстве или переустановили приложение?</summary><div class="body">Откройте <i>Настройки &rsaquo; Автоматизация дома (Pro)</i> и коснитесь <b>Восстановить покупки</b> под кнопкой разблокировки. Если вы уже покупали разблокировку с той же учётной записью магазина, она вернётся без повторной оплаты.</div></details>
   </div>
 </section>
 
@@ -474,7 +492,7 @@
       <div class="eyebrow">Другие разделы руководства</div>
       <h2>Другие руководства по AVR Maestro</h2>
     </div>
-    <p class="lead"><a href="/ru/guide/getting-started/">Начало работы</a> &middot; <a href="/ru/guide/home/">Главный экран</a> &middot; <a href="/ru/guide/scenes/">Сцены</a> &middot; <a href="/ru/guide/custom-icons/">Пользовательские значки</a> &middot; <a href="/ru/guide/sound/">Звук</a> &middot; <a href="/ru/guide/graphic-eq/">Графический эквалайзер</a> &middot; <a href="/ru/guide/speakers/">Колонки</a> &middot; <a href="/ru/guide/locked-controls/">Почему элемент заблокирован</a> &middot; <a href="/ru/guide/assistant/">Помощник</a> &middot; <a href="/ru/guide/home-assistant-dashboard/">Панель Home Assistant</a> &middot; <a href="/ru/guide/multi-zone/">Зоны</a> &middot; <a href="/ru/guide/remote/">Пульт</a> &middot; <a href="/ru/guide/radio/">Радио (FM/AM)</a> &middot; <a href="/ru/guide/on-screen-display/">Экранное меню</a> &middot; <a href="/ru/guide/settings/">Настройки</a> &middot; <a href="/ru/guide/languages/">Языки</a> &middot; <a href="/ru/guide/volume/">Управление громкостью</a> &middot; <a href="/ru/guide/backup/">Резервное копирование &amp; восстановление</a> &middot; <a href="/ru/guide/now-playing/">Сейчас играет &amp; HEOS</a></p>
+    <p class="lead"><a href="/ru/guide/getting-started/">Начало работы</a> &middot; <a href="/ru/guide/receivers/">Управление ресиверами</a> &middot; <a href="/ru/guide/navigation/">Навигация по приложению</a> &middot; <a href="/ru/guide/search/">Поиск</a> &middot; <a href="/ru/guide/home/">Главный экран</a> &middot; <a href="/ru/guide/volume/">Управление громкостью</a> &middot; <a href="/ru/guide/remote/">Пульт</a> &middot; <a href="/ru/guide/multi-zone/">Зоны</a> &middot; <a href="/ru/guide/now-playing/">Сейчас играет и HEOS</a> &middot; <a href="/ru/guide/radio/">Радио (FM/AM)</a> &middot; <a href="/ru/guide/scenes/">Сцены</a> &middot; <a href="/ru/guide/sound/">Звук</a> &middot; <a href="/ru/guide/graphic-eq/">Графический эквалайзер</a> &middot; <a href="/ru/guide/speakers/">Колонки</a> &middot; <a href="/ru/guide/locked-controls/">Почему элемент заблокирован</a> &middot; <a href="/ru/guide/settings/">Настройки</a> &middot; <a href="/ru/guide/widgets/">Виджеты</a> &middot; <a href="/ru/guide/custom-icons/">Пользовательские значки</a> &middot; <a href="/ru/guide/on-screen-display/">Экранное меню</a> &middot; <a href="/ru/guide/languages/">Языки</a> &middot; <a href="/ru/guide/assistant/">Помощник</a> &middot; <a href="/ru/guide/home-assistant-dashboard/">Панель Home Assistant</a> &middot; <a href="/ru/guide/backup/">Резервное копирование и восстановление</a> &middot; <a href="/ru/guide/glossary/">Глоссарий</a></p>
   </div>
 </section>
 
@@ -510,7 +528,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro - независимое приложение MiyaraHub Technologies LLC, не связанное с Denon, Marantz, Sound United, Masimo Corporation и любыми другими компаниями, упомянутыми на этой странице, и не одобренное ими. Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant и Siri являются товарными знаками соответствующих владельцев и используются здесь только для идентификации.</p>
+    <p class="legal">AVR Maestro - независимое приложение от MiyaraHub Technologies LLC. Оно не связано с компаниями Denon, Marantz, Sound United, Masimo Corporation и любыми другими компаниями, названными на этой странице, и не одобрено ими. Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant и Siri - товарные знаки соответствующих владельцев, а они используются здесь только для идентификации.</p>
   </div>
 </footer>
 

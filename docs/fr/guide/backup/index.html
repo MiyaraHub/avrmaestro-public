@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="apple-itunes-app" content="app-id=6762881597" />
 <title>Sauvegarde &amp; restauration des paramètres sur un nouveau téléphone - AVR Maestro</title>
-<meta name="description" content="Exportez tous vos paramètres AVR Maestro dans un seul fichier : récepteurs, noms et icônes des entrées, Scènes, thème et préférences de volume. Restaurez-le sur un nouveau téléphone en quelques appuis." />
+<meta name="description" content="Exportez votre configuration AVR Maestro dans un seul fichier .zip : récepteurs, scènes, icônes personnalisées, ordre des entrées, thème et réglages de volume. Restaurez-la sur un nouveau téléphone en quelques touches." />
 <meta name="keywords" content="AVR Maestro backup, transfer AVR app settings new phone, export receiver settings app, restore Denon app config, AVR Maestro migrate device" />
 <meta name="author" content="MiyaraHub Technologies LLC" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -77,7 +77,7 @@
 <meta property="og:locale:alternate" content="zh_CN" />
 <meta property="og:locale:alternate" content="zh_TW" />
 <meta property="og:title" content="Sauvegarde &amp; restauration des paramètres sur un nouveau téléphone - AVR Maestro" />
-<meta property="og:description" content="Exportez tous vos paramètres AVR Maestro dans un seul fichier : récepteurs, noms et icônes des entrées, Scènes, thème et préférences de volume. Restaurez-le sur un nouveau téléphone en quelques appuis." />
+<meta property="og:description" content="Exportez votre configuration AVR Maestro dans un seul fichier .zip : récepteurs, scènes, icônes personnalisées, ordre des entrées, thème et réglages de volume. Restaurez-la sur un nouveau téléphone en quelques touches." />
 <meta property="og:url" content="https://avrmaestro.com/fr/guide/backup/" />
 <meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
 <meta property="og:image:type" content="image/png" />
@@ -86,7 +86,7 @@
 <meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Sauvegarde &amp; restauration des paramètres sur un nouveau téléphone - AVR Maestro" />
-<meta name="twitter:description" content="Exportez tous vos paramètres AVR Maestro dans un seul fichier : récepteurs, noms et icônes des entrées, Scènes, thème et préférences de volume. Restaurez-le sur un nouveau téléphone en quelques appuis." />
+<meta name="twitter:description" content="Exportez votre configuration AVR Maestro dans un seul fichier .zip : récepteurs, scènes, icônes personnalisées, ordre des entrées, thème et réglages de volume. Restaurez-la sur un nouveau téléphone en quelques touches." />
 <meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
 <meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
 <link rel="icon" href="/assets/favicon.ico" sizes="any" />
@@ -129,10 +129,10 @@
       "@type": "TechArticle",
       "@id": "https://avrmaestro.com/guide/backup/#article",
       "headline": "Sauvegarde & restauration : toute votre configuration, en un seul fichier",
-      "description": "Exportez tous vos paramètres AVR Maestro dans un seul fichier : récepteurs, noms et icônes des entrées, Scènes, thème et préférences de volume. Restaurez-le sur un nouveau téléphone en quelques appuis.",
+      "description": "Exportez votre configuration AVR Maestro dans un seul fichier .zip : récepteurs, scènes, icônes personnalisées, ordre des entrées, thème et réglages de volume. Restaurez-la sur un nouveau téléphone en quelques touches.",
       "image": "https://avrmaestro.com/screenshots/backup-restore.png",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -162,7 +162,7 @@
       "name": "Puis-je transférer une sauvegarde entre Android et iPhone ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Le fichier est du JSON brut et n'est lié à aucun appareil en particulier. Exportez-le depuis l'un, transférez le fichier vers l'autre, puis importez-le."
+        "text": "Oui. La sauvegarde est un fichier .zip qui n'est pas lié à l'appareil qui l'a créé. Exportez depuis l'un, transférez le fichier sur l'autre, puis importez."
       }
     },
     {
@@ -178,7 +178,15 @@
       "name": "Mes Scènes sont-elles transférées ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Oui, avec les réglages que chaque Scène devait mémoriser. Consultez le guide des Scènes."
+        "text": "Oui, avec les réglages que contient chaque scène et son icône personnalisée. Voir le guide des scènes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourquoi fermer l'application sur mes autres appareils avant de restaurer ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Si un autre téléphone ou une autre tablette a AVR Maestro ouvert et connecté au même récepteur, deux appareils peuvent communiquer avec le récepteur en même temps pendant la restauration. Cela peut provoquer un conflit de connexion qui bloque le firmware du récepteur. Fermez l'application sur l'autre appareil, restaurez, puis forcez la fermeture et rouvrez AVR Maestro sur celui-ci."
       }
     },
     {
@@ -251,12 +259,12 @@
       <div>
         <div class="eyebrow">Exporter</div>
         <h2>Enregistrez sur l'appareil, ou partagez directement</h2>
-        <p class="lead">Ouvrez <b>Paramètres</b>, faites défiler jusqu'à <b>Sauvegarde &amp; restauration</b>, puis choisissez :</p>
-        <ul class="plain">
-          <li><b>Enregistrer sur l'appareil</b> - écrit un seul fichier JSON à l'endroit que vous indiquez.</li>
-          <li><b>Partager</b> - le transmet à votre menu de partage habituel, pour l'envoyer directement à l'autre téléphone, vers un stockage cloud ou dans un message à vous-même.</li>
-        </ul>
-        <p class="lead">C'est un simple fichier texte. Rien dedans n'est lié à l'appareil d'origine.</p>
+        <ol class="steps">
+          <li>Ouvrez <b>Réglages</b> et faites défiler jusqu'à <b>Sauvegarde et à propos</b>.</li>
+          <li>Touchez <b>Sauvegarde et restauration</b>.</li>
+          <li>Sous <b>Exporter</b>, touchez <b>Enregistrer sur l'appareil</b> pour choisir un dossier pour le fichier, ou <b>Partager</b> pour l'envoyer via la feuille de partage directement vers l'autre téléphone, un stockage cloud ou un message à vous-même.</li>
+        </ol>
+        <p class="lead">La sauvegarde est un seul fichier <b>.zip</b> nommé comme <b>avr-maestro-backup-</b> suivi de la date et de l'heure. Il contient vos réglages et les images choisies pour les icônes personnalisées. Rien n'y est lié à l'appareil d'origine.</p>
       </div>
       <img alt="La page Sauvegarde et restauration avec l'export et l'import" src="/screenshots/backup-restore.png" width="1324" height="2644" decoding="async" />
     </div>
@@ -272,16 +280,18 @@
     <table class="t">
       <thead><tr><th>Inclus</th><th>Signification</th></tr></thead>
       <tbody>
-        <tr><td>Récepteurs configurés</td><td>Chaque appareil que vous avez ajouté, avec son adresse et ses réglages</td></tr>
-        <tr><td>Ordre des sources par appareil</td><td>L'ordre dans lequel vous avez glissé vos entrées, conservé pour chaque récepteur</td></tr>
-        <tr><td>Thème et thème de couleur</td><td>Votre couleur d'accentuation et vos choix d'apparence</td></tr>
-        <tr><td>Échelle de l'affichage et des widgets</td><td>Taille du texte et des widgets</td></tr>
-        <tr><td>Préférences de volume</td><td>Le comportement du volume côté application</td></tr>
-        <tr><td>État des cartes d'explication</td><td>Les bandeaux d'information que vous avez fermés, pour qu'ils le restent</td></tr>
-        <tr><td>Sondes en cache</td><td>Les résultats des sondes HEOS, fonctions et capacités musicales, pour que le nouveau téléphone ne reparte pas de zéro</td></tr>
+        <tr><td>Vos récepteurs</td><td>Chaque récepteur ajouté, avec son adresse, et celui qui était sélectionné</td></tr>
+        <tr><td>Scènes</td><td>Chaque scène de chaque récepteur, avec les réglages qu'elle contient, son icône et sa couleur</td></tr>
+        <tr><td>Icônes personnalisées</td><td>Les images choisies pour les entrées et les scènes, avec leurs formes</td></tr>
+        <tr><td>Ordre des entrées</td><td>L'ordre dans lequel vous avez glissé vos entrées, conservé pour chaque récepteur</td></tr>
+        <tr><td>Noms des emplacements et des préréglages</td><td>Les noms saisis pour les emplacements Smart Select / Quick Select et les préréglages du tuner</td></tr>
+        <tr><td>Réglages audio par récepteur</td><td>Pas de volume, choix d'affichage du volume, préréglages de volume progressifs, boutons de volume de l'appareil et vos préréglages de volume rapide</td></tr>
+        <tr><td>Apparence et disposition</td><td>Thème et couleur d'accent, langue, taille du texte et des widgets, couleurs des widgets, disposition de votre accueil, navigation et onglets masqués</td></tr>
+        <tr><td>Cartes d'explication</td><td>Les cartes d'information que vous avez masquées, pour qu'elles le restent</td></tr>
+        <tr><td>Vérifications du récepteur en cache</td><td>Ce que l'application a déjà appris de chaque récepteur (vérifications HEOS et des fonctionnalités), pour que le nouveau téléphone ne reparte pas de zéro</td></tr>
       </tbody>
     </table>
-    <div class="note">Les noms d'entrées et les illustrations personnalisés font partie de la configuration de votre récepteur ; ils sont donc transférés avec elle. Consultez le <a href="/fr/guide/custom-icons/">guide des icônes personnalisées</a>.</div>
+    <div class="note"><b>Non inclus :</b> vos réglages de connexion Home Assistant et Hubitat. Configurez à nouveau la <a href="/fr/guide/home-automation/">domotique</a> sur le nouvel appareil ; vos scripts de scènes existants conservent leurs identifiants, donc les automatisations qui les ciblent continuent de fonctionner. Les noms d'entrées que vous avez modifiés sont stockés sur le récepteur lui-même, ils apparaissent donc dès que le nouvel appareil se connecte.</div>
   </div>
 </section>
 
@@ -291,13 +301,15 @@
       <div class="eyebrow">Importer</div>
       <h2>Restauration sur le nouveau téléphone</h2>
     </div>
-    <ol class="plain">
+    <div class="note"><b>Avant de restaurer :</b> si AVR Maestro est ouvert sur un autre téléphone ou une autre tablette connecté au même récepteur, fermez-le d'abord là-bas. Deux appareils qui communiquent avec le même récepteur au moment d'une restauration peuvent provoquer un conflit de connexion qui bloque le firmware du récepteur. L'application vous en avertit aussi.</div>
+    <ol class="steps">
       <li>Installez AVR Maestro sur le nouvel appareil et vérifiez qu'il est sur le même réseau que votre récepteur.</li>
       <li>Ouvrez <b>Paramètres &rsaquo; Sauvegarde &amp; restauration</b>.</li>
-      <li>Touchez <b>Importer les paramètres depuis un fichier</b> et choisissez la sauvegarde.</li>
-      <li><b>Redémarrez l'application.</b> Elle vous le rappelle aussi - un redémarrage permet à tous les paramètres restaurés de prendre effet proprement.</li>
+      <li>Sous <b>Importer</b>, touchez <b>Importer les paramètres depuis un fichier</b> et choisissez la sauvegarde (.zip, ou un fichier .json d'une ancienne version de l'application).</li>
+      <li>Vérifiez le résumé dans <b>Remplacer tous les paramètres ?</b> : le nombre d'entrées, la version de l'application et la date d'export. Touchez <b>Remplacer</b>.</li>
+      <li>Quand vous voyez <b>Sauvegarde restaurée</b>, touchez <b>Compris</b>, puis <b>forcez la fermeture d'AVR Maestro et rouvrez-la</b> pour que chaque écran charge les réglages restaurés.</li>
     </ol>
-    <div class="note"><b>L'import remplace, il ne fusionne pas.</b> Tout ce qui se trouve sur cet appareil est écrasé par le contenu de la sauvegarde. Si la configuration actuelle compte pour vous, exportez-la d'abord - cela ne prend que deux appuis.</div>
+    <div class="note"><b>L'import remplace, il ne fusionne pas.</b> Tout ce qui se trouve sur cet appareil est effacé et remplacé par le contenu de la sauvegarde, et cela est irréversible. Si la configuration actuelle a de la valeur pour vous, exportez-la d'abord.</div>
   </div>
 </section>
 
@@ -318,9 +330,10 @@
       <div class="eyebrow">Questions fréquentes</div>
       <h2>FAQ sur la sauvegarde</h2>
     </div>
-    <details open><summary>Puis-je transférer une sauvegarde entre Android et iPhone ?</summary><div class="body">Le fichier est du JSON brut et n'est lié à aucun appareil en particulier. Exportez-le depuis l'un, transférez le fichier vers l'autre, puis importez-le.</div></details>
+    <details open><summary>Puis-je transférer une sauvegarde entre Android et iPhone ?</summary><div class="body">Oui. La sauvegarde est un fichier .zip qui n'est pas lié à l'appareil qui l'a créé. Exportez depuis l'un, transférez le fichier sur l'autre, puis importez.</div></details>
     <details><summary>L'importation écrasera-t-elle l'étalonnage de mon récepteur ?</summary><div class="body">Non. Une sauvegarde ne contient que les paramètres de l'application. Tout ce que le récepteur conserve - étalonnage, préréglages, niveaux, distances, filtres Dirac - reste sur le récepteur et n'est pas touché.</div></details>
-    <details><summary>Mes Scènes sont-elles transférées ?</summary><div class="body">Oui, avec les réglages que chaque Scène devait mémoriser. Consultez le <a href="/fr/guide/scenes/">guide des Scènes</a>.</div></details>
+    <details><summary>Mes Scènes sont-elles transférées ?</summary><div class="body">Oui, avec les réglages que contient chaque scène et son icône personnalisée. Voir le <a href="/fr/guide/scenes/">guide des scènes</a>.</div></details>
+    <details><summary>Pourquoi fermer l'application sur mes autres appareils avant de restaurer ?</summary><div class="body">Si un autre téléphone ou une autre tablette a AVR Maestro ouvert et connecté au même récepteur, deux appareils peuvent communiquer avec le récepteur en même temps pendant la restauration. Cela peut provoquer un conflit de connexion qui bloque le firmware du récepteur. Fermez l'application sur l'autre appareil, restaurez, puis forcez la fermeture et rouvrez AVR Maestro sur celui-ci.</div></details>
     <details><summary>Où « Enregistrer sur l'appareil » place-t-il le fichier ?</summary><div class="body">À l'endroit que vous choisissez dans le sélecteur de fichiers de votre système. « Partager » est plus rapide si le fichier ne fait que transiter vers un autre téléphone.</div></details>
   </div>
 </section>
@@ -331,7 +344,7 @@
       <div class="eyebrow">La suite du guide</div>
       <h2>Autres guides AVR Maestro</h2>
     </div>
-    <p class="lead"><a href="/fr/guide/getting-started/">Prise en main</a> &middot; <a href="/fr/guide/home/">Écran d'accueil</a> &middot; <a href="/fr/guide/scenes/">Scènes</a> &middot; <a href="/fr/guide/custom-icons/">Icônes personnalisées</a> &middot; <a href="/fr/guide/sound/">Son</a> &middot; <a href="/fr/guide/graphic-eq/">Égaliseur graphique</a> &middot; <a href="/fr/guide/speakers/">Enceintes</a> &middot; <a href="/fr/guide/locked-controls/">Pourquoi une commande est verrouillée</a> &middot; <a href="/fr/guide/assistant/">L'assistant</a> &middot; <a href="/fr/guide/home-automation/">Domotique</a> &middot; <a href="/fr/guide/home-assistant-dashboard/">Tableau de bord Home Assistant</a> &middot; <a href="/fr/guide/multi-zone/">Zones</a> &middot; <a href="/fr/guide/remote/">Télécommande</a> &middot; <a href="/fr/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/fr/guide/on-screen-display/">Affichage à l'écran</a> &middot; <a href="/fr/guide/settings/">Paramètres</a> &middot; <a href="/fr/guide/languages/">Langues</a> &middot; <a href="/fr/guide/volume/">Contrôles de volume</a> &middot; <a href="/fr/guide/now-playing/">Lecture en cours &amp; HEOS</a></p>
+    <p class="lead"><a href="/fr/guide/getting-started/">Premiers pas</a> &middot; <a href="/fr/guide/receivers/">Gérer les récepteurs</a> &middot; <a href="/fr/guide/navigation/">Naviguer dans l'application</a> &middot; <a href="/fr/guide/search/">Recherche</a> &middot; <a href="/fr/guide/home/">Écran d'accueil</a> &middot; <a href="/fr/guide/volume/">Contrôles de volume</a> &middot; <a href="/fr/guide/remote/">Télécommande</a> &middot; <a href="/fr/guide/multi-zone/">Zones</a> &middot; <a href="/fr/guide/now-playing/">Lecture en cours et HEOS</a> &middot; <a href="/fr/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/fr/guide/scenes/">Scènes</a> &middot; <a href="/fr/guide/sound/">Son</a> &middot; <a href="/fr/guide/graphic-eq/">Égaliseur graphique</a> &middot; <a href="/fr/guide/speakers/">Enceintes</a> &middot; <a href="/fr/guide/locked-controls/">Pourquoi un contrôle est verrouillé</a> &middot; <a href="/fr/guide/settings/">Réglages</a> &middot; <a href="/fr/guide/widgets/">Widgets</a> &middot; <a href="/fr/guide/custom-icons/">Icônes personnalisées</a> &middot; <a href="/fr/guide/on-screen-display/">Affichage à l'écran</a> &middot; <a href="/fr/guide/languages/">Langues</a> &middot; <a href="/fr/guide/assistant/">L'assistant</a> &middot; <a href="/fr/guide/home-automation/">Domotique</a> &middot; <a href="/fr/guide/home-assistant-dashboard/">Tableau de bord Home Assistant</a> &middot; <a href="/fr/guide/glossary/">Glossaire</a></p>
   </div>
 </section>
 
@@ -367,7 +380,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro est une application indépendante de MiyaraHub Technologies LLC, sans affiliation ni approbation de la part de Denon, Marantz, Sound United, Masimo Corporation ou de toute autre société citée sur cette page. Denon, Marantz, HEOS, Audyssey et Dirac Live sont des marques commerciales de leurs propriétaires respectifs, utilisées ici à des fins d'identification uniquement.</p>
+    <p class="legal">AVR Maestro est une application indépendante de MiyaraHub Technologies LLC, non affiliée à Denon, Marantz, Sound United, Masimo Corporation ni à aucune autre société citée sur cette page, et non approuvée par elles. Denon, Marantz, HEOS, Audyssey et Dirac Live sont des marques de leurs détenteurs respectifs, utilisées ici à des seules fins d'identification.</p>
   </div>
 </footer>
 

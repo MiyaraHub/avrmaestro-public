@@ -132,7 +132,7 @@
       "description": "Forbind AVR Maestro til Home Assistant eller Hubitat, og dine scener bliver til native scripts, der kører uden din telefon. Stemmestyring, live-status og webhooks.",
       "image": "https://avrmaestro.com/screenshots/home-assistant.png",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -187,6 +187,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Ikke til styring. Appen taler med din receiver og din hub over dit eget netværk. Intet sendes via en MiyaraHub-server. En webhook går derhen, hvor du peger den, og det bestemmer du selv."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Har du købt Hjemmeautomatisering på en anden enhed eller installeret appen igen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Åbn Indstillinger › Hjemmeautomatisering (Pro), og tryk på Gendan køb under oplåsningsknappen. Hvis du tidligere har købt oplåsningen med den samme butikskonto, kommer den tilbage uden at du betaler igen."
       }
     }
   ]
@@ -273,7 +281,7 @@
     </div>
     <ul class="plain">
       <li><b>1. Føj først din receiver til Home Assistant.</b> Indstillinger &rsaquo; Enheder &amp; tjenester &rsaquo; Tilføj integration &rsaquo; <b>Denon AVR</b> (eller <b>HEOS</b>) og derefter din receivers lokale IP. Home Assistant opretter en medieafspiller-entitet til den.</li>
-      <li><b>2. Åbn Indstillinger &rsaquo; Hjemmeautomatisering i AVR Maestro</b> og tryk på Home Assistant-kortet.</li>
+      <li><b>2. Åbn Indstillinger &rsaquo; Hjemmeautomatisering (Pro) i AVR Maestro</b>, og tryk på kortet Home Assistant.</li>
       <li><b>3. Indtast din Home Assistant-adresse</b> - en lokal som <code>http://192.168.1.150:8123</code> eller din eksterne Nabu Casa-URL.</li>
       <li><b>4. Log ind og godkend.</b> En sikker browser i appen åbner Home Assistants eget login. Dine loginoplysninger går til Home Assistant, aldrig til os.</li>
       <li><b>5. Den finder selv din receiver.</b> Appen scanner dine medieafspillerentiteter og scorer dem på model, navn og surroundfunktioner og udfylder derefter den rigtige entitet for dig.</li>
@@ -305,6 +313,14 @@
         <p>Et script kan køres, men aldrig læses, så tidlige dashboards kunne skifte Audyssey-kurven eller Dirac-sloten uden nogen måde at vise, hvilken der var slået til. De aflæsninger, appen allerede har - den aktuelle surroundtilstand, det aktive Dirac-filter, højttalerforudindstillingen, dæmperen og snesevis af andre - udgives nu som attributter på receiverens statussensor, så en flise kan lyse op for den indstilling, der faktisk kører.</p>
       </div>
       <img alt="AVR Maestro udgiver kontrolscripts til højttalerforudindstilling, Dirac Live og Audyssey til Home Assistant" src="/screenshots/ha-sync-advanced.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Lydtilstande som scripts</div>
+        <h2>Eksporter lydtilstande (REST)</h2>
+        <p>I afsnittet Home Assistant åbner <b>Eksporter lydtilstande (REST)</b> <b>Avanceret script (REST)</b>: ét Home Assistant-script for hver lydtilstand, din receiver viser, så en dashboardknap eller en automatisering kan vælge en surroundtilstand direkte. Appen læser listen fra receiveren, så tænd receiveren, og åbn <a href="/da/guide/sound/">fanen Lyd</a> én gang først; indtil da beder den dig om det i stedet for at eksportere en tom liste.</p>
+      </div>
     </div>
 
     <div class="lockrow" style="margin-top:28px">
@@ -391,7 +407,7 @@
 
     <h3 style="margin-top:28px">I AVR Maestro</h3>
     <ul class="plain">
-      <li><b>1. Indstillinger &rsaquo; Hjemmeautomatisering &rsaquo; Webhooks</b>, og tryk derefter på <b>Tilføj første udløser</b> - eller knappen <b>+</b>, når du har en.</li>
+      <li><b>1. Indstillinger &rsaquo; Hjemmeautomatisering (Pro) &rsaquo; Webhooks</b>, og tryk derefter på <b>Tilføj første udløser</b> - eller på knappen <b>+</b>, når du har en.</li>
       <li><b>2. Udløs hændelse</b> - vælg, hvad der skal udløse den. Vælger du <em>Aktiv indgang ændret</em> eller <em>Scene hentet</em>, kommer der et ekstra felt til at indsnævre den.</li>
       <li><b>3. Hvor den skal sendes hen</b> - lad den stå på <b>Home Assistant</b>. Adressen er allerede kendt, fordi du forbandt den tidligere på den samme skærm.</li>
       <li><b>4. Webhook-id</b> - skriv det samme id, som du brugte i Home Assistant. Intet andet behøver at passe sammen. Nedenunder skriver appen den præcise adresse ud, den vil sende til - <code>Sends to http://your-ha:8123/api/webhook/avr-power-on</code> - så du kan tjekke den, før du gemmer.</li>
@@ -449,6 +465,7 @@
         <div class="eyebrow">Hvad der er betalt, og hvad der ikke er</div>
         <h2>Hjemmeautomatisering er den ene oplåsning. AI-assistenten er gratis.</h2>
         <p><b>Hjemmeautomatisering (Pro)</b> - Home Assistant, Hubitat og udgående webhooks - er en engangsoplåsning. Alt andet i AVR Maestro, inklusive AI-assistenten på enheden, er inkluderet i appen.</p>
+        <p>Har du allerede købt den, på denne enhed eller en anden med den samme butikskonto? Tryk på <b>Gendan køb</b> under oplåsningsknappen.</p>
         <p>Stemmestyring når din receiver <em>via</em> Hjemmeautomatisering, gennem din hub. AVR Maestro kører ikke sin egen talegenkendelse.</p>
       </div>
     </div>
@@ -465,6 +482,7 @@
     <details><summary>Hvilke stemmeassistenter kan styre min receiver?</summary><div class="body">Den, du allerede bruger. AVR Maestro tilføjer ikke sit eget stemmelag - den udgiver scripts til Home Assistant eller Hubitat, og de bliver gjort tilgængelige for Alexa, Google Assistant eller Siri Shortcuts af den hub, du allerede stoler på.</div></details>
     <details><summary>Er AI-assistenten en del af den betalte oplåsning?</summary><div class="body">Nej. AI-assistenten på enheden er gratis. Hjemmeautomatisering - Home Assistant, Hubitat og udgående webhooks - er den ene betalte oplåsning i AVR Maestro.</div></details>
     <details><summary>Forlader noget mit hjemmenetværk?</summary><div class="body">Ikke til styring. Appen taler med din receiver og din hub over dit eget netværk. Intet sendes via en MiyaraHub-server. En webhook går derhen, hvor du peger den, og det bestemmer du selv.</div></details>
+    <details><summary>Har du købt Hjemmeautomatisering på en anden enhed eller installeret appen igen?</summary><div class="body">Åbn <i>Indstillinger &rsaquo; Hjemmeautomatisering (Pro)</i>, og tryk på <b>Gendan køb</b> under oplåsningsknappen. Hvis du tidligere har købt oplåsningen med den samme butikskonto, kommer den tilbage uden at du betaler igen.</div></details>
   </div>
 </section>
 
@@ -474,7 +492,7 @@
       <div class="eyebrow">Mere af vejledningen</div>
       <h2>Andre AVR Maestro-vejledninger</h2>
     </div>
-    <p class="lead"><a href="/da/guide/getting-started/">Kom i gang</a> &middot; <a href="/da/guide/home/">Startskærm</a> &middot; <a href="/da/guide/scenes/">Scener</a> &middot; <a href="/da/guide/custom-icons/">Brugerdefinerede ikoner</a> &middot; <a href="/da/guide/sound/">Lyd</a> &middot; <a href="/da/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/da/guide/speakers/">Højttalere</a> &middot; <a href="/da/guide/locked-controls/">Hvorfor en kontrol er låst</a> &middot; <a href="/da/guide/assistant/">Assistenten</a> &middot; <a href="/da/guide/home-assistant-dashboard/">Home Assistant-dashboard</a> &middot; <a href="/da/guide/multi-zone/">Zoner</a> &middot; <a href="/da/guide/remote/">Fjernbetjening</a> &middot; <a href="/da/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/da/guide/on-screen-display/">Skærmmenu</a> &middot; <a href="/da/guide/settings/">Indstillinger</a> &middot; <a href="/da/guide/languages/">Sprog</a> &middot; <a href="/da/guide/volume/">Lydstyrkekontrol</a> &middot; <a href="/da/guide/backup/">Backup &amp; gendannelse</a> &middot; <a href="/da/guide/now-playing/">Afspiller nu &amp; HEOS</a></p>
+    <p class="lead"><a href="/da/guide/getting-started/">Kom i gang</a> &middot; <a href="/da/guide/receivers/">Administrer receivere</a> &middot; <a href="/da/guide/navigation/">Navigation i appen</a> &middot; <a href="/da/guide/search/">Søgning</a> &middot; <a href="/da/guide/home/">Hjemmeskærm</a> &middot; <a href="/da/guide/volume/">Lydstyrkekontrol</a> &middot; <a href="/da/guide/remote/">Fjernbetjening</a> &middot; <a href="/da/guide/multi-zone/">Zoner</a> &middot; <a href="/da/guide/now-playing/">Afspiller nu &amp; HEOS</a> &middot; <a href="/da/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/da/guide/scenes/">Scener</a> &middot; <a href="/da/guide/sound/">Lyd</a> &middot; <a href="/da/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/da/guide/speakers/">Højttalere</a> &middot; <a href="/da/guide/locked-controls/">Hvorfor en kontrol er låst</a> &middot; <a href="/da/guide/settings/">Indstillinger</a> &middot; <a href="/da/guide/widgets/">Widgets</a> &middot; <a href="/da/guide/custom-icons/">Brugerdefinerede ikoner</a> &middot; <a href="/da/guide/on-screen-display/">Skærmmenu</a> &middot; <a href="/da/guide/languages/">Sprog</a> &middot; <a href="/da/guide/assistant/">Assistenten</a> &middot; <a href="/da/guide/home-assistant-dashboard/">Home Assistant-dashboard</a> &middot; <a href="/da/guide/backup/">Backup &amp; gendannelse</a> &middot; <a href="/da/guide/glossary/">Ordliste</a></p>
   </div>
 </section>
 
@@ -510,7 +528,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro er en uafhængig app fra MiyaraHub Technologies LLC og er ikke tilknyttet eller godkendt af Denon, Marantz, Sound United, Masimo Corporation eller andre virksomheder, der er nævnt på denne side. Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant og Siri er varemærker tilhørende deres respektive ejere og bruges her kun til identifikation.</p>
+    <p class="legal">AVR Maestro er en uafhængig app fra MiyaraHub Technologies LLC og er ikke tilknyttet eller godkendt af Denon, Marantz, Sound United, Masimo Corporation eller andre virksomheder nævnt på denne side. Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant og Siri er varemærker tilhørende deres respektive ejere og bruges her kun til identifikation.</p>
   </div>
 </footer>
 

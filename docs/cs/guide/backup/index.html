@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="apple-itunes-app" content="app-id=6762881597" />
 <title>Záloha a obnovení nastavení do nového telefonu - AVR Maestro</title>
-<meta name="description" content="Exportujte veškerá nastavení AVR Maestro do jednoho souboru: přijímače, názvy a ikony vstupů, Scény, motiv i předvolby hlasitosti. Na novém telefonu je obnovíte pár klepnutími." />
+<meta name="description" content="Exportujte nastavení AVR Maestro do jednoho souboru .zip: přijímače, Scény, vlastní ikony, pořadí vstupů, motiv a nastavení hlasitosti. Na novém telefonu je obnovíte několika klepnutími." />
 <meta name="keywords" content="AVR Maestro backup, transfer AVR app settings new phone, export receiver settings app, restore Denon app config, AVR Maestro migrate device" />
 <meta name="author" content="MiyaraHub Technologies LLC" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -77,7 +77,7 @@
 <meta property="og:locale:alternate" content="zh_CN" />
 <meta property="og:locale:alternate" content="zh_TW" />
 <meta property="og:title" content="Záloha a obnovení nastavení do nového telefonu - AVR Maestro" />
-<meta property="og:description" content="Exportujte veškerá nastavení AVR Maestro do jednoho souboru: přijímače, názvy a ikony vstupů, Scény, motiv i předvolby hlasitosti. Na novém telefonu je obnovíte pár klepnutími." />
+<meta property="og:description" content="Exportujte nastavení AVR Maestro do jednoho souboru .zip: přijímače, Scény, vlastní ikony, pořadí vstupů, motiv a nastavení hlasitosti. Na novém telefonu je obnovíte několika klepnutími." />
 <meta property="og:url" content="https://avrmaestro.com/cs/guide/backup/" />
 <meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
 <meta property="og:image:type" content="image/png" />
@@ -86,7 +86,7 @@
 <meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Záloha a obnovení nastavení do nového telefonu - AVR Maestro" />
-<meta name="twitter:description" content="Exportujte veškerá nastavení AVR Maestro do jednoho souboru: přijímače, názvy a ikony vstupů, Scény, motiv i předvolby hlasitosti. Na novém telefonu je obnovíte pár klepnutími." />
+<meta name="twitter:description" content="Exportujte nastavení AVR Maestro do jednoho souboru .zip: přijímače, Scény, vlastní ikony, pořadí vstupů, motiv a nastavení hlasitosti. Na novém telefonu je obnovíte několika klepnutími." />
 <meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
 <meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
 <link rel="icon" href="/assets/favicon.ico" sizes="any" />
@@ -129,10 +129,10 @@
       "@type": "TechArticle",
       "@id": "https://avrmaestro.com/guide/backup/#article",
       "headline": "Záloha a obnovení: celé vaše nastavení v jednom souboru",
-      "description": "Exportujte veškerá nastavení AVR Maestro do jednoho souboru: přijímače, názvy a ikony vstupů, Scény, motiv i předvolby hlasitosti. Na novém telefonu je obnovíte pár klepnutími.",
+      "description": "Exportujte nastavení AVR Maestro do jednoho souboru .zip: přijímače, Scény, vlastní ikony, pořadí vstupů, motiv a nastavení hlasitosti. Na novém telefonu je obnovíte několika klepnutími.",
       "image": "https://avrmaestro.com/screenshots/backup-restore.png",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -162,7 +162,7 @@
       "name": "Mohu přenést zálohu mezi Androidem a iPhonem?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Soubor je obyčejný JSON a není svázán se zařízením, které ho vytvořilo. Exportujte na jednom, dostaňte soubor na druhé zařízení a importujte."
+        "text": "Ano. Záloha je soubor .zip, který není vázán na zařízení, které ho vytvořilo. Exportujte z jednoho, dostaňte soubor na druhé a importujte."
       }
     },
     {
@@ -178,7 +178,15 @@
       "name": "Přenesou se i moje Scény?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ano, včetně toho, která nastavení měla každá Scéna zachytit. Viz průvodce Scénami."
+        "text": "Ano, s nastavením, které každá Scéna obsahuje, a s její vlastní ikonou. Viz průvodce Scénami."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Proč bych měl před obnovením zavřít aplikaci na ostatních zařízeních?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pokud má jiný telefon nebo tablet otevřenou aplikaci AVR Maestro připojenou ke stejnému přijímači, mohou s ním během obnovy komunikovat dvě zařízení najednou. To může způsobit konflikt připojení, který zablokuje firmware přijímače. Zavřete aplikaci na druhém zařízení, proveďte obnovu a poté na tomto zařízení aplikaci AVR Maestro vynuceně zavřete a znovu otevřete."
       }
     },
     {
@@ -251,12 +259,12 @@
       <div>
         <div class="eyebrow">Export</div>
         <h2>Uložte do zařízení, nebo pošlete rovnou dál</h2>
-        <p class="lead">Otevřete <b>Nastavení</b>, přejděte na <b>Záloha a obnovení</b> a vyberte:</p>
-        <ul class="plain">
-          <li><b>Uložit do zařízení</b> - zapíše jeden soubor JSON, kam určíte.</li>
-          <li><b>Sdílet</b> - předá soubor běžné nabídce sdílení, takže může jít rovnou do druhého telefonu, na cloudové úložiště nebo do zprávy sobě.</li>
-        </ul>
-        <p class="lead">Je to obyčejný textový soubor. Nic v něm není vázáno na zařízení, ze kterého pochází.</p>
+        <ol class="steps">
+          <li>Otevřete <b>Nastavení</b> a přejděte na <b>Záloha a informace</b>.</li>
+          <li>Klepněte na <b>Záloha a obnova</b>.</li>
+          <li>V části <b>Export</b> klepněte na <b>Uložit do zařízení</b> a vyberte složku pro soubor, nebo na <b>Sdílet</b> a pošlete ho přes nabídku sdílení rovnou do druhého telefonu, na cloudové úložiště nebo ve zprávě sami sobě.</li>
+        </ol>
+        <p class="lead">Záloha je jediný soubor <b>.zip</b> s názvem ve tvaru <b>avr-maestro-backup-</b> následovaným datem a časem. Uvnitř jsou vaše nastavení a obrázky, které jste zvolili pro vlastní ikony. Nic v něm není vázáno na zařízení, ze kterého pochází.</p>
       </div>
       <img alt="Stránka Záloha a obnovení s exportem a importem" src="/screenshots/backup-restore.png" width="1324" height="2644" decoding="async" />
     </div>
@@ -272,16 +280,18 @@
     <table class="t">
       <thead><tr><th>Zahrnuto</th><th>Význam</th></tr></thead>
       <tbody>
-        <tr><td>Nakonfigurované přijímače</td><td>Každé zařízení, které jste přidali, s jeho adresou a nastavením</td></tr>
-        <tr><td>Pořadí zdrojů pro každé zařízení</td><td>Pořadí, do kterého jste vstupy přetáhli, uložené zvlášť pro každý přijímač</td></tr>
-        <tr><td>Motiv a Barevný motiv</td><td>Barva zvýraznění a volby vzhledu</td></tr>
-        <tr><td>Velikost zobrazení a widgetů</td><td>Velikost textu a widgetů</td></tr>
-        <tr><td>Předvolby hlasitosti</td><td>Chování hlasitosti na straně aplikace</td></tr>
-        <tr><td>Stav vysvětlujících karet</td><td>Které informační panely jste zavřeli, aby zůstaly zavřené</td></tr>
-        <tr><td>Uložené výsledky testů</td><td>Výsledky testů HEOS, funkcí a hudebních možností, aby nový telefon nezačínal od nuly</td></tr>
+        <tr><td>Vaše přijímače</td><td>Každý přidaný přijímač s jeho adresou a informací, který z nich byl vybrán</td></tr>
+        <tr><td>Scény</td><td>Každá Scéna pro každý přijímač, s nastavením, které obsahuje, její ikonou a barvou</td></tr>
+        <tr><td>Vlastní ikony</td><td>Obrázky, které jste zvolili pro vstupy a Scény, včetně jejich tvarů</td></tr>
+        <tr><td>Pořadí vstupů</td><td>Pořadí, do kterého jste vstupy přetáhli, uložené zvlášť pro každý přijímač</td></tr>
+        <tr><td>Názvy slotů a předvoleb</td><td>Názvy, které jste zadali pro sloty Smart Select / Quick Select a předvolby tuneru</td></tr>
+        <tr><td>Nastavení zvuku pro každý přijímač</td><td>Krok hlasitosti, volby zobrazení hlasitosti, postupné předvolby hlasitosti, tlačítka hlasitosti zařízení a vaše předvolby rychlé hlasitosti</td></tr>
+        <tr><td>Vzhled a rozvržení</td><td>Motiv a akcentní barva, jazyk, velikost textu a widgetů, barvy widgetů, rozvržení Domů, navigace a skryté karty</td></tr>
+        <tr><td>Vysvětlující karty</td><td>Které informační karty jste zavřeli, aby zůstaly zavřené</td></tr>
+        <tr><td>Uložené kontroly přijímače</td><td>Co se aplikace už o každém přijímači dozvěděla (HEOS a kontroly funkcí), aby nový telefon nezačínal od nuly</td></tr>
       </tbody>
     </table>
-    <div class="note">Vlastní názvy a obrázky vstupů jsou součástí konfigurace přijímače, takže se přenesou s ní. Viz <a href="/cs/guide/custom-icons/">průvodce Vlastními ikonami</a>.</div>
+    <div class="note"><b>Nezahrnuto:</b> nastavení připojení k Home Assistant a Hubitat. <a href="/cs/guide/home-automation/">Domácí automatizaci</a> nastavte na novém zařízení znovu; vaše skripty Scén si ponechávají své identifikátory, takže automatizace, které na ně odkazují, dál fungují. Názvy vstupů, které jste přejmenovali, jsou uloženy přímo v přijímači, takže se zobrazí, jakmile se nové zařízení připojí.</div>
   </div>
 </section>
 
@@ -291,13 +301,15 @@
       <div class="eyebrow">Import</div>
       <h2>Obnovení na novém telefonu</h2>
     </div>
-    <ol class="plain">
+    <div class="note"><b>Před obnovením:</b> pokud je AVR Maestro otevřena na jiném telefonu nebo tabletu připojeném ke stejnému přijímači, nejprve ji tam zavřete. Dvě zařízení komunikující se stejným přijímačem v okamžiku obnovy mohou způsobit konflikt připojení, který zablokuje firmware přijímače. Aplikace vás na to také upozorní.</div>
+    <ol class="steps">
       <li>Nainstalujte AVR Maestro do nového zařízení a ujistěte se, že je ve stejné síti jako váš přijímač.</li>
       <li>Otevřete <b>Nastavení &rsaquo; Záloha a obnovení</b>.</li>
-      <li>Klepněte na <b>Importovat nastavení ze souboru</b> a vyberte zálohu.</li>
-      <li><b>Restartujte aplikaci.</b> Řekne vám to i sama aplikace - restart zajistí, že se všechna obnovená nastavení správně uplatní.</li>
+      <li>V části <b>Import</b> klepněte na <b>Importovat nastavení ze souboru</b> a vyberte zálohu (.zip nebo soubor .json ze starší verze aplikace).</li>
+      <li>Zkontrolujte souhrn v dialogu <b>Nahradit veškeré nastavení?</b>: kolik položek obsahuje, verzi aplikace a kdy byl exportován. Klepněte na <b>Nahradit</b>.</li>
+      <li>Když se zobrazí <b>Záloha obnovena</b>, klepněte na <b>Rozumím</b> a poté <b>vynuceně zavřete AVR Maestro a znovu ji otevřete</b>, aby všechny obrazovky načetly obnovené nastavení.</li>
     </ol>
-    <div class="note"><b>Import nahrazuje, neslučuje.</b> Vše, co je v daném zařízení, se přepíše obsahem zálohy. Pokud pro vás současné nastavení něco znamená, nejdřív ho exportujte - stojí to dvě klepnutí.</div>
+    <div class="note"><b>Import nahrazuje, nesloučí.</b> Vše, co je na daném zařízení, se smaže a nahradí obsahem zálohy, a to nelze vrátit zpět. Pokud má pro vás současné nastavení nějakou cenu, nejprve ho exportujte.</div>
   </div>
 </section>
 
@@ -318,9 +330,10 @@
       <div class="eyebrow">Časté dotazy</div>
       <h2>Časté dotazy k záloze</h2>
     </div>
-    <details open><summary>Mohu přenést zálohu mezi Androidem a iPhonem?</summary><div class="body">Soubor je obyčejný JSON a není svázán se zařízením, které ho vytvořilo. Exportujte na jednom, dostaňte soubor na druhé zařízení a importujte.</div></details>
+    <details open><summary>Mohu přenést zálohu mezi Androidem a iPhonem?</summary><div class="body">Ano. Záloha je soubor .zip, který není vázán na zařízení, které ho vytvořilo. Exportujte z jednoho, dostaňte soubor na druhé a importujte.</div></details>
     <details><summary>Přepíše import kalibraci mého přijímače?</summary><div class="body">Ne. Záloha obsahuje pouze nastavení aplikace. Vše, co si ukládá samotný přijímač - kalibrace, předvolby, úrovně, vzdálenosti, filtry Dirac - zůstává v přijímači a import se toho nedotkne.</div></details>
-    <details><summary>Přenesou se i moje Scény?</summary><div class="body">Ano, včetně toho, která nastavení měla každá Scéna zachytit. Viz <a href="/cs/guide/scenes/">průvodce Scénami</a>.</div></details>
+    <details><summary>Přenesou se i moje Scény?</summary><div class="body">Ano, s nastavením, které každá Scéna obsahuje, a s její vlastní ikonou. Viz <a href="/cs/guide/scenes/">průvodce Scénami</a>.</div></details>
+    <details><summary>Proč bych měl před obnovením zavřít aplikaci na ostatních zařízeních?</summary><div class="body">Pokud má jiný telefon nebo tablet otevřenou aplikaci AVR Maestro připojenou ke stejnému přijímači, mohou s ním během obnovy komunikovat dvě zařízení najednou. To může způsobit konflikt připojení, který zablokuje firmware přijímače. Zavřete aplikaci na druhém zařízení, proveďte obnovu a poté na tomto zařízení aplikaci AVR Maestro vynuceně zavřete a znovu otevřete.</div></details>
     <details><summary>Kam Uložit do zařízení soubor uloží?</summary><div class="body">Kamkoli si vyberete v systémovém výběru souborů. Pokud soubor jen putuje na jiný telefon, je rychlejší cesta Sdílet.</div></details>
   </div>
 </section>
@@ -331,7 +344,7 @@
       <div class="eyebrow">Další z průvodce</div>
       <h2>Další průvodce aplikací AVR Maestro</h2>
     </div>
-    <p class="lead"><a href="/cs/guide/getting-started/">Začínáme</a> &middot; <a href="/cs/guide/home/">Domovská obrazovka</a> &middot; <a href="/cs/guide/scenes/">Scény</a> &middot; <a href="/cs/guide/custom-icons/">Vlastní ikony</a> &middot; <a href="/cs/guide/sound/">Zvuk</a> &middot; <a href="/cs/guide/graphic-eq/">Grafický ekvalizér</a> &middot; <a href="/cs/guide/speakers/">Reproduktory</a> &middot; <a href="/cs/guide/locked-controls/">Proč je ovládací prvek uzamčen</a> &middot; <a href="/cs/guide/assistant/">Asistent</a> &middot; <a href="/cs/guide/home-automation/">Domácí automatizace</a> &middot; <a href="/cs/guide/home-assistant-dashboard/">Dashboard Home Assistant</a> &middot; <a href="/cs/guide/multi-zone/">Zóny</a> &middot; <a href="/cs/guide/remote/">Dálkový ovladač</a> &middot; <a href="/cs/guide/radio/">Rádio (FM/AM)</a> &middot; <a href="/cs/guide/on-screen-display/">Zobrazení na obrazovce</a> &middot; <a href="/cs/guide/settings/">Nastavení</a> &middot; <a href="/cs/guide/languages/">Jazyky</a> &middot; <a href="/cs/guide/volume/">Ovládání hlasitosti</a> &middot; <a href="/cs/guide/now-playing/">Právě se přehrává &amp; HEOS</a></p>
+    <p class="lead"><a href="/cs/guide/getting-started/">Začínáme</a> &middot; <a href="/cs/guide/receivers/">Správa přijímačů</a> &middot; <a href="/cs/guide/navigation/">Navigace v aplikaci</a> &middot; <a href="/cs/guide/search/">Hledání</a> &middot; <a href="/cs/guide/home/">Domovská obrazovka</a> &middot; <a href="/cs/guide/volume/">Ovládání hlasitosti</a> &middot; <a href="/cs/guide/remote/">Dálkový ovladač</a> &middot; <a href="/cs/guide/multi-zone/">Zóny</a> &middot; <a href="/cs/guide/now-playing/">Právě hraje a HEOS</a> &middot; <a href="/cs/guide/radio/">Rádio (FM/AM)</a> &middot; <a href="/cs/guide/scenes/">Scény</a> &middot; <a href="/cs/guide/sound/">Zvuk</a> &middot; <a href="/cs/guide/graphic-eq/">Grafický ekvalizér</a> &middot; <a href="/cs/guide/speakers/">Reproduktory</a> &middot; <a href="/cs/guide/locked-controls/">Proč je ovládací prvek uzamčen</a> &middot; <a href="/cs/guide/settings/">Nastavení</a> &middot; <a href="/cs/guide/widgets/">Widgety</a> &middot; <a href="/cs/guide/custom-icons/">Vlastní ikony</a> &middot; <a href="/cs/guide/on-screen-display/">Zobrazení na obrazovce</a> &middot; <a href="/cs/guide/languages/">Jazyky</a> &middot; <a href="/cs/guide/assistant/">Asistent</a> &middot; <a href="/cs/guide/home-automation/">Domácí automatizace</a> &middot; <a href="/cs/guide/home-assistant-dashboard/">Dashboard Home Assistant</a> &middot; <a href="/cs/guide/glossary/">Slovníček</a></p>
   </div>
 </section>
 
@@ -367,7 +380,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro je nezávislá aplikace společnosti MiyaraHub Technologies LLC a není spojena se společnostmi Denon, Marantz, Sound United, Masimo Corporation ani s žádnou jinou firmou zmíněnou na této stránce, ani jimi není schválena. Denon, Marantz, HEOS, Audyssey a Dirac Live jsou ochranné známky svých příslušných vlastníků, které jsou zde použity pouze pro identifikaci.</p>
+    <p class="legal">AVR Maestro je nezávislá aplikace společnosti MiyaraHub Technologies LLC a není spojena se společnostmi Denon, Marantz, Sound United, Masimo Corporation ani žádnou jinou společností uvedenou na této stránce, ani jimi není schválena. Denon, Marantz, HEOS, Audyssey a Dirac Live jsou ochranné známky svých příslušných vlastníků, zde použité pouze pro identifikaci.</p>
   </div>
 </footer>
 

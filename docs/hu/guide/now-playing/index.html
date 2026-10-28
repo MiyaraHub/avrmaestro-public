@@ -6,7 +6,7 @@
 <meta name="apple-itunes-app" content="app-id=6762881597" />
 <title>Most szól &amp; HEOS: albumborító és lejátszásvezérlés - AVR Maestro</title>
 <meta name="description" content="Az AVR Maestro Most szól kártyája albumborítót, számot, előadót és állomást mutat lejátszás, szünet, következő és előző vezérlőkkel, élőben a Denonodról vagy Marantzodról HEOS-on keresztül." />
-<meta name="keywords" content="Denon Now Playing app, Marantz HEOS app, HEOS controller app, AVR now playing album art, receiver transport controls app, Denon Marantz music control, HEOS favorites app" />
+<meta name="keywords" content="Denon Now Playing app, Marantz HEOS app, HEOS controller app, AVR now playing album art, receiver transport controls app, Denon Marantz music control, HEOS favorites app, play HEOS favorites from receiver app, stop clears now playing" />
 <meta name="author" content="MiyaraHub Technologies LLC" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="theme-color" content="#ff6e40" />
@@ -132,7 +132,7 @@
       "description": "Az AVR Maestro Most szól kártyája albumborítót, számot, előadót és állomást mutat lejátszás, szünet, következő és előző vezérlőkkel, élőben a Denonodról vagy Marantzodról HEOS-on keresztül.",
       "image": "https://avrmaestro.com/screenshots/now-playing.png",
       "datePublished": "2026-07-28",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -170,7 +170,23 @@
       "name": "Hogyan böngészhetek zenét?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Koppints a HEOS indítása gombra a Most szól kártyán. Az AVR Maestro megnyitja a hivatalos HEOS alkalmazást az állomások, lejátszási sorok, HEOS szobák és streaming szolgáltatások böngészéséhez. Amint a lejátszás elindul, az AVR Maestro visszaveszi a Most szól kijelzést és a lejátszásvezérlést."
+        "text": "Koppints a HEOS indítása gombra a Most játszott kártyán. Az AVR Maestro megnyitja a hivatalos HEOS appot az állomások, várólisták, HEOS szobák és streaming szolgáltatások böngészéséhez. Amint elindul a lejátszás, az AVR Maestro visszaveszi a most játszott kijelzést és a lejátszásvezérlést. Mentett kedvenc lejátszásához nem kell megnyitnod a HEOS appot: koppints inkább a Kedvencek gombra."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hogyan játszhatom le a HEOS kedvenceimet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Koppints a Kedvencek gombra a Most játszott kártyán. Megnyílik a HEOS Kedvencek lista; koppints egyre, és az lejátszódik a készüléken, anélkül, hogy elhagynád az AVR Maestro appot. Egy zóna kártyáján az adott zónában játszódik le."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mi történik, ha a Leállítás gombra koppintok?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A kártya és a kezdőképernyő-modul azonnal kiürül, és üres is marad. Csak akkor telik meg újra, ha valami elkezd szólni."
       }
     },
     {
@@ -249,17 +265,44 @@
   <div class="wrap">
     <div class="gallery">
       <figure><img alt="Az AVR Maestro Most szól kártyája albumborítóval és lejátszásvezérlőkkel" src="/screenshots/now-playing.png" width="1324" height="2644" decoding="async" /><figcaption>Albumborító, számadatok és lejátszásvezérlés, élőben HEOS-on keresztül</figcaption></figure>
-      <figure><img alt="HEOS kedvencek és állomások böngészése az AVR Maestro alkalmazásban" src="/screenshots/now-playing-heos.png" width="575" height="1280" loading="lazy" decoding="async" /><figcaption>Indítsd el a HEOS-t állomások, lejátszási sorok és kedvencek böngészéséhez</figcaption></figure>
+      <figure><img alt="A HEOS Kedvencek lista a Most játszott kártya fölött megnyitva az AVR Maestro appban" src="/screenshots/now-playing-heos.png" width="575" height="1280" loading="lazy" decoding="async" /><figcaption>A Kedvencek az app elhagyása nélkül játssza le a HEOS kedvenceidet</figcaption></figure>
     </div>
     <div class="section-head" style="margin-top:36px">
       <h2>Minden, amit hallgatsz, egyetlen kártyán</h2>
     </div>
+    <p>A kártya címe <b>Médialejátszó</b>. Ha nem szól semmi, azt mutatja: <b>Nincs lejátszott média</b>.</p>
     <ul class="plain">
-      <li><b>Albumborító és számadatok:</b> a kártya megmutatja a borítót, a számot, valamint az előadót vagy az állomást, ami éppen szól.</li>
-      <li><b>Lejátszásvezérlés:</b> lejátszás, szünet, következő és előző, közvetlenül a kártyán - nem kell a távirányító után nyúlni.</li>
-      <li><b>HEOS indítása böngészéshez:</b> koppints rá, hogy megnyisd a hivatalos HEOS alkalmazást állomások, lejátszási sorok, HEOS szobák és streaming szolgáltatások eléréséhez. Indíts el ott valamit, és az AVR Maestro visszaveszi a Most szól kijelzést, a lejátszásvezérlést és a modulokat.</li>
-      <li><b>A kezdőképernyőd része:</b> a Most szól kártya a hangerő-, forrás- és hangzásmód-modulok mellett él, így azt, hogy mi szól, mindig egy pillantás választja el tőled.</li>
+      <li><b>Albumborító és számadatok:</b> a borító, a szám, és az előadó vagy állomás annak, ami éppen szól.</li>
+      <li><b>Lejátszásvezérlők:</b> <b>Előző</b>, egyetlen <b>Lejátszás</b> / <b>Szünet</b> gomb, amely azt követi, amit a lejátszó valójában csinál, <b>Leállítás</b> és <b>Következő szám</b>. Ha egy másik appból vagy a készüléken szüneteltetsz vagy elindítasz, a gomb követi.</li>
+      <li><b>Kedvencek:</b> megnyitja a <b>HEOS Kedvencek</b> listát, és az egyiket lejátssza a készüléken, az app elhagyása nélkül. Akkor látszik, ha a készülék HEOS lejátszója csatlakoztatva van.</li>
+      <li><b>HEOS indítása:</b> megnyitja a hivatalos HEOS appot állomások, várólisták, HEOS szobák és streaming szolgáltatások böngészéséhez. Indíts el ott valamit, és az AVR Maestro átveszi a most játszott kijelzést, a lejátszásvezérlést és a modulokat.</li>
+      <li><b>A Kezdőlapon és minden zónán:</b> a kártya a <a href="/hu/guide/home/">Kezdőképernyőn</a> van, és minden <a href="/hu/guide/multi-zone/">zóna</a> kártyája a sajátját mutatja, az adott zóna HEOS lejátszójához.</li>
     </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Lépésről lépésre</div>
+      <h2>HEOS kedvenc lejátszása</h2>
+    </div>
+    <ol class="steps">
+      <li>A Most játszott kártyán (a Kezdőlapon, vagy egy zóna kártyáján az adott zónához) koppints a <b>Kedvencek</b> gombra.</li>
+      <li>Megnyílik a <b>HEOS Kedvencek</b> lista. Koppints arra, amelyiket szeretnéd.</li>
+      <li>A lista bezárul, és a <b>Lejátszás</b> felirat látszik a név előtt. A kártya megtelik, ahogy a zene elindul.</li>
+    </ol>
+    <div class="note">A lista a HEOS appban lévő kedvenceid. Ha ezt írja: <b>Még nincsenek HEOS kedvencek</b>, adj hozzá párat a HEOS appban, és nyisd meg újra a listát. Ha a <b>A HEOS lejátszó nem elérhető</b> üzenetet látod, a készülék HEOS lejátszója most nem érhető el az adott zónához.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">A leállítás leállítást jelent</div>
+      <h2>A leállítás kiüríti a kártyát</h2>
+      <p class="lead">Koppints a <b>Leállítás</b> gombra, és a kártya azonnal kiürül a kezdőképernyő-modullal együtt, és üres is marad. Nem hozza vissza az utolsó számot, amelyre a készülék emlékszik. A kártya megtelik újra, amint valami ténylegesen elkezd szólni.</p>
+    </div>
   </div>
 </section>
 
@@ -276,7 +319,9 @@
       <h2>Most szól GYIK</h2>
     </div>
     <details open><summary>Megmutatja, mi szól éppen?</summary><div class="body">Igen - azoknál a forrásoknál, amelyek HEOS-on keresztül metaadatot jelentenek, albumborítót, számot, előadót vagy állomást és lejátszásvezérlést (lejátszás, szünet, következő, előző) kapsz, élőben a készülékedről.</div></details>
-    <details><summary>Hogyan böngészhetek zenét?</summary><div class="body">Koppints a Most szól kártyán a <b>HEOS indítása</b> gombra. Az AVR Maestro megnyitja a hivatalos HEOS alkalmazást, hogy böngészhess az állomások, a lejátszási sorok, a HEOS-szobák és a streamingszolgáltatások között. Amint elindul a lejátszás, az AVR Maestro ismét átveszi a most szóló kijelzőt és a lejátszásvezérlést.</div></details>
+    <details><summary>Hogyan böngészhetek zenét?</summary><div class="body">Koppints a <b>HEOS indítása</b> gombra a Most játszott kártyán. Az AVR Maestro megnyitja a hivatalos HEOS appot az állomások, várólisták, HEOS szobák és streaming szolgáltatások böngészéséhez. Amint elindul a lejátszás, az AVR Maestro visszaveszi a most játszott kijelzést és a lejátszásvezérlést. Mentett kedvenc lejátszásához nem kell megnyitnod a HEOS appot: koppints inkább a <b>Kedvencek</b> gombra.</div></details>
+    <details><summary>Hogyan játszhatom le a HEOS kedvenceimet?</summary><div class="body">Koppints a <b>Kedvencek</b> gombra a Most játszott kártyán. Megnyílik a HEOS Kedvencek lista; koppints egyre, és az lejátszódik a készüléken, anélkül, hogy elhagynád az AVR Maestro appot. Egy zóna kártyáján az adott zónában játszódik le.</div></details>
+    <details><summary>Mi történik, ha a Leállítás gombra koppintok?</summary><div class="body">A kártya és a kezdőképernyő-modul azonnal kiürül, és üres is marad. Csak akkor telik meg újra, ha valami elkezd szólni.</div></details>
     <details><summary>Miért üres a kártya egyes bemeneteken?</summary><div class="body">Az analóg, optikai/koaxiális és HDMI átengedéses források nem jelentenek számadatokat, ezért nincs mit mutatni. A kártya a HEOS és hálózati forrásoknál töltődik ki, amelyek jelentik ezeket.</div></details>
     <details><summary>Hol található a Most szól kártya?</summary><div class="body">A <a href="/hu/guide/home/">Kezdőképernyőn</a>, az általad kiválasztott modulok mellett - hangerő, forrás, hangzásmód, zónák és még sok más.</div></details>
   </div>
@@ -288,7 +333,7 @@
       <div class="eyebrow">Az útmutató további részei</div>
       <h2>További AVR Maestro útmutatók</h2>
     </div>
-    <p class="lead"><a href="/hu/guide/getting-started/">Első lépések</a> &middot; <a href="/hu/guide/home/">Kezdőképernyő</a> &middot; <a href="/hu/guide/scenes/">Jelenetek</a> &middot; <a href="/hu/guide/custom-icons/">Egyéni ikonok</a> &middot; <a href="/hu/guide/sound/">Hang</a> &middot; <a href="/hu/guide/graphic-eq/">Grafikus EQ</a> &middot; <a href="/hu/guide/speakers/">Hangszórók</a> &middot; <a href="/hu/guide/locked-controls/">Miért zárolt egy vezérlő</a> &middot; <a href="/hu/guide/assistant/">Az asszisztens</a> &middot; <a href="/hu/guide/home-automation/">Otthonautomatizálás</a> &middot; <a href="/hu/guide/home-assistant-dashboard/">Home Assistant irányítópult</a> &middot; <a href="/hu/guide/multi-zone/">Zónák</a> &middot; <a href="/hu/guide/remote/">Távirányító</a> &middot; <a href="/hu/guide/radio/">Rádió (FM/AM)</a> &middot; <a href="/hu/guide/on-screen-display/">Képernyőkijelző</a> &middot; <a href="/hu/guide/settings/">Beállítások</a> &middot; <a href="/hu/guide/languages/">Nyelvek</a> &middot; <a href="/hu/guide/volume/">Hangerő-szabályzók</a> &middot; <a href="/hu/guide/backup/">Mentés &amp; visszaállítás</a></p>
+    <p class="lead"><a href="/hu/guide/getting-started/">Első lépések</a> &middot; <a href="/hu/guide/receivers/">Készülékek kezelése</a> &middot; <a href="/hu/guide/navigation/">Navigálás az appban</a> &middot; <a href="/hu/guide/search/">Keresés</a> &middot; <a href="/hu/guide/home/">Kezdőképernyő</a> &middot; <a href="/hu/guide/volume/">Hangerő-vezérlők</a> &middot; <a href="/hu/guide/remote/">Távvezérlő</a> &middot; <a href="/hu/guide/multi-zone/">Zónák</a> &middot; <a href="/hu/guide/radio/">Rádió (FM/AM)</a> &middot; <a href="/hu/guide/scenes/">Jelenetek</a> &middot; <a href="/hu/guide/sound/">Hang</a> &middot; <a href="/hu/guide/graphic-eq/">Grafikus EQ</a> &middot; <a href="/hu/guide/speakers/">Hangszórók</a> &middot; <a href="/hu/guide/locked-controls/">Miért zárolt egy vezérlő</a> &middot; <a href="/hu/guide/settings/">Beállítások</a> &middot; <a href="/hu/guide/widgets/">Modulok</a> &middot; <a href="/hu/guide/custom-icons/">Egyéni ikonok</a> &middot; <a href="/hu/guide/on-screen-display/">Képernyőkijelzés (OSD)</a> &middot; <a href="/hu/guide/languages/">Nyelvek</a> &middot; <a href="/hu/guide/assistant/">Az asszisztens</a> &middot; <a href="/hu/guide/home-automation/">Otthon-automatizálás</a> &middot; <a href="/hu/guide/home-assistant-dashboard/">Home Assistant irányítópult</a> &middot; <a href="/hu/guide/backup/">Mentés és visszaállítás</a> &middot; <a href="/hu/guide/glossary/">Szójegyzék</a></p>
   </div>
 </section>
 
@@ -324,7 +369,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">Az AVR Maestro a MiyaraHub Technologies LLC független alkalmazása, amely nem áll kapcsolatban a Denon, a Marantz, a Sound United, a Masimo Corporation vagy az oldalon említett más vállalatokkal, és tőlük nem kapott támogatást vagy jóváhagyást. A Denon, a Marantz, a HEOS, az Audyssey és a Dirac Live tulajdonosaik védjegyei, itt kizárólag azonosítási célból szerepelnek.</p>
+    <p class="legal">Az AVR Maestro a MiyaraHub Technologies LLC független alkalmazása, amely nem áll kapcsolatban a következő cégekkel, és azok nem támogatják: Denon, Marantz, Sound United, Masimo Corporation, illetve az oldalon megnevezett más cégek. A Denon, Marantz, HEOS, Audyssey és Dirac Live a megfelelő tulajdonosok védjegyei, itt kizárólag azonosításra használjuk őket.</p>
   </div>
 </footer>
 

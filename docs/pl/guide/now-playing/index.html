@@ -6,7 +6,7 @@
 <meta name="apple-itunes-app" content="app-id=6762881597" />
 <title>Teraz odtwarzane i HEOS: okładka albumu i sterowanie odtwarzaniem - AVR Maestro</title>
 <meta name="description" content="Karta Teraz odtwarzane w AVR Maestro pokazuje okładkę albumu, utwór, wykonawcę i stację wraz z odtwarzaniem, pauzą, następnym i poprzednim, na żywo z Twojego Denon lub Marantz przez HEOS." />
-<meta name="keywords" content="Denon Now Playing app, Marantz HEOS app, HEOS controller app, AVR now playing album art, receiver transport controls app, Denon Marantz music control, HEOS favorites app" />
+<meta name="keywords" content="Denon Now Playing app, Marantz HEOS app, HEOS controller app, AVR now playing album art, receiver transport controls app, Denon Marantz music control, HEOS favorites app, play HEOS favorites from receiver app, stop clears now playing" />
 <meta name="author" content="MiyaraHub Technologies LLC" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="theme-color" content="#ff6e40" />
@@ -132,7 +132,7 @@
       "description": "Karta Teraz odtwarzane w AVR Maestro pokazuje okładkę albumu, utwór, wykonawcę i stację wraz z odtwarzaniem, pauzą, następnym i poprzednim, na żywo z Twojego Denon lub Marantz przez HEOS.",
       "image": "https://avrmaestro.com/screenshots/now-playing.png",
       "datePublished": "2026-07-28",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -170,7 +170,23 @@
       "name": "Jak przeglądać muzykę?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Dotknij Uruchom HEOS na karcie Teraz odtwarzane. AVR Maestro otwiera oficjalną aplikację HEOS, by przeglądać stacje, kolejki, pokoje HEOS i serwisy streamingowe. Gdy odtwarzanie ruszy, AVR Maestro przejmuje z powrotem wyświetlanie i sterowanie odtwarzaniem."
+        "text": "Stuknij Uruchom HEOS na karcie Teraz odtwarzane. AVR Maestro otwiera oficjalną aplikację HEOS, aby przeglądać stacje, kolejki, pokoje HEOS i usługi strumieniowe. Gdy rozpocznie się odtwarzanie, AVR Maestro przejmuje z powrotem wyświetlanie odtwarzanego utworu i sterowanie. Aby odtworzyć zapisaną ulubioną pozycję, nie musisz otwierać aplikacji HEOS: stuknij zamiast tego Ulubione."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Jak odtworzyć moje ulubione HEOS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Stuknij Ulubione na karcie Teraz odtwarzane. Otworzy się lista Ulubione HEOS; stuknij pozycję, a zagra na amplitunerze bez wychodzenia z AVR Maestro. Na karcie strefy zagra w tej strefie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Co się dzieje, gdy stukam Stop?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Karta i widżet ekranu głównego czyszczą się od razu i pozostają puste. Wypełniają się ponownie dopiero wtedy, gdy coś zacznie grać."
       }
     },
     {
@@ -249,17 +265,44 @@
   <div class="wrap">
     <div class="gallery">
       <figure><img alt="Karta Teraz odtwarzane w AVR Maestro z okładką albumu i przyciskami sterowania odtwarzaniem" src="/screenshots/now-playing.png" width="1324" height="2644" decoding="async" /><figcaption>Okładka albumu, informacje o utworze i sterowanie odtwarzaniem na żywo przez HEOS</figcaption></figure>
-      <figure><img alt="Przeglądanie ulubionych i stacji HEOS z AVR Maestro" src="/screenshots/now-playing-heos.png" width="575" height="1280" loading="lazy" decoding="async" /><figcaption>Uruchom HEOS, by przeglądać stacje, kolejki i ulubione</figcaption></figure>
+      <figure><img alt="Lista Ulubione HEOS otwarta nad kartą Teraz odtwarzane w AVR Maestro" src="/screenshots/now-playing-heos.png" width="575" height="1280" loading="lazy" decoding="async" /><figcaption>Ulubione odtwarzają Twoje ulubione HEOS bez wychodzenia z aplikacji</figcaption></figure>
     </div>
     <div class="section-head" style="margin-top:36px">
       <h2>Wszystko, czego słuchasz, na jednej karcie</h2>
     </div>
+    <p>Karta ma nagłówek <b>Odtwarzacz multimediów</b>. Gdy nic nie gra, wyświetla <b>Brak odtwarzanych multimediów</b>.</p>
     <ul class="plain">
-      <li><b>Okładka albumu i informacje o utworze:</b> karta pokazuje okładkę, utwór oraz wykonawcę lub stację dla wszystkiego, co gra.</li>
-      <li><b>Sterowanie odtwarzaniem:</b> odtwarzaj, pauza, następny i poprzedni, prosto na karcie - bez sięgania po pilota.</li>
-      <li><b>Uruchom HEOS, by przeglądać:</b> dotknij, by otworzyć oficjalną aplikację HEOS ze stacjami, kolejkami, pokojami HEOS i serwisami streamingowymi. Włącz tam coś, a AVR Maestro przejmie z powrotem wyświetlanie, sterowanie odtwarzaniem i widżety.</li>
-      <li><b>Część Twojego ekranu głównego:</b> karta Teraz odtwarzane znajduje się obok widżetów głośności, źródła i trybu dźwięku, więc to, co gra, jest zawsze o rzut oka.</li>
+      <li><b>Okładka albumu i informacje o utworze:</b> okładka, utwór oraz wykonawca lub stacja dla tego, co gra.</li>
+      <li><b>Sterowanie odtwarzaniem:</b> <b>Poprzedni</b>, jeden przycisk <b>Odtwarzaj</b> / <b>Pauza</b>, który podąża za tym, co odtwarzacz faktycznie robi, <b>Stop</b> i <b>Następny utwór</b>. Wstrzymaj lub wznów z innej aplikacji albo z amplitunera, a przycisk podąży za tym.</li>
+      <li><b>Ulubione:</b> otwiera Twoje <b>Ulubione HEOS</b> i odtwarza jedną pozycję na amplitunerze, bez wychodzenia z aplikacji. Wyświetla się, gdy odtwarzacz HEOS amplitunera jest połączony.</li>
+      <li><b>Uruchom HEOS:</b> otwiera oficjalną aplikację HEOS do przeglądania stacji, kolejek, pokoi HEOS i usług strumieniowych. Uruchom tam coś, a AVR Maestro przejmie wyświetlanie odtwarzanego utworu, sterowanie i widżety.</li>
+      <li><b>Na stronie głównej i w każdej strefie:</b> karta znajduje się na Twoim <a href="/pl/guide/home/">Ekranie głównym</a>, a każda karta <a href="/pl/guide/multi-zone/">strefy</a> pokazuje własną, dla odtwarzacza HEOS w tej strefie.</li>
     </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Krok po kroku</div>
+      <h2>Odtwórz ulubioną pozycję HEOS</h2>
+    </div>
+    <ol class="steps">
+      <li>Na karcie Teraz odtwarzane (na stronie głównej lub na karcie strefy dla tej strefy) stuknij <b>Ulubione</b>.</li>
+      <li>Otworzy się lista <b>Ulubione HEOS</b>. Stuknij tę, którą chcesz.</li>
+      <li>Lista się zamknie, a Ty zobaczysz <b>Odtwarzanie</b> i jej nazwę. Karta wypełni się, gdy ruszy muzyka.</li>
+    </ol>
+    <div class="note">Lista to Twoje ulubione z aplikacji HEOS. Jeśli wyświetla <b>Brak ulubionych HEOS</b>, dodaj kilka w aplikacji HEOS i otwórz listę ponownie. Jeśli widzisz <b>Odtwarzacz HEOS niedostępny</b>, odtwarzacz HEOS amplitunera jest w tej chwili nieosiągalny dla tej strefy.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Stop znaczy stop</div>
+      <h2>Stop czyści kartę</h2>
+      <p class="lead">Stuknij <b>Stop</b>, a karta czyści się od razu, razem z widżetem ekranu głównego, i pozostaje pusta. Nie przywraca ostatniego utworu, który pamięta amplituner. Karta wypełnia się ponownie, gdy tylko coś faktycznie zacznie grać.</p>
+    </div>
   </div>
 </section>
 
@@ -276,7 +319,9 @@
       <h2>Najczęstsze pytania o Teraz odtwarzane</h2>
     </div>
     <details open><summary>Czy pokazuje, co jest odtwarzane?</summary><div class="body">Tak - dla źródeł, które zgłaszają metadane przez HEOS, dostajesz okładkę albumu, utwór, wykonawcę lub stację oraz sterowanie odtwarzaniem (odtwarzaj, pauza, następny, poprzedni), na żywo z amplitunera.</div></details>
-    <details><summary>Jak przeglądać muzykę?</summary><div class="body">Stuknij <b>Uruchom HEOS</b> na karcie Teraz odtwarzane. AVR Maestro otworzy oficjalną aplikację HEOS, w której przeglądasz stacje, kolejki, pomieszczenia HEOS i serwisy streamingowe. Gdy tylko ruszy odtwarzanie, AVR Maestro znów przejmuje wyświetlanie bieżącego utworu i sterowanie odtwarzaniem.</div></details>
+    <details><summary>Jak przeglądać muzykę?</summary><div class="body">Stuknij <b>Uruchom HEOS</b> na karcie Teraz odtwarzane. AVR Maestro otwiera oficjalną aplikację HEOS, aby przeglądać stacje, kolejki, pokoje HEOS i usługi strumieniowe. Gdy rozpocznie się odtwarzanie, AVR Maestro przejmuje z powrotem wyświetlanie odtwarzanego utworu i sterowanie. Aby odtworzyć zapisaną ulubioną pozycję, nie musisz otwierać aplikacji HEOS: stuknij zamiast tego <b>Ulubione</b>.</div></details>
+    <details><summary>Jak odtworzyć moje ulubione HEOS?</summary><div class="body">Stuknij <b>Ulubione</b> na karcie Teraz odtwarzane. Otworzy się lista Ulubione HEOS; stuknij pozycję, a zagra na amplitunerze bez wychodzenia z AVR Maestro. Na karcie strefy zagra w tej strefie.</div></details>
+    <details><summary>Co się dzieje, gdy stukam Stop?</summary><div class="body">Karta i widżet ekranu głównego czyszczą się od razu i pozostają puste. Wypełniają się ponownie dopiero wtedy, gdy coś zacznie grać.</div></details>
     <details><summary>Dlaczego karta jest pusta na niektórych wejściach?</summary><div class="body">Źródła analogowe, optyczne/koaksjalne i przelotowe HDMI nie zgłaszają metadanych utworu, więc nie ma czego pokazać. Karta wypełnia się dla źródeł HEOS i sieciowych, które je zgłaszają.</div></details>
     <details><summary>Gdzie jest karta Teraz odtwarzane?</summary><div class="body">Na <a href="/pl/guide/home/">ekranie głównym</a>, obok wybranych przez Ciebie widżetów - głośności, źródła, trybu dźwięku, stref i nie tylko.</div></details>
   </div>
@@ -288,7 +333,7 @@
       <div class="eyebrow">Więcej z przewodnika</div>
       <h2>Inne przewodniki AVR Maestro</h2>
     </div>
-    <p class="lead"><a href="/pl/guide/getting-started/">Pierwsze kroki</a> &middot; <a href="/pl/guide/home/">Ekran główny</a> &middot; <a href="/pl/guide/scenes/">Sceny</a> &middot; <a href="/pl/guide/custom-icons/">Własne ikony</a> &middot; <a href="/pl/guide/sound/">Dźwięk</a> &middot; <a href="/pl/guide/graphic-eq/">Korektor graficzny</a> &middot; <a href="/pl/guide/speakers/">Głośniki</a> &middot; <a href="/pl/guide/locked-controls/">Dlaczego element jest zablokowany</a> &middot; <a href="/pl/guide/assistant/">Asystent</a> &middot; <a href="/pl/guide/home-automation/">Automatyka domowa</a> &middot; <a href="/pl/guide/home-assistant-dashboard/">Panel Home Assistant</a> &middot; <a href="/pl/guide/multi-zone/">Strefy</a> &middot; <a href="/pl/guide/remote/">Pilot</a> &middot; <a href="/pl/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/pl/guide/on-screen-display/">Wyświetlacz ekranowy</a> &middot; <a href="/pl/guide/settings/">Ustawienia</a> &middot; <a href="/pl/guide/languages/">Języki</a> &middot; <a href="/pl/guide/volume/">Sterowanie głośnością</a> &middot; <a href="/pl/guide/backup/">Kopia zapasowa &amp; przywracanie</a></p>
+    <p class="lead"><a href="/pl/guide/getting-started/">Pierwsze kroki</a> &middot; <a href="/pl/guide/receivers/">Zarządzanie amplitunerami</a> &middot; <a href="/pl/guide/navigation/">Nawigacja po aplikacji</a> &middot; <a href="/pl/guide/search/">Wyszukiwanie</a> &middot; <a href="/pl/guide/home/">Ekran główny</a> &middot; <a href="/pl/guide/volume/">Sterowanie głośnością</a> &middot; <a href="/pl/guide/remote/">Pilot</a> &middot; <a href="/pl/guide/multi-zone/">Strefy</a> &middot; <a href="/pl/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/pl/guide/scenes/">Sceny</a> &middot; <a href="/pl/guide/sound/">Dźwięk</a> &middot; <a href="/pl/guide/graphic-eq/">Korektor graficzny</a> &middot; <a href="/pl/guide/speakers/">Głośniki</a> &middot; <a href="/pl/guide/locked-controls/">Dlaczego kontrolka jest zablokowana</a> &middot; <a href="/pl/guide/settings/">Ustawienia</a> &middot; <a href="/pl/guide/widgets/">Widżety</a> &middot; <a href="/pl/guide/custom-icons/">Własne ikony</a> &middot; <a href="/pl/guide/on-screen-display/">Wyświetlacz ekranowy</a> &middot; <a href="/pl/guide/languages/">Języki</a> &middot; <a href="/pl/guide/assistant/">Asystent</a> &middot; <a href="/pl/guide/home-automation/">Automatyka domowa</a> &middot; <a href="/pl/guide/home-assistant-dashboard/">Pulpit Home Assistant</a> &middot; <a href="/pl/guide/backup/">Kopia zapasowa i przywracanie</a> &middot; <a href="/pl/guide/glossary/">Słownik</a></p>
   </div>
 </section>
 
@@ -324,7 +369,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro to niezależna aplikacja firmy MiyaraHub Technologies LLC i nie jest powiązana z Denon, Marantz, Sound United, Masimo Corporation ani żadną inną firmą wymienioną na tej stronie, ani przez nie zatwierdzona. Denon, Marantz, HEOS, Audyssey i Dirac Live są znakami towarowymi swoich właścicieli, użytymi tutaj wyłącznie w celach identyfikacyjnych.</p>
+    <p class="legal">AVR Maestro to niezależna aplikacja firmy MiyaraHub Technologies LLC i nie jest powiązana z firmami Denon, Marantz, Sound United, Masimo Corporation ani żadną inną firmą wymienioną na tej stronie, ani przez nie popierana. Denon, Marantz, HEOS, Audyssey i Dirac Live są znakami towarowymi ich właścicieli, użytymi tu wyłącznie w celach identyfikacyjnych.</p>
   </div>
 </footer>
 

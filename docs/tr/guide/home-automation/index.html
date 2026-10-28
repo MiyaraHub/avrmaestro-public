@@ -132,7 +132,7 @@
       "description": "AVR Maestro'yu Home Assistant veya Hubitat'a bağlayın; Sahneleriniz telefonunuz olmadan çalışan yerel betiklere dönüşsün. Sesli kontrol, canlı durum ve webhook'lar.",
       "image": "https://avrmaestro.com/screenshots/home-assistant.png",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -187,6 +187,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Kontrol için hayır. Uygulama alıcınızla ve hub'ınızla kendi ağınız üzerinden konuşur. Hiçbir şey bir MiyaraHub sunucusu üzerinden geçmez. Bir webhook, işaret ettiğiniz yere gider; bu sizin tercihinizdir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ev Otomasyonu'nu başka bir cihazda mı satın aldınız ya da yeniden mi yüklediniz?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ayarlar › Ev Otomasyonu (Pro)'yu açın ve kilit açma düğmesinin altındaki Satın Alımları Geri Yükle'ye dokunun. Kilidi daha önce aynı mağaza hesabıyla satın aldıysanız yeniden ödeme yapmadan geri gelir."
       }
     }
   ]
@@ -273,7 +281,7 @@
     </div>
     <ul class="plain">
       <li><b>1. Önce alıcınızı Home Assistant'a ekleyin.</b> Ayarlar &rsaquo; Cihazlar &amp; Hizmetler &rsaquo; Entegrasyon Ekle &rsaquo; <b>Denon AVR</b> (veya <b>HEOS</b>), ardından alıcınızın yerel IP adresi. Home Assistant bunun için bir medya oynatıcı varlığı oluşturur.</li>
-      <li><b>2. AVR Maestro'da Ayarlar &rsaquo; Ev Otomasyonu bölümünü açın</b> ve Home Assistant kartına dokunun.</li>
+      <li><b>2. AVR Maestro'da Ayarlar &rsaquo; Ev Otomasyonu (Pro)'yu açın</b> ve Home Assistant kartına dokunun.</li>
       <li><b>3. Home Assistant adresinizi girin</b> - <code>http://192.168.1.150:8123</code> gibi yerel bir adres ya da harici Nabu Casa URL'niz.</li>
       <li><b>4. Giriş yapın ve yetkilendirin.</b> Güvenli bir uygulama içi tarayıcı Home Assistant'ın kendi giriş ekranını açar. Kimlik bilgileriniz Home Assistant'a gider, bize asla.</li>
       <li><b>5. Alıcınızı kendisi bulur.</b> Uygulama medya oynatıcı varlıklarınızı tarar, model, ad ve surround yeteneğine göre puanlar, ardından doğru varlığı sizin için doldurur.</li>
@@ -305,6 +313,14 @@
         <p>Bir betik çalıştırılabilir ama okunamaz; bu yüzden ilk gösterge panelleri Audyssey eğrisini ya da Dirac yuvasını değiştirebiliyor, ama hangisinin açık olduğunu gösteremiyordu. Uygulamanın zaten elinde olan okumalar - canlı surround modu, etkin Dirac filtresi, hoparlör ön ayarı, kararma ve düzinelercesi - artık alıcının durum sensöründe öznitelik olarak yayınlanıyor; böylece bir karo gerçekten çalışan ayar için yanabiliyor.</p>
       </div>
       <img alt="Home Assistant'a Hoparlör Ön Ayarı, Dirac Live ve Audyssey kontrol betikleri yayınlayan AVR Maestro" src="/screenshots/ha-sync-advanced.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Betik olarak ses modları</div>
+        <h2>Ses Modlarını Dışa Aktar (REST)</h2>
+        <p>Home Assistant bölümünde <b>Ses Modlarını Dışa Aktar (REST)</b>, <b>Gelişmiş Betik (REST)</b>'i açar: alıcınızın listelediği her ses modu için bir Home Assistant betiği; böylece bir pano düğmesi veya bir otomasyon doğrudan bir surround modu seçebilir. Uygulama bu listeyi alıcıdan okur, bu yüzden önce alıcıyı açın ve <a href="/tr/guide/sound/">Ses sekmesini</a> bir kez açın; o zamana kadar boş bir liste dışa aktarmak yerine sizden bunu ister.</p>
+      </div>
     </div>
 
     <div class="lockrow" style="margin-top:28px">
@@ -391,7 +407,7 @@
 
     <h3 style="margin-top:28px">AVR Maestro içinde</h3>
     <ul class="plain">
-      <li><b>1. Ayarlar &rsaquo; Ev Otomasyonu &rsaquo; Webhook'lar</b>, ardından <b>İlk Tetikleyiciyi Ekle</b> - ya da bir tane olduktan sonra <b>+</b> düğmesi.</li>
+      <li><b>1. Ayarlar &rsaquo; Ev Otomasyonu (Pro) &rsaquo; Webhook'lar</b>, ardından <b>İlk Tetikleyiciyi Ekle</b> - ya da bir tane olduğunda <b>+</b> düğmesi.</li>
       <li><b>2. Tetikleme Olayı</b> - neyin tetiklemesi gerektiğini seçin. <em>Etkin Giriş Değişti</em> ya da <em>Sahne Çağrıldı</em> seçmek, daraltmak için ikinci bir kutu ekler.</li>
       <li><b>3. Nereye gönderileceği</b> - <b>Home Assistant</b> üzerinde bırakın. Adres zaten bilinir, çünkü onu bu aynı ekranda daha önce bağlamıştınız.</li>
       <li><b>4. Webhook Kimliği</b> - Home Assistant'ta kullandığınız kimliğin aynısını yazın. Başka hiçbir şeyin eşleşmesi gerekmez. Altında uygulama göndereceği tam adresi - <code>Sends to http://your-ha:8123/api/webhook/avr-power-on</code> - yazar; böylece kaydetmeden önce kontrol edebilirsiniz.</li>
@@ -449,6 +465,7 @@
         <div class="eyebrow">Neyin ücretli, neyin ücretsiz olduğu</div>
         <h2>Ev Otomasyonu tek kilittir. Yapay zeka asistanı ücretsizdir.</h2>
         <p><b>Ev Otomasyonu (Pro)</b> - Home Assistant, Hubitat ve giden webhook'lar - tek seferlik bir kilittir. AVR Maestro'daki geri kalan her şey, cihaz üzerindeki yapay zeka asistanı dahil, uygulamaya dahildir.</p>
+        <p>Zaten mi satın aldınız, bu cihazda ya da aynı mağaza hesabına sahip başka bir cihazda? Kilit açma düğmesinin altındaki <b>Satın Alımları Geri Yükle</b>'ye dokunun.</p>
         <p>Sesli kontrol alıcınıza hub'ınız aracılığıyla, Ev Otomasyonu <em>üzerinden</em> ulaşır. AVR Maestro kendi ses tanımasını çalıştırmaz.</p>
       </div>
     </div>
@@ -465,6 +482,7 @@
     <details><summary>Alıcımı hangi sesli asistanlar kontrol edebilir?</summary><div class="body">Zaten hangisini kullanıyorsanız. AVR Maestro kendi ses katmanını eklemez - betikleri Home Assistant veya Hubitat'a yayınlar, bunlar da güvendiğiniz hub tarafından Alexa, Google Assistant veya Siri Kestirmelerine sunulur.</div></details>
     <details><summary>Yapay zeka asistanı ücretli kilidin parçası mı?</summary><div class="body">Hayır. Cihaz üzerindeki yapay zeka asistanı ücretsizdir. Ev Otomasyonu - Home Assistant, Hubitat ve giden webhook'lar - AVR Maestro'daki tek ücretli kilittir.</div></details>
     <details><summary>Ev ağımdan dışarı bir şey çıkıyor mu?</summary><div class="body">Kontrol için hayır. Uygulama alıcınızla ve hub'ınızla kendi ağınız üzerinden konuşur. Hiçbir şey bir MiyaraHub sunucusu üzerinden geçmez. Bir webhook, işaret ettiğiniz yere gider; bu sizin tercihinizdir.</div></details>
+    <details><summary>Ev Otomasyonu'nu başka bir cihazda mı satın aldınız ya da yeniden mi yüklediniz?</summary><div class="body"><i>Ayarlar &rsaquo; Ev Otomasyonu (Pro)</i>'yu açın ve kilit açma düğmesinin altındaki <b>Satın Alımları Geri Yükle</b>'ye dokunun. Kilidi daha önce aynı mağaza hesabıyla satın aldıysanız yeniden ödeme yapmadan geri gelir.</div></details>
   </div>
 </section>
 
@@ -474,7 +492,7 @@
       <div class="eyebrow">Rehberin devamı</div>
       <h2>Diğer AVR Maestro rehberleri</h2>
     </div>
-    <p class="lead"><a href="/tr/guide/getting-started/">Başlarken</a> &middot; <a href="/tr/guide/home/">Ana Ekran</a> &middot; <a href="/tr/guide/scenes/">Sahneler</a> &middot; <a href="/tr/guide/custom-icons/">Özel Simgeler</a> &middot; <a href="/tr/guide/sound/">Ses</a> &middot; <a href="/tr/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/tr/guide/speakers/">Hoparlörler</a> &middot; <a href="/tr/guide/locked-controls/">Bir kontrol neden kilitli</a> &middot; <a href="/tr/guide/assistant/">Asistan</a> &middot; <a href="/tr/guide/home-assistant-dashboard/">Home Assistant panosu</a> &middot; <a href="/tr/guide/multi-zone/">Bölgeler</a> &middot; <a href="/tr/guide/remote/">Uzaktan Kumanda</a> &middot; <a href="/tr/guide/radio/">Radyo (FM/AM)</a> &middot; <a href="/tr/guide/on-screen-display/">Ekran Menüsü</a> &middot; <a href="/tr/guide/settings/">Ayarlar</a> &middot; <a href="/tr/guide/languages/">Diller</a> &middot; <a href="/tr/guide/volume/">Ses Kontrolleri</a> &middot; <a href="/tr/guide/backup/">Yedekleme &amp; Geri Yükleme</a> &middot; <a href="/tr/guide/now-playing/">Şimdi Çalıyor &amp; HEOS</a></p>
+    <p class="lead"><a href="/tr/guide/getting-started/">Başlarken</a> &middot; <a href="/tr/guide/receivers/">Alıcıları yönet</a> &middot; <a href="/tr/guide/navigation/">Uygulamada gezinme</a> &middot; <a href="/tr/guide/search/">Arama</a> &middot; <a href="/tr/guide/home/">Ana Ekran</a> &middot; <a href="/tr/guide/volume/">Ses Kontrolleri</a> &middot; <a href="/tr/guide/remote/">Uzaktan Kumanda</a> &middot; <a href="/tr/guide/multi-zone/">Bölgeler</a> &middot; <a href="/tr/guide/now-playing/">Şu An Çalıyor ve HEOS</a> &middot; <a href="/tr/guide/radio/">Radyo (FM/AM)</a> &middot; <a href="/tr/guide/scenes/">Sahneler</a> &middot; <a href="/tr/guide/sound/">Ses</a> &middot; <a href="/tr/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/tr/guide/speakers/">Hoparlörler</a> &middot; <a href="/tr/guide/locked-controls/">Bir kontrol neden kilitli</a> &middot; <a href="/tr/guide/settings/">Ayarlar</a> &middot; <a href="/tr/guide/widgets/">Widget'lar</a> &middot; <a href="/tr/guide/custom-icons/">Özel Simgeler</a> &middot; <a href="/tr/guide/on-screen-display/">Ekran Menüsü</a> &middot; <a href="/tr/guide/languages/">Diller</a> &middot; <a href="/tr/guide/assistant/">Asistan</a> &middot; <a href="/tr/guide/home-assistant-dashboard/">Home Assistant panosu</a> &middot; <a href="/tr/guide/backup/">Yedekleme ve Geri Yükleme</a> &middot; <a href="/tr/guide/glossary/">Sözlük</a></p>
   </div>
 </section>
 
@@ -510,7 +528,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro, MiyaraHub Technologies LLC tarafından geliştirilen bağımsız bir uygulamadır; Denon, Marantz, Sound United, Masimo Corporation veya bu sayfada adı geçen başka hiçbir şirketle bağlantılı değildir, onlar tarafından onaylanmamıştır. Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant ve Siri ilgili sahiplerinin ticari markalarıdır ve burada yalnızca tanımlama amacıyla kullanılmıştır.</p>
+    <p class="legal">AVR Maestro, MiyaraHub Technologies LLC tarafından geliştirilen bağımsız bir uygulamadır; Denon, Marantz, Sound United, Masimo Corporation veya bu sayfada adı geçen başka hiçbir şirketle bağlantılı değildir ve bunlar tarafından onaylanmamıştır. Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant ve Siri, ilgili sahiplerinin ticari markalarıdır ve burada yalnızca tanımlama amacıyla kullanılmıştır.</p>
   </div>
 </footer>
 

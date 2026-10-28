@@ -132,7 +132,7 @@
       "description": "AVR Maestro को Home Assistant या Hubitat से लिंक करें और आपके सीन नेटिव स्क्रिप्ट बन जाते हैं जो आपके फ़ोन के बिना चलती हैं। वॉइस कंट्रोल, लाइव स्थिति और वेबहुक।",
       "image": "https://avrmaestro.com/screenshots/home-assistant.png",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -187,6 +187,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "कंट्रोल के लिए नहीं। ऐप आपके रिसीवर और आपके हब से आपके अपने नेटवर्क पर बात करता है। कुछ भी MiyaraHub के किसी सर्वर से होकर नहीं गुज़रता। वेबहुक वहीं जाता है जहाँ आप उसे भेजना तय करें, और यह आपकी पसंद है।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Home Automation किसी दूसरे डिवाइस पर खरीदा था, या दोबारा इंस्टॉल किया है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "सेटिंग्स › होम ऑटोमेशन (Pro) खोलें और अनलॉक बटन के नीचे खरीदारी पुनर्स्थापित करें पर टैप करें। अगर आपने अनलॉक पहले उसी स्टोर अकाउंट से खरीदा था, तो वह दोबारा भुगतान किए बिना वापस आ जाता है।"
       }
     }
   ]
@@ -273,7 +281,7 @@
     </div>
     <ul class="plain">
       <li><b>1. सबसे पहले अपना रिसीवर Home Assistant में जोड़ें।</b> सेटिंग्स &rsaquo; डिवाइस &amp; सेवाएं &rsaquo; इंटीग्रेशन जोड़ें &rsaquo; <b>Denon AVR</b> (या <b>HEOS</b>), फिर अपने रिसीवर का लोकल IP। Home Assistant उसके लिए एक मीडिया प्लेयर एंटिटी बना देता है।</li>
-      <li><b>2. AVR Maestro में Settings &rsaquo; होम ऑटोमेशन खोलें</b> और Home Assistant कार्ड पर टैप करें।</li>
+      <li><b>2. AVR Maestro में सेटिंग्स &rsaquo; होम ऑटोमेशन (Pro) खोलें</b> और Home Assistant कार्ड पर टैप करें।</li>
       <li><b>3. अपना Home Assistant पता दर्ज करें</b> - कोई लोकल पता जैसे <code>http://192.168.1.150:8123</code>, या आपका बाहरी Nabu Casa URL।</li>
       <li><b>4. लॉग इन करें और अनुमति दें।</b> एक सुरक्षित इन-ऐप ब्राउज़र में Home Assistant का अपना लॉगिन खुलता है। आपके क्रेडेंशियल Home Assistant को जाते हैं, हमें कभी नहीं।</li>
       <li><b>5. वह आपका रिसीवर अपने आप ढूँढ लेता है।</b> ऐप आपकी media player entity को स्कैन करता है, उन्हें मॉडल, नाम और सराउंड क्षमता पर आँकता है, और सही entity अपने आप भर देता है।</li>
@@ -305,6 +313,14 @@
         <p>स्क्रिप्ट चलाई जा सकती है पर पढ़ी नहीं जा सकती, इसलिए शुरुआती डैशबोर्ड Audyssey कर्व या Dirac स्लॉट बदल तो सकते थे, पर यह नहीं दिखा सकते थे कि कौन सा चालू था। ऐप के पास पहले से मौजूद रीडिंग - लाइव सराउंड मोड, सक्रिय Dirac फ़िल्टर, स्पीकर प्रीसेट, डिमर और दर्जनों अन्य - अब रिसीवर के स्टेटस सेंसर पर एट्रिब्यूट के रूप में प्रकाशित होती हैं, ताकि टाइल उसी सेटिंग के लिए जल सके जो सचमुच चल रही है।</p>
       </div>
       <img alt="AVR Maestro, Home Assistant पर Speaker Preset, Dirac Live और Audyssey कंट्रोल स्क्रिप्ट प्रकाशित कर रहा है" src="/screenshots/ha-sync-advanced.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">साउंड मोड स्क्रिप्ट के रूप में</div>
+        <h2>साउंड मोड एक्सपोर्ट करें (REST)</h2>
+        <p>Home Assistant सेक्शन में, <b>साउंड मोड एक्सपोर्ट करें (REST)</b> <b>एडवांस्ड स्क्रिप्ट (REST)</b> खोलता है: आपके रिसीवर की सूची के हर साउंड मोड के लिए एक Home Assistant स्क्रिप्ट, ताकि डैशबोर्ड बटन या ऑटोमेशन सीधे सराउंड मोड चुन सके। ऐप वह सूची रिसीवर से पढ़ता है, इसलिए पहले रिसीवर चालू करें और एक बार <a href="/hi/guide/sound/">साउंड टैब</a> खोलें; तब तक यह खाली सूची एक्सपोर्ट करने के बजाय आपसे ऐसा करने को कहता है।</p>
+      </div>
     </div>
 
     <div class="lockrow" style="margin-top:28px">
@@ -391,7 +407,7 @@
 
     <h3 style="margin-top:28px">AVR Maestro में</h3>
     <ul class="plain">
-      <li><b>1. Settings &rsaquo; होम ऑटोमेशन &rsaquo; वेबहुक</b>, फिर <b>पहला ट्रिगर जोड़ें</b> - या एक बन जाने के बाद <b>+</b> बटन।</li>
+      <li><b>1. सेटिंग्स &rsaquo; होम ऑटोमेशन (Pro) &rsaquo; वेबहुक</b>, फिर <b>पहला ट्रिगर जोड़ें</b> - या एक के बाद <b>+</b> बटन।</li>
       <li><b>2. ट्रिगर इवेंट</b> - चुनें कि इसे क्या चालू करे। <em>सक्रिय इनपुट बदला गया</em> या <em>सीन रिकॉल किया गया</em> चुनने पर इसे सीमित करने के लिए दूसरा बॉक्स जुड़ जाता है।</li>
       <li><b>3. इसे कहाँ भेजना है</b> - इसे <b>Home Assistant</b> पर ही रहने दें। पता पहले से ज्ञात है, क्योंकि आपने इसी स्क्रीन पर पहले उसे लिंक किया था।</li>
       <li><b>4. Webhook ID</b> - वही ID टाइप करें जो आपने Home Assistant में इस्तेमाल की थी। और कुछ मेल खाने की ज़रूरत नहीं है। नीचे ऐप वह सटीक पता लिख देता है जिस पर वह भेजेगा - <code>Sends to http://your-ha:8123/api/webhook/avr-power-on</code> - ताकि आप सेव करने से पहले उसे जाँच सकें।</li>
@@ -449,6 +465,7 @@
         <div class="eyebrow">क्या सशुल्क है और क्या नहीं</div>
         <h2>होम ऑटोमेशन ही एक अनलॉक है। AI असिस्टेंट मुफ़्त है।</h2>
         <p><b>होम ऑटोमेशन (Pro)</b> - Home Assistant, Hubitat और आउटबाउंड वेबहुक - एक बार का अनलॉक है। AVR Maestro में बाकी सब कुछ, ऑन-डिवाइस AI असिस्टेंट समेत, ऐप में शामिल है।</p>
+        <p>पहले ही खरीद चुके हैं, इसी डिवाइस पर या उसी स्टोर अकाउंट वाले किसी दूसरे पर? अनलॉक बटन के नीचे <b>खरीदारी पुनर्स्थापित करें</b> पर टैप करें।</p>
         <p>वॉइस कंट्रोल आपके रिसीवर तक होम ऑटोमेशन <em>के ज़रिए</em> पहुँचता है, आपके हब के रास्ते। AVR Maestro अपनी वॉइस पहचान नहीं चलाता।</p>
       </div>
     </div>
@@ -465,6 +482,7 @@
     <details><summary>कौन से वॉइस असिस्टेंट मेरे रिसीवर को कंट्रोल कर सकते हैं?</summary><div class="body">जो भी आप पहले से इस्तेमाल करते हैं। AVR Maestro अपनी कोई वॉइस परत नहीं जोड़ता - वह Home Assistant या Hubitat पर स्क्रिप्ट प्रकाशित करता है, और आपका भरोसेमंद हब उन्हें Alexa, Google Assistant या Siri Shortcuts तक पहुँचा देता है।</div></details>
     <details><summary>क्या AI असिस्टेंट सशुल्क अनलॉक का हिस्सा है?</summary><div class="body">नहीं। ऑन-डिवाइस AI असिस्टेंट मुफ़्त है। होम ऑटोमेशन - Home Assistant, Hubitat और आउटबाउंड वेबहुक - AVR Maestro में इकलौता सशुल्क अनलॉक है।</div></details>
     <details><summary>क्या कुछ भी मेरे होम नेटवर्क से बाहर जाता है?</summary><div class="body">कंट्रोल के लिए नहीं। ऐप आपके रिसीवर और आपके हब से आपके अपने नेटवर्क पर बात करता है। कुछ भी MiyaraHub के किसी सर्वर से होकर नहीं गुज़रता। वेबहुक वहीं जाता है जहाँ आप उसे भेजना तय करें, और यह आपकी पसंद है।</div></details>
+    <details><summary>Home Automation किसी दूसरे डिवाइस पर खरीदा था, या दोबारा इंस्टॉल किया है?</summary><div class="body"><i>सेटिंग्स &rsaquo; होम ऑटोमेशन (Pro)</i> खोलें और अनलॉक बटन के नीचे <b>खरीदारी पुनर्स्थापित करें</b> पर टैप करें। अगर आपने अनलॉक पहले उसी स्टोर अकाउंट से खरीदा था, तो वह दोबारा भुगतान किए बिना वापस आ जाता है।</div></details>
   </div>
 </section>
 
@@ -474,7 +492,7 @@
       <div class="eyebrow">गाइड के और हिस्से</div>
       <h2>AVR Maestro की अन्य गाइड</h2>
     </div>
-    <p class="lead"><a href="/hi/guide/getting-started/">शुरुआत करें</a> &middot; <a href="/hi/guide/home/">होम स्क्रीन</a> &middot; <a href="/hi/guide/scenes/">सीन</a> &middot; <a href="/hi/guide/custom-icons/">कस्टम आइकन</a> &middot; <a href="/hi/guide/sound/">ध्वनि</a> &middot; <a href="/hi/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/hi/guide/speakers/">स्पीकर</a> &middot; <a href="/hi/guide/locked-controls/">कंट्रोल लॉक क्यों है</a> &middot; <a href="/hi/guide/assistant/">असिस्टेंट</a> &middot; <a href="/hi/guide/home-assistant-dashboard/">Home Assistant डैशबोर्ड</a> &middot; <a href="/hi/guide/multi-zone/">ज़ोन</a> &middot; <a href="/hi/guide/remote/">रिमोट</a> &middot; <a href="/hi/guide/radio/">रेडियो (FM/AM)</a> &middot; <a href="/hi/guide/on-screen-display/">ऑन-स्क्रीन डिस्प्ले</a> &middot; <a href="/hi/guide/settings/">सेटिंग्स</a> &middot; <a href="/hi/guide/languages/">भाषाएं</a> &middot; <a href="/hi/guide/volume/">वॉल्यूम नियंत्रण</a> &middot; <a href="/hi/guide/backup/">बैकअप &amp; रिस्टोर</a> &middot; <a href="/hi/guide/now-playing/">अभी बज रहा है &amp; HEOS</a></p>
+    <p class="lead"><a href="/hi/guide/getting-started/">शुरुआत करें</a> &middot; <a href="/hi/guide/receivers/">रिसीवर प्रबंधित करें</a> &middot; <a href="/hi/guide/navigation/">ऐप में नेविगेशन</a> &middot; <a href="/hi/guide/search/">खोज</a> &middot; <a href="/hi/guide/home/">होम स्क्रीन</a> &middot; <a href="/hi/guide/volume/">वॉल्यूम नियंत्रण</a> &middot; <a href="/hi/guide/remote/">रिमोट</a> &middot; <a href="/hi/guide/multi-zone/">ज़ोन</a> &middot; <a href="/hi/guide/now-playing/">अभी चल रहा और HEOS</a> &middot; <a href="/hi/guide/radio/">रेडियो (FM/AM)</a> &middot; <a href="/hi/guide/scenes/">सीन</a> &middot; <a href="/hi/guide/sound/">साउंड</a> &middot; <a href="/hi/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/hi/guide/speakers/">स्पीकर</a> &middot; <a href="/hi/guide/locked-controls/">कंट्रोल लॉक क्यों है</a> &middot; <a href="/hi/guide/settings/">सेटिंग्स</a> &middot; <a href="/hi/guide/widgets/">विजेट</a> &middot; <a href="/hi/guide/custom-icons/">कस्टम आइकन</a> &middot; <a href="/hi/guide/on-screen-display/">ऑन-स्क्रीन डिस्प्ले</a> &middot; <a href="/hi/guide/languages/">भाषाएं</a> &middot; <a href="/hi/guide/assistant/">असिस्टेंट</a> &middot; <a href="/hi/guide/home-assistant-dashboard/">Home Assistant डैशबोर्ड</a> &middot; <a href="/hi/guide/backup/">बैकअप और रीस्टोर</a> &middot; <a href="/hi/guide/glossary/">शब्दावली</a></p>
   </div>
 </section>
 
@@ -510,7 +528,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro, MiyaraHub Technologies LLC का एक स्वतंत्र ऐप है और Denon, Marantz, Sound United, Masimo Corporation या इस पेज पर नामित किसी भी अन्य कंपनी से संबद्ध या उनके द्वारा समर्थित नहीं है। Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant और Siri अपने-अपने स्वामियों के ट्रेडमार्क हैं, जिनका यहाँ केवल पहचान के लिए उपयोग किया गया है।</p>
+    <p class="legal">AVR Maestro, MiyaraHub Technologies LLC का बनाया एक स्वतंत्र ऐप है और Denon, Marantz, Sound United, Masimo Corporation या इस पेज पर नामित किसी भी अन्य कंपनी से संबद्ध या उनके द्वारा समर्थित नहीं है। Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant और Siri अपने-अपने स्वामियों के ट्रेडमार्क हैं, जिनका उपयोग यहां केवल पहचान के लिए किया गया है।</p>
   </div>
 </footer>
 

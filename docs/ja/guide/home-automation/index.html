@@ -132,7 +132,7 @@
       "description": "AVR Maestro を Home Assistant または Hubitat にリンクすれば、シーンがネイティブスクリプトになり、スマートフォンなしで実行できます。音声コントロール、ライブ状態、Webhook に対応。",
       "image": "https://avrmaestro.com/screenshots/home-assistant.png",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -187,6 +187,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "コントロールに関してはありません。アプリはご自身のネットワーク上で、レシーバーとハブの両方と通信します。MiyaraHub のサーバーを経由することはありません。Webhook は、指定した宛先に送信されます。宛先はあなたが選びます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "別のデバイスでホームオートメーションを購入した、または再インストールしましたか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "設定 › ホームオートメーション(Pro)を開き、ロック解除ボタンの下にある購入を復元をタップします。以前に同じストアアカウントでロック解除を購入していれば、再度支払うことなく復元されます。"
       }
     }
   ]
@@ -273,7 +281,7 @@
     </div>
     <ul class="plain">
       <li><b>1. まずHome Assistantにレシーバーを追加します。</b> 設定 &rsaquo; デバイス&amp;サービス &rsaquo; 統合を追加 &rsaquo; <b>Denon AVR</b>(または<b>HEOS</b>)の順に進み、レシーバーのローカルIPを入力します。Home Assistantがレシーバー用のメディアプレーヤーエンティティを作成します。</li>
-      <li><b>2. AVR Maestro で 設定 &rsaquo; ホームオートメーション を開き、</b>Home Assistant カードをタップします。</li>
+      <li><b>2. AVR Maestroで設定 &rsaquo; ホームオートメーション(Pro)を開き</b>、Home Assistantカードをタップします。</li>
       <li><b>3. Home Assistant のアドレスを入力します。</b>ローカルのアドレス（<code>http://192.168.1.150:8123</code>など）か、外部の Nabu Casa URL を指定できます。</li>
       <li><b>4. ログインして認可します。</b>安全なアプリ内ブラウザが開き、Home Assistant 自身のログイン画面が表示されます。認証情報は Home Assistant に送られ、私たちには届きません。</li>
       <li><b>5. レシーバーは自動で見つかります。</b>アプリがメディアプレーヤーエンティティをスキャンし、モデル、名前、サラウンド対応状況でスコアを付けて、適切なエンティティを自動入力します。</li>
@@ -305,6 +313,14 @@
         <p>スクリプトは実行できても、読み取ることはできません。そのため初期のダッシュボードでは、Audyssey カーブや Dirac スロットを切り替えられても、どれが有効かを表示する方法がありませんでした。アプリがすでに保持している読み取り値（ライブのサラウンドモード、有効な Dirac フィルター、スピーカープリセット、ディマーなど数十項目）が、レシーバーのステータスセンサーの属性として公開されるようになったので、実際に動作している設定のタイルを点灯できます。</p>
       </div>
       <img alt="スピーカープリセット、Dirac Live、Audyssey のコントロールスクリプトを Home Assistant に公開する AVR Maestro" src="/screenshots/ha-sync-advanced.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">スクリプトとしてのサウンドモード</div>
+        <h2>サウンドモードをエクスポート(REST)</h2>
+        <p>Home Assistantセクションで<b>サウンドモードをエクスポート(REST)</b>を開くと<b>高度なスクリプト(REST)</b>が開きます。レシーバーが一覧表示するサウンドモードごとにHome Assistantスクリプトがひとつずつ作られ、ダッシュボードのボタンやオートメーションからサラウンドモードを直接選べます。アプリはその一覧をレシーバーから読み取るので、先にレシーバーの電源を入れて<a href="/ja/guide/sound/">サウンドタブ</a>を一度開いてください。それまでは、空の一覧をエクスポートせず、開くよう案内します。</p>
+      </div>
     </div>
 
     <div class="lockrow" style="margin-top:28px">
@@ -391,7 +407,7 @@
 
     <h3 style="margin-top:28px">AVR Maestroでは</h3>
     <ul class="plain">
-      <li><b>1. 設定 &rsaquo; ホームオートメーション &rsaquo; Webhook</b>を開き、<b>最初のトリガーを追加</b>をタップします。すでにトリガーがある場合は<b>+</b>ボタンです。</li>
+      <li><b>1. 設定 &rsaquo; ホームオートメーション(Pro) &rsaquo; Webhook</b>を開き、<b>最初のトリガーを追加</b>をタップします。すでにトリガーがある場合は<b>+</b>ボタンです。</li>
       <li><b>2. トリガーイベント</b> - 何をきっかけに発火させるかを選びます。<em>アクティブな入力の変更</em>や<em>シーンを呼び出し</em>を選ぶと、絞り込み用の2つ目のボックスが表示されます。</li>
       <li><b>3. 送信先</b> - <b>Home Assistant</b>のままにしておきます。この画面の上のほうですでにリンクしているので、アドレスは既知です。</li>
       <li><b>4. Webhook ID</b> - Home Assistant で使ったものと同じIDを入力します。ほかに一致させる必要のあるものはありません。その下に、アプリが送信する正確なアドレス<code>Sends to http://your-ha:8123/api/webhook/avr-power-on</code>が表示されるので、保存する前に確認できます。</li>
@@ -449,6 +465,7 @@
         <div class="eyebrow">有料のものと無料のもの</div>
         <h2>アンロックが必要なのはホームオートメーションだけです。AIアシスタントは無料です。</h2>
         <p><b>ホームオートメーション(Pro)</b>（Home Assistant、Hubitat、アウトバウンド Webhook）は、買い切りのアンロックです。オンデバイスAIアシスタントを含め、AVR Maestro のそのほかの機能はすべてアプリに含まれています。</p>
+        <p>このデバイス、または同じストアアカウントの別のデバイスですでに購入しましたか? ロック解除ボタンの下にある<b>購入を復元</b>をタップします。</p>
         <p>音声コントロールは、ホームオートメーション<em>を通じて</em>、ハブ経由でレシーバーに届きます。AVR Maestro 自身は音声認識を行いません。</p>
       </div>
     </div>
@@ -465,6 +482,7 @@
     <details><summary>どの音声アシスタントでレシーバーを操作できますか？</summary><div class="body">すでにお使いのものなら何でも。AVR Maestro 独自の音声レイヤーは追加しません。スクリプトを Home Assistant または Hubitat に公開し、それをお使いのハブ経由で Alexa、Google Assistant、Siri ショートカットに公開します。</div></details>
     <details><summary>AIアシスタントは有料アンロックに含まれますか？</summary><div class="body">いいえ。オンデバイスAIアシスタントは無料です。ホームオートメーション（Home Assistant、Hubitat、アウトバウンド Webhook）が、AVR Maestro で唯一の有料アンロックです。</div></details>
     <details><summary>ホームネットワークの外に出る通信はありますか？</summary><div class="body">コントロールに関してはありません。アプリはご自身のネットワーク上で、レシーバーとハブの両方と通信します。MiyaraHub のサーバーを経由することはありません。Webhook は、指定した宛先に送信されます。宛先はあなたが選びます。</div></details>
+    <details><summary>別のデバイスでホームオートメーションを購入した、または再インストールしましたか?</summary><div class="body"><i>設定 &rsaquo; ホームオートメーション(Pro)</i>を開き、ロック解除ボタンの下にある<b>購入を復元</b>をタップします。以前に同じストアアカウントでロック解除を購入していれば、再度支払うことなく復元されます。</div></details>
   </div>
 </section>
 
@@ -474,7 +492,7 @@
       <div class="eyebrow">ガイドをもっと見る</div>
       <h2>AVR Maestroのその他のガイド</h2>
     </div>
-    <p class="lead"><a href="/ja/guide/getting-started/">はじめに</a> &middot; <a href="/ja/guide/home/">ホーム画面</a> &middot; <a href="/ja/guide/scenes/">シーン</a> &middot; <a href="/ja/guide/custom-icons/">カスタムアイコン</a> &middot; <a href="/ja/guide/sound/">サウンド</a> &middot; <a href="/ja/guide/graphic-eq/">グラフィックEQ</a> &middot; <a href="/ja/guide/speakers/">スピーカー</a> &middot; <a href="/ja/guide/locked-controls/">コントロールがロックされる理由</a> &middot; <a href="/ja/guide/assistant/">アシスタント</a> &middot; <a href="/ja/guide/home-assistant-dashboard/">Home Assistantダッシュボード</a> &middot; <a href="/ja/guide/multi-zone/">ゾーン</a> &middot; <a href="/ja/guide/remote/">リモコン</a> &middot; <a href="/ja/guide/radio/">ラジオ(FM/AM)</a> &middot; <a href="/ja/guide/on-screen-display/">オンスクリーンディスプレイ</a> &middot; <a href="/ja/guide/settings/">設定</a> &middot; <a href="/ja/guide/languages/">言語</a> &middot; <a href="/ja/guide/volume/">音量コントロール</a> &middot; <a href="/ja/guide/backup/">バックアップ&amp;復元</a> &middot; <a href="/ja/guide/now-playing/">再生中&amp;HEOS</a></p>
+    <p class="lead"><a href="/ja/guide/getting-started/">はじめに</a> &middot; <a href="/ja/guide/receivers/">レシーバーを管理</a> &middot; <a href="/ja/guide/navigation/">アプリの操作</a> &middot; <a href="/ja/guide/search/">検索</a> &middot; <a href="/ja/guide/home/">ホーム画面</a> &middot; <a href="/ja/guide/volume/">音量コントロール</a> &middot; <a href="/ja/guide/remote/">リモコン</a> &middot; <a href="/ja/guide/multi-zone/">ゾーン</a> &middot; <a href="/ja/guide/now-playing/">再生中とHEOS</a> &middot; <a href="/ja/guide/radio/">ラジオ(FM/AM)</a> &middot; <a href="/ja/guide/scenes/">シーン</a> &middot; <a href="/ja/guide/sound/">サウンド</a> &middot; <a href="/ja/guide/graphic-eq/">グラフィックEQ</a> &middot; <a href="/ja/guide/speakers/">スピーカー</a> &middot; <a href="/ja/guide/locked-controls/">コントロールがロックされる理由</a> &middot; <a href="/ja/guide/settings/">設定</a> &middot; <a href="/ja/guide/widgets/">ウィジェット</a> &middot; <a href="/ja/guide/custom-icons/">カスタムアイコン</a> &middot; <a href="/ja/guide/on-screen-display/">オンスクリーンディスプレイ</a> &middot; <a href="/ja/guide/languages/">言語</a> &middot; <a href="/ja/guide/assistant/">アシスタント</a> &middot; <a href="/ja/guide/home-assistant-dashboard/">Home Assistantダッシュボード</a> &middot; <a href="/ja/guide/backup/">バックアップと復元</a> &middot; <a href="/ja/guide/glossary/">用語集</a></p>
   </div>
 </section>
 
@@ -510,7 +528,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro は MiyaraHub Technologies LLC による独立したアプリであり、Denon、Marantz、Sound United、Masimo Corporation、およびこのページに記載されているその他の企業とは、提携、承認の関係にありません。Denon、Marantz、HEOS、Home Assistant、Hubitat、Audyssey、Dirac Live、Alexa、Google Assistant、Siri は、それぞれの所有者の商標であり、ここでは識別の目的でのみ使用しています。</p>
+    <p class="legal">AVR Maestroは、MiyaraHub Technologies LLCが提供する独立したアプリであり、Denon、Marantz、Sound United、Masimo Corporation、およびこのページに記載されているその他の企業とは提携しておらず、各社から承認も受けていません。Denon、Marantz、HEOS、Home Assistant、Hubitat、Audyssey、Dirac Live、Alexa、Google Assistant、Siriは、それぞれの所有者の商標であり、ここでは識別のためにのみ使用しています。</p>
   </div>
 </footer>
 

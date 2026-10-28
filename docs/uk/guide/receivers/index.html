@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="uk" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-itunes-app" content="app-id=6762881597" />
+<title>Керування ресиверами: додавання, перемикання й налаштування - AVR Maestro</title>
+<meta name="description" content="Додайте ресивер Denon чи Marantz в AVR Maestro, перемикайтеся між ресиверами та налаштовуйте кожен: перейменування, зміна IP, Знайти мій ресивер, блокування та прошивка." />
+<meta name="keywords" content="AVR Maestro manage receivers, add Denon receiver to app, switch Marantz receiver, receiver IP address changed, find my receiver, Setup Lock Denon, Remote Lock Marantz, receiver firmware check, AVR Maestro demo mode" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/uk/guide/receivers/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/receivers/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/receivers/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/receivers/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/receivers/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/receivers/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/receivers/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/receivers/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/receivers/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/receivers/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/receivers/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/receivers/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/receivers/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/receivers/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/receivers/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/receivers/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/receivers/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/receivers/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/receivers/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/receivers/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/receivers/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/receivers/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/receivers/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/receivers/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/receivers/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/receivers/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/receivers/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/receivers/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/receivers/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/receivers/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/receivers/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/receivers/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="uk_UA" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Керування ресиверами: додавання, перемикання й налаштування - AVR Maestro" />
+<meta property="og:description" content="Додайте ресивер Denon чи Marantz в AVR Maestro, перемикайтеся між ресиверами та налаштовуйте кожен: перейменування, зміна IP, Знайти мій ресивер, блокування та прошивка." />
+<meta property="og:url" content="https://avrmaestro.com/uk/guide/receivers/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Керування ресиверами: додавання, перемикання й налаштування - AVR Maestro" />
+<meta name="twitter:description" content="Додайте ресивер Denon чи Marantz в AVR Maestro, перемикайтеся між ресиверами та налаштовуйте кожен: перейменування, зміна IP, Знайти мій ресивер, блокування та прошивка." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro - це незалежний застосунок для керування AV-ресиверами Denon і Marantz через вашу локальну мережу.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "uk"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/receivers/#article",
+      "headline": "Керування ресиверами: одна сторінка на кожен ресивер",
+      "description": "Додайте ресивер Denon чи Marantz в AVR Maestro, перемикайтеся між ресиверами та налаштовуйте кожен: перейменування, зміна IP, Знайти мій ресивер, блокування та прошивка.",
+      "image": "https://avrmaestro.com/assets/og-card.png",
+      "datePublished": "2026-10-28",
+      "dateModified": "2026-10-28",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/receivers/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "uk"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/receivers/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Як переключитися на інший ресивер?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На вкладці Головна торкніться назви ресивера поруч з AVR Maestro угорі й виберіть інший ресивер зі списку. Також можна відкрити Налаштування › Керування ресиверами та торкнутися кружка на початку рядка ресивера. Застосунок підтверджує це повідомленням Перемкнено на та назвою ресивера."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Мій ресивер отримав нову IP-адресу. Що робити?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зазвичай нічого: коли маршрутизатор змінює адресу ресивера, застосунок знаходить його знову й один раз повідомляє, що пішов за ним. Якщо не вдається, відкрийте Налаштування › Керування ресиверами, торкніться ресивера та скористайтеся Знайти мій ресивер, щоб пошукати в мережі, або Змінити IP, щоб ввести нову адресу самостійно. Усі збережені налаштування ресивера зберігаються; змінюється лише адреса."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чому я не бачу Екран і блокування або Про цей ресивер?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ці розділи читають і записують дані ресивера наживо, тому з'являються лише для активного ресивера, поки застосунок підключено до нього. Зробіть ресивер активним кнопкою Зробити активним і зачекайте, поки він підключиться."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Яка різниця між Setup Lock і Remote Lock?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Setup Lock блокує власне меню налаштувань ресивера, тож його налаштування та калібрування ніхто не може змінити, зокрема й цей застосунок, доки ви його не розблокуєте. Гучність і вхід продовжують працювати. Remote Lock змушує ресивер ігнорувати його ІЧ-пульт; застосунок і передня панель продовжують працювати. Кожен перемикач з'являється лише тоді, коли ваш ресивер повідомляє про це блокування."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Що відбувається, коли я видаляю ресивер?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Застосунок видаляє ресивер і всі збережені для нього налаштування. Якщо це був активний ресивер, застосунок перемикається на інший. На самому ресивері нічого не змінюється, і ви можете додати його знову будь-коли."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чи можна спробувати застосунок без ресивера?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Так. Торкніться Спробувати демо-режим у Налаштування › Керування ресиверами або Спробувати демо-режим на екрані додавання ресивера. Демо-режим запускає у застосунку змодельований Marantz CINEMA 30 і нічого не надсилає вашою мережею. Вийти можна через Налаштування › Вийти з демо-режиму."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Головна",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Посібник користувача",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Керування ресиверами",
+      "item": "https://avrmaestro.com/guide/receivers/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/uk/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Меню" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="Пошук у посібнику..." data-i18n-empty="Немає збігів для" data-i18n-language="Мова">
+      <a href="/uk/">Головна</a>
+      <a href="/uk/guide/">Посібник користувача</a>
+      <a href="/uk/receivers/">Ресивери</a>
+      <a href="/uk/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/uk/best-denon-marantz-app/">Чому варто перейти</a>
+      <a href="/uk/#top" class="cta">Завантажити</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/uk/">Головна</a> &rsaquo; <a href="/uk/guide/">Посібник користувача</a> &rsaquo; Керування ресиверами</div>
+    <div class="eyebrow">Налаштування &rsaquo; Керування ресиверами</div>
+    <h1>Керування ресиверами: <span class="g">одна сторінка на кожен ресивер</span></h1>
+    <p>Додавайте скільки завгодно ресиверів Denon і Marantz, перемикайтеся між ними двома дотиками та задавайте кожному власні аудіопараметри. Кожен ресивер має власну сторінку для назви, адреси, блокувань і прошивки.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Де це знаходиться</div>
+      <h2>Відкрийте Керування ресиверами</h2>
+    </div>
+    <p class="lead">Відкрийте <b>Налаштування</b>. Картка на самому верху - це <b>Керування ресиверами</b>: вона показує, скільки у вас ресиверів і який із них активний. Торкніться її.</p>
+    <p class="lead">Що ви побачите: рядок "Торкніться ресивера, щоб його налаштувати. Торкніться кружка, щоб зробити його активним. Перетягніть, щоб змінити порядок.", далі ваші ресивери, кожен зі своєю назвою, IP-адресою та моделлю. Активний ресивер виділено, а його кружок заповнено. Під списком розташовані кнопка <b>Додати ресивер</b> і, якщо ви ще не в ньому, розділ <b>ДЕМО-РЕЖИМ</b>.</p>
+    <ul class="plain">
+      <li><b>Торкніться ресивера</b>, щоб відкрити його власну сторінку.</li>
+      <li><b>Торкніться кружка</b> на початку рядка, щоб зробити цей ресивер активним. Застосунок скаже <b>Перемкнено на</b> та назву ресивера.</li>
+      <li><b>Перетягніть ручку</b> в кінці рядка, щоб змінити порядок. Список ресиверів угорі Головної має той самий порядок.</li>
+      <li><b>Утримуйте ресивер</b>, щоб відкрити швидке меню з пунктами Перейменувати, Змінити IP, Знайти мій ресивер і Видалити.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Крок за кроком</div>
+      <h2>Додавання ресивера</h2>
+    </div>
+    <ol class="steps">
+      <li>Відкрийте <i>Налаштування &rsaquo; Керування ресиверами</i> і торкніться <b>Додати ресивер</b> (або <b>+</b> у правому верхньому куті).</li>
+      <li>На iPhone, iPad, Mac, Android і Windows екран сканує вашу мережу та показує <b>Ресивери, знайдені у вашій мережі</b>. Торкніться свого. Якщо ніхто не відповідає, торкніться <b>Сканувати знову</b> або введіть адресу ресивера в <b>IP-адреса</b> і торкніться <b>Перевірити &amp; зберегти</b>.</li>
+      <li>Застосунок перевіряє з'єднання та зберігає ресивер за один раз. Ви побачите виявлену модель і функції, а новий ресивер стане активним.</li>
+    </ol>
+    <div class="note">IP-адреса ресивера міститься в його власному меню в розділі <i>Setup &rsaquo; General &rsaquo; Network &rsaquo; Information</i>. Телефон чи комп'ютер мають бути в тій самій мережі, що й ресивер. Контрольний список для мережі дивіться в розділі <a href="/uk/guide/getting-started/">Початок роботи</a>.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Два дотики</div>
+      <h2>Перемикайте ресивери з Головної</h2>
+    </div>
+    <ol class="steps">
+      <li>На вкладці <b>Головна</b> торкніться назви ресивера, показаної поруч з <b>AVR Maestro</b> угорі екрана.</li>
+      <li>Відкриється список ваших ресиверів із галочкою біля активного. Торкніться іншого ресивера, щоб переключитися на нього, або торкніться <b>Керування ресиверами</b> унизу списку, щоб відкрити повну сторінку.</li>
+    </ol>
+    <p class="lead">Кожен ресивер зберігає власні дані на вашому пристрої, тому перемикання одразу завантажує налаштування цього ресивера.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Налаштування &rsaquo; Керування ресиверами &rsaquo; ваш ресивер</div>
+      <h2>Сторінка ресивера</h2>
+      <p class="lead">Торкніться ресивера, щоб відкрити його сторінку. Картка вгорі показує стан підключення та подробиці. Якщо це не активний ресивер, під карткою розташована кнопка <b>Зробити активним</b>, адже обмеження гучності, дисплей і блокування можна змінювати лише на активному ресивері. Якщо він активний, але недосяжний, на сторінці написано "Застосунок зараз не підключено до ресивера."</p>
+    </div>
+
+    <h3 style="margin-top:26px">АУДІО</h3>
+    <p class="lead">Ваші власні параметри для цього ресивера. Кожен ресивер зберігає власні значення. <a href="/uk/guide/volume/">Посібник з гучності &rarr;</a></p>
+    <ul class="plain">
+      <li><b>Крок гучності:</b> наскільки одне натискання змінює гучність, 0.5, 1, 1.5 або 2 dB. Його використовує кожна кнопка гучності в застосунку.</li>
+      <li><b>Показувати абсолютну гучність угорі:</b> змінює, яке число велике у показнику гучності. Вимкнено (за замовчуванням) - велике значення в dB, а шкала гучності мала; увімкнено - велика шкала гучності, а dB мале.</li>
+      <li><b>Відображення гучності на пульті:</b> чи показує вкладка Пульт шкалу dB (<b>Абсолютна (дБ)</b>, наприклад -40.5 dB), чи шкалу 0-98 (<b>Відносна</b>, наприклад 39.5).</li>
+      <li><b>Плавні пресети гучності:</b> увімкнено (за замовчуванням) - торкання пресета гучності змінює гучність невеликими кроками; вимкнено - вона стрибає одразу до збереженого рівня.</li>
+      <li><b>Кнопки гучності пристрою</b> (телефони й планшети): поки застосунок відкритий, власні кнопки гучності пристрою змінюють гучність ресивера. За замовчуванням увімкнено; вимкніть, щоб повернути кнопки пристрою.</li>
+      <li><b>Керування гучністю:</b> обмеження гучності, рівень при ввімкненні та глибина вимкнення звуку, що записуються в сам ресивер. Відображається, поки застосунок підключено до цього ресивера. <a href="/uk/guide/volume/">Посібник з керування гучністю &rarr;</a></li>
+    </ul>
+
+    <h3 style="margin-top:26px">ЕКРАН &amp; БЛОКУВАННЯ</h3>
+    <p class="lead">Відображається для активного ресивера під час підключення.</p>
+    <ul class="plain">
+      <li><b>Екранне меню:</b> показник гучності, інформаційний банер, поточне відтворення та 21:9. <a href="/uk/guide/on-screen-display/">Посібник з екранного меню &rarr;</a></li>
+      <li><b>Setup Lock:</b> блокує власне меню налаштувань ресивера. Поки воно заблоковане, налаштування Audio, Video, Speaker та інші налаштування не можна змінити ніде: ні в меню ресивера, ні в цьому застосунку, ні в його вебпорталі. Повсякденні елементи керування, як-от гучність, вхід і димер, продовжують працювати. Увімкнення спершу питає підтвердження (<b>Заблокувати меню ресивера?</b>, потім <b>Заблокувати</b>); вимкніть перемикач, щоб розблокувати.</li>
+      <li><b>Remote Lock:</b> змушує ресивер ігнорувати натискання кнопок його ІЧ-пульта, доки ви його не розблокуєте. Застосунок і передня панель продовжують працювати.</li>
+    </ul>
+    <div class="note">Setup Lock і Remote Lock з'являються лише тоді, коли ресивер повідомляє їхній стан. Якщо ваш ресивер не повідомляє про блокування, перемикач не показується, а не вгадується. Елемент керування, який в іншому місці застосунку неактивний через Setup Lock, пояснено в розділі <a href="/uk/guide/locked-controls/">Чому елемент керування заблоковано</a>.</div>
+
+    <h3 style="margin-top:26px">ПРО ЦЕЙ РЕСИВЕР</h3>
+    <ul class="plain">
+      <li><b>Інформація про пристрій:</b> детальний стан ресивера.</li>
+      <li><b>Прошивка:</b> встановлена версія прошивки. Торкніться <b>Перевірити</b>, щоб запитати ресивер, чи є оновлення. Рядок під цим повідомляє, що у вас остання прошивка, що оновлення доступне, що оновлення виконується або що стан не вдалося зчитати. Оновлення встановлюється з власного меню Setup ресивера, а не із застосунку; не вимикайте живлення ресивера під час оновлення.</li>
+    </ul>
+
+    <h3 style="margin-top:26px">КЕРУВАННЯ</h3>
+    <ul class="plain">
+      <li><b>Перейменувати:</b> введіть нову назву в <b>Назва пристрою</b> і торкніться <b>Зберегти</b>. Назва зберігається лише в застосунку.</li>
+      <li><b>Змінити IP:</b> введіть нову <b>IP-адресу або ім'я хоста</b> і торкніться <b>Зберегти</b>, наприклад після того, як маршрутизатор видав нову адресу. Усі збережені налаштування ресивера зберігаються; змінюється лише адреса. Адресу, яку вже використовує інший з ваших ресиверів, буде відхилено.</li>
+      <li><b>Знайти мій ресивер:</b> шукає в мережі нову адресу цього ресивера. Якщо він знаходить ваш ресивер в іншому місці, торкніться <b>Використати цю адресу</b>. Він повідомляє, коли збережена адреса вже правильна, коли ніхто не відповів і коли вашими можуть бути кілька ресиверів, і тоді нічого не змінює, а ви користуєтеся Змінити IP.</li>
+      <li><b>Видалити:</b> запитує <b>Видалити ресивер?</b>, а потім вилучає ресивер і всі його збережені налаштування із застосунку. Видалення активного ресивера перемикає застосунок на інший.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">Ресивер не потрібен</div>
+        <h2>Демо-режим: вхід і вихід</h2>
+        <p>Демо-режим запускає у застосунку змодельований Marantz CINEMA 30. Кожен екран працює так само, як із реальним обладнанням, і нічого не надсилається вашою мережею.</p>
+        <ol class="steps">
+          <li><b>Запустіть його</b> з <i>Налаштування &rsaquo; Керування ресиверами &rsaquo; Спробувати демо-режим</i>, через <b>Спробувати демо-режим</b> на екрані додавання ресивера або через <b>Спробувати натомість демо</b> у вітальному посібнику. Демонстраційний ресивер стає активним, і застосунок відкриває Головну.</li>
+          <li><b>Перегляд Pro.</b> Поки демо працює, Налаштування показують розділ <b>ДЕМО-РЕЖИМ</b>. Його перемикач <b>Переглянути функції Pro</b> розблоковує розумний дім і тригери лише для цього демонстраційного сеансу. Нічого не купується.</li>
+          <li><b>Вийдіть</b> через <i>Налаштування &rsaquo; Вийти з демо-режиму</i>. Демонстраційний ресивер видаляється, і застосунок повертається до вашого власного ресивера.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Поширені запитання</div>
+      <h2>Ресивери: відповіді</h2>
+    </div>
+    <details open><summary>Як переключитися на інший ресивер?</summary><div class="body">На вкладці Головна торкніться назви ресивера поруч з AVR Maestro угорі й виберіть інший ресивер зі списку. Також можна відкрити Налаштування &rsaquo; Керування ресиверами та торкнутися кружка на початку рядка ресивера. Застосунок підтверджує це повідомленням Перемкнено на та назвою ресивера.</div></details>
+    <details><summary>Мій ресивер отримав нову IP-адресу. Що робити?</summary><div class="body">Зазвичай нічого: коли маршрутизатор змінює адресу ресивера, застосунок знаходить його знову й один раз повідомляє, що пішов за ним. Якщо не вдається, відкрийте Налаштування &rsaquo; Керування ресиверами, торкніться ресивера та скористайтеся Знайти мій ресивер, щоб пошукати в мережі, або Змінити IP, щоб ввести нову адресу самостійно. Усі збережені налаштування ресивера зберігаються; змінюється лише адреса.</div></details>
+    <details><summary>Чому я не бачу Екран &amp; блокування або Про цей ресивер?</summary><div class="body">Ці розділи читають і записують дані ресивера наживо, тому з'являються лише для активного ресивера, поки застосунок підключено до нього. Зробіть ресивер активним кнопкою Зробити активним і зачекайте, поки він підключиться.</div></details>
+    <details><summary>Яка різниця між Setup Lock і Remote Lock?</summary><div class="body">Setup Lock блокує власне меню налаштувань ресивера, тож його налаштування та калібрування ніхто не може змінити, зокрема й цей застосунок, доки ви його не розблокуєте. Гучність і вхід продовжують працювати. Remote Lock змушує ресивер ігнорувати його ІЧ-пульт; застосунок і передня панель продовжують працювати. Кожен перемикач з'являється лише тоді, коли ваш ресивер повідомляє про це блокування.</div></details>
+    <details><summary>Що відбувається, коли я видаляю ресивер?</summary><div class="body">Застосунок видаляє ресивер і всі збережені для нього налаштування. Якщо це був активний ресивер, застосунок перемикається на інший. На самому ресивері нічого не змінюється, і ви можете додати його знову будь-коли.</div></details>
+    <details><summary>Чи можна спробувати застосунок без ресивера?</summary><div class="body">Так. Торкніться Спробувати демо-режим у Налаштування &rsaquo; Керування ресиверами або Спробувати демо-режим на екрані додавання ресивера. Демо-режим запускає у застосунку змодельований Marantz CINEMA 30 і нічого не надсилає вашою мережею. Вийти можна через Налаштування &rsaquo; Вийти з демо-режиму.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Більше з посібника</div>
+      <h2>Інші посібники AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/uk/guide/getting-started/">Початок роботи</a> &middot; <a href="/uk/guide/navigation/">Навігація застосунком</a> &middot; <a href="/uk/guide/search/">Пошук</a> &middot; <a href="/uk/guide/home/">Головний екран</a> &middot; <a href="/uk/guide/volume/">Керування гучністю</a> &middot; <a href="/uk/guide/remote/">Пульт</a> &middot; <a href="/uk/guide/multi-zone/">Зони</a> &middot; <a href="/uk/guide/now-playing/">Поточне відтворення &amp; HEOS</a> &middot; <a href="/uk/guide/radio/">Радіо (FM/AM)</a> &middot; <a href="/uk/guide/scenes/">Сцени</a> &middot; <a href="/uk/guide/sound/">Звук</a> &middot; <a href="/uk/guide/graphic-eq/">Графічний еквалайзер</a> &middot; <a href="/uk/guide/speakers/">Акустика</a> &middot; <a href="/uk/guide/locked-controls/">Чому елемент керування заблоковано</a> &middot; <a href="/uk/guide/settings/">Налаштування</a> &middot; <a href="/uk/guide/widgets/">Віджети</a> &middot; <a href="/uk/guide/custom-icons/">Власні піктограми</a> &middot; <a href="/uk/guide/on-screen-display/">Екранне меню</a> &middot; <a href="/uk/guide/languages/">Мови</a> &middot; <a href="/uk/guide/assistant/">Асистент</a> &middot; <a href="/uk/guide/home-automation/">Розумний дім</a> &middot; <a href="/uk/guide/home-assistant-dashboard/">Панель Home Assistant</a> &middot; <a href="/uk/guide/backup/">Резервне копіювання &amp; відновлення</a> &middot; <a href="/uk/guide/glossary/">Глосарій</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/uk/">Головна</a>
+      <a href="/uk/guide/">Посібник користувача</a>
+      <a href="/uk/guide/getting-started/">Початок роботи</a>
+      <a href="/uk/receivers/">Ресивери</a>
+      <a href="/uk/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/uk/audyssey-vs-dirac/">Audyssey і Dirac</a>
+      <a href="/uk/best-denon-marantz-app/">Чому варто перейти</a>
+      <a href="/uk/help/">Допомога</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro&amp;referrer=utm_source%3Davrmaestro.com%26utm_medium%3Dguide-receivers">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro є незалежним застосунком від MiyaraHub Technologies LLC і не пов'язаний з Denon, Marantz, Sound United, Masimo Corporation чи будь-якою іншою компанією, згаданою на цій сторінці, та не схвалений ними. Denon, Marantz і Audyssey є торговельними марками відповідних власників і використовуються тут лише для ідентифікації.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

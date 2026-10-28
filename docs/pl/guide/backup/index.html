@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="apple-itunes-app" content="app-id=6762881597" />
 <title>Kopia zapasowa &amp; przywracanie ustawień na nowym telefonie - AVR Maestro</title>
-<meta name="description" content="Wyeksportuj wszystkie ustawienia AVR Maestro do jednego pliku: amplitunery, nazwy i ikony wejść, Sceny, motyw i preferencje głośności. Przywróć je na nowym telefonie kilkoma dotknięciami." />
+<meta name="description" content="Wyeksportuj konfigurację AVR Maestro do jednego pliku .zip: amplitunery, Sceny, własne ikony, kolejność wejść, motyw i ustawienia głośności. Przywróć ją na nowym telefonie w kilku stuknięciach." />
 <meta name="keywords" content="AVR Maestro backup, transfer AVR app settings new phone, export receiver settings app, restore Denon app config, AVR Maestro migrate device" />
 <meta name="author" content="MiyaraHub Technologies LLC" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -77,7 +77,7 @@
 <meta property="og:locale:alternate" content="zh_CN" />
 <meta property="og:locale:alternate" content="zh_TW" />
 <meta property="og:title" content="Kopia zapasowa &amp; przywracanie ustawień na nowym telefonie - AVR Maestro" />
-<meta property="og:description" content="Wyeksportuj wszystkie ustawienia AVR Maestro do jednego pliku: amplitunery, nazwy i ikony wejść, Sceny, motyw i preferencje głośności. Przywróć je na nowym telefonie kilkoma dotknięciami." />
+<meta property="og:description" content="Wyeksportuj konfigurację AVR Maestro do jednego pliku .zip: amplitunery, Sceny, własne ikony, kolejność wejść, motyw i ustawienia głośności. Przywróć ją na nowym telefonie w kilku stuknięciach." />
 <meta property="og:url" content="https://avrmaestro.com/pl/guide/backup/" />
 <meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
 <meta property="og:image:type" content="image/png" />
@@ -86,7 +86,7 @@
 <meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Kopia zapasowa &amp; przywracanie ustawień na nowym telefonie - AVR Maestro" />
-<meta name="twitter:description" content="Wyeksportuj wszystkie ustawienia AVR Maestro do jednego pliku: amplitunery, nazwy i ikony wejść, Sceny, motyw i preferencje głośności. Przywróć je na nowym telefonie kilkoma dotknięciami." />
+<meta name="twitter:description" content="Wyeksportuj konfigurację AVR Maestro do jednego pliku .zip: amplitunery, Sceny, własne ikony, kolejność wejść, motyw i ustawienia głośności. Przywróć ją na nowym telefonie w kilku stuknięciach." />
 <meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
 <meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
 <link rel="icon" href="/assets/favicon.ico" sizes="any" />
@@ -129,10 +129,10 @@
       "@type": "TechArticle",
       "@id": "https://avrmaestro.com/guide/backup/#article",
       "headline": "Kopia zapasowa & przywracanie: cała Twoja konfiguracja w jednym pliku",
-      "description": "Wyeksportuj wszystkie ustawienia AVR Maestro do jednego pliku: amplitunery, nazwy i ikony wejść, Sceny, motyw i preferencje głośności. Przywróć je na nowym telefonie kilkoma dotknięciami.",
+      "description": "Wyeksportuj konfigurację AVR Maestro do jednego pliku .zip: amplitunery, Sceny, własne ikony, kolejność wejść, motyw i ustawienia głośności. Przywróć ją na nowym telefonie w kilku stuknięciach.",
       "image": "https://avrmaestro.com/screenshots/backup-restore.png",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -162,7 +162,7 @@
       "name": "Czy mogę przenieść kopię zapasową między Androidem a iPhonem?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Plik to zwykły JSON i nie jest związany z urządzeniem, które go utworzyło. Wyeksportuj go na jednym, przenieś plik na drugie urządzenie i zaimportuj."
+        "text": "Tak. Kopia zapasowa to plik .zip niezwiązany z urządzeniem, które go zapisało. Wyeksportuj z jednego, przenieś plik na drugie i zaimportuj."
       }
     },
     {
@@ -178,7 +178,15 @@
       "name": "Czy moje Sceny też się przenoszą?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Tak, razem z informacją, które ustawienia miała przechwytywać każda Scena. Zobacz przewodnik po Scenach."
+        "text": "Tak, razem z ustawieniami zapisanymi w każdej Scenie i jej własną ikoną. Zobacz przewodnik po Scenach."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Dlaczego przed przywróceniem powinienem zamknąć aplikację na innych urządzeniach?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Jeśli inny telefon lub tablet ma otwartą aplikację AVR Maestro połączoną z tym samym amplitunerem, podczas przywracania dwa urządzenia mogą rozmawiać z amplitunerem jednocześnie. Może to spowodować konflikt połączeń, który zawiesza firmware amplitunera. Zamknij aplikację na drugim urządzeniu, przywróć kopię, a potem wymuś zamknięcie i ponownie otwórz AVR Maestro na tym."
       }
     },
     {
@@ -251,12 +259,12 @@
       <div>
         <div class="eyebrow">Eksport</div>
         <h2>Zapisz na urządzeniu lub udostępnij od razu</h2>
-        <p class="lead">Otwórz <b>Ustawienia</b>, przewiń do <b>Kopia zapasowa &amp; przywracanie</b> i wybierz:</p>
-        <ul class="plain">
-          <li><b>Zapisz na urządzeniu</b> - zapisuje pojedynczy plik JSON w wybranym miejscu.</li>
-          <li><b>Udostępnij</b> - przekazuje plik do zwykłego menu udostępniania, więc może trafić prosto na drugi telefon, na dysk w chmurze lub w wiadomości do samego siebie.</li>
-        </ul>
-        <p class="lead">To zwykły plik tekstowy. Nic w nim nie jest zablokowane na urządzeniu, z którego pochodzi.</p>
+        <ol class="steps">
+          <li>Otwórz <b>Ustawienia</b> i przewiń do <b>Kopia zapasowa i informacje</b>.</li>
+          <li>Stuknij <b>Kopia zapasowa i przywracanie</b>.</li>
+          <li>W sekcji <b>Eksport</b> stuknij <b>Zapisz na urządzeniu</b>, by wybrać folder dla pliku, lub <b>Udostępnij</b>, by wysłać go przez menu udostępniania prosto na drugi telefon, do chmury albo w wiadomości do siebie.</li>
+        </ol>
+        <p class="lead">Kopia zapasowa to pojedynczy plik <b>.zip</b> o nazwie w rodzaju <b>avr-maestro-backup-</b> z datą i godziną na końcu. W środku są Twoje ustawienia i obrazy wybrane na własne ikony. Nic w nim nie jest związane z urządzeniem, z którego pochodzi.</p>
       </div>
       <img alt="Strona kopii zapasowej i przywracania z eksportem i importem" src="/screenshots/backup-restore.png" width="1324" height="2644" decoding="async" />
     </div>
@@ -272,16 +280,18 @@
     <table class="t">
       <thead><tr><th>Zawarte</th><th>Znaczenie</th></tr></thead>
       <tbody>
-        <tr><td>Skonfigurowane amplitunery</td><td>Każde dodane urządzenie wraz z adresem i ustawieniami</td></tr>
-        <tr><td>Kolejność źródeł dla każdego urządzenia</td><td>Kolejność, w jakiej ułożyłeś wejścia, zapamiętana osobno dla każdego amplitunera</td></tr>
-        <tr><td>Motyw i Motyw kolorystyczny</td><td>Twój kolor akcentu i wybory dotyczące wyglądu</td></tr>
-        <tr><td>Skala ekranu i widżetów</td><td>Rozmiar tekstu i widżetów</td></tr>
-        <tr><td>Preferencje głośności</td><td>Zachowanie głośności po stronie aplikacji</td></tr>
-        <tr><td>Stan kart z wyjaśnieniami</td><td>Które banery informacyjne zostały zamknięte, aby pozostały zamknięte</td></tr>
-        <tr><td>Zapamiętane wyniki sondowania</td><td>Wyniki sondowania możliwości HEOS, funkcji i muzyki, dzięki czemu nowy telefon nie zaczyna od zera</td></tr>
+        <tr><td>Twoje amplitunery</td><td>Każdy dodany amplituner wraz z adresem oraz informacja, który był wybrany</td></tr>
+        <tr><td>Sceny</td><td>Każda Scena dla każdego amplitunera, wraz z zapisanymi ustawieniami, ikoną i kolorem</td></tr>
+        <tr><td>Własne ikony</td><td>Obrazy wybrane dla wejść i Scen, wraz z ich kształtami</td></tr>
+        <tr><td>Kolejność wejść</td><td>Kolejność, w jakiej ułożyłeś wejścia, zapamiętana osobno dla każdego amplitunera</td></tr>
+        <tr><td>Nazwy slotów i ustawień wstępnych</td><td>Nazwy wpisane dla slotów Smart Select / Quick Select i stacji tunera</td></tr>
+        <tr><td>Ustawienia dźwięku dla każdego amplitunera</td><td>Krok głośności, wybory wyświetlania głośności, stopniowe ustawienia wstępne głośności, przyciski głośności urządzenia i Twoje szybkie ustawienia głośności</td></tr>
+        <tr><td>Wygląd i układ</td><td>Motyw i kolor akcentu, język, rozmiar tekstu i widżetów, kolory widżetów, układ strony głównej, nawigacja i ukryte karty</td></tr>
+        <tr><td>Karty z wyjaśnieniami</td><td>Które karty informacyjne odrzuciłeś, aby pozostały odrzucone</td></tr>
+        <tr><td>Zapamiętane sprawdzenia amplitunera</td><td>To, czego aplikacja już dowiedziała się o każdym amplitunerze (HEOS i sprawdzenia funkcji), aby nowy telefon nie zaczynał od zera</td></tr>
       </tbody>
     </table>
-    <div class="note">Własne nazwy wejść i grafiki są częścią konfiguracji amplitunera, więc przenoszą się razem z nią. Zobacz <a href="/pl/guide/custom-icons/">przewodnik po własnych ikonach</a>.</div>
+    <div class="note"><b>Nie jest uwzględnione:</b> ustawienia połączenia z Home Assistant i Hubitat. Skonfiguruj <a href="/pl/guide/home-automation/">Automatykę domową</a> ponownie na nowym urządzeniu; Twoje istniejące skrypty Scen zachowują identyfikatory, więc automatyzacje, które na nie wskazują, nadal działają. Nazwy wejść, które zmieniłeś, są przechowywane w samym amplitunerze, więc pojawią się, gdy tylko nowe urządzenie się połączy.</div>
   </div>
 </section>
 
@@ -291,13 +301,15 @@
       <div class="eyebrow">Import</div>
       <h2>Przywracanie na nowym telefonie</h2>
     </div>
-    <ol class="plain">
+    <div class="note"><b>Zanim przywrócisz:</b> jeśli AVR Maestro jest otwarty na innym telefonie lub tablecie połączonym z tym samym amplitunerem, najpierw zamknij go tam. Dwa urządzenia rozmawiające z tym samym amplitunerem w chwili przywracania mogą spowodować konflikt połączeń, który zawiesza firmware amplitunera. Aplikacja również Cię o tym ostrzega.</div>
+    <ol class="steps">
       <li>Zainstaluj AVR Maestro na nowym urządzeniu i upewnij się, że jest w tej samej sieci co Twój amplituner.</li>
       <li>Otwórz <b>Ustawienia &rsaquo; Kopia zapasowa &amp; przywracanie</b>.</li>
-      <li>Dotknij <b>Importuj ustawienia z pliku</b> i wybierz kopię zapasową.</li>
-      <li><b>Uruchom aplikację ponownie.</b> Aplikacja również o tym przypomni - dopiero restart sprawia, że wszystkie przywrócone ustawienia zaczynają działać prawidłowo.</li>
+      <li>W sekcji <b>Import</b> stuknij <b>Importuj ustawienia z pliku</b> i wybierz kopię zapasową (.zip lub plik .json ze starszej wersji aplikacji).</li>
+      <li>Sprawdź podsumowanie w <b>Zastąpić wszystkie ustawienia?</b>: ile zawiera wpisów, wersję aplikacji i kiedy został wyeksportowany. Stuknij <b>Zastąp</b>.</li>
+      <li>Gdy zobaczysz <b>Kopia zapasowa przywrócona</b>, stuknij <b>Got it</b>, a potem <b>wymuś zamknięcie AVR Maestro i otwórz go ponownie</b>, aby każdy ekran wczytał przywrócone ustawienia.</li>
     </ol>
-    <div class="note"><b>Import zastępuje, a nie scala.</b> Wszystko, co jest na tym urządzeniu, zostanie nadpisane zawartością kopii zapasowej. Jeśli obecna konfiguracja jest dla Ciebie coś warta, najpierw ją wyeksportuj - to dwa dotknięcia.</div>
+    <div class="note"><b>Import zastępuje, a nie scala.</b> Wszystko, co jest na tym urządzeniu, zostaje usunięte i zastąpione zawartością kopii zapasowej, a tego nie można cofnąć. Jeśli obecna konfiguracja ma dla Ciebie jakąkolwiek wartość, najpierw ją wyeksportuj.</div>
   </div>
 </section>
 
@@ -318,9 +330,10 @@
       <div class="eyebrow">Częste pytania</div>
       <h2>Kopia zapasowa - FAQ</h2>
     </div>
-    <details open><summary>Czy mogę przenieść kopię zapasową między Androidem a iPhonem?</summary><div class="body">Plik to zwykły JSON i nie jest związany z urządzeniem, które go utworzyło. Wyeksportuj go na jednym, przenieś plik na drugie urządzenie i zaimportuj.</div></details>
+    <details open><summary>Czy mogę przenieść kopię zapasową między Androidem a iPhonem?</summary><div class="body">Tak. Kopia zapasowa to plik .zip niezwiązany z urządzeniem, które go zapisało. Wyeksportuj z jednego, przenieś plik na drugie i zaimportuj.</div></details>
     <details><summary>Czy import nadpisze kalibrację mojego amplitunera?</summary><div class="body">Nie. Kopia zapasowa zawiera wyłącznie ustawienia aplikacji. Wszystko, co przechowuje sam amplituner - kalibracja, presety, poziomy, odległości, filtry Dirac - pozostaje w amplitunerze i nie jest ruszane.</div></details>
-    <details><summary>Czy moje Sceny też się przenoszą?</summary><div class="body">Tak, razem z informacją, które ustawienia miała przechwytywać każda Scena. Zobacz <a href="/pl/guide/scenes/">przewodnik po Scenach</a>.</div></details>
+    <details><summary>Czy moje Sceny też się przenoszą?</summary><div class="body">Tak, razem z ustawieniami zapisanymi w każdej Scenie i jej własną ikoną. Zobacz <a href="/pl/guide/scenes/">przewodnik po Scenach</a>.</div></details>
+    <details><summary>Dlaczego przed przywróceniem powinienem zamknąć aplikację na innych urządzeniach?</summary><div class="body">Jeśli inny telefon lub tablet ma otwartą aplikację AVR Maestro połączoną z tym samym amplitunerem, podczas przywracania dwa urządzenia mogą rozmawiać z amplitunerem jednocześnie. Może to spowodować konflikt połączeń, który zawiesza firmware amplitunera. Zamknij aplikację na drugim urządzeniu, przywróć kopię, a potem wymuś zamknięcie i ponownie otwórz AVR Maestro na tym.</div></details>
     <details><summary>Gdzie Zapisz na urządzeniu umieszcza plik?</summary><div class="body">Tam, gdzie wskażesz w systemowym selektorze plików. Udostępnij to szybsza droga, jeśli plik tylko przechodzi przez to urządzenie w drodze na inny telefon.</div></details>
   </div>
 </section>
@@ -331,7 +344,7 @@
       <div class="eyebrow">Więcej z przewodnika</div>
       <h2>Inne przewodniki AVR Maestro</h2>
     </div>
-    <p class="lead"><a href="/pl/guide/getting-started/">Pierwsze kroki</a> &middot; <a href="/pl/guide/home/">Ekran główny</a> &middot; <a href="/pl/guide/scenes/">Sceny</a> &middot; <a href="/pl/guide/custom-icons/">Własne ikony</a> &middot; <a href="/pl/guide/sound/">Dźwięk</a> &middot; <a href="/pl/guide/graphic-eq/">Korektor graficzny</a> &middot; <a href="/pl/guide/speakers/">Głośniki</a> &middot; <a href="/pl/guide/locked-controls/">Dlaczego element jest zablokowany</a> &middot; <a href="/pl/guide/assistant/">Asystent</a> &middot; <a href="/pl/guide/home-automation/">Automatyka domowa</a> &middot; <a href="/pl/guide/home-assistant-dashboard/">Panel Home Assistant</a> &middot; <a href="/pl/guide/multi-zone/">Strefy</a> &middot; <a href="/pl/guide/remote/">Pilot</a> &middot; <a href="/pl/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/pl/guide/on-screen-display/">Wyświetlacz ekranowy</a> &middot; <a href="/pl/guide/settings/">Ustawienia</a> &middot; <a href="/pl/guide/languages/">Języki</a> &middot; <a href="/pl/guide/volume/">Sterowanie głośnością</a> &middot; <a href="/pl/guide/now-playing/">Teraz odtwarzane &amp; HEOS</a></p>
+    <p class="lead"><a href="/pl/guide/getting-started/">Pierwsze kroki</a> &middot; <a href="/pl/guide/receivers/">Zarządzanie amplitunerami</a> &middot; <a href="/pl/guide/navigation/">Nawigacja po aplikacji</a> &middot; <a href="/pl/guide/search/">Wyszukiwanie</a> &middot; <a href="/pl/guide/home/">Ekran główny</a> &middot; <a href="/pl/guide/volume/">Sterowanie głośnością</a> &middot; <a href="/pl/guide/remote/">Pilot</a> &middot; <a href="/pl/guide/multi-zone/">Strefy</a> &middot; <a href="/pl/guide/now-playing/">Teraz odtwarzane i HEOS</a> &middot; <a href="/pl/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/pl/guide/scenes/">Sceny</a> &middot; <a href="/pl/guide/sound/">Dźwięk</a> &middot; <a href="/pl/guide/graphic-eq/">Korektor graficzny</a> &middot; <a href="/pl/guide/speakers/">Głośniki</a> &middot; <a href="/pl/guide/locked-controls/">Dlaczego kontrolka jest zablokowana</a> &middot; <a href="/pl/guide/settings/">Ustawienia</a> &middot; <a href="/pl/guide/widgets/">Widżety</a> &middot; <a href="/pl/guide/custom-icons/">Własne ikony</a> &middot; <a href="/pl/guide/on-screen-display/">Wyświetlacz ekranowy</a> &middot; <a href="/pl/guide/languages/">Języki</a> &middot; <a href="/pl/guide/assistant/">Asystent</a> &middot; <a href="/pl/guide/home-automation/">Automatyka domowa</a> &middot; <a href="/pl/guide/home-assistant-dashboard/">Pulpit Home Assistant</a> &middot; <a href="/pl/guide/glossary/">Słownik</a></p>
   </div>
 </section>
 
@@ -367,7 +380,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro to niezależna aplikacja firmy MiyaraHub Technologies LLC i nie jest powiązana z Denon, Marantz, Sound United, Masimo Corporation ani żadną inną firmą wymienioną na tej stronie, ani przez nie zatwierdzona. Denon, Marantz, HEOS, Audyssey i Dirac Live są znakami towarowymi swoich właścicieli, użytymi tutaj wyłącznie w celach identyfikacyjnych.</p>
+    <p class="legal">AVR Maestro to niezależna aplikacja firmy MiyaraHub Technologies LLC i nie jest powiązana z firmami Denon, Marantz, Sound United, Masimo Corporation ani żadną inną firmą wymienioną na tej stronie, ani przez nie popierana. Denon, Marantz, HEOS, Audyssey i Dirac Live są znakami towarowymi ich właścicieli, użytymi tu wyłącznie w celach identyfikacyjnych.</p>
   </div>
 </footer>
 

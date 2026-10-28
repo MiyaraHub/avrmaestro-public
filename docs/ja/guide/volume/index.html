@@ -132,7 +132,7 @@
       "description": "DenonやMarantzに音量制限を設定し、電源オン時の音量を選び、ミュートでどこまで下げるかを決め、音量を0～98またはデシベルで表示できます。",
       "image": "https://avrmaestro.com/screenshots/volume-controls.png",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -186,7 +186,7 @@
       "name": "スマートフォンの音量ボタンを使えますか?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "はい、AndroidでもiPhoneでも使えます。AVR Maestroが前面にある間は、デバイスの音量ボタンでレシーバーを直接操作でき、1回押すごとに1ステップ、押し続けるとランプ状に変化します。設定のオーディオにあるスイッチで、ボタンをデバイスに戻すこともできます。"
+        "text": "はい。AndroidとiPhoneで使えます。AVR Maestroが前面にある間は、デバイスの音量ボタンでレシーバーを直接操作でき、1回押すごとに1ステップ、押し続けると連続して変化します。デフォルトでオンで、スイッチはレシーバーごとです: 設定 › レシーバーを管理 › お使いのレシーバー › オーディオ › デバイスの音量ボタン。オフにすると、ボタンはデバイスに戻ります。"
       }
     }
   ]
@@ -239,7 +239,7 @@
 <div class="hero">
   <div class="wrap">
     <div class="crumb"><a href="/ja/">ホーム</a> &rsaquo; <a href="/ja/guide/">ユーザーガイド</a> &rsaquo; 音量コントロール</div>
-    <div class="eyebrow">設定 &rsaquo; 音量コントロール</div>
+    <div class="eyebrow">設定 &rsaquo; レシーバーを管理 &rsaquo; お使いのレシーバー &rsaquo; 音量コントロール</div>
     <h1>音量コントロール：上限、起動時の音量、そして<span class="g">思いどおりのミュート</span></h1>
     <p>レシーバーが出せる最大音量、起動時の動作、ミュートでどこまで下げるかを決める4つの設定です。これらはレシーバー側に保存されるため、アプリ、物理リモコン、フロントパネルのどれで操作しても有効です。</p>
   </div>
@@ -251,7 +251,7 @@
       <div>
         <div class="eyebrow">設定の場所</div>
         <h2>設定 &rsaquo; レシーバーを管理 &rsaquo; お使いのレシーバー &rsaquo; 音量コントロール</h2>
-        <p class="lead"><b>設定</b>を開き、<b>レシーバーを管理</b>をタップし、お使いのレシーバーをタップして<b>音量コントロール</b>までスクロールしてください(「音量制限、電源オン時の音量、ミュート深度」)。このページの内容はすべてレシーバーに直接書き込まれるため、アプリを閉じても保持され、あらゆる操作方法に適用されます。</p>
+        <p class="lead"><b>設定</b>を開き、<b>レシーバーを管理</b>をタップし、お使いのレシーバーをタップして、<b>音量コントロール</b>(「音量制限、電源オン時のレベル、ミュートの深さ」)までスクロールします。このページのすべての設定は、レシーバーに直接書き込まれるので、アプリを閉じても維持され、レシーバーを操作するあらゆる方法に適用されます。</p>
       </div>
       <img alt="音量スケール、制限、電源オン時の音量、ミュートレベルを備えた音量コントロールページ" src="/screenshots/volume-controls.png" width="1324" height="2644" decoding="async" />
     </div>
@@ -301,13 +301,31 @@
 <section>
   <div class="wrap">
     <div class="section-head">
+      <div class="eyebrow">設定 &rsaquo; レシーバーを管理 &rsaquo; お使いのレシーバー &rsaquo; オーディオ</div>
+      <h2>アプリが音量を扱う方法(レシーバーごと)</h2>
+    </div>
+    <p class="lead">音量コントロールの上に、レシーバーのページの<b>オーディオ</b>セクションがあります。これらの設定はレシーバーではなくアプリに保存され、レシーバーごとに独自の値を保持します。変更したいレシーバーで開いてください。アクティブでないレシーバーでは、先にアクティブにするよう求められます。</p>
+    <ul class="plain">
+      <li><b>音量ステップ:</b>プラスまたはマイナスを1回タップしたときの変化量です。0.5、1、1.5、2 dBから選べ、デフォルトは0.5 dBです。</li>
+      <li><b>絶対音量を上に表示:</b>オフでは、大きい数値がdBで小さい数値が音量スケールです。オンでは、その逆になります。</li>
+      <li><b>リモコンの音量表示:</b>リモコンタブで音量を<b>絶対値(dB)</b>(デフォルト)で表示するか、<b>相対値</b>(0から98)で表示するか。</li>
+      <li><b>音量プリセットを緩やかに変化:</b>デフォルトでオンです。音量プリセットをタップすると、保存したレベルへ直接切り替わらず、小刻みなステップで上下に変化します。</li>
+      <li><b>デバイスの音量ボタン</b>(スマートフォンとタブレット): デフォルトでオンです。アプリを開いている間は、デバイスの音量ボタンでレシーバーの音量を変更でき、オフにすると、デバイス自身の音量が変わります。</li>
+    </ul>
+    <p class="lead"><a href="/ja/guide/receivers/">レシーバーのガイド &rarr;</a></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
       <div class="eyebrow">よくある質問</div>
       <h2>音量のよくある質問</h2>
     </div>
     <details open><summary>音量制限は物理リモコンにも適用されますか?</summary><div class="body">はい。この制限はアプリの設定ではなくレシーバーの設定なので、アプリ、付属のリモコン、フロントパネルのダイヤル、ネットワーク上のその他のコントローラーなど、すべての操作経路に適用されます。</div></details>
     <details><summary>これらの設定はZone 2とZone 3にも適用されますか?</summary><div class="body">音量コントロールの対象はメインゾーンです。各ゾーンには、それぞれ独自の音量、電源、入力があり、ゾーンタブで操作します。</div></details>
     <details><summary>レビューではデシベルで書かれているのに、アプリが0～98と表示するのはなぜですか?</summary><div class="body">同じダイヤルを別の見方で表示しているだけです。音量スケールを-79.5～18.0 dBに切り替えると、0.0 dBがリファレンスとなる、キャリブレーションレベルの一般的な表記と同じ表示になります。</div></details>
-    <details><summary>スマートフォンの音量ボタンを使えますか?</summary><div class="body">はい、AndroidでもiPhoneでも使えます。AVR Maestroが前面にある間は、デバイスの音量ボタンでレシーバーを直接操作でき、1回押すごとに1ステップ、押し続けるとランプ状に変化します。設定のオーディオにあるスイッチで、ボタンをデバイスに戻すこともできます。</div></details>
+    <details><summary>スマートフォンの音量ボタンを使えますか?</summary><div class="body">はい。AndroidとiPhoneで使えます。AVR Maestroが前面にある間は、デバイスの音量ボタンでレシーバーを直接操作でき、1回押すごとに1ステップ、押し続けると連続して変化します。デフォルトでオンで、スイッチはレシーバーごとです: <i>設定 &rsaquo; レシーバーを管理 &rsaquo; お使いのレシーバー &rsaquo; オーディオ &rsaquo; デバイスの音量ボタン</i>。オフにすると、ボタンはデバイスに戻ります。</div></details>
   </div>
 </section>
 
@@ -353,7 +371,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestroは、MiyaraHub Technologies LLCが提供する独立したアプリであり、Denon、Marantz、Sound United、Masimo Corporation、およびこのページに記載されたその他の企業と提携、承認の関係にはありません。Denon、Marantz、HEOS、Audyssey、Dirac Liveは、それぞれの所有者の商標であり、ここでは識別の目的でのみ使用しています。</p>
+    <p class="legal">AVR Maestroは、MiyaraHub Technologies LLCが提供する独立したアプリであり、Denon、Marantz、Sound United、Masimo Corporation、およびこのページに記載されているその他の企業とは提携しておらず、各社から承認も受けていません。Denon、Marantz、HEOS、Audyssey、Dirac Liveは、それぞれの所有者の商標であり、ここでは識別のためにのみ使用しています。</p>
   </div>
 </footer>
 

@@ -6,7 +6,7 @@
 <meta name="apple-itunes-app" content="app-id=6762881597" />
 <title>Controle a Zona 2 &amp; a Zona 3 pelo celular - AVR Maestro</title>
 <meta name="description" content="Controle a Zona 2 e a Zona 3 em receptores Denon e Marantz: energia, entrada, volume, mudo, Smart Select / Quick Select e reprodução atual. Baixe o AVR Maestro." />
-<meta name="keywords" content="multi-zone receiver control app, Zone 2 control app, Zone 3 control app, Denon multi-zone app, Marantz multi-zone, whole house audio receiver app, second zone control, zone quick select, zone smart select, rename zones Denon Marantz" />
+<meta name="keywords" content="multi-zone receiver control app, Zone 2 control app, Zone 3 control app, Denon multi-zone app, Marantz multi-zone, whole house audio receiver app, second zone control, zone quick select, zone smart select, rename zones Denon Marantz, zone setup readout, Zone 2 volume limit" />
 <meta name="author" content="MiyaraHub Technologies LLC" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="theme-color" content="#ff6e40" />
@@ -132,7 +132,7 @@
       "description": "Controle a Zona 2 e a Zona 3 em receptores Denon e Marantz: energia, entrada, volume, mudo, Smart Select / Quick Select e reprodução atual. Baixe o AVR Maestro.",
       "image": "https://avrmaestro.com/screenshots/zones.png",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -187,6 +187,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Sim - quando uma zona está ligada, o cartão dela mostra o fluxo HEOS de reprodução atual dessa zona, com controles de reprodução."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por que não posso alterar os valores de Zone Setup no app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O bloco Zone Setup em receptores mais antigos (como a classe SR7015 e X4500H) é uma leitura da configuração de zonas do próprio receptor. Altere essas configurações no próprio receptor, no menu de configuração; o cartão mostra os novos valores na próxima vez que os ler."
       }
     },
     {
@@ -265,7 +273,7 @@
     </div>
     <div class="grid">
       <div class="gcard"><div class="ic">&#128268;</div><h3>Energia independente</h3><p>Ligue e desligue a Zona 2 ou a Zona 3 sem mexer na zona principal.</p></div>
-      <div class="gcard"><div class="ic">&#127925;</div><h3>Fonte &amp; volume próprios</h3><p>Uma entrada e um volume diferentes por zona, com chips de predefinição de volume rápido - as predefinições sobem e descem suavemente por padrão (Configurações, Áudio: Gradual / Direto).</p></div>
+      <div class="gcard"><div class="ic">&#127925;</div><h3>Fonte &amp; volume próprios</h3><p>Uma entrada e um volume diferentes por zona, com chips de predefinição de volume rápido - as predefinições variam de forma suave por padrão (<b>Predefinições de volume gradual</b> em <b>Configurações &rsaquo; Gerenciar Receptores &rsaquo; seu receptor &rsaquo; Áudio</b>).</p></div>
       <div class="gcard"><div class="ic">&#9889;</div><h3>Zone Smart Select / Quick Select</h3><p>Os slots de Smart Select ou Quick Select da própria zona, direto no cartão - toque em um slot para recuperá-lo, mantenha pressionado para salvar nele o estado atual da zona.</p></div>
       <div class="gcard"><div class="ic">&#9997;&#65039;</div><h3>Renomeie qualquer zona</h3><p>Mantenha pressionado o nome da zona na tela Início - inclusive a principal. O nome é salvo no próprio receptor, então todos os apps concordam com ele.</p></div>
       <div class="gcard"><div class="ic">&#128260;</div><h3>Sincronização ao vivo</h3><p>Mude uma zona pelo painel ou pelo controle remoto do receptor e o app atualiza em menos de um segundo.</p></div>
@@ -288,10 +296,31 @@
       <li><b>1. Abra a aba Zonas.</b> Cada zona que o seu receptor declara ganha um cartão. Um receptor com uma só zona não ganha a aba.</li>
       <li><b>2. Ligue a zona</b> com o controle de energia no cartão dela. Nada muda na zona principal.</li>
       <li><b>3. Escolha a fonte.</b> A lista é a do seu receptor, com os nomes que você tiver dado, e uma zona pode ficar em uma entrada completamente diferente da sala principal.</li>
-      <li><b>4. Ajuste o volume.</b> A zona tem o seu próprio nível e o seu próprio mudo, e os chips de volume rápido recuperam níveis que você definiu nessa zona. As predefinições sobem e descem suavemente, a menos que você mude para Direto em Configurações, Áudio.</li>
+      <li><b>4. Defina o volume.</b> A zona tem o seu próprio nível e o seu próprio mudo, e os chips de volume rápido recuperam os níveis que você definiu nessa zona. As predefinições variam de forma suave, a menos que você desative as <b>Predefinições de volume gradual</b> em <b>Configurações &rsaquo; Gerenciar Receptores &rsaquo; seu receptor &rsaquo; Áudio</b>, o que faz a predefinição saltar direto para o seu nível.</li>
       <li><b>5. Opcional: salve.</b> Mantenha pressionado um dos slots de Smart Select ou Quick Select da própria zona para guardar tudo o que a zona está fazendo agora e toque nele depois para trazer tudo de volta.</li>
     </ul>
     <p class="lead" style="margin-top:20px">Renomeie uma zona mantendo pressionado o nome dela na tela Início. O nome é gravado no receptor, então o painel frontal e todos os outros apps concordam com o app.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Receptores mais antigos</div>
+      <h2>Veja a configuração de cada zona no cartão</h2>
+      <p class="lead">Em receptores mais antigos, como a classe SR7015 e X4500H, os cartões da Zona 2 e da Zona 3 incluem um bloco <b>Zone Setup</b> que mostra como o menu de zonas do próprio receptor está configurado. Receptores mais novos, como a classe Cinema 30, não mostram esse bloco.</p>
+    </div>
+    <p>O que você pode ver, conforme o que o receptor informa para aquela zona:</p>
+    <ul class="plain">
+      <li><b>Graves</b> e <b>Agudos</b> em dB.</li>
+      <li><b>Filtro Passa-Alta (HPF):</b> On ou Off.</li>
+      <li><b>Canal:</b> Estéreo ou Mono.</li>
+      <li><b>Áudio HDMI</b> (Zona 2): Through ou PCM.</li>
+      <li><b>Nível de Volume:</b> Variável ou um nível fixo.</li>
+      <li><b>Limite de Volume</b> (Off ou um nível), <b>Volume ao Ligar</b> (Last, Mute ou um nível) e <b>Nível do Mudo</b> (Full, -20 dB ou -40 dB).</li>
+      <li><b>Espera Automática:</b> Off, 2 horas, 4 horas ou 8 horas.</li>
+    </ul>
+    <div class="note">Este bloco é somente leitura: <b>Lido do receptor. Altere estas configurações no próprio receptor.</b> Um valor que o app não consegue ler aparece como <b>Desconhecido</b>. Se o bloco não aparecer, a leitura falhou ou o receptor não o oferece; ele é tentado de novo na próxima vez que você abrir a aba Zonas.</div>
   </div>
 </section>
 
@@ -318,6 +347,7 @@
     <details><summary>Posso usar o Smart Select ou o Quick Select em uma zona?</summary><div class="body">Sim - cada cartão de zona traz os slots da própria zona, com o nome que o seu receptor usa: Smart Select em um Marantz, Quick Select em um Denon. Toque em um slot para recuperá-lo; mantenha pressionado para salvar nele o estado atual da zona, direto do cartão.</div></details>
     <details><summary>Posso renomear minhas zonas?</summary><div class="body">Sim - mantenha pressionado o nome da zona na tela Início para renomear qualquer zona, inclusive a principal. O nome é gravado no próprio receptor, então aparece no app do fabricante e em todos os outros clientes, inclusive em modelos mais antigos.</div></details>
     <details><summary>Cada zona mostra o que está tocando?</summary><div class="body">Sim - quando uma zona está ligada, o cartão dela mostra o fluxo HEOS de reprodução atual dessa zona, com controles de reprodução.</div></details>
+    <details><summary>Por que não posso alterar os valores de Zone Setup no app?</summary><div class="body">O bloco Zone Setup em receptores mais antigos (como a classe SR7015 e X4500H) é uma leitura da configuração de zonas do próprio receptor. Altere essas configurações no próprio receptor, no menu de configuração; o cartão mostra os novos valores na próxima vez que os ler.</div></details>
     <details><summary>Uma Cena pode configurar minhas zonas?</summary><div class="body">Sim - uma <a href="/pt-br/guide/scenes/">Cena</a> pode capturar e restaurar a energia, a entrada e o volume da Zona 2/3 junto com o restante da sua configuração.</div></details>
   </div>
 </section>
@@ -328,7 +358,7 @@
       <div class="eyebrow">Mais do guia</div>
       <h2>Outros guias do AVR Maestro</h2>
     </div>
-    <p class="lead"><a href="/pt-br/guide/getting-started/">Primeiros passos</a> &middot; <a href="/pt-br/guide/home/">Tela Inicial</a> &middot; <a href="/pt-br/guide/scenes/">Cenas</a> &middot; <a href="/pt-br/guide/custom-icons/">Ícones Personalizados</a> &middot; <a href="/pt-br/guide/sound/">Som</a> &middot; <a href="/pt-br/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/pt-br/guide/speakers/">Alto-falantes</a> &middot; <a href="/pt-br/guide/locked-controls/">Por que um controle está bloqueado</a> &middot; <a href="/pt-br/guide/assistant/">O Assistente</a> &middot; <a href="/pt-br/guide/home-automation/">Automação Residencial</a> &middot; <a href="/pt-br/guide/home-assistant-dashboard/">Painel do Home Assistant</a> &middot; <a href="/pt-br/guide/remote/">Remoto</a> &middot; <a href="/pt-br/guide/radio/">Rádio (FM/AM)</a> &middot; <a href="/pt-br/guide/on-screen-display/">Exibição em Tela (OSD)</a> &middot; <a href="/pt-br/guide/settings/">Configurações</a> &middot; <a href="/pt-br/guide/languages/">Idiomas</a> &middot; <a href="/pt-br/guide/volume/">Controles de Volume</a> &middot; <a href="/pt-br/guide/backup/">Backup &amp; Restauração</a> &middot; <a href="/pt-br/guide/now-playing/">Reproduzindo agora &amp; HEOS</a></p>
+    <p class="lead"><a href="/pt-br/guide/getting-started/">Primeiros passos</a> &middot; <a href="/pt-br/guide/receivers/">Gerenciar receptores</a> &middot; <a href="/pt-br/guide/navigation/">Navegar pelo app</a> &middot; <a href="/pt-br/guide/search/">Busca</a> &middot; <a href="/pt-br/guide/home/">Tela Início</a> &middot; <a href="/pt-br/guide/volume/">Controles de volume</a> &middot; <a href="/pt-br/guide/remote/">Controle remoto</a> &middot; <a href="/pt-br/guide/now-playing/">Em reprodução e HEOS</a> &middot; <a href="/pt-br/guide/radio/">Rádio (FM/AM)</a> &middot; <a href="/pt-br/guide/scenes/">Cenas</a> &middot; <a href="/pt-br/guide/sound/">Som</a> &middot; <a href="/pt-br/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/pt-br/guide/speakers/">Alto-falantes</a> &middot; <a href="/pt-br/guide/locked-controls/">Por que um controle está bloqueado</a> &middot; <a href="/pt-br/guide/settings/">Configurações</a> &middot; <a href="/pt-br/guide/widgets/">Widgets</a> &middot; <a href="/pt-br/guide/custom-icons/">Ícones personalizados</a> &middot; <a href="/pt-br/guide/on-screen-display/">Exibição em Tela (OSD)</a> &middot; <a href="/pt-br/guide/languages/">Idiomas</a> &middot; <a href="/pt-br/guide/assistant/">O Assistente</a> &middot; <a href="/pt-br/guide/home-automation/">Automação residencial</a> &middot; <a href="/pt-br/guide/home-assistant-dashboard/">Painel do Home Assistant</a> &middot; <a href="/pt-br/guide/backup/">Backup e restauração</a> &middot; <a href="/pt-br/guide/glossary/">Glossário</a></p>
   </div>
 </section>
 
@@ -364,7 +394,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">O AVR Maestro é um aplicativo independente da MiyaraHub Technologies LLC e não é afiliado nem endossado pela Denon, Marantz, Sound United, Masimo Corporation ou qualquer outra empresa citada nesta página. Denon, Marantz, HEOS, Audyssey e Dirac Live são marcas registradas de seus respectivos proprietários, usadas aqui apenas para identificação.</p>
+    <p class="legal">O AVR Maestro é um app independente da MiyaraHub Technologies LLC e não é afiliado nem endossado pela Denon, Marantz, Sound United, Masimo Corporation ou qualquer outra empresa citada nesta página. Denon, Marantz, HEOS, Audyssey e Dirac Live são marcas registradas de seus respectivos proprietários, usadas aqui apenas para identificação.</p>
   </div>
 </footer>
 

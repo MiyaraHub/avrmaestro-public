@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-itunes-app" content="app-id=6762881597" />
+<title>ניהול מקלטים: הוספה, החלפה והגדרה - AVR Maestro</title>
+<meta name="description" content="הוסיפו מקלט Denon או Marantz ל-AVR Maestro, עברו בין מקלטים והגדירו כל אחד: שינוי שם, שינוי IP, איתור המקלט שלי, נעילות וקושחה." />
+<meta name="keywords" content="AVR Maestro manage receivers, add Denon receiver to app, switch Marantz receiver, receiver IP address changed, find my receiver, Setup Lock Denon, Remote Lock Marantz, receiver firmware check, AVR Maestro demo mode" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/he/guide/receivers/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/receivers/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/receivers/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/receivers/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/receivers/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/receivers/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/receivers/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/receivers/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/receivers/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/receivers/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/receivers/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/receivers/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/receivers/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/receivers/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/receivers/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/receivers/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/receivers/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/receivers/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/receivers/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/receivers/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/receivers/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/receivers/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/receivers/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/receivers/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/receivers/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/receivers/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/receivers/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/receivers/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/receivers/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/receivers/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/receivers/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/receivers/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="he_IL" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="ניהול מקלטים: הוספה, החלפה והגדרה - AVR Maestro" />
+<meta property="og:description" content="הוסיפו מקלט Denon או Marantz ל-AVR Maestro, עברו בין מקלטים והגדירו כל אחד: שינוי שם, שינוי IP, איתור המקלט שלי, נעילות וקושחה." />
+<meta property="og:url" content="https://avrmaestro.com/he/guide/receivers/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="ניהול מקלטים: הוספה, החלפה והגדרה - AVR Maestro" />
+<meta name="twitter:description" content="הוסיפו מקלט Denon או Marantz ל-AVR Maestro, עברו בין מקלטים והגדירו כל אחד: שינוי שם, שינוי IP, איתור המקלט שלי, נעילות וקושחה." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro היא אפליקציה עצמאית לשליטה במקלטי AV של Denon ו-Marantz דרך הרשת המקומית שלכם.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "he"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/receivers/#article",
+      "headline": "ניהול מקלטים, דף לכל מקלט",
+      "description": "הוסיפו מקלט Denon או Marantz ל-AVR Maestro, עברו בין מקלטים והגדירו כל אחד: שינוי שם, שינוי IP, איתור המקלט שלי, נעילות וקושחה.",
+      "image": "https://avrmaestro.com/assets/og-card.png",
+      "datePublished": "2026-10-28",
+      "dateModified": "2026-10-28",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/receivers/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "he"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/receivers/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "איך עוברים למקלט אחר?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "בלשונית הבית, הקישו על שם המקלט ליד AVR Maestro בראש המסך ובחרו מקלט אחר מהרשימה. אפשר גם לפתוח הגדרות › ניהול מקלטים ולהקיש על העיגול בתחילת השורה של המקלט. האפליקציה מאשרת עם עברנו אל ושם המקלט."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "המקלט שלי קיבל כתובת IP חדשה. מה עושים?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "בדרך כלל כלום: כשהנתב מזיז מקלט, האפליקציה מוצאת אותו שוב ואומרת לכם פעם אחת שעקבה אחריו. אם היא לא מצליחה, פתחו הגדרות › ניהול מקלטים, הקישו על המקלט והשתמשו ב-איתור המקלט שלי כדי לחפש ברשת, או ב-שינוי כתובת IP כדי להקליד את הכתובת החדשה בעצמכם. כל ההגדרות השמורות של המקלט נשמרות; רק הכתובת משתנה."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "למה אני לא רואה מסך ונעילות או אודות המקלט הזה?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "הקטעים האלה קוראים וכותבים למקלט בזמן אמת, ולכן הם מופיעים רק עבור המקלט הפעיל כשהאפליקציה מחוברת אליו. הפכו את המקלט לפעיל עם הפיכה לפעיל, והמתינו שיתחבר."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "מה ההבדל בין נעילת הגדרות לנעילת השלט?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "נעילת הגדרות נועלת את תפריט ההגדרות של המקלט עצמו, כך שאי אפשר לשנות את הגדרות ההתקנה והכיול שלו, אף אחד, כולל האפליקציה הזו, עד שתפתחו אותו. עוצמה וכניסה ממשיכות לעבוד. נעילת השלט גורמת למקלט להתעלם משלט ה-IR שלו; האפליקציה והפאנל הקדמי ממשיכים לעבוד. כל מתג מופיע רק כשהמקלט שלכם מדווח על הנעילה הזו."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "מה קורה כשאני מוחק מקלט?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "האפליקציה מסירה את המקלט ואת כל ההגדרות השמורות שלו. אם הוא היה המקלט הפעיל, האפליקציה עוברת למקלט אחר. שום דבר לא משתנה במקלט עצמו, ואפשר להוסיף אותו שוב בכל עת."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "האם אפשר לנסות את האפליקציה בלי מקלט?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "כן. הקישו על נסו את מצב ההדגמה ב-הגדרות › ניהול מקלטים, או על התנסות במצב הדגמה במסך הוספת מקלט. מצב ההדגמה מריץ בתוך האפליקציה Marantz CINEMA 30 מדומה ולא שולח דבר ברשת שלכם. צאו ממנו דרך הגדרות › יציאה ממצב הדגמה."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "בית",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "מדריך למשתמש",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "ניהול מקלטים",
+      "item": "https://avrmaestro.com/guide/receivers/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/he/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="תפריט" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="חיפוש במדריך..." data-i18n-empty="אין התאמות עבור" data-i18n-language="שפה">
+      <a href="/he/">בית</a>
+      <a href="/he/guide/">מדריך למשתמש</a>
+      <a href="/he/receivers/">מקלטים</a>
+      <a href="/he/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/he/best-denon-marantz-app/">למה לעבור</a>
+      <a href="/he/#top" class="cta">הורדה</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/he/">דף הבית</a> &rsaquo; <a href="/he/guide/">מדריך למשתמש</a> &rsaquo; ניהול מקלטים</div>
+    <div class="eyebrow">הגדרות &rsaquo; ניהול מקלטים</div>
+    <h1>ניהול מקלטים, <span class="g">דף לכל מקלט</span></h1>
+    <p>הוסיפו כמה מקלטי Denon ו-Marantz שיש לכם, עברו ביניהם בשתי הקשות, ותנו לכל אחד העדפות אודיו משלו. לכל מקלט יש דף משלו לשם, לכתובת, לנעילות ולקושחה שלו.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">איפה זה נמצא</div>
+      <h2>פתחו את ניהול מקלטים</h2>
+    </div>
+    <p class="lead">פתחו את <b>הגדרות</b>. הכרטיס הראשון למעלה הוא <b>ניהול מקלטים</b>: הוא מראה כמה מקלטים יש לכם ואיזה מהם פעיל. הקישו עליו.</p>
+    <p class="lead">מה תראו: השורה "הקישו על מקלט כדי להגדיר אותו. הקישו על העיגול כדי להפוך אותו לפעיל. גררו כדי לסדר מחדש.", ואחריה המקלטים שלכם, כל אחד עם שם, כתובת IP ודגם. המקלט הפעיל מודגש והעיגול שלו מלא. מתחת לרשימה נמצאים כפתור <b>הוספת מקלט</b> ו, אם אינכם כבר בו, קטע <b>מצב הדגמה</b>.</p>
+    <ul class="plain">
+      <li><b>הקישו על מקלט</b> כדי לפתוח את הדף שלו.</li>
+      <li><b>הקישו על העיגול</b> בתחילת שורה כדי להפוך את המקלט הזה לפעיל. האפליקציה אומרת <b>עברנו אל</b> ושם המקלט.</li>
+      <li><b>גררו את הידית</b> בסוף שורה כדי לשנות את הסדר. רשימת המקלטים בראש מסך הבית עוקבת אחרי אותו סדר.</li>
+      <li><b>לחצו לחיצה ארוכה על מקלט</b> לתפריט מהיר עם שינוי שם, שינוי IP, איתור המקלט שלי ומחיקה.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">צעד אחר צעד</div>
+      <h2>הוספת מקלט</h2>
+    </div>
+    <ol class="steps">
+      <li>פתחו את <i>הגדרות &rsaquo; ניהול מקלטים</i> והקישו על <b>הוספת מקלט</b> (או על <b>+</b> בפינה הימנית העליונה).</li>
+      <li>באייפון, באייפד, ב-Mac, ב-Android וב-Windows המסך סורק את הרשת ומציג <b>מקלטים שנמצאו ברשת שלכם</b>. הקישו על שלכם. אם אף אחד לא עונה, הקישו על <b>סריקה מחדש</b> או הקלידו את כתובת המקלט ב-<b>כתובת IP</b> והקישו על <b>בדיקה ושמירה</b>.</li>
+      <li>האפליקציה בודקת את החיבור ושומרת את המקלט בבת אחת. תראו את הדגם והתכונות שזוהו, והמקלט החדש הופך לפעיל.</li>
+    </ol>
+    <div class="note">כתובת ה-IP של המקלט נמצאת בתפריט שלו תחת <i>Setup &rsaquo; General &rsaquo; Network &rsaquo; Information</i>. הטלפון או המחשב חייבים להיות באותה רשת עם המקלט. ראו <a href="/he/guide/getting-started/">להתחלה</a> לרשימת הבדיקות של הרשת.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">שתי הקשות</div>
+      <h2>החליפו מקלטים ממסך הבית</h2>
+    </div>
+    <ol class="steps">
+      <li>בלשונית <b>הבית</b>, הקישו על שם המקלט שמוצג ליד <b>AVR Maestro</b> בראש המסך.</li>
+      <li>רשימת המקלטים שלכם נפתחת, עם סימון ליד הפעיל. הקישו על מקלט אחר כדי לעבור אליו, או הקישו על <b>ניהול מקלטים</b> בתחתית הרשימה כדי לפתוח את הדף המלא.</li>
+    </ol>
+    <p class="lead">כל מקלט שומר את הנתונים שלו במכשיר שלכם, ולכן המעבר טוען מיד את ההגדרות של אותו מקלט.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">הגדרות &rsaquo; ניהול מקלטים &rsaquo; המקלט שלכם</div>
+      <h2>דף המקלט</h2>
+      <p class="lead">הקישו על מקלט כדי לפתוח את הדף שלו. הכרטיס בראש מראה את מצב החיבור והפרטים שלו. אם הוא לא המקלט הפעיל, כפתור <b>הפיכה לפעיל</b> נמצא מתחת לכרטיס, כי את מגבלות העוצמה, התצוגה והנעילות אפשר לשנות רק במקלט הפעיל. אם הוא פעיל אבל לא נגיש, הדף אומר "האפליקציה אינה מחוברת למקלט כרגע."</p>
+    </div>
+
+    <h3 style="margin-top:26px">אודיו</h3>
+    <p class="lead">ההעדפות שלכם למקלט הזה. כל מקלט שומר ערכים משלו. <a href="/he/guide/volume/">מדריך העוצמה &rarr;</a></p>
+    <ul class="plain">
+      <li><b>צעד עוצמה:</b> כמה לחיצה אחת מזיזה את העוצמה, 0.5, 1, 1.5 או 2 dB. כל כפתור עוצמה באפליקציה משתמש בו.</li>
+      <li><b>הצגת עוצמה מוחלטת למעלה:</b> מחליף איזה מספר גדול בתצוגת העוצמה. כבוי (ברירת המחדל) מציג dB גדול וסולם העוצמה קטן; דלוק מציג את סולם העוצמה גדול ו-dB קטן.</li>
+      <li><b>תצוגת עוצמת קול בשלט:</b> האם לשונית השלט מציגה את סולם ה-dB (<b>מוחלט (dB)</b>, למשל -40.5 dB) או את הסולם 0-98 (<b>יחסי</b>, למשל 39.5).</li>
+      <li><b>מעבר הדרגתי בהגדרות עוצמה:</b> דלוק (ברירת המחדל), הקשה על הגדרת עוצמה מעלה את העוצמה בצעדים קטנים; כבוי, היא קופצת ישר לרמה השמורה.</li>
+      <li><b>כפתורי עוצמת קול של המכשיר</b> (טלפונים וטאבלטים): כל עוד האפליקציה פתוחה, כפתורי העוצמה של המכשיר עצמו משנים את עוצמת המקלט. פעיל כברירת מחדל; כבו אותו כדי להחזיר את הכפתורים למכשיר.</li>
+      <li><b>פקדי עוצמת קול:</b> מגבלת עוצמה, רמת הדלקה ועומק השתקה, נכתבים למקלט עצמו. מוצגים כל עוד האפליקציה מחוברת למקלט הזה. <a href="/he/guide/volume/">מדריך פקדי עוצמת קול &rarr;</a></li>
+    </ul>
+
+    <h3 style="margin-top:26px">מסך ונעילות</h3>
+    <p class="lead">מוצג עבור המקלט הפעיל בזמן חיבור.</p>
+    <ul class="plain">
+      <li><b>תצוגה על המסך:</b> תצוגת עוצמה, באנר מידע, מתנגן כעת ו-21:9. <a href="/he/guide/on-screen-display/">מדריך התצוגה על המסך &rarr;</a></li>
+      <li><b>נעילת הגדרות:</b> נועלת את תפריט ההגדרות של המקלט עצמו. כל עוד היא נעולה, אי אפשר לשנות את הגדרות האודיו, הווידאו, הרמקולים והגדרות ההתקנה האחרות בשום מקום, לא בתפריט המקלט, לא באפליקציה הזו ולא בפורטל האינטרנט שלו. פקדים יומיומיים כמו עוצמה, כניסה ועמעום ממשיכים לעבוד. ההפעלה שואלת קודם (<b>לנעול את תפריט המקלט?</b>, ואז <b>נעילה</b>); כבו את המתג כדי לפתוח.</li>
+      <li><b>נעילת השלט:</b> גורמת למקלט להתעלם מלחיצות על שלט ה-IR שלו עד שתפתחו אותה. האפליקציה והפאנל הקדמי ממשיכים לעבוד.</li>
+    </ul>
+    <div class="note">נעילת הגדרות ונעילת השלט מופיעות רק כשהמקלט מדווח על מצבן. אם המקלט שלכם אינו מדווח על נעילה, המתג אינו מוצג במקום לנחש. פקד שמופיע באפור במקום אחר באפליקציה בגלל נעילת הגדרות מוסבר ב<a href="/he/guide/locked-controls/">למה פקד נעול</a>.</div>
+
+    <h3 style="margin-top:26px">אודות המקלט הזה</h3>
+    <ul class="plain">
+      <li><b>פרטי המכשיר:</b> הסטטוס המפורט של המקלט.</li>
+      <li><b>קושחה:</b> גרסת הקושחה המותקנת. הקישו על <b>בדיקה</b> כדי לשאול את המקלט אם יש עדכון זמין. השורה שמתחת אומרת אז שאתם בקושחה העדכנית, שיש עדכון זמין, שעדכון מתבצע, או שלא ניתן היה לקרוא את הסטטוס. עדכון מותקן מתפריט ההגדרות של המקלט עצמו, לא מהאפליקציה; אל תכבו את המקלט במהלך עדכון.</li>
+    </ul>
+
+    <h3 style="margin-top:26px">ניהול</h3>
+    <ul class="plain">
+      <li><b>שינוי שם:</b> הקלידו שם חדש ב-<b>שם המכשיר</b> והקישו על <b>שמירה</b>. השם נשמר באפליקציה בלבד.</li>
+      <li><b>שינוי כתובת IP:</b> הקלידו <b>כתובת IP או שם מארח</b> חדשים והקישו על <b>שמירה</b>, למשל אחרי שהנתב חילק כתובת חדשה. כל ההגדרות השמורות של המקלט נשמרות; רק הכתובת משתנה. כתובת שכבר בשימוש אצל מקלט אחר שלכם נדחית.</li>
+      <li><b>איתור המקלט שלי:</b> מחפש ברשת את הכתובת החדשה של המקלט הזה. אם הוא מוצא את המקלט שלכם במקום אחר, הקישו על <b>שימוש בכתובת זו</b>. הוא אומר לכם מתי הכתובת השמורה כבר נכונה, מתי אף אחד לא ענה, ומתי יותר ממקלט אחד יכול להיות שלכם, ובמקרה כזה הוא לא משנה דבר ואתם משתמשים בשינוי כתובת IP במקום.</li>
+      <li><b>מחיקה:</b> שואלת <b>למחוק את המקלט?</b> ואז מסירה את המקלט ואת כל ההגדרות השמורות שלו מהאפליקציה. מחיקת המקלט הפעיל מעבירה את האפליקציה למקלט אחר.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">לא צריך מקלט</div>
+        <h2>מצב הדגמה, כניסה ויציאה</h2>
+        <p>מצב הדגמה מריץ בתוך האפליקציה Marantz CINEMA 30 מדומה. כל מסך עובד כמו עם חומרה אמיתית, ושום דבר לא נשלח ברשת שלכם.</p>
+        <ol class="steps">
+          <li><b>התחילו אותו</b> מ-<i>הגדרות &rsaquo; ניהול מקלטים &rsaquo; נסו את מצב ההדגמה</i>, מ-<b>התנסות במצב הדגמה</b> במסך הוספת מקלט, או מ-<b>נסו את ההדגמה במקום</b> במדריך הפתיחה. מקלט ההדגמה הופך לפעיל והאפליקציה פותחת את מסך הבית.</li>
+          <li><b>תצוגה מקדימה של Pro.</b> בזמן שההדגמה רצה, ההגדרות מציגות קטע <b>מצב הדגמה</b>. המתג <b>תצוגה מקדימה של תכונות Pro</b> שלו פותח אוטומציה ביתית וטריגרים רק להדגמה הזו. שום דבר לא נרכש.</li>
+          <li><b>צאו ממנו</b> עם <i>הגדרות &rsaquo; יציאה ממצב הדגמה</i>. מקלט ההדגמה מוסר והאפליקציה חוזרת למקלט שלכם.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">שאלות נפוצות</div>
+      <h2>מקלטים, תשובות</h2>
+    </div>
+    <details open><summary>איך עוברים למקלט אחר?</summary><div class="body">בלשונית הבית הקישו על שם המקלט שליד AVR Maestro בראש המסך ובחרו מקלט אחר מהרשימה. אפשר גם לפתוח הגדרות &rsaquo; ניהול מקלטים ולהקיש על העיגול בתחילת השורה של המקלט. האפליקציה מאשרת בהודעה "עברת אל" ושם המקלט.</div></details>
+    <details><summary>המקלט שלי קיבל כתובת IP חדשה. מה עושים?</summary><div class="body">בדרך כלל כלום: כשהנתב מעביר מקלט לכתובת אחרת, האפליקציה מוצאת אותו שוב ומודיעה לכם פעם אחת שעקבה אחריו. אם היא לא מצליחה, פתחו הגדרות &rsaquo; ניהול מקלטים, הקישו על המקלט והשתמשו באיתור המקלט שלי כדי לחפש ברשת, או בשינוי כתובת IP כדי להקליד את הכתובת החדשה בעצמכם. כל ההגדרות השמורות של המקלט נשמרות; רק הכתובת משתנה.</div></details>
+    <details><summary>למה אני לא רואה את מסך ונעילות או את אודות המקלט הזה?</summary><div class="body">הקטעים האלה קוראים וכותבים למקלט בזמן אמת, ולכן הם מופיעים רק עבור המקלט הפעיל כשהאפליקציה מחוברת אליו. הפכו את המקלט לפעיל עם הפיכה לפעיל, והמתינו שיתחבר.</div></details>
+    <details><summary>מה ההבדל בין נעילת הגדרות לנעילת השלט?</summary><div class="body">נעילת הגדרות נועלת את תפריט ההגדרות של המקלט עצמו, כך שאי אפשר לשנות את הגדרות ההתקנה והכיול שלו, אף אחד, כולל האפליקציה הזו, עד שתפתחו אותו. עוצמה וכניסה ממשיכות לעבוד. נעילת השלט גורמת למקלט להתעלם משלט ה-IR שלו; האפליקציה והפאנל הקדמי ממשיכים לעבוד. כל מתג מופיע רק כשהמקלט שלכם מדווח על הנעילה הזו.</div></details>
+    <details><summary>מה קורה כשאני מוחק מקלט?</summary><div class="body">האפליקציה מסירה את המקלט ואת כל ההגדרות השמורות שלו. אם הוא היה המקלט הפעיל, האפליקציה עוברת למקלט אחר. שום דבר לא משתנה במקלט עצמו, ואפשר להוסיף אותו שוב בכל עת.</div></details>
+    <details><summary>האם אפשר לנסות את האפליקציה בלי מקלט?</summary><div class="body">כן. הקישו על נסו מצב הדגמה בהגדרות &rsaquo; ניהול מקלטים, או על גלו את מצב ההדגמה במסך הוספת מקלט. מצב הדגמה מריץ בתוך האפליקציה Marantz CINEMA 30 מדומה ואינו שולח דבר ברשת שלכם. יוצאים ממנו דרך הגדרות &rsaquo; יציאה ממצב הדגמה.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">עוד מהמדריך</div>
+      <h2>מדריכים נוספים של AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/he/guide/getting-started/">תחילת העבודה</a> &middot; <a href="/he/guide/navigation/">ניווט באפליקציה</a> &middot; <a href="/he/guide/search/">חיפוש</a> &middot; <a href="/he/guide/home/">מסך הבית</a> &middot; <a href="/he/guide/volume/">פקדי עוצמת קול</a> &middot; <a href="/he/guide/remote/">שלט</a> &middot; <a href="/he/guide/multi-zone/">אזורים</a> &middot; <a href="/he/guide/now-playing/">מתנגן כעת ו-HEOS</a> &middot; <a href="/he/guide/radio/">רדיו (FM/AM)</a> &middot; <a href="/he/guide/scenes/">סצנות</a> &middot; <a href="/he/guide/sound/">סאונד</a> &middot; <a href="/he/guide/graphic-eq/">אקולייזר גרפי</a> &middot; <a href="/he/guide/speakers/">רמקולים</a> &middot; <a href="/he/guide/locked-controls/">למה פקד נעול</a> &middot; <a href="/he/guide/settings/">הגדרות</a> &middot; <a href="/he/guide/widgets/">יישומונים</a> &middot; <a href="/he/guide/custom-icons/">אייקונים מותאמים אישית</a> &middot; <a href="/he/guide/on-screen-display/">תצוגה על המסך</a> &middot; <a href="/he/guide/languages/">שפות</a> &middot; <a href="/he/guide/assistant/">העוזר</a> &middot; <a href="/he/guide/home-automation/">אוטומציה ביתית</a> &middot; <a href="/he/guide/home-assistant-dashboard/">לוח הבקרה של Home Assistant</a> &middot; <a href="/he/guide/backup/">גיבוי ושחזור</a> &middot; <a href="/he/guide/glossary/">מילון מונחים</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/he/">בית</a>
+      <a href="/he/guide/">מדריך למשתמש</a>
+      <a href="/he/guide/getting-started/">להתחלה</a>
+      <a href="/he/receivers/">מקלטים</a>
+      <a href="/he/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/he/audyssey-vs-dirac/">Audyssey מול Dirac</a>
+      <a href="/he/best-denon-marantz-app/">למה לעבור</a>
+      <a href="/he/help/">עזרה</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro&amp;referrer=utm_source%3Davrmaestro.com%26utm_medium%3Dguide-receivers">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">פייסבוק</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro היא אפליקציה עצמאית של MiyaraHub Technologies LLC ואינה קשורה ל-Denon, Marantz, Sound United, Masimo Corporation או לכל חברה אחרת הנזכרת בדף זה, ואינה מאושרת על ידן. Denon, Marantz ו-Audyssey הם סימנים מסחריים של בעליהם, ומופיעים כאן לצורכי זיהוי בלבד.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

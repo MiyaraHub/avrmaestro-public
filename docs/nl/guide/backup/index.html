@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="apple-itunes-app" content="app-id=6762881597" />
 <title>Back-up &amp; herstel van instellingen op een nieuwe telefoon - AVR Maestro</title>
-<meta name="description" content="Exporteer alle AVR Maestro-instellingen naar één bestand: receivers, ingangsnamen en pictogrammen, scènes, thema en volumevoorkeuren. Herstel het in een paar tikken op een nieuwe telefoon." />
+<meta name="description" content="Exporteer je AVR Maestro-installatie naar één .zip-bestand: receivers, scènes, aangepaste pictogrammen, volgorde van ingangen, thema en volume-instellingen. Herstel het met een paar tikken op een nieuwe telefoon." />
 <meta name="keywords" content="AVR Maestro backup, transfer AVR app settings new phone, export receiver settings app, restore Denon app config, AVR Maestro migrate device" />
 <meta name="author" content="MiyaraHub Technologies LLC" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -77,7 +77,7 @@
 <meta property="og:locale:alternate" content="zh_CN" />
 <meta property="og:locale:alternate" content="zh_TW" />
 <meta property="og:title" content="Back-up &amp; herstel van instellingen op een nieuwe telefoon - AVR Maestro" />
-<meta property="og:description" content="Exporteer alle AVR Maestro-instellingen naar één bestand: receivers, ingangsnamen en pictogrammen, scènes, thema en volumevoorkeuren. Herstel het in een paar tikken op een nieuwe telefoon." />
+<meta property="og:description" content="Exporteer je AVR Maestro-installatie naar één .zip-bestand: receivers, scènes, aangepaste pictogrammen, volgorde van ingangen, thema en volume-instellingen. Herstel het met een paar tikken op een nieuwe telefoon." />
 <meta property="og:url" content="https://avrmaestro.com/nl/guide/backup/" />
 <meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
 <meta property="og:image:type" content="image/png" />
@@ -86,7 +86,7 @@
 <meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Back-up &amp; herstel van instellingen op een nieuwe telefoon - AVR Maestro" />
-<meta name="twitter:description" content="Exporteer alle AVR Maestro-instellingen naar één bestand: receivers, ingangsnamen en pictogrammen, scènes, thema en volumevoorkeuren. Herstel het in een paar tikken op een nieuwe telefoon." />
+<meta name="twitter:description" content="Exporteer je AVR Maestro-installatie naar één .zip-bestand: receivers, scènes, aangepaste pictogrammen, volgorde van ingangen, thema en volume-instellingen. Herstel het met een paar tikken op een nieuwe telefoon." />
 <meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
 <meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
 <link rel="icon" href="/assets/favicon.ico" sizes="any" />
@@ -129,10 +129,10 @@
       "@type": "TechArticle",
       "@id": "https://avrmaestro.com/guide/backup/#article",
       "headline": "Back-up en herstel: je hele setup in één bestand",
-      "description": "Exporteer alle AVR Maestro-instellingen naar één bestand: receivers, ingangsnamen en pictogrammen, scènes, thema en volumevoorkeuren. Herstel het in een paar tikken op een nieuwe telefoon.",
+      "description": "Exporteer je AVR Maestro-installatie naar één .zip-bestand: receivers, scènes, aangepaste pictogrammen, volgorde van ingangen, thema en volume-instellingen. Herstel het met een paar tikken op een nieuwe telefoon.",
       "image": "https://avrmaestro.com/screenshots/backup-restore.png",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -162,7 +162,7 @@
       "name": "Kan ik een back-up tussen Android en iPhone verplaatsen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Het bestand is gewoon JSON en is niet gebonden aan het apparaat waarop het is gemaakt. Exporteer op het ene apparaat, zet het bestand op het andere en importeer het."
+        "text": "Ja. De back-up is een .zip-bestand dat niet gebonden is aan het apparaat dat het schreef. Exporteer op het ene apparaat, zet het bestand op het andere en importeer."
       }
     },
     {
@@ -178,7 +178,15 @@
       "name": "Komen mijn scènes mee?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja, samen met de instellingen die elke scène moest vastleggen. Zie de handleiding Scènes."
+        "text": "Ja, met de instellingen die elke scène bevat en het aangepaste pictogram. Zie de scènesgids."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Waarom moet ik de app op mijn andere apparaten sluiten voordat ik herstel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Als een andere telefoon of tablet AVR Maestro open heeft staan en met dezelfde receiver is verbonden, kunnen twee apparaten tijdens het herstel tegelijk met de receiver communiceren. Dat kan een verbindingsconflict veroorzaken waardoor de firmware van de receiver vastloopt. Sluit de app op het andere apparaat, herstel, en sluit AVR Maestro op dit apparaat geforceerd af en open het opnieuw."
       }
     },
     {
@@ -251,12 +259,12 @@
       <div>
         <div class="eyebrow">Exporteren</div>
         <h2>Opslaan op apparaat, of direct doorsturen</h2>
-        <p class="lead">Open <b>Instellingen</b>, scroll naar <b>Back-up &amp; herstel</b> en kies:</p>
-        <ul class="plain">
-          <li><b>Opslaan op apparaat</b> - schrijft één JSON-bestand naar de plek die je aanwijst.</li>
-          <li><b>Delen</b> - geeft het door aan je gebruikelijke deelmenu, zodat het direct naar de andere telefoon, een clouddrive of een bericht aan jezelf kan.</li>
-        </ul>
-        <p class="lead">Het is een gewoon tekstbestand. Niets erin is gebonden aan het apparaat waar het vandaan komt.</p>
+        <ol class="steps">
+          <li>Open <b>Instellingen</b> en scroll naar <b>Back-up &amp; info</b>.</li>
+          <li>Tik op <b>Back-up &amp; herstel</b>.</li>
+          <li>Tik onder <b>Exporteren</b> op <b>Opslaan op apparaat</b> om een map voor het bestand te kiezen, of op <b>Delen</b> om het via het deelmenu rechtstreeks naar de andere telefoon, een clouddrive of een bericht aan jezelf te sturen.</li>
+        </ol>
+        <p class="lead">De back-up is één <b>.zip</b>-bestand met een naam als <b>avr-maestro-backup-</b> gevolgd door de datum en tijd. Daarin staan je instellingen en de afbeeldingen die je voor aangepaste pictogrammen hebt gekozen. Niets erin is vergrendeld aan het apparaat waar het vandaan komt.</p>
       </div>
       <img alt="De pagina Back-up en herstel met export en import" src="/screenshots/backup-restore.png" width="1324" height="2644" decoding="async" />
     </div>
@@ -272,16 +280,18 @@
     <table class="t">
       <thead><tr><th>Inbegrepen</th><th>Betekenis</th></tr></thead>
       <tbody>
-        <tr><td>Geconfigureerde receivers</td><td>Elk apparaat dat je hebt toegevoegd, met adres en instellingen</td></tr>
-        <tr><td>Bronvolgorde per apparaat</td><td>De volgorde waarin je je ingangen hebt gesleept, per receiver bewaard</td></tr>
-        <tr><td>Thema en kleurthema</td><td>Je accentkleur en uiterlijkkeuzes</td></tr>
-        <tr><td>Weergave- en widgetschaal</td><td>Tekst- en widgetgrootte</td></tr>
-        <tr><td>Volumevoorkeuren</td><td>Het volumegedrag aan de appkant</td></tr>
-        <tr><td>Status van uitlegkaarten</td><td>Welke infobanners je hebt weggeklikt, zodat ze weg blijven</td></tr>
-        <tr><td>Gecachte probes</td><td>De resultaten voor HEOS, functies en muziekmogelijkheden, zodat de nieuwe telefoon niet helemaal opnieuw begint</td></tr>
+        <tr><td>Je receivers</td><td>Elke receiver die je hebt toegevoegd, met zijn adres, en welke was geselecteerd</td></tr>
+        <tr><td>Scènes</td><td>Elke scène voor elke receiver, met de instellingen die ze bevat, het pictogram en de kleur</td></tr>
+        <tr><td>Aangepaste pictogrammen</td><td>De afbeeldingen die je voor ingangen en scènes hebt gekozen, met hun vormen</td></tr>
+        <tr><td>Volgorde van ingangen</td><td>De volgorde waarin je je ingangen hebt gesleept, per receiver bewaard</td></tr>
+        <tr><td>Namen van slots en presets</td><td>Namen die je hebt ingetypt voor Smart Select / Quick Select-slots en tunerpresets</td></tr>
+        <tr><td>Audio-instellingen per receiver</td><td>Volumestap, de keuzes voor de volumeweergave, geleidelijke volumevoorinstellingen, volumeknoppen van het apparaat en je snelvolume-presets</td></tr>
+        <tr><td>Uiterlijk en indeling</td><td>Thema en accentkleur, taal, tekst- en widgetgrootte, widgetkleuren, je Home-indeling, navigatie en verborgen tabbladen</td></tr>
+        <tr><td>Uitlegkaarten</td><td>Welke infokaarten je hebt genegeerd, zodat ze genegeerd blijven</td></tr>
+        <tr><td>Opgeslagen receivercontroles</td><td>Wat de app al over elke receiver heeft geleerd (HEOS- en functiecontroles), zodat de nieuwe telefoon niet vanaf nul begint</td></tr>
       </tbody>
     </table>
-    <div class="note">Eigen ingangsnamen en afbeeldingen maken deel uit van de configuratie van je receiver, dus ze komen mee. Zie de <a href="/nl/guide/custom-icons/">handleiding Eigen pictogrammen</a>.</div>
+    <div class="note"><b>Niet inbegrepen:</b> je verbindingsinstellingen voor Home Assistant en Hubitat. Stel <a href="/nl/guide/home-automation/">Domotica</a> opnieuw in op het nieuwe apparaat; je bestaande scènescripts behouden hun id's, dus automatiseringen die ernaar verwijzen blijven werken. Ingangsnamen die je hebt hernoemd, staan op de receiver zelf, dus ze verschijnen zodra het nieuwe apparaat verbinding maakt.</div>
   </div>
 </section>
 
@@ -291,13 +301,15 @@
       <div class="eyebrow">Importeren</div>
       <h2>Herstellen op de nieuwe telefoon</h2>
     </div>
-    <ol class="plain">
+    <div class="note"><b>Voordat je herstelt:</b> als AVR Maestro open is op een andere telefoon of tablet die met dezelfde receiver is verbonden, sluit het daar eerst af. Twee apparaten die tijdens een herstel met dezelfde receiver communiceren, kunnen een verbindingsconflict veroorzaken waardoor de firmware van de receiver vastloopt. De app waarschuwt je hier ook voor.</div>
+    <ol class="steps">
       <li>Installeer AVR Maestro op het nieuwe apparaat en zorg dat het op hetzelfde netwerk zit als je receiver.</li>
       <li>Open <b>Instellingen &rsaquo; Back-up &amp; herstel</b>.</li>
-      <li>Tik op <b>Instellingen importeren uit bestand</b> en kies de back-up.</li>
-      <li><b>Start de app opnieuw.</b> De app zegt dit ook - na een herstart worden alle herstelde instellingen netjes doorgevoerd.</li>
+      <li>Tik onder <b>Importeren</b> op <b>Instellingen importeren uit bestand</b> en kies de back-up (.zip, of een .json-bestand van een oudere versie van de app).</li>
+      <li>Controleer het overzicht in <b>Alle instellingen vervangen?</b>: hoeveel items het bevat, de appversie en wanneer het is geëxporteerd. Tik op <b>Vervangen</b>.</li>
+      <li>Zodra je <b>Back-up hersteld</b> ziet, tik je op <b>Begrepen</b> en <b>sluit je AVR Maestro geforceerd af en open je het opnieuw</b>, zodat elk scherm de herstelde instellingen laadt.</li>
     </ol>
-    <div class="note"><b>Importeren vervangt, het voegt niet samen.</b> Alles wat op dat apparaat staat, wordt overschreven met de inhoud van de back-up. Is de huidige setup je iets waard, exporteer die dan eerst - dat kost twee tikken.</div>
+    <div class="note"><b>Importeren vervangt, het voegt niet samen.</b> Alles op dat apparaat wordt gewist en vervangen door de inhoud van de back-up, en dit kan niet ongedaan worden gemaakt. Als de huidige installatie je iets waard is, exporteer die dan eerst.</div>
   </div>
 </section>
 
@@ -318,9 +330,10 @@
       <div class="eyebrow">Veelgestelde vragen</div>
       <h2>Veelgestelde vragen over back-ups</h2>
     </div>
-    <details open><summary>Kan ik een back-up tussen Android en iPhone verplaatsen?</summary><div class="body">Het bestand is gewoon JSON en is niet gebonden aan het apparaat waarop het is gemaakt. Exporteer op het ene apparaat, zet het bestand op het andere en importeer het.</div></details>
+    <details open><summary>Kan ik een back-up tussen Android en iPhone verplaatsen?</summary><div class="body">Ja. De back-up is een .zip-bestand dat niet gebonden is aan het apparaat dat het schreef. Exporteer op het ene apparaat, zet het bestand op het andere en importeer.</div></details>
     <details><summary>Overschrijft importeren de kalibratie van mijn receiver?</summary><div class="body">Nee. Een back-up bevat alleen app-instellingen. Alles wat de receiver zelf opslaat - kalibratie, presets, niveaus, afstanden, Dirac-filters - staat op de receiver en blijft ongemoeid.</div></details>
-    <details><summary>Komen mijn scènes mee?</summary><div class="body">Ja, samen met de instellingen die elke scène moest vastleggen. Zie de <a href="/nl/guide/scenes/">handleiding Scènes</a>.</div></details>
+    <details><summary>Komen mijn scènes mee?</summary><div class="body">Ja, met de instellingen die elke scène bevat en het aangepaste pictogram. Zie de <a href="/nl/guide/scenes/">scènesgids</a>.</div></details>
+    <details><summary>Waarom moet ik de app op mijn andere apparaten sluiten voordat ik herstel?</summary><div class="body">Als een andere telefoon of tablet AVR Maestro open heeft staan en met dezelfde receiver is verbonden, kunnen twee apparaten tijdens het herstel tegelijk met de receiver communiceren. Dat kan een verbindingsconflict veroorzaken waardoor de firmware van de receiver vastloopt. Sluit de app op het andere apparaat, herstel, en sluit AVR Maestro op dit apparaat geforceerd af en open het opnieuw.</div></details>
     <details><summary>Waar slaat Opslaan op apparaat het bestand op?</summary><div class="body">Waar je maar wilt in de bestandskiezer van je systeem. Delen is de snellere route als het bestand alleen onderweg is naar een andere telefoon.</div></details>
   </div>
 </section>
@@ -331,7 +344,7 @@
       <div class="eyebrow">Meer uit de handleiding</div>
       <h2>Andere AVR Maestro-handleidingen</h2>
     </div>
-    <p class="lead"><a href="/nl/guide/getting-started/">Aan de slag</a> &middot; <a href="/nl/guide/home/">Startscherm</a> &middot; <a href="/nl/guide/scenes/">Scènes</a> &middot; <a href="/nl/guide/custom-icons/">Aangepaste pictogrammen</a> &middot; <a href="/nl/guide/sound/">Geluid</a> &middot; <a href="/nl/guide/graphic-eq/">Grafische EQ</a> &middot; <a href="/nl/guide/speakers/">Luidsprekers</a> &middot; <a href="/nl/guide/locked-controls/">Waarom een bediening vergrendeld is</a> &middot; <a href="/nl/guide/assistant/">De assistent</a> &middot; <a href="/nl/guide/home-automation/">Domotica</a> &middot; <a href="/nl/guide/home-assistant-dashboard/">Home Assistant-dashboard</a> &middot; <a href="/nl/guide/multi-zone/">Zones</a> &middot; <a href="/nl/guide/remote/">Afstandsbediening</a> &middot; <a href="/nl/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/nl/guide/on-screen-display/">Schermweergave</a> &middot; <a href="/nl/guide/settings/">Instellingen</a> &middot; <a href="/nl/guide/languages/">Talen</a> &middot; <a href="/nl/guide/volume/">Volumebediening</a> &middot; <a href="/nl/guide/now-playing/">Nu aan het spelen &amp; HEOS</a></p>
+    <p class="lead"><a href="/nl/guide/getting-started/">Aan de slag</a> &middot; <a href="/nl/guide/receivers/">Receivers beheren</a> &middot; <a href="/nl/guide/navigation/">Navigeren in de app</a> &middot; <a href="/nl/guide/search/">Zoeken</a> &middot; <a href="/nl/guide/home/">Startscherm</a> &middot; <a href="/nl/guide/volume/">Volumebediening</a> &middot; <a href="/nl/guide/remote/">Afstandsbediening</a> &middot; <a href="/nl/guide/multi-zone/">Zones</a> &middot; <a href="/nl/guide/now-playing/">Nu aan het spelen &amp; HEOS</a> &middot; <a href="/nl/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/nl/guide/scenes/">Scènes</a> &middot; <a href="/nl/guide/sound/">Geluid</a> &middot; <a href="/nl/guide/graphic-eq/">Grafische EQ</a> &middot; <a href="/nl/guide/speakers/">Luidsprekers</a> &middot; <a href="/nl/guide/locked-controls/">Waarom een bediening vergrendeld is</a> &middot; <a href="/nl/guide/settings/">Instellingen</a> &middot; <a href="/nl/guide/widgets/">Widgets</a> &middot; <a href="/nl/guide/custom-icons/">Aangepaste pictogrammen</a> &middot; <a href="/nl/guide/on-screen-display/">Schermweergave</a> &middot; <a href="/nl/guide/languages/">Talen</a> &middot; <a href="/nl/guide/assistant/">De assistent</a> &middot; <a href="/nl/guide/home-automation/">Domotica</a> &middot; <a href="/nl/guide/home-assistant-dashboard/">Home Assistant-dashboard</a> &middot; <a href="/nl/guide/glossary/">Woordenlijst</a></p>
   </div>
 </section>
 
@@ -367,7 +380,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro is een onafhankelijke app van MiyaraHub Technologies LLC en is niet gelieerd aan of goedgekeurd door Denon, Marantz, Sound United, Masimo Corporation of enig ander bedrijf dat op deze pagina wordt genoemd. Denon, Marantz, HEOS, Audyssey en Dirac Live zijn handelsmerken van hun respectieve eigenaren en worden hier uitsluitend ter identificatie gebruikt.</p>
+    <p class="legal">AVR Maestro is een onafhankelijke app van MiyaraHub Technologies LLC en is niet gelieerd aan, noch goedgekeurd door Denon, Marantz, Sound United, Masimo Corporation of enig ander bedrijf dat op deze pagina wordt genoemd. Denon, Marantz, HEOS, Audyssey en Dirac Live zijn handelsmerken van hun respectieve eigenaren en worden hier uitsluitend ter identificatie gebruikt.</p>
   </div>
 </footer>
 

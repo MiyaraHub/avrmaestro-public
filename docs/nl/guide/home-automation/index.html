@@ -132,7 +132,7 @@
       "description": "Koppel AVR Maestro aan Home Assistant of Hubitat en je Scènes worden native scripts die zonder je telefoon draaien. Spraakbesturing, live status en webhooks.",
       "image": "https://avrmaestro.com/screenshots/home-assistant.png",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -187,6 +187,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Niet voor de besturing. De app praat met je receiver en met je hub via je eigen netwerk. Er loopt niets via een MiyaraHub-server. Een webhook gaat naar waar jij hem heen wijst, en dat is jouw keuze."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Domotica op een ander apparaat gekocht, of opnieuw geïnstalleerd?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Open Instellingen › Domotica (Pro) en tik onder de ontgrendelknop op Aankopen herstellen. Als je de ontgrendeling eerder met hetzelfde winkelaccount hebt gekocht, komt die terug zonder opnieuw te betalen."
       }
     }
   ]
@@ -273,7 +281,7 @@
     </div>
     <ul class="plain">
       <li><b>1. Voeg eerst je receiver toe aan Home Assistant.</b> Instellingen &rsaquo; Apparaten &amp; services &rsaquo; Integratie toevoegen &rsaquo; <b>Denon AVR</b> (of <b>HEOS</b>), daarna het lokale IP-adres van je receiver. Home Assistant maakt er een mediaspeler-entiteit voor aan.</li>
-      <li><b>2. Open Instellingen &rsaquo; Domotica in AVR Maestro</b> en tik op de Home Assistant-kaart.</li>
+      <li><b>2. Open Instellingen &rsaquo; Domotica (Pro) in AVR Maestro</b> en tik op de Home Assistant-kaart.</li>
       <li><b>3. Voer je Home Assistant-adres in</b> - een lokaal adres zoals <code>http://192.168.1.150:8123</code>, of je externe Nabu Casa-URL.</li>
       <li><b>4. Meld je aan en geef toestemming.</b> Een beveiligde browser in de app opent de eigen aanmelding van Home Assistant. Je gegevens gaan naar Home Assistant, nooit naar ons.</li>
       <li><b>5. Hij vindt je receiver zelf.</b> De app scant je mediaspeler-entiteiten en beoordeelt ze op model, naam en surroundmogelijkheden, en vult dan de juiste entiteit voor je in.</li>
@@ -305,6 +313,14 @@
         <p>Een script kun je uitvoeren maar nooit lezen, dus vroege dashboards konden de Audyssey-curve of het Dirac-slot wisselen zonder te kunnen tonen welke aan stond. De metingen die de app al heeft - de live surroundmodus, het actieve Dirac-filter, de speaker preset, de dimmer en tientallen meer - worden nu als attributen op de statussensor van de receiver gepubliceerd, zodat een tegel kan oplichten voor de instelling die echt draait.</p>
       </div>
       <img alt="AVR Maestro publiceert scripts voor Speaker Preset, Dirac Live en Audyssey naar Home Assistant" src="/screenshots/ha-sync-advanced.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Geluidsmodi als scripts</div>
+        <h2>Geluidsmodi exporteren (REST)</h2>
+        <p>In het onderdeel Home Assistant opent <b>Geluidsmodi exporteren (REST)</b> het scherm <b>Geavanceerd script (REST)</b>: één Home Assistant-script voor elke geluidsmodus die je receiver vermeldt, zodat een dashboardknop of een automatisering rechtstreeks een surroundmodus kan kiezen. De app leest die lijst van de receiver, dus zet de receiver aan en open eerst één keer het <a href="/nl/guide/sound/">tabblad Geluid</a>; tot die tijd vraagt de app je dat te doen in plaats van een lege lijst te exporteren.</p>
+      </div>
     </div>
 
     <div class="lockrow" style="margin-top:28px">
@@ -391,7 +407,7 @@
 
     <h3 style="margin-top:28px">In AVR Maestro</h3>
     <ul class="plain">
-      <li><b>1. Instellingen &rsaquo; Domotica &rsaquo; Webhooks</b>, daarna <b>Eerste trigger toevoegen</b> - of de knop <b>+</b> zodra je er een hebt.</li>
+      <li><b>1. Instellingen &rsaquo; Domotica (Pro) &rsaquo; Webhooks</b>, dan <b>Eerste trigger toevoegen</b> - of de knop <b>+</b> zodra je er een hebt.</li>
       <li><b>2. Triggergebeurtenis</b> - kies wat hem moet laten afgaan. Kies je <em>Actieve ingang gewijzigd</em> of <em>Scène opgeroepen</em>, dan verschijnt een tweede vak om het te beperken.</li>
       <li><b>3. Waar het naartoe gestuurd wordt</b> - laat het op <b>Home Assistant</b> staan. Het adres is al bekend, omdat je het eerder op ditzelfde scherm hebt gekoppeld.</li>
       <li><b>4. Webhook-ID</b> - typ dezelfde ID als in Home Assistant. Verder hoeft niets overeen te komen. Eronder schrijft de app het exacte adres uit waarnaar hij post - <code>Sends to http://your-ha:8123/api/webhook/avr-power-on</code> - zodat je het kunt controleren voordat je opslaat.</li>
@@ -449,6 +465,7 @@
         <div class="eyebrow">Wat betaald is en wat niet</div>
         <h2>Domotica is de enige ontgrendeling. De AI-assistent is gratis.</h2>
         <p><b>Domotica (Pro)</b> - Home Assistant, Hubitat en uitgaande webhooks - is een eenmalige ontgrendeling. Al het andere in AVR Maestro, inclusief de AI-assistent op het apparaat, is in de app inbegrepen.</p>
+        <p>Al gekocht, op dit apparaat of een ander met hetzelfde winkelaccount? Tik onder de ontgrendelknop op <b>Aankopen herstellen</b>.</p>
         <p>Spraakbesturing bereikt je receiver <em>via</em> Domotica, door middel van je hub. AVR Maestro draait geen eigen spraakherkenning.</p>
       </div>
     </div>
@@ -465,6 +482,7 @@
     <details><summary>Welke spraakassistenten kunnen mijn receiver bedienen?</summary><div class="body">Welke je al gebruikt. AVR Maestro voegt geen eigen spraaklaag toe - het publiceert scripts naar Home Assistant of Hubitat, en die worden door de hub die je al vertrouwt beschikbaar gesteld aan Alexa, Google Assistant of Siri Shortcuts.</div></details>
     <details><summary>Valt de AI-assistent onder de betaalde ontgrendeling?</summary><div class="body">Nee. De AI-assistent op het apparaat is gratis. Domotica - Home Assistant, Hubitat en uitgaande webhooks - is de enige betaalde ontgrendeling in AVR Maestro.</div></details>
     <details><summary>Verlaat er iets mijn thuisnetwerk?</summary><div class="body">Niet voor de besturing. De app praat met je receiver en met je hub via je eigen netwerk. Er loopt niets via een MiyaraHub-server. Een webhook gaat naar waar jij hem heen wijst, en dat is jouw keuze.</div></details>
+    <details><summary>Domotica op een ander apparaat gekocht, of opnieuw geïnstalleerd?</summary><div class="body">Open <i>Instellingen &rsaquo; Domotica (Pro)</i> en tik onder de ontgrendelknop op <b>Aankopen herstellen</b>. Als je de ontgrendeling eerder met hetzelfde winkelaccount hebt gekocht, komt die terug zonder opnieuw te betalen.</div></details>
   </div>
 </section>
 
@@ -474,7 +492,7 @@
       <div class="eyebrow">Meer uit de handleiding</div>
       <h2>Andere AVR Maestro-handleidingen</h2>
     </div>
-    <p class="lead"><a href="/nl/guide/getting-started/">Aan de slag</a> &middot; <a href="/nl/guide/home/">Startscherm</a> &middot; <a href="/nl/guide/scenes/">Scènes</a> &middot; <a href="/nl/guide/custom-icons/">Aangepaste pictogrammen</a> &middot; <a href="/nl/guide/sound/">Geluid</a> &middot; <a href="/nl/guide/graphic-eq/">Grafische EQ</a> &middot; <a href="/nl/guide/speakers/">Luidsprekers</a> &middot; <a href="/nl/guide/locked-controls/">Waarom een bediening vergrendeld is</a> &middot; <a href="/nl/guide/assistant/">De assistent</a> &middot; <a href="/nl/guide/home-assistant-dashboard/">Home Assistant-dashboard</a> &middot; <a href="/nl/guide/multi-zone/">Zones</a> &middot; <a href="/nl/guide/remote/">Afstandsbediening</a> &middot; <a href="/nl/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/nl/guide/on-screen-display/">Schermweergave</a> &middot; <a href="/nl/guide/settings/">Instellingen</a> &middot; <a href="/nl/guide/languages/">Talen</a> &middot; <a href="/nl/guide/volume/">Volumebediening</a> &middot; <a href="/nl/guide/backup/">Back-up &amp; herstel</a> &middot; <a href="/nl/guide/now-playing/">Nu aan het spelen &amp; HEOS</a></p>
+    <p class="lead"><a href="/nl/guide/getting-started/">Aan de slag</a> &middot; <a href="/nl/guide/receivers/">Receivers beheren</a> &middot; <a href="/nl/guide/navigation/">Navigeren in de app</a> &middot; <a href="/nl/guide/search/">Zoeken</a> &middot; <a href="/nl/guide/home/">Startscherm</a> &middot; <a href="/nl/guide/volume/">Volumebediening</a> &middot; <a href="/nl/guide/remote/">Afstandsbediening</a> &middot; <a href="/nl/guide/multi-zone/">Zones</a> &middot; <a href="/nl/guide/now-playing/">Nu aan het spelen &amp; HEOS</a> &middot; <a href="/nl/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/nl/guide/scenes/">Scènes</a> &middot; <a href="/nl/guide/sound/">Geluid</a> &middot; <a href="/nl/guide/graphic-eq/">Grafische EQ</a> &middot; <a href="/nl/guide/speakers/">Luidsprekers</a> &middot; <a href="/nl/guide/locked-controls/">Waarom een bediening vergrendeld is</a> &middot; <a href="/nl/guide/settings/">Instellingen</a> &middot; <a href="/nl/guide/widgets/">Widgets</a> &middot; <a href="/nl/guide/custom-icons/">Aangepaste pictogrammen</a> &middot; <a href="/nl/guide/on-screen-display/">Schermweergave</a> &middot; <a href="/nl/guide/languages/">Talen</a> &middot; <a href="/nl/guide/assistant/">De assistent</a> &middot; <a href="/nl/guide/home-assistant-dashboard/">Home Assistant-dashboard</a> &middot; <a href="/nl/guide/backup/">Back-up &amp; herstel</a> &middot; <a href="/nl/guide/glossary/">Woordenlijst</a></p>
   </div>
 </section>
 
@@ -510,7 +528,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro is een onafhankelijke app van MiyaraHub Technologies LLC en is niet gelieerd aan of goedgekeurd door Denon, Marantz, Sound United, Masimo Corporation of enig ander bedrijf dat op deze pagina wordt genoemd. Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant en Siri zijn handelsmerken van hun respectieve eigenaren en worden hier alleen ter identificatie gebruikt.</p>
+    <p class="legal">AVR Maestro is een onafhankelijke app van MiyaraHub Technologies LLC en is niet gelieerd aan, noch goedgekeurd door Denon, Marantz, Sound United, Masimo Corporation of enig ander bedrijf dat op deze pagina wordt genoemd. Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant en Siri zijn handelsmerken van hun respectieve eigenaren en worden hier uitsluitend ter identificatie gebruikt.</p>
   </div>
 </footer>
 

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="th" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-itunes-app" content="app-id=6762881597" />
+<title>จัดการเครื่องรับ: เพิ่ม สลับ &amp; ตั้งค่า - AVR Maestro</title>
+<meta name="description" content="เพิ่มเครื่องรับ Denon หรือ Marantz ใน AVR Maestro สลับระหว่างเครื่องรับ และตั้งค่าแต่ละเครื่อง: เปลี่ยนชื่อ เปลี่ยน IP, Find My Receiver, การล็อก และเฟิร์มแวร์" />
+<meta name="keywords" content="AVR Maestro manage receivers, add Denon receiver to app, switch Marantz receiver, receiver IP address changed, find my receiver, Setup Lock Denon, Remote Lock Marantz, receiver firmware check, AVR Maestro demo mode" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/th/guide/receivers/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/receivers/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/receivers/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/receivers/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/receivers/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/receivers/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/receivers/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/receivers/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/receivers/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/receivers/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/receivers/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/receivers/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/receivers/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/receivers/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/receivers/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/receivers/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/receivers/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/receivers/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/receivers/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/receivers/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/receivers/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/receivers/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/receivers/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/receivers/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/receivers/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/receivers/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/receivers/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/receivers/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/receivers/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/receivers/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/receivers/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/receivers/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="th_TH" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="จัดการเครื่องรับ: เพิ่ม สลับ &amp; ตั้งค่า - AVR Maestro" />
+<meta property="og:description" content="เพิ่มเครื่องรับ Denon หรือ Marantz ใน AVR Maestro สลับระหว่างเครื่องรับ และตั้งค่าแต่ละเครื่อง: เปลี่ยนชื่อ เปลี่ยน IP, Find My Receiver, การล็อก และเฟิร์มแวร์" />
+<meta property="og:url" content="https://avrmaestro.com/th/guide/receivers/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="จัดการเครื่องรับ: เพิ่ม สลับ &amp; ตั้งค่า - AVR Maestro" />
+<meta name="twitter:description" content="เพิ่มเครื่องรับ Denon หรือ Marantz ใน AVR Maestro สลับระหว่างเครื่องรับ และตั้งค่าแต่ละเครื่อง: เปลี่ยนชื่อ เปลี่ยน IP, Find My Receiver, การล็อก และเฟิร์มแวร์" />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro เป็นแอปอิสระสำหรับควบคุมเครื่องรับ AV ของ Denon และ Marantz ผ่านเครือข่ายภายในบ้านของคุณ",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "th"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/receivers/#article",
+      "headline": "จัดการเครื่องรับ หนึ่งหน้าต่อเครื่อง",
+      "description": "เพิ่มเครื่องรับ Denon หรือ Marantz ใน AVR Maestro สลับระหว่างเครื่องรับ และตั้งค่าแต่ละเครื่อง: เปลี่ยนชื่อ เปลี่ยน IP, Find My Receiver, การล็อก และเฟิร์มแวร์",
+      "image": "https://avrmaestro.com/assets/og-card.png",
+      "datePublished": "2026-10-28",
+      "dateModified": "2026-10-28",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/receivers/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "th"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/receivers/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "ฉันสลับไปใช้เครื่องรับอื่นได้อย่างไร",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "บนแท็บหน้าแรก แตะชื่อเครื่องรับข้าง AVR Maestro ที่ด้านบนแล้วเลือกเครื่องรับอื่นจากรายการ หรือเปิดการตั้งค่า › จัดการเครื่องรับ แล้วแตะวงกลมที่ต้นแถวของเครื่องรับ แอปจะยืนยันด้วย Switched to และชื่อเครื่องรับ"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "เครื่องรับของฉันได้ที่อยู่ IP ใหม่ ฉันต้องทำอย่างไร",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "โดยทั่วไปไม่ต้องทำอะไร: เมื่อเราเตอร์ย้ายที่อยู่ของเครื่องรับ แอปจะหาเครื่องเจออีกครั้งและแจ้งคุณเพียงครั้งเดียวว่าตามไปแล้ว หากทำไม่ได้ ให้เปิดการตั้งค่า › จัดการเครื่องรับ แตะเครื่องรับ แล้วใช้ Find My Receiver เพื่อค้นหาในเครือข่าย หรือ Change IP เพื่อพิมพ์ที่อยู่ใหม่เอง การตั้งค่าที่บันทึกไว้ทั้งหมดของเครื่องรับยังคงอยู่ มีเพียงที่อยู่ที่เปลี่ยน"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ทำไมฉันจึงไม่เห็น Screen & Locks หรือ About this receiver",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ส่วนเหล่านั้นอ่านและเขียนค่ากับเครื่องรับแบบสด จึงปรากฏเฉพาะสำหรับเครื่องรับที่ใช้งานอยู่ขณะที่แอปเชื่อมต่ออยู่ ตั้งให้เครื่องรับเป็นเครื่องที่ใช้งานด้วย Make active แล้วรอให้เชื่อมต่อ"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Setup Lock กับ Remote Lock ต่างกันอย่างไร",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Setup Lock ล็อกเมนูตั้งค่าของเครื่องรับเอง จึงไม่มีใครเปลี่ยนการตั้งค่าและการปรับเทียบเสียงได้ รวมถึงแอปนี้ จนกว่าคุณจะปลดล็อก ระดับเสียงและอินพุตยังใช้งานได้ Remote Lock ทำให้เครื่องรับไม่สนใจรีโมทคอนโทรลแบบ IR ส่วนแอปและแผงด้านหน้ายังใช้งานได้ สวิตช์แต่ละตัวปรากฏเมื่อเครื่องรับรายงานการล็อกนั้นเท่านั้น"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "จะเกิดอะไรขึ้นเมื่อฉันลบเครื่องรับ",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "แอปจะนำเครื่องรับและการตั้งค่าที่บันทึกไว้ทั้งหมดของเครื่องนั้นออก หากเป็นเครื่องรับที่ใช้งานอยู่ แอปจะสลับไปใช้เครื่องอื่น ไม่มีอะไรเปลี่ยนบนเครื่องรับเอง และคุณเพิ่มกลับได้ทุกเมื่อ"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ลองใช้แอปโดยไม่มีเครื่องรับได้หรือไม่",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ได้ แตะ Try Demo Mode ใน การตั้งค่า › จัดการเครื่องรับ หรือ Explore Demo Mode บนหน้าจอเพิ่มเครื่องรับ โหมดทดลองรัน Marantz CINEMA 30 จำลองภายในแอปและไม่ส่งอะไรผ่านเครือข่ายของคุณ ออกได้จาก การตั้งค่า › Leave Demo Mode"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "หน้าแรก",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "คู่มือผู้ใช้",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "จัดการเครื่องรับ",
+      "item": "https://avrmaestro.com/guide/receivers/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/th/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="เมนู" onclick="document.getElementById('m').classList.toggle('open')">&#9776;</button>
+    <nav id="m" data-i18n-search="ค้นหาในคู่มือ..." data-i18n-empty="ไม่พบผลลัพธ์สำหรับ" data-i18n-language="ภาษา">
+      <a href="/th/">หน้าแรก</a>
+      <a href="/th/guide/">คู่มือผู้ใช้</a>
+      <a href="/th/receivers/">เครื่องรับ</a>
+      <a href="/th/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/th/best-denon-marantz-app/">ทำไมต้องเปลี่ยน</a>
+      <a href="/th/#top" class="cta">ดาวน์โหลด</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/th/">หน้าแรก</a> &rsaquo; <a href="/th/guide/">คู่มือผู้ใช้</a> &rsaquo; จัดการเครื่องรับ</div>
+    <div class="eyebrow">การตั้งค่า &rsaquo; จัดการเครื่องรับ</div>
+    <h1>จัดการเครื่องรับ <span class="g">หนึ่งหน้าต่อเครื่อง</span></h1>
+    <p>เพิ่มเครื่องรับ Denon และ Marantz ได้เท่าที่คุณมี สลับระหว่างเครื่องได้ในสองแตะ และตั้งค่าความชอบด้านเสียงของแต่ละเครื่องแยกกัน เครื่องรับทุกเครื่องมีหน้าของตัวเองสำหรับชื่อ ที่อยู่ การล็อก และเฟิร์มแวร์</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">อยู่ตรงไหน</div>
+      <h2>เปิดจัดการเครื่องรับ</h2>
+    </div>
+    <p class="lead">เปิด<b>การตั้งค่า</b> การ์ดบนสุดคือ<b>จัดการเครื่องรับ</b> แสดงจำนวนเครื่องรับที่คุณมีและเครื่องที่ใช้งานอยู่ แตะการ์ดนั้น</p>
+    <p class="lead">สิ่งที่คุณจะเห็น: บรรทัด "Tap a receiver to set it up. Tap the circle to make it active. Drag to reorder." แล้วตามด้วยเครื่องรับของคุณ แต่ละเครื่องมีชื่อ ที่อยู่ IP และรุ่น เครื่องรับที่ใช้งานอยู่จะถูกไฮไลต์และวงกลมของเครื่องจะถูกเติมเต็ม ใต้รายการมีปุ่ม<b>เพิ่มเครื่องรับ</b> และหากคุณยังไม่ได้อยู่ในนั้น จะมีส่วน<b>DEMO MODE</b></p>
+    <ul class="plain">
+      <li><b>แตะเครื่องรับ</b>เพื่อเปิดหน้าของเครื่องนั้น</li>
+      <li><b>แตะวงกลม</b>ที่ต้นแถวเพื่อให้เครื่องรับนั้นเป็นเครื่องที่ใช้งาน แอปจะแจ้ง<b>Switched to</b>และชื่อเครื่องรับ</li>
+      <li><b>ลากที่จับ</b>ที่ท้ายแถวเพื่อเปลี่ยนลำดับ รายการเครื่องรับที่ด้านบนของหน้าแรกก็เรียงตามลำดับเดียวกัน</li>
+      <li><b>กดเครื่องรับค้าง</b>เพื่อเปิดเมนูด่วนที่มี Rename, Change IP, Find My Receiver และ Delete</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ทีละขั้นตอน</div>
+      <h2>เพิ่มเครื่องรับ</h2>
+    </div>
+    <ol class="steps">
+      <li>เปิด<i>การตั้งค่า &rsaquo; จัดการเครื่องรับ</i>แล้วแตะ<b>เพิ่มเครื่องรับ</b> (หรือ<b>+</b>ที่มุมขวาบน)</li>
+      <li>บน iPhone, iPad, Mac, Android และ Windows หน้าจอจะสแกนเครือข่ายของคุณและแสดงรายการ<b>Receivers found on your network</b> แตะเครื่องของคุณ หากไม่มีเครื่องใดตอบสนอง แตะ<b>Scan again</b> หรือพิมพ์ที่อยู่ของเครื่องรับใน<b>IP Address</b> แล้วแตะ<b>ทดสอบและบันทึก</b></li>
+      <li>แอปทดสอบการเชื่อมต่อและบันทึกเครื่องรับในขั้นตอนเดียว คุณจะเห็นรุ่นและฟีเจอร์ที่ตรวจพบ และเครื่องรับใหม่จะกลายเป็นเครื่องที่ใช้งาน</li>
+    </ol>
+    <div class="note">ที่อยู่ IP ของเครื่องรับอยู่ในเมนูของตัวเครื่องใต้<i>Setup &rsaquo; General &rsaquo; Network &rsaquo; Information</i> โทรศัพท์หรือคอมพิวเตอร์ต้องอยู่ในเครือข่ายเดียวกับเครื่องรับ ดู<a href="/th/guide/getting-started/">เริ่มต้นใช้งาน</a>สำหรับรายการตรวจสอบเครือข่าย</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">สองแตะ</div>
+      <h2>สลับเครื่องรับจากหน้าแรก</h2>
+    </div>
+    <ol class="steps">
+      <li>บนแท็บ<b>หน้าแรก</b> แตะชื่อเครื่องรับที่แสดงข้าง<b>AVR Maestro</b> ที่ด้านบนของหน้าจอ</li>
+      <li>รายการเครื่องรับของคุณจะเปิดขึ้น พร้อมเครื่องหมายถูกข้างเครื่องที่ใช้งาน แตะเครื่องรับอื่นเพื่อสลับไปใช้ หรือแตะ<b>จัดการเครื่องรับ</b>ที่ด้านล่างของรายการเพื่อเปิดหน้าเต็ม</li>
+    </ol>
+    <p class="lead">เครื่องรับแต่ละเครื่องเก็บข้อมูลของตัวเองไว้บนอุปกรณ์ของคุณ การสลับจึงโหลดการตั้งค่าของเครื่องรับนั้นทันที</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">การตั้งค่า &rsaquo; จัดการเครื่องรับ &rsaquo; เครื่องรับของคุณ</div>
+      <h2>หน้าเครื่องรับ</h2>
+      <p class="lead">แตะเครื่องรับเพื่อเปิดหน้าของเครื่องนั้น การ์ดด้านบนแสดงสถานะการเชื่อมต่อและรายละเอียด หากไม่ใช่เครื่องรับที่ใช้งานอยู่ จะมีปุ่ม<b>Make active</b>อยู่ใต้การ์ด เพราะขีดจำกัดระดับเสียง การแสดงผล และการล็อกเปลี่ยนได้เฉพาะบนเครื่องรับที่ใช้งานอยู่ หากใช้งานอยู่แต่เข้าถึงไม่ได้ หน้าจะแสดง "The app is not connected to the receiver right now."</p>
+    </div>
+
+    <h3 style="margin-top:26px">เสียง</h3>
+    <p class="lead">ความชอบของคุณเองสำหรับเครื่องรับนี้ เครื่องรับแต่ละเครื่องเก็บค่าของตัวเอง <a href="/th/guide/volume/">คู่มือระดับเสียง &rarr;</a></p>
+    <ul class="plain">
+      <li><b>Volume Step:</b> การกดหนึ่งครั้งเลื่อนระดับเสียงไกลเท่าใด 0.5, 1, 1.5 หรือ 2 dB ปุ่มปรับเสียงทุกปุ่มในแอปใช้ค่านี้</li>
+      <li><b>Show absolute volume on top:</b> สลับว่าตัวเลขใดเป็นตัวใหญ่ในการแสดงระดับเสียง ปิด (ค่าเริ่มต้น) แสดง dB ตัวใหญ่และสเกลระดับเสียงตัวเล็ก เปิดแสดงสเกลระดับเสียงตัวใหญ่และ dB ตัวเล็ก</li>
+      <li><b>การแสดงระดับเสียงในรีโมท:</b> แท็บรีโมทแสดงสเกล dB (<b>สัมบูรณ์ (dB)</b> เช่น -40.5 dB) หรือสเกล 0-98 (<b>Relative</b> เช่น 39.5)</li>
+      <li><b>ค่าตั้งล่วงหน้าระดับเสียงแบบค่อยเป็นค่อยไป:</b> เปิด (ค่าเริ่มต้น) การแตะค่าตั้งล่วงหน้าระดับเสียงจะปรับระดับเป็นขั้นเล็ก ๆ ปิด จะข้ามไปยังระดับที่บันทึกไว้ทันที</li>
+      <li><b>ปุ่มปรับเสียงของอุปกรณ์</b> (โทรศัพท์และแท็บเล็ต): ขณะเปิดแอป ปุ่มปรับเสียงของอุปกรณ์เองจะเปลี่ยนระดับเสียงของเครื่องรับ เปิดโดยค่าเริ่มต้น ปิดเพื่อคืนปุ่มให้อุปกรณ์</li>
+      <li><b>การควบคุมระดับเสียง:</b> ขีดจำกัดระดับเสียง ระดับเมื่อเปิดเครื่อง และความลึกของการปิดเสียง เขียนลงเครื่องรับเอง แสดงขณะที่แอปเชื่อมต่อกับเครื่องรับนี้ <a href="/th/guide/volume/">คู่มือการควบคุมระดับเสียง &rarr;</a></li>
+    </ul>
+
+    <h3 style="margin-top:26px">หน้าจอและการล็อก</h3>
+    <p class="lead">แสดงสำหรับเครื่องรับที่ใช้งานอยู่ขณะเชื่อมต่อ</p>
+    <ul class="plain">
+      <li><b>การแสดงผลบนหน้าจอ:</b> ตัวแสดงระดับเสียง แบนเนอร์ข้อมูล กำลังเล่น และ 21:9 <a href="/th/guide/on-screen-display/">คู่มือการแสดงผลบนหน้าจอ &rarr;</a></li>
+      <li><b>Setup Lock:</b> ล็อกเมนูตั้งค่าของเครื่องรับเอง ขณะที่ล็อกอยู่ การตั้งค่า Audio, Video, Speaker และอื่น ๆ เปลี่ยนที่ไหนไม่ได้เลย ทั้งในเมนูของเครื่องรับ ในแอปนี้ และในเว็บพอร์ทัลของเครื่อง ตัวควบคุมประจำวัน เช่น ระดับเสียง อินพุต และไดเมอร์ ยังใช้งานได้ การเปิดจะถามก่อน (<b>Lock the receiver menu?</b> จากนั้น<b>Lock</b>) ปิดสวิตช์เพื่อปลดล็อก</li>
+      <li><b>Remote Lock:</b> ทำให้เครื่องรับไม่สนใจการกดปุ่มจากรีโมท IR จนกว่าคุณจะปลดล็อก แอปและแผงด้านหน้ายังใช้งานได้</li>
+    </ul>
+    <div class="note">Setup Lock และ Remote Lock ปรากฏเมื่อเครื่องรับรายงานสถานะของมันเท่านั้น หากเครื่องรับของคุณไม่รายงานการล็อก สวิตช์จะไม่แสดงแทนที่จะเดา ตัวควบคุมที่เป็นสีเทาที่อื่นในแอปเพราะ Setup Lock อธิบายไว้ใน<a href="/th/guide/locked-controls/">เหตุใดตัวควบคุมจึงถูกล็อก</a></div>
+
+    <h3 style="margin-top:26px">เกี่ยวกับเครื่องรับนี้</h3>
+    <ul class="plain">
+      <li><b>Device Information:</b> สถานะโดยละเอียดของเครื่องรับ</li>
+      <li><b>Firmware:</b> เวอร์ชันเฟิร์มแวร์ที่ติดตั้ง แตะ<b>Check</b>เพื่อถามเครื่องรับว่ามีอัปเดตหรือไม่ บรรทัดด้านล่างจะบอกว่าคุณใช้เฟิร์มแวร์ล่าสุดแล้ว มีอัปเดตพร้อมใช้ อัปเดตกำลังดำเนินการ หรืออ่านสถานะไม่ได้ การอัปเดตติดตั้งจากเมนู Setup ของเครื่องรับเอง ไม่ใช่จากแอป ห้ามปิดเครื่องรับระหว่างอัปเดต</li>
+    </ul>
+
+    <h3 style="margin-top:26px">จัดการ</h3>
+    <ul class="plain">
+      <li><b>Rename:</b> พิมพ์ชื่อใหม่ใน<b>Device Name</b>แล้วแตะ<b>Save</b> ชื่อนี้เก็บไว้ในแอปเท่านั้น</li>
+      <li><b>Change IP:</b> พิมพ์<b>IP Address or Hostname</b>ใหม่แล้วแตะ<b>Save</b> เช่น หลังจากเราเตอร์ให้ที่อยู่ใหม่ การตั้งค่าที่บันทึกไว้ทั้งหมดของเครื่องรับยังคงอยู่ มีเพียงที่อยู่ที่เปลี่ยน ที่อยู่ที่เครื่องรับอื่นของคุณใช้อยู่แล้วจะถูกปฏิเสธ</li>
+      <li><b>Find My Receiver:</b> ค้นหาที่อยู่ใหม่ของเครื่องรับนี้ในเครือข่าย หากพบเครื่องรับของคุณที่อื่น แตะ<b>Use This Address</b> แอปจะแจ้งเมื่อที่อยู่ที่บันทึกไว้ถูกต้องอยู่แล้ว เมื่อไม่มีเครื่องใดตอบ และเมื่ออาจเป็นเครื่องรับของคุณได้มากกว่าหนึ่งเครื่อง ซึ่งในกรณีนั้นแอปจะไม่เปลี่ยนอะไรและคุณใช้ Change IP แทน</li>
+      <li><b>Delete:</b> ถามว่า<b>Delete Receiver?</b>แล้วนำเครื่องรับและการตั้งค่าที่บันทึกไว้ทั้งหมดออกจากแอป การลบเครื่องรับที่ใช้งานอยู่จะสลับแอปไปใช้เครื่องอื่น</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lockrow">
+      <div>
+        <div class="eyebrow">ไม่ต้องมีเครื่องรับ</div>
+        <h2>โหมดทดลอง เข้าและออก</h2>
+        <p>โหมดทดลองรัน Marantz CINEMA 30 จำลองภายในแอป ทุกหน้าจอทำงานเหมือนกับมีฮาร์ดแวร์จริง และไม่มีอะไรถูกส่งผ่านเครือข่ายของคุณ</p>
+        <ol class="steps">
+          <li><b>เริ่ม</b>จาก<i>การตั้งค่า &rsaquo; จัดการเครื่องรับ &rsaquo; ลองโหมดทดลอง</i> จาก<b>สำรวจโหมดทดลอง</b>บนหน้าจอเพิ่มเครื่องรับ หรือจาก<b>Try the demo instead</b>ในคู่มือต้อนรับ เครื่องรับทดลองจะกลายเป็นเครื่องที่ใช้งานและแอปเปิดหน้าแรก</li>
+          <li><b>ดูตัวอย่าง Pro</b> ขณะที่โหมดทดลองทำงาน การตั้งค่าจะแสดงส่วน<b>DEMO MODE</b> สวิตช์<b>Preview Pro features</b>ของส่วนนั้นปลดล็อกระบบบ้านอัตโนมัติและทริกเกอร์สำหรับเซสชันทดลองนี้เท่านั้น ไม่มีการซื้อเกิดขึ้น</li>
+          <li><b>ออก</b>ด้วย<i>การตั้งค่า &rsaquo; Leave Demo Mode</i> เครื่องรับทดลองจะถูกนำออกและแอปกลับไปใช้เครื่องรับของคุณเอง</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">คำถามที่พบบ่อย</div>
+      <h2>เครื่องรับ พร้อมคำตอบ</h2>
+    </div>
+    <details open><summary>ฉันสลับไปใช้เครื่องรับอื่นได้อย่างไร</summary><div class="body">บนแท็บหน้าแรก แตะชื่อเครื่องรับข้าง AVR Maestro ที่ด้านบนแล้วเลือกเครื่องรับอื่นจากรายการ หรือเปิดการตั้งค่า &rsaquo; จัดการเครื่องรับ แล้วแตะวงกลมที่ต้นแถวของเครื่องรับ แอปจะยืนยันด้วย Switched to และชื่อเครื่องรับ</div></details>
+    <details><summary>เครื่องรับของฉันได้ที่อยู่ IP ใหม่ ฉันต้องทำอย่างไร</summary><div class="body">โดยทั่วไปไม่ต้องทำอะไร: เมื่อเราเตอร์ย้ายที่อยู่ของเครื่องรับ แอปจะหาเครื่องเจออีกครั้งและแจ้งคุณเพียงครั้งเดียวว่าตามไปแล้ว หากทำไม่ได้ ให้เปิดการตั้งค่า &rsaquo; จัดการเครื่องรับ แตะเครื่องรับ แล้วใช้ Find My Receiver เพื่อค้นหาในเครือข่าย หรือ Change IP เพื่อพิมพ์ที่อยู่ใหม่เอง การตั้งค่าที่บันทึกไว้ทั้งหมดของเครื่องรับยังคงอยู่ มีเพียงที่อยู่ที่เปลี่ยน</div></details>
+    <details><summary>ทำไมฉันจึงไม่เห็น Screen &amp; Locks หรือ About this receiver</summary><div class="body">ส่วนเหล่านั้นอ่านและเขียนค่ากับเครื่องรับแบบสด จึงปรากฏเฉพาะสำหรับเครื่องรับที่ใช้งานอยู่ขณะที่แอปเชื่อมต่ออยู่ ตั้งให้เครื่องรับเป็นเครื่องที่ใช้งานด้วย Make active แล้วรอให้เชื่อมต่อ</div></details>
+    <details><summary>Setup Lock กับ Remote Lock ต่างกันอย่างไร</summary><div class="body">Setup Lock ล็อกเมนูตั้งค่าของเครื่องรับเอง จึงไม่มีใครเปลี่ยนการตั้งค่าและการปรับเทียบเสียงได้ รวมถึงแอปนี้ จนกว่าคุณจะปลดล็อก ระดับเสียงและอินพุตยังใช้งานได้ Remote Lock ทำให้เครื่องรับไม่สนใจรีโมทคอนโทรลแบบ IR ส่วนแอปและแผงด้านหน้ายังใช้งานได้ สวิตช์แต่ละตัวปรากฏเมื่อเครื่องรับรายงานการล็อกนั้นเท่านั้น</div></details>
+    <details><summary>จะเกิดอะไรขึ้นเมื่อฉันลบเครื่องรับ</summary><div class="body">แอปจะนำเครื่องรับและการตั้งค่าที่บันทึกไว้ทั้งหมดของเครื่องนั้นออก หากเป็นเครื่องรับที่ใช้งานอยู่ แอปจะสลับไปใช้เครื่องอื่น ไม่มีอะไรเปลี่ยนบนเครื่องรับเอง และคุณเพิ่มกลับได้ทุกเมื่อ</div></details>
+    <details><summary>ลองใช้แอปโดยไม่มีเครื่องรับได้หรือไม่</summary><div class="body">ได้ แตะ Try Demo Mode ในการตั้งค่า &rsaquo; จัดการเครื่องรับ หรือ Explore Demo Mode บนหน้าจอเพิ่มเครื่องรับ โหมดทดลองรัน Marantz CINEMA 30 จำลองภายในแอปและไม่ส่งอะไรผ่านเครือข่ายของคุณ ออกได้จากการตั้งค่า &rsaquo; Leave Demo Mode</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">เนื้อหาเพิ่มเติมของคู่มือ</div>
+      <h2>คู่มือ AVR Maestro เรื่องอื่น ๆ</h2>
+    </div>
+    <p class="lead"><a href="/th/guide/getting-started/">เริ่มต้นใช้งาน</a> &middot; <a href="/th/guide/navigation/">การนำทางในแอป</a> &middot; <a href="/th/guide/search/">ค้นหา</a> &middot; <a href="/th/guide/home/">หน้าจอหลัก</a> &middot; <a href="/th/guide/volume/">การควบคุมระดับเสียง</a> &middot; <a href="/th/guide/remote/">รีโมท</a> &middot; <a href="/th/guide/multi-zone/">โซน</a> &middot; <a href="/th/guide/now-playing/">กำลังเล่น &amp; HEOS</a> &middot; <a href="/th/guide/radio/">วิทยุ (FM/AM)</a> &middot; <a href="/th/guide/scenes/">ฉาก</a> &middot; <a href="/th/guide/sound/">เสียง</a> &middot; <a href="/th/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/th/guide/speakers/">ลำโพง</a> &middot; <a href="/th/guide/locked-controls/">เหตุใดตัวควบคุมจึงถูกล็อก</a> &middot; <a href="/th/guide/settings/">การตั้งค่า</a> &middot; <a href="/th/guide/widgets/">วิดเจ็ต</a> &middot; <a href="/th/guide/custom-icons/">ไอคอนกำหนดเอง</a> &middot; <a href="/th/guide/on-screen-display/">การแสดงผลบนหน้าจอ</a> &middot; <a href="/th/guide/languages/">ภาษา</a> &middot; <a href="/th/guide/assistant/">ผู้ช่วย</a> &middot; <a href="/th/guide/home-automation/">ระบบบ้านอัตโนมัติ</a> &middot; <a href="/th/guide/home-assistant-dashboard/">แดชบอร์ด Home Assistant</a> &middot; <a href="/th/guide/backup/">สำรอง &amp; กู้คืนข้อมูล</a> &middot; <a href="/th/guide/glossary/">อภิธานศัพท์</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/th/">หน้าแรก</a>
+      <a href="/th/guide/">คู่มือผู้ใช้</a>
+      <a href="/th/guide/getting-started/">เริ่มต้นใช้งาน</a>
+      <a href="/th/receivers/">เครื่องรับ</a>
+      <a href="/th/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/th/audyssey-vs-dirac/">Audyssey เทียบกับ Dirac</a>
+      <a href="/th/best-denon-marantz-app/">ทำไมต้องเปลี่ยน</a>
+      <a href="/th/help/">วิธีใช้</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro&amp;referrer=utm_source%3Davrmaestro.com%26utm_medium%3Dguide-receivers">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+    </div>
+    <p class="legal">AVR Maestro เป็นแอปอิสระโดย MiyaraHub Technologies LLC และไม่มีส่วนเกี่ยวข้องหรือได้รับการรับรองจาก Denon, Marantz, Sound United, Masimo Corporation หรือบริษัทอื่นใดที่ระบุในหน้านี้ Denon, Marantz และ Audyssey เป็นเครื่องหมายการค้าของเจ้าของที่เกี่ยวข้อง ใช้ในที่นี้เพื่อระบุผลิตภัณฑ์เท่านั้น</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

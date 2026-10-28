@@ -132,7 +132,7 @@
       "description": "Verknüpfen Sie AVR Maestro mit Home Assistant oder Hubitat, und Ihre Szenen werden zu nativen Skripten, die ohne Ihr Handy laufen. Sprachsteuerung, Live-Status und Webhooks.",
       "image": "https://avrmaestro.com/screenshots/home-assistant.png",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -187,6 +187,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Nicht für die Steuerung. Die App spricht mit Ihrem Receiver und Ihrem Hub über Ihr eigenes Netzwerk. Nichts läuft über einen MiyaraHub-Server. Ein Webhook geht dorthin, wohin Sie ihn richten, das entscheiden Sie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hausautomation auf einem anderen Gerät gekauft oder neu installiert?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Öffnen Sie Einstellungen › Hausautomation (Pro) und tippen Sie unter der Freischalten-Schaltfläche auf Käufe wiederherstellen. Wenn Sie die Freischaltung zuvor mit demselben Store-Konto gekauft haben, kommt sie zurück, ohne erneut zu zahlen."
       }
     }
   ]
@@ -273,7 +281,7 @@
     </div>
     <ul class="plain">
       <li><b>1. Fügen Sie zuerst Ihren Receiver zu Home Assistant hinzu.</b> Einstellungen &rsaquo; Geräte &amp; Dienste &rsaquo; Integration hinzufügen &rsaquo; <b>Denon AVR</b> (oder <b>HEOS</b>), dann die lokale IP Ihres Receivers. Home Assistant legt dafür eine Media-Player-Entity an.</li>
-      <li><b>2. Öffnen Sie in AVR Maestro Einstellungen &rsaquo; Hausautomation</b> und tippen Sie auf die Home-Assistant-Karte.</li>
+      <li><b>2. Öffnen Sie in AVR Maestro Einstellungen &rsaquo; Hausautomation (Pro)</b> und tippen Sie auf die Karte Home Assistant.</li>
       <li><b>3. Geben Sie Ihre Home-Assistant-Adresse ein</b> - eine lokale wie <code>http://192.168.1.150:8123</code> oder Ihre externe Nabu-Casa-URL.</li>
       <li><b>4. Anmelden und autorisieren.</b> Ein sicherer In-App-Browser öffnet die eigene Anmeldung von Home Assistant. Ihre Zugangsdaten gehen an Home Assistant, niemals an uns.</li>
       <li><b>5. Er findet Ihren Receiver von selbst.</b> Die App durchsucht Ihre Media-Player-Entitäten, bewertet sie nach Modell, Name und Surround-Fähigkeit und trägt dann die richtige Entität für Sie ein.</li>
@@ -305,6 +313,14 @@
         <p>Ein Skript lässt sich ausführen, aber nie auslesen, daher konnten frühe Dashboards die Audyssey-Kurve oder den Dirac-Slot umschalten, ohne anzuzeigen, welcher gerade aktiv war. Die Messwerte, die die App ohnehin hat - der Live-Surround-Modus, der aktive Dirac-Filter, das Speaker Preset, der Dimmer und Dutzende mehr - werden jetzt als Attribute am Statussensor des Receivers veröffentlicht, sodass eine Kachel für die tatsächlich laufende Einstellung leuchten kann.</p>
       </div>
       <img alt="AVR Maestro veröffentlicht Steuerskripte für Speaker Preset, Dirac Live und Audyssey an Home Assistant" src="/screenshots/ha-sync-advanced.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Klangmodi als Skripte</div>
+        <h2>Klangmodi exportieren (REST)</h2>
+        <p>Im Bereich Home Assistant öffnet <b>Klangmodi exportieren (REST)</b> das <b>Erweiterte Skript (REST)</b>: ein Home-Assistant-Skript für jeden Klangmodus, den Ihr Receiver auflistet, damit eine Dashboard-Schaltfläche oder eine Automatisierung direkt einen Surround-Modus wählen kann. Die App liest diese Liste vom Receiver, schalten Sie ihn also ein und öffnen Sie zuerst einmal den <a href="/de/guide/sound/">Tab Klang</a>; bis dahin fordert sie Sie dazu auf, statt eine leere Liste zu exportieren.</p>
+      </div>
     </div>
 
     <div class="lockrow" style="margin-top:28px">
@@ -391,7 +407,7 @@
 
     <h3 style="margin-top:28px">In AVR Maestro</h3>
     <ul class="plain">
-      <li><b>1. Einstellungen &rsaquo; Hausautomation &rsaquo; Webhooks</b>, dann <b>Ersten Trigger hinzufügen</b> - oder der <b>+</b>-Button, sobald Sie einen haben.</li>
+      <li><b>1. Einstellungen &rsaquo; Hausautomation (Pro) &rsaquo; Webhooks</b>, dann <b>Ersten Trigger hinzufügen</b> - oder die Schaltfläche <b>+</b>, sobald Sie schon einen haben.</li>
       <li><b>2. Trigger-Ereignis</b> - wählen Sie, was ihn auslösen soll. Wenn Sie <em>Aktiver Eingang geändert</em> oder <em>Szene abgerufen</em> wählen, erscheint ein zweites Feld zum Eingrenzen.</li>
       <li><b>3. Wohin gesendet wird</b> - belassen Sie es bei <b>Home Assistant</b>. Die Adresse ist bereits bekannt, weil Sie ihn weiter oben auf demselben Bildschirm verknüpft haben.</li>
       <li><b>4. Webhook-ID</b> - geben Sie dieselbe ID ein, die Sie in Home Assistant verwendet haben. Sonst muss nichts übereinstimmen. Darunter zeigt die App die genaue Adresse, an die sie senden wird - <code>Sends to http://your-ha:8123/api/webhook/avr-power-on</code> - sodass Sie sie vor dem Speichern prüfen können.</li>
@@ -449,6 +465,7 @@
         <div class="eyebrow">Was kostenpflichtig ist und was nicht</div>
         <h2>Hausautomation ist die einzige Freischaltung. Der KI-Assistent ist kostenlos.</h2>
         <p><b>Hausautomation (Pro)</b> - Home Assistant, Hubitat und ausgehende Webhooks - ist eine einmalige Freischaltung. Alles andere in AVR Maestro, einschließlich des KI-Assistenten auf dem Gerät, ist in der App enthalten.</p>
+        <p>Bereits gekauft, auf diesem Gerät oder einem anderen mit demselben Store-Konto? Tippen Sie unter der Freischalten-Schaltfläche auf <b>Käufe wiederherstellen</b>.</p>
         <p>Die Sprachsteuerung erreicht Ihren Receiver <em>über</em> die Hausautomation, über Ihren Hub. AVR Maestro betreibt keine eigene Spracherkennung.</p>
       </div>
     </div>
@@ -465,6 +482,7 @@
     <details><summary>Welche Sprachassistenten können meinen Receiver steuern?</summary><div class="body">Jeder, den Sie ohnehin nutzen. AVR Maestro bringt keine eigene Sprachebene mit - es veröffentlicht Skripte für Home Assistant oder Hubitat, und diese werden vom Hub Ihres Vertrauens für Alexa, Google Assistant oder Siri Shortcuts bereitgestellt.</div></details>
     <details><summary>Gehört der KI-Assistent zur kostenpflichtigen Freischaltung?</summary><div class="body">Nein. Der KI-Assistent auf dem Gerät ist kostenlos. Hausautomation - Home Assistant, Hubitat und ausgehende Webhooks - ist die einzige kostenpflichtige Freischaltung in AVR Maestro.</div></details>
     <details><summary>Verlässt irgendetwas mein Heimnetzwerk?</summary><div class="body">Nicht für die Steuerung. Die App spricht mit Ihrem Receiver und Ihrem Hub über Ihr eigenes Netzwerk. Nichts läuft über einen MiyaraHub-Server. Ein Webhook geht dorthin, wohin Sie ihn richten, das entscheiden Sie.</div></details>
+    <details><summary>Hausautomation auf einem anderen Gerät gekauft oder neu installiert?</summary><div class="body">Öffnen Sie <i>Einstellungen &rsaquo; Hausautomation (Pro)</i> und tippen Sie unter der Freischalten-Schaltfläche auf <b>Käufe wiederherstellen</b>. Wenn Sie die Freischaltung zuvor mit demselben Store-Konto gekauft haben, kommt sie zurück, ohne erneut zu zahlen.</div></details>
   </div>
 </section>
 
@@ -474,7 +492,7 @@
       <div class="eyebrow">Mehr aus der Anleitung</div>
       <h2>Weitere AVR Maestro Anleitungen</h2>
     </div>
-    <p class="lead"><a href="/de/guide/getting-started/">Erste Schritte</a> &middot; <a href="/de/guide/home/">Startbildschirm</a> &middot; <a href="/de/guide/scenes/">Szenen</a> &middot; <a href="/de/guide/custom-icons/">Eigene Symbole</a> &middot; <a href="/de/guide/sound/">Ton</a> &middot; <a href="/de/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/de/guide/speakers/">Lautsprecher</a> &middot; <a href="/de/guide/locked-controls/">Warum ein Regler gesperrt ist</a> &middot; <a href="/de/guide/assistant/">Der Assistent</a> &middot; <a href="/de/guide/home-assistant-dashboard/">Home-Assistant-Dashboard</a> &middot; <a href="/de/guide/multi-zone/">Zonen</a> &middot; <a href="/de/guide/remote/">Fernbedienung</a> &middot; <a href="/de/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/de/guide/on-screen-display/">Bildschirmanzeige</a> &middot; <a href="/de/guide/settings/">Einstellungen</a> &middot; <a href="/de/guide/languages/">Sprachen</a> &middot; <a href="/de/guide/volume/">Lautstärkeregler</a> &middot; <a href="/de/guide/backup/">Sichern &amp; Wiederherstellen</a> &middot; <a href="/de/guide/now-playing/">Jetzt läuft &amp; HEOS</a></p>
+    <p class="lead"><a href="/de/guide/getting-started/">Erste Schritte</a> &middot; <a href="/de/guide/receivers/">Receiver verwalten</a> &middot; <a href="/de/guide/navigation/">In der App navigieren</a> &middot; <a href="/de/guide/search/">Suche</a> &middot; <a href="/de/guide/home/">Startbildschirm</a> &middot; <a href="/de/guide/volume/">Lautstärkeregler</a> &middot; <a href="/de/guide/remote/">Fernbedienung</a> &middot; <a href="/de/guide/multi-zone/">Zonen</a> &middot; <a href="/de/guide/now-playing/">Wiedergabe &amp; HEOS</a> &middot; <a href="/de/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/de/guide/scenes/">Szenen</a> &middot; <a href="/de/guide/sound/">Klang</a> &middot; <a href="/de/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/de/guide/speakers/">Lautsprecher</a> &middot; <a href="/de/guide/locked-controls/">Warum ein Regler gesperrt ist</a> &middot; <a href="/de/guide/settings/">Einstellungen</a> &middot; <a href="/de/guide/widgets/">Widgets</a> &middot; <a href="/de/guide/custom-icons/">Eigene Symbole</a> &middot; <a href="/de/guide/on-screen-display/">Bildschirmanzeige</a> &middot; <a href="/de/guide/languages/">Sprachen</a> &middot; <a href="/de/guide/assistant/">Der Assistent</a> &middot; <a href="/de/guide/home-assistant-dashboard/">Home-Assistant-Dashboard</a> &middot; <a href="/de/guide/backup/">Sichern &amp; Wiederherstellen</a> &middot; <a href="/de/guide/glossary/">Glossar</a></p>
   </div>
 </section>
 
@@ -510,7 +528,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro ist eine unabhängige App von MiyaraHub Technologies LLC und steht in keiner Verbindung zu Denon, Marantz, Sound United, Masimo Corporation oder anderen auf dieser Seite genannten Unternehmen und wird von diesen nicht unterstützt. Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant und Siri sind Marken ihrer jeweiligen Inhaber und werden hier nur zur Identifizierung verwendet.</p>
+    <p class="legal">AVR Maestro ist eine unabhängige App von MiyaraHub Technologies LLC und steht in keiner Verbindung zu Denon, Marantz, Sound United, Masimo Corporation oder anderen auf dieser Seite genannten Unternehmen und wird von diesen nicht unterstützt. Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant und Siri sind Marken ihrer jeweiligen Inhaber und werden hier nur zur Identifikation verwendet.</p>
   </div>
 </footer>
 

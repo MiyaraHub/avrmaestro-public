@@ -132,7 +132,7 @@
       "description": "Liên kết AVR Maestro với Home Assistant hoặc Hubitat và các Cảnh của bạn trở thành tập lệnh gốc chạy mà không cần điện thoại. Điều khiển bằng giọng nói, trạng thái trực tiếp và webhook.",
       "image": "https://avrmaestro.com/screenshots/home-assistant.png",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -187,6 +187,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Không phải để điều khiển. Ứng dụng giao tiếp với receiver và hub của bạn qua chính mạng của bạn. Không có gì được định tuyến qua máy chủ MiyaraHub. Webhook gửi đến bất cứ nơi nào bạn chỉ định, đó là lựa chọn của bạn."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Đã mua Home Automation trên thiết bị khác, hoặc đã cài lại ứng dụng?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mở Cài đặt › Tự động hóa nhà (Pro) và chạm Khôi phục giao dịch mua dưới nút mở khóa. Nếu trước đây bạn đã mua bản mở khóa bằng cùng tài khoản cửa hàng, nó sẽ quay lại mà không phải trả tiền lần nữa."
       }
     }
   ]
@@ -273,7 +281,7 @@
     </div>
     <ul class="plain">
       <li><b>1. Trước tiên, hãy thêm receiver của bạn vào Home Assistant.</b> Cài đặt &rsaquo; Thiết bị &amp; Dịch vụ &rsaquo; Thêm tích hợp &rsaquo; <b>Denon AVR</b> (hoặc <b>HEOS</b>), rồi nhập IP cục bộ của receiver. Home Assistant sẽ tạo một thực thể media player cho thiết bị đó.</li>
-      <li><b>2. Mở Settings &rsaquo; Home Automation trong AVR Maestro</b> và chạm vào thẻ Home Assistant.</li>
+      <li><b>2. Mở Cài đặt &rsaquo; Tự động hóa nhà (Pro) trong AVR Maestro</b> và chạm thẻ Home Assistant.</li>
       <li><b>3. Nhập địa chỉ Home Assistant của bạn</b> - địa chỉ cục bộ như <code>http://192.168.1.150:8123</code>, hoặc URL Nabu Casa bên ngoài của bạn.</li>
       <li><b>4. Đăng nhập và cấp quyền.</b> Một trình duyệt bảo mật trong ứng dụng sẽ mở trang đăng nhập của chính Home Assistant. Thông tin đăng nhập của bạn gửi đến Home Assistant, không bao giờ gửi cho chúng tôi.</li>
       <li><b>5. Nó tự tìm receiver của bạn.</b> Ứng dụng quét các thực thể media player của bạn và chấm điểm theo kiểu máy, tên và khả năng surround, rồi tự điền thực thể phù hợp cho bạn.</li>
@@ -305,6 +313,14 @@
         <p>Một tập lệnh chỉ chạy được chứ không đọc được, nên các dashboard thời đầu có thể chuyển đường cong Audyssey hay slot Dirac mà không có cách nào cho biết mục nào đang bật. Những số đọc mà ứng dụng đã nắm - chế độ surround đang chạy, bộ lọc Dirac đang dùng, speaker preset, độ sáng và hàng chục thứ khác - giờ được công bố dưới dạng thuộc tính trên cảm biến trạng thái của receiver, để một ô có thể sáng lên theo cài đặt đang thực sự chạy.</p>
       </div>
       <img alt="AVR Maestro công bố các tập lệnh điều khiển Speaker Preset, Dirac Live và Audyssey lên Home Assistant" src="/screenshots/ha-sync-advanced.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Chế độ âm thanh dưới dạng tập lệnh</div>
+        <h2>Xuất chế độ âm thanh (REST)</h2>
+        <p>Trong phần Home Assistant, <b>Xuất chế độ âm thanh (REST)</b> mở <b>Tập lệnh nâng cao (REST)</b>: một tập lệnh Home Assistant cho mỗi chế độ âm thanh mà receiver của bạn liệt kê, để một nút trên bảng điều khiển hoặc một tự động hóa có thể chọn thẳng chế độ vòm. Ứng dụng đọc danh sách đó từ receiver, nên hãy bật receiver và mở <a href="/vi/guide/sound/">tab Âm thanh</a> một lần trước; cho đến lúc đó nó sẽ yêu cầu bạn làm vậy, thay vì xuất một danh sách trống.</p>
+      </div>
     </div>
 
     <div class="lockrow" style="margin-top:28px">
@@ -391,7 +407,7 @@
 
     <h3 style="margin-top:28px">Trong AVR Maestro</h3>
     <ul class="plain">
-      <li><b>1. Settings &rsaquo; Home Automation &rsaquo; Webhooks</b>, rồi <b>Add First Trigger</b> - hoặc nút <b>+</b> khi bạn đã có một cái.</li>
+      <li><b>1. Cài đặt &rsaquo; Tự động hóa nhà (Pro) &rsaquo; Webhook</b>, rồi <b>Thêm trình kích hoạt đầu tiên</b> - hoặc nút <b>+</b> khi bạn đã có một trình kích hoạt.</li>
       <li><b>2. Trigger Event</b> - chọn điều gì sẽ kích hoạt nó. Chọn <em>Active Input Changed</em> hoặc <em>Scene Recalled</em> sẽ thêm ô thứ hai để thu hẹp phạm vi.</li>
       <li><b>3. Nơi gửi</b> - giữ nguyên <b>Home Assistant</b>. Địa chỉ đã được biết sẵn, vì bạn đã liên kết nó trước đó trên cùng màn hình này.</li>
       <li><b>4. Webhook ID</b> - gõ đúng ID bạn đã dùng trong Home Assistant. Không cần khớp thêm gì khác. Bên dưới, ứng dụng ghi rõ địa chỉ chính xác mà nó sẽ gửi đến - <code>Sends to http://your-ha:8123/api/webhook/avr-power-on</code> - để bạn kiểm tra trước khi lưu.</li>
@@ -449,6 +465,7 @@
         <div class="eyebrow">Cái gì trả phí và cái gì không</div>
         <h2>Home Automation là phần mở khóa duy nhất. Trợ lý AI thì miễn phí.</h2>
         <p><b>Home Automation (Pro)</b> - Home Assistant, Hubitat và webhook gửi đi - là một lần mở khóa duy nhất. Mọi thứ khác trong AVR Maestro, kể cả trợ lý AI chạy trên thiết bị, đều có sẵn trong ứng dụng.</p>
+        <p>Đã mua rồi, trên thiết bị này hoặc thiết bị khác dùng cùng tài khoản cửa hàng? Chạm <b>Khôi phục giao dịch mua</b> dưới nút mở khóa.</p>
         <p>Điều khiển bằng giọng nói đến được receiver của bạn <em>thông qua</em> Home Automation, qua hub của bạn. AVR Maestro không tự chạy nhận dạng giọng nói.</p>
       </div>
     </div>
@@ -465,6 +482,7 @@
     <details><summary>Những trợ lý giọng nói nào có thể điều khiển receiver của tôi?</summary><div class="body">Bất kỳ trợ lý nào bạn đang dùng. AVR Maestro không tự thêm lớp giọng nói riêng - nó công bố các tập lệnh lên Home Assistant hoặc Hubitat, và hub mà bạn đã tin dùng sẽ chia sẻ chúng với Alexa, Google Assistant hoặc Siri Shortcuts.</div></details>
     <details><summary>Trợ lý AI có nằm trong phần mở khóa trả phí không?</summary><div class="body">Không. Trợ lý AI chạy trên thiết bị là miễn phí. Home Automation - Home Assistant, Hubitat và webhook gửi đi - là tính năng mở khóa trả phí duy nhất trong AVR Maestro.</div></details>
     <details><summary>Có dữ liệu nào rời khỏi mạng gia đình của tôi không?</summary><div class="body">Không phải để điều khiển. Ứng dụng giao tiếp với receiver và hub của bạn qua chính mạng của bạn. Không có gì được định tuyến qua máy chủ MiyaraHub. Webhook gửi đến bất cứ nơi nào bạn chỉ định, đó là lựa chọn của bạn.</div></details>
+    <details><summary>Đã mua Home Automation trên thiết bị khác, hoặc đã cài lại ứng dụng?</summary><div class="body">Mở <i>Cài đặt &rsaquo; Tự động hóa nhà (Pro)</i> và chạm <b>Khôi phục giao dịch mua</b> dưới nút mở khóa. Nếu trước đây bạn đã mua bản mở khóa bằng cùng tài khoản cửa hàng, nó sẽ quay lại mà không phải trả tiền lần nữa.</div></details>
   </div>
 </section>
 
@@ -474,7 +492,7 @@
       <div class="eyebrow">Xem thêm trong hướng dẫn</div>
       <h2>Các hướng dẫn khác về AVR Maestro</h2>
     </div>
-    <p class="lead"><a href="/vi/guide/getting-started/">Bắt đầu</a> &middot; <a href="/vi/guide/home/">Màn hình chính</a> &middot; <a href="/vi/guide/scenes/">Cảnh</a> &middot; <a href="/vi/guide/custom-icons/">Biểu tượng tùy chỉnh</a> &middot; <a href="/vi/guide/sound/">Âm thanh</a> &middot; <a href="/vi/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/vi/guide/speakers/">Loa</a> &middot; <a href="/vi/guide/locked-controls/">Vì sao một điều khiển bị khóa</a> &middot; <a href="/vi/guide/assistant/">Trợ lý</a> &middot; <a href="/vi/guide/home-assistant-dashboard/">Bảng điều khiển Home Assistant</a> &middot; <a href="/vi/guide/multi-zone/">Vùng</a> &middot; <a href="/vi/guide/remote/">Điều khiển từ xa</a> &middot; <a href="/vi/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/vi/guide/on-screen-display/">Hiển thị trên màn hình</a> &middot; <a href="/vi/guide/settings/">Cài đặt</a> &middot; <a href="/vi/guide/languages/">Ngôn ngữ</a> &middot; <a href="/vi/guide/volume/">Điều khiển âm lượng</a> &middot; <a href="/vi/guide/backup/">Sao lưu &amp; Khôi phục</a> &middot; <a href="/vi/guide/now-playing/">Đang phát &amp; HEOS</a></p>
+    <p class="lead"><a href="/vi/guide/getting-started/">Bắt đầu</a> &middot; <a href="/vi/guide/receivers/">Quản lý đầu thu</a> &middot; <a href="/vi/guide/navigation/">Điều hướng ứng dụng</a> &middot; <a href="/vi/guide/search/">Tìm kiếm</a> &middot; <a href="/vi/guide/home/">Màn hình chính</a> &middot; <a href="/vi/guide/volume/">Điều khiển âm lượng</a> &middot; <a href="/vi/guide/remote/">Điều khiển từ xa</a> &middot; <a href="/vi/guide/multi-zone/">Vùng</a> &middot; <a href="/vi/guide/now-playing/">Đang phát &amp; HEOS</a> &middot; <a href="/vi/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/vi/guide/scenes/">Cảnh</a> &middot; <a href="/vi/guide/sound/">Âm thanh</a> &middot; <a href="/vi/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/vi/guide/speakers/">Loa</a> &middot; <a href="/vi/guide/locked-controls/">Vì sao một điều khiển bị khóa</a> &middot; <a href="/vi/guide/settings/">Cài đặt</a> &middot; <a href="/vi/guide/widgets/">Tiện ích</a> &middot; <a href="/vi/guide/custom-icons/">Biểu tượng tùy chỉnh</a> &middot; <a href="/vi/guide/on-screen-display/">Hiển thị trên màn hình</a> &middot; <a href="/vi/guide/languages/">Ngôn ngữ</a> &middot; <a href="/vi/guide/assistant/">Trợ lý</a> &middot; <a href="/vi/guide/home-assistant-dashboard/">Bảng điều khiển Home Assistant</a> &middot; <a href="/vi/guide/backup/">Sao lưu &amp; Khôi phục</a> &middot; <a href="/vi/guide/glossary/">Thuật ngữ</a></p>
   </div>
 </section>
 
@@ -510,7 +528,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro là ứng dụng độc lập của MiyaraHub Technologies LLC và không có liên kết, không được bảo trợ bởi Denon, Marantz, Sound United, Masimo Corporation hay bất kỳ công ty nào khác được nêu trên trang này. Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant và Siri là nhãn hiệu của các chủ sở hữu tương ứng, chỉ được dùng ở đây với mục đích nhận diện.</p>
+    <p class="legal">AVR Maestro là ứng dụng độc lập của MiyaraHub Technologies LLC, không trực thuộc hay được xác nhận bởi Denon, Marantz, Sound United và Masimo Corporation hay bất kỳ công ty nào khác được nêu trên trang này. Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant và Siri là nhãn hiệu của chủ sở hữu tương ứng, chỉ được dùng ở đây để nhận diện.</p>
   </div>
 </footer>
 

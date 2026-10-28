@@ -132,7 +132,7 @@
       "description": "Propojte AVR Maestro s Home Assistantem nebo Hubitatem a vaše Scény se stanou nativními skripty, které běží bez telefonu. Hlasové ovládání, živý stav a webhooky.",
       "image": "https://avrmaestro.com/screenshots/home-assistant.png",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -187,6 +187,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Ne kvůli ovládání. Aplikace komunikuje s vaším přijímačem a hubem přes vaši vlastní síť. Nic neprochází přes server MiyaraHub. Webhook jde tam, kam ho nasměrujete, a to je vaše volba."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Koupili jste Domácí automatizaci na jiném zařízení, nebo jste aplikaci přeinstalovali?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Otevřete Nastavení › Domácí automatizace (Pro) a pod tlačítkem odemknutí klepněte na Obnovit nákupy. Pokud jste odemknutí dříve koupili se stejným účtem obchodu, vrátí se bez dalšího placení."
       }
     }
   ]
@@ -273,7 +281,7 @@
     </div>
     <ul class="plain">
       <li><b>1. Nejprve přidejte svůj přijímač do Home Assistant.</b> Nastavení &rsaquo; Zařízení &amp; služby &rsaquo; Přidat integraci &rsaquo; <b>Denon AVR</b> (nebo <b>HEOS</b>) a poté místní IP adresa vašeho přijímače. Home Assistant pro něj vytvoří entitu přehrávače médií.</li>
-      <li><b>2. V AVR Maestro otevřete Nastavení &rsaquo; Domácí automatizace</b> a klepněte na kartu Home Assistant.</li>
+      <li><b>2. Otevřete v AVR Maestro Nastavení &rsaquo; Domácí automatizace (Pro)</b> a klepněte na kartu Home Assistant.</li>
       <li><b>3. Zadejte adresu svého Home Assistantu</b> - místní, například <code>http://192.168.1.150:8123</code>, nebo svou externí adresu Nabu Casa.</li>
       <li><b>4. Přihlaste se a autorizujte.</b> Otevře se zabezpečený prohlížeč v aplikaci s přihlášením přímo do Home Assistantu. Vaše přihlašovací údaje jdou do Home Assistantu, nikdy k nám.</li>
       <li><b>5. Přijímač najde sám.</b> Aplikace prohledá vaše entity přehrávačů médií, ohodnotí je podle modelu, názvu a surroundových schopností a doplní správnou entitu za vás.</li>
@@ -305,6 +313,14 @@
         <p>Skript lze spustit, ale nikdy přečíst, takže rané dashboardy uměly přepnout křivku Audyssey nebo slot Dirac, ale neměly jak ukázat, který byl zapnutý. Hodnoty, které aplikace už má - živý surroundový režim, aktivní filtr Dirac, předvolba reproduktorů, stmívač a desítky dalších - se nyní publikují jako atributy na stavovém senzoru přijímače, takže se dlaždice může rozsvítit pro nastavení, které skutečně běží.</p>
       </div>
       <img alt="AVR Maestro publikuje do Home Assistantu skripty Předvolby reproduktorů, Dirac Live a Audyssey" src="/screenshots/ha-sync-advanced.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Zvukové režimy jako skripty</div>
+        <h2>Exportovat zvukové režimy (REST)</h2>
+        <p>V sekci Home Assistant otevře <b>Exportovat zvukové režimy (REST)</b> stránku <b>Pokročilý skript (REST)</b>: jeden skript Home Assistant pro každý zvukový režim, který váš přijímač uvádí, takže tlačítko na dashboardu nebo automatizace může vybrat surroundový režim přímo. Aplikace čte tento seznam z přijímače, proto přijímač nejprve zapněte a jednou otevřete <a href="/cs/guide/sound/">kartu Zvuk</a>; do té doby vás o to požádá, místo aby exportovala prázdný seznam.</p>
+      </div>
     </div>
 
     <div class="lockrow" style="margin-top:28px">
@@ -391,7 +407,7 @@
 
     <h3 style="margin-top:28px">V AVR Maestro</h3>
     <ul class="plain">
-      <li><b>1. Nastavení &rsaquo; Domácí automatizace &rsaquo; Webhooky</b>, poté <b>Přidat první spouštěč</b> - nebo tlačítko <b>+</b>, když už nějaký máte.</li>
+      <li><b>1. Nastavení &rsaquo; Domácí automatizace (Pro) &rsaquo; Webhooky</b>, poté <b>Přidat první spouštěč</b> - nebo tlačítko <b>+</b>, až nějaký budete mít.</li>
       <li><b>2. Událost spouštěče</b> - vyberte, co má spouštěč aktivovat. Volba <em>Změna aktivního vstupu</em> nebo <em>Vyvolání scény</em> přidá druhé pole pro zúžení.</li>
       <li><b>3. Kam to poslat</b> - nechte <b>Home Assistant</b>. Adresa je už známá, protože jste ho propojili dříve na této stejné obrazovce.</li>
       <li><b>4. ID webhooku</b> - zadejte stejné ID, jaké jste použili v Home Assistantu. Nic jiného se shodovat nemusí. Pod ním aplikace vypíše přesnou adresu, na kterou bude posílat - <code>Sends to http://your-ha:8123/api/webhook/avr-power-on</code> - takže ji můžete před uložením zkontrolovat.</li>
@@ -449,6 +465,7 @@
         <div class="eyebrow">Co je placené a co ne</div>
         <h2>Domácí automatizace je jediné odemčení. AI asistent je zdarma.</h2>
         <p><b>Domácí automatizace (Pro)</b> - Home Assistant, Hubitat a odchozí webhooky - je jednorázové odemčení. Všechno ostatní v AVR Maestro, včetně AI asistenta přímo v zařízení, je součástí aplikace.</p>
+        <p>Už jste to koupili, na tomto zařízení nebo na jiném se stejným účtem obchodu? Klepněte na <b>Obnovit nákupy</b> pod tlačítkem odemknutí.</p>
         <p>Hlasové ovládání se k přijímači dostává <em>přes</em> Domácí automatizaci, prostřednictvím vašeho hubu. AVR Maestro nemá vlastní rozpoznávání hlasu.</p>
       </div>
     </div>
@@ -465,6 +482,7 @@
     <details><summary>Které hlasové asistenty mohou můj přijímač ovládat?</summary><div class="body">Ten, který už používáte. AVR Maestro nepřidává vlastní hlasovou vrstvu - publikuje skripty do Home Assistantu nebo Hubitatu a ty zpřístupní Alexe, Asistentu Google nebo Zkratkám Siri hub, kterému už důvěřujete.</div></details>
     <details><summary>Je AI asistent součástí placeného odemčení?</summary><div class="body">Ne. AI asistent přímo v zařízení je zdarma. Domácí automatizace - Home Assistant, Hubitat a odchozí webhooky - je jediné placené odemčení v AVR Maestro.</div></details>
     <details><summary>Opouští něco moji domácí síť?</summary><div class="body">Ne kvůli ovládání. Aplikace komunikuje s vaším přijímačem a hubem přes vaši vlastní síť. Nic neprochází přes server MiyaraHub. Webhook jde tam, kam ho nasměrujete, a to je vaše volba.</div></details>
+    <details><summary>Koupili jste Domácí automatizaci na jiném zařízení, nebo jste aplikaci přeinstalovali?</summary><div class="body">Otevřete <i>Nastavení &rsaquo; Domácí automatizace (Pro)</i> a pod tlačítkem odemknutí klepněte na <b>Obnovit nákupy</b>. Pokud jste odemknutí dříve koupili se stejným účtem obchodu, vrátí se bez dalšího placení.</div></details>
   </div>
 </section>
 
@@ -474,7 +492,7 @@
       <div class="eyebrow">Další z průvodce</div>
       <h2>Další průvodce aplikací AVR Maestro</h2>
     </div>
-    <p class="lead"><a href="/cs/guide/getting-started/">Začínáme</a> &middot; <a href="/cs/guide/home/">Domovská obrazovka</a> &middot; <a href="/cs/guide/scenes/">Scény</a> &middot; <a href="/cs/guide/custom-icons/">Vlastní ikony</a> &middot; <a href="/cs/guide/sound/">Zvuk</a> &middot; <a href="/cs/guide/graphic-eq/">Grafický ekvalizér</a> &middot; <a href="/cs/guide/speakers/">Reproduktory</a> &middot; <a href="/cs/guide/locked-controls/">Proč je ovládací prvek uzamčen</a> &middot; <a href="/cs/guide/assistant/">Asistent</a> &middot; <a href="/cs/guide/home-assistant-dashboard/">Dashboard Home Assistant</a> &middot; <a href="/cs/guide/multi-zone/">Zóny</a> &middot; <a href="/cs/guide/remote/">Dálkový ovladač</a> &middot; <a href="/cs/guide/radio/">Rádio (FM/AM)</a> &middot; <a href="/cs/guide/on-screen-display/">Zobrazení na obrazovce</a> &middot; <a href="/cs/guide/settings/">Nastavení</a> &middot; <a href="/cs/guide/languages/">Jazyky</a> &middot; <a href="/cs/guide/volume/">Ovládání hlasitosti</a> &middot; <a href="/cs/guide/backup/">Záloha &amp; obnova</a> &middot; <a href="/cs/guide/now-playing/">Právě se přehrává &amp; HEOS</a></p>
+    <p class="lead"><a href="/cs/guide/getting-started/">Začínáme</a> &middot; <a href="/cs/guide/receivers/">Správa přijímačů</a> &middot; <a href="/cs/guide/navigation/">Navigace v aplikaci</a> &middot; <a href="/cs/guide/search/">Hledání</a> &middot; <a href="/cs/guide/home/">Domovská obrazovka</a> &middot; <a href="/cs/guide/volume/">Ovládání hlasitosti</a> &middot; <a href="/cs/guide/remote/">Dálkový ovladač</a> &middot; <a href="/cs/guide/multi-zone/">Zóny</a> &middot; <a href="/cs/guide/now-playing/">Právě hraje a HEOS</a> &middot; <a href="/cs/guide/radio/">Rádio (FM/AM)</a> &middot; <a href="/cs/guide/scenes/">Scény</a> &middot; <a href="/cs/guide/sound/">Zvuk</a> &middot; <a href="/cs/guide/graphic-eq/">Grafický ekvalizér</a> &middot; <a href="/cs/guide/speakers/">Reproduktory</a> &middot; <a href="/cs/guide/locked-controls/">Proč je ovládací prvek uzamčen</a> &middot; <a href="/cs/guide/settings/">Nastavení</a> &middot; <a href="/cs/guide/widgets/">Widgety</a> &middot; <a href="/cs/guide/custom-icons/">Vlastní ikony</a> &middot; <a href="/cs/guide/on-screen-display/">Zobrazení na obrazovce</a> &middot; <a href="/cs/guide/languages/">Jazyky</a> &middot; <a href="/cs/guide/assistant/">Asistent</a> &middot; <a href="/cs/guide/home-assistant-dashboard/">Dashboard Home Assistant</a> &middot; <a href="/cs/guide/backup/">Záloha a obnova</a> &middot; <a href="/cs/guide/glossary/">Slovníček</a></p>
   </div>
 </section>
 
@@ -510,7 +528,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro je nezávislá aplikace společnosti MiyaraHub Technologies LLC a není spojena se společnostmi Denon, Marantz, Sound United, Masimo Corporation ani s žádnou jinou firmou zmíněnou na této stránce, ani jimi není schválena. Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant a Siri jsou ochranné známky svých příslušných vlastníků a jsou zde použity pouze k identifikaci.</p>
+    <p class="legal">AVR Maestro je nezávislá aplikace společnosti MiyaraHub Technologies LLC a není spojena se společnostmi Denon, Marantz, Sound United, Masimo Corporation ani žádnou jinou společností uvedenou na této stránce, ani jimi není schválena. Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant a Siri jsou ochranné známky svých příslušných vlastníků, zde použité pouze pro identifikaci.</p>
   </div>
 </footer>
 

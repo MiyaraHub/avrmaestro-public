@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="apple-itunes-app" content="app-id=6762881597" />
 <title>將設定備份 &amp; 還原到新手機 - AVR Maestro</title>
-<meta name="description" content="將 AVR Maestro 的所有設定匯出成一個檔案：接收器、輸入名稱與圖示、場景、主題與音量偏好。只需點幾下，就能在新手機上還原。" />
+<meta name="description" content="將您的 AVR Maestro 設定匯出為單一 .zip 檔：接收器、場景、自訂圖示、輸入順序、主題與音量設定。在新手機上點幾下就能還原。" />
 <meta name="keywords" content="AVR Maestro backup, transfer AVR app settings new phone, export receiver settings app, restore Denon app config, AVR Maestro migrate device" />
 <meta name="author" content="MiyaraHub Technologies LLC" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -77,7 +77,7 @@
 <meta property="og:locale:alternate" content="vi_VN" />
 <meta property="og:locale:alternate" content="zh_CN" />
 <meta property="og:title" content="將設定備份 &amp; 還原到新手機 - AVR Maestro" />
-<meta property="og:description" content="將 AVR Maestro 的所有設定匯出成一個檔案：接收器、輸入名稱與圖示、場景、主題與音量偏好。只需點幾下，就能在新手機上還原。" />
+<meta property="og:description" content="將您的 AVR Maestro 設定匯出為單一 .zip 檔：接收器、場景、自訂圖示、輸入順序、主題與音量設定。在新手機上點幾下就能還原。" />
 <meta property="og:url" content="https://avrmaestro.com/zh-hant/guide/backup/" />
 <meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
 <meta property="og:image:type" content="image/png" />
@@ -86,7 +86,7 @@
 <meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="將設定備份 &amp; 還原到新手機 - AVR Maestro" />
-<meta name="twitter:description" content="將 AVR Maestro 的所有設定匯出成一個檔案：接收器、輸入名稱與圖示、場景、主題與音量偏好。只需點幾下，就能在新手機上還原。" />
+<meta name="twitter:description" content="將您的 AVR Maestro 設定匯出為單一 .zip 檔：接收器、場景、自訂圖示、輸入順序、主題與音量設定。在新手機上點幾下就能還原。" />
 <meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
 <meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
 <link rel="icon" href="/assets/favicon.ico" sizes="any" />
@@ -129,10 +129,10 @@
       "@type": "TechArticle",
       "@id": "https://avrmaestro.com/guide/backup/#article",
       "headline": "備份 & 還原：您的整套設定，一個檔案搞定",
-      "description": "將 AVR Maestro 的所有設定匯出成一個檔案：接收器、輸入名稱與圖示、場景、主題與音量偏好。只需點幾下，就能在新手機上還原。",
+      "description": "將您的 AVR Maestro 設定匯出為單一 .zip 檔：接收器、場景、自訂圖示、輸入順序、主題與音量設定。在新手機上點幾下就能還原。",
       "image": "https://avrmaestro.com/screenshots/backup-restore.png",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -162,7 +162,7 @@
       "name": "我可以在 Android 與 iPhone 之間移動備份嗎？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "這個檔案是純 JSON，與寫入它的裝置無關。從一台裝置匯出，把檔案傳到另一台，再匯入即可。"
+        "text": "可以。備份是一個 .zip 檔，並不綁定建立它的裝置。從一台裝置匯出，把檔案傳到另一台，再匯入即可。"
       }
     },
     {
@@ -178,7 +178,15 @@
       "name": "我的場景也會一起帶過去嗎？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "會，連同每個場景被設定要擷取的設定一併帶過去。請參閱場景指南。"
+        "text": "可以，包含每個場景所保存的設定與其自訂圖示。請參閱場景指南。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "為什麼還原之前要先關閉其他裝置上的應用程式？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "如果另一支手機或平板也開著 AVR Maestro 並連到同一台接收器，還原期間會有兩台裝置同時與接收器通訊。這可能造成連線衝突，使接收器的韌體當機。請先關閉另一台裝置上的應用程式，完成還原後，再強制關閉並重新開啟這台裝置上的 AVR Maestro。"
       }
     },
     {
@@ -251,12 +259,12 @@
       <div>
         <div class="eyebrow">匯出</div>
         <h2>儲存到裝置，或直接分享過去</h2>
-        <p class="lead">開啟<b>設定</b>，捲動到<b>備份 &amp; 還原</b>，然後選擇：</p>
-        <ul class="plain">
-          <li><b>儲存到裝置</b>：將單一 JSON 檔案寫入您指定的位置。</li>
-          <li><b>分享</b>：交給您慣用的分享選單，可以直接傳到另一支手機、雲端硬碟，或寄給自己。</li>
-        </ul>
-        <p class="lead">它是純文字檔，裡面沒有任何內容綁定在原本的裝置上。</p>
+        <ol class="steps">
+          <li>開啟<b>設定</b>，捲動到<b>備份與關於</b>。</li>
+          <li>點選<b>備份與還原</b>。</li>
+          <li>在<b>匯出</b>下，點選<b>儲存到裝置</b>來選擇存放檔案的資料夾，或點選<b>分享</b>，透過分享選單直接傳給另一支手機、雲端硬碟或寄給自己。</li>
+        </ol>
+        <p class="lead">備份是單一的 <b>.zip</b> 檔，檔名類似 <b>avr-maestro-backup-</b> 後面接日期與時間。裡面有您的設定，以及您為自訂圖示選用的圖片。裡面沒有任何內容與來源裝置綁定。</p>
       </div>
       <img alt="含有匯出與匯入的備份與還原頁面" src="/screenshots/backup-restore.png" width="1324" height="2644" decoding="async" />
     </div>
@@ -272,16 +280,18 @@
     <table class="t">
       <thead><tr><th>包含</th><th>說明</th></tr></thead>
       <tbody>
-        <tr><td>已設定的接收器</td><td>您加入的每一台裝置，包括其位址與設定</td></tr>
-        <tr><td>各裝置的訊源排序</td><td>您拖曳出的輸入順序，依接收器分別保存</td></tr>
-        <tr><td>主題與色彩主題</td><td>您的強調色與外觀選擇</td></tr>
-        <tr><td>顯示與小工具縮放</td><td>文字與小工具大小</td></tr>
-        <tr><td>音量偏好</td><td>應用程式端的音量行為</td></tr>
-        <tr><td>說明卡片狀態</td><td>您已關閉的資訊橫幅，讓它們維持關閉</td></tr>
-        <tr><td>快取的偵測結果</td><td>HEOS、功能與音樂能力的偵測結果，讓新手機不必從頭開始</td></tr>
+        <tr><td>您的接收器</td><td>您新增的每一台接收器及其位址，以及目前選取的是哪一台</td></tr>
+        <tr><td>場景</td><td>每台接收器的所有場景，包含其保存的設定、圖示與顏色</td></tr>
+        <tr><td>自訂圖示</td><td>您為輸入與場景選用的圖片及其形狀</td></tr>
+        <tr><td>輸入順序</td><td>您拖曳出的輸入順序，依接收器分別保存</td></tr>
+        <tr><td>插槽與預設名稱</td><td>您為 Smart Select / Quick Select 插槽與調諧器預設輸入的名稱</td></tr>
+        <tr><td>每台接收器的音訊設定</td><td>音量間距、音量顯示選項、漸進式音量預設、裝置音量按鈕，以及您的快速音量預設</td></tr>
+        <tr><td>外觀與版面配置</td><td>主題與強調色、語言、文字與小工具大小、小工具顏色、主畫面版面配置、導覽與隱藏的分頁</td></tr>
+        <tr><td>說明卡片</td><td>您已關閉的資訊卡片，讓它們維持隱藏</td></tr>
+        <tr><td>快取的接收器檢查結果</td><td>應用程式已經了解的各接收器資訊（HEOS 與功能檢查），讓新手機不必從頭開始</td></tr>
       </tbody>
     </table>
-    <div class="note">自訂輸入名稱與圖片屬於接收器設定的一部分，因此會一併帶過去。請參閱<a href="/zh-hant/guide/custom-icons/">自訂圖示指南</a>。</div>
+    <div class="note"><b>不包含：</b>您的 Home Assistant 與 Hubitat 連線設定。請在新裝置上重新設定<a href="/zh-hant/guide/home-automation/">居家自動化</a>；您現有的場景指令碼會保留原本的 ID，所以指向它們的自動化仍可繼續運作。您重新命名的輸入名稱儲存在接收器本身，因此新裝置一連線就會顯示。</div>
   </div>
 </section>
 
@@ -291,13 +301,15 @@
       <div class="eyebrow">匯入</div>
       <h2>在新手機上還原</h2>
     </div>
-    <ol class="plain">
+    <div class="note"><b>還原之前：</b>如果另一支手機或平板也開著 AVR Maestro 並連到同一台接收器，請先在那裡關閉。還原的當下若有兩台裝置與同一台接收器通訊，可能造成連線衝突，使接收器的韌體當機。應用程式也會就此提醒您。</div>
+    <ol class="steps">
       <li>在新裝置上安裝 AVR Maestro，並確保它與您的接收器位於同一個網路。</li>
       <li>開啟<b>設定 &rsaquo; 備份 &amp; 還原</b>。</li>
-      <li>點選<b>從檔案匯入設定</b>，然後選擇備份檔。</li>
-      <li><b>重新啟動應用程式。</b>應用程式也會提醒您這一點，因為重新啟動才能讓所有還原的設定完整生效。</li>
+      <li>在<b>匯入</b>下，點選<b>從檔案匯入設定</b>，並選擇備份檔（.zip，或舊版應用程式產生的 .json 檔）。</li>
+      <li>在<b>要取代所有設定嗎？</b>中檢查摘要：包含多少筆項目、應用程式版本與匯出時間。然後點選<b>取代</b>。</li>
+      <li>看到<b>備份已還原</b>時，點選<b>知道了</b>，然後<b>強制關閉 AVR Maestro 並重新開啟</b>，讓每個畫面都載入還原後的設定。</li>
     </ol>
-    <div class="note"><b>匯入是取代，而不是合併。</b>該裝置上現有的所有內容都會被備份中的內容覆寫。如果目前的設定對您有價值，請先匯出，只需點兩下。</div>
+    <div class="note"><b>匯入是取代，不是合併。</b>該裝置上現有的內容會被清除，並以備份的內容取代，且無法復原。如果目前的設定對您有價值，請先匯出。</div>
   </div>
 </section>
 
@@ -318,9 +330,10 @@
       <div class="eyebrow">常見問題</div>
       <h2>備份常見問題</h2>
     </div>
-    <details open><summary>我可以在 Android 與 iPhone 之間移動備份嗎？</summary><div class="body">這個檔案是純 JSON，與寫入它的裝置無關。從一台裝置匯出，把檔案傳到另一台，再匯入即可。</div></details>
+    <details open><summary>我可以在 Android 與 iPhone 之間移動備份嗎？</summary><div class="body">可以。備份是一個 .zip 檔，並不綁定建立它的裝置。從一台裝置匯出，把檔案傳到另一台，再匯入即可。</div></details>
     <details><summary>匯入會覆寫我接收器的校正嗎？</summary><div class="body">不會。備份只包含應用程式設定。接收器儲存的所有內容，包括校正、預設、電平、距離與 Dirac 濾波器，都保留在接收器上，不會受到影響。</div></details>
-    <details><summary>我的場景也會一起帶過去嗎？</summary><div class="body">會，連同每個場景被設定要擷取的設定一併帶過去。請參閱<a href="/zh-hant/guide/scenes/">場景指南</a>。</div></details>
+    <details><summary>我的場景也會一起帶過去嗎？</summary><div class="body">可以，包含每個場景所保存的設定與其自訂圖示。請參閱<a href="/zh-hant/guide/scenes/">場景指南</a>。</div></details>
+    <details><summary>為什麼還原之前要先關閉其他裝置上的應用程式？</summary><div class="body">如果另一支手機或平板也開著 AVR Maestro 並連到同一台接收器，還原期間會有兩台裝置同時與接收器通訊。這可能造成連線衝突，使接收器的韌體當機。請先關閉另一台裝置上的應用程式，完成還原後，再強制關閉並重新開啟這台裝置上的 AVR Maestro。</div></details>
     <details><summary>「儲存到裝置」會把檔案放在哪裡？</summary><div class="body">由您在系統的檔案選擇器中自行決定位置。如果檔案只是暫時要傳到另一支手機，使用「分享」會更快。</div></details>
   </div>
 </section>
@@ -331,7 +344,7 @@
       <div class="eyebrow">指南的更多內容</div>
       <h2>其他 AVR Maestro 指南</h2>
     </div>
-    <p class="lead"><a href="/zh-hant/guide/getting-started/">開始使用</a> &middot; <a href="/zh-hant/guide/home/">主畫面</a> &middot; <a href="/zh-hant/guide/scenes/">場景</a> &middot; <a href="/zh-hant/guide/custom-icons/">自訂圖示</a> &middot; <a href="/zh-hant/guide/sound/">音效</a> &middot; <a href="/zh-hant/guide/graphic-eq/">圖形等化器</a> &middot; <a href="/zh-hant/guide/speakers/">喇叭</a> &middot; <a href="/zh-hant/guide/locked-controls/">控制項為何被鎖定</a> &middot; <a href="/zh-hant/guide/assistant/">助理</a> &middot; <a href="/zh-hant/guide/home-automation/">居家自動化</a> &middot; <a href="/zh-hant/guide/home-assistant-dashboard/">Home Assistant 儀表板</a> &middot; <a href="/zh-hant/guide/multi-zone/">分區</a> &middot; <a href="/zh-hant/guide/remote/">遙控器</a> &middot; <a href="/zh-hant/guide/radio/">廣播 (FM/AM)</a> &middot; <a href="/zh-hant/guide/on-screen-display/">螢幕顯示</a> &middot; <a href="/zh-hant/guide/settings/">設定</a> &middot; <a href="/zh-hant/guide/languages/">語言</a> &middot; <a href="/zh-hant/guide/volume/">音量控制項</a> &middot; <a href="/zh-hant/guide/now-playing/">正在播放 &amp; HEOS</a></p>
+    <p class="lead"><a href="/zh-hant/guide/getting-started/">入門</a> &middot; <a href="/zh-hant/guide/receivers/">管理接收器</a> &middot; <a href="/zh-hant/guide/navigation/">導覽應用程式</a> &middot; <a href="/zh-hant/guide/search/">搜尋</a> &middot; <a href="/zh-hant/guide/home/">主畫面</a> &middot; <a href="/zh-hant/guide/volume/">音量控制項</a> &middot; <a href="/zh-hant/guide/remote/">遙控器</a> &middot; <a href="/zh-hant/guide/multi-zone/">分區</a> &middot; <a href="/zh-hant/guide/now-playing/">正在播放與 HEOS</a> &middot; <a href="/zh-hant/guide/radio/">收音機（FM/AM）</a> &middot; <a href="/zh-hant/guide/scenes/">場景</a> &middot; <a href="/zh-hant/guide/sound/">音效</a> &middot; <a href="/zh-hant/guide/graphic-eq/">圖形等化器</a> &middot; <a href="/zh-hant/guide/speakers/">喇叭</a> &middot; <a href="/zh-hant/guide/locked-controls/">控制項為何鎖定</a> &middot; <a href="/zh-hant/guide/settings/">設定</a> &middot; <a href="/zh-hant/guide/widgets/">小工具</a> &middot; <a href="/zh-hant/guide/custom-icons/">自訂圖示</a> &middot; <a href="/zh-hant/guide/on-screen-display/">螢幕顯示</a> &middot; <a href="/zh-hant/guide/languages/">語言</a> &middot; <a href="/zh-hant/guide/assistant/">助理</a> &middot; <a href="/zh-hant/guide/home-automation/">居家自動化</a> &middot; <a href="/zh-hant/guide/home-assistant-dashboard/">Home Assistant 儀表板</a> &middot; <a href="/zh-hant/guide/glossary/">詞彙表</a></p>
   </div>
 </section>
 
@@ -367,7 +380,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro 是由 MiyaraHub Technologies LLC 開發的獨立應用程式，與 Denon、Marantz、Sound United、Masimo Corporation 或本頁提及的任何其他公司皆無隸屬或背書關係。Denon、Marantz、HEOS、Audyssey 與 Dirac Live 為其各自所有者的商標，在此僅用於識別。</p>
+    <p class="legal">AVR Maestro 是 MiyaraHub Technologies LLC 開發的獨立應用程式，與 Denon、Marantz、Sound United、Masimo Corporation 或本頁提及的任何其他公司皆無關聯，亦未獲其背書。Denon、Marantz、HEOS、Audyssey 與 Dirac Live 為各自所有者的商標，在此僅供辨識之用。</p>
   </div>
 </footer>
 

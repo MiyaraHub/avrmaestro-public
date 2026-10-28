@@ -6,7 +6,7 @@
 <meta name="apple-itunes-app" content="app-id=6762881597" />
 <title>Spilles nå &amp; HEOS: albumcover og avspillingskontroller - AVR Maestro</title>
 <meta name="description" content="Spilles nå-kortet i AVR Maestro viser albumcover, spor, artist og stasjon med avspilling, pause, neste og forrige, live fra din Denon eller Marantz via HEOS." />
-<meta name="keywords" content="Denon Now Playing app, Marantz HEOS app, HEOS controller app, AVR now playing album art, receiver transport controls app, Denon Marantz music control, HEOS favorites app" />
+<meta name="keywords" content="Denon Now Playing app, Marantz HEOS app, HEOS controller app, AVR now playing album art, receiver transport controls app, Denon Marantz music control, HEOS favorites app, play HEOS favorites from receiver app, stop clears now playing" />
 <meta name="author" content="MiyaraHub Technologies LLC" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="theme-color" content="#ff6e40" />
@@ -132,7 +132,7 @@
       "description": "Spilles nå-kortet i AVR Maestro viser albumcover, spor, artist og stasjon med avspilling, pause, neste og forrige, live fra din Denon eller Marantz via HEOS.",
       "image": "https://avrmaestro.com/screenshots/now-playing.png",
       "datePublished": "2026-07-28",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -170,7 +170,23 @@
       "name": "Hvordan blar jeg gjennom musikk?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Trykk på Start HEOS på Spilles nå-kortet. AVR Maestro åpner den offisielle HEOS-appen der du kan bla gjennom stasjoner, køer, HEOS-rom og strømmetjenester. Når avspillingen starter, tar AVR Maestro over visningen av hva som spilles og avspillingskontrollene igjen."
+        "text": "Trykk på Start HEOS på kortet Spilles nå. AVR Maestro åpner den offisielle HEOS-appen for å bla gjennom stasjoner, køer, HEOS-rom og strømmetjenester. Når avspillingen starter, tar AVR Maestro over igjen visningen av hva som spilles og transportkontrollene. For å spille en lagret favoritt trenger du ikke åpne HEOS-appen: trykk på Favoritter i stedet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hvordan spiller jeg HEOS-favorittene mine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trykk på Favoritter på kortet Spilles nå. Listen HEOS-favoritter åpnes; trykk på en, så spilles den på mottakeren uten at du forlater AVR Maestro. På en sones kort spilles den i den sonen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hva skjer når jeg trykker på Stopp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kortet og widgeten på hjemskjermen tømmes med en gang og forblir tomme. De fylles først ut igjen når noe begynner å spille."
       }
     },
     {
@@ -249,17 +265,44 @@
   <div class="wrap">
     <div class="gallery">
       <figure><img alt="Spilles nå-kortet i AVR Maestro med albumcover og avspillingskontroller" src="/screenshots/now-playing.png" width="1324" height="2644" decoding="async" /><figcaption>Albumcover, sporinfo og avspillingskontroller, live via HEOS</figcaption></figure>
-      <figure><img alt="Bla gjennom HEOS-favoritter og -stasjoner fra AVR Maestro" src="/screenshots/now-playing-heos.png" width="575" height="1280" loading="lazy" decoding="async" /><figcaption>Start HEOS for å bla gjennom stasjoner, køer og favoritter</figcaption></figure>
+      <figure><img alt="Listen HEOS-favoritter åpen over kortet Spilles nå i AVR Maestro" src="/screenshots/now-playing-heos.png" width="575" height="1280" loading="lazy" decoding="async" /><figcaption>Favoritter spiller HEOS-favorittene dine uten at du forlater appen</figcaption></figure>
     </div>
     <div class="section-head" style="margin-top:36px">
       <h2>Alt du lytter til, på ett kort</h2>
     </div>
+    <p>Kortet har overskriften <b>Mediespiller</b>. Når ingenting spilles, står det <b>Ingen medier spilles av</b>.</p>
     <ul class="plain">
-      <li><b>Albumcover og sporinfo:</b> kortet viser coveret, sporet og artisten eller stasjonen for det som spilles.</li>
-      <li><b>Avspillingskontroller:</b> spill av, pause, neste og forrige, rett på kortet - uten å lete etter fjernkontrollen.</li>
-      <li><b>Start HEOS for å bla gjennom:</b> trykk for å åpne den offisielle HEOS-appen for stasjoner, køer, HEOS-rom og strømmetjenester. Start noe der, så tar AVR Maestro over visningen av hva som spilles, avspillingskontrollene og widgetene igjen.</li>
-      <li><b>En del av hjemskjermen din:</b> Spilles nå-kortet ligger sammen med widgetene for volum, kilde og lydmodus, så hva som spilles aldri er mer enn et blikk unna.</li>
+      <li><b>Albumcover og sporinfo:</b> coveret, sporet og artisten eller stasjonen for det som spilles.</li>
+      <li><b>Transportkontroller:</b> <b>Forrige</b>, én <b>Spill av</b> / <b>Pause</b>-knapp som følger det spilleren faktisk gjør, <b>Stopp</b> og <b>Neste spor</b>. Pause eller spill av fra en annen app eller mottakeren, så følger knappen med.</li>
+      <li><b>Favoritter:</b> åpner dine <b>HEOS-favoritter</b> og spiller en på mottakeren, uten at du forlater appen. Den vises når mottakerens HEOS-spiller er tilkoblet.</li>
+      <li><b>Start HEOS:</b> åpner den offisielle HEOS-appen for å bla gjennom stasjoner, køer, HEOS-rom og strømmetjenester. Start noe der, så overtar AVR Maestro visningen av hva som spilles, transportkontrollene og widgetene.</li>
+      <li><b>På Hjem og på hver sone:</b> kortet ligger på din <a href="/nb/guide/home/">hjemskjerm</a>, og hvert <a href="/nb/guide/multi-zone/">sone</a>kort viser sitt eget, for HEOS-spilleren i den sonen.</li>
     </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Steg for steg</div>
+      <h2>Spill en HEOS-favoritt</h2>
+    </div>
+    <ol class="steps">
+      <li>På kortet Spilles nå (på Hjem, eller på en sones kort for den sonen) trykker du på <b>Favoritter</b>.</li>
+      <li>Listen <b>HEOS-favoritter</b> åpnes. Trykk på den du vil ha.</li>
+      <li>Listen lukkes, og du ser <b>Spiller</b> etterfulgt av navnet. Kortet fylles ut når musikken starter.</li>
+    </ol>
+    <div class="note">Listen er favorittene dine fra HEOS-appen. Hvis det står <b>Ingen HEOS-favoritter ennå</b>, legg til noen i HEOS-appen og åpne listen på nytt. Hvis du ser <b>HEOS-spiller utilgjengelig</b>, er mottakerens HEOS-spiller ikke tilgjengelig for den sonen akkurat nå.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Stopp betyr stopp</div>
+      <h2>Stopp tømmer kortet</h2>
+      <p class="lead">Trykk på <b>Stopp</b>, så tømmes kortet med en gang, sammen med widgeten på hjemskjermen, og det forblir tomt. Det henter ikke tilbake det siste sporet mottakeren husker. Kortet fylles ut igjen så snart noe faktisk begynner å spille.</p>
+    </div>
   </div>
 </section>
 
@@ -276,7 +319,9 @@
       <h2>Vanlige spørsmål om Spilles nå</h2>
     </div>
     <details open><summary>Viser den hva som spilles?</summary><div class="body">Ja - for kilder som rapporterer metadata via HEOS får du albumcover, spor, artist eller stasjon og avspillingskontroller (spill av, pause, neste, forrige), live fra mottakeren.</div></details>
-    <details><summary>Hvordan blar jeg gjennom musikk?</summary><div class="body">Trykk på <b>Start HEOS</b> på kortet Spilles nå. AVR Maestro åpner den offisielle HEOS-appen slik at du kan bla gjennom stasjoner, køer, HEOS-rom og strømmetjenester. Så snart avspillingen er i gang, overtar AVR Maestro igjen visningen av hva som spilles og avspillingskontrollene.</div></details>
+    <details><summary>Hvordan blar jeg gjennom musikk?</summary><div class="body">Trykk på <b>Start HEOS</b> på kortet Spilles nå. AVR Maestro åpner den offisielle HEOS-appen for å bla gjennom stasjoner, køer, HEOS-rom og strømmetjenester. Når avspillingen starter, tar AVR Maestro over igjen visningen av hva som spilles og transportkontrollene. For å spille en lagret favoritt trenger du ikke åpne HEOS-appen: trykk på <b>Favoritter</b> i stedet.</div></details>
+    <details><summary>Hvordan spiller jeg HEOS-favorittene mine?</summary><div class="body">Trykk på <b>Favoritter</b> på kortet Spilles nå. Listen HEOS-favoritter åpnes; trykk på en, så spilles den på mottakeren uten at du forlater AVR Maestro. På en sones kort spilles den i den sonen.</div></details>
+    <details><summary>Hva skjer når jeg trykker på Stopp?</summary><div class="body">Kortet og widgeten på hjemskjermen tømmes med en gang og forblir tomme. De fylles først ut igjen når noe begynner å spille.</div></details>
     <details><summary>Hvorfor er kortet tomt på noen innganger?</summary><div class="body">Analoge, optiske/koaksiale og HDMI-gjennomløpskilder rapporterer ikke spormetadata, så det er ingenting å vise. Kortet fylles ut for HEOS- og nettverkskilder som gjør det.</div></details>
     <details><summary>Hvor finner jeg Spilles nå-kortet?</summary><div class="body">På <a href="/nb/guide/home/">hjemskjermen</a> din, sammen med widgetene du velger - volum, kilde, lydmodus, soner og mer.</div></details>
   </div>
@@ -288,7 +333,7 @@
       <div class="eyebrow">Mer av guiden</div>
       <h2>Andre AVR Maestro-guider</h2>
     </div>
-    <p class="lead"><a href="/nb/guide/getting-started/">Kom i gang</a> &middot; <a href="/nb/guide/home/">Startskjerm</a> &middot; <a href="/nb/guide/scenes/">Scener</a> &middot; <a href="/nb/guide/custom-icons/">Egendefinerte ikoner</a> &middot; <a href="/nb/guide/sound/">Lyd</a> &middot; <a href="/nb/guide/graphic-eq/">Grafisk EQ</a> &middot; <a href="/nb/guide/speakers/">Høyttalere</a> &middot; <a href="/nb/guide/locked-controls/">Hvorfor en kontroll er låst</a> &middot; <a href="/nb/guide/assistant/">Assistenten</a> &middot; <a href="/nb/guide/home-automation/">Hjemmeautomatisering</a> &middot; <a href="/nb/guide/home-assistant-dashboard/">Home Assistant-dashbord</a> &middot; <a href="/nb/guide/multi-zone/">Soner</a> &middot; <a href="/nb/guide/remote/">Fjernkontroll</a> &middot; <a href="/nb/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/nb/guide/on-screen-display/">Skjermmeny</a> &middot; <a href="/nb/guide/settings/">Innstillinger</a> &middot; <a href="/nb/guide/languages/">Språk</a> &middot; <a href="/nb/guide/volume/">Volumkontroller</a> &middot; <a href="/nb/guide/backup/">Sikkerhetskopi &amp; gjenoppretting</a></p>
+    <p class="lead"><a href="/nb/guide/getting-started/">Kom i gang</a> &middot; <a href="/nb/guide/receivers/">Administrer mottakere</a> &middot; <a href="/nb/guide/navigation/">Navigere i appen</a> &middot; <a href="/nb/guide/search/">Søk</a> &middot; <a href="/nb/guide/home/">Hjemskjerm</a> &middot; <a href="/nb/guide/volume/">Volumkontroller</a> &middot; <a href="/nb/guide/remote/">Fjernkontroll</a> &middot; <a href="/nb/guide/multi-zone/">Soner</a> &middot; <a href="/nb/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/nb/guide/scenes/">Scener</a> &middot; <a href="/nb/guide/sound/">Lyd</a> &middot; <a href="/nb/guide/graphic-eq/">Grafisk EQ</a> &middot; <a href="/nb/guide/speakers/">Høyttalere</a> &middot; <a href="/nb/guide/locked-controls/">Hvorfor en kontroll er låst</a> &middot; <a href="/nb/guide/settings/">Innstillinger</a> &middot; <a href="/nb/guide/widgets/">Widgets</a> &middot; <a href="/nb/guide/custom-icons/">Egendefinerte ikoner</a> &middot; <a href="/nb/guide/on-screen-display/">Skjermmeny</a> &middot; <a href="/nb/guide/languages/">Språk</a> &middot; <a href="/nb/guide/assistant/">Assistenten</a> &middot; <a href="/nb/guide/home-automation/">Hjemmeautomatisering</a> &middot; <a href="/nb/guide/home-assistant-dashboard/">Home Assistant-dashbord</a> &middot; <a href="/nb/guide/backup/">Sikkerhetskopi og gjenoppretting</a> &middot; <a href="/nb/guide/glossary/">Ordliste</a></p>
   </div>
 </section>
 
@@ -324,7 +369,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro er en uavhengig app fra MiyaraHub Technologies LLC og er ikke tilknyttet eller anbefalt av Denon, Marantz, Sound United, Masimo Corporation eller andre selskaper som er nevnt på denne siden. Denon, Marantz, HEOS, Audyssey og Dirac Live er varemerker som tilhører sine respektive eiere, og brukes her kun for identifikasjon.</p>
+    <p class="legal">AVR Maestro er en uavhengig app fra MiyaraHub Technologies LLC og er ikke tilknyttet eller godkjent av Denon, Marantz, Sound United, Masimo Corporation eller andre selskaper som er nevnt på denne siden. Denon, Marantz, HEOS, Audyssey og Dirac Live er varemerker som tilhører sine respektive eiere, og brukes her kun til identifikasjon.</p>
   </div>
 </footer>
 

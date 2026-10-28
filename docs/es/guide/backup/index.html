@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="apple-itunes-app" content="app-id=6762881597" />
 <title>Copia de seguridad y restauración de ajustes en un teléfono nuevo - AVR Maestro</title>
-<meta name="description" content="Exporta todos los ajustes de AVR Maestro a un solo archivo: receptores, nombres e iconos de entradas, Escenas, tema y preferencias de volumen. Restáuralo en un teléfono nuevo con unos pocos toques." />
+<meta name="description" content="Exporta tu configuración de AVR Maestro a un único archivo .zip: receptores, Escenas, iconos personalizados, orden de entradas, tema y ajustes de volumen. Restáurala en un móvil nuevo en unos toques." />
 <meta name="keywords" content="AVR Maestro backup, transfer AVR app settings new phone, export receiver settings app, restore Denon app config, AVR Maestro migrate device" />
 <meta name="author" content="MiyaraHub Technologies LLC" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -77,7 +77,7 @@
 <meta property="og:locale:alternate" content="zh_CN" />
 <meta property="og:locale:alternate" content="zh_TW" />
 <meta property="og:title" content="Copia de seguridad y restauración de ajustes en un teléfono nuevo - AVR Maestro" />
-<meta property="og:description" content="Exporta todos los ajustes de AVR Maestro a un solo archivo: receptores, nombres e iconos de entradas, Escenas, tema y preferencias de volumen. Restáuralo en un teléfono nuevo con unos pocos toques." />
+<meta property="og:description" content="Exporta tu configuración de AVR Maestro a un único archivo .zip: receptores, Escenas, iconos personalizados, orden de entradas, tema y ajustes de volumen. Restáurala en un móvil nuevo en unos toques." />
 <meta property="og:url" content="https://avrmaestro.com/es/guide/backup/" />
 <meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
 <meta property="og:image:type" content="image/png" />
@@ -86,7 +86,7 @@
 <meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Copia de seguridad y restauración de ajustes en un teléfono nuevo - AVR Maestro" />
-<meta name="twitter:description" content="Exporta todos los ajustes de AVR Maestro a un solo archivo: receptores, nombres e iconos de entradas, Escenas, tema y preferencias de volumen. Restáuralo en un teléfono nuevo con unos pocos toques." />
+<meta name="twitter:description" content="Exporta tu configuración de AVR Maestro a un único archivo .zip: receptores, Escenas, iconos personalizados, orden de entradas, tema y ajustes de volumen. Restáurala en un móvil nuevo en unos toques." />
 <meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
 <meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
 <link rel="icon" href="/assets/favicon.ico" sizes="any" />
@@ -129,10 +129,10 @@
       "@type": "TechArticle",
       "@id": "https://avrmaestro.com/guide/backup/#article",
       "headline": "Copia de seguridad y restauración: toda tu configuración, en un solo archivo",
-      "description": "Exporta todos los ajustes de AVR Maestro a un solo archivo: receptores, nombres e iconos de entradas, Escenas, tema y preferencias de volumen. Restáuralo en un teléfono nuevo con unos pocos toques.",
+      "description": "Exporta tu configuración de AVR Maestro a un único archivo .zip: receptores, Escenas, iconos personalizados, orden de entradas, tema y ajustes de volumen. Restáurala en un móvil nuevo en unos toques.",
       "image": "https://avrmaestro.com/screenshots/backup-restore.png",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -162,7 +162,7 @@
       "name": "¿Puedo pasar una copia de seguridad entre Android y iPhone?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "El archivo es JSON sin formato y no está ligado al dispositivo que lo creó. Exporta desde uno, pasa el archivo al otro e impórtalo."
+        "text": "Sí. La copia de seguridad es un archivo .zip que no está ligado al dispositivo que lo escribió. Exporta desde uno, pasa el archivo al otro e impórtalo."
       }
     },
     {
@@ -178,7 +178,15 @@
       "name": "¿Se transfieren mis Escenas?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sí, junto con los ajustes que se le indicó capturar a cada Escena. Consulta la guía de Escenas."
+        "text": "Sí, con los ajustes que contiene cada Escena y su icono personalizado. Consulta la guía de Escenas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué debo cerrar la app en mis otros dispositivos antes de restaurar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Si otro móvil o tableta tiene AVR Maestro abierto y conectado al mismo receptor, dos dispositivos pueden comunicarse con el receptor a la vez durante la restauración. Eso puede causar un conflicto de conexión que bloquee el firmware del receptor. Cierra la app en el otro dispositivo, restaura y luego fuerza el cierre y vuelve a abrir AVR Maestro en este."
       }
     },
     {
@@ -251,12 +259,12 @@
       <div>
         <div class="eyebrow">Exportar</div>
         <h2>Guárdalo en el dispositivo o compártelo directamente</h2>
-        <p class="lead">Abre <b>Ajustes</b>, desplázate hasta <b>Copia de seguridad y restauración</b> y elige:</p>
-        <ul class="plain">
-          <li><b>Guardar en el dispositivo</b>: escribe un único archivo JSON donde tú indiques.</li>
-          <li><b>Compartir</b>: lo envía a tu menú de compartir habitual, para que pueda ir directo al otro teléfono, a una unidad en la nube o a un mensaje para ti mismo.</li>
-        </ul>
-        <p class="lead">Es un archivo de texto sin formato. Nada de lo que contiene está ligado al dispositivo de origen.</p>
+        <ol class="steps">
+          <li>Abre <b>Ajustes</b> y desplázate hasta <b>Copia de seguridad y Acerca de</b>.</li>
+          <li>Toca <b>Copia de seguridad y restauración</b>.</li>
+          <li>En <b>Exportar</b>, toca <b>Guardar en el dispositivo</b> para elegir una carpeta para el archivo, o <b>Compartir</b> para enviarlo mediante el menú de compartir directamente al otro móvil, a una unidad en la nube o a un mensaje para ti mismo.</li>
+        </ol>
+        <p class="lead">La copia de seguridad es un único archivo <b>.zip</b> con un nombre del tipo <b>avr-maestro-backup-</b> seguido de la fecha y la hora. Dentro están tus ajustes y las imágenes que elegiste para los iconos personalizados. Nada de lo que contiene está ligado al dispositivo de origen.</p>
       </div>
       <img alt="La página de Copia de seguridad y restauración con exportar e importar" src="/screenshots/backup-restore.png" width="1324" height="2644" decoding="async" />
     </div>
@@ -272,16 +280,18 @@
     <table class="t">
       <thead><tr><th>Incluido</th><th>Significado</th></tr></thead>
       <tbody>
-        <tr><td>Receptores configurados</td><td>Todos los dispositivos que has añadido, con su dirección y sus ajustes</td></tr>
-        <tr><td>Orden de las fuentes por dispositivo</td><td>El orden en el que arrastraste tus entradas, conservado por receptor</td></tr>
-        <tr><td>Tema y Tema de Color</td><td>Tu color de acento y tus opciones de apariencia</td></tr>
-        <tr><td>Escala de pantalla y de widgets</td><td>Tamaño del texto y de los widgets</td></tr>
-        <tr><td>Preferencias de volumen</td><td>El comportamiento del volumen en la app</td></tr>
-        <tr><td>Estado de las tarjetas de explicación</td><td>Qué banners informativos has descartado, para que sigan descartados</td></tr>
-        <tr><td>Sondeos en caché</td><td>Los resultados de capacidades de HEOS, funciones y música, para que el teléfono nuevo no empiece de cero</td></tr>
+        <tr><td>Tus receptores</td><td>Cada receptor que has añadido, con su dirección, y cuál estaba seleccionado</td></tr>
+        <tr><td>Escenas</td><td>Cada Escena de cada receptor, con los ajustes que contiene, su icono y su color</td></tr>
+        <tr><td>Iconos personalizados</td><td>Las imágenes que elegiste para entradas y Escenas, con sus formas</td></tr>
+        <tr><td>Orden de entradas</td><td>El orden en el que arrastraste tus entradas, conservado por receptor</td></tr>
+        <tr><td>Nombres de ranuras y preajustes</td><td>Los nombres que escribiste para las ranuras de Smart Select / Quick Select y los preajustes del sintonizador</td></tr>
+        <tr><td>Ajustes de audio por receptor</td><td>Paso de volumen, las opciones de visualización del volumen, preajustes de volumen graduales, botones de volumen del dispositivo y tus preajustes de volumen rápido</td></tr>
+        <tr><td>Aspecto y diseño</td><td>Tema y color de acento, idioma, tamaño de texto y de widgets, colores de widgets, el diseño de Inicio, la navegación y las pestañas ocultas</td></tr>
+        <tr><td>Tarjetas explicativas</td><td>Qué tarjetas informativas has descartado, para que sigan descartadas</td></tr>
+        <tr><td>Comprobaciones del receptor en caché</td><td>Lo que la app ya ha aprendido de cada receptor (HEOS y comprobaciones de funciones), para que el móvil nuevo no empiece de cero</td></tr>
       </tbody>
     </table>
-    <div class="note">Los nombres e imágenes personalizados de las entradas forman parte de la configuración de tu receptor, así que se transfieren con ella. Consulta la <a href="/es/guide/custom-icons/">guía de Iconos personalizados</a>.</div>
+    <div class="note"><b>No incluido:</b> los ajustes de conexión de Home Assistant y Hubitat. Configura de nuevo la <a href="/es/guide/home-automation/">Domótica</a> en el dispositivo nuevo; tus scripts de Escenas existentes conservan sus ids, así que las automatizaciones que apuntan a ellos siguen funcionando. Los nombres de entrada que renombraste se guardan en el propio receptor, así que aparecen en cuanto el dispositivo nuevo se conecta.</div>
   </div>
 </section>
 
@@ -291,13 +301,15 @@
       <div class="eyebrow">Importar</div>
       <h2>Restaurar en el teléfono nuevo</h2>
     </div>
-    <ol class="plain">
+    <div class="note"><b>Antes de restaurar:</b> si AVR Maestro está abierto en otro móvil o tableta conectado al mismo receptor, ciérralo allí primero. Dos dispositivos comunicándose con el mismo receptor en el momento de una restauración pueden causar un conflicto de conexión que bloquee el firmware del receptor. La app también te lo advierte.</div>
+    <ol class="steps">
       <li>Instala AVR Maestro en el dispositivo nuevo y asegúrate de que esté en la misma red que tu receptor.</li>
       <li>Abre <b>Ajustes &rsaquo; Copia de seguridad y restauración</b>.</li>
-      <li>Toca <b>Importar ajustes desde archivo</b> y elige la copia de seguridad.</li>
-      <li><b>Reinicia la app.</b> La app también te lo indica: reiniciar es lo que hace que todos los ajustes restaurados se apliquen correctamente.</li>
+      <li>En <b>Importar</b>, toca <b>Importar ajustes desde un archivo</b> y elige la copia de seguridad (.zip, o un archivo .json de una versión anterior de la app).</li>
+      <li>Revisa el resumen en <b>¿Reemplazar todos los ajustes?</b>: cuántas entradas contiene, la versión de la app y cuándo se exportó. Toca <b>Reemplazar</b>.</li>
+      <li>Cuando veas <b>Copia de seguridad restaurada</b>, toca <b>Entendido</b> y luego <b>fuerza el cierre de AVR Maestro y ábrelo de nuevo</b> para que cada pantalla cargue los ajustes restaurados.</li>
     </ol>
-    <div class="note"><b>Importar reemplaza, no combina.</b> Todo lo que haya en ese dispositivo se sobrescribe con el contenido de la copia de seguridad. Si la configuración actual te importa, expórtala primero: son solo dos toques.</div>
+    <div class="note"><b>Importar reemplaza, no combina.</b> Todo lo que hay en ese dispositivo se borra y se sustituye por el contenido de la copia de seguridad, y no se puede deshacer. Si la configuración actual te importa, expórtala primero.</div>
   </div>
 </section>
 
@@ -318,9 +330,10 @@
       <div class="eyebrow">Preguntas frecuentes</div>
       <h2>Preguntas frecuentes sobre la copia de seguridad</h2>
     </div>
-    <details open><summary>¿Puedo pasar una copia de seguridad entre Android y iPhone?</summary><div class="body">El archivo es JSON sin formato y no está ligado al dispositivo que lo creó. Exporta desde uno, pasa el archivo al otro e impórtalo.</div></details>
+    <details open><summary>¿Puedo pasar una copia de seguridad entre Android y iPhone?</summary><div class="body">Sí. La copia de seguridad es un archivo .zip que no está ligado al dispositivo que lo escribió. Exporta desde uno, pasa el archivo al otro e impórtalo.</div></details>
     <details><summary>¿Importar sobrescribirá la calibración de mi receptor?</summary><div class="body">No. Una copia de seguridad contiene solo los ajustes de la app. Todo lo que guarda el receptor (calibración, preajustes, niveles, distancias, filtros Dirac) está en el receptor y no se toca.</div></details>
-    <details><summary>¿Se transfieren mis Escenas?</summary><div class="body">Sí, junto con los ajustes que se le indicó capturar a cada Escena. Consulta la <a href="/es/guide/scenes/">guía de Escenas</a>.</div></details>
+    <details><summary>¿Se transfieren mis Escenas?</summary><div class="body">Sí, con los ajustes que contiene cada Escena y su icono personalizado. Consulta la <a href="/es/guide/scenes/">guía de Escenas</a>.</div></details>
+    <details><summary>¿Por qué debo cerrar la app en mis otros dispositivos antes de restaurar?</summary><div class="body">Si otro móvil o tableta tiene AVR Maestro abierto y conectado al mismo receptor, dos dispositivos pueden comunicarse con el receptor a la vez durante la restauración. Eso puede causar un conflicto de conexión que bloquee el firmware del receptor. Cierra la app en el otro dispositivo, restaura y luego fuerza el cierre y vuelve a abrir AVR Maestro en este.</div></details>
     <details><summary>¿Dónde guarda el archivo la opción Guardar en el dispositivo?</summary><div class="body">Donde elijas en el selector de archivos de tu sistema. Compartir es la vía más rápida si el archivo solo va de paso hacia otro teléfono.</div></details>
   </div>
 </section>
@@ -331,7 +344,7 @@
       <div class="eyebrow">Más de la guía</div>
       <h2>Otras guías de AVR Maestro</h2>
     </div>
-    <p class="lead"><a href="/es/guide/getting-started/">Primeros pasos</a> &middot; <a href="/es/guide/home/">Pantalla de inicio</a> &middot; <a href="/es/guide/scenes/">Escenas</a> &middot; <a href="/es/guide/custom-icons/">Iconos personalizados</a> &middot; <a href="/es/guide/sound/">Sonido</a> &middot; <a href="/es/guide/graphic-eq/">Ecualizador gráfico</a> &middot; <a href="/es/guide/speakers/">Altavoces</a> &middot; <a href="/es/guide/locked-controls/">Por qué un control está bloqueado</a> &middot; <a href="/es/guide/assistant/">El Asistente</a> &middot; <a href="/es/guide/home-automation/">Domótica</a> &middot; <a href="/es/guide/home-assistant-dashboard/">Panel de Home Assistant</a> &middot; <a href="/es/guide/multi-zone/">Zonas</a> &middot; <a href="/es/guide/remote/">Mando</a> &middot; <a href="/es/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/es/guide/on-screen-display/">Visualización en pantalla</a> &middot; <a href="/es/guide/settings/">Ajustes</a> &middot; <a href="/es/guide/languages/">Idiomas</a> &middot; <a href="/es/guide/volume/">Controles de volumen</a> &middot; <a href="/es/guide/now-playing/">Reproduciendo ahora &amp; HEOS</a></p>
+    <p class="lead"><a href="/es/guide/getting-started/">Primeros pasos</a> &middot; <a href="/es/guide/receivers/">Gestionar receptores</a> &middot; <a href="/es/guide/navigation/">Navegar por la app</a> &middot; <a href="/es/guide/search/">Búsqueda</a> &middot; <a href="/es/guide/home/">Pantalla de inicio</a> &middot; <a href="/es/guide/volume/">Controles de volumen</a> &middot; <a href="/es/guide/remote/">Mando</a> &middot; <a href="/es/guide/multi-zone/">Zonas</a> &middot; <a href="/es/guide/now-playing/">Reproduciendo y HEOS</a> &middot; <a href="/es/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/es/guide/scenes/">Escenas</a> &middot; <a href="/es/guide/sound/">Sonido</a> &middot; <a href="/es/guide/graphic-eq/">Ecualizador gráfico</a> &middot; <a href="/es/guide/speakers/">Altavoces</a> &middot; <a href="/es/guide/locked-controls/">Por qué un control está bloqueado</a> &middot; <a href="/es/guide/settings/">Ajustes</a> &middot; <a href="/es/guide/widgets/">Widgets</a> &middot; <a href="/es/guide/custom-icons/">Iconos personalizados</a> &middot; <a href="/es/guide/on-screen-display/">Visualización en pantalla</a> &middot; <a href="/es/guide/languages/">Idiomas</a> &middot; <a href="/es/guide/assistant/">El Asistente</a> &middot; <a href="/es/guide/home-automation/">Domótica</a> &middot; <a href="/es/guide/home-assistant-dashboard/">Panel de Home Assistant</a> &middot; <a href="/es/guide/glossary/">Glosario</a></p>
   </div>
 </section>
 
@@ -367,7 +380,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro es una app independiente de MiyaraHub Technologies LLC y no está afiliada ni respaldada por Denon, Marantz, Sound United, Masimo Corporation ni ninguna otra empresa mencionada en esta página. Denon, Marantz, HEOS, Audyssey y Dirac Live son marcas comerciales de sus respectivos propietarios, utilizadas aquí únicamente con fines de identificación.</p>
+    <p class="legal">AVR Maestro es una app independiente de MiyaraHub Technologies LLC y no está afiliada ni respaldada por Denon, Marantz, Sound United, Masimo Corporation ni ninguna otra empresa mencionada en esta página. Denon, Marantz, HEOS, Audyssey y Dirac Live son marcas comerciales de sus respectivos propietarios, usadas aquí solo con fines de identificación.</p>
   </div>
 </footer>
 

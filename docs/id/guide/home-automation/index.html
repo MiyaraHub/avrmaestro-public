@@ -132,7 +132,7 @@
       "description": "Hubungkan AVR Maestro ke Home Assistant atau Hubitat dan Skenario Anda menjadi skrip native yang berjalan tanpa ponsel Anda. Kontrol suara, status langsung, dan webhook.",
       "image": "https://avrmaestro.com/screenshots/home-assistant.png",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -187,6 +187,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Tidak untuk kontrol. Aplikasi berbicara dengan receiver dan hub Anda melalui jaringan Anda sendiri. Tidak ada yang dialirkan melalui server MiyaraHub. Webhook pergi ke mana pun Anda arahkan, dan itu pilihan Anda."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Membeli Otomasi Rumah di perangkat lain, atau menginstal ulang?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Buka Pengaturan › Otomatisasi Rumah (Pro) dan ketuk Pulihkan Pembelian di bawah tombol buka kunci. Jika Anda pernah membeli kunci tersebut dengan akun toko yang sama, kunci akan kembali tanpa membayar lagi."
       }
     }
   ]
@@ -273,7 +281,7 @@
     </div>
     <ul class="plain">
       <li><b>1. Tambahkan receiver Anda ke Home Assistant terlebih dahulu.</b> Pengaturan &rsaquo; Perangkat &amp; Layanan &rsaquo; Tambah Integrasi &rsaquo; <b>Denon AVR</b> (atau <b>HEOS</b>), lalu masukkan IP lokal receiver Anda. Home Assistant akan membuat entitas media player untuknya.</li>
-      <li><b>2. Buka Pengaturan &rsaquo; Otomasi Rumah di AVR Maestro</b> dan ketuk kartu Home Assistant.</li>
+      <li><b>2. Buka Pengaturan &rsaquo; Otomatisasi Rumah (Pro) di AVR Maestro</b> dan ketuk kartu Home Assistant.</li>
       <li><b>3. Masukkan alamat Home Assistant Anda</b> - alamat lokal seperti <code>http://192.168.1.150:8123</code>, atau URL Nabu Casa eksternal Anda.</li>
       <li><b>4. Masuk dan beri otorisasi.</b> Browser aman di dalam aplikasi membuka halaman login Home Assistant sendiri. Kredensial Anda dikirim ke Home Assistant, tidak pernah ke kami.</li>
       <li><b>5. Receiver Anda ditemukan sendiri.</b> Aplikasi memindai entity media player Anda dan menilainya berdasarkan model, nama, dan kemampuan surround, lalu mengisi entity yang tepat untuk Anda.</li>
@@ -305,6 +313,14 @@
         <p>Skrip bisa dijalankan tetapi tidak bisa dibaca, sehingga dasbor awal bisa mengganti kurva Audyssey atau slot Dirac tanpa cara menunjukkan yang mana yang sedang aktif. Pembacaan yang sudah dimiliki aplikasi - mode surround langsung, filter Dirac yang aktif, preset speaker, dimmer, dan puluhan lainnya - kini diterbitkan sebagai atribut pada sensor status receiver, sehingga sebuah tile bisa menyala untuk pengaturan yang benar-benar sedang berjalan.</p>
       </div>
       <img alt="AVR Maestro menerbitkan skrip kontrol Speaker Preset, Dirac Live, dan Audyssey ke Home Assistant" src="/screenshots/ha-sync-advanced.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Mode suara sebagai skrip</div>
+        <h2>Ekspor Mode Suara (REST)</h2>
+        <p>Di bagian Home Assistant, <b>Ekspor Mode Suara (REST)</b> membuka <b>Skrip Lanjutan (REST)</b>: satu skrip Home Assistant untuk setiap mode suara yang tercantum di receiver Anda, sehingga tombol dasbor atau otomasi dapat langsung memilih mode surround. Aplikasi membaca daftar itu dari receiver, jadi nyalakan receiver dan buka <a href="/id/guide/sound/">tab Suara</a> sekali terlebih dahulu; sebelum itu, aplikasi meminta Anda melakukannya, alih-alih mengekspor daftar kosong.</p>
+      </div>
     </div>
 
     <div class="lockrow" style="margin-top:28px">
@@ -391,7 +407,7 @@
 
     <h3 style="margin-top:28px">Di AVR Maestro</h3>
     <ul class="plain">
-      <li><b>1. Settings &rsaquo; Home Automation &rsaquo; Webhooks</b>, lalu <b>Add First Trigger</b> - atau tombol <b>+</b> jika sudah punya satu.</li>
+      <li><b>1. Pengaturan &rsaquo; Otomatisasi Rumah (Pro) &rsaquo; Webhook</b>, lalu <b>Tambah Trigger Pertama</b> - atau tombol <b>+</b> setelah Anda memilikinya.</li>
       <li><b>2. Trigger Event</b> - pilih apa yang harus memicunya. Memilih <em>Active Input Changed</em> atau <em>Scene Recalled</em> menambahkan kotak kedua untuk mempersempitnya.</li>
       <li><b>3. Where to send it</b> - biarkan di <b>Home Assistant</b>. Alamatnya sudah diketahui, karena Anda menghubungkannya sebelumnya di layar yang sama.</li>
       <li><b>4. Webhook ID</b> - ketik ID yang sama dengan yang Anda pakai di Home Assistant. Tidak ada lagi yang harus cocok. Di bawahnya, aplikasi menuliskan alamat persis yang akan dikirimi - <code>Sends to http://your-ha:8123/api/webhook/avr-power-on</code> - sehingga Anda bisa memeriksanya sebelum menyimpan.</li>
@@ -449,6 +465,7 @@
         <div class="eyebrow">Yang berbayar dan yang tidak</div>
         <h2>Otomasi Rumah adalah satu-satunya pembukaan. Asisten AI gratis.</h2>
         <p><b>Otomasi Rumah (Pro)</b> - Home Assistant, Hubitat, dan webhook keluar - adalah pembukaan sekali bayar. Semua yang lain di AVR Maestro, termasuk asisten AI di perangkat, sudah termasuk dalam aplikasi.</p>
+        <p>Sudah membelinya, di perangkat ini atau perangkat lain dengan akun toko yang sama? Ketuk <b>Pulihkan Pembelian</b> di bawah tombol buka kunci.</p>
         <p>Kontrol suara menjangkau receiver Anda <em>melalui</em> Otomasi Rumah, lewat hub Anda. AVR Maestro tidak menjalankan pengenalan suaranya sendiri.</p>
       </div>
     </div>
@@ -465,6 +482,7 @@
     <details><summary>Asisten suara mana yang bisa mengontrol receiver saya?</summary><div class="body">Yang mana pun yang sudah Anda pakai. AVR Maestro tidak menambahkan lapisan suara sendiri - aplikasi ini menerbitkan skrip ke Home Assistant atau Hubitat, dan skrip itu diteruskan ke Alexa, Google Assistant, atau Siri Shortcuts oleh hub yang sudah Anda percaya.</div></details>
     <details><summary>Apakah asisten AI bagian dari fitur berbayar?</summary><div class="body">Tidak. Asisten AI di perangkat gratis. Otomasi Rumah - Home Assistant, Hubitat, dan webhook keluar - adalah satu-satunya fitur berbayar di AVR Maestro.</div></details>
     <details><summary>Apakah ada yang keluar dari jaringan rumah saya?</summary><div class="body">Tidak untuk kontrol. Aplikasi berbicara dengan receiver dan hub Anda melalui jaringan Anda sendiri. Tidak ada yang dialirkan melalui server MiyaraHub. Webhook pergi ke mana pun Anda arahkan, dan itu pilihan Anda.</div></details>
+    <details><summary>Membeli Otomasi Rumah di perangkat lain, atau menginstal ulang?</summary><div class="body">Buka <i>Pengaturan &rsaquo; Otomatisasi Rumah (Pro)</i> dan ketuk <b>Pulihkan Pembelian</b> di bawah tombol buka kunci. Jika Anda pernah membeli kunci tersebut dengan akun toko yang sama, kunci akan kembali tanpa membayar lagi.</div></details>
   </div>
 </section>
 
@@ -474,7 +492,7 @@
       <div class="eyebrow">Lainnya dari panduan</div>
       <h2>Panduan AVR Maestro lainnya</h2>
     </div>
-    <p class="lead"><a href="/id/guide/getting-started/">Memulai</a> &middot; <a href="/id/guide/home/">Layar Utama</a> &middot; <a href="/id/guide/scenes/">Skenario</a> &middot; <a href="/id/guide/custom-icons/">Ikon Kustom</a> &middot; <a href="/id/guide/sound/">Suara</a> &middot; <a href="/id/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/id/guide/speakers/">Speaker</a> &middot; <a href="/id/guide/locked-controls/">Mengapa kontrol terkunci</a> &middot; <a href="/id/guide/assistant/">Asisten</a> &middot; <a href="/id/guide/home-assistant-dashboard/">Dasbor Home Assistant</a> &middot; <a href="/id/guide/multi-zone/">Zona</a> &middot; <a href="/id/guide/remote/">Remote</a> &middot; <a href="/id/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/id/guide/on-screen-display/">Tampilan Layar</a> &middot; <a href="/id/guide/settings/">Pengaturan</a> &middot; <a href="/id/guide/languages/">Bahasa</a> &middot; <a href="/id/guide/volume/">Kontrol Volume</a> &middot; <a href="/id/guide/backup/">Cadangkan &amp; Pulihkan</a> &middot; <a href="/id/guide/now-playing/">Sedang Diputar &amp; HEOS</a></p>
+    <p class="lead"><a href="/id/guide/getting-started/">Memulai</a> &middot; <a href="/id/guide/receivers/">Kelola Receiver</a> &middot; <a href="/id/guide/navigation/">Menavigasi Aplikasi</a> &middot; <a href="/id/guide/search/">Pencarian</a> &middot; <a href="/id/guide/home/">Layar Utama</a> &middot; <a href="/id/guide/volume/">Kontrol Volume</a> &middot; <a href="/id/guide/remote/">Remote</a> &middot; <a href="/id/guide/multi-zone/">Zona</a> &middot; <a href="/id/guide/now-playing/">Sedang Diputar &amp; HEOS</a> &middot; <a href="/id/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/id/guide/scenes/">Skenario</a> &middot; <a href="/id/guide/sound/">Suara</a> &middot; <a href="/id/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/id/guide/speakers/">Speaker</a> &middot; <a href="/id/guide/locked-controls/">Mengapa kontrol terkunci</a> &middot; <a href="/id/guide/settings/">Pengaturan</a> &middot; <a href="/id/guide/widgets/">Widget</a> &middot; <a href="/id/guide/custom-icons/">Ikon Kustom</a> &middot; <a href="/id/guide/on-screen-display/">Tampilan Layar</a> &middot; <a href="/id/guide/languages/">Bahasa</a> &middot; <a href="/id/guide/assistant/">Asisten</a> &middot; <a href="/id/guide/home-assistant-dashboard/">Dasbor Home Assistant</a> &middot; <a href="/id/guide/backup/">Cadangkan &amp; Pulihkan</a> &middot; <a href="/id/guide/glossary/">Glosarium</a></p>
   </div>
 </section>
 
@@ -510,7 +528,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro adalah aplikasi independen dari MiyaraHub Technologies LLC dan tidak berafiliasi dengan atau didukung oleh Denon, Marantz, Sound United, Masimo Corporation, atau perusahaan lain mana pun yang disebut di halaman ini. Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant, dan Siri adalah merek dagang dari pemiliknya masing-masing, dipakai di sini hanya untuk identifikasi.</p>
+    <p class="legal">AVR Maestro adalah aplikasi independen buatan MiyaraHub Technologies LLC dan tidak berafiliasi dengan atau didukung oleh Denon, Marantz, Sound United, Masimo Corporation, atau perusahaan lain yang disebut di halaman ini. Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant, dan Siri adalah merek dagang dari pemiliknya masing-masing, dan digunakan di sini hanya untuk identifikasi.</p>
   </div>
 </footer>
 

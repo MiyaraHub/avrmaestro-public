@@ -132,7 +132,7 @@
       "description": "เชื่อมโยง AVR Maestro กับ Home Assistant หรือ Hubitat แล้วฉากของคุณจะกลายเป็นสคริปต์ต้นฉบับที่ทำงานได้โดยไม่ต้องใช้โทรศัพท์ ควบคุมด้วยเสียง สถานะสด และ webhook",
       "image": "https://avrmaestro.com/screenshots/home-assistant.png",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -187,6 +187,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "ไม่มีสำหรับการควบคุม แอปสื่อสารกับเครื่องรับและฮับของคุณผ่านเครือข่ายของคุณเอง ไม่มีอะไรผ่านเซิร์ฟเวอร์ของ MiyaraHub ส่วน webhook จะไปที่ปลายทางที่คุณกำหนดเอง ซึ่งเป็นการตัดสินใจของคุณ"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ซื้อระบบบ้านอัตโนมัติบนอุปกรณ์อื่นไว้แล้ว หรือติดตั้งแอปใหม่ใช่ไหม",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "เปิดการตั้งค่า › ระบบบ้านอัตโนมัติ (Pro) แล้วแตะกู้คืนการซื้อใต้ปุ่มปลดล็อก หากเคยซื้อการปลดล็อกด้วยบัญชีสโตร์เดียวกัน การซื้อจะกลับมาโดยไม่ต้องจ่ายอีก"
       }
     }
   ]
@@ -273,7 +281,7 @@
     </div>
     <ul class="plain">
       <li><b>1. เพิ่มเครื่องรับของคุณใน Home Assistant ก่อน</b> การตั้งค่า &rsaquo; อุปกรณ์ &amp; บริการ &rsaquo; เพิ่มการผสานรวม &rsaquo; <b>Denon AVR</b> (หรือ <b>HEOS</b>) จากนั้นระบุ IP ภายในเครือข่ายของเครื่องรับ Home Assistant จะสร้างเอนทิตีเครื่องเล่นสื่อให้เครื่องรับนั้น</li>
-      <li><b>2. เปิด Settings &rsaquo; Home Automation ใน AVR Maestro</b> แล้วแตะการ์ด Home Assistant</li>
+      <li><b>2. เปิดการตั้งค่า &rsaquo; ระบบบ้านอัตโนมัติ (Pro) ใน AVR Maestro</b>แล้วแตะการ์ด Home Assistant</li>
       <li><b>3. ป้อนที่อยู่ Home Assistant ของคุณ</b> ซึ่งเป็นที่อยู่ภายในเครือข่าย เช่น <code>http://192.168.1.150:8123</code> หรือ URL ภายนอกของ Nabu Casa</li>
       <li><b>4. เข้าสู่ระบบและให้สิทธิ์</b> เบราว์เซอร์ที่ปลอดภัยภายในแอปจะเปิดหน้าเข้าสู่ระบบของ Home Assistant เอง ข้อมูลรับรองของคุณไปที่ Home Assistant ไม่เคยมาถึงเรา</li>
       <li><b>5. แอปหาเครื่องรับของคุณเอง</b> แอปสแกนเอนทิตีเครื่องเล่นสื่อของคุณและให้คะแนนตามรุ่น ชื่อ และความสามารถด้านเซอร์ราวด์ แล้วกรอกเอนทิตีที่ถูกต้องให้คุณ</li>
@@ -305,6 +313,14 @@
         <p>สคริปต์สั่งให้ทำงานได้แต่อ่านค่าไม่ได้ แดชบอร์ดยุคแรกจึงสลับเส้นโค้ง Audyssey หรือช่อง Dirac ได้ แต่ไม่มีทางแสดงว่าตัวไหนเปิดอยู่ ตอนนี้ค่าที่แอปมีอยู่แล้ว ได้แก่ โหมดเซอร์ราวด์สด ฟิลเตอร์ Dirac ที่ใช้งาน พรีเซ็ตลำโพง ตัวหรี่ไฟ และอีกหลายสิบรายการ ถูกเผยแพร่เป็นแอตทริบิวต์บนเซนเซอร์สถานะของเครื่องรับ ไทล์จึงสว่างตามการตั้งค่าที่ทำงานอยู่จริง</p>
       </div>
       <img alt="AVR Maestro เผยแพร่สคริปต์ควบคุมพรีเซ็ตลำโพง Dirac Live และ Audyssey ไปยัง Home Assistant" src="/screenshots/ha-sync-advanced.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">โหมดเสียงในรูปแบบสคริปต์</div>
+        <h2>ส่งออกโหมดเสียง (REST)</h2>
+        <p>ในส่วน Home Assistant ปุ่ม<b>ส่งออกโหมดเสียง (REST)</b>จะเปิด<b>สคริปต์ขั้นสูง (REST)</b>: สคริปต์ Home Assistant หนึ่งชุดสำหรับแต่ละโหมดเสียงที่เครื่องรับของคุณแสดงรายการ เพื่อให้ปุ่มบนแดชบอร์ดหรือระบบอัตโนมัติเลือกโหมดเซอร์ราวด์ได้โดยตรง แอปอ่านรายการนั้นจากเครื่องรับ ดังนั้นให้เปิดเครื่องรับและเปิด<a href="/th/guide/sound/">แท็บเสียง</a>สักครั้งก่อน จนกว่าจะทำเช่นนั้น แอปจะขอให้คุณทำ แทนที่จะส่งออกรายการว่าง</p>
+      </div>
     </div>
 
     <div class="lockrow" style="margin-top:28px">
@@ -391,7 +407,7 @@
 
     <h3 style="margin-top:28px">ใน AVR Maestro</h3>
     <ul class="plain">
-      <li><b>1. Settings &rsaquo; Home Automation &rsaquo; Webhooks</b> แล้วแตะ <b>เพิ่มทริกเกอร์แรก</b> หรือปุ่ม <b>+</b> เมื่อมีทริกเกอร์อยู่แล้ว</li>
+      <li><b>1. การตั้งค่า &rsaquo; ระบบบ้านอัตโนมัติ (Pro) &rsaquo; เว็บฮุก</b> จากนั้น<b>เพิ่มทริกเกอร์แรก</b> - หรือปุ่ม<b>+</b>เมื่อคุณมีทริกเกอร์แล้ว</li>
       <li><b>2. เหตุการณ์ทริกเกอร์</b> เลือกสิ่งที่ควรทำให้ทริกเกอร์ทำงาน หากเลือก <em>เปลี่ยนอินพุตที่ใช้งานอยู่</em> หรือ <em>เรียกใช้ฉาก</em> จะมีช่องที่สองเพิ่มขึ้นมาเพื่อจำกัดให้แคบลง</li>
       <li><b>3. จะส่งไปที่ใด</b> ปล่อยไว้ที่ <b>Home Assistant</b> แอปรู้ที่อยู่อยู่แล้ว เพราะคุณเชื่อมโยงไว้ก่อนหน้าแล้วในหน้าจอเดียวกันนี้</li>
       <li><b>4. Webhook ID</b> พิมพ์ ID เดียวกับที่ใช้ใน Home Assistant ไม่ต้องให้อย่างอื่นตรงกัน ด้านล่างแอปจะแสดงที่อยู่เต็มที่จะโพสต์ไป คือ <code>Sends to http://your-ha:8123/api/webhook/avr-power-on</code> เพื่อให้ตรวจสอบได้ก่อนบันทึก</li>
@@ -449,6 +465,7 @@
         <div class="eyebrow">อะไรเสียเงินและอะไรไม่เสีย</div>
         <h2>ระบบบ้านอัตโนมัติคือการปลดล็อกเพียงอย่างเดียว ผู้ช่วย AI ใช้ฟรี</h2>
         <p><b>ระบบบ้านอัตโนมัติ (Pro)</b> ซึ่งได้แก่ Home Assistant, Hubitat และ webhook ขาออก เป็นการปลดล็อกครั้งเดียว ส่วนอื่นทั้งหมดใน AVR Maestro รวมถึงผู้ช่วย AI บนอุปกรณ์ รวมอยู่ในแอปแล้ว</p>
+        <p>ซื้อไว้แล้วบนอุปกรณ์เครื่องนี้หรือเครื่องอื่นที่ใช้บัญชีสโตร์เดียวกันใช่ไหม แตะ<b>กู้คืนการซื้อ</b>ใต้ปุ่มปลดล็อก</p>
         <p>การควบคุมด้วยเสียงเข้าถึงเครื่องรับของคุณ<em>ผ่าน</em>ระบบบ้านอัตโนมัติ โดยอาศัยฮับของคุณ AVR Maestro ไม่มีระบบจดจำเสียงของตัวเอง</p>
       </div>
     </div>
@@ -465,6 +482,7 @@
     <details><summary>ผู้ช่วยเสียงตัวไหนควบคุมเครื่องรับของฉันได้บ้าง</summary><div class="body">ตัวไหนก็ได้ที่คุณใช้อยู่แล้ว AVR Maestro ไม่ได้เพิ่มระบบเสียงของตัวเอง แต่เผยแพร่สคริปต์ไปยัง Home Assistant หรือ Hubitat แล้วฮับที่คุณไว้ใจอยู่แล้วจะส่งต่อสคริปต์เหล่านั้นให้ Alexa, Google Assistant หรือ Siri Shortcuts</div></details>
     <details><summary>ผู้ช่วย AI เป็นส่วนหนึ่งของการปลดล็อกแบบเสียเงินไหม</summary><div class="body">ไม่ใช่ ผู้ช่วย AI บนอุปกรณ์ใช้ฟรี ระบบบ้านอัตโนมัติ ซึ่งได้แก่ Home Assistant, Hubitat และ webhook ขาออก คือสิ่งเดียวที่ต้องปลดล็อกแบบเสียเงินใน AVR Maestro</div></details>
     <details><summary>มีอะไรออกนอกเครือข่ายบ้านของฉันไหม</summary><div class="body">ไม่มีสำหรับการควบคุม แอปสื่อสารกับเครื่องรับและฮับของคุณผ่านเครือข่ายของคุณเอง ไม่มีอะไรผ่านเซิร์ฟเวอร์ของ MiyaraHub ส่วน webhook จะไปที่ปลายทางที่คุณกำหนดเอง ซึ่งเป็นการตัดสินใจของคุณ</div></details>
+    <details><summary>ซื้อระบบบ้านอัตโนมัติบนอุปกรณ์อื่นไว้แล้ว หรือติดตั้งแอปใหม่ใช่ไหม</summary><div class="body">เปิด<i>การตั้งค่า &rsaquo; ระบบบ้านอัตโนมัติ (Pro)</i>แล้วแตะ<b>กู้คืนการซื้อ</b>ใต้ปุ่มปลดล็อก หากเคยซื้อการปลดล็อกด้วยบัญชีสโตร์เดียวกัน การซื้อจะกลับมาโดยไม่ต้องจ่ายอีก</div></details>
   </div>
 </section>
 
@@ -474,7 +492,7 @@
       <div class="eyebrow">เนื้อหาเพิ่มเติมของคู่มือ</div>
       <h2>คู่มือ AVR Maestro เรื่องอื่น ๆ</h2>
     </div>
-    <p class="lead"><a href="/th/guide/getting-started/">เริ่มต้นใช้งาน</a> &middot; <a href="/th/guide/home/">หน้าจอหลัก</a> &middot; <a href="/th/guide/scenes/">ฉาก</a> &middot; <a href="/th/guide/custom-icons/">ไอคอนกำหนดเอง</a> &middot; <a href="/th/guide/sound/">เสียง</a> &middot; <a href="/th/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/th/guide/speakers/">ลำโพง</a> &middot; <a href="/th/guide/locked-controls/">เหตุใดตัวควบคุมจึงถูกล็อก</a> &middot; <a href="/th/guide/assistant/">ผู้ช่วย</a> &middot; <a href="/th/guide/home-assistant-dashboard/">แดชบอร์ด Home Assistant</a> &middot; <a href="/th/guide/multi-zone/">โซน</a> &middot; <a href="/th/guide/remote/">รีโมท</a> &middot; <a href="/th/guide/radio/">วิทยุ (FM/AM)</a> &middot; <a href="/th/guide/on-screen-display/">การแสดงผลบนหน้าจอ</a> &middot; <a href="/th/guide/settings/">การตั้งค่า</a> &middot; <a href="/th/guide/languages/">ภาษา</a> &middot; <a href="/th/guide/volume/">การควบคุมระดับเสียง</a> &middot; <a href="/th/guide/backup/">สำรอง &amp; กู้คืนข้อมูล</a> &middot; <a href="/th/guide/now-playing/">กำลังเล่น &amp; HEOS</a></p>
+    <p class="lead"><a href="/th/guide/getting-started/">เริ่มต้นใช้งาน</a> &middot; <a href="/th/guide/receivers/">จัดการเครื่องรับ</a> &middot; <a href="/th/guide/navigation/">การนำทางในแอป</a> &middot; <a href="/th/guide/search/">ค้นหา</a> &middot; <a href="/th/guide/home/">หน้าจอหลัก</a> &middot; <a href="/th/guide/volume/">การควบคุมระดับเสียง</a> &middot; <a href="/th/guide/remote/">รีโมท</a> &middot; <a href="/th/guide/multi-zone/">โซน</a> &middot; <a href="/th/guide/now-playing/">กำลังเล่นและ HEOS</a> &middot; <a href="/th/guide/radio/">วิทยุ (FM/AM)</a> &middot; <a href="/th/guide/scenes/">ฉาก</a> &middot; <a href="/th/guide/sound/">เสียง</a> &middot; <a href="/th/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/th/guide/speakers/">ลำโพง</a> &middot; <a href="/th/guide/locked-controls/">เหตุใดตัวควบคุมจึงถูกล็อก</a> &middot; <a href="/th/guide/settings/">การตั้งค่า</a> &middot; <a href="/th/guide/widgets/">วิดเจ็ต</a> &middot; <a href="/th/guide/custom-icons/">ไอคอนกำหนดเอง</a> &middot; <a href="/th/guide/on-screen-display/">การแสดงผลบนหน้าจอ</a> &middot; <a href="/th/guide/languages/">ภาษา</a> &middot; <a href="/th/guide/assistant/">ผู้ช่วย</a> &middot; <a href="/th/guide/home-assistant-dashboard/">แดชบอร์ด Home Assistant</a> &middot; <a href="/th/guide/backup/">สำรองและกู้คืนข้อมูล</a> &middot; <a href="/th/guide/glossary/">อภิธานศัพท์</a></p>
   </div>
 </section>
 
@@ -510,7 +528,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro เป็นแอปอิสระโดย MiyaraHub Technologies LLC และไม่มีความเกี่ยวข้องหรือการรับรองจาก Denon, Marantz, Sound United, Masimo Corporation หรือบริษัทอื่นใดที่ถูกกล่าวถึงในหน้านี้ Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant และ Siri เป็นเครื่องหมายการค้าของเจ้าของที่เกี่ยวข้อง ใช้ในที่นี้เพื่อระบุตัวตนเท่านั้น</p>
+    <p class="legal">AVR Maestro เป็นแอปอิสระโดย MiyaraHub Technologies LLC และไม่มีส่วนเกี่ยวข้องหรือได้รับการรับรองจาก Denon, Marantz, Sound United, Masimo Corporation หรือบริษัทอื่นใดที่ระบุในหน้านี้ Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant และ Siri เป็นเครื่องหมายการค้าของเจ้าของที่เกี่ยวข้อง ใช้ในที่นี้เพื่อระบุผลิตภัณฑ์เท่านั้น</p>
   </div>
 </footer>
 

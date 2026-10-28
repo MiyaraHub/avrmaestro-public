@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="apple-itunes-app" content="app-id=6762881597" />
 <title>Sikkerhetskopi &amp; gjenoppretting av innstillinger på ny telefon - AVR Maestro</title>
-<meta name="description" content="Eksporter alle AVR Maestro-innstillinger til én fil: mottakere, inngangsnavn og ikoner, Scener, tema og volumvalg. Gjenopprett den på en ny telefon med noen få trykk." />
+<meta name="description" content="Eksporter AVR Maestro-oppsettet ditt til én .zip-fil: mottakere, scener, egendefinerte ikoner, inngangsrekkefølge, tema og voluminnstillinger. Gjenopprett det på en ny telefon med noen få trykk." />
 <meta name="keywords" content="AVR Maestro backup, transfer AVR app settings new phone, export receiver settings app, restore Denon app config, AVR Maestro migrate device" />
 <meta name="author" content="MiyaraHub Technologies LLC" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -77,7 +77,7 @@
 <meta property="og:locale:alternate" content="zh_CN" />
 <meta property="og:locale:alternate" content="zh_TW" />
 <meta property="og:title" content="Sikkerhetskopi &amp; gjenoppretting av innstillinger på ny telefon - AVR Maestro" />
-<meta property="og:description" content="Eksporter alle AVR Maestro-innstillinger til én fil: mottakere, inngangsnavn og ikoner, Scener, tema og volumvalg. Gjenopprett den på en ny telefon med noen få trykk." />
+<meta property="og:description" content="Eksporter AVR Maestro-oppsettet ditt til én .zip-fil: mottakere, scener, egendefinerte ikoner, inngangsrekkefølge, tema og voluminnstillinger. Gjenopprett det på en ny telefon med noen få trykk." />
 <meta property="og:url" content="https://avrmaestro.com/nb/guide/backup/" />
 <meta property="og:image" content="https://avrmaestro.com/assets/og-card.png" />
 <meta property="og:image:type" content="image/png" />
@@ -86,7 +86,7 @@
 <meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Sikkerhetskopi &amp; gjenoppretting av innstillinger på ny telefon - AVR Maestro" />
-<meta name="twitter:description" content="Eksporter alle AVR Maestro-innstillinger til én fil: mottakere, inngangsnavn og ikoner, Scener, tema og volumvalg. Gjenopprett den på en ny telefon med noen få trykk." />
+<meta name="twitter:description" content="Eksporter AVR Maestro-oppsettet ditt til én .zip-fil: mottakere, scener, egendefinerte ikoner, inngangsrekkefølge, tema og voluminnstillinger. Gjenopprett det på en ny telefon med noen få trykk." />
 <meta name="twitter:image" content="https://avrmaestro.com/assets/og-card.png" />
 <meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
 <link rel="icon" href="/assets/favicon.ico" sizes="any" />
@@ -129,10 +129,10 @@
       "@type": "TechArticle",
       "@id": "https://avrmaestro.com/guide/backup/#article",
       "headline": "Sikkerhetskopi og gjenoppretting: hele oppsettet ditt i én fil",
-      "description": "Eksporter alle AVR Maestro-innstillinger til én fil: mottakere, inngangsnavn og ikoner, Scener, tema og volumvalg. Gjenopprett den på en ny telefon med noen få trykk.",
+      "description": "Eksporter AVR Maestro-oppsettet ditt til én .zip-fil: mottakere, scener, egendefinerte ikoner, inngangsrekkefølge, tema og voluminnstillinger. Gjenopprett det på en ny telefon med noen få trykk.",
       "image": "https://avrmaestro.com/screenshots/backup-restore.png",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -162,7 +162,7 @@
       "name": "Kan jeg flytte en sikkerhetskopi mellom Android og iPhone?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Filen er ren JSON og er ikke knyttet til enheten som skrev den. Eksporter fra den ene, få filen over til den andre og importer."
+        "text": "Ja. Sikkerhetskopien er en .zip-fil som ikke er knyttet til enheten som skrev den. Eksporter fra den ene, få filen over til den andre og importer."
       }
     },
     {
@@ -178,7 +178,15 @@
       "name": "Følger Scenene mine med?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja, sammen med hvilke innstillinger hver Scene var satt til å fange. Se Scene-guiden."
+        "text": "Ja, med innstillingene hver scene inneholder og det egendefinerte ikonet. Se scene-guiden."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hvorfor bør jeg lukke appen på de andre enhetene mine før jeg gjenoppretter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hvis en annen telefon eller et annet nettbrett har AVR Maestro åpen og koblet til samme mottaker, kan to enheter snakke med mottakeren samtidig under gjenopprettingen. Det kan gi en tilkoblingskonflikt som låser mottakerens fastvare. Lukk appen på den andre enheten, gjenopprett, og tving deretter lukking og åpne AVR Maestro på nytt på denne."
       }
     },
     {
@@ -251,12 +259,12 @@
       <div>
         <div class="eyebrow">Eksporter</div>
         <h2>Lagre til enheten, eller del den rett videre</h2>
-        <p class="lead">Åpne <b>Innstillinger</b>, bla til <b>Sikkerhetskopi &amp; gjenoppretting</b>, og velg:</p>
-        <ul class="plain">
-          <li><b>Lagre til enheten</b> - skriver én enkelt JSON-fil dit du peker.</li>
-          <li><b>Del</b> - sender den til den vanlige delingsmenyen din, så den kan gå rett til den andre telefonen, en skystasjon eller en melding til deg selv.</li>
-        </ul>
-        <p class="lead">Det er en ren tekstfil. Ingenting i den er låst til enheten den kom fra.</p>
+        <ol class="steps">
+          <li>Åpne <b>Innstillinger</b> og bla til <b>Sikkerhetskopi og om</b>.</li>
+          <li>Trykk på <b>Sikkerhetskopi og gjenoppretting</b>.</li>
+          <li>Under <b>Eksporter</b> trykker du på <b>Lagre til enheten</b> for å velge en mappe til filen, eller på <b>Del</b> for å sende den via delingsarket rett til den andre telefonen, en skystasjon eller en melding til deg selv.</li>
+        </ol>
+        <p class="lead">Sikkerhetskopien er én <b>.zip</b>-fil med navn som <b>avr-maestro-backup-</b> etterfulgt av dato og klokkeslett. Inni ligger innstillingene dine og bildene du valgte til egendefinerte ikoner. Ingenting i den er låst til enheten den kom fra.</p>
       </div>
       <img alt="Siden for sikkerhetskopi og gjenoppretting med eksport og import" src="/screenshots/backup-restore.png" width="1324" height="2644" decoding="async" />
     </div>
@@ -272,16 +280,18 @@
     <table class="t">
       <thead><tr><th>Inkludert</th><th>Betydning</th></tr></thead>
       <tbody>
-        <tr><td>Konfigurerte mottakere</td><td>Hver enhet du har lagt til, med adresse og innstillinger</td></tr>
-        <tr><td>Kilderekkefølge per enhet</td><td>Rekkefølgen du dro inngangene dine i, lagret per mottaker</td></tr>
-        <tr><td>Tema og fargetema</td><td>Aksentfargen din og utseendevalgene dine</td></tr>
-        <tr><td>Visnings- og widgetskala</td><td>Tekst- og widgetstørrelse</td></tr>
-        <tr><td>Volumvalg</td><td>Volumoppførselen på appsiden</td></tr>
-        <tr><td>Status for forklaringskort</td><td>Hvilke infobannere du har avvist, slik at de forblir avvist</td></tr>
-        <tr><td>Hurtigbufrede sonder</td><td>Resultatene for HEOS, funksjoner og musikkfunksjoner, så den nye telefonen ikke må begynne på nytt</td></tr>
+        <tr><td>Mottakerne dine</td><td>Hver mottaker du har lagt til, med adressen, og hvilken som var valgt</td></tr>
+        <tr><td>Scener</td><td>Hver scene for hver mottaker, med innstillingene den inneholder, ikonet og fargen</td></tr>
+        <tr><td>Egendefinerte ikoner</td><td>Bildene du valgte til innganger og scener, med formene deres</td></tr>
+        <tr><td>Inngangsrekkefølge</td><td>Rekkefølgen du dro inngangene dine i, lagret per mottaker</td></tr>
+        <tr><td>Plass- og presetnavn</td><td>Navn du skrev inn for plasser i Smart Select / Quick Select og tunerpresets</td></tr>
+        <tr><td>Lydinnstillinger per mottaker</td><td>Volumtrinn, valgene for volumvisning, gradvise volumpresets, enhetens volumknapper og dine hurtigvolumpresets</td></tr>
+        <tr><td>Utseende og layout</td><td>Tema og aksentfarge, språk, tekst- og widgetstørrelse, widgetfarger, hjem-layouten din, navigasjon og skjulte faner</td></tr>
+        <tr><td>Forklaringskort</td><td>Hvilke infokort du har avvist, slik at de forblir avvist</td></tr>
+        <tr><td>Mellomlagrede mottakersjekker</td><td>Det appen allerede har lært om hver mottaker (HEOS og funksjonssjekker), slik at den nye telefonen ikke starter på nytt</td></tr>
       </tbody>
     </table>
-    <div class="note">Egendefinerte inngangsnavn og bilder er en del av mottakerkonfigurasjonen din, så de følger med. Se <a href="/nb/guide/custom-icons/">guiden for egendefinerte ikoner</a>.</div>
+    <div class="note"><b>Ikke inkludert:</b> tilkoblingsinnstillingene dine for Home Assistant og Hubitat. Sett opp <a href="/nb/guide/home-automation/">Hjemmeautomatisering</a> på nytt på den nye enheten; de eksisterende scene-skriptene dine beholder id-ene sine, så automatiseringer som peker på dem fortsetter å fungere. Inngangsnavn du har gitt nytt navn, lagres på selve mottakeren, så de vises så snart den nye enheten kobler til.</div>
   </div>
 </section>
 
@@ -291,13 +301,15 @@
       <div class="eyebrow">Importer</div>
       <h2>Gjenopprette på den nye telefonen</h2>
     </div>
-    <ol class="plain">
+    <div class="note"><b>Før du gjenoppretter:</b> hvis AVR Maestro er åpen på en annen telefon eller et annet nettbrett som er koblet til samme mottaker, må du lukke den der først. To enheter som snakker med samme mottaker i det øyeblikket en gjenoppretting skjer, kan gi en tilkoblingskonflikt som låser mottakerens fastvare. Appen advarer deg om dette også.</div>
+    <ol class="steps">
       <li>Installer AVR Maestro på den nye enheten og sørg for at den er på samme nettverk som mottakeren din.</li>
       <li>Åpne <b>Innstillinger &rsaquo; Sikkerhetskopi &amp; gjenoppretting</b>.</li>
-      <li>Trykk på <b>Importer innstillinger fra fil</b> og velg sikkerhetskopien.</li>
-      <li><b>Start appen på nytt.</b> Appen sier også fra om dette - en omstart gjør at alle gjenopprettede innstillinger trer i kraft på en ren måte.</li>
+      <li>Under <b>Importer</b> trykker du på <b>Importer innstillinger fra fil</b> og velger sikkerhetskopien (.zip, eller en .json-fil fra en eldre versjon av appen).</li>
+      <li>Sjekk oppsummeringen i <b>Erstatte alle innstillinger?</b>: hvor mange oppføringer den inneholder, appversjonen og når den ble eksportert. Trykk på <b>Erstatt</b>.</li>
+      <li>Når du ser <b>Sikkerhetskopi gjenopprettet</b>, trykker du på <b>Skjønner</b>, og så <b>tvinger du lukking av AVR Maestro og åpner den på nytt</b> slik at hver skjerm laster de gjenopprettede innstillingene.</li>
     </ol>
-    <div class="note"><b>Import erstatter, den slår ikke sammen.</b> Alt som ligger på den enheten, overskrives med innholdet i sikkerhetskopien. Hvis dagens oppsett er verdt noe for deg, eksporter det først - det koster to trykk.</div>
+    <div class="note"><b>Import erstatter, den slår ikke sammen.</b> Alt som ligger på den enheten blir slettet og erstattet med innholdet i sikkerhetskopien, og dette kan ikke angres. Hvis det nåværende oppsettet er verdt noe for deg, eksporter det først.</div>
   </div>
 </section>
 
@@ -318,9 +330,10 @@
       <div class="eyebrow">Vanlige spørsmål</div>
       <h2>Vanlige spørsmål om sikkerhetskopi</h2>
     </div>
-    <details open><summary>Kan jeg flytte en sikkerhetskopi mellom Android og iPhone?</summary><div class="body">Filen er ren JSON og er ikke knyttet til enheten som skrev den. Eksporter fra den ene, få filen over til den andre og importer.</div></details>
+    <details open><summary>Kan jeg flytte en sikkerhetskopi mellom Android og iPhone?</summary><div class="body">Ja. Sikkerhetskopien er en .zip-fil som ikke er knyttet til enheten som skrev den. Eksporter fra den ene, få filen over til den andre og importer.</div></details>
     <details><summary>Overskriver import kalibreringen på mottakeren min?</summary><div class="body">Nei. En sikkerhetskopi inneholder bare appinnstillinger. Alt mottakeren lagrer selv - kalibrering, presets, nivåer, avstander, Dirac-filtre - ligger på mottakeren og blir ikke berørt.</div></details>
-    <details><summary>Følger Scenene mine med?</summary><div class="body">Ja, sammen med hvilke innstillinger hver Scene var satt til å fange. Se <a href="/nb/guide/scenes/">Scene-guiden</a>.</div></details>
+    <details><summary>Følger Scenene mine med?</summary><div class="body">Ja, med innstillingene hver scene inneholder og det egendefinerte ikonet. Se <a href="/nb/guide/scenes/">scene-guiden</a>.</div></details>
+    <details><summary>Hvorfor bør jeg lukke appen på de andre enhetene mine før jeg gjenoppretter?</summary><div class="body">Hvis en annen telefon eller et annet nettbrett har AVR Maestro åpen og koblet til samme mottaker, kan to enheter snakke med mottakeren samtidig under gjenopprettingen. Det kan gi en tilkoblingskonflikt som låser mottakerens fastvare. Lukk appen på den andre enheten, gjenopprett, og tving deretter lukking og åpne AVR Maestro på nytt på denne.</div></details>
     <details><summary>Hvor legger Lagre til enheten filen?</summary><div class="body">Der du velger i systemets filvelger. Del er den raskeste veien hvis filen bare er på gjennomreise til en annen telefon.</div></details>
   </div>
 </section>
@@ -331,7 +344,7 @@
       <div class="eyebrow">Mer av guiden</div>
       <h2>Andre AVR Maestro-guider</h2>
     </div>
-    <p class="lead"><a href="/nb/guide/getting-started/">Kom i gang</a> &middot; <a href="/nb/guide/home/">Startskjerm</a> &middot; <a href="/nb/guide/scenes/">Scener</a> &middot; <a href="/nb/guide/custom-icons/">Egendefinerte ikoner</a> &middot; <a href="/nb/guide/sound/">Lyd</a> &middot; <a href="/nb/guide/graphic-eq/">Grafisk EQ</a> &middot; <a href="/nb/guide/speakers/">Høyttalere</a> &middot; <a href="/nb/guide/locked-controls/">Hvorfor en kontroll er låst</a> &middot; <a href="/nb/guide/assistant/">Assistenten</a> &middot; <a href="/nb/guide/home-automation/">Hjemmeautomatisering</a> &middot; <a href="/nb/guide/home-assistant-dashboard/">Home Assistant-dashbord</a> &middot; <a href="/nb/guide/multi-zone/">Soner</a> &middot; <a href="/nb/guide/remote/">Fjernkontroll</a> &middot; <a href="/nb/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/nb/guide/on-screen-display/">Skjermmeny</a> &middot; <a href="/nb/guide/settings/">Innstillinger</a> &middot; <a href="/nb/guide/languages/">Språk</a> &middot; <a href="/nb/guide/volume/">Volumkontroller</a> &middot; <a href="/nb/guide/now-playing/">Spilles nå &amp; HEOS</a></p>
+    <p class="lead"><a href="/nb/guide/getting-started/">Kom i gang</a> &middot; <a href="/nb/guide/receivers/">Administrer mottakere</a> &middot; <a href="/nb/guide/navigation/">Navigere i appen</a> &middot; <a href="/nb/guide/search/">Søk</a> &middot; <a href="/nb/guide/home/">Hjemskjerm</a> &middot; <a href="/nb/guide/volume/">Volumkontroller</a> &middot; <a href="/nb/guide/remote/">Fjernkontroll</a> &middot; <a href="/nb/guide/multi-zone/">Soner</a> &middot; <a href="/nb/guide/now-playing/">Spilles nå og HEOS</a> &middot; <a href="/nb/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/nb/guide/scenes/">Scener</a> &middot; <a href="/nb/guide/sound/">Lyd</a> &middot; <a href="/nb/guide/graphic-eq/">Grafisk EQ</a> &middot; <a href="/nb/guide/speakers/">Høyttalere</a> &middot; <a href="/nb/guide/locked-controls/">Hvorfor en kontroll er låst</a> &middot; <a href="/nb/guide/settings/">Innstillinger</a> &middot; <a href="/nb/guide/widgets/">Widgets</a> &middot; <a href="/nb/guide/custom-icons/">Egendefinerte ikoner</a> &middot; <a href="/nb/guide/on-screen-display/">Skjermmeny</a> &middot; <a href="/nb/guide/languages/">Språk</a> &middot; <a href="/nb/guide/assistant/">Assistenten</a> &middot; <a href="/nb/guide/home-automation/">Hjemmeautomatisering</a> &middot; <a href="/nb/guide/home-assistant-dashboard/">Home Assistant-dashbord</a> &middot; <a href="/nb/guide/glossary/">Ordliste</a></p>
   </div>
 </section>
 
@@ -367,7 +380,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro er en uavhengig app fra MiyaraHub Technologies LLC og er ikke tilknyttet eller anbefalt av Denon, Marantz, Sound United, Masimo Corporation eller andre selskaper som er nevnt på denne siden. Denon, Marantz, HEOS, Audyssey og Dirac Live er varemerker som tilhører sine respektive eiere, og brukes her kun for identifikasjon.</p>
+    <p class="legal">AVR Maestro er en uavhengig app fra MiyaraHub Technologies LLC og er ikke tilknyttet eller godkjent av Denon, Marantz, Sound United, Masimo Corporation eller andre selskaper som er nevnt på denne siden. Denon, Marantz, HEOS, Audyssey og Dirac Live er varemerker som tilhører sine respektive eiere, og brukes her kun til identifikasjon.</p>
   </div>
 </footer>
 

@@ -6,7 +6,7 @@
 <meta name="apple-itunes-app" content="app-id=6762881597" />
 <title>Nyt soi &amp; HEOS: albumin kansi ja toisto-ohjaus - AVR Maestro</title>
 <meta name="description" content="AVR Maestron Nyt soi -kortti näyttää albumin kannen, kappaleen, esittäjän ja aseman sekä toisto, tauko, seuraava ja edellinen -ohjaimet, reaaliaikaisesti Denonistasi tai Marantzistasi HEOS:n kautta." />
-<meta name="keywords" content="Denon Now Playing app, Marantz HEOS app, HEOS controller app, AVR now playing album art, receiver transport controls app, Denon Marantz music control, HEOS favorites app" />
+<meta name="keywords" content="Denon Now Playing app, Marantz HEOS app, HEOS controller app, AVR now playing album art, receiver transport controls app, Denon Marantz music control, HEOS favorites app, play HEOS favorites from receiver app, stop clears now playing" />
 <meta name="author" content="MiyaraHub Technologies LLC" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="theme-color" content="#ff6e40" />
@@ -132,7 +132,7 @@
       "description": "AVR Maestron Nyt soi -kortti näyttää albumin kannen, kappaleen, esittäjän ja aseman sekä toisto, tauko, seuraava ja edellinen -ohjaimet, reaaliaikaisesti Denonistasi tai Marantzistasi HEOS:n kautta.",
       "image": "https://avrmaestro.com/screenshots/now-playing.png",
       "datePublished": "2026-07-28",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -170,7 +170,23 @@
       "name": "Miten selaan musiikkia?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Napauta Nyt soi -kortin Käynnistä HEOS -painiketta. AVR Maestro avaa virallisen HEOS-sovelluksen asemien, jonojen, HEOS-huoneiden ja suoratoistopalvelujen selaamista varten. Kun toisto alkaa, AVR Maestro ottaa nyt soi -näytön ja toisto-ohjaimet takaisin haltuunsa."
+        "text": "Napauta Käynnistä HEOS Nyt soi -kortilla. AVR Maestro avaa virallisen HEOS-sovelluksen asemien, jonojen, HEOS-huoneiden ja suoratoistopalvelujen selaamista varten. Kun toisto alkaa, AVR Maestro ottaa nyt soi -näytön ja toisto-ohjaimet takaisin hoitaakseen. Tallennetun suosikin toistamiseen sinun ei tarvitse avata HEOS-sovellusta: napauta sen sijaan Suosikit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Miten toistan HEOS-suosikkini?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Napauta Suosikit Nyt soi -kortilla. HEOS-suosikit-lista aukeaa; napauta yhtä, niin se soi vastaanottimella poistumatta AVR Maestrosta. Vyöhykkeen kortilla se soi kyseisellä vyöhykkeellä."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mitä tapahtuu, kun napautan Pysäytä?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kortti ja aloitusnäytön widget tyhjenevät heti ja pysyvät tyhjinä. Ne täyttyvät uudelleen vasta, kun jokin alkaa soida."
       }
     },
     {
@@ -249,17 +265,44 @@
   <div class="wrap">
     <div class="gallery">
       <figure><img alt="AVR Maestron Nyt soi -kortti albumin kannella ja toisto-ohjaimilla" src="/screenshots/now-playing.png" width="1324" height="2644" decoding="async" /><figcaption>Albumin kansi, kappaleen tiedot ja toisto-ohjaus, reaaliaikaisesti HEOS:n kautta</figcaption></figure>
-      <figure><img alt="HEOS-suosikkien ja -asemien selaaminen AVR Maestrosta" src="/screenshots/now-playing-heos.png" width="575" height="1280" loading="lazy" decoding="async" /><figcaption>Käynnistä HEOS selataksesi asemia, jonoja ja suosikkeja</figcaption></figure>
+      <figure><img alt="HEOS-suosikit-lista avoinna Nyt soi -kortin päällä AVR Maestrossa" src="/screenshots/now-playing-heos.png" width="575" height="1280" loading="lazy" decoding="async" /><figcaption>Suosikit toistaa HEOS-suosikkisi poistumatta sovelluksesta</figcaption></figure>
     </div>
     <div class="section-head" style="margin-top:36px">
       <h2>Kaikki, mitä kuuntelet, yhdellä kortilla</h2>
     </div>
+    <p>Kortin otsikko on <b>Mediasoitin</b>. Kun mikään ei soi, siinä lukee <b>Ei toistettavaa mediaa</b>.</p>
     <ul class="plain">
-      <li><b>Albumin kansi ja kappaleen tiedot:</b> kortti näyttää kannen, kappaleen sekä esittäjän tai aseman kaikesta, mikä soi.</li>
-      <li><b>Toisto-ohjaimet:</b> toisto, tauko, seuraava ja edellinen suoraan kortilla - ei tarvitse etsiä kaukosäädintä.</li>
-      <li><b>Käynnistä HEOS selataksesi:</b> napauta sitä avataksesi virallisen HEOS-sovelluksen asemia, jonoja, HEOS-huoneita ja suoratoistopalveluja varten. Aloita jotain siellä, ja AVR Maestro ottaa nyt soi -näytön, toisto-ohjaimet ja widgetit takaisin haltuunsa.</li>
-      <li><b>Osa aloitusnäyttöäsi:</b> Nyt soi -kortti on äänenvoimakkuus-, lähde- ja äänitilawidgetien vieressä, joten se, mitä soi, on aina vilkaisun päässä.</li>
+      <li><b>Kansikuva ja kappaletiedot:</b> kansi, kappale sekä esittäjä tai asema sille, mikä soi.</li>
+      <li><b>Toisto-ohjaimet:</b> <b>Edellinen</b>, yksi <b>Toista</b> / <b>Tauko</b> -painike, joka seuraa sitä, mitä soitin todella tekee, <b>Pysäytä</b> ja <b>Seuraava kappale</b>. Keskeytä tai toista toisesta sovelluksesta tai vastaanottimelta, ja painike seuraa perässä.</li>
+      <li><b>Suosikit:</b> avaa <b>HEOS-suosikkisi</b> ja toistaa yhden vastaanottimella poistumatta sovelluksesta. Se näkyy, kun vastaanottimen HEOS-soitin on yhdistetty.</li>
+      <li><b>Käynnistä HEOS:</b> avaa virallisen HEOS-sovelluksen asemien, jonojen, HEOS-huoneiden ja suoratoistopalvelujen selaamista varten. Aloita jotain siellä, ja AVR Maestro ottaa nyt soi -näytön, toisto-ohjaimet ja widgetit haltuunsa.</li>
+      <li><b>Aloitusnäytöllä ja jokaisella vyöhykkeellä:</b> kortti on <a href="/fi/guide/home/">Aloitusnäytölläsi</a>, ja jokainen <a href="/fi/guide/multi-zone/">vyöhyke</a>-kortti näyttää omansa kyseisen vyöhykkeen HEOS-soittimelle.</li>
     </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Vaihe vaiheelta</div>
+      <h2>Toista HEOS-suosikki</h2>
+    </div>
+    <ol class="steps">
+      <li>Napauta Nyt soi -kortilla (Aloituksessa tai vyöhykkeen kortilla kyseiselle vyöhykkeelle) <b>Suosikit</b>.</li>
+      <li><b>HEOS-suosikit</b>-lista aukeaa. Napauta haluamaasi.</li>
+      <li>Lista sulkeutuu ja näet <b>Toistetaan</b> ja sen nimen. Kortti täyttyy, kun musiikki alkaa.</li>
+    </ol>
+    <div class="note">Lista on suosikkisi HEOS-sovelluksesta. Jos siinä lukee <b>Ei vielä HEOS-suosikkeja</b>, lisää joitakin HEOS-sovelluksessa ja avaa lista uudelleen. Jos näet <b>HEOS-soitin ei käytettävissä</b>, vastaanottimen HEOS-soitin ei ole juuri nyt tavoitettavissa kyseiselle vyöhykkeelle.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pysäytä tarkoittaa pysäytä</div>
+      <h2>Pysäytä tyhjentää kortin</h2>
+      <p class="lead">Napauta <b>Pysäytä</b>, niin kortti tyhjenee heti aloitusnäytön widgetin mukana ja pysyy tyhjänä. Se ei tuo takaisin viimeistä kappaletta, jonka vastaanotin muistaa. Kortti täyttyy uudelleen heti, kun jokin todella alkaa soida.</p>
+    </div>
   </div>
 </section>
 
@@ -276,7 +319,9 @@
       <h2>Nyt soi -kortin usein kysytyt kysymykset</h2>
     </div>
     <details open><summary>Näyttääkö se, mitä soi?</summary><div class="body">Kyllä - lähteille, jotka ilmoittavat metatiedot HEOS:n kautta, saat albumin kannen, kappaleen, esittäjän tai aseman sekä toisto-ohjaimet (toisto, tauko, seuraava, edellinen), reaaliaikaisesti vastaanottimestasi.</div></details>
-    <details><summary>Miten selaan musiikkia?</summary><div class="body">Napauta Nyt soi -kortilla olevaa <b>Käynnistä HEOS</b> -painiketta. AVR Maestro avaa virallisen HEOS-sovelluksen, jolla selaat asemia, jonoja, HEOS-huoneita ja suoratoistopalveluita. Kun toisto alkaa, AVR Maestro ottaa Nyt soi -näkymän ja toiston ohjaimet takaisin hallintaansa.</div></details>
+    <details><summary>Miten selaan musiikkia?</summary><div class="body">Napauta <b>Käynnistä HEOS</b> Nyt soi -kortilla. AVR Maestro avaa virallisen HEOS-sovelluksen asemien, jonojen, HEOS-huoneiden ja suoratoistopalvelujen selaamista varten. Kun toisto alkaa, AVR Maestro ottaa nyt soi -näytön ja toisto-ohjaimet takaisin hoitaakseen. Tallennetun suosikin toistamiseen sinun ei tarvitse avata HEOS-sovellusta: napauta sen sijaan <b>Suosikit</b>.</div></details>
+    <details><summary>Miten toistan HEOS-suosikkini?</summary><div class="body">Napauta Nyt soi -kortilla <b>Suosikit</b>. HEOS-suosikit-lista aukeaa; napauta yhtä, niin se soi vastaanottimella poistumatta AVR Maestrosta. Vyöhykkeen kortilla se soi kyseisellä vyöhykkeellä.</div></details>
+    <details><summary>Mitä tapahtuu, kun napautan Pysäytä?</summary><div class="body">Kortti ja aloitusnäytön widget tyhjenevät heti ja pysyvät tyhjinä. Ne täyttyvät uudelleen vasta, kun jokin alkaa soida.</div></details>
     <details><summary>Miksi kortti on tyhjä joissakin tuloissa?</summary><div class="body">Analogiset, optiset/koaksiaaliset ja HDMI-läpivientilähteet eivät ilmoita kappaleen metatietoja, joten näytettävää ei ole. Kortti täyttyy HEOS- ja verkkolähteille, jotka ilmoittavat ne.</div></details>
     <details><summary>Missä Nyt soi -kortti sijaitsee?</summary><div class="body"><a href="/fi/guide/home/">Aloitusnäytölläsi</a> valitsemiesi widgetien rinnalla - äänenvoimakkuus, lähde, äänitila, vyöhykkeet ja paljon muuta.</div></details>
   </div>
@@ -288,7 +333,7 @@
       <div class="eyebrow">Lisää oppaasta</div>
       <h2>Muut AVR Maestro -oppaat</h2>
     </div>
-    <p class="lead"><a href="/fi/guide/getting-started/">Aloitus</a> &middot; <a href="/fi/guide/home/">Kotinäyttö</a> &middot; <a href="/fi/guide/scenes/">Kohtaukset</a> &middot; <a href="/fi/guide/custom-icons/">Omat kuvakkeet</a> &middot; <a href="/fi/guide/sound/">Ääni</a> &middot; <a href="/fi/guide/graphic-eq/">Graafinen taajuuskorjain</a> &middot; <a href="/fi/guide/speakers/">Kaiuttimet</a> &middot; <a href="/fi/guide/locked-controls/">Miksi säädin on lukittu</a> &middot; <a href="/fi/guide/assistant/">Avustaja</a> &middot; <a href="/fi/guide/home-automation/">Kodin automaatio</a> &middot; <a href="/fi/guide/home-assistant-dashboard/">Home Assistant -kojelauta</a> &middot; <a href="/fi/guide/multi-zone/">Vyöhykkeet</a> &middot; <a href="/fi/guide/remote/">Kaukosäädin</a> &middot; <a href="/fi/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/fi/guide/on-screen-display/">Kuvaruutunäyttö</a> &middot; <a href="/fi/guide/settings/">Asetukset</a> &middot; <a href="/fi/guide/languages/">Kielet</a> &middot; <a href="/fi/guide/volume/">Äänenvoimakkuuden hallinta</a> &middot; <a href="/fi/guide/backup/">Varmuuskopiointi &amp; palautus</a></p>
+    <p class="lead"><a href="/fi/guide/getting-started/">Aloittaminen</a> &middot; <a href="/fi/guide/receivers/">Hallitse vastaanottimia</a> &middot; <a href="/fi/guide/navigation/">Sovelluksessa liikkuminen</a> &middot; <a href="/fi/guide/search/">Haku</a> &middot; <a href="/fi/guide/home/">Aloitusnäyttö</a> &middot; <a href="/fi/guide/volume/">Äänenvoimakkuuden hallinta</a> &middot; <a href="/fi/guide/remote/">Kaukosäädin</a> &middot; <a href="/fi/guide/multi-zone/">Vyöhykkeet</a> &middot; <a href="/fi/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/fi/guide/scenes/">Tilanteet</a> &middot; <a href="/fi/guide/sound/">Ääni</a> &middot; <a href="/fi/guide/graphic-eq/">Graafinen taajuuskorjain</a> &middot; <a href="/fi/guide/speakers/">Kaiuttimet</a> &middot; <a href="/fi/guide/locked-controls/">Miksi säätö on lukittu</a> &middot; <a href="/fi/guide/settings/">Asetukset</a> &middot; <a href="/fi/guide/widgets/">Widgetit</a> &middot; <a href="/fi/guide/custom-icons/">Mukautetut kuvakkeet</a> &middot; <a href="/fi/guide/on-screen-display/">Kuvaruutunäyttö</a> &middot; <a href="/fi/guide/languages/">Kielet</a> &middot; <a href="/fi/guide/assistant/">Avustaja</a> &middot; <a href="/fi/guide/home-automation/">Kodin automaatio</a> &middot; <a href="/fi/guide/home-assistant-dashboard/">Home Assistant -kojelauta</a> &middot; <a href="/fi/guide/backup/">Varmuuskopiointi ja palautus</a> &middot; <a href="/fi/guide/glossary/">Sanasto</a></p>
   </div>
 </section>
 
@@ -324,7 +369,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro on MiyaraHub Technologies LLC:n itsenäinen sovellus, eikä Denon, Marantz, Sound United, Masimo Corporation tai mikään muu tällä sivulla mainittu yritys ole sen kanssa sidoksissa tai tue sitä. Denon, Marantz, HEOS, Audyssey ja Dirac Live ovat omistajiensa tavaramerkkejä, joita käytetään tässä vain tunnistamiseen.</p>
+    <p class="legal">AVR Maestro on MiyaraHub Technologies LLC:n itsenäinen sovellus, eikä se ole sidoksissa Denoniin, Marantziin, Sound Unitediin, Masimo Corporationiin tai mihinkään muuhun tällä sivulla mainittuun yritykseen eivätkä ne tue sitä. Denon, Marantz, HEOS, Audyssey ja Dirac Live ovat omistajiensa tavaramerkkejä, joita käytetään tässä vain tunnistamiseen.</p>
   </div>
 </footer>
 

@@ -132,7 +132,7 @@
       "description": "Yhdistä AVR Maestro Home Assistantiin tai Hubitatiin, niin tilanteistasi tulee natiiveja skriptejä, jotka toimivat ilman puhelintasi. Äänikomennot, reaaliaikainen tila ja webhookit.",
       "image": "https://avrmaestro.com/screenshots/home-assistant.png",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-28",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -187,6 +187,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Ei ohjauksen osalta. Sovellus puhuu vastaanottimellesi ja keskusyksikölle omassa verkossasi. Mitään ei reititetä MiyaraHubin palvelimen kautta. Webhook menee sinne, minne sen osoitat, ja se on sinun valintasi."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ostitko Kodin automaation toisella laitteella tai asensitko sovelluksen uudelleen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Avaa Asetukset › Kodin automaatio (Pro) ja napauta Palauta ostokset avauspainikkeen alla. Jos ostit avauksen aiemmin samalla kauppatilillä, se palautuu ilman uutta maksua."
       }
     }
   ]
@@ -273,7 +281,7 @@
     </div>
     <ul class="plain">
       <li><b>1. Lisää ensin vastaanottimesi Home Assistantiin.</b> Asetukset &rsaquo; Laitteet &amp; palvelut &rsaquo; Lisää integraatio &rsaquo; <b>Denon AVR</b> (tai <b>HEOS</b>), sitten vastaanottimesi paikallinen IP-osoite. Home Assistant luo sille mediasoitinentiteetin.</li>
-      <li><b>2. Avaa AVR Maestrossa Asetukset &rsaquo; Kodin automaatio</b> ja napauta Home Assistant -korttia.</li>
+      <li><b>2. Avaa AVR Maestrossa Asetukset &rsaquo; Kodin automaatio (Pro)</b> ja napauta Home Assistant -korttia.</li>
       <li><b>3. Anna Home Assistantin osoite</b> - paikallinen, kuten <code>http://192.168.1.150:8123</code>, tai ulkoinen Nabu Casa -URL-osoitteesi.</li>
       <li><b>4. Kirjaudu sisään ja valtuuta.</b> Suojattu sovelluksen sisäinen selain avaa Home Assistantin oman kirjautumisen. Tunnuksesi menevät Home Assistantille, eivät koskaan meille.</li>
       <li><b>5. Se löytää vastaanottimesi itse.</b> Sovellus skannaa mediasoitinentiteettisi ja pisteyttää ne mallin, nimen ja surround-ominaisuuksien perusteella, ja täyttää sitten oikean entiteetin puolestasi.</li>
@@ -305,6 +313,14 @@
         <p>Skriptin voi ajaa mutta ei lukea, joten varhaiset kojelaudat osasivat vaihtaa Audyssey-käyrän tai Dirac-paikan mutta eivät näyttää, mikä oli päällä. Lukemat, jotka sovelluksella jo on - reaaliaikainen surround-tila, aktiivinen Dirac-suodatin, kaiutinesiasetus, himmennin ja kymmeniä muita - julkaistaan nyt vastaanottimen tila-anturin attribuutteina, joten ruutu voi syttyä sille asetukselle, joka oikeasti on käytössä.</p>
       </div>
       <img alt="AVR Maestro julkaisee Kaiutinesiasetus-, Dirac Live- ja Audyssey-ohjainskriptit Home Assistantiin" src="/screenshots/ha-sync-advanced.png" width="1324" height="2644" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="lockrow" style="margin-top:28px">
+      <div>
+        <div class="eyebrow">Äänitilat skripteinä</div>
+        <h2>Vie äänitilat (REST)</h2>
+        <p>Home Assistant -osiossa <b>Vie äänitilat (REST)</b> avaa kohdan <b>Lisäskripti (REST)</b>: yksi Home Assistant -skripti jokaista vastaanottimesi listaamaa äänitilaa kohden, jotta kojelaudan painike tai automaatio voi valita surround-tilan suoraan. Sovellus lukee listan vastaanottimesta, joten käynnistä vastaanotin ja avaa <a href="/fi/guide/sound/">Ääni-välilehti</a> kerran ensin; siihen asti sovellus pyytää sinua tekemään sen sen sijaan, että veisi tyhjän listan.</p>
+      </div>
     </div>
 
     <div class="lockrow" style="margin-top:28px">
@@ -391,7 +407,7 @@
 
     <h3 style="margin-top:28px">AVR Maestrossa</h3>
     <ul class="plain">
-      <li><b>1. Asetukset &rsaquo; Kodin automaatio &rsaquo; Webhookit</b>, sitten <b>Lisää ensimmäinen laukaisin</b> - tai <b>+</b>-painike, kun sinulla on jo yksi.</li>
+      <li><b>1. Asetukset &rsaquo; Kodin automaatio (Pro) &rsaquo; Webhookit</b>, sitten <b>Lisää ensimmäinen laukaisin</b> - tai <b>+</b>-painike, kun sinulla on jo yksi.</li>
       <li><b>2. Laukaisutapahtuma</b> - valitse, minkä pitäisi laukaista se. Valinta <em>Aktiivinen tulo vaihtui</em> tai <em>Tilanne palautettu</em> lisää toisen kentän rajaamista varten.</li>
       <li><b>3. Minne se lähetetään</b> - jätä asetukseen <b>Home Assistant</b>. Osoite on jo tiedossa, koska yhdistit sen aiemmin samalla näytöllä.</li>
       <li><b>4. Webhook-tunnus</b> - kirjoita sama tunnus kuin Home Assistantissa. Mitään muuta ei tarvitse täsmätä. Alla sovellus kirjoittaa auki täsmällisen osoitteen, johon se lähettää - <code>Sends to http://your-ha:8123/api/webhook/avr-power-on</code> - jotta voit tarkistaa sen ennen tallennusta.</li>
@@ -449,6 +465,7 @@
         <div class="eyebrow">Mikä on maksullista ja mikä ei</div>
         <h2>Kodin automaatio on ainoa avaus. Tekoälyavustaja on ilmainen.</h2>
         <p><b>Kodin automaatio (Pro)</b> - Home Assistant, Hubitat ja lähtevät webhookit - on kertaluonteinen avaus. Kaikki muu AVR Maestrossa, myös laitteella toimiva tekoälyavustaja, kuuluu sovellukseen.</p>
+        <p>Oletko jo ostanut sen, tällä laitteella tai toisella samalla kauppatilillä? Napauta <b>Palauta ostokset</b> avauspainikkeen alla.</p>
         <p>Äänikomennot tavoittavat vastaanottimesi <em>Kodin automaation</em> kautta, keskusyksikkösi välityksellä. AVR Maestro ei suorita omaa puheentunnistustaan.</p>
       </div>
     </div>
@@ -465,6 +482,7 @@
     <details><summary>Millä ääniavustajilla voin ohjata vastaanotintani?</summary><div class="body">Millä tahansa, jota jo käytät. AVR Maestro ei lisää omaa äänikerrostaan - se julkaisee skriptit Home Assistantiin tai Hubitatiin, ja jo luottamasi keskusyksikkö tarjoaa ne Alexalle, Google Assistantille tai Siri-oikoteille.</div></details>
     <details><summary>Kuuluuko tekoälyavustaja maksulliseen avaukseen?</summary><div class="body">Ei. Laitteella toimiva tekoälyavustaja on ilmainen. Kodin automaatio - Home Assistant, Hubitat ja lähtevät webhookit - on AVR Maestron ainoa maksullinen avaus.</div></details>
     <details><summary>Poistuuko mitään kotiverkostani?</summary><div class="body">Ei ohjauksen osalta. Sovellus puhuu vastaanottimellesi ja keskusyksikölle omassa verkossasi. Mitään ei reititetä MiyaraHubin palvelimen kautta. Webhook menee sinne, minne sen osoitat, ja se on sinun valintasi.</div></details>
+    <details><summary>Ostitko Kodin automaation toisella laitteella tai asensitko sovelluksen uudelleen?</summary><div class="body">Avaa <i>Asetukset &rsaquo; Kodin automaatio (Pro)</i> ja napauta <b>Palauta ostokset</b> avauspainikkeen alla. Jos ostit avauksen aiemmin samalla kauppatilillä, se palautuu ilman uutta maksua.</div></details>
   </div>
 </section>
 
@@ -474,7 +492,7 @@
       <div class="eyebrow">Lisää oppaasta</div>
       <h2>Muut AVR Maestro -oppaat</h2>
     </div>
-    <p class="lead"><a href="/fi/guide/getting-started/">Aloitus</a> &middot; <a href="/fi/guide/home/">Kotinäyttö</a> &middot; <a href="/fi/guide/scenes/">Kohtaukset</a> &middot; <a href="/fi/guide/custom-icons/">Omat kuvakkeet</a> &middot; <a href="/fi/guide/sound/">Ääni</a> &middot; <a href="/fi/guide/graphic-eq/">Graafinen taajuuskorjain</a> &middot; <a href="/fi/guide/speakers/">Kaiuttimet</a> &middot; <a href="/fi/guide/locked-controls/">Miksi säädin on lukittu</a> &middot; <a href="/fi/guide/assistant/">Avustaja</a> &middot; <a href="/fi/guide/home-assistant-dashboard/">Home Assistant -kojelauta</a> &middot; <a href="/fi/guide/multi-zone/">Vyöhykkeet</a> &middot; <a href="/fi/guide/remote/">Kaukosäädin</a> &middot; <a href="/fi/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/fi/guide/on-screen-display/">Kuvaruutunäyttö</a> &middot; <a href="/fi/guide/settings/">Asetukset</a> &middot; <a href="/fi/guide/languages/">Kielet</a> &middot; <a href="/fi/guide/volume/">Äänenvoimakkuuden hallinta</a> &middot; <a href="/fi/guide/backup/">Varmuuskopiointi &amp; palautus</a> &middot; <a href="/fi/guide/now-playing/">Nyt soi &amp; HEOS</a></p>
+    <p class="lead"><a href="/fi/guide/getting-started/">Aloittaminen</a> &middot; <a href="/fi/guide/receivers/">Hallitse vastaanottimia</a> &middot; <a href="/fi/guide/navigation/">Sovelluksessa liikkuminen</a> &middot; <a href="/fi/guide/search/">Haku</a> &middot; <a href="/fi/guide/home/">Aloitusnäyttö</a> &middot; <a href="/fi/guide/volume/">Äänenvoimakkuuden hallinta</a> &middot; <a href="/fi/guide/remote/">Kaukosäädin</a> &middot; <a href="/fi/guide/multi-zone/">Vyöhykkeet</a> &middot; <a href="/fi/guide/now-playing/">Nyt soi ja HEOS</a> &middot; <a href="/fi/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/fi/guide/scenes/">Tilanteet</a> &middot; <a href="/fi/guide/sound/">Ääni</a> &middot; <a href="/fi/guide/graphic-eq/">Graafinen taajuuskorjain</a> &middot; <a href="/fi/guide/speakers/">Kaiuttimet</a> &middot; <a href="/fi/guide/locked-controls/">Miksi säätö on lukittu</a> &middot; <a href="/fi/guide/settings/">Asetukset</a> &middot; <a href="/fi/guide/widgets/">Widgetit</a> &middot; <a href="/fi/guide/custom-icons/">Mukautetut kuvakkeet</a> &middot; <a href="/fi/guide/on-screen-display/">Kuvaruutunäyttö</a> &middot; <a href="/fi/guide/languages/">Kielet</a> &middot; <a href="/fi/guide/assistant/">Avustaja</a> &middot; <a href="/fi/guide/home-assistant-dashboard/">Home Assistant -kojelauta</a> &middot; <a href="/fi/guide/backup/">Varmuuskopiointi ja palautus</a> &middot; <a href="/fi/guide/glossary/">Sanasto</a></p>
   </div>
 </section>
 
@@ -510,7 +528,7 @@
       <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
       <a href="https://miyarahub.com">MiyaraHub</a>
     </div>
-    <p class="legal">AVR Maestro on MiyaraHub Technologies LLC:n itsenäinen sovellus, eikä Denon, Marantz, Sound United, Masimo Corporation tai mikään muu tällä sivulla mainittu yritys ole sen kanssa sidoksissa tai tue sitä. Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant ja Siri ovat omistajiensa tavaramerkkejä, ja niitä käytetään tässä vain tunnistamiseen.</p>
+    <p class="legal">AVR Maestro on MiyaraHub Technologies LLC:n itsenäinen sovellus, eikä se ole sidoksissa Denoniin, Marantziin, Sound Unitediin, Masimo Corporationiin tai mihinkään muuhun tällä sivulla mainittuun yritykseen eivätkä ne tue sitä. Denon, Marantz, HEOS, Home Assistant, Hubitat, Audyssey, Dirac Live, Alexa, Google Assistant ja Siri ovat omistajiensa tavaramerkkejä, joita käytetään tässä vain tunnistamiseen.</p>
   </div>
 </footer>
 
