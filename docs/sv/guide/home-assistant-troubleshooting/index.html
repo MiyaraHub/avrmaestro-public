@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="sv" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-itunes-app" content="app-id=6762881597" />
+<title>Felsökning för Home Assistant - AVR Maestro</title>
+<meta name="description" content="Lös problem med Home Assistant i AVR Maestro: vad länkkortet betyder, Entity Not Found, scener som inte dyker upp och loggraden Failed login." />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/sv/guide/home-assistant-troubleshooting/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-assistant-troubleshooting/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="sv_SE" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Felsökning för Home Assistant - AVR Maestro" />
+<meta property="og:description" content="Lös problem med Home Assistant i AVR Maestro: vad länkkortet betyder, Entity Not Found, scener som inte dyker upp och loggraden Failed login." />
+<meta property="og:url" content="https://avrmaestro.com/sv/guide/home-assistant-troubleshooting/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-guide.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Felsökning för Home Assistant - AVR Maestro" />
+<meta name="twitter:description" content="Lös problem med Home Assistant i AVR Maestro: vad länkkortet betyder, Entity Not Found, scener som inte dyker upp och loggraden Failed login." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-guide.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@500;600;700;800&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" />
+<link rel="manifest" href="/manifest.json" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro är en oberoende app för att styra AV-mottagare från Denon och Marantz över ditt lokala nätverk.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "sv"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-assistant-troubleshooting/#article",
+      "headline": "Lös problem med Home Assistant i AVR Maestro",
+      "description": "Lös problem med Home Assistant i AVR Maestro: vad länkkortet betyder, Entity Not Found, scener som inte dyker upp och loggraden Failed login.",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-assistant-troubleshooting/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "sv"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-assistant-troubleshooting/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Mitt skript kördes men visar Entity Not Found, eller så händer ingenting.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Se till att den officiella Denon AVR-integrationen är installerad i Home Assistant. Kontrollera sedan att Receiver Media Player Entity ID i AVR Maestro-inställningarna exakt matchar entitets-ID:t i Home Assistant, till exempel media_player.living_room_receiver."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Varför står det Failed login i min Home Assistant-logg?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Om du hade flera misslyckade försök vid länkningen, eller om webbläsaren tappade anslutningen innan den var klar, loggar Home Assistant en varning. När länkningen väl har lyckats kan du lugnt ignorera den gamla varningen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Jag skapade en ny scen och den dyker inte upp i Home Assistant.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kontrollera att telefonen är på samma lokala Wi-Fi-nätverk som din Home Assistant-server, eftersom synkroniseringen i bakgrunden misslyckas när telefonen inte når den. Öppna Inställningar och tryck på Sync Scenes för att se det exakta nätverksfelet, om det finns något."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Måste appen vara öppen för att mina skript ska köras?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nej. Skripten finns i Home Assistant, så de körs från din panel, dina automationer eller dina röstassistenter medan telefonen ligger i fickan. Appen bygger och uppdaterar dem bara när du ändrar en scen."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Hem",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Användarguide",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Felsökning för Home Assistant",
+      "item": "https://avrmaestro.com/guide/home-assistant-troubleshooting/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Hoppa till innehållet</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/sv/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Meny" aria-controls="m" aria-expanded="false" onclick="this.setAttribute('aria-expanded',document.getElementById('m').classList.toggle('open'))">&#9776;</button>
+    <nav id="m" data-i18n-search="Sök i guiden..." data-i18n-empty="Inga träffar för" data-i18n-language="Språk">
+      <a href="/sv/">Hem</a>
+      <a href="/sv/guide/">Användarguide</a>
+      <a href="/sv/receivers/">Mottagare</a>
+      <a href="/sv/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/sv/best-denon-marantz-app/">Därför byter man</a>
+      <a href="/sv/#top" class="cta">Ladda ner</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/sv/">Hem</a> &rsaquo; <a href="/sv/guide/">Användarguide</a> &rsaquo; Felsökning för Home Assistant</div>
+    <div class="eyebrow">När en länk eller ett skript beter sig fel</div>
+    <h1>Home Assistant, <span class="g">när det inte fungerar</span></h1>
+    <p>De flesta problem med Home Assistant handlar om länkens tillstånd, mottagarens entitets-ID eller nätverket mellan telefonen och servern. Börja med vad länkkortet säger och arbeta dig nedåt.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Vad länkkortet säger dig</h2>
+      <p class="lead">Kortet ovanför knappen Sync visar länkens tillstånd, och knappen följer det.</p>
+    </div>
+    <ul class="plain">
+      <li><b>Länkad till Home Assistant:</b> ett autentiserat anrop lyckades alldeles nyss. Knappen Sync är tillgänglig.</li>
+      <li><b>Länken till Home Assistant har gått ut:</b> servern svarade och avvisade den sparade token. Knappen Sync är inaktiverad tills du loggar in igen.</li>
+      <li><b>Kan inte nå Home Assistant:</b> servern gick inte att nå, och token kan vara helt i sin ordning. Knappen Sync förblir tillgänglig och inget ändras.</li>
+      <li><b>Inte länkad till Home Assistant:</b> ingen adress eller token har sparats ännu. Lägg till din adress och logga in.</li>
+      <li><b>Länken till Home Assistant är inte kontrollerad:</b> demoläget är på eller Hemautomation är låst, så ingenting skickades till ditt hem och token har inte prövats.</li>
+    </ul>
+    <div class="note">Bara den första säger Länkad, och bara för att något har autentiserats. En sparad token räknas aldrig som en länk i sig.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Ett skript gör ingenting eller säger Entity Not Found</h2>
+    </div>
+    <ul class="plain">
+      <li>Installera den officiella <b>Denon AVR</b>-integrationen i Home Assistant under Inställningar, Enheter &amp; tjänster.</li>
+      <li>Se till att <b>Receiver Media Player Entity ID</b> i AVR Maestro-inställningarna exakt matchar entitets-ID:t i Home Assistant.</li>
+      <li>Ignorera varje entitet som säger <code>unavailable</code> efter att en scen har raderats eller skapats om. Scenskripten är uppkallade efter när scenen skapades, så se <a href="/sv/guide/home-automation/">Hemautomation</a> för hur skript-ID:n ändras en gång.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>En ny scen saknas i Home Assistant</h2>
+    </div>
+    <p class="lead">Scener synkroniseras i bakgrunden varje gång du lägger till, redigerar eller raderar en, så du behöver inte trycka på Sync varje gång. Om en saknas nådde telefonen inte din server.</p>
+    <ul class="plain">
+      <li>Anslut telefonen till samma lokala Wi-Fi-nätverk som Home Assistant.</li>
+      <li>Öppna Inställningar och tryck på <b>Sync Scenes</b>. Om det misslyckas visas det exakta nätverksfelet.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Failed login i din Home Assistant-logg</h2>
+    </div>
+    <p class="lead">Flera misslyckade försök, eller en webbläsare som tappade anslutningen innan länkningen blev klar, lämnar en varning i Home Assistant. Det är historik och inget aktuellt fel, och du kan ignorera den när länken fungerar.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Annat som kan gå fel</h2>
+    </div>
+    <ul class="plain">
+      <li>En panelbricka lyser aldrig: se <a href="/sv/guide/home-assistant-dashboard/">guiden för Home Assistant-panelen</a>.</li>
+      <li>En webhook kommer inte fram: se <a href="/sv/guide/home-automation/">Hemautomation</a>.</li>
+      <li>Kör du fortfarande fast? Fråga på <a href="https://discord.gg/UmVtxE5fXN">Discord</a> eller se <a href="/sv/help/">Hjälp</a>.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Vanliga frågor</div>
+      <h2>Problem med Home Assistant, besvarade</h2>
+    </div>
+    <details open><summary>Mitt skript kördes men visar Entity Not Found, eller så händer ingenting.</summary><div class="body">Se till att den officiella Denon AVR-integrationen är installerad i Home Assistant. Kontrollera sedan att Receiver Media Player Entity ID i AVR Maestro-inställningarna exakt matchar entitets-ID:t i Home Assistant, till exempel media_player.living_room_receiver.</div></details>
+    <details><summary>Varför står det Failed login i min Home Assistant-logg?</summary><div class="body">Om du hade flera misslyckade försök vid länkningen, eller om webbläsaren tappade anslutningen innan den var klar, loggar Home Assistant en varning. När länkningen väl har lyckats kan du lugnt ignorera den gamla varningen.</div></details>
+    <details><summary>Jag skapade en ny scen och den dyker inte upp i Home Assistant.</summary><div class="body">Kontrollera att telefonen är på samma lokala Wi-Fi-nätverk som din Home Assistant-server, eftersom synkroniseringen i bakgrunden misslyckas när telefonen inte når den. Öppna Inställningar och tryck på Sync Scenes för att se det exakta nätverksfelet, om det finns något.</div></details>
+    <details><summary>Måste appen vara öppen för att mina skript ska köras?</summary><div class="body">Nej. Skripten finns i Home Assistant, så de körs från din panel, dina automationer eller dina röstassistenter medan telefonen ligger i fickan. Appen bygger och uppdaterar dem bara när du ändrar en scen.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Mer av guiden</div>
+      <h2>Andra guider för AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/sv/guide/getting-started/">Kom igång</a> &middot; <a href="/sv/guide/receivers/">Hantera mottagare</a> &middot; <a href="/sv/guide/navigation/">Navigera i appen</a> &middot; <a href="/sv/guide/search/">Sök</a> &middot; <a href="/sv/guide/home/">Hemskärm</a> &middot; <a href="/sv/guide/volume/">Volymkontroller</a> &middot; <a href="/sv/guide/remote/">Fjärrkontroll</a> &middot; <a href="/sv/guide/multi-zone/">Zoner</a> &middot; <a href="/sv/guide/now-playing/">Spelas nu</a> &middot; <a href="/sv/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/sv/guide/scenes/">Scener</a> &middot; <a href="/sv/guide/sound/">Ljud</a> &middot; <a href="/sv/guide/graphic-eq/">Grafisk EQ</a> &middot; <a href="/sv/guide/speakers/">Högtalare</a> &middot; <a href="/sv/guide/locked-controls/">Varför ett reglage är låst</a> &middot; <a href="/sv/guide/settings/">Inställningar</a> &middot; <a href="/sv/guide/widgets/">Widgetar</a> &middot; <a href="/sv/guide/custom-icons/">Anpassade ikoner</a> &middot; <a href="/sv/guide/languages/">Språk</a> &middot; <a href="/sv/guide/assistant/">Assistenten</a> &middot; <a href="/sv/guide/home-automation/">Hemautomation</a> &middot; <a href="/sv/guide/home-assistant-dashboard/">Home Assistant-instrumentpanel</a> &middot; <a href="/sv/guide/backup/">Säkerhetskopiering och återställning</a> &middot; <a href="/sv/guide/glossary/">Ordlista</a></p>
+  </div>
+</section>
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/sv/">Hem</a>
+      <a href="/sv/guide/">Användarguide</a>
+      <a href="/sv/guide/getting-started/">Kom igång</a>
+      <a href="/sv/receivers/">Mottagare</a>
+      <a href="/sv/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/sv/audyssey-vs-dirac/">Audyssey mot Dirac</a>
+      <a href="/sv/best-denon-marantz-app/">Därför byter man</a>
+      <a href="/sv/help/">Hjälp</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro&amp;referrer=utm_source%3Davrmaestro.com%26utm_medium%3Dguide-home-assistant-troubleshooting">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+      <a href="https://www.miyarahub.com/privacy.html">Integritetspolicy</a>
+      <a href="https://www.miyarahub.com/terms.html">Användarvillkor</a>
+    </div>
+    <p class="legal">AVR Maestro är en oberoende app från MiyaraHub Technologies LLC och har ingen koppling till och stöds inte av Denon, Marantz, Sound United, Masimo Corporation eller något annat företag som nämns på den här sidan. Denon, Marantz och Audyssey är varumärken som tillhör respektive ägare och används här enbart för identifiering.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

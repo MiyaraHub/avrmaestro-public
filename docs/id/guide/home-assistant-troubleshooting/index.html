@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-itunes-app" content="app-id=6762881597" />
+<title>Pemecahan Masalah Home Assistant - AVR Maestro</title>
+<meta name="description" content="Atasi masalah Home Assistant dengan AVR Maestro: arti kartu tautan, Entity Not Found, skenario yang tidak muncul, dan baris log Failed login." />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/id/guide/home-assistant-troubleshooting/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-assistant-troubleshooting/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="id_ID" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Pemecahan Masalah Home Assistant - AVR Maestro" />
+<meta property="og:description" content="Atasi masalah Home Assistant dengan AVR Maestro: arti kartu tautan, Entity Not Found, skenario yang tidak muncul, dan baris log Failed login." />
+<meta property="og:url" content="https://avrmaestro.com/id/guide/home-assistant-troubleshooting/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-guide.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Pemecahan Masalah Home Assistant - AVR Maestro" />
+<meta name="twitter:description" content="Atasi masalah Home Assistant dengan AVR Maestro: arti kartu tautan, Entity Not Found, skenario yang tidak muncul, dan baris log Failed login." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-guide.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@500;600;700;800&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" />
+<link rel="manifest" href="/manifest.json" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro adalah aplikasi independen untuk mengendalikan receiver AV Denon dan Marantz melalui jaringan lokal Anda.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "id"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-assistant-troubleshooting/#article",
+      "headline": "Atasi masalah Home Assistant dengan AVR Maestro",
+      "description": "Atasi masalah Home Assistant dengan AVR Maestro: arti kartu tautan, Entity Not Found, skenario yang tidak muncul, dan baris log Failed login.",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-assistant-troubleshooting/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "id"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-assistant-troubleshooting/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Skrip saya berjalan tetapi menampilkan Entity Not Found, atau tidak terjadi apa-apa.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pastikan integrasi resmi Denon AVR sudah terpasang di Home Assistant. Lalu periksa apakah ID Entitas Media Player Receiver di Pengaturan AVR Maestro persis sama dengan ID entitas di Home Assistant, misalnya media_player.living_room_receiver."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mengapa log Home Assistant saya menampilkan Failed login?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Jika Anda beberapa kali gagal saat menautkan, atau browser memutus koneksi sebelum selesai, Home Assistant mencatat peringatan. Setelah penautan berhasil, Anda boleh mengabaikan peringatan lama itu."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Saya membuat skenario baru tetapi tidak muncul di Home Assistant.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pastikan ponsel Anda berada di jaringan Wi-Fi lokal yang sama dengan server Home Assistant, karena sinkronisasi latar belakang gagal jika ponsel tidak dapat menjangkaunya. Buka Pengaturan dan ketuk Sinkronkan Skenario untuk melihat kesalahan jaringan yang tepat, jika ada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Apakah aplikasi harus terbuka agar skrip saya berjalan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tidak. Skrip berada di Home Assistant, jadi dijalankan dari dasbor, otomasi, atau asisten suara Anda saat ponsel ada di saku. Aplikasi hanya membuat dan memperbarui skrip ketika Anda mengubah skenario."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Panduan Pengguna",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Pemecahan masalah Home Assistant",
+      "item": "https://avrmaestro.com/guide/home-assistant-troubleshooting/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Langsung ke konten</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/id/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menu" aria-controls="m" aria-expanded="false" onclick="this.setAttribute('aria-expanded',document.getElementById('m').classList.toggle('open'))">&#9776;</button>
+    <nav id="m" data-i18n-search="Cari di panduan..." data-i18n-empty="Tidak ada hasil untuk" data-i18n-language="Bahasa">
+      <a href="/id/">Beranda</a>
+      <a href="/id/guide/">Panduan Pengguna</a>
+      <a href="/id/receivers/">Receiver</a>
+      <a href="/id/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/id/best-denon-marantz-app/">Mengapa beralih</a>
+      <a href="/id/#top" class="cta">Unduh</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/id/">Beranda</a> &rsaquo; <a href="/id/guide/">Panduan Pengguna</a> &rsaquo; Pemecahan masalah Home Assistant</div>
+    <div class="eyebrow">Saat tautan atau skrip bermasalah</div>
+    <h1>Home Assistant, <span class="g">saat tidak berfungsi</span></h1>
+    <p>Sebagian besar masalah Home Assistant berasal dari status tautan, ID entitas receiver, atau jaringan antara ponsel dan server Anda. Mulailah dari yang tertulis di kartu tautan, lalu telusuri ke bawah.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Arti kartu tautan</h2>
+      <p class="lead">Kartu di atas tombol Sinkronkan menunjukkan status tautan, dan tombolnya mengikuti status itu.</p>
+    </div>
+    <ul class="plain">
+      <li><b>Tertaut ke Home Assistant:</b> panggilan terautentikasi baru saja berhasil. Tombol Sinkronkan tersedia.</li>
+      <li><b>Tautan Home Assistant telah kedaluwarsa:</b> server Anda menjawab dan menolak token yang tersimpan. Tombol Sinkronkan dinonaktifkan sampai Anda masuk kembali.</li>
+      <li><b>Tidak dapat menjangkau Home Assistant:</b> server Anda tidak dapat dijangkau, dan tokennya mungkin masih baik-baik saja. Tombol Sinkronkan tetap tersedia dan tidak ada yang diubah.</li>
+      <li><b>Tidak tertaut ke Home Assistant:</b> belum ada alamat atau token yang tersimpan. Tambahkan alamat Anda lalu masuk.</li>
+      <li><b>Tautan Home Assistant belum diperiksa:</b> Mode Demo aktif atau Otomasi Rumah terkunci, sehingga tidak ada yang dikirim ke rumah Anda dan token belum dicoba.</li>
+    </ul>
+    <div class="note">Hanya yang pertama yang berbunyi Tertaut, dan itu pun hanya karena ada yang berhasil terautentikasi. Token yang tersimpan saja tidak pernah dianggap sebagai tautan.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Skrip tidak melakukan apa-apa, atau menampilkan Entity Not Found</h2>
+    </div>
+    <ul class="plain">
+      <li>Pasang integrasi resmi <b>Denon AVR</b> di Home Assistant melalui Pengaturan, Perangkat &amp; Layanan.</li>
+      <li>Pastikan <b>ID Entitas Media Player Receiver</b> di Pengaturan AVR Maestro persis sama dengan ID entitas di Home Assistant.</li>
+      <li>Abaikan entitas apa pun yang bertuliskan <code>unavailable</code> setelah skenario dihapus atau dibuat ulang. Skrip skenario dinamai menurut waktu skenario dibuat, jadi lihat <a href="/id/guide/home-automation/">Otomasi Rumah</a> untuk mengetahui bagaimana ID skrip berubah satu kali.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Skenario baru tidak ada di Home Assistant</h2>
+    </div>
+    <p class="lead">Skenario disinkronkan di latar belakang setiap kali Anda menambah, mengedit, atau menghapusnya, jadi Anda tidak perlu menekan Sinkronkan setiap saat. Jika ada yang hilang, berarti ponsel tidak dapat menjangkau server Anda.</p>
+    <ul class="plain">
+      <li>Hubungkan ponsel Anda ke jaringan Wi-Fi lokal yang sama dengan Home Assistant.</li>
+      <li>Buka Pengaturan dan ketuk <b>Sinkronkan Skenario</b>. Jika gagal, aplikasi menampilkan kesalahan jaringan yang tepat.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Failed login di log Home Assistant Anda</h2>
+    </div>
+    <p class="lead">Beberapa kali percobaan gagal, atau browser yang memutus koneksi sebelum penautan selesai, meninggalkan peringatan di Home Assistant. Itu hanya riwayat, bukan gangguan saat ini, dan Anda bisa mengabaikannya setelah tautan berfungsi.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Masalah lain yang bisa terjadi</h2>
+    </div>
+    <ul class="plain">
+      <li>Ubin dasbor tidak pernah menyala: lihat <a href="/id/guide/home-assistant-dashboard/">panduan dasbor Home Assistant</a>.</li>
+      <li>Webhook tidak sampai: lihat <a href="/id/guide/home-automation/">Otomasi Rumah</a>.</li>
+      <li>Masih buntu? Tanyakan di <a href="https://discord.gg/UmVtxE5fXN">Discord</a> atau lihat <a href="/id/help/">Bantuan</a>.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pertanyaan umum</div>
+      <h2>Masalah Home Assistant, terjawab</h2>
+    </div>
+    <details open><summary>Skrip saya berjalan tetapi menampilkan Entity Not Found, atau tidak terjadi apa-apa.</summary><div class="body">Pastikan integrasi resmi Denon AVR sudah terpasang di Home Assistant. Lalu periksa apakah ID Entitas Media Player Receiver di Pengaturan AVR Maestro persis sama dengan ID entitas di Home Assistant, misalnya media_player.living_room_receiver.</div></details>
+    <details><summary>Mengapa log Home Assistant saya menampilkan Failed login?</summary><div class="body">Jika Anda beberapa kali gagal saat menautkan, atau browser memutus koneksi sebelum selesai, Home Assistant mencatat peringatan. Setelah penautan berhasil, Anda boleh mengabaikan peringatan lama itu.</div></details>
+    <details><summary>Saya membuat skenario baru tetapi tidak muncul di Home Assistant.</summary><div class="body">Pastikan ponsel Anda berada di jaringan Wi-Fi lokal yang sama dengan server Home Assistant, karena sinkronisasi latar belakang gagal jika ponsel tidak dapat menjangkaunya. Buka Pengaturan dan ketuk Sinkronkan Skenario untuk melihat kesalahan jaringan yang tepat, jika ada.</div></details>
+    <details><summary>Apakah aplikasi harus terbuka agar skrip saya berjalan?</summary><div class="body">Tidak. Skrip berada di Home Assistant, jadi dijalankan dari dasbor, otomasi, atau asisten suara Anda saat ponsel ada di saku. Aplikasi hanya membuat dan memperbarui skrip ketika Anda mengubah skenario.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Lainnya dari panduan</div>
+      <h2>Panduan AVR Maestro lainnya</h2>
+    </div>
+    <p class="lead"><a href="/id/guide/getting-started/">Memulai</a> &middot; <a href="/id/guide/receivers/">Kelola Receiver</a> &middot; <a href="/id/guide/navigation/">Menavigasi Aplikasi</a> &middot; <a href="/id/guide/search/">Pencarian</a> &middot; <a href="/id/guide/home/">Layar Utama</a> &middot; <a href="/id/guide/volume/">Kontrol Volume</a> &middot; <a href="/id/guide/remote/">Remote</a> &middot; <a href="/id/guide/multi-zone/">Zona</a> &middot; <a href="/id/guide/now-playing/">Sedang Diputar</a> &middot; <a href="/id/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/id/guide/scenes/">Skenario</a> &middot; <a href="/id/guide/sound/">Suara</a> &middot; <a href="/id/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/id/guide/speakers/">Speaker</a> &middot; <a href="/id/guide/locked-controls/">Mengapa kontrol terkunci</a> &middot; <a href="/id/guide/settings/">Pengaturan</a> &middot; <a href="/id/guide/widgets/">Widget</a> &middot; <a href="/id/guide/custom-icons/">Ikon Kustom</a> &middot; <a href="/id/guide/languages/">Bahasa</a> &middot; <a href="/id/guide/assistant/">Asisten</a> &middot; <a href="/id/guide/home-automation/">Otomasi Rumah</a> &middot; <a href="/id/guide/home-assistant-dashboard/">Dasbor Home Assistant</a> &middot; <a href="/id/guide/backup/">Cadangkan &amp; Pulihkan</a> &middot; <a href="/id/guide/glossary/">Glosarium</a></p>
+  </div>
+</section>
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/id/">Beranda</a>
+      <a href="/id/guide/">Panduan Pengguna</a>
+      <a href="/id/guide/getting-started/">Memulai</a>
+      <a href="/id/receivers/">Receiver</a>
+      <a href="/id/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/id/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/id/best-denon-marantz-app/">Mengapa beralih</a>
+      <a href="/id/help/">Bantuan</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro&amp;referrer=utm_source%3Davrmaestro.com%26utm_medium%3Dguide-home-assistant-troubleshooting">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+      <a href="https://www.miyarahub.com/privacy.html">Kebijakan privasi</a>
+      <a href="https://www.miyarahub.com/terms.html">Ketentuan penggunaan</a>
+    </div>
+    <p class="legal">AVR Maestro adalah aplikasi independen buatan MiyaraHub Technologies LLC dan tidak berafiliasi dengan atau didukung oleh Denon, Marantz, Sound United, Masimo Corporation, atau perusahaan lain yang disebut di halaman ini. Denon, Marantz, dan Audyssey adalah merek dagang dari pemiliknya masing-masing, dan digunakan di sini hanya untuk identifikasi.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-itunes-app" content="app-id=6762881597" />
+<title>Risoluzione problemi Home Assistant - AVR Maestro</title>
+<meta name="description" content="Risolvi i problemi di Home Assistant con AVR Maestro: cosa significa la scheda del collegamento, Entity Not Found, le scene che non compaiono e la riga di log Failed login." />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/it/guide/home-assistant-troubleshooting/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-assistant-troubleshooting/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="it_IT" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Risoluzione problemi Home Assistant - AVR Maestro" />
+<meta property="og:description" content="Risolvi i problemi di Home Assistant con AVR Maestro: cosa significa la scheda del collegamento, Entity Not Found, le scene che non compaiono e la riga di log Failed login." />
+<meta property="og:url" content="https://avrmaestro.com/it/guide/home-assistant-troubleshooting/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-guide.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Risoluzione problemi Home Assistant - AVR Maestro" />
+<meta name="twitter:description" content="Risolvi i problemi di Home Assistant con AVR Maestro: cosa significa la scheda del collegamento, Entity Not Found, le scene che non compaiono e la riga di log Failed login." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-guide.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@500;600;700;800&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" />
+<link rel="manifest" href="/manifest.json" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro è un'app indipendente per controllare i ricevitori AV Denon e Marantz tramite la tua rete locale.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "it"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-assistant-troubleshooting/#article",
+      "headline": "Risolvi i problemi di Home Assistant con AVR Maestro",
+      "description": "Risolvi i problemi di Home Assistant con AVR Maestro: cosa significa la scheda del collegamento, Entity Not Found, le scene che non compaiono e la riga di log Failed login.",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-assistant-troubleshooting/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "it"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-assistant-troubleshooting/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Il mio script è stato eseguito ma mostra Entity Not Found, oppure non succede nulla.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Assicurati che l'integrazione ufficiale Denon AVR sia installata in Home Assistant. Poi controlla che l'ID entità del media player del ricevitore nelle Impostazioni di AVR Maestro corrisponda esattamente all'ID entità in Home Assistant, per esempio media_player.living_room_receiver."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Perché il log di Home Assistant riporta Failed login?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Se durante il collegamento hai avuto più tentativi falliti, oppure il browser ha interrotto la connessione prima della fine, Home Assistant registra un avviso. Una volta che il collegamento è riuscito, puoi ignorare tranquillamente quel vecchio avviso."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ho creato una nuova scena ma non compare in Home Assistant.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Controlla che il telefono sia sulla stessa rete Wi-Fi locale del server Home Assistant, perché la sincronizzazione in background fallisce se il telefono non riesce a raggiungerlo. Apri Impostazioni e tocca Sincronizza scene per vedere l'errore di rete esatto, se c'è."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "L'app deve essere aperta perché i miei script vengano eseguiti?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Gli script risiedono in Home Assistant, quindi vengono eseguiti dalla dashboard, dalle automazioni o dagli assistenti vocali mentre il telefono è in tasca. L'app li crea e li aggiorna solo quando modifichi una scena."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guida utente",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Risoluzione problemi Home Assistant",
+      "item": "https://avrmaestro.com/guide/home-assistant-troubleshooting/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Vai al contenuto</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/it/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menu" aria-controls="m" aria-expanded="false" onclick="this.setAttribute('aria-expanded',document.getElementById('m').classList.toggle('open'))">&#9776;</button>
+    <nav id="m" data-i18n-search="Cerca nella guida..." data-i18n-empty="Nessun risultato per" data-i18n-language="Lingua">
+      <a href="/it/">Home</a>
+      <a href="/it/guide/">Guida utente</a>
+      <a href="/it/receivers/">Ricevitori</a>
+      <a href="/it/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/it/best-denon-marantz-app/">Perché cambiare</a>
+      <a href="/it/#top" class="cta">Scarica</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/it/">Home</a> &rsaquo; <a href="/it/guide/">Guida utente</a> &rsaquo; Risoluzione problemi Home Assistant</div>
+    <div class="eyebrow">Quando un collegamento o uno script non funziona</div>
+    <h1>Home Assistant, <span class="g">quando non funziona</span></h1>
+    <p>La maggior parte dei problemi di Home Assistant dipende dallo stato del collegamento, dall'ID entità del ricevitore o dalla rete tra il telefono e il server. Parti da ciò che dice la scheda del collegamento, poi procedi verso il basso.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Cosa ti dice la scheda del collegamento</h2>
+      <p class="lead">La scheda sopra il pulsante Sincronizza mostra lo stato del collegamento, e il pulsante lo segue.</p>
+    </div>
+    <ul class="plain">
+      <li><b>Collegato a Home Assistant:</b> una chiamata autenticata è riuscita proprio ora. Il pulsante Sincronizza è disponibile.</li>
+      <li><b>Il collegamento a Home Assistant è scaduto:</b> il server ha risposto e ha rifiutato il token salvato. Il pulsante Sincronizza è disattivato finché non accedi di nuovo.</li>
+      <li><b>Impossibile raggiungere Home Assistant:</b> il server non è raggiungibile, e il token potrebbe essere perfettamente valido. Il pulsante Sincronizza resta disponibile e non viene modificato nulla.</li>
+      <li><b>Non collegato a Home Assistant:</b> non è ancora stato salvato alcun indirizzo o token. Aggiungi il tuo indirizzo e accedi.</li>
+      <li><b>Collegamento a Home Assistant non verificato:</b> la modalità demo è attiva oppure Automazione domestica è bloccata, quindi non è stato inviato nulla a casa tua e il token non è stato provato.</li>
+    </ul>
+    <div class="note">Solo il primo dice Collegato, e solo perché qualcosa si è autenticato. Un token salvato da solo non conta mai come collegamento.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Uno script non fa nulla, oppure dice Entity Not Found</h2>
+    </div>
+    <ul class="plain">
+      <li>Installa l'integrazione ufficiale <b>Denon AVR</b> in Home Assistant da Impostazioni, Dispositivi &amp; servizi.</li>
+      <li>Assicurati che l'<b>ID entità del media player del ricevitore</b> nelle Impostazioni di AVR Maestro corrisponda esattamente all'ID entità in Home Assistant.</li>
+      <li>Ignora qualsiasi entità che riporta <code>unavailable</code> dopo che una scena è stata eliminata o ricreata. Gli script delle scene prendono il nome dal momento in cui la scena è stata creata, quindi consulta <a href="/it/guide/home-automation/">Automazione domestica</a> per vedere come gli ID degli script cambiano una sola volta.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Una nuova scena non compare in Home Assistant</h2>
+    </div>
+    <p class="lead">Le scene si sincronizzano in background ogni volta che ne aggiungi, modifichi o elimini una, quindi non devi premere Sincronizza ogni volta. Se una manca, il telefono non è riuscito a raggiungere il server.</p>
+    <ul class="plain">
+      <li>Collega il telefono alla stessa rete Wi-Fi locale di Home Assistant.</li>
+      <li>Apri Impostazioni e tocca <b>Sincronizza scene</b>. Se fallisce, mostra l'errore di rete esatto.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Failed login nel log di Home Assistant</h2>
+    </div>
+    <p class="lead">Più tentativi falliti, o un browser che ha interrotto la connessione prima della fine del collegamento, lasciano un avviso in Home Assistant. È storia passata, non un guasto in corso, e puoi ignorarlo quando il collegamento funziona.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Altri problemi possibili</h2>
+    </div>
+    <ul class="plain">
+      <li>Un riquadro della dashboard non si illumina mai: vedi <a href="/it/guide/home-assistant-dashboard/">la guida alla dashboard di Home Assistant</a>.</li>
+      <li>Un webhook non arriva: vedi <a href="/it/guide/home-automation/">Automazione domestica</a>.</li>
+      <li>Sei ancora bloccato? Chiedi su <a href="https://discord.gg/UmVtxE5fXN">Discord</a> oppure consulta l'<a href="/it/help/">Aiuto</a>.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Domande frequenti</div>
+      <h2>Problemi di Home Assistant, risolti</h2>
+    </div>
+    <details open><summary>Il mio script è stato eseguito ma mostra Entity Not Found, oppure non succede nulla.</summary><div class="body">Assicurati che l'integrazione ufficiale Denon AVR sia installata in Home Assistant. Poi controlla che l'ID entità del media player del ricevitore nelle Impostazioni di AVR Maestro corrisponda esattamente all'ID entità in Home Assistant, per esempio media_player.living_room_receiver.</div></details>
+    <details><summary>Perché il log di Home Assistant riporta Failed login?</summary><div class="body">Se durante il collegamento hai avuto più tentativi falliti, oppure il browser ha interrotto la connessione prima della fine, Home Assistant registra un avviso. Una volta che il collegamento è riuscito, puoi ignorare tranquillamente quel vecchio avviso.</div></details>
+    <details><summary>Ho creato una nuova scena ma non compare in Home Assistant.</summary><div class="body">Controlla che il telefono sia sulla stessa rete Wi-Fi locale del server Home Assistant, perché la sincronizzazione in background fallisce se il telefono non riesce a raggiungerlo. Apri Impostazioni e tocca Sincronizza scene per vedere l'errore di rete esatto, se c'è.</div></details>
+    <details><summary>L'app deve essere aperta perché i miei script vengano eseguiti?</summary><div class="body">No. Gli script risiedono in Home Assistant, quindi vengono eseguiti dalla dashboard, dalle automazioni o dagli assistenti vocali mentre il telefono è in tasca. L'app li crea e li aggiorna solo quando modifichi una scena.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Altre parti della guida</div>
+      <h2>Altre guide di AVR Maestro</h2>
+    </div>
+    <p class="lead"><a href="/it/guide/getting-started/">Per iniziare</a> &middot; <a href="/it/guide/receivers/">Gestione ricevitori</a> &middot; <a href="/it/guide/navigation/">Navigare nell'app</a> &middot; <a href="/it/guide/search/">Cerca</a> &middot; <a href="/it/guide/home/">Schermata Home</a> &middot; <a href="/it/guide/volume/">Controlli del volume</a> &middot; <a href="/it/guide/remote/">Telecomando</a> &middot; <a href="/it/guide/multi-zone/">Zone</a> &middot; <a href="/it/guide/now-playing/">In riproduzione</a> &middot; <a href="/it/guide/radio/">Radio (FM/AM)</a> &middot; <a href="/it/guide/scenes/">Scene</a> &middot; <a href="/it/guide/sound/">Suono</a> &middot; <a href="/it/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/it/guide/speakers/">Diffusori</a> &middot; <a href="/it/guide/locked-controls/">Perché un controllo è bloccato</a> &middot; <a href="/it/guide/settings/">Impostazioni</a> &middot; <a href="/it/guide/widgets/">Widget</a> &middot; <a href="/it/guide/custom-icons/">Icone personalizzate</a> &middot; <a href="/it/guide/languages/">Lingue</a> &middot; <a href="/it/guide/assistant/">L'assistente</a> &middot; <a href="/it/guide/home-automation/">Automazione domestica</a> &middot; <a href="/it/guide/home-assistant-dashboard/">Dashboard Home Assistant</a> &middot; <a href="/it/guide/backup/">Backup e ripristino</a> &middot; <a href="/it/guide/glossary/">Glossario</a></p>
+  </div>
+</section>
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/it/">Home</a>
+      <a href="/it/guide/">Guida utente</a>
+      <a href="/it/guide/getting-started/">Per iniziare</a>
+      <a href="/it/receivers/">Ricevitori</a>
+      <a href="/it/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/it/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/it/best-denon-marantz-app/">Perché cambiare</a>
+      <a href="/it/help/">Aiuto</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro&amp;referrer=utm_source%3Davrmaestro.com%26utm_medium%3Dguide-home-assistant-troubleshooting">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+      <a href="https://www.miyarahub.com/privacy.html">Informativa sulla privacy</a>
+      <a href="https://www.miyarahub.com/terms.html">Termini di utilizzo</a>
+    </div>
+    <p class="legal">AVR Maestro è un'app indipendente di MiyaraHub Technologies LLC e non è affiliata né approvata da Denon, Marantz, Sound United, Masimo Corporation o da qualsiasi altra azienda citata in questa pagina. Denon, Marantz e Audyssey sono marchi dei rispettivi proprietari, usati qui solo a scopo di identificazione.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

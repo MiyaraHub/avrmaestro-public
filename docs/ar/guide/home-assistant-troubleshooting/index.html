@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-itunes-app" content="app-id=6762881597" />
+<title>استكشاف أخطاء Home Assistant - AVR Maestro</title>
+<meta name="description" content="أصلح مشكلات Home Assistant مع AVR Maestro: معنى بطاقة الربط، وخطأ Entity Not Found، والمشاهد التي لا تظهر، وسطر سجل Failed login." />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/ar/guide/home-assistant-troubleshooting/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-assistant-troubleshooting/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="ar_AR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="استكشاف أخطاء Home Assistant - AVR Maestro" />
+<meta property="og:description" content="أصلح مشكلات Home Assistant مع AVR Maestro: معنى بطاقة الربط، وخطأ Entity Not Found، والمشاهد التي لا تظهر، وسطر سجل Failed login." />
+<meta property="og:url" content="https://avrmaestro.com/ar/guide/home-assistant-troubleshooting/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-guide.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="استكشاف أخطاء Home Assistant - AVR Maestro" />
+<meta name="twitter:description" content="أصلح مشكلات Home Assistant مع AVR Maestro: معنى بطاقة الربط، وخطأ Entity Not Found، والمشاهد التي لا تظهر، وسطر سجل Failed login." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-guide.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@500;600;700;800&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" />
+<link rel="manifest" href="/manifest.json" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro تطبيق مستقل للتحكم في مستقبلات الصوت والفيديو من Denon وMarantz عبر شبكتك المحلية.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "ar"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-assistant-troubleshooting/#article",
+      "headline": "أصلح مشكلات Home Assistant مع AVR Maestro",
+      "description": "أصلح مشكلات Home Assistant مع AVR Maestro: معنى بطاقة الربط، وخطأ Entity Not Found، والمشاهد التي لا تظهر، وسطر سجل Failed login.",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-assistant-troubleshooting/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "ar"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-assistant-troubleshooting/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "تم تشغيل النص البرمجي لكنه يعرض Entity Not Found، أو لا يحدث شيء.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "تأكد من تثبيت تكامل Denon AVR الرسمي في Home Assistant. ثم تحقق من أن Receiver Media Player Entity ID في إعدادات AVR Maestro يطابق معرّف الكيان في Home Assistant تمامًا، مثل media_player.living_room_receiver."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "لماذا يعرض سجل Home Assistant الرسالة Failed login؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "إذا فشلت عدة محاولات أثناء الربط، أو قطع المتصفح الاتصال قبل اكتماله، يسجّل Home Assistant تحذيرًا. وبعد نجاح الربط يمكنك تجاهل هذا التحذير القديم بأمان."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "أنشأت مشهدًا جديدًا ولا يظهر في Home Assistant.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "تأكد من أن هاتفك على شبكة Wi-Fi المحلية نفسها التي يتصل بها خادم Home Assistant، لأن المزامنة في الخلفية تفشل إذا تعذر على الهاتف الوصول إليه. افتح الإعدادات واضغط على مزامنة المشاهد لترى خطأ الشبكة بالتحديد إن وُجد."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "هل يجب أن يكون التطبيق مفتوحًا لتعمل النصوص البرمجية؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "لا. النصوص البرمجية موجودة في Home Assistant، فتعمل من لوحة التحكم أو الأتمتة أو المساعدات الصوتية بينما الهاتف في جيبك. التطبيق لا يبنيها ولا يحدّثها إلا عند تغيير مشهد."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "الرئيسية",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "دليل المستخدم",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "استكشاف أخطاء Home Assistant",
+      "item": "https://avrmaestro.com/guide/home-assistant-troubleshooting/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">انتقل إلى المحتوى</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/ar/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="القائمة" aria-controls="m" aria-expanded="false" onclick="this.setAttribute('aria-expanded',document.getElementById('m').classList.toggle('open'))">&#9776;</button>
+    <nav id="m" data-i18n-search="ابحث في الدليل..." data-i18n-empty="لا توجد نتائج لـ" data-i18n-language="اللغة">
+      <a href="/ar/">الرئيسية</a>
+      <a href="/ar/guide/">دليل المستخدم</a>
+      <a href="/ar/receivers/">المستقبلات</a>
+      <a href="/ar/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ar/best-denon-marantz-app/">لماذا تنتقل إليه</a>
+      <a href="/ar/#top" class="cta">تنزيل</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/ar/">الرئيسية</a> &rsaquo; <a href="/ar/guide/">دليل المستخدم</a> &rsaquo; استكشاف أخطاء Home Assistant</div>
+    <div class="eyebrow">عندما يتعطل الربط أو النص البرمجي</div>
+    <h1>Home Assistant، <span class="g">عندما لا يعمل</span></h1>
+    <p>تعود معظم مشكلات Home Assistant إلى حالة الربط أو معرّف كيان المستقبل أو الشبكة بين هاتفك وخادمك. ابدأ بما تقوله بطاقة الربط ثم انتقل إلى ما بعدها.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>ما الذي تخبرك به بطاقة الربط</h2>
+      <p class="lead">تعرض البطاقة الموجودة فوق زر المزامنة حالة الربط، ويتبعها الزر.</p>
+    </div>
+    <ul class="plain">
+      <li><b>مرتبط بـ Home Assistant:</b> نجح استدعاء موثّق قبل لحظات. زر المزامنة متاح.</li>
+      <li><b>انتهت صلاحية الربط مع Home Assistant:</b> ردّ خادمك ورفض الرمز المحفوظ. يبقى زر المزامنة معطّلًا حتى تسجّل الدخول مجددًا.</li>
+      <li><b>تعذر الوصول إلى Home Assistant:</b> تعذر الوصول إلى خادمك، وقد يكون الرمز سليمًا تمامًا. يبقى زر المزامنة متاحًا ولا يتغير شيء.</li>
+      <li><b>غير مرتبط بـ Home Assistant:</b> لم يُحفظ عنوان أو رمز بعد. أضف عنوانك وسجّل الدخول.</li>
+      <li><b>لم يُفحص الربط مع Home Assistant:</b> وضع العرض التجريبي مفعّل أو أتمتة المنزل مقفلة، لذلك لم يُرسل شيء إلى منزلك ولم يُجرَّب الرمز.</li>
+    </ul>
+    <div class="note">الحالة الأولى فقط تقول مرتبط، ولا يكون ذلك إلا لأن شيئًا ما جرى توثيقه. الرمز المحفوظ وحده لا يُعدّ ربطًا أبدًا.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>نص برمجي لا يفعل شيئًا، أو يعرض Entity Not Found</h2>
+    </div>
+    <ul class="plain">
+      <li>ثبّت تكامل <b>Denon AVR</b> الرسمي في Home Assistant ضمن Settings, Devices &amp; Services.</li>
+      <li>تأكد من أن <b>Receiver Media Player Entity ID</b> في إعدادات AVR Maestro يطابق معرّف الكيان في Home Assistant تمامًا.</li>
+      <li>تجاهل أي كيان يعرض <code>unavailable</code> بعد حذف مشهد أو إعادة إنشائه. تُسمّى نصوص المشاهد بحسب وقت إنشاء المشهد، فراجع <a href="/ar/guide/home-automation/">أتمتة المنزل</a> لمعرفة كيف تتغير معرّفات النصوص مرة واحدة.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>مشهد جديد غير موجود في Home Assistant</h2>
+    </div>
+    <p class="lead">تتزامن المشاهد في الخلفية كلما أضفت مشهدًا أو عدّلته أو حذفته، فلا حاجة للضغط على مزامنة في كل مرة. إذا كان أحدها مفقودًا، فهذا يعني أن الهاتف لم يستطع الوصول إلى خادمك.</p>
+    <ul class="plain">
+      <li>اجعل هاتفك على شبكة Wi-Fi المحلية نفسها التي يتصل بها Home Assistant.</li>
+      <li>افتح الإعدادات واضغط على <b>مزامنة المشاهد</b>. إذا فشلت، فسيعرض خطأ الشبكة بالتحديد.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Failed login في سجل Home Assistant</h2>
+    </div>
+    <p class="lead">تترك عدة محاولات فاشلة، أو متصفح قطع الاتصال قبل اكتمال الربط، تحذيرًا في Home Assistant. هذا سجل قديم وليس عطلًا حاليًا، ويمكنك تجاهله بمجرد أن يعمل الربط.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>مشكلات أخرى قد تحدث</h2>
+    </div>
+    <ul class="plain">
+      <li>لا تضيء بلاطة لوحة التحكم أبدًا: راجع <a href="/ar/guide/home-assistant-dashboard/">دليل لوحة Home Assistant</a>.</li>
+      <li>لا يصل webhook: راجع <a href="/ar/guide/home-automation/">أتمتة المنزل</a>.</li>
+      <li>ما زلت عالقًا؟ اسأل في <a href="https://discord.gg/UmVtxE5fXN">Discord</a> أو راجع <a href="/ar/help/">المساعدة</a>.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">أسئلة شائعة</div>
+      <h2>مشكلات Home Assistant والإجابات عنها</h2>
+    </div>
+    <details open><summary>تم تشغيل النص البرمجي لكنه يعرض Entity Not Found، أو لا يحدث شيء.</summary><div class="body">تأكد من تثبيت تكامل Denon AVR الرسمي في Home Assistant. ثم تحقق من أن Receiver Media Player Entity ID في إعدادات AVR Maestro يطابق معرّف الكيان في Home Assistant تمامًا، مثل media_player.living_room_receiver.</div></details>
+    <details><summary>لماذا يعرض سجل Home Assistant الرسالة Failed login؟</summary><div class="body">إذا فشلت عدة محاولات أثناء الربط، أو قطع المتصفح الاتصال قبل اكتماله، يسجّل Home Assistant تحذيرًا. وبعد نجاح الربط يمكنك تجاهل هذا التحذير القديم بأمان.</div></details>
+    <details><summary>أنشأت مشهدًا جديدًا ولا يظهر في Home Assistant.</summary><div class="body">تأكد من أن هاتفك على شبكة Wi-Fi المحلية نفسها التي يتصل بها خادم Home Assistant، لأن المزامنة في الخلفية تفشل إذا تعذر على الهاتف الوصول إليه. افتح الإعدادات واضغط على مزامنة المشاهد لترى خطأ الشبكة بالتحديد إن وُجد.</div></details>
+    <details><summary>هل يجب أن يكون التطبيق مفتوحًا لتعمل النصوص البرمجية؟</summary><div class="body">لا. النصوص البرمجية موجودة في Home Assistant، فتعمل من لوحة التحكم أو الأتمتة أو المساعدات الصوتية بينما الهاتف في جيبك. التطبيق لا يبنيها ولا يحدّثها إلا عند تغيير مشهد.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">المزيد من الدليل</div>
+      <h2>أدلة AVR Maestro الأخرى</h2>
+    </div>
+    <p class="lead"><a href="/ar/guide/getting-started/">البدء</a> &middot; <a href="/ar/guide/receivers/">إدارة المستقبلات</a> &middot; <a href="/ar/guide/navigation/">التنقل في التطبيق</a> &middot; <a href="/ar/guide/search/">البحث</a> &middot; <a href="/ar/guide/home/">الشاشة الرئيسية</a> &middot; <a href="/ar/guide/volume/">عناصر التحكم في مستوى الصوت</a> &middot; <a href="/ar/guide/remote/">جهاز التحكم عن بُعد</a> &middot; <a href="/ar/guide/multi-zone/">المناطق</a> &middot; <a href="/ar/guide/now-playing/">التشغيل الحالي</a> &middot; <a href="/ar/guide/radio/">الراديو (FM/AM)</a> &middot; <a href="/ar/guide/scenes/">المشاهد</a> &middot; <a href="/ar/guide/sound/">الصوت</a> &middot; <a href="/ar/guide/graphic-eq/">المعادِل الرسومي</a> &middot; <a href="/ar/guide/speakers/">مكبرات الصوت</a> &middot; <a href="/ar/guide/locked-controls/">لماذا يكون عنصر التحكم مقفلًا</a> &middot; <a href="/ar/guide/settings/">الإعدادات</a> &middot; <a href="/ar/guide/widgets/">الأدوات</a> &middot; <a href="/ar/guide/custom-icons/">الأيقونات المخصصة</a> &middot; <a href="/ar/guide/languages/">اللغات</a> &middot; <a href="/ar/guide/assistant/">المساعد</a> &middot; <a href="/ar/guide/home-automation/">أتمتة المنزل</a> &middot; <a href="/ar/guide/home-assistant-dashboard/">لوحة Home Assistant</a> &middot; <a href="/ar/guide/backup/">النسخ الاحتياطي والاستعادة</a> &middot; <a href="/ar/guide/glossary/">المسرد</a></p>
+  </div>
+</section>
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/ar/">الرئيسية</a>
+      <a href="/ar/guide/">دليل المستخدم</a>
+      <a href="/ar/guide/getting-started/">البدء</a>
+      <a href="/ar/receivers/">المستقبلات</a>
+      <a href="/ar/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ar/audyssey-vs-dirac/">Audyssey مقابل Dirac</a>
+      <a href="/ar/best-denon-marantz-app/">لماذا تنتقل إليه</a>
+      <a href="/ar/help/">المساعدة</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro&amp;referrer=utm_source%3Davrmaestro.com%26utm_medium%3Dguide-home-assistant-troubleshooting">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+      <a href="https://www.miyarahub.com/privacy.html">سياسة الخصوصية</a>
+      <a href="https://www.miyarahub.com/terms.html">شروط الاستخدام</a>
+    </div>
+    <p class="legal">AVR Maestro تطبيق مستقل من MiyaraHub Technologies LLC، وليس تابعًا لـ Denon أو Marantz أو Sound United أو Masimo Corporation أو أي شركة أخرى مذكورة في هذه الصفحة، ولا تؤيده أي منها. Denon وMarantz وAudyssey علامات تجارية لأصحابها، وتُستخدم هنا لأغراض التعريف فقط.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

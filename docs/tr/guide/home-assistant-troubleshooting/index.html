@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-itunes-app" content="app-id=6762881597" />
+<title>Home Assistant Sorun Giderme - AVR Maestro</title>
+<meta name="description" content="AVR Maestro ile Home Assistant sorunlarını giderin: bağlantı kartı ne anlama gelir, Entity Not Found, görünmeyen sahneler ve Failed login günlük satırı." />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/tr/guide/home-assistant-troubleshooting/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-assistant-troubleshooting/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="tr_TR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Home Assistant Sorun Giderme - AVR Maestro" />
+<meta property="og:description" content="AVR Maestro ile Home Assistant sorunlarını giderin: bağlantı kartı ne anlama gelir, Entity Not Found, görünmeyen sahneler ve Failed login günlük satırı." />
+<meta property="og:url" content="https://avrmaestro.com/tr/guide/home-assistant-troubleshooting/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-guide.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Home Assistant Sorun Giderme - AVR Maestro" />
+<meta name="twitter:description" content="AVR Maestro ile Home Assistant sorunlarını giderin: bağlantı kartı ne anlama gelir, Entity Not Found, görünmeyen sahneler ve Failed login günlük satırı." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-guide.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@500;600;700;800&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" />
+<link rel="manifest" href="/manifest.json" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro, Denon ve Marantz AV alıcılarını yerel ağınız üzerinden kontrol etmeniz için geliştirilmiş bağımsız bir uygulamadır.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "tr"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-assistant-troubleshooting/#article",
+      "headline": "AVR Maestro ile Home Assistant sorunlarını giderin",
+      "description": "AVR Maestro ile Home Assistant sorunlarını giderin: bağlantı kartı ne anlama gelir, Entity Not Found, görünmeyen sahneler ve Failed login günlük satırı.",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-assistant-troubleshooting/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "tr"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-assistant-troubleshooting/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Betiğim çalıştı ama Entity Not Found görünüyor ya da hiçbir şey olmuyor.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Home Assistant'ta resmi Denon AVR entegrasyonunun kurulu olduğundan emin olun. Ardından AVR Maestro Ayarlar'daki Receiver Media Player Entity ID değerinin Home Assistant'taki varlık kimliğiyle birebir aynı olduğunu kontrol edin, örneğin media_player.living_room_receiver."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Home Assistant günlüğümde neden Failed login yazıyor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bağlama sırasında birkaç başarısız deneme yaptıysanız ya da tarayıcınız işlem bitmeden bağlantıyı kopardıysa Home Assistant bir uyarı kaydeder. Bağlantı bir kez başarılı olduktan sonra bu eski uyarıyı rahatça yok sayabilirsiniz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Yeni bir sahne oluşturdum ama Home Assistant'ta görünmüyor.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Telefonunuzun Home Assistant sunucunuzla aynı yerel Wi-Fi ağında olduğundan emin olun; telefon sunucuya ulaşamazsa arka plan eşitlemesi başarısız olur. Varsa tam ağ hatasını görmek için Ayarlar'ı açın ve Sync Scenes'e dokunun."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Betiklerimin çalışması için uygulamanın açık olması gerekir mi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hayır. Betikler Home Assistant'ta durur; bu yüzden telefon cebinizdeyken bile panonuzdan, otomasyonlarınızdan veya sesli asistanlarınızdan çalışır. Uygulama yalnızca bir sahneyi değiştirdiğinizde onları oluşturur ve günceller."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Ana Sayfa",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Kullanım Kılavuzu",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Home Assistant sorun giderme",
+      "item": "https://avrmaestro.com/guide/home-assistant-troubleshooting/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/tr/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="Menü" aria-controls="m" aria-expanded="false" onclick="this.setAttribute('aria-expanded',document.getElementById('m').classList.toggle('open'))">&#9776;</button>
+    <nav id="m" data-i18n-search="Kılavuzda ara..." data-i18n-empty="Eşleşme bulunamadı:" data-i18n-language="Dil">
+      <a href="/tr/">Ana Sayfa</a>
+      <a href="/tr/guide/">Kullanım Kılavuzu</a>
+      <a href="/tr/receivers/">Alıcılar</a>
+      <a href="/tr/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/tr/best-denon-marantz-app/">Neden geçmelisiniz</a>
+      <a href="/tr/#top" class="cta">İndir</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/tr/">Ana Sayfa</a> &rsaquo; <a href="/tr/guide/">Kullanım Kılavuzu</a> &rsaquo; Home Assistant sorun giderme</div>
+    <div class="eyebrow">Bir bağlantı ya da betik düzgün çalışmadığında</div>
+    <h1>Home Assistant, <span class="g">çalışmadığında</span></h1>
+    <p>Home Assistant sorunlarının çoğu bağlantı durumuna, alıcı varlık kimliğine veya telefonunuzla sunucunuz arasındaki ağa dayanır. Bağlantı kartının ne dediğiyle başlayın, sonra aşağı doğru ilerleyin.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Bağlantı kartı size ne söylüyor</h2>
+      <p class="lead">Sync düğmesinin üstündeki kart bağlantının durumunu gösterir ve düğme buna uyar.</p>
+    </div>
+    <ul class="plain">
+      <li><b>Home Assistant'a bağlı:</b> kimliği doğrulanmış bir çağrı az önce başarılı oldu. Sync düğmesi kullanılabilir.</li>
+      <li><b>Home Assistant bağlantısının süresi doldu:</b> sunucunuz yanıt verdi ve kayıtlı belirteci reddetti. Yeniden oturum açana kadar Sync düğmesi devre dışıdır.</li>
+      <li><b>Home Assistant'a ulaşılamıyor:</b> sunucunuza ulaşılamadı ve belirteç gayet geçerli olabilir. Sync düğmesi kullanılabilir kalır ve hiçbir şey değişmez.</li>
+      <li><b>Home Assistant'a bağlı değil:</b> henüz kayıtlı bir adres veya belirteç yok. Adresinizi ekleyin ve oturum açın.</li>
+      <li><b>Home Assistant bağlantısı denetlenmedi:</b> Demo modu açık ya da Ev Otomasyonu kilitli; bu yüzden evinize hiçbir şey gönderilmedi ve belirteç denenmedi.</li>
+    </ul>
+    <div class="note">Yalnızca ilki Bağlı der ve bunu da yalnızca bir şey kimlik doğruladığı için söyler. Tek başına kayıtlı bir belirteç hiçbir zaman bağlantı sayılmaz.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Bir betik hiçbir şey yapmıyor ya da Entity Not Found diyor</h2>
+    </div>
+    <ul class="plain">
+      <li>Home Assistant'ta Ayarlar, Cihazlar &amp; Hizmetler altından resmi <b>Denon AVR</b> entegrasyonunu kurun.</li>
+      <li>AVR Maestro Ayarlar'daki <b>Receiver Media Player Entity ID</b> değerinin Home Assistant'taki varlık kimliğiyle birebir aynı olduğundan emin olun.</li>
+      <li>Bir sahne silindikten veya yeniden oluşturulduktan sonra <code>unavailable</code> yazan varlıkları yok sayın. Sahne betikleri sahnenin oluşturulduğu zamana göre adlandırılır; betik kimliklerinin bir kez nasıl değiştiğini görmek için <a href="/tr/guide/home-automation/">Ev Otomasyonu</a> sayfasına bakın.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Home Assistant'ta yeni bir sahne eksik</h2>
+    </div>
+    <p class="lead">Sahneler, her eklediğinizde, düzenlediğinizde veya sildiğinizde arka planda eşitlenir; bu yüzden her seferinde Sync'e basmanız gerekmez. Biri eksikse telefon sunucunuza ulaşamamıştır.</p>
+    <ul class="plain">
+      <li>Telefonunuzu Home Assistant ile aynı yerel Wi-Fi ağına bağlayın.</li>
+      <li>Ayarlar'ı açın ve <b>Sync Scenes</b>'e dokunun. Başarısız olursa tam ağ hatasını gösterir.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Home Assistant günlüğünde Failed login</h2>
+    </div>
+    <p class="lead">Birkaç başarısız deneme ya da bağlama bitmeden bağlantıyı koparan bir tarayıcı, Home Assistant'ta bir uyarı bırakır. Bu bir geçmiş kaydıdır, güncel bir arıza değildir; bağlantı çalıştıktan sonra yok sayabilirsiniz.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Ters gidebilecek diğer şeyler</h2>
+    </div>
+    <ul class="plain">
+      <li>Bir pano karosu hiç yanmıyor: <a href="/tr/guide/home-assistant-dashboard/">Home Assistant pano kılavuzuna</a> bakın.</li>
+      <li>Bir webhook ulaşmıyor: <a href="/tr/guide/home-automation/">Ev Otomasyonu</a> sayfasına bakın.</li>
+      <li>Hâlâ takıldınız mı? <a href="https://discord.gg/UmVtxE5fXN">Discord</a>'da sorun ya da <a href="/tr/help/">Yardım</a> sayfasına bakın.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Sık sorulan sorular</div>
+      <h2>Home Assistant sorunları, yanıtlarıyla</h2>
+    </div>
+    <details open><summary>Betiğim çalıştı ama Entity Not Found görünüyor ya da hiçbir şey olmuyor.</summary><div class="body">Home Assistant'ta resmi Denon AVR entegrasyonunun kurulu olduğundan emin olun. Ardından AVR Maestro Ayarlar'daki Receiver Media Player Entity ID değerinin Home Assistant'taki varlık kimliğiyle birebir aynı olduğunu kontrol edin, örneğin media_player.living_room_receiver.</div></details>
+    <details><summary>Home Assistant günlüğümde neden Failed login yazıyor?</summary><div class="body">Bağlama sırasında birkaç başarısız deneme yaptıysanız ya da tarayıcınız işlem bitmeden bağlantıyı kopardıysa Home Assistant bir uyarı kaydeder. Bağlantı bir kez başarılı olduktan sonra bu eski uyarıyı rahatça yok sayabilirsiniz.</div></details>
+    <details><summary>Yeni bir sahne oluşturdum ama Home Assistant'ta görünmüyor.</summary><div class="body">Telefonunuzun Home Assistant sunucunuzla aynı yerel Wi-Fi ağında olduğundan emin olun; telefon sunucuya ulaşamazsa arka plan eşitlemesi başarısız olur. Varsa tam ağ hatasını görmek için Ayarlar'ı açın ve Sync Scenes'e dokunun.</div></details>
+    <details><summary>Betiklerimin çalışması için uygulamanın açık olması gerekir mi?</summary><div class="body">Hayır. Betikler Home Assistant'ta durur; bu yüzden telefon cebinizdeyken bile panonuzdan, otomasyonlarınızdan veya sesli asistanlarınızdan çalışır. Uygulama yalnızca bir sahneyi değiştirdiğinizde onları oluşturur ve günceller.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Rehberin devamı</div>
+      <h2>Diğer AVR Maestro rehberleri</h2>
+    </div>
+    <p class="lead"><a href="/tr/guide/getting-started/">Başlarken</a> &middot; <a href="/tr/guide/receivers/">Alıcıları yönet</a> &middot; <a href="/tr/guide/navigation/">Uygulamada gezinme</a> &middot; <a href="/tr/guide/search/">Arama</a> &middot; <a href="/tr/guide/home/">Ana Ekran</a> &middot; <a href="/tr/guide/volume/">Ses Kontrolleri</a> &middot; <a href="/tr/guide/remote/">Uzaktan Kumanda</a> &middot; <a href="/tr/guide/multi-zone/">Bölgeler</a> &middot; <a href="/tr/guide/now-playing/">Şu An Çalıyor</a> &middot; <a href="/tr/guide/radio/">Radyo (FM/AM)</a> &middot; <a href="/tr/guide/scenes/">Sahneler</a> &middot; <a href="/tr/guide/sound/">Ses</a> &middot; <a href="/tr/guide/graphic-eq/">Graphic EQ</a> &middot; <a href="/tr/guide/speakers/">Hoparlörler</a> &middot; <a href="/tr/guide/locked-controls/">Bir kontrol neden kilitli</a> &middot; <a href="/tr/guide/settings/">Ayarlar</a> &middot; <a href="/tr/guide/widgets/">Widget'lar</a> &middot; <a href="/tr/guide/custom-icons/">Özel Simgeler</a> &middot; <a href="/tr/guide/languages/">Diller</a> &middot; <a href="/tr/guide/assistant/">Asistan</a> &middot; <a href="/tr/guide/home-automation/">Ev Otomasyonu</a> &middot; <a href="/tr/guide/home-assistant-dashboard/">Home Assistant panosu</a> &middot; <a href="/tr/guide/backup/">Yedekleme ve Geri Yükleme</a> &middot; <a href="/tr/guide/glossary/">Sözlük</a></p>
+  </div>
+</section>
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/tr/">Ana Sayfa</a>
+      <a href="/tr/guide/">Kullanım Kılavuzu</a>
+      <a href="/tr/guide/getting-started/">Başlarken</a>
+      <a href="/tr/receivers/">Alıcılar</a>
+      <a href="/tr/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/tr/audyssey-vs-dirac/">Audyssey ve Dirac</a>
+      <a href="/tr/best-denon-marantz-app/">Neden geçmelisiniz</a>
+      <a href="/tr/help/">Yardım</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro&amp;referrer=utm_source%3Davrmaestro.com%26utm_medium%3Dguide-home-assistant-troubleshooting">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+      <a href="https://www.miyarahub.com/privacy.html">Gizlilik politikası</a>
+      <a href="https://www.miyarahub.com/terms.html">Kullanım koşulları</a>
+    </div>
+    <p class="legal">AVR Maestro, MiyaraHub Technologies LLC tarafından geliştirilen bağımsız bir uygulamadır; Denon, Marantz, Sound United, Masimo Corporation veya bu sayfada adı geçen başka hiçbir şirketle bağlantılı değildir ve bunlar tarafından onaylanmamıştır. Denon, Marantz ve Audyssey, ilgili sahiplerinin ticari markalarıdır ve burada yalnızca tanımlama amacıyla kullanılmıştır.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

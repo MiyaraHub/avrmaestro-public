@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-itunes-app" content="app-id=6762881597" />
+<title>Home Assistant 문제 해결 - AVR Maestro</title>
+<meta name="description" content="AVR Maestro의 Home Assistant 문제 해결: 연결 카드의 의미, Entity Not Found, 나타나지 않는 장면, Failed login 로그 줄을 안내합니다." />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/ko/guide/home-assistant-troubleshooting/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-assistant-troubleshooting/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="ko_KR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Home Assistant 문제 해결 - AVR Maestro" />
+<meta property="og:description" content="AVR Maestro의 Home Assistant 문제 해결: 연결 카드의 의미, Entity Not Found, 나타나지 않는 장면, Failed login 로그 줄을 안내합니다." />
+<meta property="og:url" content="https://avrmaestro.com/ko/guide/home-assistant-troubleshooting/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-guide.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Home Assistant 문제 해결 - AVR Maestro" />
+<meta name="twitter:description" content="AVR Maestro의 Home Assistant 문제 해결: 연결 카드의 의미, Entity Not Found, 나타나지 않는 장면, Failed login 로그 줄을 안내합니다." />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-guide.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@500;600;700;800&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" />
+<link rel="manifest" href="/manifest.json" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro는 로컬 네트워크를 통해 Denon 및 Marantz AV 리시버를 제어하는 독립 앱입니다.",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "ko"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-assistant-troubleshooting/#article",
+      "headline": "AVR Maestro의 Home Assistant 문제 해결",
+      "description": "AVR Maestro의 Home Assistant 문제 해결: 연결 카드의 의미, Entity Not Found, 나타나지 않는 장면, Failed login 로그 줄을 안내합니다.",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-assistant-troubleshooting/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "ko"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-assistant-troubleshooting/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "스크립트가 실행되었는데 Entity Not Found가 표시되거나 아무 일도 일어나지 않습니다.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Home Assistant에 공식 Denon AVR 통합이 설치되어 있는지 확인하세요. 그런 다음 AVR Maestro 설정의 리시버 미디어 플레이어 엔티티 ID가 Home Assistant의 엔티티 ID와 정확히 일치하는지 확인하세요. 예를 들면 media_player.living_room_receiver입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Home Assistant 로그에 Failed login이 보이는 이유는 무엇인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "연결하는 동안 여러 번 실패했거나 브라우저가 완료되기 전에 연결을 끊은 경우 Home Assistant가 경고를 기록합니다. 연결에 성공한 뒤에는 이 오래된 경고를 무시해도 안전합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "새 장면을 만들었는데 Home Assistant에 나타나지 않습니다.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "휴대폰이 Home Assistant 서버와 같은 로컬 Wi-Fi 네트워크에 있는지 확인하세요. 휴대폰이 서버에 접근하지 못하면 백그라운드 동기화가 실패합니다. 설정을 열고 장면 동기화를 탭하면 네트워크 오류가 있을 때 정확한 내용을 볼 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "스크립트를 실행하려면 앱이 열려 있어야 하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 스크립트는 Home Assistant 안에 있으므로 휴대폰이 주머니에 있어도 대시보드, 자동화, 음성 어시스턴트에서 실행됩니다. 앱은 장면을 변경할 때만 스크립트를 만들고 업데이트합니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "사용 설명서",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Home Assistant 문제 해결",
+      "item": "https://avrmaestro.com/guide/home-assistant-troubleshooting/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/ko/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="메뉴" aria-controls="m" aria-expanded="false" onclick="this.setAttribute('aria-expanded',document.getElementById('m').classList.toggle('open'))">&#9776;</button>
+    <nav id="m" data-i18n-search="가이드 검색..." data-i18n-empty="검색 결과 없음:" data-i18n-language="언어">
+      <a href="/ko/">홈</a>
+      <a href="/ko/guide/">사용 설명서</a>
+      <a href="/ko/receivers/">리시버</a>
+      <a href="/ko/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ko/best-denon-marantz-app/">갈아타는 이유</a>
+      <a href="/ko/#top" class="cta">다운로드</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/ko/">홈</a> &rsaquo; <a href="/ko/guide/">사용 설명서</a> &rsaquo; Home Assistant 문제 해결</div>
+    <div class="eyebrow">연결이나 스크립트가 제대로 작동하지 않을 때</div>
+    <h1>Home Assistant가 <span class="g">작동하지 않을 때</span></h1>
+    <p>Home Assistant 문제의 대부분은 연결 상태, 리시버 엔티티 ID, 또는 휴대폰과 서버 사이의 네트워크에서 비롯됩니다. 연결 카드가 알려 주는 내용부터 확인하고 아래로 차례로 살펴보세요.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>연결 카드가 알려 주는 것</h2>
+      <p class="lead">동기화 버튼 위의 카드는 연결 상태를 보여 주며, 버튼은 그 상태를 따릅니다.</p>
+    </div>
+    <ul class="plain">
+      <li><b>Home Assistant에 연결됨:</b> 방금 인증된 호출이 성공했습니다. 동기화 버튼을 사용할 수 있습니다.</li>
+      <li><b>Home Assistant 연결이 만료됨:</b> 서버가 응답했지만 저장된 토큰을 거부했습니다. 다시 로그인할 때까지 동기화 버튼이 비활성화됩니다.</li>
+      <li><b>Home Assistant에 접속할 수 없음:</b> 서버에 접근하지 못했으며 토큰은 멀쩡할 수도 있습니다. 동기화 버튼은 계속 사용할 수 있고 아무것도 변경되지 않습니다.</li>
+      <li><b>Home Assistant에 연결되지 않음:</b> 아직 저장된 주소나 토큰이 없습니다. 주소를 추가하고 로그인하세요.</li>
+      <li><b>Home Assistant 연결 확인 안 됨:</b> 데모 모드가 켜져 있거나 홈 오토메이션이 잠겨 있어서 집으로 아무것도 전송되지 않았고 토큰도 시도되지 않았습니다.</li>
+    </ul>
+    <div class="note">연결됨이라고 표시되는 것은 첫 번째뿐이며, 그것도 무언가 인증에 성공했기 때문입니다. 저장된 토큰만으로는 연결로 간주되지 않습니다.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>스크립트가 아무 동작도 하지 않거나 Entity Not Found가 표시될 때</h2>
+    </div>
+    <ul class="plain">
+      <li>Home Assistant의 설정, 기기 &amp; 서비스에서 공식 <b>Denon AVR</b> 통합을 설치하세요.</li>
+      <li>AVR Maestro 설정의 <b>리시버 미디어 플레이어 엔티티 ID</b>가 Home Assistant의 엔티티 ID와 정확히 일치하는지 확인하세요.</li>
+      <li>장면을 삭제하거나 다시 만든 뒤 <code>unavailable</code>이라고 표시되는 엔티티는 무시하세요. 장면 스크립트 이름은 장면이 만들어진 시각을 따르므로, 스크립트 ID가 한 번 바뀌는 방식은 <a href="/ko/guide/home-automation/">홈 오토메이션</a>을 참고하세요.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>새 장면이 Home Assistant에 없을 때</h2>
+    </div>
+    <p class="lead">장면은 추가, 편집, 삭제할 때마다 백그라운드에서 동기화되므로 매번 동기화를 누를 필요가 없습니다. 장면이 없다면 휴대폰이 서버에 접근하지 못한 것입니다.</p>
+    <ul class="plain">
+      <li>휴대폰을 Home Assistant와 같은 로컬 Wi-Fi 네트워크에 연결하세요.</li>
+      <li>설정을 열고 <b>장면 동기화</b>를 탭하세요. 실패하면 정확한 네트워크 오류가 표시됩니다.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Home Assistant 로그의 Failed login</h2>
+    </div>
+    <p class="lead">여러 번의 실패한 시도나 연결이 끝나기 전에 브라우저가 연결을 끊은 경우 Home Assistant에 경고가 남습니다. 이것은 기록일 뿐 현재의 오류가 아니며, 연결이 작동하면 무시해도 됩니다.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>그 밖에 잘못될 수 있는 것들</h2>
+    </div>
+    <ul class="plain">
+      <li>대시보드 타일이 켜지지 않을 때: <a href="/ko/guide/home-assistant-dashboard/">Home Assistant 대시보드 가이드</a>를 참고하세요.</li>
+      <li>웹훅이 도착하지 않을 때: <a href="/ko/guide/home-automation/">홈 오토메이션</a>을 참고하세요.</li>
+      <li>아직 해결되지 않았나요? <a href="https://discord.gg/UmVtxE5fXN">Discord</a>에서 질문하거나 <a href="/ko/help/">도움말</a>을 확인하세요.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">자주 묻는 질문</div>
+      <h2>Home Assistant 문제, 답변 모음</h2>
+    </div>
+    <details open><summary>스크립트가 실행되었는데 Entity Not Found가 표시되거나 아무 일도 일어나지 않습니다.</summary><div class="body">Home Assistant에 공식 Denon AVR 통합이 설치되어 있는지 확인하세요. 그런 다음 AVR Maestro 설정의 리시버 미디어 플레이어 엔티티 ID가 Home Assistant의 엔티티 ID와 정확히 일치하는지 확인하세요. 예를 들면 media_player.living_room_receiver입니다.</div></details>
+    <details><summary>Home Assistant 로그에 Failed login이 보이는 이유는 무엇인가요?</summary><div class="body">연결하는 동안 여러 번 실패했거나 브라우저가 완료되기 전에 연결을 끊은 경우 Home Assistant가 경고를 기록합니다. 연결에 성공한 뒤에는 이 오래된 경고를 무시해도 안전합니다.</div></details>
+    <details><summary>새 장면을 만들었는데 Home Assistant에 나타나지 않습니다.</summary><div class="body">휴대폰이 Home Assistant 서버와 같은 로컬 Wi-Fi 네트워크에 있는지 확인하세요. 휴대폰이 서버에 접근하지 못하면 백그라운드 동기화가 실패합니다. 설정을 열고 장면 동기화를 탭하면 네트워크 오류가 있을 때 정확한 내용을 볼 수 있습니다.</div></details>
+    <details><summary>스크립트를 실행하려면 앱이 열려 있어야 하나요?</summary><div class="body">아니요. 스크립트는 Home Assistant 안에 있으므로 휴대폰이 주머니에 있어도 대시보드, 자동화, 음성 어시스턴트에서 실행됩니다. 앱은 장면을 변경할 때만 스크립트를 만들고 업데이트합니다.</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">가이드 더 보기</div>
+      <h2>다른 AVR Maestro 가이드</h2>
+    </div>
+    <p class="lead"><a href="/ko/guide/getting-started/">시작하기</a> &middot; <a href="/ko/guide/receivers/">리시버 관리</a> &middot; <a href="/ko/guide/navigation/">앱 탐색</a> &middot; <a href="/ko/guide/search/">검색</a> &middot; <a href="/ko/guide/home/">홈 화면</a> &middot; <a href="/ko/guide/volume/">볼륨 제어</a> &middot; <a href="/ko/guide/remote/">리모컨</a> &middot; <a href="/ko/guide/multi-zone/">존</a> &middot; <a href="/ko/guide/now-playing/">재생 중</a> &middot; <a href="/ko/guide/radio/">라디오 (FM/AM)</a> &middot; <a href="/ko/guide/scenes/">장면</a> &middot; <a href="/ko/guide/sound/">사운드</a> &middot; <a href="/ko/guide/graphic-eq/">그래픽 EQ</a> &middot; <a href="/ko/guide/speakers/">스피커</a> &middot; <a href="/ko/guide/locked-controls/">컨트롤이 잠기는 이유</a> &middot; <a href="/ko/guide/settings/">설정</a> &middot; <a href="/ko/guide/widgets/">위젯</a> &middot; <a href="/ko/guide/custom-icons/">사용자 지정 아이콘</a> &middot; <a href="/ko/guide/languages/">언어</a> &middot; <a href="/ko/guide/assistant/">어시스턴트</a> &middot; <a href="/ko/guide/home-automation/">홈 오토메이션</a> &middot; <a href="/ko/guide/home-assistant-dashboard/">Home Assistant 대시보드</a> &middot; <a href="/ko/guide/backup/">백업 및 복원</a> &middot; <a href="/ko/guide/glossary/">용어집</a></p>
+  </div>
+</section>
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/ko/">홈</a>
+      <a href="/ko/guide/">사용 설명서</a>
+      <a href="/ko/guide/getting-started/">시작하기</a>
+      <a href="/ko/receivers/">리시버</a>
+      <a href="/ko/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/ko/audyssey-vs-dirac/">Audyssey vs Dirac</a>
+      <a href="/ko/best-denon-marantz-app/">갈아타는 이유</a>
+      <a href="/ko/help/">도움말</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro&amp;referrer=utm_source%3Davrmaestro.com%26utm_medium%3Dguide-home-assistant-troubleshooting">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+      <a href="https://www.miyarahub.com/privacy.html">개인정보 처리방침</a>
+      <a href="https://www.miyarahub.com/terms.html">이용 약관</a>
+    </div>
+    <p class="legal">AVR Maestro는 MiyaraHub Technologies LLC에서 만든 독립 앱이며, Denon, Marantz, Sound United, Masimo Corporation 및 이 페이지에 언급된 다른 어떤 회사와도 제휴 관계가 없고 이들의 보증을 받지 않았습니다. Denon, Marantz, Audyssey는 각 소유자의 상표이며 식별 목적으로만 사용되었습니다.</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>

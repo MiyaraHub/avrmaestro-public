@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-itunes-app" content="app-id=6762881597" />
+<title>Home Assistant 故障排除 - AVR Maestro</title>
+<meta name="description" content="排查 AVR Maestro 的 Home Assistant 问题：关联卡片的含义、Entity Not Found、场景不出现，以及 Failed login 日志行。" />
+<meta name="author" content="MiyaraHub Technologies LLC" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#ff6e40" />
+<link rel="canonical" href="https://avrmaestro.com/zh-hans/guide/home-assistant-troubleshooting/" />
+<!--hreflang-->
+<link rel="alternate" hreflang="en" href="https://avrmaestro.com/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ar" href="https://avrmaestro.com/ar/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="cs" href="https://avrmaestro.com/cs/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="da" href="https://avrmaestro.com/da/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="de" href="https://avrmaestro.com/de/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="el" href="https://avrmaestro.com/el/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="es" href="https://avrmaestro.com/es/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="fi" href="https://avrmaestro.com/fi/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="fr" href="https://avrmaestro.com/fr/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="he" href="https://avrmaestro.com/he/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="hi" href="https://avrmaestro.com/hi/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="hu" href="https://avrmaestro.com/hu/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="id" href="https://avrmaestro.com/id/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="it" href="https://avrmaestro.com/it/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ja" href="https://avrmaestro.com/ja/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ko" href="https://avrmaestro.com/ko/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="nb" href="https://avrmaestro.com/nb/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="nl" href="https://avrmaestro.com/nl/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="pl" href="https://avrmaestro.com/pl/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="pt" href="https://avrmaestro.com/pt/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="pt-BR" href="https://avrmaestro.com/pt-br/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ro" href="https://avrmaestro.com/ro/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="ru" href="https://avrmaestro.com/ru/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="sv" href="https://avrmaestro.com/sv/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="th" href="https://avrmaestro.com/th/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="tr" href="https://avrmaestro.com/tr/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="uk" href="https://avrmaestro.com/uk/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="vi" href="https://avrmaestro.com/vi/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://avrmaestro.com/zh-hans/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://avrmaestro.com/zh-hant/guide/home-assistant-troubleshooting/" />
+<link rel="alternate" hreflang="x-default" href="https://avrmaestro.com/guide/home-assistant-troubleshooting/" />
+<!--/hreflang-->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="AVR Maestro" />
+<meta property="og:locale" content="zh_CN" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:locale:alternate" content="cs_CZ" />
+<meta property="og:locale:alternate" content="da_DK" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="el_GR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fi_FI" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="he_IL" />
+<meta property="og:locale:alternate" content="hi_IN" />
+<meta property="og:locale:alternate" content="hu_HU" />
+<meta property="og:locale:alternate" content="id_ID" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="nb_NO" />
+<meta property="og:locale:alternate" content="nl_NL" />
+<meta property="og:locale:alternate" content="pl_PL" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ro_RO" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="sv_SE" />
+<meta property="og:locale:alternate" content="th_TH" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="uk_UA" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="og:title" content="Home Assistant 故障排除 - AVR Maestro" />
+<meta property="og:description" content="排查 AVR Maestro 的 Home Assistant 问题：关联卡片的含义、Entity Not Found、场景不出现，以及 Failed login 日志行。" />
+<meta property="og:url" content="https://avrmaestro.com/zh-hans/guide/home-assistant-troubleshooting/" />
+<meta property="og:image" content="https://avrmaestro.com/assets/og-guide.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Home Assistant 故障排除 - AVR Maestro" />
+<meta name="twitter:description" content="排查 AVR Maestro 的 Home Assistant 问题：关联卡片的含义、Entity Not Found、场景不出现，以及 Failed login 日志行。" />
+<meta name="twitter:image" content="https://avrmaestro.com/assets/og-guide.png" />
+<meta name="twitter:image:alt" content="AVR Maestro, an independent remote app for Denon and Marantz AV receivers" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@500;600;700;800&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" />
+<link rel="manifest" href="/manifest.json" />
+<link rel="stylesheet" href="/assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avrmaestro.com/#organization",
+      "name": "MiyaraHub Technologies LLC",
+      "url": "https://miyarahub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avrmaestro.com/assets/logo-square.jpg",
+        "width": 2048,
+        "height": 2048
+      },
+      "sameAs": [
+        "https://github.com/MiyaraHub"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avrmaestro.com/#website",
+      "url": "https://avrmaestro.com/",
+      "name": "AVR Maestro",
+      "description": "AVR Maestro 是一款独立应用，可通过本地网络控制 Denon 和 Marantz AV 接收机。",
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "inLanguage": "zh-Hans"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://avrmaestro.com/guide/home-assistant-troubleshooting/#article",
+      "headline": "排查 AVR Maestro 的 Home Assistant 问题",
+      "description": "排查 AVR Maestro 的 Home Assistant 问题：关联卡片的含义、Entity Not Found、场景不出现，以及 Failed login 日志行。",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://avrmaestro.com/#organization"
+      },
+      "mainEntityOfPage": "https://avrmaestro.com/guide/home-assistant-troubleshooting/",
+      "isPartOf": {
+        "@id": "https://avrmaestro.com/#website"
+      },
+      "about": {
+        "@id": "https://avrmaestro.com/#app"
+      },
+      "inLanguage": "zh-Hans"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://avrmaestro.com/guide/home-assistant-troubleshooting/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "我的脚本运行了，但显示 Entity Not Found，或者没有任何反应。",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "请确认 Home Assistant 中已安装官方 Denon AVR 集成。然后检查 AVR Maestro 设置中的 Receiver Media Player Entity ID 是否与 Home Assistant 中的实体 ID 完全一致，例如 media_player.living_room_receiver。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "为什么我的 Home Assistant 日志里写着 Failed login？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "如果关联时有过几次失败的尝试，或者浏览器在完成之前断开了连接，Home Assistant 就会记录一条警告。关联成功之后，你可以放心忽略这条旧警告。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "我创建了新场景，但它没有出现在 Home Assistant 中。",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "请确认手机与 Home Assistant 服务器处于同一个本地 Wi-Fi 网络，因为手机连不上服务器时，后台同步会失败。打开设置并轻点 Sync Scenes，如果有网络错误，就能看到具体内容。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "脚本运行时，应用需要保持打开吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不需要。脚本存放在 Home Assistant 中，所以手机放在口袋里时，它们也能通过你的仪表板、自动化或语音助手运行。只有在你更改场景时，应用才会构建并更新它们。"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "主页",
+      "item": "https://avrmaestro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "用户指南",
+      "item": "https://avrmaestro.com/guide/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Home Assistant 故障排除",
+      "item": "https://avrmaestro.com/guide/home-assistant-troubleshooting/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">跳到内容</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/zh-hans/"><img src="/assets/avr-maestro-icon-64.png" alt="AVR Maestro" width="30" height="30" decoding="async" /> AVR Maestro</a>
+    <button class="nav-toggle" aria-label="菜单" aria-controls="m" aria-expanded="false" onclick="this.setAttribute('aria-expanded',document.getElementById('m').classList.toggle('open'))">&#9776;</button>
+    <nav id="m" data-i18n-search="搜索指南…" data-i18n-empty="没有找到匹配项：" data-i18n-language="语言">
+      <a href="/zh-hans/">主页</a>
+      <a href="/zh-hans/guide/">用户指南</a>
+      <a href="/zh-hans/receivers/">接收机</a>
+      <a href="/zh-hans/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/zh-hans/best-denon-marantz-app/">为什么要换</a>
+      <a href="/zh-hans/#top" class="cta">下载</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/zh-hans/">主页</a> &rsaquo; <a href="/zh-hans/guide/">用户指南</a> &rsaquo; Home Assistant 故障排除</div>
+    <div class="eyebrow">当关联或脚本出问题时</div>
+    <h1>Home Assistant，<span class="g">无法正常工作时</span></h1>
+    <p>大多数 Home Assistant 问题都归结为关联状态、接收机实体 ID，或者手机与服务器之间的网络。先看关联卡片上写了什么，再逐项往下排查。</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>关联卡片在告诉你什么</h2>
+      <p class="lead">Sync 按钮上方的卡片显示关联的状态，按钮会随之变化。</p>
+    </div>
+    <ul class="plain">
+      <li><b>已关联 Home Assistant：</b>刚刚有一次经过身份验证的调用成功。Sync 按钮可用。</li>
+      <li><b>Home Assistant 关联已过期：</b>服务器作出了应答，但拒绝了已保存的令牌。在你重新登录之前，Sync 按钮处于禁用状态。</li>
+      <li><b>无法连接到 Home Assistant：</b>无法连上你的服务器，而令牌可能完全有效。Sync 按钮仍然可用，也不会更改任何内容。</li>
+      <li><b>未关联 Home Assistant：</b>尚未保存地址或令牌。请添加你的地址并登录。</li>
+      <li><b>Home Assistant 关联未检查：</b>演示模式已开启，或家庭自动化已锁定，所以没有向你的家发送任何内容，令牌也没有被尝试使用。</li>
+    </ul>
+    <div class="note">只有第一种会显示“已关联”，而且只是因为有内容通过了身份验证。仅仅保存了令牌，从来都不算关联。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>脚本没有任何反应，或显示 Entity Not Found</h2>
+    </div>
+    <ul class="plain">
+      <li>在 Home Assistant 的“设置”，“设备 &amp; 服务”中安装官方 <b>Denon AVR</b> 集成。</li>
+      <li>请确认 AVR Maestro 设置中的 <b>Receiver Media Player Entity ID</b> 与 Home Assistant 中的实体 ID 完全一致。</li>
+      <li>场景被删除或重新创建后，请忽略任何显示 <code>unavailable</code> 的实体。场景脚本按场景创建的时间命名，所以脚本 ID 如何变化一次，请参见<a href="/zh-hans/guide/home-automation/">家庭自动化</a>。</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Home Assistant 中缺少新场景</h2>
+    </div>
+    <p class="lead">每当你添加、编辑或删除场景时，场景都会在后台同步，所以不必每次都按 Sync。如果缺少某个场景，说明手机没能连上你的服务器。</p>
+    <ul class="plain">
+      <li>让手机接入与 Home Assistant 相同的本地 Wi-Fi 网络。</li>
+      <li>打开设置并轻点 <b>Sync Scenes</b>。如果失败，它会显示具体的网络错误。</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Home Assistant 日志中的 Failed login</h2>
+    </div>
+    <p class="lead">几次失败的尝试，或者浏览器在关联完成前断开了连接，都会在 Home Assistant 中留下一条警告。它是历史记录，不是当前故障，关联正常之后你可以忽略它。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>其他可能出问题的地方</h2>
+    </div>
+    <ul class="plain">
+      <li>仪表板图块始终不亮：请参见 <a href="/zh-hans/guide/home-assistant-dashboard/">Home Assistant 仪表板指南</a>。</li>
+      <li>Webhook 没有送达：请参见<a href="/zh-hans/guide/home-automation/">家庭自动化</a>。</li>
+      <li>还是卡住了？请到 <a href="https://discord.gg/UmVtxE5fXN">Discord</a> 提问，或查看<a href="/zh-hans/help/">帮助</a>。</li>
+    </ul>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">常见问题</div>
+      <h2>Home Assistant 问题解答</h2>
+    </div>
+    <details open><summary>我的脚本运行了，但显示 Entity Not Found，或者没有任何反应。</summary><div class="body">请确认 Home Assistant 中已安装官方 Denon AVR 集成。然后检查 AVR Maestro 设置中的 Receiver Media Player Entity ID 是否与 Home Assistant 中的实体 ID 完全一致，例如 media_player.living_room_receiver。</div></details>
+    <details><summary>为什么我的 Home Assistant 日志里写着 Failed login？</summary><div class="body">如果关联时有过几次失败的尝试，或者浏览器在完成之前断开了连接，Home Assistant 就会记录一条警告。关联成功之后，你可以放心忽略这条旧警告。</div></details>
+    <details><summary>我创建了新场景，但它没有出现在 Home Assistant 中。</summary><div class="body">请确认手机与 Home Assistant 服务器处于同一个本地 Wi-Fi 网络，因为手机连不上服务器时，后台同步会失败。打开设置并轻点 Sync Scenes，如果有网络错误，就能看到具体内容。</div></details>
+    <details><summary>脚本运行时，应用需要保持打开吗？</summary><div class="body">不需要。脚本存放在 Home Assistant 中，所以手机放在口袋里时，它们也能通过你的仪表板、自动化或语音助手运行。只有在你更改场景时，应用才会构建并更新它们。</div></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">指南的更多内容</div>
+      <h2>其他 AVR Maestro 指南</h2>
+    </div>
+    <p class="lead"><a href="/zh-hans/guide/getting-started/">入门指南</a> &middot; <a href="/zh-hans/guide/receivers/">管理接收机</a> &middot; <a href="/zh-hans/guide/navigation/">应用导航</a> &middot; <a href="/zh-hans/guide/search/">搜索</a> &middot; <a href="/zh-hans/guide/home/">主屏幕</a> &middot; <a href="/zh-hans/guide/volume/">音量控制</a> &middot; <a href="/zh-hans/guide/remote/">遥控</a> &middot; <a href="/zh-hans/guide/multi-zone/">分区</a> &middot; <a href="/zh-hans/guide/now-playing/">正在播放</a> &middot; <a href="/zh-hans/guide/radio/">收音机（FM/AM）</a> &middot; <a href="/zh-hans/guide/scenes/">场景</a> &middot; <a href="/zh-hans/guide/sound/">声音</a> &middot; <a href="/zh-hans/guide/graphic-eq/">图形均衡器</a> &middot; <a href="/zh-hans/guide/speakers/">扬声器</a> &middot; <a href="/zh-hans/guide/locked-controls/">控件为何被锁定</a> &middot; <a href="/zh-hans/guide/settings/">设置</a> &middot; <a href="/zh-hans/guide/widgets/">小组件</a> &middot; <a href="/zh-hans/guide/custom-icons/">自定义图标</a> &middot; <a href="/zh-hans/guide/languages/">语言</a> &middot; <a href="/zh-hans/guide/assistant/">助手</a> &middot; <a href="/zh-hans/guide/home-automation/">家庭自动化</a> &middot; <a href="/zh-hans/guide/home-assistant-dashboard/">Home Assistant 仪表板</a> &middot; <a href="/zh-hans/guide/backup/">备份与恢复</a> &middot; <a href="/zh-hans/guide/glossary/">术语表</a></p>
+  </div>
+</section>
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/zh-hans/">主页</a>
+      <a href="/zh-hans/guide/">用户指南</a>
+      <a href="/zh-hans/guide/getting-started/">入门指南</a>
+      <a href="/zh-hans/receivers/">接收机</a>
+      <a href="/zh-hans/audyssey-dirac-control/">Audyssey &amp; Dirac</a>
+      <a href="/zh-hans/audyssey-vs-dirac/">Audyssey 与 Dirac 对比</a>
+      <a href="/zh-hans/best-denon-marantz-app/">为什么要换</a>
+      <a href="/zh-hans/help/">帮助</a>
+      <a href="https://play.google.com/store/apps/details?id=com.miyarahub.avr_maestro&amp;referrer=utm_source%3Davrmaestro.com%26utm_medium%3Dguide-home-assistant-troubleshooting">Google Play</a>
+      <a href="https://apps.apple.com/us/app/avr-maestro-for-denon-marantz/id6762881597">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9P4M7W4J5106">Microsoft Store</a>
+      <a href="https://discord.gg/UmVtxE5fXN">Discord</a>
+      <a href="https://www.facebook.com/groups/avrmaestro">Facebook</a>
+      <a href="https://miyarahub.com">MiyaraHub</a>
+      <a href="https://www.miyarahub.com/privacy.html">隐私政策</a>
+      <a href="https://www.miyarahub.com/terms.html">使用条款</a>
+    </div>
+    <p class="legal">AVR Maestro 是 MiyaraHub Technologies LLC 开发的独立应用，与 Denon、Marantz、Sound United、Masimo Corporation 或本页提到的任何其他公司没有关联，也未获得其认可。Denon、Marantz 和 Audyssey 是其各自所有者的商标，在此仅用于识别。</p>
+  </div>
+</footer>
+
+<script defer src="/assets/search.js"></script>
+<script defer src="/assets/lightbox.js"></script>
+<script src="/assets/lang.js" defer></script>
+</body>
+</html>
