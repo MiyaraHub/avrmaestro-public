@@ -178,7 +178,7 @@
       "name": "Asistan sormadan bir şeyleri değiştirir mi?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Güç, sessize alma, giriş ve sesi kısma işlemlerini doğrudan yapar, çünkü bunların hepsi odadaki kişi tarafından kolayca geri alınabilir. Sesi YÜKSELTME her zaman önce sorar, çünkü en kötü senaryosu hasar görmüş bir sürücü olan tek eylem budur."
+        "text": "Güç, sessize alma, giriş, ses modu ve sesi kısma işlemlerini doğrudan yapar, çünkü bunların hepsi odadaki kişi tarafından kolayca geri alınabilir. Sesi AÇMA veya sesi şu anki seviyeden yükseğe ayarlama her zaman önce sorar, çünkü en kötü sonucu hoparlör sürücüsünün zarar görmesi olan tek işlem budur."
       }
     },
     {
@@ -249,8 +249,9 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Nerede</div>
-      <h2>Asistan sekmesi</h2>
+      <h2>Asistanı açma</h2>
     </div>
+    <p class="lead">Ana Sayfa'nın üst satırındaki parıltı düğmesine dokunun veya Ayarlar, Ek Özellikler, Asistan yoluna gidin. İkisi de yalnızca cihaz üzerindeki modeli çalıştırabilen bir cihazda görünür.</p>
     <p class="lead">Bir soru yazın ya da mikrofona basılı tutup söyleyin. Giriş yapılacak bir şey, yapıştırılacak anahtar ve hesap yok. Cihazınız cihaz üzerinde bir model çalıştırabiliyorsa asistan açtığınız anda çalışır.</p>
     <p class="lead">Kendi sözlerinizle sorun. “Ses ne kadar yüksek”, “bunu neyle izliyorum”, “hangi Dirac yuvası yüklü”, “Dynamic EQ açık mı” - ne kastettiğinizi alıcınızın gerçekten bildirdiği şeylere göre çözümler, böylece ayarın adını bilmeniz gerekmez.</p>
     <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px;margin:30px auto 0">
@@ -299,11 +300,12 @@
         <tr><td>Gücü aç veya kapat, sessize al, sesi aç</td><td>Hemen yapılır, ardından ne gönderdiğini söyler</td></tr>
         <tr><td>Sesi kıs</td><td>Hemen yapılır. Birinin sesin kısılmasını istediği an, bir iletişim kutusunu en az istediği andır</td></tr>
         <tr><td>Sesi yükselt</td><td><b>Önce sorar.</b> En kötü senaryosu - hasar görmüş bir sürücü - odadaki kişinin geri alamayacağı tek eylemdir</td></tr>
+        <tr><td>Sesi bir seviyeye ayarla</td><td>"Sesi -30 dB'e ayarla". Seviye şu anki seviyenin altındaysa hemen yapılır; yüksekse, sesi açmayla aynı nedenle <b>önce sorar</b></td></tr>
         <tr><td>Girişi değiştir</td><td>Kendi kaynak listenize göre, verdiğiniz yeni adla çözümlenir. İki olası eşleşme varsa hangisi olduğunu sorar</td></tr>
+        <tr><td>Ses modunu değiştir</td><td>Hemen yapılır; alıcınızın şu anda sunduğu ses modları arasından seçilir. Alıcınız ses modlarını türe göre listeler, bu yüzden başka bir türdeki mod listede yoktur: asistan onu görmediğini söyler ve sunulan modları sayar, aramak için türü değiştirmez</td></tr>
       </tbody>
     </table>
     <p class="lead" style="margin-top:22px">Miktar sizin vermeniz gereken şeydir. “Sesi 5 dB kıs” 5 dB oynatır; sayı vermeden “sesi kıs” düğmeye bir kez basmakla aynı olan bir adım oynatır. Söylemediğiniz bir rakama kendisi karar vermez.</p>
-    <p class="lead">Ses modunu buradan değiştirmek henüz desteklenmiyor. Alıcınız ses modlarını kategoriye göre düzenler ve etkin olanın içinde seçim yapar; yani gönderilecek tek bir ad yoktur - bunu Ses sekmesi doğru şekilde yapar.</p>
   </div>
 </section>
 
@@ -397,7 +399,7 @@
     </div>
     <details open><summary>Asistan verilerimi bir yere gönderiyor mu?</summary><div class="body">Dil modeli cihazınızda çalışır ve alıcınız kendi ağınızdadır; bu yüzden yazdığınız soru ve cevabı donanımınızdan çıkmaz. Sesli giriş bunun dışındadır: konuşmayı metne çevirme işini telefonunuzun kendi tanıyıcısı yapar ve çoğu telefonda bu, sesin yazıya dökülmek üzere platform sağlayıcısına gönderilmesi anlamına gelir. Yazarak sormak bunu tamamen önler.</div></details>
     <details><summary>Asistan neden cihazımın bunu çalıştıramadığını söylüyor?</summary><div class="body">Asistan cihaz üzerinde bir model gerektirir: iPhone, iPad ve Mac için Apple Intelligence, Android için Google AICore aracılığıyla Gemini Nano. Başka açılardan yetenekli pek çok cihazda böyle bir model yoktur. Uygulama özelliği gizlemek yerine tam olarak hangi durumda olduğunu bildirir; böylece sorunun bir indirme, bir ayar ya da donanım olduğunu bilirsiniz.</div></details>
-    <details><summary>Asistan sormadan bir şeyleri değiştirir mi?</summary><div class="body">Güç, sessize alma, giriş ve sesi kısma işlemlerini doğrudan yapar, çünkü bunların hepsi odadaki kişi tarafından kolayca geri alınabilir. Sesi YÜKSELTME her zaman önce sorar, çünkü en kötü senaryosu hasar görmüş bir sürücü olan tek eylem budur.</div></details>
+    <details><summary>Asistan sormadan bir şeyleri değiştirir mi?</summary><div class="body">Güç, sessize alma, giriş, ses modu ve sesi kısma işlemlerini doğrudan yapar, çünkü bunların hepsi odadaki kişi tarafından kolayca geri alınabilir. Sesi AÇMA veya sesi şu anki seviyeden yükseğe ayarlama her zaman önce sorar, çünkü en kötü sonucu hoparlör sürücüsünün zarar görmesi olan tek işlem budur.</div></details>
     <details><summary>Neden bazen bir şeyi söyleyemediğini belirtiyor?</summary><div class="body">Çünkü tahmin yürütmez. Verdiği her rakam alıcınızdan alınan bir okumadan gelir; bu yüzden bir okuma ulaşmadıysa makul görünen bir sayı uydurmak yerine alt sistemin okunamadığını söyler. Doğru gibi görünen yanlış bir yanıt, yanıt vermemekten daha kötüdür.</div></details>
   </div>
 </section>

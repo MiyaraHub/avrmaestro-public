@@ -178,7 +178,7 @@
       "name": "Will the assistant change things without asking?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It acts directly on power, mute, input and turning the volume down, because all of those are trivially undone by the person in the room. Turning the volume UP always asks first, because that is the one action whose worst case is a damaged driver."
+        "text": "It acts directly on power, mute, input, sound mode and turning the volume down, because all of those are trivially undone by the person in the room. Turning the volume UP, or setting it to a level higher than it is now, always asks first, because that is the one action whose worst case is a damaged driver."
       }
     },
     {
@@ -249,8 +249,9 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Where it is</div>
-      <h2>The Assistant tab</h2>
+      <h2>Opening the assistant</h2>
     </div>
+    <p class="lead">Tap the sparkle button in the top row of Home, or go to Settings, Add-ons, Assistant. Both appear only on a device that can run the on-device model.</p>
     <p class="lead">Type a question, or hold the microphone and say it. There is nothing to sign into, no key to paste, and no account. If your device can run an on-device model, the assistant works the moment you open it.</p>
     <p class="lead">Ask it in your own words. "How loud is it", "what am I watching this on", "which Dirac slot is loaded", "is Dynamic EQ on" - it resolves what you meant against the things your receiver actually reports, so you do not have to know what the setting is called.</p>
     <div class="gallery" style="grid-template-columns:repeat(2,1fr);max-width:640px;margin:30px auto 0">
@@ -299,11 +300,12 @@
         <tr><td>Power on or off, mute, unmute</td><td>Done immediately, then it tells you what it sent</td></tr>
         <tr><td>Turn the volume down</td><td>Done immediately. The moment somebody wants it quieter is the moment they least want a dialog</td></tr>
         <tr><td>Turn the volume up</td><td><b>Asks first.</b> It is the one action whose worst case - a damaged driver - cannot be undone by the person standing in the room</td></tr>
+        <tr><td>Set the volume to a level</td><td>"Set the volume to -30 dB". Done immediately when the level is below where it is now; <b>asks first</b> when it is higher, for the same reason as turning it up</td></tr>
         <tr><td>Switch the input</td><td>Resolved against your own source list, under the name you renamed it to. Two possible matches and it asks which</td></tr>
+        <tr><td>Change the sound mode</td><td>Done immediately, chosen from the sound modes your receiver is offering right now. Your receiver lists sound modes by genre, so a mode from another genre is not on that list: it says it does not see it and names the modes that are on offer, rather than switching genre to go looking</td></tr>
       </tbody>
     </table>
     <p class="lead" style="margin-top:22px">The amount is yours to give. "Turn it down by 5 dB" moves 5 dB; "turn it down" with no number moves one step, the same as one press of the button. It will not decide on a figure you did not say.</p>
-    <p class="lead">Changing the sound mode from here is not supported yet. Your receiver organizes sound modes by category and selects within the active one, so it is not a single name to send - the Sound tab does it properly.</p>
   </div>
 </section>
 
@@ -397,7 +399,7 @@
     </div>
     <details open><summary>Does the assistant send my data anywhere?</summary><div class="body">The language model runs on your device and your receiver is on your own network, so a typed question and its answer do not leave your hardware. Voice input is the exception: turning speech into text is done by your phone&#x27;s own recognizer, and on most phones that means the audio goes to the platform vendor to be transcribed. Typing avoids that entirely.</div></details>
     <details><summary>Why does the assistant say my device cannot run it?</summary><div class="body">The assistant needs an on-device model: Apple Intelligence on iPhone, iPad and Mac, or Gemini Nano through Google AICore on Android. Plenty of otherwise capable devices do not have one. The app reports exactly which state it is in rather than hiding the feature, so you know whether it is a download, a setting, or hardware.</div></details>
-    <details><summary>Will the assistant change things without asking?</summary><div class="body">It acts directly on power, mute, input and turning the volume down, because all of those are trivially undone by the person in the room. Turning the volume UP always asks first, because that is the one action whose worst case is a damaged driver.</div></details>
+    <details><summary>Will the assistant change things without asking?</summary><div class="body">It acts directly on power, mute, input, sound mode and turning the volume down, because all of those are trivially undone by the person in the room. Turning the volume UP, or setting it to a level higher than it is now, always asks first, because that is the one action whose worst case is a damaged driver.</div></details>
     <details><summary>Why does it sometimes say it cannot tell me something?</summary><div class="body">Because it will not guess. Every figure it gives you comes from a reading taken off your receiver, so if a reading did not arrive it says the subsystem could not be read rather than inventing a plausible number. A wrong answer that sounds right is worse than no answer.</div></details>
   </div>
 </section>
