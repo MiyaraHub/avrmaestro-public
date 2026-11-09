@@ -130,7 +130,7 @@
       "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
       "headline": "ابنِ لوحة Home Assistant هذه في ساعة تقريبًا",
       "description": "ابنِ لوحة Home Assistant لمستقبل Denon أو Marantz: بطاقات HACS ومعرّفات الكيانات وYAML لكل بطاقة ومستوى صوت حقيقي بوحدة dB والمشاهد والسجل.",
-      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
       "datePublished": "2026-08-23",
       "dateModified": "2026-10-01",
       "author": {
@@ -254,7 +254,7 @@
 <section>
   <div class="wrap">
     <figure class="hero-shot">
-      <img alt="لوحة التحكم بعد اكتمالها: بطاقة رئيسية للتشغيل الحالي، ومستوى صوت مع إعدادات مسبقة بوحدة dB، وشبكة مصادر، وأوضاع الصوت المحيطي، وتصحيح الغرفة، والمشاهد، ورسم بياني لمستوى الصوت" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <img alt="لوحة التحكم بعد اكتمالها: بطاقة رئيسية للتشغيل الحالي، ومستوى صوت مع إعدادات مسبقة بوحدة dB، وشبكة مصادر، وأوضاع الصوت المحيطي، وتصحيح الغرفة، والمشاهد، ورسم بياني لمستوى الصوت" srcset="/screenshots/ha-dashboard-full-656.webp 656w, /screenshots/ha-dashboard-full.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-full.webp" width="1312" height="4092" decoding="async" loading="lazy" />
       <figcaption>ما الذي ستبنيه</figcaption>
     </figure>
     <div class="note"><b>على عجل؟</b> انتقل إلى <a href="#whole">الخطوة 10</a>، ونزّل العرض الكامل، وغيّر نصّين والصقه. أما الخطوات التي بينهما فتشرح وظيفة كل جزء لتتمكن من تعديله.</div>
@@ -367,7 +367,7 @@ tap_action:
       <h2>اجعله يُضاء حين يكون هو النشط</h2>
     </div>
     <p class="lead">هذا هو النمط الذي يستحق التعلّم، وكل بلاطة مصدر وصوت محيطي في اللوحة نسخة منه. تُرسل البطاقة نصًا برمجيًا وتلوّن نفسها بحسب كيان المستقبل، فيُضاء المدخل الذي تستخدمه فعلًا وتبقى البقية مطفأة.</p>
-    <figure><img alt="شبكة المصادر وقد أُضيء Nvidia Shield باللون البرتقالي بينما بقيت المدخلات الاثنا عشر الأخرى معتمة" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>بلاطة واحدة مضاءة، واثنتا عشرة معتمة</figcaption></figure>
+    <figure><img alt="شبكة المصادر وقد أُضيء Nvidia Shield باللون البرتقالي بينما بقيت المدخلات الاثنا عشر الأخرى معتمة" srcset="/screenshots/ha-dashboard-sources-656.webp 656w, /screenshots/ha-dashboard-sources.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-sources.webp" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>بلاطة واحدة مضاءة، واثنتا عشرة معتمة</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_input_cd
 icon: mdi:disc
@@ -446,7 +446,7 @@ styles:
       <h2>اعرض مستوى الصوت بوحدة dB</h2>
     </div>
     <p class="lead">يُبلغ Home Assistant عن مستوى الصوت ككسر. لا أحد يضبط مستقبله على «0.67». سطر واحد من الحساب يحل المشكلة ويبدو القسم كله كأنه مستقبل حقيقي.</p>
-    <figure><img alt="قسم مستوى الصوت: منزلق، ورفع، وخفض، وكتم، وأربعة إعدادات مسبقة بوحدة dB" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>ليلي، وحوار، وفيلم، وعالٍ، وعلى كل منها مستوى dB الذي يضبطه</figcaption></figure>
+    <figure><img alt="قسم مستوى الصوت: منزلق، ورفع، وخفض، وكتم، وأربعة إعدادات مسبقة بوحدة dB" srcset="/screenshots/ha-dashboard-volume-656.webp 656w, /screenshots/ha-dashboard-volume.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-volume.webp" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>ليلي، وحوار، وفيلم، وعالٍ، وعلى كل منها مستوى dB الذي يضبطه</figcaption></figure>
     <div class="note"><b>التحويل.</b> ينشر Home Assistant القيمة <code>volume_level</code> بوصفها مستوى الصوت الرئيسي مقسومًا على 100، وفي مستقبلات Denon وMarantz يمثل MV 80 المرجع 0 dB. إذن <b>dB = volume_level &times; 100 &minus; 80</b>. فالقيمة <code>volume_level</code> البالغة 0.67 تعني مستوى صوت رئيسيًا 67، أي &minus;13.0 dB.</div>
 <pre class="code"><span class="c"># The readout</span>
 type: custom:mushroom-template-card
@@ -488,7 +488,7 @@ tap_action:
       <h2>أضف مشاهدك</h2>
     </div>
     <p class="lead">اقرأ الاسم من النص البرمجي بدل كتابته، وعندما تعيد تسمية مشهد في AVR Maestro تتغير تسمية البلاطة دون أي تعديل في لوحة التحكم.</p>
-    <figure><img alt="أربع بلاطات مشاهد، وكل منها يسرد الإعدادات التي يستعيدها المشهد" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>كل بلاطة تذكر ما يستعيده مشهدها فعلًا</figcaption></figure>
+    <figure><img alt="أربع بلاطات مشاهد، وكل منها يسرد الإعدادات التي يستعيدها المشهد" src="/screenshots/ha-dashboard-scenes.webp" width="424" height="369" loading="lazy" decoding="async" /><figcaption>كل بلاطة تذكر ما يستعيده مشهدها فعلًا</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_scene_1234567890123
 icon: mdi:theater
@@ -516,7 +516,7 @@ tap_action:
       <h2>أضف السجل</h2>
     </div>
     <p class="lead">يسجّل Home Assistant كيان مشغّل الوسائط في المستقبل مثل أي كيان آخر، فيتوفر لك سجل استماع مجانًا. كل ما يلي يأتي من كيان واحد: دون مستشعرات إضافية، ودون مساعدات، ودون أي إعداد مسبق.</p>
-    <figure><img alt="خمسة رسوم بيانية للسجل: الطاقة والنشاط، ومستوى الصوت الرئيسي بوحدة dB، ومستوى الصوت حسب اليوم، والمصدر المستخدم، ووضع الصوت المحيطي" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>خمسة رسوم بيانية، وكيان واحد، وسبعة أيام</figcaption></figure>
+    <figure><img alt="خمسة رسوم بيانية للسجل: الطاقة والنشاط، ومستوى الصوت الرئيسي بوحدة dB، ومستوى الصوت حسب اليوم، والمصدر المستخدم، ووضع الصوت المحيطي" srcset="/screenshots/ha-dashboard-history-656.webp 656w, /screenshots/ha-dashboard-history.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-history.webp" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>خمسة رسوم بيانية، وكيان واحد، وسبعة أيام</figcaption></figure>
     <p class="lead">الخط الزمني للحالة العادي لا يحتاج إلى أي بطاقات مخصصة، وهو الأجدر بالاقتناء:</p>
 <pre class="code">type: history-graph
 hours_to_show: 168
@@ -690,7 +690,7 @@ secondary: >-
       <li><b>يختفي الخط الثابت من رسم apexcharts البياني.</b> هذا هو <code>experimental.color_threshold</code>. فهو يرسم الخط بتدرج رأسي، والمقطع الأفقي تمامًا ارتفاعه صفر فلا يوجد ما يتدرج عبره، فيظهر غير مرئي. جلسة مدتها 43 ساعة بمستوى صوت واحد اختفت كليًا. استخدم <code>color</code> صلبًا.</li>
       <li><b>يعيد ترتيب نفسه على الهاتف تلقائيًا.</b> تتراص عروض الأقسام في عمود واحد عند العروض الضيقة دون أي إعداد إضافي.</li>
     </ul>
-    <figure><img alt="لوحة التحكم نفسها بعرض الهاتف، وقد أعادت ترتيب نفسها في عمود واحد" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>لوحة التحكم نفسها بعرض الهاتف: الأعمدة الثلاثة تصبح عمودًا واحدًا، ولم يُضبط شيء لحدوث ذلك</figcaption></figure>
+    <figure><img alt="لوحة التحكم نفسها بعرض الهاتف، وقد أعادت ترتيب نفسها في عمود واحد" src="/screenshots/ha-dashboard-narrow.webp" width="430" height="932" loading="lazy" decoding="async" /><figcaption>لوحة التحكم نفسها بعرض الهاتف: الأعمدة الثلاثة تصبح عمودًا واحدًا، ولم يُضبط شيء لحدوث ذلك</figcaption></figure>
   </div>
 </section>
 

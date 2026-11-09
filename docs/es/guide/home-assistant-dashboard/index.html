@@ -130,7 +130,7 @@
       "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
       "headline": "Crea este panel de Home Assistant en aproximadamente una hora",
       "description": "Crea un panel de Home Assistant para tu receptor Denon o Marantz: tarjetas de HACS, ID de entidades, YAML para cada tarjeta, volumen real en dB, Escenas e historial.",
-      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
       "datePublished": "2026-08-23",
       "dateModified": "2026-10-01",
       "author": {
@@ -254,7 +254,7 @@
 <section>
   <div class="wrap">
     <figure class="hero-shot">
-      <img alt="El panel terminado: una tarjeta principal de reproducción, volumen con preajustes en dB, una cuadrícula de fuentes, modos surround, corrección de sala, escenas y un gráfico de volumen" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <img alt="El panel terminado: una tarjeta principal de reproducción, volumen con preajustes en dB, una cuadrícula de fuentes, modos surround, corrección de sala, escenas y un gráfico de volumen" srcset="/screenshots/ha-dashboard-full-656.webp 656w, /screenshots/ha-dashboard-full.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-full.webp" width="1312" height="4092" decoding="async" loading="lazy" />
       <figcaption>Lo que vas a construir</figcaption>
     </figure>
     <div class="note"><b>¿Tienes prisa?</b> Salta al <a href="#whole">paso 10</a>, descarga la vista completa, cambia dos cadenas y pégala. Los pasos intermedios explican qué hace cada pieza para que puedas modificarla.</div>
@@ -367,7 +367,7 @@ tap_action:
       <h2>Haz que se ilumine cuando sea el activo</h2>
     </div>
     <p class="lead">Este es el patrón que merece la pena aprender, y cada botón de fuente y de surround del tablero es una copia suya. La tarjeta envía un script y se colorea a partir de la entidad del receptor, de modo que la entrada en la que estás se ilumina y las demás no.</p>
-    <figure><img alt="La cuadrícula de fuentes con Nvidia Shield iluminada en naranja y las otras doce entradas apagadas" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Un botón iluminado, doce apagados</figcaption></figure>
+    <figure><img alt="La cuadrícula de fuentes con Nvidia Shield iluminada en naranja y las otras doce entradas apagadas" srcset="/screenshots/ha-dashboard-sources-656.webp 656w, /screenshots/ha-dashboard-sources.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-sources.webp" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Un botón iluminado, doce apagados</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_input_cd
 icon: mdi:disc
@@ -446,7 +446,7 @@ styles:
       <h2>Muestra el volumen en dB</h2>
     </div>
     <p class="lead">Home Assistant reporta el volumen como una fracción. Nadie pone un receptor a «0.67». Una línea de matemáticas lo arregla y toda la sección empieza a parecerse a un receptor.</p>
-    <figure><img alt="La sección de volumen: un control deslizante, subir, bajar, silencio y cuatro preajustes en dB" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie y Loud, cada uno etiquetado con los dB que establece</figcaption></figure>
+    <figure><img alt="La sección de volumen: un control deslizante, subir, bajar, silencio y cuatro preajustes en dB" srcset="/screenshots/ha-dashboard-volume-656.webp 656w, /screenshots/ha-dashboard-volume.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-volume.webp" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie y Loud, cada uno etiquetado con los dB que establece</figcaption></figure>
     <div class="note"><b>La conversión.</b> Home Assistant publica <code>volume_level</code> como el volumen principal dividido por 100, y en los receptores Denon y Marantz MV 80 es la referencia de 0 dB. Así que <b>dB = volume_level &times; 100 &minus; 80</b>. Un <code>volume_level</code> de 0.67 es un volumen principal de 67, que son &minus;13.0 dB.</div>
 <pre class="code"><span class="c"># The readout</span>
 type: custom:mushroom-template-card
@@ -488,7 +488,7 @@ tap_action:
       <h2>Añade tus Escenas</h2>
     </div>
     <p class="lead">Lee el nombre del script en lugar de escribirlo, y al renombrar una Escena en AVR Maestro el botón cambia de nombre sin tocar el panel.</p>
-    <figure><img alt="Cuatro botones de escena, cada uno con la lista de ajustes que esa escena restaura" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Cada botón indica lo que su escena restaura realmente</figcaption></figure>
+    <figure><img alt="Cuatro botones de escena, cada uno con la lista de ajustes que esa escena restaura" src="/screenshots/ha-dashboard-scenes.webp" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Cada botón indica lo que su escena restaura realmente</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_scene_1234567890123
 icon: mdi:theater
@@ -516,7 +516,7 @@ tap_action:
       <h2>Añade historial</h2>
     </div>
     <p class="lead">Home Assistant registra la entidad de reproductor de medios del receptor como cualquier otra, así que obtienes un historial de escucha gratis. Todo lo que sigue sale de esa única entidad: sin sensores adicionales, sin ayudantes, sin nada que configurar antes.</p>
-    <figure><img alt="Cinco gráficos de historial: encendido y actividad, volumen principal en dB, volumen por día, fuente en uso y modo surround" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Cinco gráficos, una entidad, siete días</figcaption></figure>
+    <figure><img alt="Cinco gráficos de historial: encendido y actividad, volumen principal en dB, volumen por día, fuente en uso y modo surround" srcset="/screenshots/ha-dashboard-history-656.webp 656w, /screenshots/ha-dashboard-history.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-history.webp" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Cinco gráficos, una entidad, siete días</figcaption></figure>
     <p class="lead">La línea de tiempo de estados simple no necesita ninguna tarjeta personalizada y es la que más merece la pena tener:</p>
 <pre class="code">type: history-graph
 hours_to_show: 168
@@ -690,7 +690,7 @@ secondary: >-
       <li><b>Una línea constante desaparece de un gráfico de apexcharts.</b> Eso es <code>experimental.color_threshold</code>. Dibuja el trazo como un degradado vertical, y un segmento perfectamente horizontal tiene altura cero para degradar, así que se muestra invisible. Una sesión de 43 horas a un solo volumen desapareció por completo. Usa un <code>color</code> sólido.</li>
       <li><b>Se reorganiza solo en el teléfono.</b> Las vistas de Secciones se apilan en una columna en anchos estrechos sin configurar nada adicional.</li>
     </ul>
-    <figure><img alt="El mismo panel con ancho de teléfono, reorganizado en una sola columna" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>El mismo panel con ancho de teléfono: las tres columnas pasan a ser una, y no se configuró nada para que ocurriera</figcaption></figure>
+    <figure><img alt="El mismo panel con ancho de teléfono, reorganizado en una sola columna" src="/screenshots/ha-dashboard-narrow.webp" width="430" height="932" loading="lazy" decoding="async" /><figcaption>El mismo panel con ancho de teléfono: las tres columnas pasan a ser una, y no se configuró nada para que ocurriera</figcaption></figure>
   </div>
 </section>
 

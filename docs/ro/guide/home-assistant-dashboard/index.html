@@ -130,7 +130,7 @@
       "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
       "headline": "Construiți acest panou Home Assistant în aproximativ o oră",
       "description": "Construiți un panou Home Assistant pentru receiverul Denon sau Marantz: carduri HACS, ID-uri de entități, YAML pentru fiecare card, volum real în dB, Scene și istoric.",
-      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
       "datePublished": "2026-08-23",
       "dateModified": "2026-10-01",
       "author": {
@@ -254,7 +254,7 @@
 <section>
   <div class="wrap">
     <figure class="hero-shot">
-      <img alt="Panoul de control terminat: un card central pentru ce rulează acum, volum cu presetări în dB, o grilă de surse, moduri surround, corecția camerei, scene și un grafic de volum" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <img alt="Panoul de control terminat: un card central pentru ce rulează acum, volum cu presetări în dB, o grilă de surse, moduri surround, corecția camerei, scene și un grafic de volum" srcset="/screenshots/ha-dashboard-full-656.webp 656w, /screenshots/ha-dashboard-full.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-full.webp" width="1312" height="4092" decoding="async" loading="lazy" />
       <figcaption>Ce construiți</figcaption>
     </figure>
     <div class="note"><b>Vă grăbiți?</b> Săriți la <a href="#whole">pasul 10</a>, descărcați vizualizarea completă, schimbați două șiruri de text și lipiți-o. Pașii dintre ele explică ce face fiecare element, ca să îl puteți modifica.</div>
@@ -367,7 +367,7 @@ tap_action:
       <h2>Faceți-l să se aprindă când este cel activ</h2>
     </div>
     <p class="lead">Acesta este modelul care merită învățat, iar fiecare tilă de sursă și de surround de pe panou este o copie a lui. Cardul trimite un script și se colorează după entitatea receiverului, astfel încât intrarea pe care vă aflați efectiv este aprinsă, iar celelalte nu.</p>
-    <figure><img alt="Grila de surse cu Nvidia Shield aprins în portocaliu și celelalte douăsprezece intrări stinse" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>O tilă aprinsă, douăsprezece stinse</figcaption></figure>
+    <figure><img alt="Grila de surse cu Nvidia Shield aprins în portocaliu și celelalte douăsprezece intrări stinse" srcset="/screenshots/ha-dashboard-sources-656.webp 656w, /screenshots/ha-dashboard-sources.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-sources.webp" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>O tilă aprinsă, douăsprezece stinse</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_input_cd
 icon: mdi:disc
@@ -446,7 +446,7 @@ styles:
       <h2>Afișați volumul în dB</h2>
     </div>
     <p class="lead">Home Assistant raportează volumul ca fracție. Nimeni nu setează un receiver la „0.67”. O singură linie de matematică rezolvă asta, iar întreaga secțiune începe să arate ca un receiver.</p>
-    <figure><img alt="Secțiunea de volum: un glisor, sus, jos, mute și patru presetări în dB" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie și Loud, fiecare etichetată cu dB-ul pe care îl setează</figcaption></figure>
+    <figure><img alt="Secțiunea de volum: un glisor, sus, jos, mute și patru presetări în dB" srcset="/screenshots/ha-dashboard-volume-656.webp 656w, /screenshots/ha-dashboard-volume.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-volume.webp" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie și Loud, fiecare etichetată cu dB-ul pe care îl setează</figcaption></figure>
     <div class="note"><b>Conversia.</b> Home Assistant publică <code>volume_level</code> ca volumul principal împărțit la 100, iar la receivere Denon și Marantz MV 80 este referința de 0 dB. Deci <b>dB = volume_level &times; 100 &minus; 80</b>. Un <code>volume_level</code> de 0.67 înseamnă volum principal 67, adică &minus;13.0 dB.</div>
 <pre class="code"><span class="c"># The readout</span>
 type: custom:mushroom-template-card
@@ -488,7 +488,7 @@ tap_action:
       <h2>Adăugați Scenele dumneavoastră</h2>
     </div>
     <p class="lead">Citiți numele din script în loc să îl tastați, iar redenumirea unei Scene în AVR Maestro redenumește tila fără nicio editare a panoului.</p>
-    <figure><img alt="Patru tile de scenă, fiecare listând setările pe care le restabilește scena respectivă" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Fiecare tilă spune ce restabilește de fapt scena ei</figcaption></figure>
+    <figure><img alt="Patru tile de scenă, fiecare listând setările pe care le restabilește scena respectivă" src="/screenshots/ha-dashboard-scenes.webp" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Fiecare tilă spune ce restabilește de fapt scena ei</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_scene_1234567890123
 icon: mdi:theater
@@ -516,7 +516,7 @@ tap_action:
       <h2>Adăugați istoric</h2>
     </div>
     <p class="lead">Entitatea media player a receiverului este înregistrată de Home Assistant ca oricare alta, deci obțineți gratis un istoric de ascultare. Tot ce este mai jos provine din acea entitate: fără senzori suplimentari, fără helperi, nimic de configurat în prealabil.</p>
-    <figure><img alt="Cinci grafice de istoric: alimentare și activitate, volum principal în dB, volum pe zile, sursa folosită și modul surround" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Cinci grafice, o entitate, șapte zile</figcaption></figure>
+    <figure><img alt="Cinci grafice de istoric: alimentare și activitate, volum principal în dB, volum pe zile, sursa folosită și modul surround" srcset="/screenshots/ha-dashboard-history-656.webp 656w, /screenshots/ha-dashboard-history.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-history.webp" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Cinci grafice, o entitate, șapte zile</figcaption></figure>
     <p class="lead">Cronologia de stare simplă nu necesită deloc carduri personalizate și este cea mai utilă:</p>
 <pre class="code">type: history-graph
 hours_to_show: 168
@@ -690,7 +690,7 @@ secondary: >-
       <li><b>O linie constantă dispare dintr-un grafic apexcharts.</b> Asta este <code>experimental.color_threshold</code>. Acesta desenează linia ca un gradient vertical, iar un segment perfect orizontal are înălțime zero pentru gradient, deci se afișează invizibil. O sesiune de 43 de ore la un singur volum a dispărut complet. Folosiți un <code>color</code> uniform.</li>
       <li><b>Se reorganizează singur pe telefon.</b> Vizualizările Sections se așază într-o singură coloană pe lățimi înguste, fără nicio configurare suplimentară.</li>
     </ul>
-    <figure><img alt="Același panou de control pe lățimea unui telefon, reorganizat într-o singură coloană" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Același panou de control pe lățimea unui telefon: cele trei coloane devin una și nu a fost configurat nimic pentru asta</figcaption></figure>
+    <figure><img alt="Același panou de control pe lățimea unui telefon, reorganizat într-o singură coloană" src="/screenshots/ha-dashboard-narrow.webp" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Același panou de control pe lățimea unui telefon: cele trei coloane devin una și nu a fost configurat nimic pentru asta</figcaption></figure>
   </div>
 </section>
 

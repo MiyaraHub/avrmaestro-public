@@ -130,7 +130,7 @@
       "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
       "headline": "Bauen Sie dieses Home Assistant Dashboard in etwa einer Stunde",
       "description": "Bauen Sie ein Home Assistant Dashboard für Ihren Denon oder Marantz Receiver: HACS-Karten, Entity-IDs, YAML für jede Karte, echte dB-Lautstärke, Szenen und Verlauf.",
-      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
       "datePublished": "2026-08-23",
       "dateModified": "2026-10-01",
       "author": {
@@ -254,7 +254,7 @@
 <section>
   <div class="wrap">
     <figure class="hero-shot">
-      <img alt="Das fertige Dashboard: ein Now-Playing-Banner, Lautstärke mit dB-Presets, ein Quellenraster, Surround-Modi, Raumkorrektur, Szenen und ein Lautstärkeverlauf" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <img alt="Das fertige Dashboard: ein Now-Playing-Banner, Lautstärke mit dB-Presets, ein Quellenraster, Surround-Modi, Raumkorrektur, Szenen und ein Lautstärkeverlauf" srcset="/screenshots/ha-dashboard-full-656.webp 656w, /screenshots/ha-dashboard-full.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-full.webp" width="1312" height="4092" decoding="async" loading="lazy" />
       <figcaption>Was Sie hier bauen</figcaption>
     </figure>
     <div class="note"><b>Wenig Zeit?</b> Springen Sie zu <a href="#whole">Schritt 10</a>, laden Sie die komplette Ansicht herunter, ändern Sie zwei Zeichenketten und fügen Sie sie ein. Die Schritte dazwischen erklären, was jedes Teil tut, damit Sie es anpassen können.</div>
@@ -367,7 +367,7 @@ tap_action:
       <h2>Zum Leuchten bringen, wenn es die aktive ist</h2>
     </div>
     <p class="lead">Dieses Muster lohnt sich, und jede Quellen- und Surround-Kachel auf dem Board ist eine Kopie davon. Die Karte sendet ein Skript und färbt sich anhand der Receiver-Entität ein, sodass der Eingang, auf dem Sie wirklich sind, leuchtet und die anderen nicht.</p>
-    <figure><img alt="Das Quellenraster mit Nvidia Shield in Orange leuchtend und den zwölf anderen Eingängen dunkel" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Eine Kachel leuchtet, zwölf bleiben dunkel</figcaption></figure>
+    <figure><img alt="Das Quellenraster mit Nvidia Shield in Orange leuchtend und den zwölf anderen Eingängen dunkel" srcset="/screenshots/ha-dashboard-sources-656.webp 656w, /screenshots/ha-dashboard-sources.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-sources.webp" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Eine Kachel leuchtet, zwölf bleiben dunkel</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_input_cd
 icon: mdi:disc
@@ -446,7 +446,7 @@ styles:
       <h2>Lautstärke in dB anzeigen</h2>
     </div>
     <p class="lead">Home Assistant meldet die Lautstärke als Bruchteil. Niemand stellt einen Receiver auf „0.67“. Eine Zeile Mathematik behebt das, und der ganze Abschnitt liest sich wie ein Receiver.</p>
-    <figure><img alt="Der Lautstärkeabschnitt: ein Regler, lauter, leiser, Stumm und vier dB-Presets" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie und Loud, jeweils mit dem dB-Wert beschriftet, den sie setzen</figcaption></figure>
+    <figure><img alt="Der Lautstärkeabschnitt: ein Regler, lauter, leiser, Stumm und vier dB-Presets" srcset="/screenshots/ha-dashboard-volume-656.webp 656w, /screenshots/ha-dashboard-volume.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-volume.webp" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie und Loud, jeweils mit dem dB-Wert beschriftet, den sie setzen</figcaption></figure>
     <div class="note"><b>Die Umrechnung.</b> Home Assistant veröffentlicht <code>volume_level</code> als Master-Lautstärke geteilt durch 100, und bei Denon- und Marantz-Receivern ist MV 80 die 0-dB-Referenz. Also <b>dB = volume_level &times; 100 &minus; 80</b>. Ein <code>volume_level</code> von 0.67 entspricht der Master-Lautstärke 67, also &minus;13.0 dB.</div>
 <pre class="code"><span class="c"># The readout</span>
 type: custom:mushroom-template-card
@@ -488,7 +488,7 @@ tap_action:
       <h2>Ihre Szenen hinzufügen</h2>
     </div>
     <p class="lead">Lesen Sie den Namen aus dem Skript, statt ihn zu tippen, und das Umbenennen einer Szene in AVR Maestro benennt die Kachel um, ohne dass Sie das Dashboard bearbeiten müssen.</p>
-    <figure><img alt="Vier Szenenkacheln, jeweils mit den Einstellungen, die diese Szene wiederherstellt" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Jede Kachel sagt, was ihre Szene tatsächlich wiederherstellt</figcaption></figure>
+    <figure><img alt="Vier Szenenkacheln, jeweils mit den Einstellungen, die diese Szene wiederherstellt" src="/screenshots/ha-dashboard-scenes.webp" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Jede Kachel sagt, was ihre Szene tatsächlich wiederherstellt</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_scene_1234567890123
 icon: mdi:theater
@@ -516,7 +516,7 @@ tap_action:
       <h2>Verlauf hinzufügen</h2>
     </div>
     <p class="lead">Die Media-Player-Entität des Receivers wird von Home Assistant wie jede andere aufgezeichnet, also bekommen Sie einen Hörverlauf gratis. Alles unten stammt aus dieser einen Entität: keine zusätzlichen Sensoren, keine Helfer, nichts, was vorher konfiguriert werden müsste.</p>
-    <figure><img alt="Fünf Verlaufsdiagramme: Power und Aktivität, Master-Lautstärke in dB, Lautstärke pro Tag, genutzte Quelle und Surround-Modus" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Fünf Diagramme, eine Entität, sieben Tage</figcaption></figure>
+    <figure><img alt="Fünf Verlaufsdiagramme: Power und Aktivität, Master-Lautstärke in dB, Lautstärke pro Tag, genutzte Quelle und Surround-Modus" srcset="/screenshots/ha-dashboard-history-656.webp 656w, /screenshots/ha-dashboard-history.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-history.webp" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Fünf Diagramme, eine Entität, sieben Tage</figcaption></figure>
     <p class="lead">Die einfache Zustandszeitleiste braucht überhaupt keine benutzerdefinierten Karten und ist die, die sich am meisten lohnt:</p>
 <pre class="code">type: history-graph
 hours_to_show: 168
@@ -690,7 +690,7 @@ secondary: >-
       <li><b>Eine gleichmäßige Linie verschwindet aus einem apexcharts-Diagramm.</b> Das ist <code>experimental.color_threshold</code>. Es zeichnet den Strich als vertikalen Verlauf, und ein exakt waagerechtes Segment hat keine Höhe, über die sich ein Verlauf legen ließe, und wird daher unsichtbar. Eine 43-Stunden-Sitzung bei einer Lautstärke verschwand komplett. Nehmen Sie ein durchgehendes <code>color</code>.</li>
       <li><b>Es passt sich auf dem Handy von selbst an.</b> Sections-Ansichten stapeln sich bei schmaler Breite in eine Spalte, ohne dass etwas Zusätzliches konfiguriert werden muss.</li>
     </ul>
-    <figure><img alt="Dasselbe Dashboard in Handybreite, umgebrochen in eine einzige Spalte" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Dasselbe Dashboard in Handybreite: aus den drei Spalten wird eine, und dafür wurde nichts konfiguriert</figcaption></figure>
+    <figure><img alt="Dasselbe Dashboard in Handybreite, umgebrochen in eine einzige Spalte" src="/screenshots/ha-dashboard-narrow.webp" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Dasselbe Dashboard in Handybreite: aus den drei Spalten wird eine, und dafür wurde nichts konfiguriert</figcaption></figure>
   </div>
 </section>
 

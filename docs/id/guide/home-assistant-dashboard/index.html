@@ -130,7 +130,7 @@
       "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
       "headline": "Bangun dasbor Home Assistant ini dalam sekitar satu jam",
       "description": "Bangun dasbor Home Assistant untuk receiver Denon atau Marantz Anda: kartu HACS, ID entitas, YAML untuk setiap kartu, volume dB sungguhan, Skenario, dan riwayat.",
-      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
       "datePublished": "2026-08-23",
       "dateModified": "2026-10-01",
       "author": {
@@ -254,7 +254,7 @@
 <section>
   <div class="wrap">
     <figure class="hero-shot">
-      <img alt="Dasbor yang sudah jadi: panel sedang diputar, volume dengan preset dB, kisi sumber, mode surround, koreksi ruangan, skenario, dan grafik volume" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <img alt="Dasbor yang sudah jadi: panel sedang diputar, volume dengan preset dB, kisi sumber, mode surround, koreksi ruangan, skenario, dan grafik volume" srcset="/screenshots/ha-dashboard-full-656.webp 656w, /screenshots/ha-dashboard-full.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-full.webp" width="1312" height="4092" decoding="async" loading="lazy" />
       <figcaption>Yang akan Anda bangun</figcaption>
     </figure>
     <div class="note"><b>Sedang terburu-buru?</b> Langsung ke <a href="#whole">langkah 10</a>, unduh tampilan lengkapnya, ubah dua string, lalu tempel. Langkah-langkah di antaranya menjelaskan fungsi setiap bagian agar Anda bisa mengubahnya.</div>
@@ -367,7 +367,7 @@ tap_action:
       <h2>Buat menyala saat sedang aktif</h2>
     </div>
     <p class="lead">Inilah pola yang layak dipelajari, dan setiap tile sumber maupun surround di papan adalah salinannya. Kartu mengirim sebuah skrip, lalu mewarnai dirinya dari entity receiver, sehingga input yang sedang Anda pakai menyala dan yang lain tidak.</p>
-    <figure><img alt="Kisi sumber dengan Nvidia Shield menyala oranye dan dua belas input lainnya gelap" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Satu tile menyala, dua belas gelap</figcaption></figure>
+    <figure><img alt="Kisi sumber dengan Nvidia Shield menyala oranye dan dua belas input lainnya gelap" srcset="/screenshots/ha-dashboard-sources-656.webp 656w, /screenshots/ha-dashboard-sources.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-sources.webp" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Satu tile menyala, dua belas gelap</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_input_cd
 icon: mdi:disc
@@ -446,7 +446,7 @@ styles:
       <h2>Tampilkan volume dalam dB</h2>
     </div>
     <p class="lead">Home Assistant melaporkan volume sebagai pecahan. Tidak ada yang mengatur receiver ke "0.67". Satu baris matematika memperbaikinya dan seluruh bagian ini mulai terbaca seperti receiver sungguhan.</p>
-    <figure><img alt="Bagian volume: penggeser, naik, turun, bisu, dan empat preset dB" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie, dan Loud, masing-masing berlabel dB yang diaturnya</figcaption></figure>
+    <figure><img alt="Bagian volume: penggeser, naik, turun, bisu, dan empat preset dB" srcset="/screenshots/ha-dashboard-volume-656.webp 656w, /screenshots/ha-dashboard-volume.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-volume.webp" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie, dan Loud, masing-masing berlabel dB yang diaturnya</figcaption></figure>
     <div class="note"><b>Konversinya.</b> Home Assistant menampilkan <code>volume_level</code> sebagai volume utama dibagi 100, dan pada receiver Denon dan Marantz, MV 80 adalah acuan 0 dB. Jadi <b>dB = volume_level &times; 100 &minus; 80</b>. Nilai <code>volume_level</code> 0.67 berarti volume utama 67, yaitu &minus;13.0 dB.</div>
 <pre class="code"><span class="c"># The readout</span>
 type: custom:mushroom-template-card
@@ -488,7 +488,7 @@ tap_action:
       <h2>Tambahkan Skenario Anda</h2>
     </div>
     <p class="lead">Baca namanya dari skrip alih-alih mengetiknya, dan saat Skenario diganti namanya di AVR Maestro, tile ikut berganti nama tanpa perlu mengedit dasbor.</p>
-    <figure><img alt="Empat tile skenario, masing-masing mencantumkan pengaturan yang dipulihkan skenario itu" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Setiap tile menyebutkan apa yang sebenarnya dipulihkan skenarionya</figcaption></figure>
+    <figure><img alt="Empat tile skenario, masing-masing mencantumkan pengaturan yang dipulihkan skenario itu" src="/screenshots/ha-dashboard-scenes.webp" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Setiap tile menyebutkan apa yang sebenarnya dipulihkan skenarionya</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_scene_1234567890123
 icon: mdi:theater
@@ -516,7 +516,7 @@ tap_action:
       <h2>Tambahkan riwayat</h2>
     </div>
     <p class="lead">Entity media player receiver dicatat oleh Home Assistant seperti entity lainnya, jadi Anda mendapatkan riwayat mendengarkan secara gratis. Semua di bawah ini berasal dari satu entity itu: tanpa sensor tambahan, tanpa helper, tanpa perlu mengonfigurasi apa pun lebih dulu.</p>
-    <figure><img alt="Lima grafik riwayat: daya dan aktivitas, volume utama dalam dB, volume per hari, sumber yang dipakai, dan mode surround" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Lima grafik, satu entity, tujuh hari</figcaption></figure>
+    <figure><img alt="Lima grafik riwayat: daya dan aktivitas, volume utama dalam dB, volume per hari, sumber yang dipakai, dan mode surround" srcset="/screenshots/ha-dashboard-history-656.webp 656w, /screenshots/ha-dashboard-history.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-history.webp" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Lima grafik, satu entity, tujuh hari</figcaption></figure>
     <p class="lead">Timeline status biasa tidak memerlukan kartu kustom sama sekali, dan itulah yang paling layak dimiliki:</p>
 <pre class="code">type: history-graph
 hours_to_show: 168
@@ -690,7 +690,7 @@ secondary: >-
       <li><b>Garis yang stabil menghilang dari grafik apexcharts.</b> Itu adalah <code>experimental.color_threshold</code>. Garis digambar sebagai gradien vertikal, dan segmen yang benar-benar horizontal memiliki tinggi nol untuk digradasi, sehingga tidak terlihat. Sesi 43 jam pada satu volume lenyap seluruhnya. Gunakan <code>color</code> solid.</li>
       <li><b>Tampilan menyesuaikan diri di ponsel dengan sendirinya.</b> Tampilan Sections menumpuk menjadi satu kolom pada lebar sempit tanpa konfigurasi tambahan.</li>
     </ul>
-    <figure><img alt="Dasbor yang sama pada lebar ponsel, tersusun menjadi satu kolom" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Dasbor yang sama pada lebar ponsel: tiga kolom menjadi satu, dan tidak ada yang dikonfigurasi untuk itu</figcaption></figure>
+    <figure><img alt="Dasbor yang sama pada lebar ponsel, tersusun menjadi satu kolom" src="/screenshots/ha-dashboard-narrow.webp" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Dasbor yang sama pada lebar ponsel: tiga kolom menjadi satu, dan tidak ada yang dikonfigurasi untuk itu</figcaption></figure>
   </div>
 </section>
 

@@ -130,7 +130,7 @@
       "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
       "headline": "Építsd meg ezt a Home Assistant irányítópultot nagyjából egy óra alatt",
       "description": "Építs Home Assistant irányítópultot a Denon vagy Marantz készülékedhez: HACS kártyák, entitásazonosítók, YAML minden kártyához, valódi dB hangerő, Jelenetek és előzmények.",
-      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
       "datePublished": "2026-08-23",
       "dateModified": "2026-10-01",
       "author": {
@@ -254,7 +254,7 @@
 <section>
   <div class="wrap">
     <figure class="hero-shot">
-      <img alt="A kész irányítópult: lejátszott tartalom kiemelt kártyája, hangerő dB-előbeállításokkal, forrásrács, térhatású módok, térkorrekció, jelenetek és hangerőgrafikon" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <img alt="A kész irányítópult: lejátszott tartalom kiemelt kártyája, hangerő dB-előbeállításokkal, forrásrács, térhatású módok, térkorrekció, jelenetek és hangerőgrafikon" srcset="/screenshots/ha-dashboard-full-656.webp 656w, /screenshots/ha-dashboard-full.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-full.webp" width="1312" height="4092" decoding="async" loading="lazy" />
       <figcaption>Mit építesz meg</figcaption>
     </figure>
     <div class="note"><b>Sietsz?</b> Ugorj a <a href="#whole">10. lépésre</a>, töltsd le a teljes nézetet, cserélj ki két szöveget, és illeszd be. A köztes lépések azt magyarázzák, hogy az egyes elemek mit csinálnak, hogy tudd módosítani őket.</div>
@@ -367,7 +367,7 @@ tap_action:
       <h2>Világítson, amikor ez az aktív</h2>
     </div>
     <p class="lead">Ez az a minta, amelyet érdemes megtanulni, és a tábla minden forrás- és térhatású csempéje ennek a másolata. A kártya egy szkriptet küld, és a színét a készülék entitásából veszi, így az éppen használt bemenet világít, a többi nem.</p>
-    <figure><img alt="A forrásrács, amelyen az Nvidia Shield narancssárgán világít, a másik tizenkét bemenet pedig sötét" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Egy kivilágított csempe, tizenkét sötét</figcaption></figure>
+    <figure><img alt="A forrásrács, amelyen az Nvidia Shield narancssárgán világít, a másik tizenkét bemenet pedig sötét" srcset="/screenshots/ha-dashboard-sources-656.webp 656w, /screenshots/ha-dashboard-sources.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-sources.webp" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Egy kivilágított csempe, tizenkét sötét</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_input_cd
 icon: mdi:disc
@@ -446,7 +446,7 @@ styles:
       <h2>Mutasd a hangerőt dB-ben</h2>
     </div>
     <p class="lead">A Home Assistant törtként közli a hangerőt. Senki sem állít be egy készüléket „0.67”-re. Egyetlen sor matek megoldja, és a teljes szakasz végre úgy olvasódik, mint egy készülék.</p>
-    <figure><img alt="A hangerőszakasz: csúszka, fel, le, némítás és négy dB-előbeállítás" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie és Loud, mindegyiken a beállított dB-érték látható</figcaption></figure>
+    <figure><img alt="A hangerőszakasz: csúszka, fel, le, némítás és négy dB-előbeállítás" srcset="/screenshots/ha-dashboard-volume-656.webp 656w, /screenshots/ha-dashboard-volume.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-volume.webp" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie és Loud, mindegyiken a beállított dB-érték látható</figcaption></figure>
     <div class="note"><b>Az átváltás.</b> A Home Assistant a(z) <code>volume_level</code> értéket a fő hangerő századrészeként teszi közzé, a Denon és Marantz készülékeken pedig az MV 80 a 0 dB referencia. Tehát <b>dB = volume_level &times; 100 &minus; 80</b>. A 0.67-es <code>volume_level</code> fő hangerő 67, vagyis &minus;13.0 dB.</div>
 <pre class="code"><span class="c"># The readout</span>
 type: custom:mushroom-template-card
@@ -488,7 +488,7 @@ tap_action:
       <h2>Add hozzá a Jeleneteidet</h2>
     </div>
     <p class="lead">A nevet olvasd ki a szkriptből, ne gépeld be, így ha az AVR Maestro-ban átnevezel egy Jelenetet, a csempe neve is változik, az irányítópult szerkesztése nélkül.</p>
-    <figure><img alt="Négy jelenetcsempe, mindegyiken a jelenet által visszaállított beállítások listájával" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Minden csempe megmondja, mit állít vissza a jelenete</figcaption></figure>
+    <figure><img alt="Négy jelenetcsempe, mindegyiken a jelenet által visszaállított beállítások listájával" src="/screenshots/ha-dashboard-scenes.webp" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Minden csempe megmondja, mit állít vissza a jelenete</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_scene_1234567890123
 icon: mdi:theater
@@ -516,7 +516,7 @@ tap_action:
       <h2>Add hozzá az előzményeket</h2>
     </div>
     <p class="lead">A készülék médialejátszó entitását a Home Assistant úgy rögzíti, mint bármelyik másikat, így hallgatási előzményt kapsz ingyen. Minden alábbi ebből az egy entitásból származik: nincs extra szenzor, nincs segédelem, nincs mit előzetesen beállítani.</p>
-    <figure><img alt="Öt előzménygrafikon: tápellátás és tevékenység, fő hangerő dB-ben, hangerő napok szerint, használt forrás és térhatású mód" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Öt grafikon, egy entitás, hét nap</figcaption></figure>
+    <figure><img alt="Öt előzménygrafikon: tápellátás és tevékenység, fő hangerő dB-ben, hangerő napok szerint, használt forrás és térhatású mód" srcset="/screenshots/ha-dashboard-history-656.webp 656w, /screenshots/ha-dashboard-history.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-history.webp" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Öt grafikon, egy entitás, hét nap</figcaption></figure>
     <p class="lead">Az egyszerű állapot-idővonalhoz egyáltalán nem kellenek egyedi kártyák, és ezt érdemes a legjobban megtartani:</p>
 <pre class="code">type: history-graph
 hours_to_show: 168
@@ -690,7 +690,7 @@ secondary: >-
       <li><b>Egy egyenletes vonal eltűnik az apexcharts grafikonról.</b> Ez a(z) <code>experimental.color_threshold</code>. A vonalat függőleges színátmenettel rajzolja, a tökéletesen vízszintes szakasznak pedig nulla a magassága, amelyen átmenet lehetne, így láthatatlan lesz. Egy 43 órás, egy hangerőn futó munkamenet teljesen eltűnt. Használj tömör <code>color</code> értéket.</li>
       <li><b>Telefonon magától átrendeződik.</b> A Sections nézetek keskeny szélességnél egy oszlopba rendeződnek, külön beállítás nélkül.</li>
     </ul>
-    <figure><img alt="Ugyanaz az irányítópult telefonszélességen, egyetlen oszlopba rendeződve" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Ugyanaz az irányítópult telefonszélességen: a három oszlopból egy lesz, és ehhez semmit sem kellett beállítani</figcaption></figure>
+    <figure><img alt="Ugyanaz az irányítópult telefonszélességen, egyetlen oszlopba rendeződve" src="/screenshots/ha-dashboard-narrow.webp" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Ugyanaz az irányítópult telefonszélességen: a három oszlopból egy lesz, és ehhez semmit sem kellett beállítani</figcaption></figure>
   </div>
 </section>
 

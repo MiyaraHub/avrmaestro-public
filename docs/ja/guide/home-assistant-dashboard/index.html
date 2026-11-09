@@ -130,7 +130,7 @@
       "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
       "headline": "このHome Assistantダッシュボードを約1時間で作る",
       "description": "DenonまたはMarantzのレシーバー用のHome Assistantダッシュボードを作成できます。HACSカード、エンティティID、すべてのカードのYAML、実際のdB音量、シーン、履歴まで網羅しています。",
-      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
       "datePublished": "2026-08-23",
       "dateModified": "2026-10-01",
       "author": {
@@ -254,7 +254,7 @@
 <section>
   <div class="wrap">
     <figure class="hero-shot">
-      <img alt="完成したダッシュボード：再生中のヒーロー表示、dBプリセット付きの音量、ソースグリッド、サラウンドモード、ルームコレクション、シーン、音量グラフ" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <img alt="完成したダッシュボード：再生中のヒーロー表示、dBプリセット付きの音量、ソースグリッド、サラウンドモード、ルームコレクション、シーン、音量グラフ" srcset="/screenshots/ha-dashboard-full-656.webp 656w, /screenshots/ha-dashboard-full.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-full.webp" width="1312" height="4092" decoding="async" loading="lazy" />
       <figcaption>作るもの</figcaption>
     </figure>
     <div class="note"><b>お急ぎですか？</b> <a href="#whole">ステップ 10</a>に進んで完成ビューをダウンロードし、2か所の文字列を書き換えて貼り付けてください。途中のステップでは各パーツの役割を説明しているので、自由にカスタマイズできます。</div>
@@ -367,7 +367,7 @@ tap_action:
       <h2>現在選択中のものを点灯させる</h2>
     </div>
     <p class="lead">これは覚える価値のあるパターンで、ボード上のすべてのソースタイルとサラウンドタイルはこのコピーです。カードはスクリプトを送信し、レシーバーのエンティティから自分の色を決めるので、実際に選択中の入力だけが点灯し、ほかは消えたままになります。</p>
-    <figure><img alt="ソースグリッド。Nvidia Shield がオレンジに点灯し、ほかの12の入力は暗い状態" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>点灯するタイルは1つ、暗いタイルは12個</figcaption></figure>
+    <figure><img alt="ソースグリッド。Nvidia Shield がオレンジに点灯し、ほかの12の入力は暗い状態" srcset="/screenshots/ha-dashboard-sources-656.webp 656w, /screenshots/ha-dashboard-sources.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-sources.webp" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>点灯するタイルは1つ、暗いタイルは12個</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_input_cd
 icon: mdi:disc
@@ -446,7 +446,7 @@ styles:
       <h2>音量をdBで表示する</h2>
     </div>
     <p class="lead">Home Assistant は音量を小数で報告します。レシーバーを「0.67」に設定する人はいません。1行の計算で解決し、セクション全体が本物のレシーバーらしい表示になります。</p>
-    <figure><img alt="音量セクション：スライダー、アップ、ダウン、ミュート、4つのdBプリセット" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night、Dialog、Movie、Loud。それぞれ設定されるdBが表示されます</figcaption></figure>
+    <figure><img alt="音量セクション：スライダー、アップ、ダウン、ミュート、4つのdBプリセット" srcset="/screenshots/ha-dashboard-volume-656.webp 656w, /screenshots/ha-dashboard-volume.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-volume.webp" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night、Dialog、Movie、Loud。それぞれ設定されるdBが表示されます</figcaption></figure>
     <div class="note"><b>変換方法。</b>Home Assistant は<code>volume_level</code>をマスター音量を100で割った値として公開し、Denon と Marantz のレシーバーでは MV 80 が 0 dB の基準です。したがって<b>dB = volume_level &times; 100 &minus; 80</b>となります。<code>volume_level</code>が 0.67 なら、マスター音量は 67 で、&minus;13.0 dB です。</div>
 <pre class="code"><span class="c"># The readout</span>
 type: custom:mushroom-template-card
@@ -488,7 +488,7 @@ tap_action:
       <h2>シーンを追加する</h2>
     </div>
     <p class="lead">名前は手入力せず、スクリプトから読み取りましょう。AVR Maestro でシーン名を変更すると、ダッシュボードを編集しなくてもタイルの名前が変わります。</p>
-    <figure><img alt="4つのシーンタイル。それぞれ、そのシーンが復元する設定を一覧表示" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>各タイルに、そのシーンが実際に何を復元するかを表示</figcaption></figure>
+    <figure><img alt="4つのシーンタイル。それぞれ、そのシーンが復元する設定を一覧表示" src="/screenshots/ha-dashboard-scenes.webp" width="424" height="369" loading="lazy" decoding="async" /><figcaption>各タイルに、そのシーンが実際に何を復元するかを表示</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_scene_1234567890123
 icon: mdi:theater
@@ -516,7 +516,7 @@ tap_action:
       <h2>履歴を追加する</h2>
     </div>
     <p class="lead">レシーバーのメディアプレーヤーエンティティは、ほかのエンティティと同様に Home Assistant に記録されるので、視聴履歴が無料で手に入ります。以下はすべてこの1つのエンティティから作られます。追加のセンサーもヘルパーも不要で、事前の設定も要りません。</p>
-    <figure><img alt="5つの履歴グラフ：電源とアクティビティ、dB表示のマスター音量、日別の音量、使用したソース、サラウンドモード" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>5つのグラフ、1つのエンティティ、7日間</figcaption></figure>
+    <figure><img alt="5つの履歴グラフ：電源とアクティビティ、dB表示のマスター音量、日別の音量、使用したソース、サラウンドモード" srcset="/screenshots/ha-dashboard-history-656.webp 656w, /screenshots/ha-dashboard-history.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-history.webp" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>5つのグラフ、1つのエンティティ、7日間</figcaption></figure>
     <p class="lead">シンプルな状態タイムラインはカスタムカードがまったく不要で、最も入れる価値があります：</p>
 <pre class="code">type: history-graph
 hours_to_show: 168
@@ -690,7 +690,7 @@ secondary: >-
       <li><b>apexcharts のグラフから一定の線が消える。</b>原因は<code>experimental.color_threshold</code>です。線を縦方向のグラデーションで描画しますが、完全に水平な線分は高さがゼロでグラデーションをかけられず、見えなくなります。同じ音量での43時間のセッションが、まるごと消えたこともあります。単色の<code>color</code>を使ってください。</li>
       <li><b>スマートフォンでは自動で折り返される。</b>セクションビューは、狭い幅では追加設定なしで1列に積み重なります。</li>
     </ul>
-    <figure><img alt="同じダッシュボードをスマートフォンの幅で表示。1列に折り返されている" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>スマートフォン幅の同じダッシュボード：3列が1列になり、そのための設定は何もしていません</figcaption></figure>
+    <figure><img alt="同じダッシュボードをスマートフォンの幅で表示。1列に折り返されている" src="/screenshots/ha-dashboard-narrow.webp" width="430" height="932" loading="lazy" decoding="async" /><figcaption>スマートフォン幅の同じダッシュボード：3列が1列になり、そのための設定は何もしていません</figcaption></figure>
   </div>
 </section>
 

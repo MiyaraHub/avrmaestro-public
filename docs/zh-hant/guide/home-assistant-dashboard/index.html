@@ -130,7 +130,7 @@
       "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
       "headline": "大約一小時就能建好這個 Home Assistant 儀表板",
       "description": "為您的 Denon 或 Marantz 接收器建立 Home Assistant 儀表板：HACS 卡片、實體 ID、每張卡片的 YAML、真實的 dB 音量、場景與歷史記錄。",
-      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
       "datePublished": "2026-08-23",
       "dateModified": "2026-10-01",
       "author": {
@@ -254,7 +254,7 @@
 <section>
   <div class="wrap">
     <figure class="hero-shot">
-      <img alt="完成的儀表板：播放中主視覺、附 dB 預設值的音量、訊源格狀選單、環繞模式、房間校正、場景與音量圖表" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <img alt="完成的儀表板：播放中主視覺、附 dB 預設值的音量、訊源格狀選單、環繞模式、房間校正、場景與音量圖表" srcset="/screenshots/ha-dashboard-full-656.webp 656w, /screenshots/ha-dashboard-full.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-full.webp" width="1312" height="4092" decoding="async" loading="lazy" />
       <figcaption>您將打造的內容</figcaption>
     </figure>
     <div class="note"><b>趕時間嗎？</b>直接跳到<a href="#whole">步驟 10</a>，下載完整檢視，改兩個字串後貼上即可。中間的步驟會說明每個部分的作用，方便您自行修改。</div>
@@ -367,7 +367,7 @@ tap_action:
       <h2>讓它在成為使用中項目時亮起</h2>
     </div>
     <p class="lead">這是值得學會的模式，板面上每個訊源與環繞磚都是它的複本。卡片會送出腳本，並依據接收器實體為自己上色，因此您目前實際使用的輸入會亮起，其他的則不會。</p>
-    <figure><img alt="訊源格狀選單，Nvidia Shield 以橘色亮起，其餘十二個輸入為暗色" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>一個亮起，十二個暗著</figcaption></figure>
+    <figure><img alt="訊源格狀選單，Nvidia Shield 以橘色亮起，其餘十二個輸入為暗色" srcset="/screenshots/ha-dashboard-sources-656.webp 656w, /screenshots/ha-dashboard-sources.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-sources.webp" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>一個亮起，十二個暗著</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_input_cd
 icon: mdi:disc
@@ -446,7 +446,7 @@ styles:
       <h2>以 dB 顯示音量</h2>
     </div>
     <p class="lead">Home Assistant 以小數回報音量，但沒人會把接收器調到「0.67」。一行運算就能解決，整個區段讀起來也會像一台真正的接收器。</p>
-    <figure><img alt="音量區段：一支滑桿、增大、減小、靜音，以及四個 dB 預設值" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>夜間、對白、電影與大聲，每個都標示其設定的 dB</figcaption></figure>
+    <figure><img alt="音量區段：一支滑桿、增大、減小、靜音，以及四個 dB 預設值" srcset="/screenshots/ha-dashboard-volume-656.webp 656w, /screenshots/ha-dashboard-volume.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-volume.webp" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>夜間、對白、電影與大聲，每個都標示其設定的 dB</figcaption></figure>
     <div class="note"><b>轉換方式。</b>Home Assistant 將 <code>volume_level</code> 以主音量除以 100 的方式發布，而在 Denon 與 Marantz 接收器上，MV 80 就是 0 dB 的基準。因此 <b>dB = volume_level &times; 100 &minus; 80</b>。<code>volume_level</code> 為 0.67 代表主音量 67，也就是 &minus;13.0 dB。</div>
 <pre class="code"><span class="c"># The readout</span>
 type: custom:mushroom-template-card
@@ -488,7 +488,7 @@ tap_action:
       <h2>加入您的場景</h2>
     </div>
     <p class="lead">直接從腳本讀取名稱，而不是手動輸入，這樣在 AVR Maestro 中重新命名場景時，控制磚也會跟著改名，不必編輯儀表板。</p>
-    <figure><img alt="四個場景磚，每個都列出該場景所還原的設定" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>每個磚都會說明其場景實際還原的內容</figcaption></figure>
+    <figure><img alt="四個場景磚，每個都列出該場景所還原的設定" src="/screenshots/ha-dashboard-scenes.webp" width="424" height="369" loading="lazy" decoding="async" /><figcaption>每個磚都會說明其場景實際還原的內容</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_scene_1234567890123
 icon: mdi:theater
@@ -516,7 +516,7 @@ tap_action:
       <h2>加入歷史記錄</h2>
     </div>
     <p class="lead">Home Assistant 會像記錄其他實體一樣記錄接收器的媒體播放器實體，因此您可以免費取得收聽歷史。下面的一切都來自這個實體：不需要額外的感測器、輔助項目，也不用先設定任何東西。</p>
-    <figure><img alt="五張歷史圖表：電源與活動、以 dB 表示的主音量、每日音量、使用中的訊源，以及環繞模式" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>五張圖表、一個實體、七天</figcaption></figure>
+    <figure><img alt="五張歷史圖表：電源與活動、以 dB 表示的主音量、每日音量、使用中的訊源，以及環繞模式" srcset="/screenshots/ha-dashboard-history-656.webp 656w, /screenshots/ha-dashboard-history.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-history.webp" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>五張圖表、一個實體、七天</figcaption></figure>
     <p class="lead">一般的狀態時間軸完全不需要自訂卡片，也是最值得擁有的一張：</p>
 <pre class="code">type: history-graph
 hours_to_show: 168
@@ -690,7 +690,7 @@ secondary: >-
       <li><b>apexcharts 圖表中的水平線消失了。</b>那是 <code>experimental.color_threshold</code> 造成的。它以垂直漸層繪製線條，而完全水平的線段高度為零，無法在其上做漸層，所以會變成看不見。一段 43 小時、音量固定的連續使用就這樣完全消失了。請改用純色的 <code>color</code>。</li>
       <li><b>它會在手機上自動重新排列。</b>區段檢視在窄螢幕上會堆疊成單欄，不需要任何額外設定。</li>
     </ul>
-    <figure><img alt="同一個儀表板在手機寬度下，重新排列成單欄" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>同一個儀表板在手機寬度下：三欄變成一欄，而且完全不需要任何設定</figcaption></figure>
+    <figure><img alt="同一個儀表板在手機寬度下，重新排列成單欄" src="/screenshots/ha-dashboard-narrow.webp" width="430" height="932" loading="lazy" decoding="async" /><figcaption>同一個儀表板在手機寬度下：三欄變成一欄，而且完全不需要任何設定</figcaption></figure>
   </div>
 </section>
 

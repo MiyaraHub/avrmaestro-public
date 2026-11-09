@@ -130,7 +130,7 @@
       "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
       "headline": "약 한 시간이면 이 Home Assistant 대시보드를 만들 수 있습니다",
       "description": "Denon 또는 Marantz 리시버를 위한 Home Assistant 대시보드를 만들어 보세요. HACS 카드, 엔터티 ID, 모든 카드의 YAML, 실제 dB 볼륨, 장면, 기록까지 다룹니다.",
-      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
       "datePublished": "2026-08-23",
       "dateModified": "2026-10-01",
       "author": {
@@ -254,7 +254,7 @@
 <section>
   <div class="wrap">
     <figure class="hero-shot">
-      <img alt="완성된 대시보드: 지금 재생 중 히어로, dB 프리셋이 있는 볼륨, 소스 그리드, 서라운드 모드, 룸 보정, 장면, 볼륨 그래프" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <img alt="완성된 대시보드: 지금 재생 중 히어로, dB 프리셋이 있는 볼륨, 소스 그리드, 서라운드 모드, 룸 보정, 장면, 볼륨 그래프" srcset="/screenshots/ha-dashboard-full-656.webp 656w, /screenshots/ha-dashboard-full.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-full.webp" width="1312" height="4092" decoding="async" loading="lazy" />
       <figcaption>만들게 될 것</figcaption>
     </figure>
     <div class="note"><b>바쁘신가요?</b> <a href="#whole">10단계</a>로 바로 가서 완성된 뷰를 내려받고, 문자열 두 개를 바꾼 뒤 붙여 넣으세요. 그 사이의 단계들은 각 부분이 어떤 역할을 하는지 설명하므로 원하는 대로 바꿀 수 있습니다.</div>
@@ -367,7 +367,7 @@ tap_action:
       <h2>현재 선택된 항목에 불이 들어오게 하기</h2>
     </div>
     <p class="lead">꼭 익혀 둘 만한 패턴이며, 보드 위의 모든 소스 타일과 서라운드 타일은 이 패턴의 복사본입니다. 카드는 스크립트를 보내고 리시버 엔티티의 값에 따라 스스로 색을 바꾸므로, 지금 선택된 입력에만 불이 들어오고 나머지는 꺼져 있습니다.</p>
-    <figure><img alt="Nvidia Shield가 주황색으로 켜져 있고 나머지 입력 열두 개는 꺼져 있는 소스 그리드" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>켜진 타일 하나, 꺼진 타일 열두 개</figcaption></figure>
+    <figure><img alt="Nvidia Shield가 주황색으로 켜져 있고 나머지 입력 열두 개는 꺼져 있는 소스 그리드" srcset="/screenshots/ha-dashboard-sources-656.webp 656w, /screenshots/ha-dashboard-sources.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-sources.webp" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>켜진 타일 하나, 꺼진 타일 열두 개</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_input_cd
 icon: mdi:disc
@@ -446,7 +446,7 @@ styles:
       <h2>볼륨을 dB로 표시하기</h2>
     </div>
     <p class="lead">Home Assistant는 볼륨을 분수로 보고합니다. 리시버를 "0.67"로 맞추는 사람은 없습니다. 계산식 한 줄이면 해결되고, 섹션 전체가 리시버처럼 읽히기 시작합니다.</p>
-    <figure><img alt="볼륨 섹션: 슬라이더, 올리기, 내리기, 음소거, 그리고 dB 프리셋 네 개" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>나이트, 다이얼로그, 무비, 라우드. 각각 설정되는 dB가 표시됩니다</figcaption></figure>
+    <figure><img alt="볼륨 섹션: 슬라이더, 올리기, 내리기, 음소거, 그리고 dB 프리셋 네 개" srcset="/screenshots/ha-dashboard-volume-656.webp 656w, /screenshots/ha-dashboard-volume.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-volume.webp" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>나이트, 다이얼로그, 무비, 라우드. 각각 설정되는 dB가 표시됩니다</figcaption></figure>
     <div class="note"><b>변환 방법.</b> Home Assistant는 <code>volume_level</code>을 마스터 볼륨을 100으로 나눈 값으로 공개하며, Denon과 Marantz 리시버에서는 MV 80이 0 dB 기준입니다. 따라서 <b>dB = volume_level &times; 100 &minus; 80</b>입니다. <code>volume_level</code>이 0.67이면 마스터 볼륨 67이고, 이는 &minus;13.0 dB입니다.</div>
 <pre class="code"><span class="c"># The readout</span>
 type: custom:mushroom-template-card
@@ -488,7 +488,7 @@ tap_action:
       <h2>장면 추가하기</h2>
     </div>
     <p class="lead">이름을 직접 입력하지 말고 스크립트에서 읽어 오세요. 그러면 AVR Maestro에서 장면 이름을 바꿀 때 대시보드를 수정하지 않아도 타일 이름이 따라 바뀝니다.</p>
-    <figure><img alt="장면 타일 네 개. 각각 해당 장면이 복원하는 설정을 나열합니다" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>각 타일에 그 장면이 실제로 무엇을 복원하는지 표시됩니다</figcaption></figure>
+    <figure><img alt="장면 타일 네 개. 각각 해당 장면이 복원하는 설정을 나열합니다" src="/screenshots/ha-dashboard-scenes.webp" width="424" height="369" loading="lazy" decoding="async" /><figcaption>각 타일에 그 장면이 실제로 무엇을 복원하는지 표시됩니다</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_scene_1234567890123
 icon: mdi:theater
@@ -516,7 +516,7 @@ tap_action:
       <h2>기록 추가하기</h2>
     </div>
     <p class="lead">리시버의 미디어 플레이어 엔티티는 다른 엔티티와 마찬가지로 Home Assistant에 기록되므로 청취 기록을 공짜로 얻을 수 있습니다. 아래 내용은 모두 이 엔티티 하나에서 나옵니다. 추가 센서도, 헬퍼도, 미리 설정할 것도 없습니다.</p>
-    <figure><img alt="기록 그래프 다섯 개: 전원 및 활동, dB 단위 마스터 볼륨, 일별 볼륨, 사용한 소스, 서라운드 모드" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>그래프 다섯 개, 엔티티 하나, 7일</figcaption></figure>
+    <figure><img alt="기록 그래프 다섯 개: 전원 및 활동, dB 단위 마스터 볼륨, 일별 볼륨, 사용한 소스, 서라운드 모드" srcset="/screenshots/ha-dashboard-history-656.webp 656w, /screenshots/ha-dashboard-history.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-history.webp" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>그래프 다섯 개, 엔티티 하나, 7일</figcaption></figure>
     <p class="lead">기본 상태 타임라인은 커스텀 카드가 전혀 필요 없고, 가장 갖춰 둘 만한 그래프입니다.</p>
 <pre class="code">type: history-graph
 hours_to_show: 168
@@ -690,7 +690,7 @@ secondary: >-
       <li><b>apexcharts 그래프에서 일정한 선이 사라집니다.</b> <code>experimental.color_threshold</code> 때문입니다. 선을 세로 그라데이션으로 그리는데, 완전히 수평인 구간은 그라데이션을 적용할 높이가 0이어서 보이지 않게 렌더링됩니다. 같은 볼륨으로 43시간 동안 이어진 세션이 통째로 사라진 적도 있습니다. 단색 <code>color</code>을 사용하세요.</li>
       <li><b>휴대폰에서는 저절로 재배치됩니다.</b> 섹션 뷰는 폭이 좁아지면 별도 설정 없이 한 열로 쌓입니다.</li>
     </ul>
-    <figure><img alt="같은 대시보드를 휴대폰 폭에서 한 열로 재배치한 모습" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>휴대폰 폭에서의 같은 대시보드: 세 열이 한 열이 되며, 그렇게 되도록 따로 설정한 것은 없습니다</figcaption></figure>
+    <figure><img alt="같은 대시보드를 휴대폰 폭에서 한 열로 재배치한 모습" src="/screenshots/ha-dashboard-narrow.webp" width="430" height="932" loading="lazy" decoding="async" /><figcaption>휴대폰 폭에서의 같은 대시보드: 세 열이 한 열이 되며, 그렇게 되도록 따로 설정한 것은 없습니다</figcaption></figure>
   </div>
 </section>
 

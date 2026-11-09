@@ -130,7 +130,7 @@
       "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
       "headline": "Створіть цю панель Home Assistant приблизно за годину",
       "description": "Створіть панель Home Assistant для вашого ресивера Denon або Marantz: картки HACS, ідентифікатори сутностей, YAML для кожної картки, справжня гучність у дБ, сцени та історія.",
-      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
       "datePublished": "2026-08-23",
       "dateModified": "2026-10-01",
       "author": {
@@ -254,7 +254,7 @@
 <section>
   <div class="wrap">
     <figure class="hero-shot">
-      <img alt="Готовий дашборд: головна картка з поточним відтворенням, гучність із пресетами в dB, сітка джерел, режими об'ємного звуку, корекція приміщення, сцени та графік гучності" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <img alt="Готовий дашборд: головна картка з поточним відтворенням, гучність із пресетами в dB, сітка джерел, режими об'ємного звуку, корекція приміщення, сцени та графік гучності" srcset="/screenshots/ha-dashboard-full-656.webp 656w, /screenshots/ha-dashboard-full.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-full.webp" width="1312" height="4092" decoding="async" loading="lazy" />
       <figcaption>Що ви будуєте</figcaption>
     </figure>
     <div class="note"><b>Поспішаєте?</b> Перейдіть до <a href="#whole">кроку 10</a>, завантажте готове подання, змініть два рядки й вставте його. Кроки між ними пояснюють, що робить кожен елемент, щоб ви могли його змінити.</div>
@@ -367,7 +367,7 @@ tap_action:
       <h2>Нехай світиться, коли це поточний вхід</h2>
     </div>
     <p class="lead">Це шаблон, який варто засвоїти: кожна плитка джерела й об'ємного звуку на дошці - його копія. Картка надсилає скрипт і забарвлюється за сутністю ресивера, тож підсвічується вхід, на якому ви справді перебуваєте, а решта - ні.</p>
-    <figure><img alt="Сітка джерел, у якій Nvidia Shield підсвічено оранжевим, а решта дванадцять входів темні" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Одна підсвічена плитка, дванадцять темних</figcaption></figure>
+    <figure><img alt="Сітка джерел, у якій Nvidia Shield підсвічено оранжевим, а решта дванадцять входів темні" srcset="/screenshots/ha-dashboard-sources-656.webp 656w, /screenshots/ha-dashboard-sources.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-sources.webp" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Одна підсвічена плитка, дванадцять темних</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_input_cd
 icon: mdi:disc
@@ -446,7 +446,7 @@ styles:
       <h2>Показуйте гучність у dB</h2>
     </div>
     <p class="lead">Home Assistant повідомляє гучність як дріб. Ніхто не виставляє ресивер на «0.67». Один рядок математики це виправляє, і весь розділ починає виглядати як справжній ресивер.</p>
-    <figure><img alt="Розділ гучності: повзунок, збільшення, зменшення, вимкнення звуку та чотири пресети в dB" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie і Loud, кожен із підписом dB, яке він встановлює</figcaption></figure>
+    <figure><img alt="Розділ гучності: повзунок, збільшення, зменшення, вимкнення звуку та чотири пресети в dB" srcset="/screenshots/ha-dashboard-volume-656.webp 656w, /screenshots/ha-dashboard-volume.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-volume.webp" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie і Loud, кожен із підписом dB, яке він встановлює</figcaption></figure>
     <div class="note"><b>Перетворення.</b> Home Assistant передає <code>volume_level</code> як основну гучність, поділену на 100, а на ресиверах Denon і Marantz значення MV 80 є опорним рівнем 0 dB. Тож <b>dB = volume_level &times; 100 &minus; 80</b>. Значення <code>volume_level</code> 0.67 - це основна гучність 67, тобто &minus;13.0 dB.</div>
 <pre class="code"><span class="c"># The readout</span>
 type: custom:mushroom-template-card
@@ -488,7 +488,7 @@ tap_action:
       <h2>Додайте свої сцени</h2>
     </div>
     <p class="lead">Беріть назву зі скрипта, а не вводьте вручну, і перейменування сцени в AVR Maestro перейменує плитку без жодних змін у дашборді.</p>
-    <figure><img alt="Чотири плитки сцен, кожна зі списком налаштувань, які ця сцена відновлює" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Кожна плитка каже, що саме відновлює її сцена</figcaption></figure>
+    <figure><img alt="Чотири плитки сцен, кожна зі списком налаштувань, які ця сцена відновлює" src="/screenshots/ha-dashboard-scenes.webp" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Кожна плитка каже, що саме відновлює її сцена</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_scene_1234567890123
 icon: mdi:theater
@@ -516,7 +516,7 @@ tap_action:
       <h2>Додайте історію</h2>
     </div>
     <p class="lead">Сутність медіаплеєра ресивера Home Assistant записує, як і будь-яку іншу, тож історію прослуховування ви отримуєте безкоштовно. Усе нижче походить із цієї однієї сутності: жодних додаткових сенсорів, жодних помічників, нічого не потрібно налаштовувати заздалегідь.</p>
-    <figure><img alt="П'ять графіків історії: живлення й активність, основна гучність у dB, гучність за днями, використане джерело та режим об'ємного звуку" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>П'ять графіків, одна сутність, сім днів</figcaption></figure>
+    <figure><img alt="П'ять графіків історії: живлення й активність, основна гучність у dB, гучність за днями, використане джерело та режим об'ємного звуку" srcset="/screenshots/ha-dashboard-history-656.webp 656w, /screenshots/ha-dashboard-history.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-history.webp" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>П'ять графіків, одна сутність, сім днів</figcaption></figure>
     <p class="lead">Проста часова шкала станів узагалі не потребує користувацьких карток і є найкориснішою:</p>
 <pre class="code">type: history-graph
 hours_to_show: 168
@@ -690,7 +690,7 @@ secondary: >-
       <li><b>Рівна лінія зникає з графіка apexcharts.</b> Це <code>experimental.color_threshold</code>. Він малює штрих вертикальним градієнтом, а ідеально горизонтальний сегмент має нульову висоту для градієнта, тому стає невидимим. 43-годинний сеанс на одній гучності зник повністю. Використайте суцільний <code>color</code>.</li>
       <li><b>Він сам перекомпоновується на телефоні.</b> Подання Sections складаються в одну колонку на вузьких екранах без жодного додаткового налаштування.</li>
     </ul>
-    <figure><img alt="Той самий дашборд у ширині телефона, перекомпонований в одну колонку" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Той самий дашборд у ширині телефона: три колонки стають однією, і для цього нічого не налаштовувалося</figcaption></figure>
+    <figure><img alt="Той самий дашборд у ширині телефона, перекомпонований в одну колонку" src="/screenshots/ha-dashboard-narrow.webp" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Той самий дашборд у ширині телефона: три колонки стають однією, і для цього нічого не налаштовувалося</figcaption></figure>
   </div>
 </section>
 

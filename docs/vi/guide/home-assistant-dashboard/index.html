@@ -130,7 +130,7 @@
       "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
       "headline": "Dựng bảng điều khiển Home Assistant này trong khoảng một giờ",
       "description": "Dựng bảng điều khiển Home Assistant cho receiver Denon hoặc Marantz của bạn: thẻ HACS, ID thực thể, YAML cho từng thẻ, âm lượng dB thực, Cảnh và lịch sử.",
-      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
       "datePublished": "2026-08-23",
       "dateModified": "2026-10-01",
       "author": {
@@ -254,7 +254,7 @@
 <section>
   <div class="wrap">
     <figure class="hero-shot">
-      <img alt="Dashboard hoàn chỉnh: khu vực đang phát, âm lượng với các mức dB cài sẵn, lưới nguồn vào, chế độ surround, hiệu chỉnh phòng nghe, các Cảnh và biểu đồ âm lượng" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <img alt="Dashboard hoàn chỉnh: khu vực đang phát, âm lượng với các mức dB cài sẵn, lưới nguồn vào, chế độ surround, hiệu chỉnh phòng nghe, các Cảnh và biểu đồ âm lượng" srcset="/screenshots/ha-dashboard-full-656.webp 656w, /screenshots/ha-dashboard-full.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-full.webp" width="1312" height="4092" decoding="async" loading="lazy" />
       <figcaption>Bạn sẽ dựng gì</figcaption>
     </figure>
     <div class="note"><b>Đang vội?</b> Chuyển thẳng đến <a href="#whole">bước 10</a>, tải về view hoàn chỉnh, đổi hai chuỗi rồi dán vào. Các bước ở giữa giải thích từng phần hoạt động ra sao để bạn tự chỉnh sửa.</div>
@@ -367,7 +367,7 @@ tap_action:
       <h2>Cho nó sáng lên khi đó là mục đang dùng</h2>
     </div>
     <p class="lead">Đây là mẫu đáng học nhất, và mọi ô nguồn vào lẫn surround trên bảng đều là bản sao của nó. Thẻ gửi một tập lệnh, rồi tự tô màu dựa trên thực thể receiver, nhờ đó nguồn vào bạn đang dùng sẽ sáng còn các nguồn còn lại thì không.</p>
-    <figure><img alt="Lưới nguồn vào với Nvidia Shield sáng màu cam và mười hai nguồn còn lại tối" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Một ô sáng, mười hai ô tối</figcaption></figure>
+    <figure><img alt="Lưới nguồn vào với Nvidia Shield sáng màu cam và mười hai nguồn còn lại tối" srcset="/screenshots/ha-dashboard-sources-656.webp 656w, /screenshots/ha-dashboard-sources.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-sources.webp" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Một ô sáng, mười hai ô tối</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_input_cd
 icon: mdi:disc
@@ -446,7 +446,7 @@ styles:
       <h2>Hiển thị âm lượng theo dB</h2>
     </div>
     <p class="lead">Home Assistant báo âm lượng dưới dạng phân số. Chẳng ai chỉnh receiver về “0.67” cả. Một dòng phép tính sẽ giải quyết chuyện đó và cả khu vực này bắt đầu đọc như một chiếc receiver thực thụ.</p>
-    <figure><img alt="Khu vực âm lượng: thanh trượt, tăng, giảm, tắt tiếng và bốn mức dB cài sẵn" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie và Loud, mỗi mức ghi rõ số dB mà nó đặt</figcaption></figure>
+    <figure><img alt="Khu vực âm lượng: thanh trượt, tăng, giảm, tắt tiếng và bốn mức dB cài sẵn" srcset="/screenshots/ha-dashboard-volume-656.webp 656w, /screenshots/ha-dashboard-volume.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-volume.webp" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie và Loud, mỗi mức ghi rõ số dB mà nó đặt</figcaption></figure>
     <div class="note"><b>Công thức quy đổi.</b> Home Assistant công bố <code>volume_level</code> bằng âm lượng master chia cho 100, và trên các receiver Denon và Marantz, MV 80 là mốc tham chiếu 0 dB. Vì vậy <b>dB = volume_level &times; 100 &minus; 80</b>. Giá trị <code>volume_level</code> 0.67 tương ứng âm lượng master 67, tức là &minus;13.0 dB.</div>
 <pre class="code"><span class="c"># The readout</span>
 type: custom:mushroom-template-card
@@ -488,7 +488,7 @@ tap_action:
       <h2>Thêm các Cảnh của bạn</h2>
     </div>
     <p class="lead">Đọc tên từ tập lệnh thay vì gõ tay, và khi bạn đổi tên một Cảnh trong AVR Maestro, ô tương ứng tự đổi tên mà không cần sửa dashboard.</p>
-    <figure><img alt="Bốn ô Cảnh, mỗi ô liệt kê các cài đặt mà Cảnh đó khôi phục" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Mỗi ô cho biết Cảnh của nó thực sự khôi phục những gì</figcaption></figure>
+    <figure><img alt="Bốn ô Cảnh, mỗi ô liệt kê các cài đặt mà Cảnh đó khôi phục" src="/screenshots/ha-dashboard-scenes.webp" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Mỗi ô cho biết Cảnh của nó thực sự khôi phục những gì</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_scene_1234567890123
 icon: mdi:theater
@@ -516,7 +516,7 @@ tap_action:
       <h2>Thêm lịch sử</h2>
     </div>
     <p class="lead">Thực thể media player của receiver được Home Assistant ghi lại như mọi thực thể khác, nên bạn có sẵn lịch sử nghe mà không tốn công. Mọi thứ bên dưới đều lấy từ một thực thể duy nhất: không cần thêm cảm biến, không cần helper, không phải cấu hình gì trước.</p>
-    <figure><img alt="Năm biểu đồ lịch sử: nguồn điện và hoạt động, âm lượng master theo dB, âm lượng theo ngày, nguồn vào đang dùng và chế độ surround" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Năm biểu đồ, một thực thể, bảy ngày</figcaption></figure>
+    <figure><img alt="Năm biểu đồ lịch sử: nguồn điện và hoạt động, âm lượng master theo dB, âm lượng theo ngày, nguồn vào đang dùng và chế độ surround" srcset="/screenshots/ha-dashboard-history-656.webp 656w, /screenshots/ha-dashboard-history.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-history.webp" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Năm biểu đồ, một thực thể, bảy ngày</figcaption></figure>
     <p class="lead">Dòng thời gian trạng thái đơn giản không cần thẻ tùy chỉnh nào, và là biểu đồ đáng có nhất:</p>
 <pre class="code">type: history-graph
 hours_to_show: 168
@@ -690,7 +690,7 @@ secondary: >-
       <li><b>Một đường đều biến mất khỏi biểu đồ apexcharts.</b> Đó là <code>experimental.color_threshold</code>. Nó vẽ nét theo dạng chuyển màu dọc, mà một đoạn nằm ngang hoàn toàn thì có chiều cao bằng không để chuyển màu, nên bị vẽ thành vô hình. Một phiên 43 giờ ở cùng một mức âm lượng đã biến mất hoàn toàn. Hãy dùng <code>color</code> đặc.</li>
       <li><b>Nó tự sắp xếp lại trên điện thoại.</b> Các view Sections tự xếp thành một cột ở chiều rộng hẹp mà không cần cấu hình thêm gì.</li>
     </ul>
-    <figure><img alt="Cùng dashboard đó ở chiều rộng điện thoại, sắp xếp lại thành một cột" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Cùng dashboard ở chiều rộng điện thoại: ba cột thành một, và không phải cấu hình gì để điều đó xảy ra</figcaption></figure>
+    <figure><img alt="Cùng dashboard đó ở chiều rộng điện thoại, sắp xếp lại thành một cột" src="/screenshots/ha-dashboard-narrow.webp" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Cùng dashboard ở chiều rộng điện thoại: ba cột thành một, và không phải cấu hình gì để điều đó xảy ra</figcaption></figure>
   </div>
 </section>
 

@@ -130,7 +130,7 @@
       "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
       "headline": "Bygg den här Home Assistant-instrumentpanelen på ungefär en timme",
       "description": "Bygg en Home Assistant-instrumentpanel för din Denon- eller Marantz-mottagare: HACS-kort, entitets-ID:n, YAML för varje kort, riktig dB-volym, scener och historik.",
-      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
       "datePublished": "2026-08-23",
       "dateModified": "2026-10-01",
       "author": {
@@ -254,7 +254,7 @@
 <section>
   <div class="wrap">
     <figure class="hero-shot">
-      <img alt="Den färdiga dashboarden: ett hjältekort för det som spelas nu, volym med dB-förval, ett källrutnät, surroundlägen, rumskorrigering, scener och en volymgraf" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <img alt="Den färdiga dashboarden: ett hjältekort för det som spelas nu, volym med dB-förval, ett källrutnät, surroundlägen, rumskorrigering, scener och en volymgraf" srcset="/screenshots/ha-dashboard-full-656.webp 656w, /screenshots/ha-dashboard-full.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-full.webp" width="1312" height="4092" decoding="async" loading="lazy" />
       <figcaption>Vad du bygger</figcaption>
     </figure>
     <div class="note"><b>Har du bråttom?</b> Hoppa till <a href="#whole">steg 10</a>, ladda ner den kompletta vyn, ändra två strängar och klistra in den. Stegen emellan förklarar vad varje del gör så att du kan ändra den.</div>
@@ -367,7 +367,7 @@ tap_action:
       <h2>Få den att lysa när den är den aktiva</h2>
     </div>
     <p class="lead">Det här är mönstret värt att lära sig, och varje käll- och surroundbricka på tavlan är en kopia av det. Kortet skickar ett skript och färgar sig själv utifrån mottagarentiteten, så att ingången du faktiskt står på lyser och de andra inte gör det.</p>
-    <figure><img alt="Källrutnätet med Nvidia Shield tänd i orange och de andra tolv ingångarna mörka" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>En tänd bricka, tolv mörka</figcaption></figure>
+    <figure><img alt="Källrutnätet med Nvidia Shield tänd i orange och de andra tolv ingångarna mörka" srcset="/screenshots/ha-dashboard-sources-656.webp 656w, /screenshots/ha-dashboard-sources.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-sources.webp" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>En tänd bricka, tolv mörka</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_input_cd
 icon: mdi:disc
@@ -446,7 +446,7 @@ styles:
       <h2>Visa volymen i dB</h2>
     </div>
     <p class="lead">Home Assistant rapporterar volymen som ett bråktal. Ingen ställer in en mottagare på ”0.67”. En rad matematik fixar det, och hela sektionen börjar kännas som en mottagare.</p>
-    <figure><img alt="Volymsektionen: ett reglage, upp, ner, ljud av och fyra dB-förval" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Natt, Dialog, Film och Högt, vart och ett märkt med de dB det ställer in</figcaption></figure>
+    <figure><img alt="Volymsektionen: ett reglage, upp, ner, ljud av och fyra dB-förval" srcset="/screenshots/ha-dashboard-volume-656.webp 656w, /screenshots/ha-dashboard-volume.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-volume.webp" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Natt, Dialog, Film och Högt, vart och ett märkt med de dB det ställer in</figcaption></figure>
     <div class="note"><b>Omräkningen.</b> Home Assistant publicerar <code>volume_level</code> som huvudvolym delat med 100, och på Denon- och Marantz-mottagare är MV 80 referensen för 0 dB. Alltså <b>dB = volume_level &times; 100 &minus; 80</b>. Ett <code>volume_level</code> på 0.67 motsvarar huvudvolym 67, vilket är &minus;13.0 dB.</div>
 <pre class="code"><span class="c"># The readout</span>
 type: custom:mushroom-template-card
@@ -488,7 +488,7 @@ tap_action:
       <h2>Lägg till dina scener</h2>
     </div>
     <p class="lead">Läs namnet från skriptet i stället för att skriva det, så byter brickan namn utan någon dashboardändring när du byter namn på en scen i AVR Maestro.</p>
-    <figure><img alt="Fyra scenbrickor, var och en med en lista över de inställningar scenen återställer" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Varje bricka säger vad dess scen faktiskt återställer</figcaption></figure>
+    <figure><img alt="Fyra scenbrickor, var och en med en lista över de inställningar scenen återställer" src="/screenshots/ha-dashboard-scenes.webp" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Varje bricka säger vad dess scen faktiskt återställer</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_scene_1234567890123
 icon: mdi:theater
@@ -516,7 +516,7 @@ tap_action:
       <h2>Lägg till historik</h2>
     </div>
     <p class="lead">Mottagarens mediaspelarentitet registreras av Home Assistant som vilken annan som helst, så du får en lyssningshistorik på köpet. Allt nedan kommer från den enda entiteten: inga extra sensorer, inga hjälpare, ingenting att konfigurera först.</p>
-    <figure><img alt="Fem historikgrafer: ström och aktivitet, huvudvolym i dB, volym per dag, använd källa och surroundläge" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Fem grafer, en entitet, sju dagar</figcaption></figure>
+    <figure><img alt="Fem historikgrafer: ström och aktivitet, huvudvolym i dB, volym per dag, använd källa och surroundläge" srcset="/screenshots/ha-dashboard-history-656.webp 656w, /screenshots/ha-dashboard-history.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-history.webp" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Fem grafer, en entitet, sju dagar</figcaption></figure>
     <p class="lead">Den enkla tillståndstidslinjen kräver inga anpassade kort alls och är den som är mest värd att ha:</p>
 <pre class="code">type: history-graph
 hours_to_show: 168
@@ -690,7 +690,7 @@ secondary: >-
       <li><b>En jämn linje försvinner från en apexcharts-graf.</b> Det är <code>experimental.color_threshold</code>. Den ritar strecket som en vertikal gradient, och ett helt horisontellt segment har noll höjd att lägga gradienten över, så det renderas osynligt. En session på 43 timmar med en och samma volym försvann helt. Använd en enfärgad <code>color</code>.</li>
       <li><b>Den flödar om på en telefon av sig själv.</b> Sections-vyer staplas i en kolumn vid smala bredder utan någon extra konfiguration.</li>
     </ul>
-    <figure><img alt="Samma dashboard i telefonbredd, omflödad till en enda kolumn" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Samma dashboard i telefonbredd: de tre kolumnerna blir en, och ingenting konfigurerades för att få det att hända</figcaption></figure>
+    <figure><img alt="Samma dashboard i telefonbredd, omflödad till en enda kolumn" src="/screenshots/ha-dashboard-narrow.webp" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Samma dashboard i telefonbredd: de tre kolumnerna blir en, och ingenting konfigurerades för att få det att hända</figcaption></figure>
   </div>
 </section>
 

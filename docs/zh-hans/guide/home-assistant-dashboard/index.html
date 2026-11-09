@@ -130,7 +130,7 @@
       "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
       "headline": "大约一小时内搭建出这个 Home Assistant 仪表板",
       "description": "为您的 Denon 或 Marantz 接收机搭建 Home Assistant 仪表板：HACS 卡片、实体 ID、每张卡片的 YAML、真实的 dB 音量、场景和历史记录。",
-      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
       "datePublished": "2026-08-23",
       "dateModified": "2026-10-01",
       "author": {
@@ -254,7 +254,7 @@
 <section>
   <div class="wrap">
     <figure class="hero-shot">
-      <img alt="完成后的仪表盘：正在播放主视觉、带 dB 预设的音量、输入源网格、环绕声模式、房间校正、场景和音量曲线图" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <img alt="完成后的仪表盘：正在播放主视觉、带 dB 预设的音量、输入源网格、环绕声模式、房间校正、场景和音量曲线图" srcset="/screenshots/ha-dashboard-full-656.webp 656w, /screenshots/ha-dashboard-full.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-full.webp" width="1312" height="4092" decoding="async" loading="lazy" />
       <figcaption>你将搭建的内容</figcaption>
     </figure>
     <div class="note"><b>赶时间？</b>直接跳到<a href="#whole">第 10 步</a>，下载完整视图，改两个字符串后粘贴即可。中间的步骤会解释每个部分的作用，方便你按需修改。</div>
@@ -367,7 +367,7 @@ tap_action:
       <h2>让当前生效的项自动点亮</h2>
     </div>
     <p class="lead">这是最值得学会的模式，面板上每个输入源和环绕声磁贴都是它的副本。卡片负责发送脚本，并根据接收机实体给自己上色，这样你当前所在的输入源会亮起，其他的则保持暗色。</p>
-    <figure><img alt="输入源网格：Nvidia Shield 以橙色点亮，其余十二个输入源为暗色" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>一个亮着的磁贴，十二个暗着的</figcaption></figure>
+    <figure><img alt="输入源网格：Nvidia Shield 以橙色点亮，其余十二个输入源为暗色" srcset="/screenshots/ha-dashboard-sources-656.webp 656w, /screenshots/ha-dashboard-sources.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-sources.webp" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>一个亮着的磁贴，十二个暗着的</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_input_cd
 icon: mdi:disc
@@ -446,7 +446,7 @@ styles:
       <h2>以 dB 显示音量</h2>
     </div>
     <p class="lead">Home Assistant 把音量报告为一个小数。没有人会把接收机设为“0.67”。一行数学运算就能解决，整个音量分区读起来就像一台真正的接收机。</p>
-    <figure><img alt="音量分区：一个滑块、调高、调低、静音和四个 dB 预设" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>夜间、对白、电影和高音量，每个都标有它所设定的 dB 值</figcaption></figure>
+    <figure><img alt="音量分区：一个滑块、调高、调低、静音和四个 dB 预设" srcset="/screenshots/ha-dashboard-volume-656.webp 656w, /screenshots/ha-dashboard-volume.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-volume.webp" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>夜间、对白、电影和高音量，每个都标有它所设定的 dB 值</figcaption></figure>
     <div class="note"><b>换算方法。</b>Home Assistant 把 <code>volume_level</code> 发布为主音量除以 100，而在 Denon 和 Marantz 接收机上，MV 80 是 0 dB 参考电平。因此 <b>dB = volume_level &times; 100 &minus; 80</b>。<code>volume_level</code> 为 0.67 即主音量 67，也就是 &minus;13.0 dB。</div>
 <pre class="code"><span class="c"># The readout</span>
 type: custom:mushroom-template-card
@@ -488,7 +488,7 @@ tap_action:
       <h2>添加你的场景</h2>
     </div>
     <p class="lead">从脚本中读取名称，而不是手动输入。这样在 AVR Maestro 中重命名场景时，磁贴也会随之更名，无需编辑仪表盘。</p>
-    <figure><img alt="四个场景磁贴，每个都列出该场景所恢复的设置" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>每个磁贴都说明它的场景实际会恢复什么</figcaption></figure>
+    <figure><img alt="四个场景磁贴，每个都列出该场景所恢复的设置" src="/screenshots/ha-dashboard-scenes.webp" width="424" height="369" loading="lazy" decoding="async" /><figcaption>每个磁贴都说明它的场景实际会恢复什么</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_scene_1234567890123
 icon: mdi:theater
@@ -516,7 +516,7 @@ tap_action:
       <h2>添加历史记录</h2>
     </div>
     <p class="lead">Home Assistant 会像记录其他实体一样记录接收机的媒体播放器实体，因此你可以免费获得收听历史。下面的一切都来自这一个实体：无需额外传感器，无需辅助实体，也无需先做任何配置。</p>
-    <figure><img alt="五张历史图表：电源与活动、以 dB 计的主音量、按日统计的音量、使用的输入源和环绕声模式" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>五张图表，一个实体，七天</figcaption></figure>
+    <figure><img alt="五张历史图表：电源与活动、以 dB 计的主音量、按日统计的音量、使用的输入源和环绕声模式" srcset="/screenshots/ha-dashboard-history-656.webp 656w, /screenshots/ha-dashboard-history.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-history.webp" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>五张图表，一个实体，七天</figcaption></figure>
     <p class="lead">普通的状态时间线完全不需要自定义卡片，也是最值得拥有的一张：</p>
 <pre class="code">type: history-graph
 hours_to_show: 168
@@ -690,7 +690,7 @@ secondary: >-
       <li><b>apexcharts 图表中一条平稳的线消失了。</b>这是 <code>experimental.color_threshold</code> 造成的。它以垂直渐变来绘制线条，而一段完全水平的线段高度为零，没有可供渐变的空间，因此渲染为不可见。一次在同一音量下持续 43 小时的会话就这样完全消失了。请改用纯色的 <code>color</code>。</li>
       <li><b>它会在手机上自动重新排列。</b>分区视图在窄屏下会堆叠为单列，无需任何额外配置。</li>
     </ul>
-    <figure><img alt="同一个仪表盘在手机宽度下重新排列为单列" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>同一个仪表盘在手机宽度下：三列变成一列，而且没有为此做任何配置</figcaption></figure>
+    <figure><img alt="同一个仪表盘在手机宽度下重新排列为单列" src="/screenshots/ha-dashboard-narrow.webp" width="430" height="932" loading="lazy" decoding="async" /><figcaption>同一个仪表盘在手机宽度下：三列变成一列，而且没有为此做任何配置</figcaption></figure>
   </div>
 </section>
 

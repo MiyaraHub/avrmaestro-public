@@ -130,7 +130,7 @@
       "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
       "headline": "Соберите эту панель Home Assistant примерно за час",
       "description": "Соберите панель Home Assistant для вашего ресивера Denon или Marantz: карточки HACS, ID объектов, YAML для каждой карточки, реальная громкость в дБ, сцены и история.",
-      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
       "datePublished": "2026-08-23",
       "dateModified": "2026-10-01",
       "author": {
@@ -254,7 +254,7 @@
 <section>
   <div class="wrap">
     <figure class="hero-shot">
-      <img alt="Готовый дашборд: блок «Сейчас играет», громкость с пресетами в дБ, сетка источников, режимы объёмного звука, коррекция акустики помещения, сцены и график громкости" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <img alt="Готовый дашборд: блок «Сейчас играет», громкость с пресетами в дБ, сетка источников, режимы объёмного звука, коррекция акустики помещения, сцены и график громкости" srcset="/screenshots/ha-dashboard-full-656.webp 656w, /screenshots/ha-dashboard-full.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-full.webp" width="1312" height="4092" decoding="async" loading="lazy" />
       <figcaption>Что вы построите</figcaption>
     </figure>
     <div class="note"><b>Торопитесь?</b> Переходите к <a href="#whole">шагу 10</a>, скачайте готовое представление, поменяйте две строки и вставьте его. Шаги между ними объясняют, что делает каждая часть, чтобы вы могли её изменить.</div>
@@ -367,7 +367,7 @@ tap_action:
       <h2>Подсветка, когда вход активен</h2>
     </div>
     <p class="lead">Этот шаблон стоит выучить: каждая плитка источника и объёмного звука на дашборде - его копия. Карточка отправляет скрипт и окрашивается по состоянию объекта ресивера, поэтому вход, на котором вы сейчас находитесь, горит, а остальные нет.</p>
-    <figure><img alt="Сетка источников: Nvidia Shield горит оранжевым, остальные двенадцать входов тёмные" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Одна горящая плитка, двенадцать тёмных</figcaption></figure>
+    <figure><img alt="Сетка источников: Nvidia Shield горит оранжевым, остальные двенадцать входов тёмные" srcset="/screenshots/ha-dashboard-sources-656.webp 656w, /screenshots/ha-dashboard-sources.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-sources.webp" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Одна горящая плитка, двенадцать тёмных</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_input_cd
 icon: mdi:disc
@@ -446,7 +446,7 @@ styles:
       <h2>Показывайте громкость в дБ</h2>
     </div>
     <p class="lead">Home Assistant сообщает громкость в виде доли. Никто не выставляет на ресивере «0.67». Одна строка математики это исправляет, и весь раздел начинает читаться как ресивер.</p>
-    <figure><img alt="Раздел громкости: ползунок, громче, тише, без звука и четыре пресета в дБ" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie и Loud, у каждого подпись с установленным значением в дБ</figcaption></figure>
+    <figure><img alt="Раздел громкости: ползунок, громче, тише, без звука и четыре пресета в дБ" srcset="/screenshots/ha-dashboard-volume-656.webp 656w, /screenshots/ha-dashboard-volume.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-volume.webp" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie и Loud, у каждого подпись с установленным значением в дБ</figcaption></figure>
     <div class="note"><b>Преобразование.</b> Home Assistant публикует <code>volume_level</code> как основную громкость, делённую на 100, а на ресиверах Denon и Marantz MV 80 - это опорный уровень 0 дБ. Значит, <b>дБ = volume_level &times; 100 &minus; 80</b>. Значение <code>volume_level</code> 0.67 - это основная громкость 67, то есть &minus;13.0 дБ.</div>
 <pre class="code"><span class="c"># The readout</span>
 type: custom:mushroom-template-card
@@ -488,7 +488,7 @@ tap_action:
       <h2>Добавьте свои сцены</h2>
     </div>
     <p class="lead">Считывайте название из скрипта, а не вводите вручную, и переименование сцены в AVR Maestro переименует плитку без правки дашборда.</p>
-    <figure><img alt="Четыре плитки сцен, в каждой перечислены настройки, которые сцена восстанавливает" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Каждая плитка говорит, что именно восстанавливает её сцена</figcaption></figure>
+    <figure><img alt="Четыре плитки сцен, в каждой перечислены настройки, которые сцена восстанавливает" src="/screenshots/ha-dashboard-scenes.webp" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Каждая плитка говорит, что именно восстанавливает её сцена</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_scene_1234567890123
 icon: mdi:theater
@@ -516,7 +516,7 @@ tap_action:
       <h2>Добавьте историю</h2>
     </div>
     <p class="lead">Объект медиаплеера ресивера записывается Home Assistant как любой другой, так что история прослушивания достаётся бесплатно. Всё ниже берётся из этого одного объекта: никаких дополнительных датчиков, помощников и предварительной настройки.</p>
-    <figure><img alt="Пять графиков истории: питание и активность, основная громкость в дБ, громкость по дням, используемый источник и режим объёмного звука" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Пять графиков, один объект, семь дней</figcaption></figure>
+    <figure><img alt="Пять графиков истории: питание и активность, основная громкость в дБ, громкость по дням, используемый источник и режим объёмного звука" srcset="/screenshots/ha-dashboard-history-656.webp 656w, /screenshots/ha-dashboard-history.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-history.webp" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Пять графиков, один объект, семь дней</figcaption></figure>
     <p class="lead">Простая временная шкала состояний вообще не требует пользовательских карточек и полезнее всего:</p>
 <pre class="code">type: history-graph
 hours_to_show: 168
@@ -690,7 +690,7 @@ secondary: >-
       <li><b>Ровная линия пропадает с графика apexcharts.</b> Это <code>experimental.color_threshold</code>. Он рисует линию вертикальным градиентом, а у строго горизонтального отрезка нулевая высота, по которой можно строить градиент, поэтому он становится невидимым. 43-часовой сеанс на одной громкости исчез полностью. Используйте сплошной <code>color</code>.</li>
       <li><b>На телефоне всё перестраивается само.</b> Представления «Разделы» на узких экранах складываются в один столбец без какой-либо дополнительной настройки.</li>
     </ul>
-    <figure><img alt="Тот же дашборд в ширину телефона, перестроенный в один столбец" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Тот же дашборд в ширину телефона: три столбца становятся одним, и для этого ничего не настраивалось</figcaption></figure>
+    <figure><img alt="Тот же дашборд в ширину телефона, перестроенный в один столбец" src="/screenshots/ha-dashboard-narrow.webp" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Тот же дашборд в ширину телефона: три столбца становятся одним, и для этого ничего не настраивалось</figcaption></figure>
   </div>
 </section>
 

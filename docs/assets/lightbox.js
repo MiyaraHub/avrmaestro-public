@@ -33,7 +33,7 @@
   function open(img) {
     var lb = build();
     var full = lb.querySelector('img');
-    full.src = img.currentSrc || img.src;
+    full.src = img.src;
     // The caption is the accessible name people need; falling back to the
     // page's alt text keeps it meaningful when there is no figcaption.
     var cap = img.closest('figure')

@@ -130,7 +130,7 @@
       "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
       "headline": "Build this Home Assistant dashboard in about an hour",
       "description": "Build a Home Assistant dashboard for your Denon or Marantz receiver: HACS cards, entity IDs, YAML for every card, real dB volume, Scenes and history.",
-      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
       "datePublished": "2026-08-23",
       "dateModified": "2026-10-01",
       "author": {
@@ -254,7 +254,7 @@
 <section>
   <div class="wrap">
     <figure class="hero-shot">
-      <img alt="The finished dashboard: a now-playing hero, volume with dB presets, a source grid, surround modes, room correction, scenes and a volume graph" src="../../screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <img alt="The finished dashboard: a now-playing hero, volume with dB presets, a source grid, surround modes, room correction, scenes and a volume graph" srcset="/screenshots/ha-dashboard-full-656.webp 656w, /screenshots/ha-dashboard-full.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="../../screenshots/ha-dashboard-full.webp" width="1312" height="4092" decoding="async" loading="lazy" />
       <figcaption>What you are building</figcaption>
     </figure>
     <div class="note"><b>In a hurry?</b> Jump to <a href="#whole">step 10</a>, download the complete view, change two strings and paste it. The steps in between explain what each piece does so you can change it.</div>
@@ -367,7 +367,7 @@ tap_action:
       <h2>Make it light up when it is the live one</h2>
     </div>
     <p class="lead">This is the pattern worth learning, and every source and surround tile on the board is a copy of it. The card sends a script, and colours itself from the receiver entity, so the input you are actually on is lit and the others are not.</p>
-    <figure><img alt="The source grid with Nvidia Shield lit in orange and the other twelve inputs dark" src="../../screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>One lit tile, twelve dark ones</figcaption></figure>
+    <figure><img alt="The source grid with Nvidia Shield lit in orange and the other twelve inputs dark" srcset="/screenshots/ha-dashboard-sources-656.webp 656w, /screenshots/ha-dashboard-sources.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="../../screenshots/ha-dashboard-sources.webp" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>One lit tile, twelve dark ones</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_input_cd
 icon: mdi:disc
@@ -446,7 +446,7 @@ styles:
       <h2>Show volume in dB</h2>
     </div>
     <p class="lead">Home Assistant reports volume as a fraction. Nobody sets a receiver to "0.67". One line of maths fixes it and the whole section starts reading like a receiver.</p>
-    <figure><img alt="The volume section: a slider, up, down, mute and four dB presets" src="../../screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie and Loud, each labelled with the dB it sets</figcaption></figure>
+    <figure><img alt="The volume section: a slider, up, down, mute and four dB presets" srcset="/screenshots/ha-dashboard-volume-656.webp 656w, /screenshots/ha-dashboard-volume.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="../../screenshots/ha-dashboard-volume.webp" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie and Loud, each labelled with the dB it sets</figcaption></figure>
     <div class="note"><b>The conversion.</b> Home Assistant publishes <code>volume_level</code> as master volume divided by 100, and on Denon and Marantz receivers MV 80 is the 0 dB reference. So <b>dB = volume_level &times; 100 &minus; 80</b>. A <code>volume_level</code> of 0.67 is master volume 67, which is &minus;13.0 dB.</div>
 <pre class="code"><span class="c"># The readout</span>
 type: custom:mushroom-template-card
@@ -488,7 +488,7 @@ tap_action:
       <h2>Add your Scenes</h2>
     </div>
     <p class="lead">Read the name from the script instead of typing it, and renaming a Scene in AVR Maestro renames the tile with no dashboard edit.</p>
-    <figure><img alt="Four scene tiles, each listing the settings that scene restores" src="../../screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Each tile says what its scene actually restores</figcaption></figure>
+    <figure><img alt="Four scene tiles, each listing the settings that scene restores" src="../../screenshots/ha-dashboard-scenes.webp" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Each tile says what its scene actually restores</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_scene_1234567890123
 icon: mdi:theater
@@ -516,7 +516,7 @@ tap_action:
       <h2>Add history</h2>
     </div>
     <p class="lead">The receiver's media player entity is recorded by Home Assistant like any other, so you get a listening history for free. Everything below comes from that one entity: no extra sensors, no helpers, nothing to configure first.</p>
-    <figure><img alt="Five history graphs: power and activity, master volume in dB, volume by day, source in use and surround mode" src="../../screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Five graphs, one entity, seven days</figcaption></figure>
+    <figure><img alt="Five history graphs: power and activity, master volume in dB, volume by day, source in use and surround mode" srcset="/screenshots/ha-dashboard-history-656.webp 656w, /screenshots/ha-dashboard-history.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="../../screenshots/ha-dashboard-history.webp" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Five graphs, one entity, seven days</figcaption></figure>
     <p class="lead">The plain state timeline needs no custom cards at all, and is the one most worth having:</p>
 <pre class="code">type: history-graph
 hours_to_show: 168
@@ -690,7 +690,7 @@ secondary: >-
       <li><b>A steady line disappears from an apexcharts graph.</b> That is <code>experimental.color_threshold</code>. It draws the stroke as a vertical gradient, and a perfectly horizontal segment has zero height to gradient across, so it renders invisible. A 43-hour session at one volume vanished entirely. Use a solid <code>color</code>.</li>
       <li><b>It reflows on a phone by itself.</b> Sections views stack into one column at narrow widths with nothing extra configured.</li>
     </ul>
-    <figure><img alt="The same dashboard at phone width, reflowed into a single column" src="../../screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Same dashboard at phone width: the three columns become one, and nothing was configured to make that happen</figcaption></figure>
+    <figure><img alt="The same dashboard at phone width, reflowed into a single column" src="../../screenshots/ha-dashboard-narrow.webp" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Same dashboard at phone width: the three columns become one, and nothing was configured to make that happen</figcaption></figure>
   </div>
 </section>
 

@@ -130,7 +130,7 @@
       "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
       "headline": "Postavte si tento dashboard Home Assistant zhruba za hodinu",
       "description": "Sestavte si dashboard Home Assistant pro svůj přijímač Denon nebo Marantz: karty z HACS, ID entit, YAML pro každou kartu, skutečná hlasitost v dB, Scény a historie.",
-      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
       "datePublished": "2026-08-23",
       "dateModified": "2026-10-01",
       "author": {
@@ -254,7 +254,7 @@
 <section>
   <div class="wrap">
     <figure class="hero-shot">
-      <img alt="Hotový dashboard: hlavní karta přehrávání, hlasitost s předvolbami v dB, mřížka zdrojů, surroundové režimy, korekce prostoru, scény a graf hlasitosti" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <img alt="Hotový dashboard: hlavní karta přehrávání, hlasitost s předvolbami v dB, mřížka zdrojů, surroundové režimy, korekce prostoru, scény a graf hlasitosti" srcset="/screenshots/ha-dashboard-full-656.webp 656w, /screenshots/ha-dashboard-full.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-full.webp" width="1312" height="4092" decoding="async" loading="lazy" />
       <figcaption>Co budete stavět</figcaption>
     </figure>
     <div class="note"><b>Spěcháte?</b> Přeskočte na <a href="#whole">krok 10</a>, stáhněte si kompletní zobrazení, změňte dva řetězce a vložte ho. Kroky mezi tím vysvětlují, co každá část dělá, abyste ji mohli upravit.</div>
@@ -367,7 +367,7 @@ tap_action:
       <h2>Ať se rozsvítí, když je právě aktivní</h2>
     </div>
     <p class="lead">Tohle je vzor, který stojí za to se naučit, a každá dlaždice zdroje a surroundu na ploše je jeho kopií. Karta odešle skript a barvu si bere z entity přijímače, takže vstup, na kterém skutečně jste, svítí a ostatní ne.</p>
-    <figure><img alt="Mřížka zdrojů, kde Nvidia Shield svítí oranžově a ostatních dvanáct vstupů je tmavých" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Jedna rozsvícená dlaždice, dvanáct tmavých</figcaption></figure>
+    <figure><img alt="Mřížka zdrojů, kde Nvidia Shield svítí oranžově a ostatních dvanáct vstupů je tmavých" srcset="/screenshots/ha-dashboard-sources-656.webp 656w, /screenshots/ha-dashboard-sources.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-sources.webp" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Jedna rozsvícená dlaždice, dvanáct tmavých</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_input_cd
 icon: mdi:disc
@@ -446,7 +446,7 @@ styles:
       <h2>Zobrazte hlasitost v dB</h2>
     </div>
     <p class="lead">Home Assistant hlásí hlasitost jako zlomek. Nikdo nenastavuje přijímač na „0,67“. Jeden řádek matematiky to spraví a celá sekce začne vypadat jako přijímač.</p>
-    <figure><img alt="Sekce hlasitosti: posuvník, nahoru, dolů, ztlumení a čtyři předvolby v dB" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Noc, Dialog, Film a Hlasitě, každá popsaná hodnotou dB, kterou nastavuje</figcaption></figure>
+    <figure><img alt="Sekce hlasitosti: posuvník, nahoru, dolů, ztlumení a čtyři předvolby v dB" srcset="/screenshots/ha-dashboard-volume-656.webp 656w, /screenshots/ha-dashboard-volume.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-volume.webp" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Noc, Dialog, Film a Hlasitě, každá popsaná hodnotou dB, kterou nastavuje</figcaption></figure>
     <div class="note"><b>Převod.</b> Home Assistant publikuje <code>volume_level</code> jako hlavní hlasitost vydělenou 100 a u přijímačů Denon a Marantz je MV 80 referenční hodnotou 0 dB. Takže <b>dB = volume_level &times; 100 &minus; 80</b>. Hodnota <code>volume_level</code> 0,67 odpovídá hlavní hlasitosti 67, tedy &minus;13,0 dB.</div>
 <pre class="code"><span class="c"># The readout</span>
 type: custom:mushroom-template-card
@@ -488,7 +488,7 @@ tap_action:
       <h2>Přidejte své Scény</h2>
     </div>
     <p class="lead">Název čtěte ze skriptu, místo abyste ho psali ručně, a přejmenování Scény v AVR Maestro přejmenuje dlaždici bez jakékoli úpravy dashboardu.</p>
-    <figure><img alt="Čtyři dlaždice scén, každá s výčtem nastavení, která scéna obnoví" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Každá dlaždice říká, co její scéna skutečně obnoví</figcaption></figure>
+    <figure><img alt="Čtyři dlaždice scén, každá s výčtem nastavení, která scéna obnoví" src="/screenshots/ha-dashboard-scenes.webp" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Každá dlaždice říká, co její scéna skutečně obnoví</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_scene_1234567890123
 icon: mdi:theater
@@ -516,7 +516,7 @@ tap_action:
       <h2>Přidejte historii</h2>
     </div>
     <p class="lead">Entitu přehrávače médií přijímače zaznamenává Home Assistant jako každou jinou, takže historii poslechu máte zadarmo. Všechno níže pochází z té jediné entity: žádné další senzory, žádní pomocníci, nic, co by bylo třeba předem nastavovat.</p>
-    <figure><img alt="Pět grafů historie: napájení a aktivita, hlavní hlasitost v dB, hlasitost podle dne, používaný zdroj a surroundový režim" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Pět grafů, jedna entita, sedm dní</figcaption></figure>
+    <figure><img alt="Pět grafů historie: napájení a aktivita, hlavní hlasitost v dB, hlasitost podle dne, používaný zdroj a surroundový režim" srcset="/screenshots/ha-dashboard-history-656.webp 656w, /screenshots/ha-dashboard-history.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-history.webp" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Pět grafů, jedna entita, sedm dní</figcaption></figure>
     <p class="lead">Prostá časová osa stavů nepotřebuje žádné vlastní karty a je to ta, kterou stojí za to mít především:</p>
 <pre class="code">type: history-graph
 hours_to_show: 168
@@ -690,7 +690,7 @@ secondary: >-
       <li><b>Rovná čára z grafu apexcharts zmizí.</b> To způsobuje <code>experimental.color_threshold</code>. Čáru kreslí jako svislý přechod a dokonale vodorovný segment má nulovou výšku, přes kterou by se přechod táhl, takže se vykreslí neviditelně. 43hodinová relace na jedné hlasitosti zmizela úplně. Použijte plnou <code>color</code>.</li>
       <li><b>Na telefonu se přeskupí samo.</b> Zobrazení Sekce se při úzké šířce poskládají do jednoho sloupce, aniž byste cokoli nastavovali.</li>
     </ul>
-    <figure><img alt="Stejný dashboard v šířce telefonu, přeskupený do jednoho sloupce" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Stejný dashboard v šířce telefonu: tři sloupce se stanou jedním a nic pro to nebylo nastaveno</figcaption></figure>
+    <figure><img alt="Stejný dashboard v šířce telefonu, přeskupený do jednoho sloupce" src="/screenshots/ha-dashboard-narrow.webp" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Stejný dashboard v šířce telefonu: tři sloupce se stanou jedním a nic pro to nebylo nastaveno</figcaption></figure>
   </div>
 </section>
 

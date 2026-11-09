@@ -130,7 +130,7 @@
       "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
       "headline": "Bouw dit Home Assistant-dashboard in ongeveer een uur",
       "description": "Bouw een Home Assistant-dashboard voor je Denon- of Marantz-receiver: HACS-kaarten, entiteits-ID's, YAML voor elke kaart, echt dB-volume, scènes en geschiedenis.",
-      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
       "datePublished": "2026-08-23",
       "dateModified": "2026-10-01",
       "author": {
@@ -254,7 +254,7 @@
 <section>
   <div class="wrap">
     <figure class="hero-shot">
-      <img alt="Het voltooide dashboard: een held met wat nu speelt, volume met dB-presets, een bronnenraster, surroundmodi, ruimtecorrectie, scènes en een volumegrafiek" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <img alt="Het voltooide dashboard: een held met wat nu speelt, volume met dB-presets, een bronnenraster, surroundmodi, ruimtecorrectie, scènes en een volumegrafiek" srcset="/screenshots/ha-dashboard-full-656.webp 656w, /screenshots/ha-dashboard-full.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-full.webp" width="1312" height="4092" decoding="async" loading="lazy" />
       <figcaption>Wat je gaat bouwen</figcaption>
     </figure>
     <div class="note"><b>Heb je haast?</b> Spring naar <a href="#whole">stap 10</a>, download de complete weergave, pas twee teksten aan en plak hem. De stappen ertussen leggen uit wat elk onderdeel doet, zodat je het kunt aanpassen.</div>
@@ -367,7 +367,7 @@ tap_action:
       <h2>Laat hem oplichten als hij de actieve is</h2>
     </div>
     <p class="lead">Dit is het patroon dat het leren waard is, en elke bron- en surroundtegel op het bord is er een kopie van. De kaart verstuurt een script en kleurt zichzelf op basis van de receiver-entiteit, zodat de ingang waarop je echt zit oplicht en de andere niet.</p>
-    <figure><img alt="Het bronnenraster met Nvidia Shield oranje verlicht en de andere twaalf ingangen donker" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Eén verlichte tegel, twaalf donkere</figcaption></figure>
+    <figure><img alt="Het bronnenraster met Nvidia Shield oranje verlicht en de andere twaalf ingangen donker" srcset="/screenshots/ha-dashboard-sources-656.webp 656w, /screenshots/ha-dashboard-sources.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-sources.webp" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Eén verlichte tegel, twaalf donkere</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_input_cd
 icon: mdi:disc
@@ -446,7 +446,7 @@ styles:
       <h2>Toon volume in dB</h2>
     </div>
     <p class="lead">Home Assistant meldt volume als een breuk. Niemand zet een receiver op “0.67”. Eén regel rekenwerk lost het op en de hele sectie begint als een receiver te lezen.</p>
-    <figure><img alt="De volumesectie: een schuif, harder, zachter, dempen en vier dB-presets" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Nacht, Dialoog, Film en Luid, elk met het aantal dB dat het instelt</figcaption></figure>
+    <figure><img alt="De volumesectie: een schuif, harder, zachter, dempen en vier dB-presets" srcset="/screenshots/ha-dashboard-volume-656.webp 656w, /screenshots/ha-dashboard-volume.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-volume.webp" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Nacht, Dialoog, Film en Luid, elk met het aantal dB dat het instelt</figcaption></figure>
     <div class="note"><b>De omrekening.</b> Home Assistant publiceert <code>volume_level</code> als hoofdvolume gedeeld door 100, en op Denon- en Marantz-receivers is MV 80 de referentie van 0 dB. Dus <b>dB = volume_level &times; 100 &minus; 80</b>. Een <code>volume_level</code> van 0.67 is hoofdvolume 67, en dat is &minus;13.0 dB.</div>
 <pre class="code"><span class="c"># The readout</span>
 type: custom:mushroom-template-card
@@ -488,7 +488,7 @@ tap_action:
       <h2>Voeg je Scènes toe</h2>
     </div>
     <p class="lead">Lees de naam uit het script in plaats van hem te typen, en als je een Scène in AVR Maestro hernoemt, krijgt de tegel meteen die naam zonder dat je het dashboard hoeft aan te passen.</p>
-    <figure><img alt="Vier scènetegels, elk met de instellingen die die scène herstelt" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Elke tegel zegt wat zijn scène echt herstelt</figcaption></figure>
+    <figure><img alt="Vier scènetegels, elk met de instellingen die die scène herstelt" src="/screenshots/ha-dashboard-scenes.webp" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Elke tegel zegt wat zijn scène echt herstelt</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_scene_1234567890123
 icon: mdi:theater
@@ -516,7 +516,7 @@ tap_action:
       <h2>Voeg geschiedenis toe</h2>
     </div>
     <p class="lead">De mediaspeler-entiteit van de receiver wordt door Home Assistant vastgelegd zoals elke andere, dus je krijgt gratis een luistergeschiedenis. Alles hieronder komt van die ene entiteit: geen extra sensoren, geen hulpmiddelen, niets om eerst te configureren.</p>
-    <figure><img alt="Vijf geschiedenisgrafieken: aan/uit en activiteit, hoofdvolume in dB, volume per dag, gebruikte bron en surroundmodus" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Vijf grafieken, één entiteit, zeven dagen</figcaption></figure>
+    <figure><img alt="Vijf geschiedenisgrafieken: aan/uit en activiteit, hoofdvolume in dB, volume per dag, gebruikte bron en surroundmodus" srcset="/screenshots/ha-dashboard-history-656.webp 656w, /screenshots/ha-dashboard-history.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-history.webp" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Vijf grafieken, één entiteit, zeven dagen</figcaption></figure>
     <p class="lead">De gewone statustijdlijn heeft helemaal geen aangepaste kaarten nodig en is degene die het meest de moeite waard is:</p>
 <pre class="code">type: history-graph
 hours_to_show: 168
@@ -690,7 +690,7 @@ secondary: >-
       <li><b>Een stabiele lijn verdwijnt uit een apexcharts-grafiek.</b> Dat is <code>experimental.color_threshold</code>. Het tekent de lijn als een verticaal verloop, en een volkomen horizontaal segment heeft geen hoogte om een verloop over te leggen, dus het wordt onzichtbaar. Een sessie van 43 uur op één volume verdween helemaal. Gebruik een effen <code>color</code>.</li>
       <li><b>Het schuift op een telefoon vanzelf mee.</b> Secties-weergaven stapelen zich bij smalle breedtes tot één kolom, zonder extra configuratie.</li>
     </ul>
-    <figure><img alt="Hetzelfde dashboard op telefoonbreedte, herschikt tot één kolom" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Hetzelfde dashboard op telefoonbreedte: de drie kolommen worden één, en er is niets geconfigureerd om dat te laten gebeuren</figcaption></figure>
+    <figure><img alt="Hetzelfde dashboard op telefoonbreedte, herschikt tot één kolom" src="/screenshots/ha-dashboard-narrow.webp" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Hetzelfde dashboard op telefoonbreedte: de drie kolommen worden één, en er is niets geconfigureerd om dat te laten gebeuren</figcaption></figure>
   </div>
 </section>
 

@@ -130,7 +130,7 @@
       "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
       "headline": "Créez ce tableau de bord Home Assistant en environ une heure",
       "description": "Créez un tableau de bord Home Assistant pour votre récepteur Denon ou Marantz : cartes HACS, identifiants d'entités, YAML pour chaque carte, vrai volume en dB, Scènes et historique.",
-      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
       "datePublished": "2026-08-23",
       "dateModified": "2026-10-01",
       "author": {
@@ -254,7 +254,7 @@
 <section>
   <div class="wrap">
     <figure class="hero-shot">
-      <img alt="Le tableau de bord terminé : un bandeau de lecture en cours, le volume avec des préréglages en dB, une grille de sources, les modes surround, la correction acoustique, des scènes et un graphique de volume" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <img alt="Le tableau de bord terminé : un bandeau de lecture en cours, le volume avec des préréglages en dB, une grille de sources, les modes surround, la correction acoustique, des scènes et un graphique de volume" srcset="/screenshots/ha-dashboard-full-656.webp 656w, /screenshots/ha-dashboard-full.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-full.webp" width="1312" height="4092" decoding="async" loading="lazy" />
       <figcaption>Ce que vous allez construire</figcaption>
     </figure>
     <div class="note"><b>Pressé ?</b> Passez directement à l'<a href="#whole">étape 10</a>, téléchargez la vue complète, changez deux chaînes de texte et collez-la. Les étapes intermédiaires expliquent le rôle de chaque élément pour que vous puissiez le modifier.</div>
@@ -367,7 +367,7 @@ tap_action:
       <h2>Faites-la s'allumer quand elle est active</h2>
     </div>
     <p class="lead">C'est le modèle qui vaut la peine d'être appris, et chaque tuile de source et de surround du tableau en est une copie. La carte envoie un script et se colore d'après l'entité du récepteur, de sorte que l'entrée sur laquelle vous êtes vraiment est allumée et les autres ne le sont pas.</p>
-    <figure><img alt="La grille de sources avec Nvidia Shield allumée en orange et les douze autres entrées éteintes" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Une tuile allumée, douze éteintes</figcaption></figure>
+    <figure><img alt="La grille de sources avec Nvidia Shield allumée en orange et les douze autres entrées éteintes" srcset="/screenshots/ha-dashboard-sources-656.webp 656w, /screenshots/ha-dashboard-sources.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-sources.webp" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Une tuile allumée, douze éteintes</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_input_cd
 icon: mdi:disc
@@ -446,7 +446,7 @@ styles:
       <h2>Affichez le volume en dB</h2>
     </div>
     <p class="lead">Home Assistant indique le volume sous forme de fraction. Personne ne règle un récepteur sur « 0.67 ». Une ligne de calcul règle le problème et toute la section se met à ressembler à un vrai récepteur.</p>
-    <figure><img alt="La section volume : un curseur, plus, moins, sourdine et quatre préréglages en dB" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie et Loud, chacun étiqueté avec les dB qu'il applique</figcaption></figure>
+    <figure><img alt="La section volume : un curseur, plus, moins, sourdine et quatre préréglages en dB" srcset="/screenshots/ha-dashboard-volume-656.webp 656w, /screenshots/ha-dashboard-volume.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-volume.webp" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie et Loud, chacun étiqueté avec les dB qu'il applique</figcaption></figure>
     <div class="note"><b>La conversion.</b> Home Assistant publie <code>volume_level</code> sous la forme du volume principal divisé par 100, et sur les récepteurs Denon et Marantz, MV 80 correspond à la référence 0 dB. Donc <b>dB = volume_level &times; 100 &minus; 80</b>. Un <code>volume_level</code> de 0.67 correspond à un volume principal de 67, soit &minus;13.0 dB.</div>
 <pre class="code"><span class="c"># The readout</span>
 type: custom:mushroom-template-card
@@ -488,7 +488,7 @@ tap_action:
       <h2>Ajoutez vos Scènes</h2>
     </div>
     <p class="lead">Lisez le nom depuis le script au lieu de le saisir, et renommer une Scène dans AVR Maestro renomme la tuile sans aucune modification du tableau de bord.</p>
-    <figure><img alt="Quatre tuiles de scène, chacune listant les réglages que cette scène restaure" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Chaque tuile indique ce que sa scène restaure réellement</figcaption></figure>
+    <figure><img alt="Quatre tuiles de scène, chacune listant les réglages que cette scène restaure" src="/screenshots/ha-dashboard-scenes.webp" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Chaque tuile indique ce que sa scène restaure réellement</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_scene_1234567890123
 icon: mdi:theater
@@ -516,7 +516,7 @@ tap_action:
       <h2>Ajoutez l'historique</h2>
     </div>
     <p class="lead">L'entité lecteur multimédia du récepteur est enregistrée par Home Assistant comme n'importe quelle autre, vous obtenez donc un historique d'écoute gratuitement. Tout ce qui suit provient de cette seule entité : aucun capteur supplémentaire, aucun assistant, rien à configurer au préalable.</p>
-    <figure><img alt="Cinq graphiques d'historique : alimentation et activité, volume principal en dB, volume par jour, source utilisée et mode surround" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Cinq graphiques, une entité, sept jours</figcaption></figure>
+    <figure><img alt="Cinq graphiques d'historique : alimentation et activité, volume principal en dB, volume par jour, source utilisée et mode surround" srcset="/screenshots/ha-dashboard-history-656.webp 656w, /screenshots/ha-dashboard-history.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-history.webp" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Cinq graphiques, une entité, sept jours</figcaption></figure>
     <p class="lead">La simple chronologie d'états n'a besoin d'aucune carte personnalisée, et c'est celle qui vaut le plus la peine d'être installée :</p>
 <pre class="code">type: history-graph
 hours_to_show: 168
@@ -690,7 +690,7 @@ secondary: >-
       <li><b>Une ligne stable disparaît d'un graphique apexcharts.</b> C'est <code>experimental.color_threshold</code>. Il dessine le trait avec un dégradé vertical, et un segment parfaitement horizontal a une hauteur nulle sur laquelle appliquer le dégradé, donc il devient invisible. Une session de 43 heures à un seul volume a ainsi disparu complètement. Utilisez un <code>color</code> uni.</li>
       <li><b>Il se réagence tout seul sur téléphone.</b> Les vues Sections s'empilent sur une seule colonne en largeur étroite sans aucune configuration supplémentaire.</li>
     </ul>
-    <figure><img alt="Le même tableau de bord en largeur de téléphone, réagencé sur une seule colonne" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Même tableau de bord en largeur de téléphone : les trois colonnes n'en font plus qu'une, et rien n'a été configuré pour cela</figcaption></figure>
+    <figure><img alt="Le même tableau de bord en largeur de téléphone, réagencé sur une seule colonne" src="/screenshots/ha-dashboard-narrow.webp" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Même tableau de bord en largeur de téléphone : les trois colonnes n'en font plus qu'une, et rien n'a été configuré pour cela</figcaption></figure>
   </div>
 </section>
 

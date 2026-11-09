@@ -130,7 +130,7 @@
       "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
       "headline": "Zbuduj ten panel Home Assistant w około godzinę",
       "description": "Zbuduj panel Home Assistant dla amplitunera Denon lub Marantz: karty HACS, identyfikatory encji, YAML dla każdej karty, rzeczywista głośność w dB, Sceny i historia.",
-      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
       "datePublished": "2026-08-23",
       "dateModified": "2026-10-01",
       "author": {
@@ -254,7 +254,7 @@
 <section>
   <div class="wrap">
     <figure class="hero-shot">
-      <img alt="Gotowy dashboard: bohater z aktualnie odtwarzanym utworem, głośność z ustawieniami dB, siatka źródeł, tryby surround, korekcja pomieszczenia, sceny i wykres głośności" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <img alt="Gotowy dashboard: bohater z aktualnie odtwarzanym utworem, głośność z ustawieniami dB, siatka źródeł, tryby surround, korekcja pomieszczenia, sceny i wykres głośności" srcset="/screenshots/ha-dashboard-full-656.webp 656w, /screenshots/ha-dashboard-full.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-full.webp" width="1312" height="4092" decoding="async" loading="lazy" />
       <figcaption>Co budujesz</figcaption>
     </figure>
     <div class="note"><b>Spieszysz się?</b> Przejdź do <a href="#whole">kroku 10</a>, pobierz kompletny widok, zmień dwa ciągi znaków i wklej go. Kroki pośrednie wyjaśniają, co robi każdy element, abyś mógł go zmienić.</div>
@@ -367,7 +367,7 @@ tap_action:
       <h2>Spraw, aby się podświetlał, gdy jest aktywny</h2>
     </div>
     <p class="lead">To wzorzec, który warto poznać, a każdy kafelek źródła i surround na tablicy jest jego kopią. Karta wysyła skrypt i koloruje się na podstawie encji amplitunera, więc wejście, na którym faktycznie jesteś, jest podświetlone, a pozostałe nie.</p>
-    <figure><img alt="Siatka źródeł z Nvidia Shield podświetlonym na pomarańczowo i dwunastoma pozostałymi wejściami w ciemnym kolorze" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Jeden podświetlony kafelek, dwanaście ciemnych</figcaption></figure>
+    <figure><img alt="Siatka źródeł z Nvidia Shield podświetlonym na pomarańczowo i dwunastoma pozostałymi wejściami w ciemnym kolorze" srcset="/screenshots/ha-dashboard-sources-656.webp 656w, /screenshots/ha-dashboard-sources.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-sources.webp" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Jeden podświetlony kafelek, dwanaście ciemnych</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_input_cd
 icon: mdi:disc
@@ -446,7 +446,7 @@ styles:
       <h2>Pokaż głośność w dB</h2>
     </div>
     <p class="lead">Home Assistant podaje głośność jako ułamek. Nikt nie ustawia amplitunera na „0.67”. Jedna linijka matematyki to naprawia i cała sekcja zaczyna wyglądać jak amplituner.</p>
-    <figure><img alt="Sekcja głośności: suwak, głośniej, ciszej, wyciszenie i cztery ustawienia dB" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie i Loud, każde z etykietą ustawianych dB</figcaption></figure>
+    <figure><img alt="Sekcja głośności: suwak, głośniej, ciszej, wyciszenie i cztery ustawienia dB" srcset="/screenshots/ha-dashboard-volume-656.webp 656w, /screenshots/ha-dashboard-volume.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-volume.webp" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie i Loud, każde z etykietą ustawianych dB</figcaption></figure>
     <div class="note"><b>Przeliczenie.</b> Home Assistant publikuje <code>volume_level</code> jako głośność główną podzieloną przez 100, a w amplitunerach Denon i Marantz MV 80 to punkt odniesienia 0 dB. Zatem <b>dB = volume_level &times; 100 &minus; 80</b>. Wartość <code>volume_level</code> 0.67 to głośność główna 67, czyli &minus;13.0 dB.</div>
 <pre class="code"><span class="c"># The readout</span>
 type: custom:mushroom-template-card
@@ -488,7 +488,7 @@ tap_action:
       <h2>Dodaj swoje Sceny</h2>
     </div>
     <p class="lead">Odczytaj nazwę ze skryptu zamiast ją wpisywać, a zmiana nazwy Sceny w AVR Maestro zmieni nazwę kafelka bez edycji dashboardu.</p>
-    <figure><img alt="Cztery kafelki scen, każdy z listą ustawień, które ta scena przywraca" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Każdy kafelek mówi, co jego scena faktycznie przywraca</figcaption></figure>
+    <figure><img alt="Cztery kafelki scen, każdy z listą ustawień, które ta scena przywraca" src="/screenshots/ha-dashboard-scenes.webp" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Każdy kafelek mówi, co jego scena faktycznie przywraca</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_scene_1234567890123
 icon: mdi:theater
@@ -516,7 +516,7 @@ tap_action:
       <h2>Dodaj historię</h2>
     </div>
     <p class="lead">Encja odtwarzacza multimedialnego amplitunera jest rejestrowana przez Home Assistant jak każda inna, więc historię odsłuchu dostajesz za darmo. Wszystko poniżej pochodzi z tej jednej encji: bez dodatkowych sensorów, bez pomocników, bez wcześniejszej konfiguracji.</p>
-    <figure><img alt="Pięć wykresów historii: zasilanie i aktywność, głośność główna w dB, głośność według dni, używane źródło i tryb surround" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Pięć wykresów, jedna encja, siedem dni</figcaption></figure>
+    <figure><img alt="Pięć wykresów historii: zasilanie i aktywność, głośność główna w dB, głośność według dni, używane źródło i tryb surround" srcset="/screenshots/ha-dashboard-history-656.webp 656w, /screenshots/ha-dashboard-history.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-history.webp" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Pięć wykresów, jedna encja, siedem dni</figcaption></figure>
     <p class="lead">Zwykła oś czasu stanów w ogóle nie potrzebuje kart niestandardowych i jest tą, którą najbardziej warto mieć:</p>
 <pre class="code">type: history-graph
 hours_to_show: 168
@@ -690,7 +690,7 @@ secondary: >-
       <li><b>Stała linia znika z wykresu apexcharts.</b> To <code>experimental.color_threshold</code>. Rysuje obrys jako pionowy gradient, a idealnie poziomy odcinek ma zerową wysokość, na której można by gradient rozciągnąć, więc staje się niewidoczny. Sesja trwająca 43 godziny przy jednej głośności zniknęła całkowicie. Użyj jednolitego <code>color</code>.</li>
       <li><b>Sam układa się na telefonie.</b> Widoki Sekcji układają się w jedną kolumnę przy wąskich szerokościach bez żadnej dodatkowej konfiguracji.</li>
     </ul>
-    <figure><img alt="Ten sam dashboard w szerokości telefonu, ułożony w jedną kolumnę" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Ten sam dashboard w szerokości telefonu: trzy kolumny stają się jedną i nic nie trzeba było w tym celu konfigurować</figcaption></figure>
+    <figure><img alt="Ten sam dashboard w szerokości telefonu, ułożony w jedną kolumnę" src="/screenshots/ha-dashboard-narrow.webp" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Ten sam dashboard w szerokości telefonu: trzy kolumny stają się jedną i nic nie trzeba było w tym celu konfigurować</figcaption></figure>
   </div>
 </section>
 

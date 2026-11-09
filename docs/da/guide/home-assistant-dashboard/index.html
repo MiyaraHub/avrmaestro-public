@@ -130,7 +130,7 @@
       "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
       "headline": "Byg dette Home Assistant-dashboard på cirka en time",
       "description": "Byg et Home Assistant-dashboard til din Denon- eller Marantz-receiver: HACS-kort, enheds-id'er, YAML til hvert kort, ægte dB-lydstyrke, scener og historik.",
-      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
       "datePublished": "2026-08-23",
       "dateModified": "2026-10-01",
       "author": {
@@ -254,7 +254,7 @@
 <section>
   <div class="wrap">
     <figure class="hero-shot">
-      <img alt="Det færdige dashboard: en hero med det, der afspilles nu, lydstyrke med dB-forudindstillinger, et kildegitter, surroundtilstande, rumkorrektion, scener og en lydstyrkegraf" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <img alt="Det færdige dashboard: en hero med det, der afspilles nu, lydstyrke med dB-forudindstillinger, et kildegitter, surroundtilstande, rumkorrektion, scener og en lydstyrkegraf" srcset="/screenshots/ha-dashboard-full-656.webp 656w, /screenshots/ha-dashboard-full.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-full.webp" width="1312" height="4092" decoding="async" loading="lazy" />
       <figcaption>Det her bygger du</figcaption>
     </figure>
     <div class="note"><b>Har du travlt?</b> Spring til <a href="#whole">trin 10</a>, download den komplette visning, ret to strenge og indsæt den. Trinene derimellem forklarer, hvad hver enkelt del gør, så du kan ændre den.</div>
@@ -367,7 +367,7 @@ tap_action:
       <h2>Få den til at lyse op, når den er den aktive</h2>
     </div>
     <p class="lead">Det her er mønsteret, der er værd at lære, og hver eneste kilde- og surroundflise på tavlen er en kopi af det. Kortet sender et script og farver sig selv ud fra receiverentiteten, så den indgang, du faktisk er på, lyser, og de andre ikke gør.</p>
-    <figure><img alt="Kildegitteret med Nvidia Shield lyst op i orange og de tolv andre indgange mørke" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Én oplyst flise, tolv mørke</figcaption></figure>
+    <figure><img alt="Kildegitteret med Nvidia Shield lyst op i orange og de tolv andre indgange mørke" srcset="/screenshots/ha-dashboard-sources-656.webp 656w, /screenshots/ha-dashboard-sources.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-sources.webp" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Én oplyst flise, tolv mørke</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_input_cd
 icon: mdi:disc
@@ -446,7 +446,7 @@ styles:
       <h2>Vis lydstyrke i dB</h2>
     </div>
     <p class="lead">Home Assistant rapporterer lydstyrke som en brøk. Ingen indstiller en receiver til „0.67“. Én linje matematik løser det, og hele sektionen begynder at læse som en receiver.</p>
-    <figure><img alt="Lydstyrkesektionen: en skyder, op, ned, lydløs og fire dB-forudindstillinger" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie og Loud, hver mærket med den dB, den indstiller</figcaption></figure>
+    <figure><img alt="Lydstyrkesektionen: en skyder, op, ned, lydløs og fire dB-forudindstillinger" srcset="/screenshots/ha-dashboard-volume-656.webp 656w, /screenshots/ha-dashboard-volume.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-volume.webp" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie og Loud, hver mærket med den dB, den indstiller</figcaption></figure>
     <div class="note"><b>Omregningen.</b> Home Assistant udgiver <code>volume_level</code> som hovedlydstyrke divideret med 100, og på Denon- og Marantz-receivere er MV 80 referencen på 0 dB. Så <b>dB = volume_level &times; 100 &minus; 80</b>. Et <code>volume_level</code> på 0.67 er hovedlydstyrke 67, hvilket er &minus;13.0 dB.</div>
 <pre class="code"><span class="c"># The readout</span>
 type: custom:mushroom-template-card
@@ -488,7 +488,7 @@ tap_action:
       <h2>Tilføj dine scener</h2>
     </div>
     <p class="lead">Læs navnet fra scriptet i stedet for at skrive det, så omdøber en omdøbning af en scene i AVR Maestro flisen uden at du skal redigere dashboardet.</p>
-    <figure><img alt="Fire scenefliser, hver med en liste over de indstillinger, scenen gendanner" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Hver flise fortæller, hvad dens scene faktisk gendanner</figcaption></figure>
+    <figure><img alt="Fire scenefliser, hver med en liste over de indstillinger, scenen gendanner" src="/screenshots/ha-dashboard-scenes.webp" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Hver flise fortæller, hvad dens scene faktisk gendanner</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_scene_1234567890123
 icon: mdi:theater
@@ -516,7 +516,7 @@ tap_action:
       <h2>Tilføj historik</h2>
     </div>
     <p class="lead">Receiverens medieafspillerentitet bliver optaget af Home Assistant som enhver anden, så du får en lyttehistorik gratis. Alt nedenfor kommer fra den ene entitet: ingen ekstra sensorer, ingen hjælpere, intet at konfigurere først.</p>
-    <figure><img alt="Fem historikgrafer: strøm og aktivitet, hovedlydstyrke i dB, lydstyrke pr. dag, kilde i brug og surroundtilstand" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Fem grafer, én entitet, syv dage</figcaption></figure>
+    <figure><img alt="Fem historikgrafer: strøm og aktivitet, hovedlydstyrke i dB, lydstyrke pr. dag, kilde i brug og surroundtilstand" srcset="/screenshots/ha-dashboard-history-656.webp 656w, /screenshots/ha-dashboard-history.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-history.webp" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Fem grafer, én entitet, syv dage</figcaption></figure>
     <p class="lead">Den almindelige tilstandstidslinje kræver slet ingen tilpassede kort og er den, der er mest værd at have:</p>
 <pre class="code">type: history-graph
 hours_to_show: 168
@@ -690,7 +690,7 @@ secondary: >-
       <li><b>En jævn linje forsvinder fra en apexcharts-graf.</b> Det er <code>experimental.color_threshold</code>. Den tegner stregen som en lodret farveovergang, og et helt vandret stykke har ingen højde at lave en overgang over, så det bliver usynligt. En session på 43 timer ved én lydstyrke forsvandt helt. Brug en ensfarvet <code>color</code>.</li>
       <li><b>Den tilpasser sig selv på en telefon.</b> Sections-visninger stables i én kolonne ved smalle bredder uden ekstra konfiguration.</li>
     </ul>
-    <figure><img alt="Det samme dashboard i telefonbredde, omorganiseret til én kolonne" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Samme dashboard i telefonbredde: de tre kolonner bliver til én, og intet blev konfigureret for at få det til at ske</figcaption></figure>
+    <figure><img alt="Det samme dashboard i telefonbredde, omorganiseret til én kolonne" src="/screenshots/ha-dashboard-narrow.webp" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Samme dashboard i telefonbredde: de tre kolonner bliver til én, og intet blev konfigureret for at få det til at ske</figcaption></figure>
   </div>
 </section>
 

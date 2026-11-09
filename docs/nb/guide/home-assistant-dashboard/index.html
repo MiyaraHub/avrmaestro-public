@@ -130,7 +130,7 @@
       "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
       "headline": "Bygg dette Home Assistant-dashbordet på omtrent en time",
       "description": "Bygg et Home Assistant-dashbord for Denon- eller Marantz-mottakeren din: HACS-kort, entitets-ID-er, YAML for hvert kort, ekte dB-volum, Scener og historikk.",
-      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
       "datePublished": "2026-08-23",
       "dateModified": "2026-10-01",
       "author": {
@@ -254,7 +254,7 @@
 <section>
   <div class="wrap">
     <figure class="hero-shot">
-      <img alt="Det ferdige dashbordet: et hovedkort for det som spilles nå, volum med dB-presets, et kilderutenett, surroundmoduser, romkorrigering, scener og en volumgraf" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <img alt="Det ferdige dashbordet: et hovedkort for det som spilles nå, volum med dB-presets, et kilderutenett, surroundmoduser, romkorrigering, scener og en volumgraf" srcset="/screenshots/ha-dashboard-full-656.webp 656w, /screenshots/ha-dashboard-full.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-full.webp" width="1312" height="4092" decoding="async" loading="lazy" />
       <figcaption>Hva du bygger</figcaption>
     </figure>
     <div class="note"><b>Har du det travelt?</b> Hopp til <a href="#whole">steg 10</a>, last ned den komplette visningen, bytt ut to tekststrenger og lim den inn. Stegene imellom forklarer hva hver del gjør, slik at du kan endre den.</div>
@@ -367,7 +367,7 @@ tap_action:
       <h2>Få den til å lyse når den er den aktive</h2>
     </div>
     <p class="lead">Dette er mønsteret det er verdt å lære, og hver kilde- og surroundflis på brettet er en kopi av det. Kortet sender et skript og farger seg selv ut fra mottakerentiteten, slik at inngangen du faktisk står på lyser, og de andre ikke gjør det.</p>
-    <figure><img alt="Kilderutenettet med Nvidia Shield lyst opp i oransje og de tolv andre inngangene mørke" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Én opplyst flis, tolv mørke</figcaption></figure>
+    <figure><img alt="Kilderutenettet med Nvidia Shield lyst opp i oransje og de tolv andre inngangene mørke" srcset="/screenshots/ha-dashboard-sources-656.webp 656w, /screenshots/ha-dashboard-sources.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-sources.webp" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Én opplyst flis, tolv mørke</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_input_cd
 icon: mdi:disc
@@ -446,7 +446,7 @@ styles:
       <h2>Vis volum i dB</h2>
     </div>
     <p class="lead">Home Assistant rapporterer volum som en brøk. Ingen setter en mottaker til «0.67». Én linje med matte fikser det, og hele seksjonen begynner å se ut som en mottaker.</p>
-    <figure><img alt="Volumseksjonen: en glidebryter, opp, ned, demping og fire dB-presets" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie og Loud, hver merket med dB-verdien den setter</figcaption></figure>
+    <figure><img alt="Volumseksjonen: en glidebryter, opp, ned, demping og fire dB-presets" srcset="/screenshots/ha-dashboard-volume-656.webp 656w, /screenshots/ha-dashboard-volume.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-volume.webp" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Night, Dialog, Movie og Loud, hver merket med dB-verdien den setter</figcaption></figure>
     <div class="note"><b>Omregningen.</b> Home Assistant publiserer <code>volume_level</code> som hovedvolum delt på 100, og på Denon- og Marantz-mottakere er MV 80 referansen for 0 dB. Altså er <b>dB = volume_level &times; 100 &minus; 80</b>. Et <code>volume_level</code> på 0.67 er hovedvolum 67, som er &minus;13.0 dB.</div>
 <pre class="code"><span class="c"># The readout</span>
 type: custom:mushroom-template-card
@@ -488,7 +488,7 @@ tap_action:
       <h2>Legg til scenene dine</h2>
     </div>
     <p class="lead">Les navnet fra skriptet i stedet for å skrive det inn, så endrer flisen navn automatisk når du gir en scene nytt navn i AVR Maestro, uten at dashbordet må redigeres.</p>
-    <figure><img alt="Fire scenefliser, hver med en liste over innstillingene scenen gjenoppretter" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Hver flis sier hva scenen faktisk gjenoppretter</figcaption></figure>
+    <figure><img alt="Fire scenefliser, hver med en liste over innstillingene scenen gjenoppretter" src="/screenshots/ha-dashboard-scenes.webp" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Hver flis sier hva scenen faktisk gjenoppretter</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_scene_1234567890123
 icon: mdi:theater
@@ -516,7 +516,7 @@ tap_action:
       <h2>Legg til historikk</h2>
     </div>
     <p class="lead">Mottakerens mediespiller-entitet registreres av Home Assistant som alle andre, så du får en lyttehistorikk gratis. Alt nedenfor kommer fra den ene entiteten: ingen ekstra sensorer, ingen hjelpere, ingenting som må konfigureres først.</p>
-    <figure><img alt="Fem historikkgrafer: strøm og aktivitet, hovedvolum i dB, volum per dag, kilde i bruk og surroundmodus" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Fem grafer, én entitet, sju dager</figcaption></figure>
+    <figure><img alt="Fem historikkgrafer: strøm og aktivitet, hovedvolum i dB, volum per dag, kilde i bruk og surroundmodus" srcset="/screenshots/ha-dashboard-history-656.webp 656w, /screenshots/ha-dashboard-history.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-history.webp" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Fem grafer, én entitet, sju dager</figcaption></figure>
     <p class="lead">Den vanlige tilstandstidslinjen trenger ingen egendefinerte kort i det hele tatt, og er den som er mest verdt å ha:</p>
 <pre class="code">type: history-graph
 hours_to_show: 168
@@ -690,7 +690,7 @@ secondary: >-
       <li><b>En jevn linje forsvinner fra en apexcharts-graf.</b> Det er <code>experimental.color_threshold</code>. Den tegner streken som en vertikal gradient, og et helt vannrett segment har null høyde å lage gradient over, så det blir usynlig. En økt på 43 timer med ett volum forsvant helt. Bruk en solid <code>color</code>.</li>
       <li><b>Det flyter om av seg selv på en telefon.</b> Sections-visninger stables i én kolonne ved smale bredder uten at noe ekstra er konfigurert.</li>
     </ul>
-    <figure><img alt="Det samme dashbordet i telefonbredde, omflytet til én enkelt kolonne" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Samme dashbord i telefonbredde: de tre kolonnene blir til én, og ingenting ble konfigurert for å få det til</figcaption></figure>
+    <figure><img alt="Det samme dashbordet i telefonbredde, omflytet til én enkelt kolonne" src="/screenshots/ha-dashboard-narrow.webp" width="430" height="932" loading="lazy" decoding="async" /><figcaption>Samme dashbord i telefonbredde: de tre kolonnene blir til én, og ingenting ble konfigurert for å få det til</figcaption></figure>
   </div>
 </section>
 

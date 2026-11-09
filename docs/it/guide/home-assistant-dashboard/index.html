@@ -130,7 +130,7 @@
       "@id": "https://avrmaestro.com/guide/home-assistant-dashboard/#article",
       "headline": "Crea questa dashboard di Home Assistant in circa un'ora",
       "description": "Crea una dashboard di Home Assistant per il tuo ricevitore Denon o Marantz: schede HACS, ID entità, YAML per ogni scheda, volume reale in dB, Scene e cronologia.",
-      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.png",
+      "image": "https://avrmaestro.com/screenshots/ha-dashboard-full.webp",
       "datePublished": "2026-08-23",
       "dateModified": "2026-10-01",
       "author": {
@@ -254,7 +254,7 @@
 <section>
   <div class="wrap">
     <figure class="hero-shot">
-      <img alt="La dashboard finita: un riquadro principale con la riproduzione in corso, il volume con preset in dB, una griglia di fonti, modalità surround, correzione ambientale, scene e un grafico del volume" src="/screenshots/ha-dashboard-full.png" width="1312" height="4092" decoding="async" />
+      <img alt="La dashboard finita: un riquadro principale con la riproduzione in corso, il volume con preset in dB, una griglia di fonti, modalità surround, correzione ambientale, scene e un grafico del volume" srcset="/screenshots/ha-dashboard-full-656.webp 656w, /screenshots/ha-dashboard-full.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-full.webp" width="1312" height="4092" decoding="async" loading="lazy" />
       <figcaption>Cosa stai costruendo</figcaption>
     </figure>
     <div class="note"><b>Hai fretta?</b> Vai al <a href="#whole">passaggio 10</a>, scarica la vista completa, cambia due stringhe e incollala. I passaggi intermedi spiegano cosa fa ogni elemento, così puoi modificarlo.</div>
@@ -367,7 +367,7 @@ tap_action:
       <h2>Fai in modo che si illumini quando è quello attivo</h2>
     </div>
     <p class="lead">Questo è lo schema da imparare, e ogni riquadro di fonte e di surround della bacheca ne è una copia. La scheda invia uno script e si colora in base all'entità del ricevitore, così l'ingresso su cui sei davvero è acceso e gli altri no.</p>
-    <figure><img alt="La griglia delle fonti con Nvidia Shield acceso in arancione e gli altri dodici ingressi spenti" src="/screenshots/ha-dashboard-sources.png" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Un riquadro acceso, dodici spenti</figcaption></figure>
+    <figure><img alt="La griglia delle fonti con Nvidia Shield acceso in arancione e gli altri dodici ingressi spenti" srcset="/screenshots/ha-dashboard-sources-656.webp 656w, /screenshots/ha-dashboard-sources.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-sources.webp" width="1312" height="342" loading="lazy" decoding="async" /><figcaption>Un riquadro acceso, dodici spenti</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_input_cd
 icon: mdi:disc
@@ -446,7 +446,7 @@ styles:
       <h2>Mostra il volume in dB</h2>
     </div>
     <p class="lead">Home Assistant riporta il volume come frazione. Nessuno imposta un ricevitore su «0.67». Una riga di matematica risolve il problema e l'intera sezione comincia a leggersi come un ricevitore.</p>
-    <figure><img alt="La sezione del volume: un cursore, su, giù, muto e quattro preset in dB" src="/screenshots/ha-dashboard-volume.png" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Notte, Dialogo, Film e Forte, ciascuno con l'indicazione dei dB che imposta</figcaption></figure>
+    <figure><img alt="La sezione del volume: un cursore, su, giù, muto e quattro preset in dB" srcset="/screenshots/ha-dashboard-volume-656.webp 656w, /screenshots/ha-dashboard-volume.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-volume.webp" width="1312" height="420" loading="lazy" decoding="async" /><figcaption>Notte, Dialogo, Film e Forte, ciascuno con l'indicazione dei dB che imposta</figcaption></figure>
     <div class="note"><b>La conversione.</b> Home Assistant pubblica <code>volume_level</code> come volume principale diviso per 100, e sui ricevitori Denon e Marantz MV 80 è il riferimento a 0 dB. Quindi <b>dB = volume_level &times; 100 &minus; 80</b>. Un <code>volume_level</code> di 0.67 corrisponde a un volume principale di 67, cioè &minus;13.0 dB.</div>
 <pre class="code"><span class="c"># The readout</span>
 type: custom:mushroom-template-card
@@ -488,7 +488,7 @@ tap_action:
       <h2>Aggiungi le tue Scene</h2>
     </div>
     <p class="lead">Leggi il nome dallo script invece di scriverlo, e rinominare una Scena in AVR Maestro rinomina il riquadro senza modificare la dashboard.</p>
-    <figure><img alt="Quattro riquadri di scena, ciascuno con l'elenco delle impostazioni che quella scena ripristina" src="/screenshots/ha-dashboard-scenes.png" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Ogni riquadro dice cosa ripristina davvero la sua scena</figcaption></figure>
+    <figure><img alt="Quattro riquadri di scena, ciascuno con l'elenco delle impostazioni che quella scena ripristina" src="/screenshots/ha-dashboard-scenes.webp" width="424" height="369" loading="lazy" decoding="async" /><figcaption>Ogni riquadro dice cosa ripristina davvero la sua scena</figcaption></figure>
 <pre class="code">type: custom:mushroom-template-card
 entity: script.avr_maestro_MAC_scene_1234567890123
 icon: mdi:theater
@@ -516,7 +516,7 @@ tap_action:
       <h2>Aggiungi la cronologia</h2>
     </div>
     <p class="lead">L'entità media player del ricevitore viene registrata da Home Assistant come qualsiasi altra, quindi ottieni gratis una cronologia di ascolto. Tutto ciò che segue proviene da quella sola entità: nessun sensore aggiuntivo, nessun helper, nulla da configurare prima.</p>
-    <figure><img alt="Cinque grafici della cronologia: accensione e attività, volume principale in dB, volume per giorno, fonte in uso e modalità surround" src="/screenshots/ha-dashboard-history.png" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Cinque grafici, un'entità, sette giorni</figcaption></figure>
+    <figure><img alt="Cinque grafici della cronologia: accensione e attività, volume principale in dB, volume per giorno, fonte in uso e modalità surround" srcset="/screenshots/ha-dashboard-history-656.webp 656w, /screenshots/ha-dashboard-history.webp 1312w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/ha-dashboard-history.webp" width="1312" height="1533" loading="lazy" decoding="async" /><figcaption>Cinque grafici, un'entità, sette giorni</figcaption></figure>
     <p class="lead">La semplice timeline degli stati non richiede alcuna scheda personalizzata, ed è quella che vale di più:</p>
 <pre class="code">type: history-graph
 hours_to_show: 168
@@ -690,7 +690,7 @@ secondary: >-
       <li><b>Una linea stabile sparisce da un grafico apexcharts.</b> Succede con <code>experimental.color_threshold</code>. Disegna il tratto come gradiente verticale, e un segmento perfettamente orizzontale ha altezza zero su cui sfumare, quindi risulta invisibile. Una sessione di 43 ore a un solo volume è sparita del tutto. Usa un <code>color</code> pieno.</li>
       <li><b>Si adatta da sola al telefono.</b> Le viste a sezioni si impilano in una sola colonna a larghezze ridotte senza alcuna configurazione aggiuntiva.</li>
     </ul>
-    <figure><img alt="La stessa dashboard con la larghezza di un telefono, riorganizzata in una sola colonna" src="/screenshots/ha-dashboard-narrow.png" width="430" height="932" loading="lazy" decoding="async" /><figcaption>La stessa dashboard con la larghezza di un telefono: le tre colonne diventano una, e non è stato configurato nulla perché accada</figcaption></figure>
+    <figure><img alt="La stessa dashboard con la larghezza di un telefono, riorganizzata in una sola colonna" src="/screenshots/ha-dashboard-narrow.webp" width="430" height="932" loading="lazy" decoding="async" /><figcaption>La stessa dashboard con la larghezza di un telefono: le tre colonne diventano una, e non è stato configurato nulla perché accada</figcaption></figure>
   </div>
 </section>
 
