@@ -134,7 +134,7 @@
       "description": "Bouw een scène met één tik voor films, muziek, gamen of laat op de avond: ingang, geluidsmodus, Audyssey of Dirac, niveaus en zones op Denon of Marantz. Haal AVR Maestro.",
       "image": "https://avrmaestro.com/screenshots/scenes-list.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -230,6 +230,14 @@
         "@type": "Answer",
         "text": "Smart Select (Marantz) en Quick Select (Denon) zijn dezelfde receiverfunctie onder twee namen: een handvol slots die in de receiver zelf zijn opgeslagen, vijf op een Marantz CINEMA 30. AVR Maestro noemt ze overal in de app bij de eigen naam van je receiver, laat je ze starten vanaf het startscherm en de afstandsbediening, en laat je ze hernoemen. Scènes zijn van AVR Maestro zelf: maximaal 20 per receiver, elk met een naam, pictogram en kleur, met precies de instellingen die jij kiest, en ze kunnen worden gestart vanuit een widget op het startscherm of worden verstuurd naar Home Assistant of Hubitat. De twee overschrijven elkaar nooit."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan één scène meerdere receivers instellen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, met een Multi AVR Scene, onderdeel van de aankoop Domotica. Met twee of meer receivers in de app tik je op Scène toevoegen, kies je Multi AVR Scene, geef je een naam, vink je de receivers aan en stel je de scène van elk op zijn eigen begeleide pagina's in. Tik erop in de lijst Receivergroepen en de app past de scène van elke receiver na elkaar toe en toont daarna één regel per receiver. Scènes voor één receiver blijven gratis."
+      }
     }
   ]
 }
@@ -313,6 +321,7 @@
         <ul>
           <li><b>Scènemaker</b> beantwoordt een paar vragen met je en biedt alleen aan wat je receiver ondersteunt. Het best voor je eerste scène, of als je weet wat je wilt maar niet in welk menu het zit.</li>
           <li><b>Helemaal opnieuw maken</b> legt vast wat je receiver nu doet. Zet het geluid goed, vink de instellingen aan die je wilt bewaren en sla op.</li>
+          <li><b>Multi AVR Scene</b> stelt meerdere receivers tegelijk in. Hij staat alleen in de lijst wanneer de app twee of meer receivers kent, en hij is onderdeel van de aankoop <a href="/nl/guide/home-automation/">Domotica</a>. Zie <a href="#multi-avr">Multi AVR Scene</a> hieronder.</li>
         </ul>
         <div class="note">Nog niets op het tabblad Scènes? Het stelt een paar beginpunten voor die bij je receiver passen, zoals Films en tv of Late avond. Tik op een ervan en de Scènemaker opent met die keuze al gemaakt.</div>
       </div>
@@ -365,6 +374,44 @@
           <li><b>Controleer en sla op.</b> De laatste pagina toont precies wat de scène opslaat, gegroepeerd zoals de rest van de app. Tik op <b>Opslaan</b> en ze komt in je lijst met scènes, klaar wanneer jij dat bent.</li>
         </ol>
         <div class="note">Het aantal stappen groeit met wat je aanvinkt: elke aangevinkte instelling krijgt een eigen pagina, dus een scène met drie instellingen is korter dan een met tien.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="multi-avr">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Meerdere receivers, één tik</div>
+      <h2>Multi AVR Scene</h2>
+      <p class="lead">Een Multi AVR Scene bevat één scène voor elke receiver die je kiest en past ze samen toe, zodat één tik de receiver in de woonkamer en die in de hobbykamer kan instellen. Hij vereist twee of meer receivers in de app (de demoreceiver telt niet mee) en de aankoop Domotica. Zonder de aankoop toont de optie een slot, en een tik erop opent de aankooppagina van Domotica.</p>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="Het blad Scène toevoegen met Scènemaker, Helemaal nieuw maken en Multi AVR Scene" srcset="/screenshots/scenes-add-multi-avr-662.webp 662w, /screenshots/scenes-add-multi-avr.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-add-multi-avr.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ol class="steps">
+          <li><b>Tik op Scène toevoegen en kies Multi AVR Scene.</b></li>
+          <li><b>Geef de groep een naam</b> en vink twee of meer receivers aan.</li>
+          <li><b>Tik op Elke scène maken.</b> De begeleide pagina's openen één keer voor elke receiver die je hebt aangevinkt, zodat elk een scène krijgt die is opgebouwd uit wat die receiver kan. Elke gekozen receiver heeft zijn scène nodig voordat de groep kan worden opgeslagen.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="feat rev">
+      <div class="shots"><img alt="Het scherm Multi AVR Scene met de groep Movie Night en twee aangevinkte receivers" srcset="/screenshots/scenes-multi-avr-group-662.webp 662w, /screenshots/scenes-multi-avr-group.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-multi-avr-group.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Toepassen.</b> Je groepen staan onder <b>Receivergroepen</b> op het tabblad Scènes. Tik op een groep en de app loopt de receivers een voor een langs: hij wacht tot elk antwoordt, past de scène toe en zet daarna de receiver terug waarop je was begonnen. Als de app halverwege wordt gesloten, zet de volgende start je receiver terug.</li>
+          <li><b>Eén regel per receiver.</b> Als het klaar is, toont de app een regel voor elke receiver: toegepast en bevestigd, toegepast met enkele instellingen die anders teruggelezen worden, instellingen geweigerd, verzonden maar niet bevestigd, of geen antwoord. Een receiver die uit de app is verwijderd, of waarvan de scène is gewist, wordt ook genoemd en nooit verborgen achter één enkel "klaar".</li>
+        </ul>
+      </div>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="Het tabblad Scènes met een sectie Receivergroepen waarin Movie Night staat, met knoppen om te hernoemen en te verwijderen" srcset="/screenshots/scenes-multi-avr-list-662.webp 662w, /screenshots/scenes-multi-avr-list.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-multi-avr-list.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Hernoemen en verwijderen.</b> Elke groep in de lijst Receivergroepen heeft een knop om te hernoemen en een knop om te verwijderen. Bij hernoemen blijven dezelfde receivers behouden.</li>
+        </ul>
+        <div class="note">Scènes voor één receiver blijven gratis. Alleen het groeperen van meerdere receivers in één scène vereist de aankoop Domotica.</div>
       </div>
     </div>
   </div>
@@ -455,7 +502,7 @@
       <li><b>Kanaalniveaus worden gecontroleerd en een keer opnieuw verzonden.</b> Receivers laten af en toe een kanaal vallen als er veel tegelijk binnenkomt. De app leest terug wat is aangekomen, verzendt opnieuw wat niet is aangekomen en vertelt je welke kanalen ze opnieuw moest proberen.</li>
       <li><b>Een vergrendelde bediening kan door niets worden toegepast.</b> Is je speakerpreset eigendom van Dirac Live, dan weigert de receiver zelf Audyssey-wijzigingen, en een scène die ze bevat wordt op dezelfde manier geweigerd als de bediening op het scherm. Zie <a href="/nl/guide/locked-controls/">waarom een bediening vergrendeld is</a>.</li>
       <li><b>Alleen wat de scène bevat wordt gewijzigd.</b> Verandert een scène iets niet wat je verwachtte, dan was het waarschijnlijk niet aangevinkt. Houd ze ingedrukt en gebruik Vastgelegde instellingen bewerken in plaats van een tweede scène te maken.</li>
-      <li><b>Scènes horen bij een receiver.</b> De lijst is de lijst voor de receiver die nu is geselecteerd. Een andere receiver heeft zijn eigen lijst.</li>
+      <li><b>Scènes horen bij één receiver.</b> De lijst is de lijst voor de receiver die nu is geselecteerd. Een andere receiver heeft een eigen lijst. Om meerdere receivers met één tik in te stellen, gebruik je een <a href="#multi-avr">Multi AVR Scene</a>.</li>
     </ul>
   </div>
 </section>
@@ -492,6 +539,7 @@
     <details><summary>Kan een scène mijn receiver aanzetten?</summary><div class="body">Ja. Neem de aan/uit-status op en bij het toepassen van de scène wordt de hoofdzone eerst in- (of uit)geschakeld, zolang de receiver netwerk-stand-by heeft ingeschakeld zodat de app hem kan bereiken terwijl hij slaapt.</div></details>
     <details><summary>Wat betekent het gekleurde bericht na een scène?</summary><div class="body">Groen betekent dat alles is aangekomen. Oranje betekent dat de receiver zelf een waarde heeft gekozen voor een instelling die hij per ingangssignaal onthoudt, wat te verwachten is; tik de scène opnieuw aan om het nogmaals te proberen. Blauw betekent dat de receiver sommige instellingen niet heeft bevestigd, dus de app kan niet zeggen of ze zijn overgenomen. Rood betekent dat een instelling anders terugkomt of dat de receiver sommige luidsprekerniveaus heeft geweigerd; tik de scène opnieuw aan. Een rood bericht blijft staan tot je het sluit.</div></details>
     <details><summary>Wat is het verschil tussen scènes en Smart Select of Quick Select?</summary><div class="body">Smart Select (Marantz) en Quick Select (Denon) zijn dezelfde receiverfunctie onder twee namen: een handvol slots die in de receiver zelf zijn opgeslagen, vijf op een Marantz CINEMA 30. AVR Maestro noemt ze overal in de app bij de eigen naam van je receiver, laat je ze starten vanaf het startscherm en de afstandsbediening, en laat je ze hernoemen. Scènes zijn van AVR Maestro zelf: maximaal 20 per receiver, elk met een naam, pictogram en kleur, met precies de instellingen die jij kiest, en ze kunnen worden gestart vanuit een widget op het startscherm of worden verstuurd naar Home Assistant of Hubitat. De twee overschrijven elkaar nooit.</div></details>
+    <details><summary>Kan één scène meerdere receivers instellen?</summary><div class="body">Ja, met een Multi AVR Scene, onderdeel van de aankoop Domotica. Met twee of meer receivers in de app tik je op Scène toevoegen, kies je Multi AVR Scene, geef je een naam, vink je de receivers aan en stel je de scène van elk op zijn eigen begeleide pagina's in. Tik erop in de lijst Receivergroepen en de app past de scène van elke receiver na elkaar toe en toont daarna één regel per receiver. Scènes voor één receiver blijven gratis.</div></details>
   </div>
 </section>
 

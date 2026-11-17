@@ -134,7 +134,7 @@
       "description": "영화, 음악, 게임, 심야 감상을 위한 원탭 장면을 만드세요. Denon 또는 Marantz의 입력, 사운드 모드, Audyssey 또는 Dirac, 레벨, 존을 담을 수 있습니다. AVR Maestro를 받으세요.",
       "image": "https://avrmaestro.com/screenshots/scenes-list.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -230,6 +230,14 @@
         "@type": "Answer",
         "text": "Smart Select(Marantz)와 Quick Select(Denon)는 이름만 둘인 같은 리시버 기능으로, 리시버 내부에 저장되는 소수의 슬롯입니다(Marantz CINEMA 30은 다섯 개). AVR Maestro는 앱 어디에서나 리시버 고유의 이름으로 부르며, 홈 화면과 리모컨에서 실행하거나 이름을 바꿀 수 있습니다. 장면은 AVR Maestro 자체 기능입니다. 리시버당 최대 20개이며 각각 이름, 아이콘, 색상이 있고 선택한 설정만 정확히 담으며, 홈 화면 위젯에서 실행하거나 Home Assistant 또는 Hubitat으로 보낼 수 있습니다. 두 기능은 서로를 덮어쓰지 않습니다."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "장면 하나로 여러 리시버를 설정할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네, 홈 오토메이션 구매에 포함된 Multi AVR Scene으로 가능합니다. 앱에 리시버가 두 대 이상 있을 때 장면 추가를 탭하고, Multi AVR Scene을 선택하고, 이름을 정하고, 리시버를 체크한 다음, 각 리시버의 장면을 해당 안내 페이지에서 설정합니다. 리시버 그룹 목록에서 탭하면 앱이 각 리시버의 장면을 차례로 적용하고, 리시버별로 한 줄씩 결과를 보여 줍니다. 리시버 한 대용 장면은 계속 무료입니다."
+      }
     }
   ]
 }
@@ -313,6 +321,7 @@
         <ul>
           <li><b>장면 만들기</b>는 몇 가지 질문에 함께 답하며, 리시버가 지원하는 항목만 제안합니다. 첫 장면이거나, 원하는 것은 알지만 어느 메뉴에 있는지 모를 때 가장 좋습니다.</li>
           <li><b>처음부터 만들기</b>는 리시버가 지금 하고 있는 설정을 그대로 담습니다. 원하는 소리로 맞춘 뒤 유지할 설정에 체크하고 저장하세요.</li>
+          <li><b>Multi AVR Scene</b>은 여러 리시버를 한 번에 설정합니다. 앱이 리시버를 두 대 이상 알고 있을 때만 목록에 표시되며, <a href="/ko/guide/home-automation/">홈 오토메이션</a> 구매에 포함됩니다. 아래의 <a href="#multi-avr">Multi AVR Scene</a>을 참고하세요.</li>
         </ul>
         <div class="note">장면 탭이 아직 비어 있나요? 영화 및 TV나 심야처럼 리시버에 맞는 시작점을 몇 가지 제안합니다. 하나를 누르면 이미 선택된 상태로 장면 만들기가 열립니다.</div>
       </div>
@@ -365,6 +374,44 @@
           <li><b>검토하고 저장하세요.</b> 마지막 페이지에는 장면에 저장될 내용이 앱의 다른 화면과 같은 방식으로 묶여 정확히 나열됩니다. <b>저장</b>을 누르면 장면 목록에 추가되어 언제든 사용할 수 있습니다.</li>
         </ol>
         <div class="note">체크하는 항목에 따라 단계 수가 달라집니다. 체크한 설정마다 페이지가 하나씩 생기므로, 설정이 세 개인 장면은 열 개인 장면보다 짧습니다.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="multi-avr">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">여러 리시버, 한 번의 탭</div>
+      <h2>Multi AVR Scene</h2>
+      <p class="lead">Multi AVR Scene은 선택한 리시버마다 장면을 하나씩 담아 함께 적용하므로, 한 번의 탭으로 거실 리시버와 서재 리시버를 설정할 수 있습니다. 앱에 리시버가 두 대 이상(데모 리시버는 포함되지 않음) 있어야 하며 홈 오토메이션 구매가 필요합니다. 구매하지 않으면 이 옵션에 잠금이 표시되고, 탭하면 홈 오토메이션 구매 페이지가 열립니다.</p>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="장면 만들기, 처음부터 만들기, Multi AVR Scene이 표시된 장면 추가 시트" srcset="/screenshots/scenes-add-multi-avr-662.webp 662w, /screenshots/scenes-add-multi-avr.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-add-multi-avr.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ol class="steps">
+          <li><b>장면 추가를 탭하고 Multi AVR Scene을 선택합니다.</b></li>
+          <li><b>그룹 이름을 정하고</b> 리시버를 두 대 이상 체크합니다.</li>
+          <li><b>각 장면 만들기를 탭합니다.</b> 안내 페이지가 체크한 리시버마다 한 번씩 열리므로, 각 리시버가 할 수 있는 기능을 바탕으로 장면이 만들어집니다. 그룹을 저장하려면 선택한 모든 리시버에 장면이 있어야 합니다.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="feat rev">
+      <div class="shots"><img alt="Movie Night라는 이름의 그룹에 리시버 두 대가 선택된 Multi AVR Scene 화면" srcset="/screenshots/scenes-multi-avr-group-662.webp 662w, /screenshots/scenes-multi-avr-group.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-multi-avr-group.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>적용하기.</b> 그룹은 장면 탭의 <b>리시버 그룹</b> 아래에 표시됩니다. 하나를 탭하면 앱이 리시버를 한 대씩 차례로 진행합니다. 각 리시버가 응답하기를 기다려 장면을 적용하고, 마지막에 처음 사용하던 리시버로 되돌려 놓습니다. 도중에 앱이 종료되면 다음 실행 때 리시버가 원래대로 돌아갑니다.</li>
+          <li><b>리시버별로 한 줄.</b> 끝나면 앱이 리시버마다 한 줄을 표시합니다. 적용 및 확인됨, 적용했지만 일부 설정이 다시 읽으면 다르게 나타남, 설정 거부됨, 보냈지만 확인되지 않음, 또는 응답 없음 중 하나입니다. 앱에서 제거된 리시버나 장면이 삭제된 리시버도 하나의 "완료" 뒤에 숨기지 않고 이름을 밝혀 표시합니다.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="리시버 그룹 섹션에 Movie Night이 나열되고 이름 바꾸기 버튼과 삭제 버튼이 있는 장면 탭" srcset="/screenshots/scenes-multi-avr-list-662.webp 662w, /screenshots/scenes-multi-avr-list.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-multi-avr-list.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>이름 변경과 삭제.</b> 리시버 그룹 목록의 각 그룹에는 이름 변경 버튼과 삭제 버튼이 있습니다. 이름을 바꿔도 같은 리시버가 유지됩니다.</li>
+        </ul>
+        <div class="note">리시버 한 대용 장면은 계속 무료입니다. 여러 리시버를 하나의 장면으로 묶을 때만 홈 오토메이션 구매가 필요합니다.</div>
       </div>
     </div>
   </div>
@@ -455,7 +502,7 @@
       <li><b>채널 레벨은 확인 후 한 번 다시 전송됩니다.</b> 리시버는 한꺼번에 많은 명령이 들어오면 가끔 채널 하나를 놓칩니다. 앱은 반영된 값을 다시 읽어 반영되지 않은 값을 다시 전송하고, 어떤 채널을 재시도했는지 알려 줍니다.</li>
       <li><b>잠긴 컨트롤은 무엇으로도 적용할 수 없습니다.</b> 스피커 프리셋이 Dirac Live에 속해 있으면 리시버 자체가 Audyssey 변경을 거부하며, 이를 담은 장면도 화면의 컨트롤과 똑같이 거부됩니다. <a href="/ko/guide/locked-controls/">컨트롤이 잠기는 이유</a>를 참고하세요.</li>
       <li><b>장면에 담긴 것만 바뀝니다.</b> 기대한 것이 장면에서 바뀌지 않는다면 아마 체크되지 않았을 것입니다. 장면을 새로 만들지 말고 길게 눌러 캡처된 설정 편집을 사용하세요.</li>
-      <li><b>장면은 리시버 하나에 속합니다.</b> 목록은 현재 선택한 리시버의 목록이며, 다른 리시버에는 그 리시버만의 목록이 있습니다.</li>
+      <li><b>장면은 리시버 한 대에 속합니다.</b> 목록은 현재 선택한 리시버의 목록입니다. 다른 리시버에는 자체 목록이 있습니다. 여러 리시버를 한 번의 탭으로 설정하려면 <a href="#multi-avr">Multi AVR Scene</a>을 사용하세요.</li>
     </ul>
   </div>
 </section>
@@ -492,6 +539,7 @@
     <details><summary>장면으로 리시버를 켤 수 있나요?</summary><div class="body">네. 전원 상태를 포함하면 장면을 적용할 때 메인 존이 먼저 켜지거나 꺼집니다. 단, 리시버가 잠든 상태에서도 앱이 접속할 수 있도록 네트워크 대기가 켜져 있어야 합니다.</div></details>
     <details><summary>장면을 실행한 뒤 나오는 색깔 메시지는 무슨 뜻인가요?</summary><div class="body">초록은 모든 것이 적용되었다는 뜻입니다. 주황은 입력 신호별로 기억하는 설정에 대해 리시버가 자체 값을 선택했다는 뜻이며 정상입니다. 장면을 다시 탭해 재시도하세요. 파랑은 리시버가 일부 설정을 확인해 주지 않아 앱이 적용 여부를 알 수 없다는 뜻입니다. 빨강은 설정이 다른 값으로 읽히거나 리시버가 일부 스피커 레벨을 거부했다는 뜻이며, 장면을 다시 탭하세요. 빨간 메시지는 닫을 때까지 남아 있습니다.</div></details>
     <details><summary>장면과 Smart Select 또는 Quick Select는 어떻게 다른가요?</summary><div class="body">Smart Select(Marantz)와 Quick Select(Denon)는 이름만 둘인 같은 리시버 기능으로, 리시버 내부에 저장되는 소수의 슬롯입니다(Marantz CINEMA 30은 다섯 개). AVR Maestro는 앱 어디에서나 리시버 고유의 이름으로 부르며, 홈 화면과 리모컨에서 실행하거나 이름을 바꿀 수 있습니다. 장면은 AVR Maestro 자체 기능입니다. 리시버당 최대 20개이며 각각 이름, 아이콘, 색상이 있고 선택한 설정만 정확히 담으며, 홈 화면 위젯에서 실행하거나 Home Assistant 또는 Hubitat으로 보낼 수 있습니다. 두 기능은 서로를 덮어쓰지 않습니다.</div></details>
+    <details><summary>장면 하나로 여러 리시버를 설정할 수 있나요?</summary><div class="body">네, 홈 오토메이션 구매에 포함된 Multi AVR Scene으로 가능합니다. 앱에 리시버가 두 대 이상 있을 때 장면 추가를 탭하고, Multi AVR Scene을 선택하고, 이름을 정하고, 리시버를 체크한 다음, 각 리시버의 장면을 해당 안내 페이지에서 설정합니다. 리시버 그룹 목록에서 탭하면 앱이 각 리시버의 장면을 차례로 적용하고, 리시버별로 한 줄씩 결과를 보여 줍니다. 리시버 한 대용 장면은 계속 무료입니다.</div></details>
   </div>
 </section>
 

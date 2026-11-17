@@ -134,7 +134,7 @@
       "description": "Build a one-tap Scene for movies, music, gaming or late night: input, sound mode, Audyssey or Dirac, levels and zones on Denon or Marantz. Get AVR Maestro.",
       "image": "https://avrmaestro.com/screenshots/scenes-list.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -230,6 +230,14 @@
         "@type": "Answer",
         "text": "Smart Select (Marantz) and Quick Select (Denon) are the same receiver feature under two names: a handful of slots stored inside the receiver, five on a Marantz CINEMA 30. AVR Maestro calls them by your receiver's own name everywhere in the app, lets you fire them from the Home screen and the Remote, and lets you rename them. Scenes are AVR Maestro's own: up to 20 per receiver, each with a name, icon and color, holding exactly the settings you pick, and they can be fired from a home screen widget or sent to Home Assistant or Hubitat. The two never overwrite each other."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Can one Scene set up several receivers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, with a Multi AVR Scene, part of the Home Automation purchase. With two or more receivers in the app, tap Add Scene, pick Multi AVR Scene, name it, tick the receivers and set each one's Scene on its own guided pages. Tap it in the Receiver groups list and the app applies each receiver's Scene in turn, then shows one line per receiver. Scenes for a single receiver stay free."
+      }
     }
   ]
 }
@@ -313,6 +321,7 @@
         <ul>
           <li><b>Scene creator</b> answers a few questions with you and offers only what your receiver supports. Best for your first Scene, or when you know what you want but not which menu holds it.</li>
           <li><b>Create from Scratch</b> captures what your receiver is doing right now. Get it sounding right, tick the settings to keep, and save.</li>
+          <li><b>Multi AVR Scene</b> sets up several receivers at once. It is listed only when the app knows two or more receivers, and it is part of the <a href="/guide/home-automation/">Home Automation</a> purchase. See <a href="#multi-avr">Multi AVR Scene</a> below.</li>
         </ul>
         <div class="note">Nothing on the Scenes tab yet? It suggests a few starting points that fit your receiver, such as Movies and TV or Late night. Tap one and the Scene creator opens with it already chosen.</div>
       </div>
@@ -365,6 +374,44 @@
           <li><b>Review and save.</b> The last page lists exactly what the Scene will store, grouped like the rest of the app. Tap <b>Save</b> and it lands in your Scenes list, ready whenever you are.</li>
         </ol>
         <div class="note">The number of steps grows with what you tick: each ticked setting gets its own page, so a three-setting Scene is shorter than a ten-setting one.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="multi-avr">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Several receivers, one tap</div>
+      <h2>Multi AVR Scene</h2>
+      <p class="lead">A Multi AVR Scene holds one Scene for each receiver you choose and applies them together, so a single tap can set up the living room receiver and the one in the den. It needs two or more receivers in the app (the demo receiver does not count) and the Home Automation purchase. Without the purchase the option shows a lock, and tapping it opens the Home Automation purchase page.</p>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="The Add Scene sheet with Scene creator, Create from Scratch and Multi AVR Scene" srcset="/screenshots/scenes-add-multi-avr-662.webp 662w, /screenshots/scenes-add-multi-avr.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="../../screenshots/scenes-add-multi-avr.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ol class="steps">
+          <li><b>Tap Add Scene and pick Multi AVR Scene.</b></li>
+          <li><b>Name the group</b> and tick two or more receivers.</li>
+          <li><b>Tap Create each scene.</b> The guided pages open once for each receiver you ticked, so each one gets a Scene built from what that receiver can do. Every chosen receiver needs its Scene before the group can be saved.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="feat rev">
+      <div class="shots"><img alt="The Multi AVR Scene screen with the group named Movie Night and two receivers ticked" srcset="/screenshots/scenes-multi-avr-group-662.webp 662w, /screenshots/scenes-multi-avr-group.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="../../screenshots/scenes-multi-avr-group.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Applying it.</b> Your groups are listed under <b>Receiver groups</b> on the Scenes tab. Tap one and the app steps through the receivers one at a time: it waits for each to answer, applies its Scene, and then puts back the receiver you started on. If the app is closed in the middle, the next launch puts your receiver back.</li>
+          <li><b>One line per receiver.</b> When it finishes, the app shows a line for each receiver: applied and confirmed, applied with some settings reading back different, settings refused, sent but not confirmed, or did not answer. A receiver that was removed from the app, or whose Scene was deleted, is named too, never hidden behind a single "done".</li>
+        </ul>
+      </div>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="The Scenes tab with a Receiver groups section listing Movie Night with rename and delete buttons" srcset="/screenshots/scenes-multi-avr-list-662.webp 662w, /screenshots/scenes-multi-avr-list.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="../../screenshots/scenes-multi-avr-list.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Rename and delete.</b> Each group in the Receiver groups list has a rename button and a delete button. Renaming keeps the same receivers.</li>
+        </ul>
+        <div class="note">Scenes for a single receiver stay free. Only grouping several receivers into one Scene needs the Home Automation purchase.</div>
       </div>
     </div>
   </div>
@@ -455,7 +502,7 @@
       <li><b>Channel levels are checked and re-sent once.</b> Receivers drop the odd channel when a lot arrives at once. The app reads back what landed, re-sends what did not, and tells you which channels it had to retry.</li>
       <li><b>A locked control cannot be applied, by anything.</b> If your speaker preset is owned by Dirac Live, the receiver itself refuses Audyssey changes, and a Scene carrying them is refused the same way the on-screen control is. See <a href="/guide/locked-controls/">why a control is locked</a>.</li>
       <li><b>Only what the Scene holds is changed.</b> If a Scene is not changing something you expected, it was probably not ticked. Long-press it and use Edit Captured Settings rather than making a second Scene.</li>
-      <li><b>Scenes belong to one receiver.</b> The list is the list for the receiver currently selected. Another receiver has its own.</li>
+      <li><b>Scenes belong to one receiver.</b> The list is the list for the receiver currently selected. Another receiver has its own. To set up several receivers with one tap, use a <a href="#multi-avr">Multi AVR Scene</a>.</li>
     </ul>
   </div>
 </section>
@@ -492,6 +539,7 @@
     <details><summary>Can a Scene turn my receiver on?</summary><div class="body">Yes. Include the power state and applying the Scene switches the main zone on (or off) first, as long as the receiver has network standby enabled so the app can reach it while it sleeps.</div></details>
     <details><summary>What does the colored message after a Scene mean?</summary><div class="body">Green means everything landed. Orange means the receiver chose its own value for a setting it remembers per input signal, which is expected; tap the Scene again to retry. Blue means the receiver did not confirm some settings, so the app cannot tell whether they took. Red means a setting reads back different or the receiver refused some speaker levels; tap the Scene again. A red message stays until you close it.</div></details>
     <details><summary>What is the difference between Scenes and Smart Select or Quick Select?</summary><div class="body">Smart Select (Marantz) and Quick Select (Denon) are the same receiver feature under two names: a handful of slots stored inside the receiver, five on a Marantz CINEMA 30. AVR Maestro calls them by your receiver's own name everywhere in the app, lets you fire them from the Home screen and the Remote, and lets you rename them. Scenes are AVR Maestro's own: up to 20 per receiver, each with a name, icon and color, holding exactly the settings you pick, and they can be fired from a home screen widget or sent to Home Assistant or Hubitat. The two never overwrite each other.</div></details>
+    <details><summary>Can one Scene set up several receivers?</summary><div class="body">Yes, with a Multi AVR Scene, part of the Home Automation purchase. With two or more receivers in the app, tap Add Scene, pick Multi AVR Scene, name it, tick the receivers and set each one's Scene on its own guided pages. Tap it in the Receiver groups list and the app applies each receiver's Scene in turn, then shows one line per receiver. Scenes for a single receiver stay free.</div></details>
   </div>
 </section>
 

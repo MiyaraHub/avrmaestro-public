@@ -134,7 +134,7 @@
       "description": "AVR Maestro 設定的每個區段：管理接收器、外觀（主題、色彩主題、大小、語言）、版面配置、附加元件、說明、備份與關於。",
       "image": "https://avrmaestro.com/screenshots/settings-tjmode.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -164,7 +164,7 @@
       "name": "「設定 › 裝置」和「設定 › 音訊」到哪裡去了？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "自 5.3.0 版起，兩者都改為依接收器分別設定。開啟「設定 › 管理接收器」並點選您的接收器：它的頁面有音訊區段（音量間距、音量讀數、音量預設、裝置音量按鈕與音量控制項）、螢幕與鎖定、關於此接收器，以及重新命名、變更 IP、尋找我的接收器與刪除。"
+        "text": "兩者都改為依接收器分別設定。開啟「設定 › 管理接收器」並點選您的接收器：它的頁面有音訊區段（音量間距、音量讀數、音量預設、裝置音量按鈕與音量控制項）、螢幕與鎖定、關於此接收器，以及重新命名、變更 IP、尋找我的接收器與刪除。"
       }
     },
     {
@@ -213,6 +213,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "開啟「設定 › 關於 AVR Maestro」並連點版本號碼七次。偵錯選單之後會一直可用，直到您用「移除偵錯選單」將它移除。它是為支援用途而設；若要傳送記錄給我們，請使用同一頁面的「所有相關記錄」。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "AVR Maestro 會蒐集分析資料嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "僅在你同意時。首次啟動後，應用程式會詢問一次，只有「分享分析資料」才會開啟使用情況分析；「不用了，謝謝」則保持關閉。你可以隨時在 設定 › 關於 AVR Maestro › 法律資訊 中變更，當機回報開關也在那裡。當機報告會遮蔽 IP 位址、MAC 位址和序號，匯出的記錄也會隱藏它們，除非你選擇包含。"
       }
     }
   ]
@@ -355,7 +363,7 @@
     <ul class="plain">
       <li><b>備份與還原：</b>將應用程式的所有設定匯出為檔案，或從備份還原。<a href="/zh-hant/guide/backup/">備份指南 &rarr;</a></li>
       <li><b>為 AVR Maestro 評分：</b>開啟商店頁面，讓您留下評分。</li>
-      <li><b>關於 AVR Maestro：</b>版本資訊、支援與授權。您可在這裡找到 <b>Discord 社群</b>、<b>Facebook 支援社團</b>與<b>所有相關記錄</b>，後者會在出現異常時收集我們所需的記錄。</li>
+      <li><b>關於 AVR Maestro：</b>版本資訊、支援和授權。你可以在這裡找到 <b>Discord 社群</b>、<b>Facebook 支援社團</b>和<b>所有相關記錄</b>，後者會蒐集出現問題時我們所需的記錄。其<b>法律資訊</b>區段包含分析和當機回報開關（請參閱下方的<a href="#privacy">隱私</a>）。</li>
       <li><b>MiyaraHub 的更多應用程式：</b>在您裝置的商店中開啟 MiyaraHub 頁面，其中有我們其他的家庭劇院應用程式。</li>
     </ul>
   </div>
@@ -374,19 +382,41 @@
   </div>
 </section>
 
+<section id="privacy">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">設定 &rsaquo; 關於 &rsaquo; 法律資訊</div>
+      <h2>隱私：分析資料、當機回報和記錄</h2>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="設定中的關於與法律資訊，Share usage analytics 開關為關閉，Crash Reporting 開關為開啟" srcset="/screenshots/settings-legal-662.webp 662w, /screenshots/settings-legal.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/settings-legal.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>分析資料需主動選擇加入。</b>首次啟動後，應用程式會詢問一次<i>協助改善 AVR Maestro？</i>，選項為<b>分享分析資料</b>和<b>不用了，謝謝</b>。除非你同意，否則不會傳送任何內容。使用事件關聯的是為本次安裝產生的隨機 ID，不含接收器名稱或位址。隨時可透過 關於 &rsaquo; 法律資訊 中的<b>分享使用情況分析</b>變更你的選擇。在另一台裝置上還原備份時會再次詢問。</li>
+          <li><b>當機報告有獨立的開關。</b><b>當機回報</b>位於 關於 &rsaquo; 法律資訊 下。關閉時不會傳送任何內容，先前工作階段中儲存的報告會被捨棄，而不是稍後傳送。</li>
+          <li><b>當機報告不會帶走你的網路資訊。</b>報告離開裝置之前，其中錯誤及詳細資料裡的 IP 位址、MAC 位址、序號和主機名稱都會被遮蔽。</li>
+          <li><b>記錄在包含接收器資訊前會先詢問。</b><b>所有相關記錄</b>會先說明封包包含什麼，以及電子郵件會把它傳送到哪裡。接收器的位址、MAC 位址和序號預設隱藏，除非你勾選<i>包含我的接收器位址、MAC 位址和序號，以便支援人員找出問題</i>。</li>
+          <li><b>中樞權杖存放在安全儲存空間中。</b>Home Assistant 和 Hubitat 權杖在 Android 上存放於 Keystore，在 Apple 裝置上存放於 Keychain，而不是與應用程式的一般設定放在一起。請參閱<a href="/zh-hant/guide/home-automation/">居家自動化</a>。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">常見問題</div>
       <h2>設定常見問題</h2>
     </div>
-    <details open><summary>「設定 &rsaquo; 裝置」和「設定 &rsaquo; 音訊」到哪裡去了？</summary><div class="body">自 5.3.0 版起，兩者都改為依接收器分別設定。開啟「設定 &rsaquo; 管理接收器」並點選您的接收器：它的頁面有音訊區段（音量間距、音量讀數、音量預設、裝置音量按鈕與音量控制項）、螢幕與鎖定、關於此接收器，以及重新命名、變更 IP、尋找我的接收器與刪除。</div></details>
+    <details open><summary>「設定 &rsaquo; 裝置」和「設定 &rsaquo; 音訊」到哪裡去了？</summary><div class="body">兩者都改為依接收器分別設定。開啟「設定 &rsaquo; 管理接收器」並點選您的接收器：它的頁面有音訊區段（音量間距、音量讀數、音量預設、裝置音量按鈕與音量控制項）、螢幕與鎖定、關於此接收器，以及重新命名、變更 IP、尋找我的接收器與刪除。</div></details>
     <details><summary>我可以變更應用程式的主題與顏色嗎？</summary><div class="body">可以。在設定 &rsaquo; 外觀中，主題可選淺色、深色或 AMOLED（純黑），TJ Mode：強調色可選品牌色或顏色主題。顏色主題讓您從選擇器中挑選任意強調色，或輸入十六進位代碼，例如 #FF8C00，或其三位簡寫。應用程式無法讀取的代碼會被拒絕並說明原因，幾乎全黑的顏色也會被拒絕，因為它在 AMOLED 主題上將無法顯示。</div></details>
     <details><summary>我手機的音量鍵可以控制接收器嗎？</summary><div class="body">可以，適用於 Android 以及 iPhone 與 iPad。應用程式開啟時，裝置的音量鍵會變更接收器的音量。預設為開啟，並依接收器分別設定：設定 &rsaquo; 管理接收器 &rsaquo; 您的接收器 &rsaquo; 音訊 &rsaquo; 裝置音量按鈕。</div></details>
     <details><summary>如何找回我關閉的說明卡片？</summary><div class="body">開啟「設定 &rsaquo; 說明」。「還原已隱藏的卡片」會列出每張您長按移除的卡片；可對其中一張點選「還原」，或點選「全部還原」。「顯示說明卡片」可一次關閉或開啟全部卡片。</div></details>
     <details><summary>如何再次看到歡迎指南？</summary><div class="body">開啟「設定 &rsaquo; 說明 &rsaquo; 歡迎與設定指南」。它會重播簡介與網路設定提示。同一區段中的「應用程式手冊」會開啟這份線上指南。</div></details>
     <details><summary>我可以備份我的設定嗎？</summary><div class="body">可以。「設定 &rsaquo; 備份與還原」會將應用程式的所有設定匯出為檔案，並從備份還原。檔案包含哪些內容，請參閱備份與還原指南。</div></details>
     <details><summary>我要怎麼開啟隱藏的偵錯選單？</summary><div class="body">開啟「設定 &rsaquo; 關於 AVR Maestro」並連點版本號碼七次。偵錯選單之後會一直可用，直到您用「移除偵錯選單」將它移除。它是為支援用途而設；若要傳送記錄給我們，請使用同一頁面的「所有相關記錄」。</div></details>
+    <details><summary>AVR Maestro 會蒐集分析資料嗎？</summary><div class="body">僅在你同意時。首次啟動後，應用程式會詢問一次，只有「分享分析資料」才會開啟使用情況分析；「不用了，謝謝」則保持關閉。你可以隨時在 設定 &rsaquo; 關於 AVR Maestro &rsaquo; 法律資訊 中變更，當機回報開關也在那裡。當機報告會遮蔽 IP 位址、MAC 位址和序號，匯出的記錄也會隱藏它們，除非你選擇包含。</div></details>
   </div>
 </section>
 

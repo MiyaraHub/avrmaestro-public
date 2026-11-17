@@ -134,7 +134,7 @@
       "description": "Jokainen AVR Maestron Asetukset-osio: Hallitse vastaanottimia, Ulkoasu ja tuntuma (teema, Color Theme, koot, kieli), Asettelu, Lisäosat, Ohje, Varmuuskopio ja Tietoja.",
       "image": "https://avrmaestro.com/screenshots/settings-tjmode.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -164,7 +164,7 @@
       "name": "Minne Asetukset › Laitteet ja Asetukset › Ääni katosivat?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Versiosta 5.3.0 alkaen molemmat ovat vastaanotinkohtaisia. Avaa Asetukset › Hallitse vastaanottimia ja napauta vastaanotintasi: sen sivulla on Ääni-osio (äänenvoimakkuuden askel, äänenvoimakkuuslukema, äänenvoimakkuuden esiasetukset, laitteen äänenvoimakkuuspainikkeet ja Äänenvoimakkuuden hallinta), Näyttö ja lukot, Tietoja tästä vastaanottimesta sekä Nimeä uudelleen, Vaihda IP, Find My Receiver ja Poista."
+        "text": "Molemmat ovat vastaanotinkohtaisia. Avaa Asetukset › Hallitse vastaanottimia ja napauta vastaanotintasi: sen sivulla on Ääni-osio (äänenvoimakkuuden askel, äänenvoimakkuuslukema, äänenvoimakkuuden esiasetukset, laitteen äänenvoimakkuuspainikkeet ja Äänenvoimakkuuden hallinta), Näyttö ja lukot, Tietoja tästä vastaanottimesta sekä Nimeä uudelleen, Vaihda IP, Find My Receiver ja Poista."
       }
     },
     {
@@ -213,6 +213,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Avaa Asetukset › Tietoja AVR Maestrosta ja napauta versionumeroa seitsemän kertaa. Virheenkorjausvalikko pysyy sen jälkeen käytettävissä, kunnes poistat sen kohdalla Poista virheenkorjausvalikko. Se on tarkoitettu tuelle; lähettääksesi meille lokit käytä saman sivun kohtaa Kaikki olennaiset lokit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kerääkö AVR Maestro analytiikkaa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vain jos suostut. Ensimmäisen käynnistyksen jälkeen sovellus kysyy kerran, ja vain valinta Jaa analytiikka kytkee käyttöanalytiikan päälle; Ei kiitos pitää sen pois päältä. Voit muuttaa sen milloin tahansa kohdassa Asetukset › Tietoja: AVR Maestro › Oikeudelliset tiedot, jossa on myös kytkin Kaatumisraportointi. Kaatumisraporteissa IP-osoitteet, MAC-osoitteet ja sarjanumerot piilotetaan, ja viedyt lokit piilottavat ne, ellet valitse niiden sisällyttämistä."
       }
     }
   ]
@@ -355,7 +363,7 @@
     <ul class="plain">
       <li><b>Varmuuskopiointi ja palautus:</b> vie jokainen sovelluksen asetus tiedostoon tai palauta varmuuskopiosta. <a href="/fi/guide/backup/">Varmuuskopio-opas &rarr;</a></li>
       <li><b>Arvioi AVR Maestro:</b> avaa kauppasivun, jotta voit jättää arvion.</li>
-      <li><b>Tietoja AVR Maestrosta:</b> versiotiedot, tuki ja lisenssit. Täältä löydät <b>Discord-yhteisön</b>, <b>Facebook-tukiryhmän</b> ja <b>Kaikki olennaiset lokit</b>, joka kerää tarvitsemamme lokit, kun jokin toimii väärin.</li>
+      <li><b>Tietoja: AVR Maestro:</b> versiotiedot, tuki ja lisenssit. Täältä löytyvät <b>Discord-yhteisö</b>, <b>Facebook-tukiryhmä</b> ja <b>Kaikki asiaankuuluvat lokit</b>, joka kokoaa lokit, joita tarvitsemme, kun jokin toimii väärin. Sen osio <b>Oikeudelliset tiedot</b> sisältää analytiikan ja kaatumisraporttien kytkimet (katso <a href="#privacy">Tietosuoja</a> alla).</li>
       <li><b>Lisää MiyaraHubilta:</b> avaa MiyaraHubin sivun laitteesi kaupassa, jossa ovat muut kotiteatterisovelluksemme.</li>
     </ul>
   </div>
@@ -374,19 +382,41 @@
   </div>
 </section>
 
+<section id="privacy">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Asetukset &rsaquo; Tietoja &rsaquo; Oikeudelliset tiedot</div>
+      <h2>Tietosuoja: analytiikka, kaatumisraportit ja lokit</h2>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="Tietoja ja Lakiasiat Asetuksissa, Share usage analytics -kytkin pois päältä ja Crash Reporting -kytkin päällä" srcset="/screenshots/settings-legal-662.webp 662w, /screenshots/settings-legal.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/settings-legal.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Analytiikka on valinnainen.</b> Ensimmäisen käynnistyksen jälkeen sovellus kysyy kerran, <i>Haluatko auttaa parantamaan sovellusta AVR Maestro?</i>, vaihtoehdoilla <b>Jaa analytiikka</b> ja <b>Ei kiitos</b>. Mitään ei lähetetä, ellet sano kyllä. Käyttötapahtumat linkitetään tätä asennusta varten luotuun satunnaiseen tunnukseen, eivätkä ne sisällä vastaanottimien nimiä tai osoitteita. Muuta vastauksesi milloin tahansa valinnalla <b>Jaa käyttöanalytiikka</b> kohdassa Tietoja &rsaquo; Oikeudelliset tiedot. Varmuuskopion palauttaminen toiseen laitteeseen kysyy uudelleen.</li>
+          <li><b>Kaatumisraporteilla on oma kytkimensä.</b> <b>Kaatumisraportointi</b> on kohdassa Tietoja &rsaquo; Oikeudelliset tiedot. Kun se on pois päältä, mitään ei lähetetä, ja aiemmista istunnoista tallennetut raportit hylätään sen sijaan, että ne lähetettäisiin myöhemmin.</li>
+          <li><b>Kaatumisraportit jättävät verkkotietosi taakse.</b> Ennen kuin raportti poistuu laitteelta, IP-osoitteet, MAC-osoitteet, sarjanumerot ja isäntänimet piilotetaan virheestä ja sen tiedoista.</li>
+          <li><b>Lokit kysyvät ennen kuin sisällyttävät vastaanottimesi tiedot.</b> <b>Kaikki asiaankuuluvat lokit</b> kertoo ensin, mitä paketti sisältää ja minne sähköposti sen lähettää. Vastaanottimesi osoite, MAC-osoite ja sarjanumero piilotetaan, ellet valitse <i>Sisällytä vastaanottimeni osoite, MAC-osoite ja sarjanumero, jotta tuki löytää ongelman</i>.</li>
+          <li><b>Keskittimien tunnisteet pysyvät suojatussa tallennustilassa.</b> Tunnisteet, joita Home Assistant ja Hubitat käyttävät, säilytetään Androidilla kohdassa Keystore ja Apple-laitteilla kohdassa Keychain, ei sovelluksen tavallisten asetusten mukana. Katso <a href="/fi/guide/home-automation/">Kodin automaatio</a>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Usein kysyttyä</div>
       <h2>Asetusten UKK</h2>
     </div>
-    <details open><summary>Minne Asetukset &rsaquo; Laitteet ja Asetukset &rsaquo; Ääni katosivat?</summary><div class="body">Versiosta 5.3.0 alkaen molemmat ovat vastaanotinkohtaisia. Avaa Asetukset &rsaquo; Hallitse vastaanottimia ja napauta vastaanotintasi: sen sivulla on Ääni-osio (äänenvoimakkuuden askel, äänenvoimakkuuslukema, äänenvoimakkuuden esiasetukset, laitteen äänenvoimakkuuspainikkeet ja Äänenvoimakkuuden hallinta), Näyttö &amp; lukot, Tietoja tästä vastaanottimesta sekä Nimeä uudelleen, Vaihda IP, Find My Receiver ja Poista.</div></details>
+    <details open><summary>Minne Asetukset &rsaquo; Laitteet ja Asetukset &rsaquo; Ääni katosivat?</summary><div class="body">Molemmat ovat vastaanotinkohtaisia. Avaa Asetukset &rsaquo; Hallitse vastaanottimia ja napauta vastaanotintasi: sen sivulla on Ääni-osio (äänenvoimakkuuden askel, äänenvoimakkuuslukema, äänenvoimakkuuden esiasetukset, laitteen äänenvoimakkuuspainikkeet ja Äänenvoimakkuuden hallinta), Näyttö ja lukot, Tietoja tästä vastaanottimesta sekä Nimeä uudelleen, Vaihda IP, Find My Receiver ja Poista.</div></details>
     <details><summary>Voinko vaihtaa sovelluksen teemaa ja värejä?</summary><div class="body">Kyllä. Kohdassa Asetukset &rsaquo; Ulkoasu Teema on Vaalea, Tumma tai AMOLED (aito musta), ja TJ-tila: Korostusväri on Brändi tai Väriteema. Väriteemassa voit valita minkä tahansa korostuksen valitsimesta tai kirjoittamalla heksakoodin, kuten #FF8C00, tai sen kolmimerkkisen lyhennemuodon. Koodi, jota sovellus ei osaa lukea, hylätään syyn kera, ja lähes musta väri hylätään, koska se ei näkyisi AMOLED-teemassa.</div></details>
     <details><summary>Ohjaavatko puhelimeni äänenvoimakkuuspainikkeet vastaanotinta?</summary><div class="body">Kyllä, Androidilla sekä iPhonella ja iPadilla. Kun sovellus on auki, laitteen äänenvoimakkuuspainikkeet muuttavat vastaanottimen äänenvoimakkuutta. Se on oletuksena päällä ja asetetaan vastaanotinkohtaisesti: Asetukset &rsaquo; Hallitse vastaanottimia &rsaquo; vastaanottimesi &rsaquo; Ääni &rsaquo; Laitteen äänenvoimakkuuspainikkeet.</div></details>
     <details><summary>Miten saan takaisin sulkemani selityskortin?</summary><div class="body">Avaa Asetukset &rsaquo; Ohje. Palauta suljetut kortit listaa jokaisen kortin, jonka olet painanut pitkään pois; napauta yhden kohdalla Palauta tai Palauta kaikki. Näytä selityskortit kytkee kaikki pois tai päälle kerralla.</div></details>
     <details><summary>Miten näen tervetulo-oppaan uudelleen?</summary><div class="body">Avaa Asetukset &rsaquo; Ohje &rsaquo; Tervetulo- ja asennusopas. Se toistaa johdannon ja verkon asennusvinkit. Käsikirja samassa osiossa avaa tämän verkko-oppaan.</div></details>
     <details><summary>Voinko varmuuskopioida asetukseni?</summary><div class="body">Kyllä. Asetukset &rsaquo; Varmuuskopiointi ja palautus vie jokaisen sovelluksen asetuksen tiedostoon ja palauttaa varmuuskopiosta. Katso Varmuuskopiointi ja palautus -opas, mitä tiedosto sisältää.</div></details>
     <details><summary>Miten avaan piilotetun virheenkorjausvalikon?</summary><div class="body">Avaa Asetukset &rsaquo; Tietoja AVR Maestrosta ja napauta versionumeroa seitsemän kertaa. Virheenkorjausvalikko pysyy sen jälkeen käytettävissä, kunnes poistat sen kohdalla Poista virheenkorjausvalikko. Se on tarkoitettu tuelle; lähettääksesi meille lokit käytä saman sivun kohtaa Kaikki olennaiset lokit.</div></details>
+    <details><summary>Kerääkö AVR Maestro analytiikkaa?</summary><div class="body">Vain jos suostut. Ensimmäisen käynnistyksen jälkeen sovellus kysyy kerran, ja vain valinta Jaa analytiikka kytkee käyttöanalytiikan päälle; Ei kiitos pitää sen pois päältä. Voit muuttaa sen milloin tahansa kohdassa Asetukset &rsaquo; Tietoja: AVR Maestro &rsaquo; Oikeudelliset tiedot, jossa on myös kytkin Kaatumisraportointi. Kaatumisraporteissa IP-osoitteet, MAC-osoitteet ja sarjanumerot piilotetaan, ja viedyt lokit piilottavat ne, ellet valitse niiden sisällyttämistä.</div></details>
   </div>
 </section>
 

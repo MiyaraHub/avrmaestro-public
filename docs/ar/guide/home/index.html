@@ -134,7 +134,7 @@
       "description": "الشاشة الرئيسية في AVR Maestro: بطاقة حالة، ومبدّل مستقبلات، وأدوات تضيفها وتعيد ترتيبها لمستوى الصوت والمصدر ووضع الصوت والإشارة والمشاهد والمناطق وHEOS.",
       "image": "https://avrmaestro.com/screenshots/dashboard.webp",
       "datePublished": "2026-07-03",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -334,6 +334,9 @@
         <tr><td>DRC</td><td>ضغط النطاق الديناميكي: Auto أو Off أو Low أو Mid أو High.</td></tr>
         <tr><td>مرشح Dirac Live</td><td>فتحة Dirac Live في Speaker Preset الحالي، مع رابط مباشر. على مستقبلات Dirac فقط.</td></tr>
         <tr><td>حالة Audyssey</td><td>MultEQ وDynamic EQ وReference Level Offset وDynamic Volume وLFC وContainment Amount في لمحة. على مستقبلات Audyssey فقط.</td></tr>
+        <tr><td>Audyssey MultEQ</td><td>بدّل MultEQ من الشاشة الرئيسية دون الذهاب إلى الصوت &rsaquo; Audyssey. هذا الخيار متوقف افتراضيًا: أضفه عند تخصيص الشاشة الرئيسية. يظهر بعد أن يُبلغ المستقبل عن إعداد MultEQ، ويقدّم الخيارات نفسها الموجودة في منشئ المشاهد، ويتبع الخيار المحدد ما يُبلغ عنه المستقبل.</td></tr>
+        <tr><td>Dynamic EQ</td><td>تشغيل Dynamic EQ أو إيقافه من الشاشة الرئيسية. متوقف افتراضيًا، ويظهر بعد أن يُبلغ المستقبل عنه.</td></tr>
+        <tr><td>Dynamic Volume</td><td>Dynamic Volume من الشاشة الرئيسية، مع المستويات التي يوفرها مستقبلك. متوقف افتراضيًا، ويظهر بعد أن يُبلغ المستقبل عنه.</td></tr>
         <tr><td>لقطة مستويات القنوات</td><td>قراءة لكل مستوى قناة يبلغ عنه المستقبل.</td></tr>
         <tr><td>مستوى مكبر الصوت الجهير</td><td>ضبط مستوى مكبر الصوت الجهير بزري الناقص والزائد. يظهر عند إعداد مكبر صوت جهير ووجود إشارة صوتية.</td></tr>
         <tr><td>تأخير الصوت</td><td>تأخير مزامنة الشفاه من 0 إلى 500 ms، عندما يبلّغ عنه المستقبل. يحدد محدد الخطوة (من 1 إلى 10 ms) مقدار تحريك زرّي الناقص والزائد له.</td></tr>
@@ -360,6 +363,19 @@
 
 <section>
   <div class="wrap">
+    <div class="feat rev">
+      <div class="shots"><img alt="بطاقات Audyssey MultEQ وDynamic EQ وDynamic Volume في الرئيسية، مقفلة لأن Dirac Live يتحكم في الإعداد المسبق لمكبرات الصوت" srcset="/screenshots/home-audyssey-662.webp 662w, /screenshots/home-audyssey.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/home-audyssey.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <div class="eyebrow">Audyssey في الرئيسية</div>
+        <h2>بطاقات MultEQ وDynamic EQ وDynamic Volume</h2>
+        <p class="lead">أضف بطاقات Audyssey الثلاث عند تخصيص الرئيسية وبدّلها دون الانتقال إلى الصوت &rsaquo; Audyssey. وبينما يتحكم Dirac Live في الإعداد المسبق لمكبرات الصوت، تبقى البطاقات في الرئيسية باهتة مع ذكر السبب تحت كل واحدة، ولا يرسل النقر عليها أي شيء إلى المستقبل.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">عناصر التحكم في الصوت</div>
       <h2>مفاتيح سريعة في الصوت</h2>
@@ -367,6 +383,7 @@
     <ul class="plain">
       <li><b>المعادِل الرسومي:</b> مفتاح التشغيل/الإيقاف في صفحة المعادِل الرسومي نفسها (الصوت &rsaquo; المعادِل الرسومي)، في صف الرأس بجوار إعادة التعيين والنسخ. لا يمكن تعديل النطاقات إلا عندما لا يجري Dirac Live ولا Audyssey تصحيح الغرفة؛ ويطابق التطبيق قاعدة المستقبل نفسها. راجع <a href="/ar/guide/graphic-eq/">دليل المعادِل الرسومي</a>.</li>
       <li><b>مكبر الصوت الجهير:</b> اكتم مكبر الصوت الجهير أو فعّله من الصوت &rsaquo; المحيطي &rsaquo; ميزات الصوت، دون الدخول إلى إعداد مكبرات الصوت. يظهر فقط على المستقبلات التي تبلغ عنه وتقبله.</li>
+      <li><b>بطاقات Audyssey وأقفالها:</b> تُقفل بطاقات MultEQ وDynamic EQ وDynamic Volume عندما يتحكم Dirac Live في إعداد مكبرات الصوت المسبق أو عندما لا تكون معايرة Audyssey مجراة عليه، كما يُقفل Dynamic EQ وDynamic Volume عندما يكون MultEQ متوقفًا. تبقى البطاقة المقفلة في الشاشة الرئيسية وتبهت وتوضح السبب ولا ترسل شيئًا. راجع <a href="/ar/guide/locked-controls/">سبب قفل أحد عناصر التحكم</a>.</li>
       <li><b>مُستعيد الصوت:</b> مُستعيد الصوت المضغوط في المستقبل - <b>Restorer</b> في Denon و<b>M-DAX</b> في Marantz - ضمن الصوت &rsaquo; جرس الصوت. أعِد الحياة إلى ملفات MP3 ومصادر البث دون الحاجة إلى القائمة على الشاشة.</li>
     </ul>
   </div>

@@ -134,7 +134,7 @@
       "description": "Tạo một Cảnh một chạm cho phim, nhạc, chơi game hoặc đêm khuya: nguồn vào, chế độ âm thanh, Audyssey hoặc Dirac, các mức và các vùng trên Denon hoặc Marantz. Tải AVR Maestro.",
       "image": "https://avrmaestro.com/screenshots/scenes-list.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -230,6 +230,14 @@
         "@type": "Answer",
         "text": "Smart Select (Marantz) và Quick Select (Denon) là cùng một tính năng của receiver với hai tên gọi: một số ít ô được lưu bên trong receiver, năm ô trên Marantz CINEMA 30. AVR Maestro gọi chúng bằng đúng tên của receiver bạn ở mọi nơi trong ứng dụng, cho phép bạn kích hoạt chúng từ Màn hình chính và Điều khiển từ xa, và cho phép bạn đổi tên chúng. Cảnh là của riêng AVR Maestro: tối đa 20 cho mỗi receiver, mỗi Cảnh có tên, biểu tượng và màu sắc, giữ chính xác các cài đặt bạn chọn, và có thể được kích hoạt từ tiện ích màn hình chính hoặc gửi tới Home Assistant hay Hubitat. Hai loại này không bao giờ ghi đè lên nhau."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Một Cảnh có thể thiết lập nhiều đầu thu không?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Có, bằng Multi AVR Scene, thuộc gói mua Home Automation. Khi ứng dụng có hai đầu thu trở lên, hãy chạm Thêm Cảnh, chọn Multi AVR Scene, đặt tên, đánh dấu các đầu thu và thiết lập Cảnh của từng đầu thu trên các trang hướng dẫn riêng của nó. Chạm vào nó trong danh sách Nhóm đầu thu và ứng dụng sẽ lần lượt áp dụng Cảnh của từng đầu thu, rồi hiển thị một dòng cho mỗi đầu thu. Cảnh cho một đầu thu vẫn miễn phí."
+      }
     }
   ]
 }
@@ -313,6 +321,7 @@
         <ul>
           <li><b>Trình tạo Cảnh</b> hỏi bạn vài câu và chỉ đề xuất những gì receiver của bạn hỗ trợ. Phù hợp nhất cho Cảnh đầu tiên, hoặc khi bạn biết mình muốn gì nhưng không biết nó nằm ở menu nào.</li>
           <li><b>Tạo từ đầu</b> ghi lại những gì receiver của bạn đang làm ngay lúc này. Chỉnh cho âm thanh đúng ý, đánh dấu những cài đặt cần giữ rồi lưu.</li>
+          <li><b>Multi AVR Scene</b> thiết lập nhiều đầu thu cùng lúc. Mục này chỉ xuất hiện khi ứng dụng biết hai đầu thu trở lên, và thuộc gói mua <a href="/vi/guide/home-automation/">Home Automation</a>. Xem <a href="#multi-avr">Multi AVR Scene</a> bên dưới.</li>
         </ul>
         <div class="note">Thẻ Cảnh chưa có gì? Ứng dụng sẽ gợi ý vài điểm khởi đầu phù hợp với receiver của bạn, chẳng hạn Phim và TV hoặc Khuya. Chạm vào một gợi ý và Trình tạo Cảnh sẽ mở ra với lựa chọn đã được chọn sẵn.</div>
       </div>
@@ -365,6 +374,44 @@
           <li><b>Xem lại và lưu.</b> Trang cuối liệt kê chính xác những gì Cảnh sẽ lưu, nhóm giống phần còn lại của ứng dụng. Chạm <b>Lưu</b> và Cảnh sẽ nằm trong danh sách Cảnh của bạn, sẵn sàng bất cứ khi nào bạn cần.</li>
         </ol>
         <div class="note">Số bước tăng theo những gì bạn đánh dấu: mỗi cài đặt được đánh dấu có một trang riêng, nên Cảnh ba cài đặt sẽ ngắn hơn Cảnh mười cài đặt.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="multi-avr">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Nhiều đầu thu, một chạm</div>
+      <h2>Multi AVR Scene</h2>
+      <p class="lead">Một Multi AVR Scene giữ một Cảnh cho mỗi đầu thu bạn chọn và áp dụng chúng cùng nhau, nên một chạm có thể thiết lập đầu thu ở phòng khách và đầu thu ở phòng làm việc. Cần có hai đầu thu trở lên trong ứng dụng (đầu thu demo không được tính) và gói mua Home Automation. Khi chưa mua, tùy chọn này hiện biểu tượng khóa, và chạm vào sẽ mở trang mua Home Automation.</p>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="Bảng Thêm cảnh với Trình tạo Cảnh, Tạo từ đầu và Multi AVR Scene" srcset="/screenshots/scenes-add-multi-avr-662.webp 662w, /screenshots/scenes-add-multi-avr.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-add-multi-avr.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ol class="steps">
+          <li><b>Chạm Thêm Cảnh và chọn Multi AVR Scene.</b></li>
+          <li><b>Đặt tên cho nhóm</b> và đánh dấu hai đầu thu trở lên.</li>
+          <li><b>Chạm Tạo từng Cảnh.</b> Các trang hướng dẫn mở một lần cho mỗi đầu thu bạn đã đánh dấu, nên mỗi đầu thu nhận một Cảnh được xây dựng từ những gì đầu thu đó làm được. Mỗi đầu thu được chọn đều cần có Cảnh trước khi có thể lưu nhóm.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="feat rev">
+      <div class="shots"><img alt="Màn hình Multi AVR Scene với nhóm tên Movie Night và hai đầu thu được đánh dấu" srcset="/screenshots/scenes-multi-avr-group-662.webp 662w, /screenshots/scenes-multi-avr-group.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-multi-avr-group.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Áp dụng.</b> Các nhóm của bạn nằm trong mục <b>Nhóm đầu thu</b> ở tab Cảnh. Chạm vào một nhóm và ứng dụng lần lượt đi qua từng đầu thu: chờ đầu thu trả lời, áp dụng Cảnh của nó, rồi trả về đầu thu bạn bắt đầu. Nếu ứng dụng bị đóng giữa chừng, lần mở sau sẽ trả đầu thu của bạn về như cũ.</li>
+          <li><b>Một dòng cho mỗi đầu thu.</b> Khi xong, ứng dụng hiển thị một dòng cho từng đầu thu: đã áp dụng và xác nhận, đã áp dụng nhưng một số cài đặt đọc lại khác, cài đặt bị từ chối, đã gửi nhưng chưa xác nhận, hoặc không trả lời. Đầu thu đã bị xóa khỏi ứng dụng, hoặc có Cảnh đã bị xóa, cũng được nêu tên, không bao giờ bị che sau một dòng “xong” duy nhất.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="Tab Cảnh với phần Nhóm đầu thu liệt kê Movie Night cùng các nút đổi tên và xóa" srcset="/screenshots/scenes-multi-avr-list-662.webp 662w, /screenshots/scenes-multi-avr-list.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-multi-avr-list.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Đổi tên và xóa.</b> Mỗi nhóm trong danh sách Nhóm đầu thu có một nút đổi tên và một nút xóa. Đổi tên vẫn giữ nguyên các đầu thu.</li>
+        </ul>
+        <div class="note">Cảnh cho một đầu thu vẫn miễn phí. Chỉ việc gom nhiều đầu thu vào một Cảnh mới cần mua Home Automation.</div>
       </div>
     </div>
   </div>
@@ -455,7 +502,7 @@
       <li><b>Mức các kênh được kiểm tra và gửi lại một lần.</b> Receiver thỉnh thoảng bỏ sót một kênh khi nhận quá nhiều cùng lúc. Ứng dụng đọc lại những gì đã nhận, gửi lại những gì chưa nhận và cho bạn biết đã phải thử lại những kênh nào.</li>
       <li><b>Một điều khiển bị khóa thì không gì có thể áp dụng được.</b> Nếu speaker preset của bạn do Dirac Live quản lý, chính receiver sẽ từ chối các thay đổi Audyssey, và một Cảnh mang theo các thay đổi đó cũng bị từ chối giống như điều khiển trên màn hình. Xem <a href="/vi/guide/locked-controls/">vì sao một điều khiển bị khóa</a>.</li>
       <li><b>Chỉ những gì Cảnh lưu mới bị thay đổi.</b> Nếu một Cảnh không thay đổi thứ bạn mong đợi, có lẽ nó chưa được đánh dấu. Nhấn giữ và dùng Chỉnh sửa cài đặt đã ghi thay vì tạo Cảnh thứ hai.</li>
-      <li><b>Cảnh thuộc về một receiver.</b> Danh sách là danh sách của receiver đang được chọn. Receiver khác có danh sách riêng.</li>
+      <li><b>Cảnh thuộc về một đầu thu.</b> Danh sách là danh sách của đầu thu đang được chọn. Đầu thu khác có danh sách riêng. Để thiết lập nhiều đầu thu chỉ bằng một chạm, hãy dùng <a href="#multi-avr">Multi AVR Scene</a>.</li>
     </ul>
   </div>
 </section>
@@ -492,6 +539,7 @@
     <details><summary>Cảnh có thể bật receiver của tôi không?</summary><div class="body">Có. Hãy đưa trạng thái nguồn điện vào Cảnh và khi áp dụng, Cảnh sẽ bật (hoặc tắt) vùng chính trước tiên, miễn là receiver đã bật chế độ chờ mạng để ứng dụng có thể kết nối với nó khi nó đang ngủ.</div></details>
     <details><summary>Thông báo có màu sau một Cảnh nghĩa là gì?</summary><div class="body">Xanh lá nghĩa là mọi thứ đã vào đúng chỗ. Cam nghĩa là receiver tự chọn giá trị cho một cài đặt mà nó ghi nhớ theo từng tín hiệu đầu vào, điều này là bình thường; chạm lại Cảnh để thử lại. Xanh dương nghĩa là receiver không xác nhận một số cài đặt, nên ứng dụng không thể biết chúng đã có hiệu lực hay chưa. Đỏ nghĩa là một cài đặt đọc lại khác đi hoặc receiver từ chối một số mức loa; chạm lại Cảnh. Thông báo đỏ giữ nguyên cho đến khi bạn đóng.</div></details>
     <details><summary>Khác biệt giữa Cảnh với Smart Select hoặc Quick Select là gì?</summary><div class="body">Smart Select (Marantz) và Quick Select (Denon) là cùng một tính năng của receiver với hai tên gọi: một số ít ô được lưu bên trong receiver, năm ô trên Marantz CINEMA 30. AVR Maestro gọi chúng bằng đúng tên của receiver bạn ở mọi nơi trong ứng dụng, cho phép bạn kích hoạt chúng từ Màn hình chính và Điều khiển từ xa, và cho phép bạn đổi tên chúng. Cảnh là của riêng AVR Maestro: tối đa 20 cho mỗi receiver, mỗi Cảnh có tên, biểu tượng và màu sắc, giữ chính xác các cài đặt bạn chọn, và có thể được kích hoạt từ tiện ích màn hình chính hoặc gửi tới Home Assistant hay Hubitat. Hai loại này không bao giờ ghi đè lên nhau.</div></details>
+    <details><summary>Một Cảnh có thể thiết lập nhiều đầu thu không?</summary><div class="body">Có, bằng Multi AVR Scene, thuộc gói mua Home Automation. Khi ứng dụng có hai đầu thu trở lên, hãy chạm Thêm Cảnh, chọn Multi AVR Scene, đặt tên, đánh dấu các đầu thu và thiết lập Cảnh của từng đầu thu trên các trang hướng dẫn riêng của nó. Chạm vào nó trong danh sách Nhóm đầu thu và ứng dụng sẽ lần lượt áp dụng Cảnh của từng đầu thu, rồi hiển thị một dòng cho mỗi đầu thu. Cảnh cho một đầu thu vẫn miễn phí.</div></details>
   </div>
 </section>
 

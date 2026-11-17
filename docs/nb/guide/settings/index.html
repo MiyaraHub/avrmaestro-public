@@ -134,7 +134,7 @@
       "description": "Alle deler av innstillingene i AVR Maestro: Administrer mottakere, Utseende (tema, Fargetema, størrelser, språk), Layout, Tillegg, Hjelp, Sikkerhetskopi og Om.",
       "image": "https://avrmaestro.com/screenshots/settings-tjmode.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -164,7 +164,7 @@
       "name": "Hvor ble det av Innstillinger › Enheter og Innstillinger › Lyd?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Fra og med versjon 5.3.0 ligger begge per mottaker. Åpne Innstillinger › Administrer mottakere og trykk på mottakeren din: siden har delen Lyd (volumtrinn, volumvisning, volumpresets, enhetens volumknapper og Volumkontroller), Skjerm og låser, Om denne mottakeren, og Gi nytt navn, Endre IP, Finn mottakeren min og Slett."
+        "text": "Begge ligger per mottaker. Åpne Innstillinger › Administrer mottakere og trykk på mottakeren din: siden har delen Lyd (volumtrinn, volumvisning, volumpresets, enhetens volumknapper og Volumkontroller), Skjerm og låser, Om denne mottakeren, og Gi nytt navn, Endre IP, Finn mottakeren min og Slett."
       }
     },
     {
@@ -213,6 +213,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Åpne Innstillinger › Om AVR Maestro og trykk sju ganger på versjonsnummeret. Feilsøkingsmenyen blir da tilgjengelig til du fjerner den med Fjern feilsøkingsmeny. Den er ment for support; for å sende oss logger bruker du Alle relevante logger på samme side."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Samler AVR Maestro inn analyse?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bare hvis du samtykker. Etter første oppstart spør appen én gang, og bare Del analyse slår på bruksanalyse; Nei takk holder den av. Du kan endre det når som helst under Innstillinger › Om AVR Maestro › Juridisk, hvor bryteren for Krasjrapportering også finnes. I krasjrapporter er IP-adresser, MAC-adresser og serienumre maskert, og eksporterte logger skjuler dem med mindre du velger å ta dem med."
       }
     }
   ]
@@ -355,7 +363,7 @@
     <ul class="plain">
       <li><b>Sikkerhetskopi og gjenoppretting:</b> eksporter alle appinnstillinger til en fil, eller gjenopprett fra en sikkerhetskopi. <a href="/nb/guide/backup/">Veiledning for sikkerhetskopi &rarr;</a></li>
       <li><b>Vurder AVR Maestro:</b> åpner butikkoppføringen slik at du kan gi en vurdering.</li>
-      <li><b>Om AVR Maestro:</b> versjonsinformasjon, support og lisenser. Her finner du <b>Discord-fellesskapet</b>, <b>Facebook-støttegruppen</b> og <b>Alle relevante logger</b>, som samler loggene vi trenger når noe oppfører seg feil.</li>
+      <li><b>Om AVR Maestro:</b> versjonsinformasjon, støtte og lisenser. Her finner du <b>Discord-fellesskap</b>, <b>Facebook-støttegruppe</b> og <b>Alle relevante logger</b>, som samler loggene vi trenger når noe oppfører seg feil. Delen <b>Juridisk</b> har bryterne for analyse og krasjrapporter (se <a href="#privacy">Personvern</a> nedenfor).</li>
       <li><b>Mer fra MiyaraHub:</b> åpner MiyaraHub-siden i enhetens butikk, med de andre hjemmekinoappene våre.</li>
     </ul>
   </div>
@@ -374,19 +382,41 @@
   </div>
 </section>
 
+<section id="privacy">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Innstillinger &rsaquo; Om &rsaquo; Juridisk</div>
+      <h2>Personvern: analyse, krasjrapporter og logger</h2>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="Om og Juridisk i Innstillinger, med bryteren Share usage analytics av og bryteren Crash Reporting på" srcset="/screenshots/settings-legal-662.webp 662w, /screenshots/settings-legal.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/settings-legal.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Analyse er opt-in.</b> Etter første oppstart spør appen én gang, <i>Hjelp til å forbedre AVR Maestro?</i>, med <b>Del analyse</b> og <b>Nei takk</b>. Ingenting sendes med mindre du sier ja. Brukshendelser knyttes til en tilfeldig ID laget for denne installasjonen og inneholder ingen mottakernavn eller adresser. Endre svaret når som helst med <b>Del bruksanalyse</b> under Om &rsaquo; Juridisk. Når du gjenoppretter en sikkerhetskopi på en annen enhet, spørres du på nytt.</li>
+          <li><b>Krasjrapporter har sin egen bryter.</b> <b>Krasjrapportering</b> finnes under Om &rsaquo; Juridisk. Når den er av, sendes ingenting, og rapporter lagret fra tidligere økter forkastes i stedet for å sendes senere.</li>
+          <li><b>Krasjrapporter etterlater ikke nettverksdetaljene dine.</b> Før en rapport forlater enheten, maskeres IP-adresser, MAC-adresser, serienumre og vertsnavn i feilen og detaljene.</li>
+          <li><b>Logger spør før de tar med mottakerens detaljer.</b> <b>Alle relevante logger</b> forklarer først hva pakken inneholder og hvor E-post sender den. Mottakerens adresse, MAC-adresse og serienummer skjules med mindre du krysser av for <i>Ta med mottakerens adresse, MAC-adresse og serienummer slik at støtte kan finne problemet</i>.</li>
+          <li><b>Hub-tokener blir i sikker lagring.</b> Home Assistant- og Hubitat-tokener ligger i Keystore på Android og Keychain på Apple-enheter, ikke sammen med appens vanlige innstillinger. Se <a href="/nb/guide/home-automation/">Hjemmeautomatisering</a>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Vanlige spørsmål</div>
       <h2>Vanlige spørsmål om innstillinger</h2>
     </div>
-    <details open><summary>Hvor ble det av Innstillinger &rsaquo; Enheter og Innstillinger &rsaquo; Lyd?</summary><div class="body">Fra og med versjon 5.3.0 ligger begge per mottaker. Åpne Innstillinger &rsaquo; Administrer mottakere og trykk på mottakeren din: siden har delen Lyd (volumtrinn, volumvisning, volumpresets, enhetens volumknapper og Volumkontroller), Skjerm og låser, Om denne mottakeren, og Gi nytt navn, Endre IP, Finn mottakeren min og Slett.</div></details>
+    <details open><summary>Hvor ble det av Innstillinger &rsaquo; Enheter og Innstillinger &rsaquo; Lyd?</summary><div class="body">Begge ligger per mottaker. Åpne Innstillinger &rsaquo; Administrer mottakere og trykk på mottakeren din: siden har delen Lyd (volumtrinn, volumvisning, volumpresets, enhetens volumknapper og Volumkontroller), Skjerm og låser, Om denne mottakeren, og Gi nytt navn, Endre IP, Finn mottakeren min og Slett.</div></details>
     <details><summary>Kan jeg endre appens tema og farger?</summary><div class="body">Ja. Under Innstillinger &rsaquo; Utseende er Tema Lys, Mørk eller AMOLED (ekte svart), og TJ-modus: Aksentfarge er Merke eller Fargetema. Med Fargetema kan du velge en hvilken som helst aksent fra fargevelgeren eller skrive inn en heksadesimal kode som #FF8C00 eller den tresifrede kortformen. En kode appen ikke kan lese, avvises med en forklaring, og en farge som er nesten svart avvises fordi den ikke ville vært synlig på AMOLED-temaet.</div></details>
     <details><summary>Styrer telefonens volumknapper mottakeren?</summary><div class="body">Ja, på Android og på iPhone og iPad. Mens appen er åpen, endrer enhetens volumknapper volumet på mottakeren. Det er på som standard og stilles inn per mottaker: Innstillinger &rsaquo; Administrer mottakere &rsaquo; mottakeren din &rsaquo; Lyd &rsaquo; Enhetens volumknapper.</div></details>
     <details><summary>Hvordan henter jeg tilbake et forklaringskort jeg har avvist?</summary><div class="body">Åpne Innstillinger &rsaquo; Hjelp. Gjenopprett avviste kort lister hvert kort du har trykket bort med et langt trykk; trykk på Gjenopprett på ett, eller Gjenopprett alle. Vis forklaringskort slår alle av eller på samtidig.</div></details>
     <details><summary>Hvordan ser jeg velkomstguiden igjen?</summary><div class="body">Åpne Innstillinger &rsaquo; Hjelp &rsaquo; Velkomst- og oppsettsguide. Den spiller av introduksjonen og tipsene om nettverksoppsett på nytt. Appmanual i samme del åpner denne nettveiledningen.</div></details>
     <details><summary>Kan jeg sikkerhetskopiere oppsettet mitt?</summary><div class="body">Ja. Innstillinger &rsaquo; Sikkerhetskopi og gjenoppretting eksporterer alle appinnstillinger til en fil og gjenoppretter fra en sikkerhetskopi. Se veiledningen Sikkerhetskopi og gjenoppretting for hva filen inneholder.</div></details>
     <details><summary>Hvordan åpner jeg den skjulte feilsøkingsmenyen?</summary><div class="body">Åpne Innstillinger &rsaquo; Om AVR Maestro og trykk sju ganger på versjonsnummeret. Feilsøkingsmenyen blir da tilgjengelig til du fjerner den med Fjern feilsøkingsmeny. Den er ment for support; for å sende oss logger bruker du Alle relevante logger på samme side.</div></details>
+    <details><summary>Samler AVR Maestro inn analyse?</summary><div class="body">Bare hvis du samtykker. Etter første oppstart spør appen én gang, og bare Del analyse slår på bruksanalyse; Nei takk holder den av. Du kan endre det når som helst under Innstillinger &rsaquo; Om AVR Maestro &rsaquo; Juridisk, hvor bryteren for Krasjrapportering også finnes. I krasjrapporter er IP-adresser, MAC-adresser og serienumre maskert, og eksporterte logger skjuler dem med mindre du velger å ta dem med.</div></details>
   </div>
 </section>
 

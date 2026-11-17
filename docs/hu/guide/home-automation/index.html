@@ -134,7 +134,7 @@
       "description": "Kapcsold össze az AVR Maestro-t a Home Assistanttal vagy a Hubitattal, és a Jeleneteid a telefonod nélkül futó, natív szkriptekké válnak. Hangvezérlés, élő állapot és webhookok.",
       "image": "https://avrmaestro.com/screenshots/home-assistant.webp",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -180,7 +180,7 @@
       "name": "Az AI-asszisztens a fizetős feloldás része?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nem. Az eszközön futó AI-asszisztens ingyenes. Az Otthon-automatizálás - Home Assistant, Hubitat és kimenő webhookok - az AVR Maestro egyetlen fizetős feloldása."
+        "text": "Nem. A készüléken futó AI-asszisztens ingyenes. Az Otthon-automatizálás - Home Assistant, Hubitat, kimenő webhookok és Multi AVR Scene jelenetek - az AVR Maestro egyetlen fizetős feloldása."
       }
     },
     {
@@ -197,6 +197,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Nyisd meg a Beállítások › Otthon-automatizálás (Pro) menüt, és koppints a Vásárlások visszaállítása gombra a feloldó gomb alatt. Ha korábban ugyanazzal az áruházi fiókkal vetted meg a feloldást, újabb fizetés nélkül visszajön."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hol tárolódnak a Home Assistant és a Hubitat tokenjeim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Az eszközöd biztonságos tárhelyén: Androidon a Keystore-ban, iPhone-on, iPaden és Macen a Keychainben, nem az alkalmazás szokásos beállításai között. Az alkalmazásadatok visszaállítása ezeket is törli, az Android pedig nem másolja az alkalmazás adatait a Google Drive-biztonsági mentésbe. Ha olyan hub- vagy webhookcímet írsz be, amely az interneten van és http://-vel kezdődik, az alkalmazás figyelmeztet, hogy a tokened és az adataid titkosítatlanul haladnának át az interneten, és https://-t javasol. A saját hálózatodon lévő címeknél a figyelmeztetés soha nem jelenik meg."
       }
     }
   ]
@@ -337,11 +345,11 @@
 
     <div class="lockrow" style="margin-top:28px">
       <div>
-        <div class="eyebrow">Ha régebbi verzióval szinkronizáltál</div>
-        <h2>A szkriptazonosítóid egyszer megváltoznak</h2>
-        <p>A szkriptek korábban a jelenetről <em>és</em> a készülékről kapták a nevüket, így bármelyik átnevezése után a régi szkript megmaradt, és csendben létrejött egy második. Mostantól a jelenetről és a készülék MAC-címéről kapják a nevüket, ettől frissít egy átnevezés ugyanazt a szkriptet, ahelyett hogy másodpéldányt hozna létre.</p>
-        <p>A változás utáni első szinkronizálás kicseréli a régi szkripteket az újakra. <b>Mindent, amit a régi azonosítókra építettél, egyszer újra kell irányítani</b> - irányítópult-gombot, automatizálást, hangaliast. Nyisd meg a szkriptet a Home Assistantban, hogy megtaláld az új entitásazonosítóját.</p>
-        <p>Az entitások mostantól a készülékről is olvasnak - <code>cinema30</code> a harminckét karakternyi gépi azonosító helyett - így a lista olvasható, és az automatikus kiegészítés megtalálja őket. A korábbi verziók azonosítói tovább működnek.</p>
+        <div class="eyebrow">Szkript- és entitásazonosítók</div>
+        <h2>Nevek, amelyek túlélik az átnevezést</h2>
+        <p>A szkriptek a jelenetről és a készülék MAC-címéről kapják a nevüket, így a jelenet vagy a készülék átnevezése ugyanazt a szkriptet frissíti, ahelyett hogy másodikat hozna létre.</p>
+        <p>Ha egy irányítópult-gomb, egy automatizálás vagy egy hangalias a jelenetről és a készülékről elnevezett szkriptet hív, a következő szinkronizálás ezt a szkriptet a MAC-címről elnevezettre cseréli. <b>Irányítsd át egyszer</b>: nyisd meg a szkriptet a Home Assistantban, nézd meg az aktuális entitásazonosítóját, és azt használd.</p>
+        <p>A készülékből beolvasott entitások - harminckét karakternyi gépi azonosító helyett <code>cinema30</code> - hogy a lista olvasható legyen, és az automatikus kiegészítés megtalálja őket. Az automatizálásaid által már használt entitásazonosítók továbbra is működnek.</p>
       </div>
     </div>
   </div>
@@ -468,7 +476,8 @@
       <div>
         <div class="eyebrow">Mi fizetős és mi nem</div>
         <h2>Az Otthon-automatizálás az egyetlen feloldás. Az AI-asszisztens ingyenes.</h2>
-        <p>Az <b>Otthon-automatizálás (Pro)</b> - Home Assistant, Hubitat és kimenő webhookok - egyszeri feloldás. Minden más az AVR Maestro-ban, az eszközön futó AI-asszisztenssel együtt, benne van az alkalmazásban.</p>
+        <p>Az <b>Otthon-automatizálás (Pro)</b> - Home Assistant, Hubitat, kimenő webhookok és Multi AVR Scene jelenetek - egyszeri feloldás. Az AVR Maestro minden más funkciója, a készüléken futó AI-asszisztenssel együtt, az alkalmazás része.</p>
+        <p>Egy <a href="/hu/guide/scenes/#multi-avr">Multi AVR Scene</a> egyetlen koppintással beállít két vagy több vevőkészüléket, mindegyiket a saját Jelenetével. Az egyetlen vevőkészülékre szóló Jelenetek ingyenesek maradnak.</p>
         <p>Már megvetted, ezen az eszközön vagy egy másikon ugyanazzal az áruházi fiókkal? Koppints a <b>Vásárlások visszaállítása</b> gombra a feloldó gomb alatt.</p>
         <p>A hangvezérlés a hubodon keresztül, az Otthon-automatizálás <em>által</em> éri el a készüléket. Az AVR Maestro nem futtat saját hangfelismerést.</p>
       </div>
@@ -484,9 +493,10 @@
     </div>
     <details open><summary>Be kell lennie kapcsolva a telefonomnak a hangvezérléshez?</summary><div class="body">Nem. Az AVR Maestro a jeleneteidet natív Home Assistant szkriptekké fordítja. A Home Assistant közvetlenül a helyi hálózaton beszél a készülékkel, így a telefonod lehet kikapcsolva, alvó módban, vagy akár egy másik országban.</div></details>
     <details><summary>Mely hangasszisztensek vezérelhetik a készülékemet?</summary><div class="body">Amelyiket már használod. Az AVR Maestro nem tesz hozzá saját hangréteget - szkripteket tesz közzé a Home Assistantban vagy a Hubitatban, és ezeket a már megbízott hubod teszi elérhetővé az Alexa, a Google Assistant vagy a Siri Shortcuts számára.</div></details>
-    <details><summary>Az AI-asszisztens a fizetős feloldás része?</summary><div class="body">Nem. Az eszközön futó AI-asszisztens ingyenes. Az Otthon-automatizálás - Home Assistant, Hubitat és kimenő webhookok - az AVR Maestro egyetlen fizetős feloldása.</div></details>
+    <details><summary>Az AI-asszisztens a fizetős feloldás része?</summary><div class="body">Nem. A készüléken futó AI-asszisztens ingyenes. Az Otthon-automatizálás - Home Assistant, Hubitat, kimenő webhookok és Multi AVR Scene jelenetek - az AVR Maestro egyetlen fizetős feloldása.</div></details>
     <details><summary>Elhagy valami az otthoni hálózatomat?</summary><div class="body">A vezérléshez nem. Az alkalmazás a saját hálózatodon beszél a készülékeddel és a hubbal. Semmi sem megy át MiyaraHub szerveren. A webhook oda megy, ahova te irányítod, ez a te döntésed.</div></details>
     <details><summary>Más eszközön vagy újratelepítés után vásároltad meg az Otthon-automatizálást?</summary><div class="body">Nyisd meg a <i>Beállítások &rsaquo; Otthon-automatizálás (Pro)</i> menüt, és koppints a <b>Vásárlások visszaállítása</b> gombra a feloldó gomb alatt. Ha korábban ugyanazzal az áruházi fiókkal vetted meg a feloldást, újabb fizetés nélkül visszajön.</div></details>
+    <details><summary>Hol tárolódnak a Home Assistant és a Hubitat tokenjeim?</summary><div class="body">Az eszközöd biztonságos tárhelyén: Androidon a Keystore-ban, iPhone-on, iPaden és Macen a Keychainben, nem az alkalmazás szokásos beállításai között. Az alkalmazásadatok visszaállítása ezeket is törli, az Android pedig nem másolja az alkalmazás adatait a Google Drive-biztonsági mentésbe. Ha olyan hub- vagy webhookcímet írsz be, amely az interneten van és http://-vel kezdődik, az alkalmazás figyelmeztet, hogy a tokened és az adataid titkosítatlanul haladnának át az interneten, és https://-t javasol. A saját hálózatodon lévő címeknél a figyelmeztetés soha nem jelenik meg.</div></details>
   </div>
 </section>
 

@@ -134,7 +134,7 @@
       "description": "Every section of AVR Maestro Settings: Manage Receivers, Look and Feel (theme, Color Theme, sizes, language), Layout, Add-ons, Help, Backup and About.",
       "image": "https://avrmaestro.com/screenshots/settings-tjmode.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -164,7 +164,7 @@
       "name": "Where did Settings › Devices and Settings › Audio go?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Since version 5.3.0 both live per receiver. Open Settings › Manage Receivers and tap your receiver: its page has the Audio section (volume step, volume readout, volume presets, device volume buttons and Volume Controls), Screen & Locks, About this receiver, and Rename, Change IP, Find My Receiver and Delete."
+        "text": "Both live per receiver. Open Settings › Manage Receivers and tap your receiver: its page has the Audio section (volume step, volume readout, volume presets, device volume buttons and Volume Controls), Screen & Locks, About this receiver, and Rename, Change IP, Find My Receiver and Delete."
       }
     },
     {
@@ -213,6 +213,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Open Settings › About AVR Maestro and tap the version number seven times. The debug menu then stays available until you remove it with Remove Debug Menu. It is meant for support; to send us logs, use All Relevant Logs on the same page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does AVR Maestro collect analytics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only if you agree. After the first launch the app asks once, and only Share analytics turns usage analytics on; No thanks keeps them off. You can change it any time under Settings › About AVR Maestro › Legal, where the Crash Reporting switch is too. Crash reports have IP addresses, MAC addresses and serial numbers masked, and exported logs hide them unless you choose to include them."
       }
     }
   ]
@@ -355,7 +363,7 @@
     <ul class="plain">
       <li><b>Backup &amp; Restore:</b> export every app setting to a file, or restore from a backup. <a href="/guide/backup/">Backup guide &rarr;</a></li>
       <li><b>Rate AVR Maestro:</b> opens the store listing so you can leave a rating.</li>
-      <li><b>About AVR Maestro:</b> version information, support and licenses. This is where you find the <b>Discord Community</b>, the <b>Facebook Support Group</b> and <b>All Relevant Logs</b>, which gathers the logs we need when something misbehaves.</li>
+      <li><b>About AVR Maestro:</b> version information, support and licenses. This is where you find the <b>Discord Community</b>, the <b>Facebook Support Group</b> and <b>All Relevant Logs</b>, which gathers the logs we need when something misbehaves. Its <b>Legal</b> section holds the analytics and crash report switches (see <a href="#privacy">Privacy</a> below).</li>
       <li><b>More from MiyaraHub:</b> opens the MiyaraHub page on your device's store, with our other home-theater apps.</li>
     </ul>
   </div>
@@ -374,19 +382,41 @@
   </div>
 </section>
 
+<section id="privacy">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Settings &rsaquo; About &rsaquo; Legal</div>
+      <h2>Privacy: analytics, crash reports and logs</h2>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="About and Legal in Settings, with the Share usage analytics switch off and the Crash Reporting switch on" srcset="/screenshots/settings-legal-662.webp 662w, /screenshots/settings-legal.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="../../screenshots/settings-legal.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Analytics are opt-in.</b> After the first launch the app asks once, <i>Help improve AVR Maestro?</i>, with <b>Share analytics</b> and <b>No thanks</b>. Nothing is sent unless you say yes. Usage events are linked to a random ID made for this install and carry no receiver names or addresses. Change your answer any time with <b>Share usage analytics</b> under About &rsaquo; Legal. Restoring a backup on another device asks again.</li>
+          <li><b>Crash reports have their own switch.</b> <b>Crash Reporting</b> sits under About &rsaquo; Legal. When it is off, nothing is sent, and reports saved from earlier sessions are discarded instead of sent later.</li>
+          <li><b>Crash reports leave your network details behind.</b> Before a report leaves the device, IP addresses, MAC addresses, serial numbers and host names are masked in the error and its details.</li>
+          <li><b>Logs ask before they include your receiver's details.</b> <b>All Relevant Logs</b> first explains what the bundle holds and where Email sends it. Your receiver's address, MAC address and serial number are hidden unless you tick <i>Include my receiver's address, MAC address and serial number so support can find the problem</i>.</li>
+          <li><b>Hub tokens stay in secure storage.</b> Home Assistant and Hubitat tokens are kept in the Keystore on Android and the Keychain on Apple devices, not with the app's ordinary settings. See <a href="/guide/home-automation/">Home Automation</a>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Common questions</div>
       <h2>Settings FAQ</h2>
     </div>
-    <details open><summary>Where did Settings &rsaquo; Devices and Settings &rsaquo; Audio go?</summary><div class="body">Since version 5.3.0 both live per receiver. Open Settings &rsaquo; Manage Receivers and tap your receiver: its page has the Audio section (volume step, volume readout, volume presets, device volume buttons and Volume Controls), Screen &amp; Locks, About this receiver, and Rename, Change IP, Find My Receiver and Delete.</div></details>
+    <details open><summary>Where did Settings &rsaquo; Devices and Settings &rsaquo; Audio go?</summary><div class="body">Both live per receiver. Open Settings &rsaquo; Manage Receivers and tap your receiver: its page has the Audio section (volume step, volume readout, volume presets, device volume buttons and Volume Controls), Screen &amp; Locks, About this receiver, and Rename, Change IP, Find My Receiver and Delete.</div></details>
     <details><summary>Can I change the app's theme and colors?</summary><div class="body">Yes. In Settings &rsaquo; Look &amp; Feel, Theme is Light, Dark or AMOLED (true black), and TJ Mode: Accent Color is Brand or Color Theme. Color Theme lets you pick any accent from the picker or by typing a hex code such as #FF8C00 or its three-character shorthand. A code the app cannot read is refused with the reason, and a color that is almost black is refused because it would not show on the AMOLED theme.</div></details>
     <details><summary>Do my phone's volume buttons control the receiver?</summary><div class="body">Yes, on Android and on iPhone and iPad. While the app is open, the device's volume buttons change the receiver's volume. It is on by default and set per receiver: Settings &rsaquo; Manage Receivers &rsaquo; your receiver &rsaquo; Audio &rsaquo; Device volume buttons.</div></details>
     <details><summary>How do I bring back an explanation card I dismissed?</summary><div class="body">Open Settings &rsaquo; Help. Restore dismissed cards lists every card you long-pressed away; tap Restore on one, or Restore all. Show explanation cards turns all of them off or on at once.</div></details>
     <details><summary>How do I see the welcome guide again?</summary><div class="body">Open Settings &rsaquo; Help &rsaquo; Welcome &amp; Setup Guide. It replays the intro and the network setup tips. App Manual in the same section opens this online guide.</div></details>
     <details><summary>Can I back up my setup?</summary><div class="body">Yes. Settings &rsaquo; Backup &amp; Restore exports every app setting to a file and restores from a backup. See the Backup &amp; Restore guide for what the file holds.</div></details>
     <details><summary>How do I open the hidden debug menu?</summary><div class="body">Open Settings &rsaquo; About AVR Maestro and tap the version number seven times. The debug menu then stays available until you remove it with Remove Debug Menu. It is meant for support; to send us logs, use All Relevant Logs on the same page.</div></details>
+    <details><summary>Does AVR Maestro collect analytics?</summary><div class="body">Only if you agree. After the first launch the app asks once, and only Share analytics turns usage analytics on; No thanks keeps them off. You can change it any time under Settings &rsaquo; About AVR Maestro &rsaquo; Legal, where the Crash Reporting switch is too. Crash reports have IP addresses, MAC addresses and serial numbers masked, and exported logs hide them unless you choose to include them.</div></details>
   </div>
 </section>
 

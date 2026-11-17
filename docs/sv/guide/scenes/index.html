@@ -134,7 +134,7 @@
       "description": "Bygg en scen med ett tryck för film, musik, spel eller sena kvällar: ingång, ljudläge, Audyssey eller Dirac, nivåer och zoner på Denon eller Marantz. Skaffa AVR Maestro.",
       "image": "https://avrmaestro.com/screenshots/scenes-list.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -230,6 +230,14 @@
         "@type": "Answer",
         "text": "Smart Select (Marantz) och Quick Select (Denon) är samma mottagarfunktion under två namn: en handfull platser som lagras i mottagaren, fem på en Marantz CINEMA 30. AVR Maestro använder din mottagares eget namn överallt i appen, låter dig utlösa dem från hemskärmen och fjärrkontrollen och låter dig döpa om dem. Scener är AVR Maestros egna: upp till 20 per mottagare, var och en med namn, ikon och färg, som innehåller exakt de inställningar du väljer, och de kan utlösas från en widget på hemskärmen eller skickas till Home Assistant eller Hubitat. De två skriver aldrig över varandra."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan en scen ställa in flera mottagare?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, med en Multi AVR Scene, som ingår i köpet Hemautomation. Med två eller flera mottagare i appen trycker du på Lägg till scen, väljer Multi AVR Scene, ger den ett namn, kryssar i mottagarna och ställer in varje mottagares scen på dess egna guidade sidor. Tryck på den i listan Mottagargrupper så tillämpar appen varje mottagares scen i tur och ordning och visar sedan en rad per mottagare. Scener för en enskild mottagare förblir gratis."
+      }
     }
   ]
 }
@@ -313,6 +321,7 @@
         <ul>
           <li><b>Scenskapare</b> ställer några frågor med dig och erbjuder bara det som din mottagare stöder. Bäst för din första scen, eller när du vet vad du vill ha men inte vilken meny som innehåller det.</li>
           <li><b>Skapa från grunden</b> fångar det din mottagare gör just nu. Få den att låta rätt, bocka för de inställningar som ska behållas och spara.</li>
+          <li><b>Multi AVR Scene</b> ställer in flera mottagare på en gång. Den visas bara när appen känner till två eller flera mottagare, och den ingår i köpet <a href="/sv/guide/home-automation/">Hemautomation</a>. Se <a href="#multi-avr">Multi AVR Scene</a> nedan.</li>
         </ul>
         <div class="note">Inget på fliken Scener ännu? Då föreslår den några startpunkter som passar din mottagare, som Film och TV eller Sen kväll. Tryck på en så öppnas Scenskaparen med den redan vald.</div>
       </div>
@@ -365,6 +374,44 @@
           <li><b>Granska och spara.</b> Sista sidan listar exakt vad scenen kommer att lagra, grupperat som i resten av appen. Tryck på <b>Spara</b> så hamnar den i din scenlista, redo när du är det.</li>
         </ol>
         <div class="note">Antalet steg växer med det du bockar för: varje förbockad inställning får en egen sida, så en scen med tre inställningar är kortare än en med tio.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="multi-avr">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Flera mottagare, ett tryck</div>
+      <h2>Multi AVR Scene</h2>
+      <p class="lead">En Multi AVR Scene innehåller en scen för varje mottagare du väljer och tillämpar dem tillsammans, så att ett enda tryck kan ställa in mottagaren i vardagsrummet och den i arbetsrummet. Den kräver två eller flera mottagare i appen (demomottagaren räknas inte) och köpet Hemautomation. Utan köpet visar alternativet ett lås, och ett tryck på det öppnar köpsidan för Hemautomation.</p>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="Bladet Lägg till scen med Scenskapare, Skapa från grunden och Multi AVR Scene" srcset="/screenshots/scenes-add-multi-avr-662.webp 662w, /screenshots/scenes-add-multi-avr.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-add-multi-avr.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ol class="steps">
+          <li><b>Tryck på Lägg till scen och välj Multi AVR Scene.</b></li>
+          <li><b>Namnge gruppen</b> och kryssa i två eller flera mottagare.</li>
+          <li><b>Tryck på Skapa varje scen.</b> De guidade sidorna öppnas en gång för varje mottagare du kryssade i, så att var och en får en scen byggd utifrån vad just den mottagaren kan. Varje vald mottagare behöver sin scen innan gruppen kan sparas.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="feat rev">
+      <div class="shots"><img alt="Skärmen Multi AVR Scene med gruppen Movie Night och två mottagare ikryssade" srcset="/screenshots/scenes-multi-avr-group-662.webp 662w, /screenshots/scenes-multi-avr-group.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-multi-avr-group.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Tillämpa den.</b> Dina grupper finns under <b>Mottagargrupper</b> på fliken Scener. Tryck på en så går appen igenom mottagarna en i taget: den väntar på att var och en svarar, tillämpar dess scen och återställer sedan den mottagare du började på. Om appen stängs mitt i återställs din mottagare vid nästa start.</li>
+          <li><b>En rad per mottagare.</b> När den är klar visar appen en rad för varje mottagare: tillämpad och bekräftad, tillämpad men vissa inställningar läses tillbaka annorlunda, inställningar nekade, skickad men inte bekräftad, eller svarade inte. En mottagare som har tagits bort från appen, eller vars scen har raderats, nämns också, och göms aldrig bakom ett enda „klart”.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="Fliken Scener med avsnittet Mottagargrupper som listar Movie Night med knappar för att byta namn och ta bort" srcset="/screenshots/scenes-multi-avr-list-662.webp 662w, /screenshots/scenes-multi-avr-list.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-multi-avr-list.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Byt namn och radera.</b> Varje grupp i listan Mottagargrupper har en knapp för att byta namn och en för att radera. Om du byter namn behålls samma mottagare.</li>
+        </ul>
+        <div class="note">Scener för en enskild mottagare förblir gratis. Det är bara att gruppera flera mottagare i en scen som kräver köpet Hemautomation.</div>
       </div>
     </div>
   </div>
@@ -455,7 +502,7 @@
       <li><b>Kanalnivåer kontrolleras och skickas om en gång.</b> Mottagare tappar ibland någon kanal när mycket kommer på en gång. Appen läser tillbaka det som kom fram, skickar om det som inte gjorde det och berättar vilka kanaler den fick försöka igen med.</li>
       <li><b>En låst kontroll kan inte tillämpas, av någonting.</b> Om din högtalarförinställning ägs av Dirac Live vägrar mottagaren själv Audyssey-ändringar, och en scen som innehåller dem nekas på samma sätt som kontrollen på skärmen. Se <a href="/sv/guide/locked-controls/">varför en kontroll är låst</a>.</li>
       <li><b>Bara det scenen innehåller ändras.</b> Om en scen inte ändrar något du väntade dig var det troligen inte förbockat. Tryck länge på den och använd Redigera fångade inställningar i stället för att göra en andra scen.</li>
-      <li><b>Scener tillhör en mottagare.</b> Listan är listan för den mottagare som just nu är vald. En annan mottagare har sin egen.</li>
+      <li><b>Scener tillhör en mottagare.</b> Listan är listan för den mottagare som är vald just nu. En annan mottagare har sin egen. Om du vill ställa in flera mottagare med ett tryck använder du en <a href="#multi-avr">Multi AVR Scene</a>.</li>
     </ul>
   </div>
 </section>
@@ -492,6 +539,7 @@
     <details><summary>Kan en scen slå på min mottagare?</summary><div class="body">Ja. Ta med strömtillståndet, så slår tillämpningen av scenen först på (eller av) huvudzonen, så länge mottagaren har nätverksvänteläge aktiverat så att appen kan nå den medan den sover.</div></details>
     <details><summary>Vad betyder det färgade meddelandet efter en scen?</summary><div class="body">Grönt betyder att allt gick igenom. Orange betyder att mottagaren valde ett eget värde för en inställning som den minns per ingångssignal, vilket är väntat; tryck på scenen igen för att försöka på nytt. Blått betyder att mottagaren inte bekräftade vissa inställningar, så appen kan inte avgöra om de togs emot. Rött betyder att en inställning läses tillbaka annorlunda eller att mottagaren avvisade några högtalarnivåer; tryck på scenen igen. Ett rött meddelande ligger kvar tills du stänger det.</div></details>
     <details><summary>Vad är skillnaden mellan scener och Smart Select eller Quick Select?</summary><div class="body">Smart Select (Marantz) och Quick Select (Denon) är samma mottagarfunktion under två namn: en handfull platser som lagras i mottagaren, fem på en Marantz CINEMA 30. AVR Maestro använder din mottagares eget namn överallt i appen, låter dig utlösa dem från hemskärmen och fjärrkontrollen och låter dig döpa om dem. Scener är AVR Maestros egna: upp till 20 per mottagare, var och en med namn, ikon och färg, som innehåller exakt de inställningar du väljer, och de kan utlösas från en widget på hemskärmen eller skickas till Home Assistant eller Hubitat. De två skriver aldrig över varandra.</div></details>
+    <details><summary>Kan en scen ställa in flera mottagare?</summary><div class="body">Ja, med en Multi AVR Scene, som ingår i köpet Hemautomation. Med två eller flera mottagare i appen trycker du på Lägg till scen, väljer Multi AVR Scene, ger den ett namn, kryssar i mottagarna och ställer in varje mottagares scen på dess egna guidade sidor. Tryck på den i listan Mottagargrupper så tillämpar appen varje mottagares scen i tur och ordning och visar sedan en rad per mottagare. Scener för en enskild mottagare förblir gratis.</div></details>
   </div>
 </section>
 

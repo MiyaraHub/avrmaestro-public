@@ -134,7 +134,7 @@
       "description": "Crea una Escena de un toque para películas, música, juegos o la noche: entrada, modo de sonido, Audyssey o Dirac, niveles y zonas en Denon o Marantz. Consigue AVR Maestro.",
       "image": "https://avrmaestro.com/screenshots/scenes-list.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -230,6 +230,14 @@
         "@type": "Answer",
         "text": "Smart Select (Marantz) y Quick Select (Denon) son la misma función del receptor con dos nombres: un puñado de ranuras almacenadas dentro del receptor, cinco en un Marantz CINEMA 30. AVR Maestro las llama por el nombre propio de tu receptor en toda la app, te deja activarlas desde la pantalla de inicio y el Mando, y te deja renombrarlas. Las Escenas son propias de AVR Maestro: hasta 20 por receptor, cada una con nombre, icono y color, que contienen exactamente los ajustes que eliges, y se pueden activar desde un widget de la pantalla de inicio o enviar a Home Assistant o Hubitat. Las dos cosas nunca se sobrescriben entre sí."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puede una Escena configurar varios receptores?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, con una Multi AVR Scene, que forma parte de la compra de Domótica. Con dos o más receptores en la app, toca Añadir Escena, elige Multi AVR Scene, ponle nombre, marca los receptores y define la Escena de cada uno en sus propias páginas guiadas. Tócala en la lista Grupos de receptores y la app aplica la Escena de cada receptor por turno, y luego muestra una línea por receptor. Las Escenas de un solo receptor siguen siendo gratuitas."
+      }
     }
   ]
 }
@@ -313,6 +321,7 @@
         <ul>
           <li><b>Creador de Escenas</b> responde contigo unas cuantas preguntas y ofrece solo lo que admite tu receptor. Ideal para tu primera Escena, o cuando sabes lo que quieres pero no en qué menú está.</li>
           <li><b>Crear desde cero</b> captura lo que tu receptor está haciendo ahora mismo. Déjalo sonando bien, marca los ajustes que quieres conservar y guarda.</li>
+          <li><b>Multi AVR Scene</b> configura varios receptores a la vez. Solo aparece cuando la app conoce dos o más receptores y forma parte de la compra de <a href="/es/guide/home-automation/">Domótica</a>. Consulta <a href="#multi-avr">Multi AVR Scene</a> más abajo.</li>
         </ul>
         <div class="note">¿Todavía no hay nada en la pestaña Escenas? Te sugiere algunos puntos de partida que encajan con tu receptor, como Películas y TV o Noche tranquila. Toca uno y el Creador de Escenas se abre con él ya elegido.</div>
       </div>
@@ -365,6 +374,44 @@
           <li><b>Revisa y guarda.</b> La última página lista exactamente lo que guardará la Escena, agrupado como en el resto de la app. Toca <b>Guardar</b> y aparece en tu lista de Escenas, lista para cuando quieras.</li>
         </ol>
         <div class="note">El número de pasos crece con lo que marcas: cada ajuste marcado tiene su propia página, así que una Escena de tres ajustes es más corta que una de diez.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="multi-avr">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Varios receptores, un toque</div>
+      <h2>Multi AVR Scene</h2>
+      <p class="lead">Una Multi AVR Scene guarda una Escena para cada receptor que elijas y las aplica juntas, de modo que un solo toque puede configurar el receptor del salón y el del despacho. Necesita dos o más receptores en la app (el receptor de demostración no cuenta) y la compra de Domótica. Sin la compra, la opción muestra un candado, y al tocarla se abre la página de compra de Domótica.</p>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="La hoja Añadir Escena con Creador de Escenas, Crear desde cero y Multi AVR Scene" srcset="/screenshots/scenes-add-multi-avr-662.webp 662w, /screenshots/scenes-add-multi-avr.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-add-multi-avr.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ol class="steps">
+          <li><b>Toca Añadir Escena y elige Multi AVR Scene.</b></li>
+          <li><b>Ponle nombre al grupo</b> y marca dos o más receptores.</li>
+          <li><b>Toca Crear cada escena.</b> Las páginas guiadas se abren una vez por cada receptor marcado, de modo que cada uno recibe una Escena creada con lo que ese receptor puede hacer. Cada receptor elegido necesita su Escena antes de poder guardar el grupo.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="feat rev">
+      <div class="shots"><img alt="La pantalla Multi AVR Scene con el grupo Movie Night y dos receptores marcados" srcset="/screenshots/scenes-multi-avr-group-662.webp 662w, /screenshots/scenes-multi-avr-group.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-multi-avr-group.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Aplicarla.</b> Tus grupos aparecen en <b>Grupos de receptores</b>, en la pestaña Escenas. Toca uno y la app recorre los receptores de uno en uno: espera a que cada uno responda, aplica su Escena y después restaura el receptor con el que empezaste. Si la app se cierra a mitad, el siguiente inicio restaura tu receptor.</li>
+          <li><b>Una línea por receptor.</b> Al terminar, la app muestra una línea por cada receptor: aplicada y confirmada, aplicada con algunos ajustes que se leen distintos, ajustes rechazados, enviada pero sin confirmar, o sin respuesta. Un receptor que se quitó de la app, o cuya Escena se eliminó, también aparece con su nombre, nunca oculto tras un único «hecho».</li>
+        </ul>
+      </div>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="La pestaña Escenas con una sección Grupos de receptores que lista Movie Night con botones de renombrar y eliminar" srcset="/screenshots/scenes-multi-avr-list-662.webp 662w, /screenshots/scenes-multi-avr-list.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-multi-avr-list.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Renombrar y eliminar.</b> Cada grupo de la lista Grupos de receptores tiene un botón de renombrar y otro de eliminar. Renombrar conserva los mismos receptores.</li>
+        </ul>
+        <div class="note">Las Escenas de un solo receptor siguen siendo gratuitas. Solo agrupar varios receptores en una Escena requiere la compra de Domótica.</div>
       </div>
     </div>
   </div>
@@ -455,7 +502,7 @@
       <li><b>Los niveles de canal se comprueban y se reenvían una vez.</b> Los receptores pierden algún canal suelto cuando llega mucho de golpe. La app vuelve a leer lo que llegó, reenvía lo que no y te dice qué canales tuvo que reintentar.</li>
       <li><b>Un control bloqueado no se puede aplicar, por nada.</b> Si tu preajuste de altavoces pertenece a Dirac Live, el propio receptor rechaza los cambios de Audyssey, y una Escena que los incluya se rechaza igual que el control en pantalla. Consulta <a href="/es/guide/locked-controls/">por qué un control está bloqueado</a>.</li>
       <li><b>Solo cambia lo que guarda la Escena.</b> Si una Escena no cambia algo que esperabas, probablemente no estaba marcado. Mantenla pulsada y usa Editar Ajustes Capturados en lugar de crear una segunda Escena.</li>
-      <li><b>Las Escenas pertenecen a un solo receptor.</b> La lista es la del receptor seleccionado en ese momento. Otro receptor tiene la suya.</li>
+      <li><b>Las Escenas pertenecen a un receptor.</b> La lista es la del receptor seleccionado en ese momento. Otro receptor tiene la suya. Para configurar varios receptores con un toque, usa una <a href="#multi-avr">Multi AVR Scene</a>.</li>
     </ul>
   </div>
 </section>
@@ -492,6 +539,7 @@
     <details><summary>¿Puede una Escena encender mi receptor?</summary><div class="body">Sí. Incluye el estado de encendido y, al aplicar la Escena, se enciende (o se apaga) primero la zona principal, siempre que el receptor tenga activada la espera de red para que la app pueda localizarlo mientras duerme.</div></details>
     <details><summary>¿Qué significa el mensaje de color después de una Escena?</summary><div class="body">Verde significa que todo se aplicó. Naranja significa que el receptor eligió su propio valor para un ajuste que recuerda por señal de entrada, lo cual es normal; toca la Escena de nuevo para reintentar. Azul significa que el receptor no confirmó algunos ajustes, así que la app no puede saber si se aplicaron. Rojo significa que un ajuste se lee con un valor distinto o que el receptor rechazó algunos niveles de altavoz; toca la Escena de nuevo. Un mensaje rojo permanece hasta que lo cierras.</div></details>
     <details><summary>¿Qué diferencia hay entre las Escenas y Smart Select o Quick Select?</summary><div class="body">Smart Select (Marantz) y Quick Select (Denon) son la misma función del receptor con dos nombres: un puñado de ranuras almacenadas dentro del receptor, cinco en un Marantz CINEMA 30. AVR Maestro las llama por el nombre propio de tu receptor en toda la app, te deja activarlas desde la pantalla de inicio y el Mando, y te deja renombrarlas. Las Escenas son propias de AVR Maestro: hasta 20 por receptor, cada una con nombre, icono y color, que contienen exactamente los ajustes que eliges, y se pueden activar desde un widget de la pantalla de inicio o enviar a Home Assistant o Hubitat. Las dos cosas nunca se sobrescriben entre sí.</div></details>
+    <details><summary>¿Puede una Escena configurar varios receptores?</summary><div class="body">Sí, con una Multi AVR Scene, que forma parte de la compra de Domótica. Con dos o más receptores en la app, toca Añadir Escena, elige Multi AVR Scene, ponle nombre, marca los receptores y define la Escena de cada uno en sus propias páginas guiadas. Tócala en la lista Grupos de receptores y la app aplica la Escena de cada receptor por turno, y luego muestra una línea por receptor. Las Escenas de un solo receptor siguen siendo gratuitas.</div></details>
   </div>
 </section>
 

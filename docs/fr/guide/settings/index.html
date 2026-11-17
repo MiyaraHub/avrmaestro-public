@@ -134,7 +134,7 @@
       "description": "Chaque section des Réglages d'AVR Maestro : Gérer les récepteurs, Apparence (thème, thème de couleur, tailles, langue), Disposition, Extensions, Aide, Sauvegarde et À propos.",
       "image": "https://avrmaestro.com/screenshots/settings-tjmode.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -164,7 +164,7 @@
       "name": "Où sont passés Réglages › Appareils et Réglages › Audio ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Depuis la version 5.3.0, les deux se trouvent par récepteur. Ouvrez Réglages › Gérer les récepteurs et touchez votre récepteur : sa page contient la section Audio (pas de volume, affichage du volume, préréglages de volume, boutons de volume de l'appareil et Contrôles de volume), Écran et verrous, À propos de ce récepteur, et Renommer, Changer l'IP, Trouver mon récepteur et Supprimer."
+        "text": "Les deux se trouvent par récepteur. Ouvrez Réglages › Gérer les récepteurs et touchez votre récepteur : sa page contient la section Audio (pas de volume, affichage du volume, préréglages de volume, boutons de volume de l'appareil et Contrôles de volume), Écran et verrous, À propos de ce récepteur, et Renommer, Changer l'IP, Trouver mon récepteur et Supprimer."
       }
     },
     {
@@ -213,6 +213,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Ouvrez Réglages › À propos d'AVR Maestro et touchez sept fois le numéro de version. Le menu de débogage reste alors disponible jusqu'à ce que vous le supprimiez avec Supprimer le menu de débogage. Il est destiné à l'assistance ; pour nous envoyer des journaux, utilisez Tous les journaux pertinents sur la même page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "AVR Maestro collecte-t-il des données d'analyse ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Seulement si vous êtes d'accord. Après le premier lancement, l'application demande une fois, et seul Partager les données d'analyse active l'analyse d'utilisation ; Non merci la laisse désactivée. Vous pouvez le modifier à tout moment dans Réglages › À propos d'AVR Maestro › Mentions légales, où se trouve aussi l'interrupteur Rapports de plantage. Dans les rapports de plantage, les adresses IP, les adresses MAC et les numéros de série sont masqués, et les journaux exportés les masquent sauf si vous choisissez de les inclure."
       }
     }
   ]
@@ -355,7 +363,7 @@
     <ul class="plain">
       <li><b>Sauvegarde et restauration :</b> exportez tous les réglages de l'application dans un fichier, ou restaurez depuis une sauvegarde. <a href="/fr/guide/backup/">Guide de la sauvegarde &rarr;</a></li>
       <li><b>Noter AVR Maestro :</b> ouvre la fiche de la boutique pour que vous puissiez laisser une note.</li>
-      <li><b>À propos d'AVR Maestro :</b> informations de version, assistance et licences. C'est ici que vous trouvez la <b>communauté Discord</b>, le <b>groupe d'entraide Facebook</b> et <b>Tous les journaux pertinents</b>, qui rassemble les journaux dont nous avons besoin quand quelque chose se comporte mal.</li>
+      <li><b>À propos d'AVR Maestro :</b> informations de version, assistance et licences. C'est ici que vous trouvez la <b>Communauté Discord</b>, le <b>Groupe d'entraide Facebook</b> et <b>Tous les journaux pertinents</b>, qui réunit les journaux dont nous avons besoin quand quelque chose ne va pas. Sa section <b>Mentions légales</b> contient les interrupteurs d'analyse et de rapports de plantage (voir <a href="#privacy">Confidentialité</a> ci-dessous).</li>
       <li><b>Plus de MiyaraHub :</b> ouvre la page MiyaraHub dans la boutique de votre appareil, avec nos autres applications de home cinéma.</li>
     </ul>
   </div>
@@ -374,19 +382,41 @@
   </div>
 </section>
 
+<section id="privacy">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Réglages &rsaquo; À propos &rsaquo; Mentions légales</div>
+      <h2>Confidentialité : analyse, rapports de plantage et journaux</h2>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="À propos et Légal dans Paramètres, avec le commutateur Share usage analytics désactivé et le commutateur Crash Reporting activé" srcset="/screenshots/settings-legal-662.webp 662w, /screenshots/settings-legal.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/settings-legal.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>L'analyse est facultative.</b> Après le premier lancement, l'application demande une fois, <i>Aider à améliorer AVR Maestro ?</i>, avec <b>Partager les données d'analyse</b> et <b>Non merci</b>. Rien n'est envoyé sans votre accord. Les événements d'utilisation sont liés à un identifiant aléatoire créé pour cette installation et ne contiennent aucun nom ni adresse de récepteur. Modifiez votre réponse à tout moment avec <b>Partager les données d'utilisation</b> sous À propos &rsaquo; Mentions légales. Restaurer une sauvegarde sur un autre appareil pose de nouveau la question.</li>
+          <li><b>Les rapports de plantage ont leur propre interrupteur.</b> <b>Rapports de plantage</b> se trouve sous À propos &rsaquo; Mentions légales. Quand il est désactivé, rien n'est envoyé, et les rapports enregistrés lors de sessions précédentes sont supprimés au lieu d'être envoyés plus tard.</li>
+          <li><b>Les rapports de plantage n'emportent pas vos détails réseau.</b> Avant qu'un rapport quitte l'appareil, les adresses IP, les adresses MAC, les numéros de série et les noms d'hôte sont masqués dans l'erreur et ses détails.</li>
+          <li><b>Les journaux demandent avant d'inclure les détails de votre récepteur.</b> <b>Tous les journaux pertinents</b> explique d'abord ce que contient le lot et où l'envoie l'e-mail. L'adresse, l'adresse MAC et le numéro de série de votre récepteur sont masqués sauf si vous cochez <i>Inclure l'adresse, l'adresse MAC et le numéro de série de mon récepteur pour que l'assistance puisse trouver le problème</i>.</li>
+          <li><b>Les jetons des hubs restent dans le stockage sécurisé.</b> Les jetons Home Assistant et Hubitat sont conservés dans le Keystore sur Android et le Keychain sur les appareils Apple, et non avec les réglages ordinaires de l'application. Voir <a href="/fr/guide/home-automation/">Domotique</a>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Questions fréquentes</div>
       <h2>FAQ des paramètres</h2>
     </div>
-    <details open><summary>Où sont passés Réglages &rsaquo; Appareils et Réglages &rsaquo; Audio ?</summary><div class="body">Depuis la version 5.3.0, les deux se trouvent par récepteur. Ouvrez Réglages &rsaquo; Gérer les récepteurs et touchez votre récepteur : sa page contient la section Audio (pas de volume, affichage du volume, préréglages de volume, boutons de volume de l'appareil et Contrôles de volume), Écran et verrous, À propos de ce récepteur, et Renommer, Changer l'IP, Trouver mon récepteur et Supprimer.</div></details>
+    <details open><summary>Où sont passés Réglages &rsaquo; Appareils et Réglages &rsaquo; Audio ?</summary><div class="body">Les deux se trouvent par récepteur. Ouvrez Réglages &rsaquo; Gérer les récepteurs et touchez votre récepteur : sa page contient la section Audio (pas de volume, affichage du volume, préréglages de volume, boutons de volume de l'appareil et Contrôles de volume), Écran et verrous, À propos de ce récepteur, et Renommer, Changer l'IP, Trouver mon récepteur et Supprimer.</div></details>
     <details><summary>Puis-je changer le thème et les couleurs de l'application ?</summary><div class="body">Oui. Dans Paramètres &rsaquo; Apparence, le thème est Clair, Sombre ou AMOLED (noir pur), et TJ Mode: Couleur d'accent est Marque ou Thème de couleur. Thème de couleur permet de choisir n'importe quelle couleur d'accent dans le sélecteur ou en saisissant un code hexadécimal comme #FF8C00 ou sa forme abrégée à trois caractères. Un code que l'application ne sait pas lire est refusé avec le motif, et une couleur presque noire est refusée parce qu'elle ne serait pas visible sur le thème AMOLED.</div></details>
     <details><summary>Les boutons de volume de mon téléphone pilotent-ils le récepteur ?</summary><div class="body">Oui, sur Android et sur iPhone et iPad. Tant que l'application est ouverte, les boutons de volume de l'appareil changent le volume du récepteur. C'est activé par défaut et réglé par récepteur : Réglages &rsaquo; Gérer les récepteurs &rsaquo; votre récepteur &rsaquo; Audio &rsaquo; Boutons de volume de l'appareil.</div></details>
     <details><summary>Comment retrouver une carte d'explication que j'ai masquée ?</summary><div class="body">Ouvrez Réglages &rsaquo; Aide. Restaurer les cartes masquées liste chaque carte que vous avez écartée par un appui long ; touchez Restaurer sur l'une, ou Tout restaurer. Afficher les cartes d'explication les désactive ou les active toutes d'un coup.</div></details>
     <details><summary>Comment revoir le guide de bienvenue ?</summary><div class="body">Ouvrez Réglages &rsaquo; Aide &rsaquo; Bienvenue et guide de configuration. Il rejoue l'introduction et les conseils de configuration réseau. Manuel de l'application, dans la même section, ouvre ce guide en ligne.</div></details>
     <details><summary>Puis-je sauvegarder ma configuration ?</summary><div class="body">Oui. Réglages &rsaquo; Sauvegarde et restauration exporte tous les réglages de l'application dans un fichier et restaure depuis une sauvegarde. Voir le guide Sauvegarde et restauration pour le contenu du fichier.</div></details>
     <details><summary>Comment ouvrir le menu de débogage caché ?</summary><div class="body">Ouvrez Réglages &rsaquo; À propos d'AVR Maestro et touchez sept fois le numéro de version. Le menu de débogage reste alors disponible jusqu'à ce que vous le supprimiez avec Supprimer le menu de débogage. Il est destiné à l'assistance ; pour nous envoyer des journaux, utilisez Tous les journaux pertinents sur la même page.</div></details>
+    <details><summary>AVR Maestro collecte-t-il des données d'analyse ?</summary><div class="body">Seulement si vous êtes d'accord. Après le premier lancement, l'application demande une fois, et seul Partager les données d'analyse active l'analyse d'utilisation ; Non merci la laisse désactivée. Vous pouvez le modifier à tout moment dans Réglages &rsaquo; À propos d'AVR Maestro &rsaquo; Mentions légales, où se trouve aussi l'interrupteur Rapports de plantage. Dans les rapports de plantage, les adresses IP, les adresses MAC et les numéros de série sont masqués, et les journaux exportés les masquent sauf si vous choisissez de les inclure.</div></details>
   </div>
 </section>
 

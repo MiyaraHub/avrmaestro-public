@@ -134,7 +134,7 @@
       "description": "Créez une scène en une touche pour les films, la musique, les jeux ou la nuit : entrée, mode sonore, Audyssey ou Dirac, niveaux et zones sur Denon ou Marantz. Procurez-vous AVR Maestro.",
       "image": "https://avrmaestro.com/screenshots/scenes-list.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -230,6 +230,14 @@
         "@type": "Answer",
         "text": "Smart Select (Marantz) et Quick Select (Denon) sont la même fonction du récepteur sous deux noms : une poignée d'emplacements stockés dans le récepteur, cinq sur un Marantz CINEMA 30. AVR Maestro les désigne partout par le nom propre à votre récepteur, vous permet de les lancer depuis l'écran d'accueil et la télécommande, et de les renommer. Les scènes sont propres à AVR Maestro : jusqu'à 20 par récepteur, chacune avec un nom, une icône et une couleur, contenant exactement les réglages que vous choisissez, et elles peuvent être lancées depuis un widget d'écran d'accueil ou envoyées à Home Assistant ou Hubitat. Les deux ne s'écrasent jamais l'une l'autre."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Une scène peut-elle configurer plusieurs récepteurs ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, avec une Multi AVR Scene, qui fait partie de l'achat Domotique. Avec deux récepteurs ou plus dans l'application, touchez Ajouter une scène, choisissez Multi AVR Scene, nommez-la, cochez les récepteurs et définissez la scène de chacun sur ses propres pages guidées. Touchez-la dans la liste Groupes de récepteurs et l'application applique la scène de chaque récepteur à tour de rôle, puis affiche une ligne par récepteur. Les scènes d'un seul récepteur restent gratuites."
+      }
     }
   ]
 }
@@ -313,6 +321,7 @@
         <ul>
           <li><b>Créateur de scènes</b> répond avec vous à quelques questions et ne propose que ce que votre récepteur prend en charge. Idéal pour une première scène, ou quand vous savez ce que vous voulez sans savoir dans quel menu cela se trouve.</li>
           <li><b>Créer de zéro</b> capture ce que fait votre récepteur en ce moment. Réglez le son comme il faut, cochez les réglages à conserver, puis enregistrez.</li>
+          <li><b>Multi AVR Scene</b> configure plusieurs récepteurs à la fois. Elle n'apparaît que lorsque l'application connaît deux récepteurs ou plus, et elle fait partie de l'achat <a href="/fr/guide/home-automation/">Domotique</a>. Voir <a href="#multi-avr">Multi AVR Scene</a> ci-dessous.</li>
         </ul>
         <div class="note">Rien dans l'onglet Scènes pour l'instant ? Il suggère quelques points de départ adaptés à votre récepteur, comme Films et TV ou Soirée tardive. Touchez-en un et le Créateur de scènes s'ouvre avec ce choix déjà fait.</div>
       </div>
@@ -365,6 +374,44 @@
           <li><b>Vérifiez et enregistrez.</b> La dernière page liste exactement ce que la scène mémorisera, regroupé comme le reste de l'application. Touchez <b>Enregistrer</b> et elle rejoint votre liste de scènes, prête quand vous l'êtes.</li>
         </ol>
         <div class="note">Le nombre d'étapes croît avec ce que vous cochez : chaque réglage coché a sa propre page, donc une scène à trois réglages est plus courte qu'une scène à dix.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="multi-avr">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Plusieurs récepteurs, une seule touche</div>
+      <h2>Multi AVR Scene</h2>
+      <p class="lead">Une Multi AVR Scene contient une scène pour chaque récepteur que vous choisissez et les applique ensemble, de sorte qu'une seule touche peut configurer le récepteur du salon et celui du bureau. Elle nécessite deux récepteurs ou plus dans l'application (le récepteur de démonstration ne compte pas) et l'achat Domotique. Sans l'achat, l'option affiche un cadenas, et la toucher ouvre la page d'achat Domotique.</p>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="La feuille Ajouter une scène avec Créateur de scènes, Créer de zéro et Multi AVR Scene" srcset="/screenshots/scenes-add-multi-avr-662.webp 662w, /screenshots/scenes-add-multi-avr.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-add-multi-avr.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ol class="steps">
+          <li><b>Touchez Ajouter une scène et choisissez Multi AVR Scene.</b></li>
+          <li><b>Nommez le groupe</b> et cochez deux récepteurs ou plus.</li>
+          <li><b>Touchez Créer chaque scène.</b> Les pages guidées s'ouvrent une fois pour chaque récepteur coché, de sorte que chacun obtient une scène construite à partir de ce qu'il sait faire. Chaque récepteur choisi a besoin de sa scène avant que le groupe puisse être enregistré.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="feat rev">
+      <div class="shots"><img alt="L'écran Multi AVR Scene avec le groupe nommé Movie Night et deux récepteurs cochés" srcset="/screenshots/scenes-multi-avr-group-662.webp 662w, /screenshots/scenes-multi-avr-group.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-multi-avr-group.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>L'appliquer.</b> Vos groupes sont listés sous <b>Groupes de récepteurs</b> dans l'onglet Scènes. Touchez-en un et l'application passe les récepteurs un par un : elle attend la réponse de chacun, applique sa scène, puis remet le récepteur sur lequel vous aviez commencé. Si l'application est fermée en cours de route, le lancement suivant remet votre récepteur.</li>
+          <li><b>Une ligne par récepteur.</b> À la fin, l'application affiche une ligne pour chaque récepteur : appliquée et confirmée, appliquée avec certains réglages relus différents, réglages refusés, envoyée mais non confirmée, ou sans réponse. Un récepteur retiré de l'application, ou dont la scène a été supprimée, est aussi nommé, jamais caché derrière un seul « terminé ».</li>
+        </ul>
+      </div>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="L'onglet Scènes avec une section Groupes de récepteurs listant Movie Night avec des boutons pour renommer et supprimer" srcset="/screenshots/scenes-multi-avr-list-662.webp 662w, /screenshots/scenes-multi-avr-list.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-multi-avr-list.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Renommer et supprimer.</b> Chaque groupe de la liste Groupes de récepteurs a un bouton de renommage et un bouton de suppression. Renommer conserve les mêmes récepteurs.</li>
+        </ul>
+        <div class="note">Les scènes pour un seul récepteur restent gratuites. Seul le regroupement de plusieurs récepteurs en une scène nécessite l'achat Home Automation.</div>
       </div>
     </div>
   </div>
@@ -455,7 +502,7 @@
       <li><b>Les niveaux des canaux sont vérifiés et renvoyés une fois.</b> Les récepteurs laissent parfois tomber un canal quand beaucoup de commandes arrivent d'un coup. L'application relit ce qui a été pris en compte, renvoie ce qui ne l'a pas été, et vous indique quels canaux elle a dû réessayer.</li>
       <li><b>Une commande verrouillée ne peut être appliquée par rien ni personne.</b> Si votre préréglage d'enceintes est géré par Dirac Live, le récepteur lui-même refuse les changements Audyssey, et une scène qui en contient est refusée de la même façon que la commande à l'écran. Voir <a href="/fr/guide/locked-controls/">pourquoi une commande est verrouillée</a>.</li>
       <li><b>Seul ce que la scène contient est modifié.</b> Si une scène ne change pas quelque chose que vous attendiez, c'est probablement que ce n'était pas coché. Appuyez longuement dessus et utilisez Modifier les réglages capturés plutôt que de créer une seconde scène.</li>
-      <li><b>Les scènes appartiennent à un seul récepteur.</b> La liste est celle du récepteur actuellement sélectionné. Un autre récepteur a la sienne.</li>
+      <li><b>Les scènes appartiennent à un seul récepteur.</b> La liste est celle du récepteur actuellement sélectionné. Un autre récepteur a la sienne. Pour configurer plusieurs récepteurs d'une seule touche, utilisez une <a href="#multi-avr">Multi AVR Scene</a>.</li>
     </ul>
   </div>
 </section>
@@ -492,6 +539,7 @@
     <details><summary>Une scène peut-elle allumer mon récepteur ?</summary><div class="body">Oui. Incluez l'état d'alimentation et l'application de la scène allume (ou éteint) d'abord la zone principale, à condition que la veille réseau soit activée sur le récepteur pour que l'application puisse le joindre pendant qu'il dort.</div></details>
     <details><summary>Que signifie le message coloré après une scène ?</summary><div class="body">Vert signifie que tout a été pris en compte. Orange signifie que le récepteur a choisi sa propre valeur pour un réglage qu'il mémorise par signal d'entrée, ce qui est normal ; touchez de nouveau la scène pour réessayer. Bleu signifie que le récepteur n'a pas confirmé certains réglages, l'application ne peut donc pas savoir s'ils ont été pris en compte. Rouge signifie qu'un réglage est relu différemment ou que le récepteur a refusé certains niveaux d'enceintes ; touchez de nouveau la scène. Un message rouge reste jusqu'à ce que vous le fermiez.</div></details>
     <details><summary>Quelle est la différence entre les scènes et Smart Select ou Quick Select ?</summary><div class="body">Smart Select (Marantz) et Quick Select (Denon) sont la même fonction du récepteur sous deux noms : une poignée d'emplacements stockés dans le récepteur, cinq sur un Marantz CINEMA 30. AVR Maestro les désigne partout par le nom propre à votre récepteur, vous permet de les lancer depuis l'écran d'accueil et la télécommande, et de les renommer. Les scènes sont propres à AVR Maestro : jusqu'à 20 par récepteur, chacune avec un nom, une icône et une couleur, contenant exactement les réglages que vous choisissez, et elles peuvent être lancées depuis un widget d'écran d'accueil ou envoyées à Home Assistant ou Hubitat. Les deux ne s'écrasent jamais l'une l'autre.</div></details>
+    <details><summary>Une scène peut-elle configurer plusieurs récepteurs ?</summary><div class="body">Oui, avec une Multi AVR Scene, qui fait partie de l'achat Domotique. Avec deux récepteurs ou plus dans l'application, touchez Ajouter une scène, choisissez Multi AVR Scene, nommez-la, cochez les récepteurs et définissez la scène de chacun sur ses propres pages guidées. Touchez-la dans la liste Groupes de récepteurs et l'application applique la scène de chaque récepteur à tour de rôle, puis affiche une ligne par récepteur. Les scènes d'un seul récepteur restent gratuites.</div></details>
   </div>
 </section>
 

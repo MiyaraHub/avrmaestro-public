@@ -134,7 +134,7 @@
       "description": "Každá část Nastavení AVR Maestro: Spravovat přijímače, Vzhled (motiv, Barevný motiv, velikosti, jazyk), Rozložení, Doplňky, Nápověda, Záloha a O aplikaci.",
       "image": "https://avrmaestro.com/screenshots/settings-tjmode.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -164,7 +164,7 @@
       "name": "Kam zmizelo Nastavení › Zařízení a Nastavení › Audio?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Od verze 5.3.0 obojí žije u každého přijímače zvlášť. Otevřete Nastavení › Spravovat přijímače a klepněte na svůj přijímač: jeho stránka má část Audio (krok hlasitosti, zobrazení hlasitosti, předvolby hlasitosti, tlačítka hlasitosti zařízení a Ovládání hlasitosti), Obrazovka a zámky, O tomto přijímači a Přejmenovat, Změnit IP adresu, Najít můj přijímač a Odstranit."
+        "text": "Obojí žije u každého přijímače zvlášť. Otevřete Nastavení › Spravovat přijímače a klepněte na svůj přijímač: jeho stránka má část Audio (krok hlasitosti, zobrazení hlasitosti, předvolby hlasitosti, tlačítka hlasitosti zařízení a Ovládání hlasitosti), Obrazovka a zámky, O tomto přijímači a Přejmenovat, Změnit IP adresu, Najít můj přijímač a Odstranit."
       }
     },
     {
@@ -213,6 +213,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Otevřete Nastavení › O aplikaci AVR Maestro a klepněte sedmkrát na číslo verze. Ladicí nabídka pak zůstane dostupná, dokud ji neodeberete pomocí Odebrat ladicí nabídku. Je určena pro podporu; chcete-li nám poslat protokoly, použijte Všechny relevantní protokoly na stejné stránce."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Sbírá AVR Maestro analytická data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Jen pokud souhlasíte. Po prvním spuštění se aplikace zeptá jednou a analýzu používání zapne pouze Sdílet analytiku; Ne, děkuji ji ponechá vypnutou. Kdykoli to můžete změnit v Nastavení › O aplikaci AVR Maestro › Právní informace, kde je také přepínač Hlášení pádů. Hlášení pádů mají IP adresy, MAC adresy a sériová čísla zamaskované a exportované protokoly je skryjí, pokud se nerozhodnete je zahrnout."
       }
     }
   ]
@@ -355,7 +363,7 @@
     <ul class="plain">
       <li><b>Záloha a obnova:</b> exportuje každé nastavení aplikace do souboru, nebo obnovuje ze zálohy. <a href="/cs/guide/backup/">Průvodce zálohou &rarr;</a></li>
       <li><b>Ohodnotit AVR Maestro:</b> otevře stránku v obchodě, kde můžete zanechat hodnocení.</li>
-      <li><b>O aplikaci AVR Maestro:</b> informace o verzi, podpora a licence. Tady najdete <b>komunitu na Discordu</b>, <b>podpůrnou skupinu na Facebooku</b> a <b>Všechny relevantní protokoly</b>, které shromáždí protokoly, jež potřebujeme, když se něco chová špatně.</li>
+      <li><b>O aplikaci AVR Maestro:</b> informace o verzi, podpora a licence. Tady najdete <b>Komunitu na Discordu</b>, <b>Podpůrnou skupinu na Facebooku</b> a <b>Všechny relevantní protokoly</b>, které shromáždí protokoly, jež potřebujeme, když se něco chová špatně. Jeho část <b>Právní informace</b> obsahuje přepínače analytiky a hlášení pádů (viz <a href="#privacy">Soukromí</a> níže).</li>
       <li><b>Více od MiyaraHub:</b> otevře stránku MiyaraHub v obchodě vašeho zařízení s našimi dalšími aplikacemi pro domácí kino.</li>
     </ul>
   </div>
@@ -374,19 +382,41 @@
   </div>
 </section>
 
+<section id="privacy">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Nastavení &rsaquo; O aplikaci &rsaquo; Právní informace</div>
+      <h2>Soukromí: analytika, hlášení pádů a protokoly</h2>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="O aplikaci a Právní informace v Nastavení s vypnutým přepínačem Share usage analytics a zapnutým přepínačem Crash Reporting" srcset="/screenshots/settings-legal-662.webp 662w, /screenshots/settings-legal.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/settings-legal.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Analytika je na přihlášení.</b> Po prvním spuštění se aplikace jednou zeptá, <i>Pomoci vylepšit AVR Maestro?</i>, s tlačítky <b>Sdílet analytiku</b> a <b>Ne, děkuji</b>. Nic se neodešle, dokud neřeknete ano. Události používání jsou propojeny s náhodným ID vytvořeným pro tuto instalaci a neobsahují názvy ani adresy přijímačů. Svou odpověď můžete kdykoli změnit pomocí <b>Sdílet analytiku používání</b> v části O aplikaci &rsaquo; Právní informace. Obnovení zálohy na jiném zařízení se zeptá znovu.</li>
+          <li><b>Hlášení pádů mají vlastní přepínač.</b> <b>Hlášení pádů</b> najdete v části O aplikaci &rsaquo; Právní informace. Když je vypnuto, nic se neodesílá a hlášení uložená z dřívějších relací se zahodí, místo aby se odeslala později.</li>
+          <li><b>Hlášení pádů neobsahují údaje o vaší síti.</b> Než hlášení opustí zařízení, IP adresy, MAC adresy, sériová čísla a názvy hostitelů jsou v chybě a jejích podrobnostech zamaskovány.</li>
+          <li><b>Protokoly se zeptají, než zahrnou údaje o vašem přijímači.</b> <b>Všechny relevantní protokoly</b> nejprve vysvětlí, co balíček obsahuje a kam ho odešle e-mail. Adresa, MAC adresa a sériové číslo vašeho přijímače jsou skryty, pokud nezaškrtnete <i>Zahrnout adresu, MAC adresu a sériové číslo mého přijímače, aby podpora mohla problém najít</i>.</li>
+          <li><b>Tokeny hubů zůstávají v zabezpečeném úložišti.</b> Tokeny Home Assistant a Hubitat jsou uloženy v Keystore v Androidu a v Keychain na zařízeních Apple, ne spolu s běžným nastavením aplikace. Viz <a href="/cs/guide/home-automation/">Domácí automatizace</a>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Časté dotazy</div>
       <h2>Časté dotazy k nastavení</h2>
     </div>
-    <details open><summary>Kam zmizelo Nastavení &rsaquo; Zařízení a Nastavení &rsaquo; Audio?</summary><div class="body">Od verze 5.3.0 obojí žije u každého přijímače zvlášť. Otevřete Nastavení &rsaquo; Spravovat přijímače a klepněte na svůj přijímač: jeho stránka má část Audio (krok hlasitosti, zobrazení hlasitosti, předvolby hlasitosti, tlačítka hlasitosti zařízení a Ovládání hlasitosti), Obrazovka a zámky, O tomto přijímači a Přejmenovat, Změnit IP adresu, Najít můj přijímač a Odstranit.</div></details>
+    <details open><summary>Kam zmizelo Nastavení &rsaquo; Zařízení a Nastavení &rsaquo; Audio?</summary><div class="body">Obojí žije u každého přijímače zvlášť. Otevřete Nastavení &rsaquo; Spravovat přijímače a klepněte na svůj přijímač: jeho stránka má část Audio (krok hlasitosti, zobrazení hlasitosti, předvolby hlasitosti, tlačítka hlasitosti zařízení a Ovládání hlasitosti), Obrazovka a zámky, O tomto přijímači a Přejmenovat, Změnit IP adresu, Najít můj přijímač a Odstranit.</div></details>
     <details><summary>Mohu změnit motiv a barvy aplikace?</summary><div class="body">Ano. V Nastavení &rsaquo; Vzhled je Motiv Světlý, Tmavý nebo AMOLED (čistě černá) a Režim TJ: Barva zvýraznění je Značka nebo Barevný motiv. Barevný motiv vám umožní vybrat libovolnou barvu zvýraznění z výběru nebo zadáním hexadecimálního kódu, například #FF8C00, nebo jeho tříznakové zkratky. Kód, který aplikace nedokáže přečíst, je odmítnut s uvedením důvodu, a téměř černá barva je odmítnuta, protože by na motivu AMOLED nebyla vidět.</div></details>
     <details><summary>Ovládají tlačítka hlasitosti mého telefonu přijímač?</summary><div class="body">Ano, na Androidu i na iPhonu a iPadu. Dokud je aplikace otevřená, tlačítka hlasitosti zařízení mění hlasitost přijímače. Je to ve výchozím stavu zapnuté a nastavuje se pro každý přijímač: Nastavení &rsaquo; Spravovat přijímače &rsaquo; váš přijímač &rsaquo; Audio &rsaquo; Tlačítka hlasitosti zařízení.</div></details>
     <details><summary>Jak vrátím vysvětlující kartu, kterou jsem zavřel?</summary><div class="body">Otevřete Nastavení &rsaquo; Nápověda. Obnovit skryté karty vypíše každou kartu, kterou jste dlouhým stiskem odstranili; klepněte na Obnovit u jedné, nebo na Obnovit vše. Zobrazit vysvětlující karty vypne nebo zapne všechny najednou.</div></details>
     <details><summary>Jak znovu uvidím uvítací průvodce?</summary><div class="body">Otevřete Nastavení &rsaquo; Nápověda &rsaquo; Uvítání a průvodce nastavením. Znovu přehraje úvod a tipy k nastavení sítě. Manuál aplikace ve stejné části otevře tohoto online průvodce.</div></details>
     <details><summary>Mohu si zálohovat své nastavení?</summary><div class="body">Ano. Nastavení &rsaquo; Záloha a obnova exportuje každé nastavení aplikace do souboru a obnovuje ze zálohy. Co soubor obsahuje, najdete v průvodci Záloha a obnova.</div></details>
     <details><summary>Jak otevřu skrytou ladicí nabídku?</summary><div class="body">Otevřete Nastavení &rsaquo; O aplikaci AVR Maestro a klepněte sedmkrát na číslo verze. Ladicí nabídka pak zůstane dostupná, dokud ji neodeberete pomocí Odebrat ladicí nabídku. Je určena pro podporu; chcete-li nám poslat protokoly, použijte Všechny relevantní protokoly na stejné stránce.</div></details>
+    <details><summary>Sbírá AVR Maestro analytická data?</summary><div class="body">Jen pokud souhlasíte. Po prvním spuštění se aplikace zeptá jednou a analýzu používání zapne pouze Sdílet analytiku; Ne, děkuji ji ponechá vypnutou. Kdykoli to můžete změnit v Nastavení &rsaquo; O aplikaci AVR Maestro &rsaquo; Právní informace, kde je také přepínač Hlášení pádů. Hlášení pádů mají IP adresy, MAC adresy a sériová čísla zamaskované a exportované protokoly je skryjí, pokud se nerozhodnete je zahrnout.</div></details>
   </div>
 </section>
 

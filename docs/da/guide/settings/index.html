@@ -134,7 +134,7 @@
       "description": "Hver sektion af indstillingerne i AVR Maestro: Administrer receivere, Udseende (tema, farvetema, størrelser, sprog), Layout, Tillæg, Hjælp, Backup og Om.",
       "image": "https://avrmaestro.com/screenshots/settings-tjmode.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -164,7 +164,7 @@
       "name": "Hvor blev Indstillinger › Enheder og Indstillinger › Lyd af?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Siden version 5.3.0 hører begge til pr. receiver. Åbn Indstillinger › Administrer receivere, og tryk på din receiver: dens side har sektionen Lyd (lydstyrketrin, lydstyrkevisning, lydstyrkeforudindstillinger, enhedens lydstyrkeknapper og Lydstyrkekontrol), Skærm & låse, Om denne receiver samt Omdøb, Skift IP, Find min receiver og Slet."
+        "text": "Begge hører til pr. receiver. Åbn Indstillinger › Administrer receivere, og tryk på din receiver: dens side har sektionen Lyd (lydstyrketrin, lydstyrkevisning, lydstyrkeforudindstillinger, enhedens lydstyrkeknapper og Lydstyrkekontrol), Skærm & låse, Om denne receiver samt Omdøb, Skift IP, Find min receiver og Slet."
       }
     },
     {
@@ -213,6 +213,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Åbn Indstillinger › Om AVR Maestro, og tryk syv gange på versionsnummeret. Fejlfindingsmenuen er så tilgængelig, indtil du fjerner den med Fjern fejlfindingsmenu. Den er beregnet til support; for at sende os logfiler skal du bruge Alle relevante logfiler på samme side."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Indsamler AVR Maestro analyse?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kun hvis du siger ja. Efter første start spørger appen én gang, og kun Del analyse slår brugsanalyse til; Nej tak holder den slået fra. Du kan ændre det når som helst under Indstillinger › Om AVR Maestro › Juridisk, hvor kontakten Nedbrudsrapportering også findes. Nedbrudsrapporter har IP-adresser, MAC-adresser og serienumre maskeret, og eksporterede logfiler skjuler dem, medmindre du vælger at medtage dem."
       }
     }
   ]
@@ -355,7 +363,7 @@
     <ul class="plain">
       <li><b>Backup & gendannelse:</b> eksporter alle appens indstillinger til en fil, eller gendan fra en backup. <a href="/da/guide/backup/">Backupguide &rarr;</a></li>
       <li><b>Bedøm AVR Maestro:</b> åbner butiksoversigten, så du kan give en bedømmelse.</li>
-      <li><b>Om AVR Maestro:</b> versionsoplysninger, support og licenser. Her finder du <b>Discord-fællesskabet</b>, <b>Facebook-supportgruppen</b> og <b>Alle relevante logfiler</b>, som samler de logfiler, vi har brug for, når noget fejler.</li>
+      <li><b>Om AVR Maestro:</b> versionsoplysninger, support og licenser. Her finder du <b>Discord-fællesskab</b>, <b>Facebook-supportgruppe</b> og <b>Alle relevante logfiler</b>, som samler de logfiler, vi har brug for, når noget opfører sig forkert. Afsnittet <b>Juridisk</b> rummer kontakterne til analyse og nedbrudsrapporter (se <a href="#privacy">Privatliv</a> nedenfor).</li>
       <li><b>Mere fra MiyaraHub:</b> åbner MiyaraHub-siden i din enheds butik med vores andre hjemmebiograf-apps.</li>
     </ul>
   </div>
@@ -374,19 +382,41 @@
   </div>
 </section>
 
+<section id="privacy">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Indstillinger &rsaquo; Om &rsaquo; Juridisk</div>
+      <h2>Privatliv: analyse, nedbrudsrapporter og logfiler</h2>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="Om og Juridisk i Indstillinger, med kontakten Share usage analytics slået fra og kontakten Crash Reporting slået til" srcset="/screenshots/settings-legal-662.webp 662w, /screenshots/settings-legal.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/settings-legal.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Analyse er til tilvalg.</b> Efter første start spørger appen én gang, <i>Hjælp med at forbedre AVR Maestro?</i>, med <b>Del analyse</b> og <b>Nej tak</b>. Intet sendes, medmindre du siger ja. Brugshændelser knyttes til et tilfældigt ID, der er lavet til denne installation, og indeholder ingen receivernavne eller adresser. Skift dit svar når som helst med <b>Del brugsanalyse</b> under Om &rsaquo; Juridisk. Gendannelse af en sikkerhedskopi på en anden enhed spørger igen.</li>
+          <li><b>Nedbrudsrapporter har deres egen kontakt.</b> <b>Nedbrudsrapportering</b> findes under Om &rsaquo; Juridisk. Når den er slået fra, sendes intet, og rapporter gemt fra tidligere sessioner kasseres i stedet for at blive sendt senere.</li>
+          <li><b>Nedbrudsrapporter tager ikke dine netværksoplysninger med.</b> Før en rapport forlader enheden, maskeres IP-adresser, MAC-adresser, serienumre og værtsnavne i fejlen og dens detaljer.</li>
+          <li><b>Logfiler spørger, før de medtager din receivers oplysninger.</b> <b>Alle relevante logfiler</b> forklarer først, hvad pakken indeholder, og hvor e-mail sender den hen. Din receivers adresse, MAC-adresse og serienummer er skjult, medmindre du markerer <i>Medtag min receivers adresse, MAC-adresse og serienummer, så support kan finde problemet</i>.</li>
+          <li><b>Hub-tokens bliver i det sikre lager.</b> Home Assistant- og Hubitat-tokens gemmes i Keystore på Android og Keychain på Apple-enheder, ikke sammen med appens almindelige indstillinger. Se <a href="/da/guide/home-automation/">Hjemmeautomatisering</a>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Ofte stillede spørgsmål</div>
       <h2>FAQ om indstillinger</h2>
     </div>
-    <details open><summary>Hvor blev Indstillinger &rsaquo; Enheder og Indstillinger &rsaquo; Lyd af?</summary><div class="body">Siden version 5.3.0 hører begge til pr. receiver. Åbn Indstillinger &rsaquo; Administrer receivere, og tryk på din receiver: dens side har sektionen Lyd (lydstyrketrin, lydstyrkevisning, lydstyrkeforudindstillinger, enhedens lydstyrkeknapper og Lydstyrkekontrol), Skærm &amp; låse, Om denne receiver samt Omdøb, Skift IP, Find min receiver og Slet.</div></details>
+    <details open><summary>Hvor blev Indstillinger &rsaquo; Enheder og Indstillinger &rsaquo; Lyd af?</summary><div class="body">Begge hører til pr. receiver. Åbn Indstillinger &rsaquo; Administrer receivere, og tryk på din receiver: dens side har sektionen Lyd (lydstyrketrin, lydstyrkevisning, lydstyrkeforudindstillinger, enhedens lydstyrkeknapper og Lydstyrkekontrol), Skærm &amp; låse, Om denne receiver samt Omdøb, Skift IP, Find min receiver og Slet.</div></details>
     <details><summary>Kan jeg ændre appens tema og farver?</summary><div class="body">Ja. Under Indstillinger &rsaquo; Udseende er Tema Lys, Mørk eller AMOLED (ægte sort), og TJ-tilstand: Accentfarve er Mærke eller Farvetema. Med Farvetema kan du vælge en vilkårlig accent i vælgeren eller skrive en hex-kode som #FF8C00 eller dens korte form med tre tegn. En kode, appen ikke kan læse, afvises med begrundelsen, og en farve, der er næsten sort, afvises, fordi den ikke ville kunne ses på AMOLED-temaet.</div></details>
     <details><summary>Styrer min telefons lydstyrkeknapper receiveren?</summary><div class="body">Ja, på Android og på iPhone og iPad. Mens appen er åben, ændrer enhedens lydstyrkeknapper receiverens lydstyrke. Det er slået til som standard og indstilles pr. receiver: Indstillinger &rsaquo; Administrer receivere &rsaquo; din receiver &rsaquo; Lyd &rsaquo; Enhedens lydstyrkeknapper.</div></details>
     <details><summary>Hvordan får jeg et forklaringskort tilbage, som jeg har afvist?</summary><div class="body">Åbn Indstillinger &rsaquo; Hjælp. Gendan afviste kort viser alle kort, du har fjernet med et langt tryk; tryk på Gendan ved et af dem eller på Gendan alle. Vis forklaringskort slår dem alle fra eller til på én gang.</div></details>
     <details><summary>Hvordan ser jeg velkomstguiden igen?</summary><div class="body">Åbn Indstillinger &rsaquo; Hjælp &rsaquo; Velkomst og opsætningsguide. Den afspiller introen og tipsene til netværksopsætning igen. Appmanual i samme sektion åbner denne onlineguide.</div></details>
     <details><summary>Kan jeg tage backup af min opsætning?</summary><div class="body">Ja. Indstillinger &rsaquo; Backup &amp; gendannelse eksporterer alle appens indstillinger til en fil og gendanner fra en backup. Se guiden Backup &amp; gendannelse for, hvad filen indeholder.</div></details>
     <details><summary>Hvordan åbner jeg den skjulte fejlretningsmenu?</summary><div class="body">Åbn Indstillinger &rsaquo; Om AVR Maestro, og tryk syv gange på versionsnummeret. Fejlfindingsmenuen er så tilgængelig, indtil du fjerner den med Fjern fejlfindingsmenu. Den er beregnet til support; for at sende os logfiler skal du bruge Alle relevante logfiler på samme side.</div></details>
+    <details><summary>Indsamler AVR Maestro analyse?</summary><div class="body">Kun hvis du siger ja. Efter første start spørger appen én gang, og kun Del analyse slår brugsanalyse til; Nej tak holder den slået fra. Du kan ændre det når som helst under Indstillinger &rsaquo; Om AVR Maestro &rsaquo; Juridisk, hvor kontakten Nedbrudsrapportering også findes. Nedbrudsrapporter har IP-adresser, MAC-adresser og serienumre maskeret, og eksporterede logfiler skjuler dem, medmindre du vælger at medtage dem.</div></details>
   </div>
 </section>
 

@@ -134,7 +134,7 @@
       "description": "AVR Maestro を Home Assistant または Hubitat にリンクすれば、シーンがネイティブスクリプトになり、スマートフォンなしで実行できます。音声コントロール、ライブ状態、Webhook に対応。",
       "image": "https://avrmaestro.com/screenshots/home-assistant.webp",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -180,7 +180,7 @@
       "name": "AIアシスタントは有料アンロックに含まれますか？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "いいえ。オンデバイスAIアシスタントは無料です。ホームオートメーション（Home Assistant、Hubitat、アウトバウンド Webhook）が、AVR Maestro で唯一の有料アンロックです。"
+        "text": "いいえ。オンデバイスAIアシスタントは無料です。ホームオートメーション(Home Assistant、Hubitat、アウトバウンドWebhook、Multi AVR Scene)が、AVR Maestroで唯一の有料アンロックです。"
       }
     },
     {
@@ -197,6 +197,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "設定 › ホームオートメーション(Pro)を開き、ロック解除ボタンの下にある購入を復元をタップします。以前に同じストアアカウントでロック解除を購入していれば、再度支払うことなく復元されます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Home AssistantとHubitatのトークンはどこに保存されますか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "お使いのデバイスのセキュアストレージに保存されます。AndroidではKeystore、iPhone、iPad、MacではKeychainで、アプリの通常の設定には保存されません。アプリデータをリセットすると、これらも消去されます。また、Androidはアプリのデータを Google Drive のバックアップにコピーしません。インターネット上にあり、http://で始まるハブまたはWebhookのアドレスを入力すると、トークンとデータが暗号化されずにインターネットを通ることを警告し、https://を提案します。お使いのネットワーク内のアドレスでは、この警告は表示されません。"
       }
     }
   ]
@@ -337,11 +345,11 @@
 
     <div class="lockrow" style="margin-top:28px">
       <div>
-        <div class="eyebrow">古いビルドで同期した場合</div>
-        <h2>スクリプトIDは一度だけ変わります</h2>
-        <p>以前は、スクリプトの名前がシーン<em>と</em>レシーバーに基づいていたため、どちらかの名前を変更すると古いスクリプトが残り、気づかないうちに2つ目が作られていました。現在はシーンとレシーバーのMACアドレスに基づく名前になり、名前を変更しても新しいスクリプトが増えず、同じスクリプトが更新されます。</p>
-        <p>この変更後の最初の同期で、古いスクリプトが新しいものに置き換わります。<b>古いIDで作ったものは、一度だけ指定し直す必要があります。</b>ダッシュボードのボタン、オートメーション、音声エイリアスなどです。Home Assistant でスクリプトを開くと、新しいエンティティIDがわかります。</p>
-        <p>エンティティも、32文字のマシン識別子ではなく<code>cinema30</code>のように、レシーバーから名前を読み取るようになったので、一覧が読みやすくなり、オートコンプリートでも見つかります。以前のバージョンのIDも引き続き使えます。</p>
+        <div class="eyebrow">スクリプトとエンティティのID</div>
+        <h2>名前を変更しても変わらない名前</h2>
+        <p>スクリプトはシーンとレシーバーのMACアドレスに基づいて名前が付けられるため、シーンやレシーバーの名前を変更しても2つ目は作られず、同じスクリプトが更新されます。</p>
+        <p>ダッシュボードのボタン、オートメーション、音声エイリアスが、シーン名とレシーバー名だけで名付けられたスクリプトを呼び出している場合、次回の同期でそのスクリプトは MAC アドレスで名付けられたスクリプトに置き換えられます。<b>一度だけ参照先を付け替えてください</b>。Home Assistant でスクリプトを開いて現在のエンティティ ID を確認し、それを使います。</p>
+        <p>レシーバーから読み取るエンティティ - 32文字の機械用識別子ではなく<code>cinema30</code> - なので、一覧が読みやすく、オートコンプリートでも見つかります。オートメーションで既に使っているエンティティ ID は、そのまま使えます。</p>
       </div>
     </div>
   </div>
@@ -468,7 +476,8 @@
       <div>
         <div class="eyebrow">有料のものと無料のもの</div>
         <h2>アンロックが必要なのはホームオートメーションだけです。AIアシスタントは無料です。</h2>
-        <p><b>ホームオートメーション(Pro)</b>（Home Assistant、Hubitat、アウトバウンド Webhook）は、買い切りのアンロックです。オンデバイスAIアシスタントを含め、AVR Maestro のそのほかの機能はすべてアプリに含まれています。</p>
+        <p><b>ホームオートメーション(Pro)</b>(Home Assistant、Hubitat、アウトバウンドWebhook、Multi AVR Scene)は買い切りのアンロックです。オンデバイスAIアシスタントを含め、AVR Maestroのそのほかの機能はすべてアプリに含まれています。</p>
+        <p><a href="/ja/guide/scenes/#multi-avr">Multi AVR Scene</a>は、2台以上のレシーバーをそれぞれのシーンでワンタップ設定します。1台のレシーバー用のシーンは引き続き無料です。</p>
         <p>このデバイス、または同じストアアカウントの別のデバイスですでに購入しましたか? ロック解除ボタンの下にある<b>購入を復元</b>をタップします。</p>
         <p>音声コントロールは、ホームオートメーション<em>を通じて</em>、ハブ経由でレシーバーに届きます。AVR Maestro 自身は音声認識を行いません。</p>
       </div>
@@ -484,9 +493,10 @@
     </div>
     <details open><summary>音声コントロールを使うには、スマートフォンの電源を入れておく必要がありますか？</summary><div class="body">いいえ。AVR Maestro はシーンをネイティブの Home Assistant スクリプトにコンパイルします。Home Assistant はローカルネットワーク上で直接レシーバーと通信するので、スマートフォンの電源が切れていても、スリープ中でも、海外にあっても問題ありません。</div></details>
     <details><summary>どの音声アシスタントでレシーバーを操作できますか？</summary><div class="body">すでにお使いのものなら何でも。AVR Maestro 独自の音声レイヤーは追加しません。スクリプトを Home Assistant または Hubitat に公開し、それをお使いのハブ経由で Alexa、Google Assistant、Siri ショートカットに公開します。</div></details>
-    <details><summary>AIアシスタントは有料アンロックに含まれますか？</summary><div class="body">いいえ。オンデバイスAIアシスタントは無料です。ホームオートメーション（Home Assistant、Hubitat、アウトバウンド Webhook）が、AVR Maestro で唯一の有料アンロックです。</div></details>
+    <details><summary>AIアシスタントは有料アンロックに含まれますか？</summary><div class="body">いいえ。オンデバイスAIアシスタントは無料です。ホームオートメーション(Home Assistant、Hubitat、アウトバウンドWebhook、Multi AVR Scene)が、AVR Maestroで唯一の有料アンロックです。</div></details>
     <details><summary>ホームネットワークの外に出る通信はありますか？</summary><div class="body">コントロールに関してはありません。アプリはご自身のネットワーク上で、レシーバーとハブの両方と通信します。MiyaraHub のサーバーを経由することはありません。Webhook は、指定した宛先に送信されます。宛先はあなたが選びます。</div></details>
     <details><summary>別のデバイスでホームオートメーションを購入した、または再インストールしましたか?</summary><div class="body"><i>設定 &rsaquo; ホームオートメーション(Pro)</i>を開き、ロック解除ボタンの下にある<b>購入を復元</b>をタップします。以前に同じストアアカウントでロック解除を購入していれば、再度支払うことなく復元されます。</div></details>
+    <details><summary>Home AssistantとHubitatのトークンはどこに保存されますか?</summary><div class="body">お使いのデバイスのセキュアストレージに保存されます。AndroidではKeystore、iPhone、iPad、MacではKeychainで、アプリの通常の設定には保存されません。アプリデータをリセットすると、これらも消去されます。また、Androidはアプリのデータを Google Drive のバックアップにコピーしません。インターネット上にあり、http://で始まるハブまたはWebhookのアドレスを入力すると、トークンとデータが暗号化されずにインターネットを通ることを警告し、https://を提案します。お使いのネットワーク内のアドレスでは、この警告は表示されません。</div></details>
   </div>
 </section>
 

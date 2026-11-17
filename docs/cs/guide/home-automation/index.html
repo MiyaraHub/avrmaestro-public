@@ -134,7 +134,7 @@
       "description": "Propojte AVR Maestro s Home Assistantem nebo Hubitatem a vaše Scény se stanou nativními skripty, které běží bez telefonu. Hlasové ovládání, živý stav a webhooky.",
       "image": "https://avrmaestro.com/screenshots/home-assistant.webp",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -180,7 +180,7 @@
       "name": "Je AI asistent součástí placeného odemčení?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ne. AI asistent přímo v zařízení je zdarma. Domácí automatizace - Home Assistant, Hubitat a odchozí webhooky - je jediné placené odemčení v AVR Maestro."
+        "text": "Ne. Asistent s umělou inteligencí v zařízení je zdarma. Domácí automatizace - Home Assistant, Hubitat, odchozí webhooky a Multi AVR Scenes - je jediné placené odemčení v AVR Maestro."
       }
     },
     {
@@ -197,6 +197,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Otevřete Nastavení › Domácí automatizace (Pro) a pod tlačítkem odemknutí klepněte na Obnovit nákupy. Pokud jste odemknutí dříve koupili se stejným účtem obchodu, vrátí se bez dalšího placení."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kde jsou uloženy moje tokeny pro Home Assistant a Hubitat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "V zabezpečeném úložišti zařízení: Keystore na Androidu a Keychain na iPhonu, iPadu a Macu, nikoli v běžném nastavení aplikace. Vymaže je i Obnovit data aplikace a Android nekopíruje data aplikace do zálohy na Google Drive. Pokud zadáte adresu hubu nebo webhooku, která je na internetu a začíná http://, aplikace upozorní, že váš token a data by procházely internetem nešifrovaně, a navrhne https://. Adresy ve vaší vlastní síti varování nikdy nezobrazí."
       }
     }
   ]
@@ -337,11 +345,11 @@
 
     <div class="lockrow" style="margin-top:28px">
       <div>
-        <div class="eyebrow">Pokud jste synchronizovali ve starší verzi</div>
-        <h2>ID vašich skriptů se jednou změní</h2>
-        <p>Skripty se dřív jmenovaly podle scény <em>a</em> přijímače, takže přejmenování kteréhokoli z nich zanechalo starý skript a tiše vytvořilo druhý. Nyní se jmenují podle scény a MAC adresy přijímače, díky čemuž přejmenování aktualizuje stejný skript, místo aby ho rozštěpilo.</p>
-        <p>První synchronizace po této změně nahradí staré skripty novými. <b>Cokoli, co jste postavili na starých ID, je třeba jednou přesměrovat</b> - tlačítko dashboardu, automatizaci, hlasový alias. Otevřete skript v Home Assistantu a zjistíte jeho nové ID entity.</p>
-        <p>Entity se nyní jmenují i podle přijímače - <code>cinema30</code> místo třiceti dvou znaků strojového identifikátoru - takže seznam je čitelný a automatické doplňování je najde. ID z dřívějších verzí dál fungují.</p>
+        <div class="eyebrow">ID skriptů a entit</div>
+        <h2>Názvy, které přežijí přejmenování</h2>
+        <p>Skripty se jmenují podle scény a MAC adresy přijímače, takže přejmenování scény nebo přijímače aktualizuje stejný skript, místo aby vytvořilo druhý.</p>
+        <p>Pokud tlačítko na dashboardu, automatizace nebo hlasový alias volá skript pojmenovaný jen podle scény a přijímače, další synchronizace tento skript nahradí skriptem pojmenovaným podle MAC adresy. <b>Přesměrujte ho jednou</b>: otevřete skript v Home Assistant, zjistěte jeho aktuální ID entity a použijte ho.</p>
+        <p>Entity načtené z přijímače - <code>cinema30</code> místo třiceti dvou znaků strojového identifikátoru - aby byl seznam čitelný a automatické doplňování je našlo. ID entit, které vaše automatizace už používají, fungují dál.</p>
       </div>
     </div>
   </div>
@@ -468,7 +476,8 @@
       <div>
         <div class="eyebrow">Co je placené a co ne</div>
         <h2>Domácí automatizace je jediné odemčení. AI asistent je zdarma.</h2>
-        <p><b>Domácí automatizace (Pro)</b> - Home Assistant, Hubitat a odchozí webhooky - je jednorázové odemčení. Všechno ostatní v AVR Maestro, včetně AI asistenta přímo v zařízení, je součástí aplikace.</p>
+        <p><b>Domácí automatizace (Pro)</b> - Home Assistant, Hubitat, odchozí webhooky a Multi AVR Scenes - je jednorázové odemčení. Vše ostatní v AVR Maestro, včetně asistenta s umělou inteligencí v zařízení, je součástí aplikace.</p>
+        <p><a href="/cs/guide/scenes/#multi-avr">Multi AVR Scene</a> nastaví dva nebo více přijímačů jedním klepnutím, každý s vlastní scénou. Scény pro jeden přijímač zůstávají zdarma.</p>
         <p>Už jste to koupili, na tomto zařízení nebo na jiném se stejným účtem obchodu? Klepněte na <b>Obnovit nákupy</b> pod tlačítkem odemknutí.</p>
         <p>Hlasové ovládání se k přijímači dostává <em>přes</em> Domácí automatizaci, prostřednictvím vašeho hubu. AVR Maestro nemá vlastní rozpoznávání hlasu.</p>
       </div>
@@ -484,9 +493,10 @@
     </div>
     <details open><summary>Musí být pro hlasové ovládání můj telefon zapnutý?</summary><div class="body">Ne. AVR Maestro zkompiluje vaše scény do nativních skriptů Home Assistantu. Home Assistant komunikuje s přijímačem přímo ve vaší místní síti, takže telefon může být vypnutý, uspaný nebo v jiné zemi.</div></details>
     <details><summary>Které hlasové asistenty mohou můj přijímač ovládat?</summary><div class="body">Ten, který už používáte. AVR Maestro nepřidává vlastní hlasovou vrstvu - publikuje skripty do Home Assistantu nebo Hubitatu a ty zpřístupní Alexe, Asistentu Google nebo Zkratkám Siri hub, kterému už důvěřujete.</div></details>
-    <details><summary>Je AI asistent součástí placeného odemčení?</summary><div class="body">Ne. AI asistent přímo v zařízení je zdarma. Domácí automatizace - Home Assistant, Hubitat a odchozí webhooky - je jediné placené odemčení v AVR Maestro.</div></details>
+    <details><summary>Je AI asistent součástí placeného odemčení?</summary><div class="body">Ne. Asistent s umělou inteligencí v zařízení je zdarma. Domácí automatizace - Home Assistant, Hubitat, odchozí webhooky a Multi AVR Scenes - je jediné placené odemčení v AVR Maestro.</div></details>
     <details><summary>Opouští něco moji domácí síť?</summary><div class="body">Ne kvůli ovládání. Aplikace komunikuje s vaším přijímačem a hubem přes vaši vlastní síť. Nic neprochází přes server MiyaraHub. Webhook jde tam, kam ho nasměrujete, a to je vaše volba.</div></details>
     <details><summary>Koupili jste Domácí automatizaci na jiném zařízení, nebo jste aplikaci přeinstalovali?</summary><div class="body">Otevřete <i>Nastavení &rsaquo; Domácí automatizace (Pro)</i> a pod tlačítkem odemknutí klepněte na <b>Obnovit nákupy</b>. Pokud jste odemknutí dříve koupili se stejným účtem obchodu, vrátí se bez dalšího placení.</div></details>
+    <details><summary>Kde jsou uloženy moje tokeny pro Home Assistant a Hubitat?</summary><div class="body">V zabezpečeném úložišti zařízení: Keystore na Androidu a Keychain na iPhonu, iPadu a Macu, nikoli v běžném nastavení aplikace. Vymaže je i Obnovit data aplikace a Android nekopíruje data aplikace do zálohy na Google Drive. Pokud zadáte adresu hubu nebo webhooku, která je na internetu a začíná http://, aplikace upozorní, že váš token a data by procházely internetem nešifrovaně, a navrhne https://. Adresy ve vaší vlastní síti varování nikdy nezobrazí.</div></details>
   </div>
 </section>
 

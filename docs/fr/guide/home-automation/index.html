@@ -134,7 +134,7 @@
       "description": "Reliez AVR Maestro à Home Assistant ou Hubitat et vos Scènes deviennent des scripts natifs qui s'exécutent sans votre téléphone. Commande vocale, état en direct et webhooks.",
       "image": "https://avrmaestro.com/screenshots/home-assistant.webp",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -180,7 +180,7 @@
       "name": "L'assistant IA fait-il partie du déverrouillage payant ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Non. L'assistant IA embarqué est gratuit. Domotique - Home Assistant, Hubitat et webhooks sortants - est le seul déverrouillage payant d'AVR Maestro."
+        "text": "Non. L'assistant IA intégré à l'appareil est gratuit. La Domotique - Home Assistant, Hubitat, webhooks sortants et Multi AVR Scenes - est le seul déblocage payant d'AVR Maestro."
       }
     },
     {
@@ -197,6 +197,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Ouvrez Réglages › Domotique (Pro) et touchez Restaurer les achats sous le bouton de déverrouillage. Si vous avez déjà acheté le déverrouillage avec le même compte de la boutique, il revient sans repayer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Où sont conservés mes jetons Home Assistant et Hubitat ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dans le stockage sécurisé de votre appareil : le Keystore sur Android et le Keychain sur iPhone, iPad et Mac, pas dans les réglages habituels de l'application. Réinitialiser les données de l'application les efface aussi, et Android ne copie pas les données de l'application dans une sauvegarde Google Drive. Si vous saisissez une adresse de hub ou de webhook qui se trouve sur internet et commence par http://, l'application vous avertit que votre jeton et vos données traverseraient internet sans chiffrement, et suggère https://. Les adresses de votre propre réseau n'affichent jamais cet avertissement."
       }
     }
   ]
@@ -337,11 +345,11 @@
 
     <div class="lockrow" style="margin-top:28px">
       <div>
-        <div class="eyebrow">Si vous avez synchronisé avec une ancienne version</div>
-        <h2>Vos ID de scripts changent une fois</h2>
-        <p>Les scripts étaient nommés d'après la scène <em>et</em> le récepteur, si bien que renommer l'un ou l'autre laissait l'ancien script en place et en créait discrètement un second. Ils sont désormais nommés d'après la scène et l'adresse MAC du récepteur, ce qui fait qu'un renommage met à jour le même script au lieu de le dupliquer.</p>
-        <p>La première synchronisation après ce changement remplace les anciens scripts par les nouveaux. <b>Tout ce que vous avez construit sur les anciens ID doit être redirigé une fois</b> - un bouton de tableau de bord, une automatisation, un alias vocal. Ouvrez le script dans Home Assistant pour trouver son nouvel ID d'entité.</p>
-        <p>Les entités reprennent désormais aussi le nom du récepteur - <code>cinema30</code> plutôt que trente-deux caractères d'identifiant machine - ce qui rend la liste lisible et permet à l'autocomplétion de les trouver. Les ID des versions précédentes continuent de fonctionner.</p>
+        <div class="eyebrow">ID de scripts et d'entités</div>
+        <h2>Des noms qui survivent à un renommage</h2>
+        <p>Les scripts sont nommés d'après la scène et l'adresse MAC du récepteur, si bien que renommer la scène ou le récepteur met à jour le même script au lieu d'en créer un second.</p>
+        <p>Si un bouton de tableau de bord, une automatisation ou un alias vocal appelle un script nommé uniquement d'après la scène et le récepteur, la prochaine synchronisation remplace ce script par celui nommé d'après l'adresse MAC. <b>Repointez-le une seule fois</b> : ouvrez le script dans Home Assistant pour trouver son ID d'entité actuel et utilisez-le.</p>
+        <p>Des entités lues depuis le récepteur - <code>cinema30</code> plutôt que trente-deux caractères d'identifiant machine - pour que la liste reste lisible et que l'autocomplétion les trouve. Les ID d'entité que vos automatisations utilisent déjà continuent de fonctionner.</p>
       </div>
     </div>
   </div>
@@ -468,7 +476,8 @@
       <div>
         <div class="eyebrow">Ce qui est payant et ce qui ne l'est pas</div>
         <h2>Domotique est le seul déverrouillage. L'assistant IA est gratuit.</h2>
-        <p><b>Domotique (Pro)</b> - Home Assistant, Hubitat et webhooks sortants - est un déverrouillage à paiement unique. Tout le reste d'AVR Maestro, y compris l'assistant IA embarqué, est inclus dans l'application.</p>
+        <p>La <b>Domotique (Pro)</b> - Home Assistant, Hubitat, webhooks sortants et Multi AVR Scenes - est un déblocage unique. Tout le reste d'AVR Maestro, y compris l'assistant IA intégré à l'appareil, est inclus dans l'application.</p>
+        <p>Une <a href="/fr/guide/scenes/#multi-avr">Multi AVR Scene</a> configure deux récepteurs ou plus d'une seule touche, chacun avec sa propre scène. Les scènes d'un seul récepteur restent gratuites.</p>
         <p>Déjà acheté, sur cet appareil ou un autre avec le même compte de la boutique ? Touchez <b>Restaurer les achats</b> sous le bouton de déverrouillage.</p>
         <p>La commande vocale atteint votre récepteur <em>via</em> Domotique, par l'intermédiaire de votre hub. AVR Maestro n'a pas sa propre reconnaissance vocale.</p>
       </div>
@@ -484,9 +493,10 @@
     </div>
     <details open><summary>Mon téléphone doit-il être allumé pour que la commande vocale fonctionne ?</summary><div class="body">Non. AVR Maestro compile vos scènes en scripts Home Assistant natifs. Home Assistant parle directement au récepteur sur votre réseau local, donc votre téléphone peut être éteint, en veille ou dans un autre pays.</div></details>
     <details><summary>Quels assistants vocaux peuvent commander mon récepteur ?</summary><div class="body">Celui que vous utilisez déjà. AVR Maestro n'ajoute pas sa propre couche vocale - il publie des scripts vers Home Assistant ou Hubitat, qui sont exposés à Alexa, Google Assistant ou aux Raccourcis Siri par la box domotique en laquelle vous avez déjà confiance.</div></details>
-    <details><summary>L'assistant IA fait-il partie du déverrouillage payant ?</summary><div class="body">Non. L'assistant IA embarqué est gratuit. Domotique - Home Assistant, Hubitat et webhooks sortants - est le seul déverrouillage payant d'AVR Maestro.</div></details>
+    <details><summary>L'assistant IA fait-il partie du déverrouillage payant ?</summary><div class="body">Non. L'assistant IA intégré à l'appareil est gratuit. La Domotique - Home Assistant, Hubitat, webhooks sortants et Multi AVR Scenes - est le seul déblocage payant d'AVR Maestro.</div></details>
     <details><summary>Quelque chose quitte-t-il mon réseau domestique ?</summary><div class="body">Pas pour le contrôle. L'application communique avec votre récepteur et votre hub sur votre propre réseau. Rien ne transite par un serveur MiyaraHub. Un webhook va où vous le dirigez, et c'est votre choix.</div></details>
     <details><summary>Domotique achetée sur un autre appareil, ou application réinstallée ?</summary><div class="body">Ouvrez <i>Réglages &rsaquo; Domotique (Pro)</i> et touchez <b>Restaurer les achats</b> sous le bouton de déverrouillage. Si vous avez déjà acheté le déverrouillage avec le même compte de la boutique, il revient sans repayer.</div></details>
+    <details><summary>Où sont conservés mes jetons Home Assistant et Hubitat ?</summary><div class="body">Dans le stockage sécurisé de votre appareil : le Keystore sur Android et le Keychain sur iPhone, iPad et Mac, pas dans les réglages habituels de l'application. Réinitialiser les données de l'application les efface aussi, et Android ne copie pas les données de l'application dans une sauvegarde Google Drive. Si vous saisissez une adresse de hub ou de webhook qui se trouve sur internet et commence par http://, l'application vous avertit que votre jeton et vos données traverseraient internet sans chiffrement, et suggère https://. Les adresses de votre propre réseau n'affichent jamais cet avertissement.</div></details>
   </div>
 </section>
 

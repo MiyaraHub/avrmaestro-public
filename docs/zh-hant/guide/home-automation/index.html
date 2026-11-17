@@ -134,7 +134,7 @@
       "description": "將 AVR Maestro 連結至 Home Assistant 或 Hubitat，您的場景就會變成不需手機也能執行的原生腳本。支援語音控制、即時狀態與 Webhook。",
       "image": "https://avrmaestro.com/screenshots/home-assistant.webp",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -180,7 +180,7 @@
       "name": "AI 助理屬於付費解鎖的一部分嗎？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "不是。裝置端 AI 助理是免費的。居家自動化（Home Assistant、Hubitat 與對外 Webhook）是 AVR Maestro 中唯一的付費解鎖項目。"
+        "text": "不需要。裝置端 AI 助理是免費的。居家自動化（Home Assistant、Hubitat、對外 Webhook 和 Multi AVR Scene）是 AVR Maestro 中唯一的付費解鎖項目。"
       }
     },
     {
@@ -197,6 +197,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "開啟「設定」›「居家自動化（進階版）」，然後點選解鎖按鈕下方的「還原購買項目」。如果您先前以同一個商店帳號購買過解鎖，無需重新付費即可恢復。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "我的 Home Assistant 和 Hubitat 權杖存放在哪裡？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "存放在您裝置的安全儲存空間：Android 上是 Keystore，iPhone、iPad 與 Mac 上是 Keychain，而不是應用程式的一般設定。重設應用程式資料也會清除它們，而且 Android 不會把應用程式的資料複製到 Google Drive 備份。如果您輸入位於網際網路上且以 http:// 開頭的中樞或 webhook 位址，應用程式會警告您的權杖與資料將未加密地經過網際網路，並建議使用 https://。您自己網路內的位址則永遠不會顯示警告。"
       }
     }
   ]
@@ -337,11 +345,11 @@
 
     <div class="lockrow" style="margin-top:28px">
       <div>
-        <div class="eyebrow">如果您曾用舊版同步過</div>
-        <h2>您的腳本 ID 會變動一次</h2>
-        <p>腳本過去是以場景<em>與</em>接收器命名，因此重新命名其中任何一個，都會留下舊腳本，並悄悄產生第二個。現在改以場景與接收器的 MAC 位址命名，這樣重新命名時才會更新同一個腳本，而不是產生分支。</p>
-        <p>這項變更之後的第一次同步，會以新腳本取代舊腳本。<b>任何建立在舊 ID 上的內容都需要重新指向一次</b>，例如儀表板按鈕、自動化或語音別名。請在 Home Assistant 中開啟該腳本，找出它的新實體 ID。</p>
-        <p>實體現在也會依接收器命名，例如 <code>cinema30</code>，而不是三十二個字元的機器識別碼，所以清單清楚易讀，自動完成也找得到它們。早期版本的 ID 仍可繼續使用。</p>
+        <div class="eyebrow">腳本與實體 ID</div>
+        <h2>重新命名後依然有效的名稱</h2>
+        <p>腳本以場景與接收器的 MAC 位址命名，因此重新命名場景或接收器時，會更新原有腳本，而不是產生第二個。</p>
+        <p>如果儀表板按鈕、自動化或語音別名呼叫的是僅以場景和接收器命名的腳本，下次同步會將該腳本取代為以 MAC 位址命名的腳本。<b>只需重新指向一次</b>：在 Home Assistant 中開啟該腳本，找到其目前的 entity ID 並改用它。</p>
+        <p>從接收器讀取的實體 - 以 <code>cinema30</code> 取代 32 個字元的機器識別碼 - 讓清單清楚易讀，自動完成也能找到它們。自動化已在使用的 entity ID 仍然有效。</p>
       </div>
     </div>
   </div>
@@ -468,7 +476,8 @@
       <div>
         <div class="eyebrow">哪些要付費，哪些不用</div>
         <h2>居家自動化是唯一的解鎖項目。AI 助理是免費的。</h2>
-        <p><b>居家自動化（Pro）</b>，包含 Home Assistant、Hubitat 與對外 Webhook，是一次性解鎖。AVR Maestro 中的其他一切，包括裝置端 AI 助理，都已包含在應用程式內。</p>
+        <p><b>居家自動化（Pro）</b>（Home Assistant、Hubitat、對外 Webhook 和 Multi AVR Scene）是一次性解鎖。AVR Maestro 的其餘所有功能，包括裝置端 AI 助理，都已包含在應用程式中。</p>
+        <p><a href="/zh-hant/guide/scenes/#multi-avr">Multi AVR Scene</a> 一鍵設定兩台或更多接收器，每台都有各自的場景。單台接收器的場景仍然免費。</p>
         <p>已經購買過了，無論是在這台裝置或使用同一個商店帳號的另一台裝置？請點選解鎖按鈕下方的<b>還原購買項目</b>。</p>
         <p>語音控制是<em>透過</em>居家自動化，經由您的中樞來控制接收器。AVR Maestro 本身不執行語音辨識。</p>
       </div>
@@ -484,9 +493,10 @@
     </div>
     <details open><summary>語音控制時，我的手機需要開著嗎？</summary><div class="body">不需要。AVR Maestro 會將您的場景編譯成原生的 Home Assistant 腳本。Home Assistant 直接透過您的區域網路與接收器通訊，所以您的手機可以關機、休眠，甚至身在另一個國家。</div></details>
     <details><summary>哪些語音助理可以控制我的接收器？</summary><div class="body">您原本在用的那個都可以。AVR Maestro 不會自行加入語音層，它只是把腳本發布到 Home Assistant 或 Hubitat，再由您信任的中樞開放給 Alexa、Google Assistant 或 Siri 捷徑使用。</div></details>
-    <details><summary>AI 助理屬於付費解鎖的一部分嗎？</summary><div class="body">不是。裝置端 AI 助理是免費的。居家自動化（Home Assistant、Hubitat 與對外 Webhook）是 AVR Maestro 中唯一的付費解鎖項目。</div></details>
+    <details><summary>AI 助理屬於付費解鎖的一部分嗎？</summary><div class="body">不需要。裝置端 AI 助理是免費的。居家自動化（Home Assistant、Hubitat、對外 Webhook 和 Multi AVR Scene）是 AVR Maestro 中唯一的付費解鎖項目。</div></details>
     <details><summary>有任何資料會離開我的家用網路嗎？</summary><div class="body">控制用途不會。應用程式透過您自己的網路與接收器及中樞通訊，沒有任何內容經過 MiyaraHub 的伺服器。Webhook 會送到您指定的地方，這由您決定。</div></details>
     <details><summary>在另一台裝置上購買了居家自動化，或重新安裝了應用程式？</summary><div class="body">開啟<i>設定 &rsaquo; 居家自動化（進階版）</i>，然後點選解鎖按鈕下方的<b>還原購買項目</b>。如果您先前以同一個商店帳號購買過解鎖，無需重新付費即可恢復。</div></details>
+    <details><summary>我的 Home Assistant 和 Hubitat 權杖存放在哪裡？</summary><div class="body">存放在您裝置的安全儲存空間：Android 上是 Keystore，iPhone、iPad 與 Mac 上是 Keychain，而不是應用程式的一般設定。重設應用程式資料也會清除它們，而且 Android 不會把應用程式的資料複製到 Google Drive 備份。如果您輸入位於網際網路上且以 http:// 開頭的中樞或 webhook 位址，應用程式會警告您的權杖與資料將未加密地經過網際網路，並建議使用 https://。您自己網路內的位址則永遠不會顯示警告。</div></details>
   </div>
 </section>
 

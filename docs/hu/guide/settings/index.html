@@ -134,7 +134,7 @@
       "description": "Az AVR Maestro Beállítások minden szakasza: Készülékek kezelése, Megjelenés (téma, Színtéma, méretek, nyelv), Elrendezés, Bővítmények, Súgó, Mentés és Névjegy.",
       "image": "https://avrmaestro.com/screenshots/settings-tjmode.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -164,7 +164,7 @@
       "name": "Hová tűnt a Beállítások › Eszközök és a Beállítások › Audió?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Az 5.3.0-s verzió óta mindkettő készülékenként él. Nyisd meg a Beállítások › Készülékek kezelése oldalt, és koppints a készülékedre: az oldalán megtalálod az Audió szakaszt (hangerőlépés, hangerőkijelzés, hangerő-előbeállítások, eszköz hangerőgombjai és Hangerő-vezérlők), a Képernyő és zárak, A készülékről szakaszt, valamint az Átnevezés, IP módosítása, Készülékem keresése és Törlés műveleteket."
+        "text": "Mindkettő készülékenként él. Nyisd meg a Beállítások › Készülékek kezelése oldalt, és koppints a készülékedre: az oldalán megtalálod az Audió szakaszt (hangerőlépés, hangerőkijelzés, hangerő-előbeállítások, eszköz hangerőgombjai és Hangerő-vezérlők), a Képernyő és zárak, A készülékről szakaszt, valamint az Átnevezés, IP módosítása, Készülékem keresése és Törlés műveleteket."
       }
     },
     {
@@ -213,6 +213,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Nyisd meg a Beállítások › Az AVR Maestro névjegye oldalt, és koppints hétszer a verziószámra. A hibakereső menü ezután elérhető marad, amíg el nem távolítod a Hibakereső menü eltávolítása paranccsal. Támogatáshoz készült; naplók küldéséhez használd az Összes releváns napló gombot ugyanazon az oldalon."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Gyűjt az AVR Maestro analitikai adatokat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Csak ha beleegyezel. Az első indítás után az alkalmazás egyszer rákérdez, és csak az Analitika megosztása kapcsolja be a használati analitikát; a Köszönöm, nem kikapcsolva tartja. Bármikor megváltoztathatod a Beállítások › AVR Maestro névjegye › Jogi menüben, ahol az Összeomlás-jelentés kapcsoló is van. Az összeomlás-jelentésekben az IP-címek, a MAC-címek és a sorozatszámok el vannak takarva, az exportált naplók pedig elrejtik őket, hacsak nem választod, hogy szerepeljenek."
       }
     }
   ]
@@ -355,7 +363,7 @@
     <ul class="plain">
       <li><b>Mentés és visszaállítás:</b> exportálj minden appbeállítást fájlba, vagy állítsd vissza mentésből. <a href="/hu/guide/backup/">Mentési útmutató &rarr;</a></li>
       <li><b>AVR Maestro értékelése:</b> megnyitja az áruházi oldalt, hogy értékelést adhass.</li>
-      <li><b>Az AVR Maestro névjegye:</b> verzióinformáció, támogatás és licencek. Itt találod a <b>Discord közösséget</b>, a <b>Facebook támogatói csoportot</b> és az <b>Összes releváns naplót</b>, amely összegyűjti a naplókat, amelyekre szükségünk van, ha valami rosszul működik.</li>
+      <li><b>Az AVR Maestro névjegye:</b> verzióadatok, támogatás és licencek. Itt találod a <b>Discord közösséget</b>, a <b>Facebook támogatói csoportot</b> és a <b>Minden releváns naplót</b>, amely összegyűjti a hibás működéskor szükséges naplókat. A <b>Jogi</b> szakasz tartalmazza az analitika és az összeomlás-jelentés kapcsolóit (lásd lentebb az <a href="#privacy">Adatvédelem</a> részt).</li>
       <li><b>Továbbiak a MiyaraHubtól:</b> megnyitja a MiyaraHub oldalát az eszközöd áruházában, a többi házimozi-appunkkal.</li>
     </ul>
   </div>
@@ -374,19 +382,41 @@
   </div>
 </section>
 
+<section id="privacy">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Beállítások &rsaquo; Névjegy &rsaquo; Jogi</div>
+      <h2>Adatvédelem: analitika, összeomlás-jelentések és naplók</h2>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="A Névjegy és a Jogi információk a Beállításokban, a Share usage analytics kapcsolóval kikapcsolva és a Crash Reporting kapcsolóval bekapcsolva" srcset="/screenshots/settings-legal-662.webp 662w, /screenshots/settings-legal.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/settings-legal.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Az analitika opt-in.</b> Az első indítás után az alkalmazás egyszer megkérdezi: <i>Segítesz fejleszteni az AVR Maestro alkalmazást?</i>, a <b>Analitika megosztása</b> és a <b>Köszönöm, nem</b> lehetőséggel. Semmi nem megy el, hacsak nem mondasz igent. A használati események egy ehhez a telepítéshez készült véletlenszerű azonosítóhoz kapcsolódnak, és nem tartalmaznak vevőkészülék-neveket vagy -címeket. A válaszodat bármikor megváltoztathatod a <b>Használati analitika megosztása</b> kapcsolóval a Névjegy &rsaquo; Jogi alatt. Egy másik eszközön történő biztonsági mentés visszaállításakor újra rákérdez.</li>
+          <li><b>Az összeomlás-jelentéseknek saját kapcsolójuk van.</b> Az <b>Összeomlás-jelentés</b> az Névjegy &rsaquo; Jogi alatt található. Ha ki van kapcsolva, semmi nem megy el, és a korábbi munkamenetekből mentett jelentéseket eldobja, ahelyett hogy később elküldené.</li>
+          <li><b>Az összeomlás-jelentések nem viszik magukkal a hálózati adataidat.</b> Mielőtt egy jelentés elhagyja a készüléket, az IP-címek, a MAC-címek, a sorozatszámok és a gépnevek el vannak takarva a hibában és a részleteiben.</li>
+          <li><b>A naplók rákérdeznek, mielőtt a vevőkészüléked adatait tartalmaznák.</b> A <b>Minden releváns napló</b> először elmagyarázza, mit tartalmaz a csomag, és hová küldi az E-mail. A vevőkészülék címe, MAC-címe és sorozatszáma rejtve marad, hacsak nem jelölöd be: <i>A vevőkészülékem címének, MAC-címének és sorozatszámának belefoglalása, hogy az ügyfélszolgálat megtalálja a hibát</i>.</li>
+          <li><b>A hubtokenek biztonságos tárolóban maradnak.</b> A Home Assistant és a Hubitat tokenjei Androidon a Keystore-ban, Apple-eszközökön a Keychainben vannak, nem az alkalmazás szokásos beállításai között. Lásd: <a href="/hu/guide/home-automation/">Otthon-automatizálás</a>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Gyakori kérdések</div>
       <h2>Beállítások GYIK</h2>
     </div>
-    <details open><summary>Hová tűnt a Beállítások &rsaquo; Eszközök és a Beállítások &rsaquo; Audió?</summary><div class="body">Az 5.3.0-s verzió óta mindkettő készülékenként él. Nyisd meg a Beállítások &rsaquo; Készülékek kezelése oldalt, és koppints a készülékedre: az oldalán megtalálod az Audió szakaszt (hangerőlépés, hangerőkijelzés, hangerő-előbeállítások, eszköz hangerőgombjai és Hangerő-vezérlők), a Képernyő és zárak, A készülékről szakaszt, valamint az Átnevezés, IP módosítása, Készülékem keresése és Törlés műveleteket.</div></details>
+    <details open><summary>Hová tűnt a Beállítások &rsaquo; Eszközök és a Beállítások &rsaquo; Audió?</summary><div class="body">Mindkettő készülékenként él. Nyisd meg a Beállítások &rsaquo; Készülékek kezelése oldalt, és koppints a készülékedre: az oldalán megtalálod az Audió szakaszt (hangerőlépés, hangerőkijelzés, hangerő-előbeállítások, eszköz hangerőgombjai és Hangerő-vezérlők), a Képernyő és zárak, A készülékről szakaszt, valamint az Átnevezés, IP módosítása, Készülékem keresése és Törlés műveleteket.</div></details>
     <details><summary>Módosíthatom az alkalmazás témáját és színeit?</summary><div class="body">Igen. A Beállítások &rsaquo; Megjelenés menüben a Téma Világos, Sötét vagy AMOLED (valódi fekete), a TJ Mode: Kiemelőszín pedig Márka vagy Színtéma. A Színtéma lehetővé teszi bármilyen kiemelőszín kiválasztását a választóból, vagy egy hexadecimális kód, például #FF8C00, illetve annak háromkarakteres rövidítése begépelésével. Az alkalmazás számára olvashatatlan kódot indoklással elutasítja, a majdnem fekete színt pedig azért utasítja el, mert nem látszana az AMOLED témán.</div></details>
     <details><summary>A telefonom hangerőgombjai vezérlik a készüléket?</summary><div class="body">Igen, Androidon, valamint iPhone-on és iPaden. Amíg az app nyitva van, az eszköz hangerőgombjai a készülék hangerejét változtatják. Alapértelmezetten be van kapcsolva, és készülékenként állítható: Beállítások &rsaquo; Készülékek kezelése &rsaquo; a te készüléked &rsaquo; Audió &rsaquo; Eszköz hangerőgombjai.</div></details>
     <details><summary>Hogyan hozom vissza az elvetett magyarázókártyát?</summary><div class="body">Nyisd meg a Beállítások &rsaquo; Súgó oldalt. Az Elvetett kártyák visszaállítása listázza az összes hosszan megnyomással elvetett kártyát; koppints a Visszaállítás gombra az egyiknél, vagy az Összes visszaállítása gombra. A Magyarázókártyák megjelenítése egyszerre kapcsolja ki vagy be mindet.</div></details>
     <details><summary>Hogyan látom újra az üdvözlő útmutatót?</summary><div class="body">Nyisd meg a Beállítások &rsaquo; Súgó &rsaquo; Üdvözlő és beállítási útmutató oldalt. Újrajátssza a bevezetőt és a hálózati beállítási tippeket. Az App kézikönyve ugyanabban a szakaszban ezt az online útmutatót nyitja meg.</div></details>
     <details><summary>Készíthetek biztonsági mentést a beállításaimról?</summary><div class="body">Igen. A Beállítások &rsaquo; Mentés és visszaállítás minden appbeállítást fájlba exportál, és mentésből visszaállít. Lásd a Mentés és visszaállítás útmutatót, hogy mit tartalmaz a fájl.</div></details>
     <details><summary>Hogyan nyitom meg a rejtett hibakereső menüt?</summary><div class="body">Nyisd meg a Beállítások &rsaquo; Az AVR Maestro névjegye oldalt, és koppints hétszer a verziószámra. A hibakereső menü ezután elérhető marad, amíg el nem távolítod a Hibakereső menü eltávolítása paranccsal. Támogatáshoz készült; naplók küldéséhez használd az Összes releváns napló gombot ugyanazon az oldalon.</div></details>
+    <details><summary>Gyűjt az AVR Maestro analitikai adatokat?</summary><div class="body">Csak ha beleegyezel. Az első indítás után az alkalmazás egyszer rákérdez, és csak az Analitika megosztása kapcsolja be a használati analitikát; a Köszönöm, nem kikapcsolva tartja. Bármikor megváltoztathatod a Beállítások &rsaquo; AVR Maestro névjegye &rsaquo; Jogi menüben, ahol az Összeomlás-jelentés kapcsoló is van. Az összeomlás-jelentésekben az IP-címek, a MAC-címek és a sorozatszámok el vannak takarva, az exportált naplók pedig elrejtik őket, hacsak nem választod, hogy szerepeljenek.</div></details>
   </div>
 </section>
 

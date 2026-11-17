@@ -134,7 +134,7 @@
       "description": "Jeder Bereich der AVR-Maestro-Einstellungen: Receiver verwalten, Darstellung (Design, Farbthema, Größen, Sprache), Layout, Zusatzfunktionen, Hilfe, Sicherung und Info.",
       "image": "https://avrmaestro.com/screenshots/settings-tjmode.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -164,7 +164,7 @@
       "name": "Wohin sind Einstellungen › Geräte und Einstellungen › Audio verschwunden?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Seit Version 5.3.0 gehören beide zu den einzelnen Receivern. Öffnen Sie Einstellungen › Receiver verwalten und tippen Sie auf Ihren Receiver: Seine Seite hat den Bereich Audio (Lautstärkeschritt, Lautstärkeanzeige, Lautstärke-Presets, Lautstärketasten des Geräts und Lautstärkeregler), Bildschirm & Sperren, Über diesen Receiver sowie Umbenennen, IP ändern, Meinen Receiver finden und Löschen."
+        "text": "Beide gehören zu den einzelnen Receivern. Öffnen Sie Einstellungen › Receiver verwalten und tippen Sie auf Ihren Receiver: Seine Seite hat den Bereich Audio (Lautstärkeschritt, Lautstärkeanzeige, Lautstärke-Presets, Lautstärketasten des Geräts und Lautstärkeregler), Bildschirm & Sperren, Über diesen Receiver sowie Umbenennen, IP ändern, Meinen Receiver finden und Löschen."
       }
     },
     {
@@ -213,6 +213,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Öffnen Sie Einstellungen › Über AVR Maestro und tippen Sie siebenmal auf die Versionsnummer. Das Debug-Menü bleibt dann verfügbar, bis Sie es mit Debug-Menü entfernen löschen. Es ist für den Support gedacht; um uns Protokolle zu senden, nutzen Sie Alle relevanten Protokolle auf derselben Seite."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Erhebt AVR Maestro Analysedaten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nur wenn Sie zustimmen. Nach dem ersten Start fragt die App einmal nach, und nur Analysen teilen schaltet die Nutzungsanalyse ein; Nein danke lässt sie aus. Sie können das jederzeit unter Einstellungen › Über AVR Maestro › Rechtliches ändern, wo auch der Schalter Absturzberichte sitzt. In Absturzberichten sind IP-Adressen, MAC-Adressen und Seriennummern maskiert, und exportierte Protokolle verbergen sie, sofern Sie sie nicht einschließen."
       }
     }
   ]
@@ -355,7 +363,7 @@
     <ul class="plain">
       <li><b>Sichern &amp; Wiederherstellen:</b> exportiert jede App-Einstellung in eine Datei oder stellt aus einer Sicherung wieder her. <a href="/de/guide/backup/">Sicherungsanleitung &rarr;</a></li>
       <li><b>AVR Maestro bewerten:</b> öffnet den Store-Eintrag, damit Sie eine Bewertung abgeben können.</li>
-      <li><b>Über AVR Maestro:</b> Versionsinformationen, Support und Lizenzen. Hier finden Sie die <b>Discord-Community</b>, die <b>Facebook-Supportgruppe</b> und <b>Alle relevanten Protokolle</b>, die die Protokolle sammelt, die wir brauchen, wenn etwas nicht richtig funktioniert.</li>
+      <li><b>Über AVR Maestro:</b> Versionsinformationen, Support und Lizenzen. Hier finden Sie die <b>Discord-Community</b>, die <b>Facebook-Support-Gruppe</b> und <b>Alle relevanten Protokolle</b>, das die Protokolle sammelt, die wir brauchen, wenn etwas nicht richtig funktioniert. Der Abschnitt <b>Rechtliches</b> enthält die Schalter für Analysen und Absturzberichte (siehe <a href="#privacy">Datenschutz</a> weiter unten).</li>
       <li><b>Mehr von MiyaraHub:</b> öffnet die MiyaraHub-Seite im Store Ihres Geräts mit unseren anderen Heimkino-Apps.</li>
     </ul>
   </div>
@@ -374,19 +382,41 @@
   </div>
 </section>
 
+<section id="privacy">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Einstellungen &rsaquo; Über &rsaquo; Rechtliches</div>
+      <h2>Datenschutz: Analysen, Absturzberichte und Protokolle</h2>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="Über und Rechtliche Hinweise in den Einstellungen, mit ausgeschaltetem Schalter Share usage analytics und eingeschaltetem Schalter Crash Reporting" srcset="/screenshots/settings-legal-662.webp 662w, /screenshots/settings-legal.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/settings-legal.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Analysen sind freiwillig.</b> Nach dem ersten Start fragt die App einmal: <i>AVR Maestro verbessern helfen?</i>, mit <b>Analysen teilen</b> und <b>Nein danke</b>. Ohne Ihr Ja wird nichts gesendet. Nutzungsereignisse sind mit einer zufälligen, für diese Installation erzeugten ID verknüpft und enthalten keine Receiver-Namen oder Adressen. Ändern Sie Ihre Antwort jederzeit mit <b>Nutzungsanalysen teilen</b> unter Über &rsaquo; Rechtliches. Das Wiederherstellen eines Backups auf einem anderen Gerät fragt erneut nach.</li>
+          <li><b>Absturzberichte haben einen eigenen Schalter.</b> <b>Absturzberichte</b> finden Sie unter Über &rsaquo; Rechtliches. Ist er aus, wird nichts gesendet, und aus früheren Sitzungen gespeicherte Berichte werden verworfen, statt später gesendet zu werden.</li>
+          <li><b>Absturzberichte lassen Ihre Netzwerkdaten zurück.</b> Bevor ein Bericht das Gerät verlässt, werden IP-Adressen, MAC-Adressen, Seriennummern und Hostnamen im Fehler und seinen Details maskiert.</li>
+          <li><b>Protokolle fragen nach, bevor sie die Daten Ihres Receivers enthalten.</b> <b>Alle relevanten Protokolle</b> erklärt zuerst, was das Paket enthält und wohin E-Mail es sendet. Adresse, MAC-Adresse und Seriennummer Ihres Receivers bleiben verborgen, sofern Sie nicht <i>Adresse, MAC-Adresse und Seriennummer meines Receivers einschließen, damit der Support das Problem finden kann</i> anhaken.</li>
+          <li><b>Hub-Token bleiben im sicheren Speicher.</b> Home-Assistant- und Hubitat-Token werden im Keystore unter Android und in der Keychain auf Apple-Geräten gespeichert, nicht bei den gewöhnlichen Einstellungen der App. Siehe <a href="/de/guide/home-automation/">Hausautomation</a>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Häufige Fragen</div>
       <h2>Häufige Fragen zu den Einstellungen</h2>
     </div>
-    <details open><summary>Wohin sind Einstellungen &rsaquo; Geräte und Einstellungen &rsaquo; Audio verschwunden?</summary><div class="body">Seit Version 5.3.0 gehören beide zu den einzelnen Receivern. Öffnen Sie Einstellungen &rsaquo; Receiver verwalten und tippen Sie auf Ihren Receiver: Seine Seite hat den Bereich Audio (Lautstärkeschritt, Lautstärkeanzeige, Lautstärke-Presets, Lautstärketasten des Geräts und Lautstärkeregler), Bildschirm &amp; Sperren, Über diesen Receiver sowie Umbenennen, IP ändern, Meinen Receiver finden und Löschen.</div></details>
+    <details open><summary>Wohin sind Einstellungen &rsaquo; Geräte und Einstellungen &rsaquo; Audio verschwunden?</summary><div class="body">Beide gehören zu den einzelnen Receivern. Öffnen Sie Einstellungen &rsaquo; Receiver verwalten und tippen Sie auf Ihren Receiver: Seine Seite hat den Bereich Audio (Lautstärkeschritt, Lautstärkeanzeige, Lautstärke-Presets, Lautstärketasten des Geräts und Lautstärkeregler), Bildschirm &amp; Sperren, Über diesen Receiver sowie Umbenennen, IP ändern, Meinen Receiver finden und Löschen.</div></details>
     <details><summary>Kann ich das Design und die Farben der App ändern?</summary><div class="body">Ja. Unter Einstellungen &rsaquo; Darstellung ist das Design Hell, Dunkel oder AMOLED (echtes Schwarz), und TJ-Modus: Akzentfarbe ist Marke oder Farbthema. Mit Farbthema wählen Sie jede Akzentfarbe in der Farbauswahl oder geben einen Hex-Code wie #FF8C00 oder seine dreistellige Kurzform ein. Ein Code, den die App nicht lesen kann, wird mit Begründung abgelehnt, und eine fast schwarze Farbe wird abgelehnt, weil sie im AMOLED-Design nicht zu sehen wäre.</div></details>
     <details><summary>Steuern die Lautstärketasten meines Smartphones den Receiver?</summary><div class="body">Ja, unter Android sowie auf iPhone und iPad. Solange die App geöffnet ist, ändern die Lautstärketasten des Geräts die Lautstärke des Receivers. Das ist standardmäßig an und gilt pro Receiver: Einstellungen &rsaquo; Receiver verwalten &rsaquo; Ihr Receiver &rsaquo; Audio &rsaquo; Lautstärketasten des Geräts.</div></details>
     <details><summary>Wie hole ich eine ausgeblendete Erklärkarte zurück?</summary><div class="body">Öffnen Sie Einstellungen &rsaquo; Hilfe. Ausgeblendete Karten wiederherstellen listet jede Karte auf, die Sie per langem Drücken entfernt haben; tippen Sie bei einer auf Wiederherstellen oder auf Alle wiederherstellen. Erklärkarten anzeigen schaltet alle auf einmal aus oder ein.</div></details>
     <details><summary>Wie sehe ich die Willkommensanleitung erneut?</summary><div class="body">Öffnen Sie Einstellungen &rsaquo; Hilfe &rsaquo; Willkommen &amp; Einrichtungsanleitung. Sie spielt das Intro und die Tipps zur Netzwerkeinrichtung erneut ab. App-Handbuch im selben Bereich öffnet diese Online-Anleitung.</div></details>
     <details><summary>Kann ich mein Setup sichern?</summary><div class="body">Ja. Einstellungen &rsaquo; Sichern &amp; Wiederherstellen exportiert jede App-Einstellung in eine Datei und stellt aus einer Sicherung wieder her. Was die Datei enthält, steht in der Anleitung Sichern &amp; Wiederherstellen.</div></details>
     <details><summary>Wie öffne ich das versteckte Debug-Menü?</summary><div class="body">Öffnen Sie Einstellungen &rsaquo; Über AVR Maestro und tippen Sie siebenmal auf die Versionsnummer. Das Debug-Menü bleibt dann verfügbar, bis Sie es mit Debug-Menü entfernen löschen. Es ist für den Support gedacht; um uns Protokolle zu senden, nutzen Sie Alle relevanten Protokolle auf derselben Seite.</div></details>
+    <details><summary>Erhebt AVR Maestro Analysedaten?</summary><div class="body">Nur wenn Sie zustimmen. Nach dem ersten Start fragt die App einmal nach, und nur Analysen teilen schaltet die Nutzungsanalyse ein; Nein danke lässt sie aus. Sie können das jederzeit unter Einstellungen &rsaquo; Über AVR Maestro &rsaquo; Rechtliches ändern, wo auch der Schalter Absturzberichte sitzt. In Absturzberichten sind IP-Adressen, MAC-Adressen und Seriennummern maskiert, und exportierte Protokolle verbergen sie, sofern Sie sie nicht einschließen.</div></details>
   </div>
 </section>
 

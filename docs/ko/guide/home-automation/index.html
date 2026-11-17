@@ -134,7 +134,7 @@
       "description": "AVR Maestro를 Home Assistant 또는 Hubitat에 연결하면 내 장면이 휴대폰 없이 실행되는 네이티브 스크립트가 됩니다. 음성 제어, 실시간 상태, 웹훅까지.",
       "image": "https://avrmaestro.com/screenshots/home-assistant.webp",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -180,7 +180,7 @@
       "name": "AI 어시스턴트도 유료 잠금 해제에 포함되나요?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "아니요. 기기 내 AI 어시스턴트는 무료입니다. 홈 오토메이션(Home Assistant, Hubitat, 아웃바운드 웹훅)이 AVR Maestro에서 유일한 유료 잠금 해제 항목입니다."
+        "text": "아니요. 기기 내 AI 어시스턴트는 무료입니다. 홈 오토메이션(Home Assistant, Hubitat, 아웃바운드 웹훅, Multi AVR Scene)이 AVR Maestro에서 유일한 유료 잠금 해제입니다."
       }
     },
     {
@@ -197,6 +197,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "설정 › 홈 오토메이션 (Pro)을 열고 잠금 해제 버튼 아래의 구매 복원을 탭하세요. 같은 스토어 계정으로 이전에 잠금 해제를 구매했다면 다시 결제하지 않고 복구됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Home Assistant와 Hubitat 토큰은 어디에 보관되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "기기의 보안 저장소에 저장됩니다. Android에서는 Keystore, iPhone, iPad, Mac에서는 Keychain이며, 앱의 일반 설정에는 저장되지 않습니다. 앱 데이터 초기화를 하면 이 값도 지워지고, Android는 앱 데이터를 Google Drive 백업에 복사하지 않습니다. 인터넷에 있으면서 http://로 시작하는 허브 또는 웹훅 주소를 입력하면, 토큰과 데이터가 암호화되지 않은 채 인터넷을 지나간다고 앱이 경고하고 https://를 권합니다. 사용 중인 네트워크 안의 주소에는 이 경고가 나타나지 않습니다."
       }
     }
   ]
@@ -337,11 +345,11 @@
 
     <div class="lockrow" style="margin-top:28px">
       <div>
-        <div class="eyebrow">예전 빌드로 동기화했다면</div>
-        <h2>스크립트 ID가 한 번 바뀝니다</h2>
-        <p>예전에는 스크립트 이름이 장면 <em>과</em> 리시버를 따라 지어졌기 때문에, 둘 중 하나의 이름을 바꾸면 예전 스크립트가 남고 조용히 두 번째 스크립트가 만들어졌습니다. 이제는 장면과 리시버의 MAC 주소를 따라 이름을 짓기 때문에, 이름을 바꿔도 스크립트가 갈라지지 않고 같은 스크립트가 업데이트됩니다.</p>
-        <p>이 변경 후 처음 동기화하면 예전 스크립트가 새 스크립트로 교체됩니다. <b>예전 ID를 기반으로 만든 것은 한 번 다시 연결해야 합니다.</b> 대시보드 버튼, 자동화, 음성 별칭 등이 해당됩니다. Home Assistant에서 스크립트를 열면 새 엔티티 ID를 확인할 수 있습니다.</p>
-        <p>엔티티도 이제 32자의 기계 식별자 대신 리시버에서 읽은 <code>cinema30</code>으로 표시되므로, 목록을 알아보기 쉽고 자동 완성에서도 찾을 수 있습니다. 이전 버전의 ID도 계속 작동합니다.</p>
+        <div class="eyebrow">스크립트 및 엔티티 ID</div>
+        <h2>이름을 바꿔도 유지되는 이름</h2>
+        <p>스크립트는 장면과 리시버의 MAC 주소를 따라 이름이 지어지므로, 장면이나 리시버의 이름을 바꿔도 두 번째 스크립트가 만들어지지 않고 같은 스크립트가 업데이트됩니다.</p>
+        <p>대시보드 버튼, 자동화 또는 음성 별칭이 장면과 리시버만으로 이름 지어진 스크립트를 호출하면, 다음 동기화 때 그 스크립트가 MAC 주소로 이름 지어진 스크립트로 바뀝니다. <b>한 번만 다시 연결하세요</b>. Home Assistant에서 스크립트를 열어 현재 엔티티 ID를 확인하고 그것을 사용하면 됩니다.</p>
+        <p>리시버에서 읽어 온 엔티티 - 32자의 기계용 식별자 대신 <code>cinema30</code> - 이므로 목록을 읽기 쉽고 자동 완성도 찾을 수 있습니다. 자동화에서 이미 사용 중인 엔티티 ID는 계속 작동합니다.</p>
       </div>
     </div>
   </div>
@@ -468,7 +476,8 @@
       <div>
         <div class="eyebrow">유료인 것과 아닌 것</div>
         <h2>홈 오토메이션이 유일한 잠금 해제 항목입니다. AI 어시스턴트는 무료입니다.</h2>
-        <p><b>홈 오토메이션(Pro)</b>, 즉 Home Assistant, Hubitat, 아웃바운드 웹훅은 일회성 잠금 해제입니다. 기기 내 AI 어시스턴트를 포함한 AVR Maestro의 나머지 기능은 모두 앱에 포함되어 있습니다.</p>
+        <p><b>홈 오토메이션(Pro)</b>(Home Assistant, Hubitat, 아웃바운드 웹훅, Multi AVR Scene)은 한 번만 결제하는 잠금 해제입니다. 기기 내 AI 어시스턴트를 포함해 AVR Maestro의 나머지 기능은 모두 앱에 포함되어 있습니다.</p>
+        <p><a href="/ko/guide/scenes/#multi-avr">Multi AVR Scene</a>은 두 대 이상의 리시버를 각자의 장면으로 한 번의 탭에 설정합니다. 리시버 한 대용 장면은 계속 무료입니다.</p>
         <p>이 기기 또는 같은 스토어 계정을 쓰는 다른 기기에서 이미 구매하셨나요? 잠금 해제 버튼 아래의 <b>구매 복원</b>을 탭하세요.</p>
         <p>음성 제어는 허브를 거쳐 홈 오토메이션 <em>을 통해</em> 리시버에 도달합니다. AVR Maestro는 자체 음성 인식을 실행하지 않습니다.</p>
       </div>
@@ -484,9 +493,10 @@
     </div>
     <details open><summary>음성 제어가 작동하려면 휴대폰이 켜져 있어야 하나요?</summary><div class="body">아니요. AVR Maestro는 내 장면을 네이티브 Home Assistant 스크립트로 컴파일합니다. Home Assistant가 로컬 네트워크에서 리시버와 직접 통신하므로 휴대폰이 꺼져 있거나, 잠자기 상태이거나, 다른 나라에 있어도 됩니다.</div></details>
     <details><summary>어떤 음성 어시스턴트로 리시버를 제어할 수 있나요?</summary><div class="body">이미 쓰고 계신 것이면 무엇이든 됩니다. AVR Maestro는 자체 음성 계층을 추가하지 않습니다. Home Assistant나 Hubitat에 스크립트를 공개하면, 이미 신뢰하는 허브가 이를 Alexa, Google Assistant 또는 Siri 단축어에 노출합니다.</div></details>
-    <details><summary>AI 어시스턴트도 유료 잠금 해제에 포함되나요?</summary><div class="body">아니요. 기기 내 AI 어시스턴트는 무료입니다. 홈 오토메이션(Home Assistant, Hubitat, 아웃바운드 웹훅)이 AVR Maestro에서 유일한 유료 잠금 해제 항목입니다.</div></details>
+    <details><summary>AI 어시스턴트도 유료 잠금 해제에 포함되나요?</summary><div class="body">아니요. 기기 내 AI 어시스턴트는 무료입니다. 홈 오토메이션(Home Assistant, Hubitat, 아웃바운드 웹훅, Multi AVR Scene)이 AVR Maestro에서 유일한 유료 잠금 해제입니다.</div></details>
     <details><summary>집 네트워크 밖으로 나가는 데이터가 있나요?</summary><div class="body">제어에는 없습니다. 앱은 내 네트워크 안에서 리시버 및 허브와 통신합니다. MiyaraHub 서버를 거치는 것은 없습니다. 웹훅은 지정한 곳으로 전송되며, 그 선택은 사용자의 몫입니다.</div></details>
     <details><summary>다른 기기에서 홈 오토메이션을 구매했거나 앱을 다시 설치하셨나요?</summary><div class="body"><i>설정 &rsaquo; 홈 오토메이션 (Pro)</i>을 열고 잠금 해제 버튼 아래의 <b>구매 복원</b>을 탭하세요. 같은 스토어 계정으로 이전에 잠금 해제를 구매했다면 다시 결제하지 않고 복구됩니다.</div></details>
+    <details><summary>Home Assistant와 Hubitat 토큰은 어디에 보관되나요?</summary><div class="body">기기의 보안 저장소에 저장됩니다. Android에서는 Keystore, iPhone, iPad, Mac에서는 Keychain이며, 앱의 일반 설정에는 저장되지 않습니다. 앱 데이터 초기화를 하면 이 값도 지워지고, Android는 앱 데이터를 Google Drive 백업에 복사하지 않습니다. 인터넷에 있으면서 http://로 시작하는 허브 또는 웹훅 주소를 입력하면, 토큰과 데이터가 암호화되지 않은 채 인터넷을 지나간다고 앱이 경고하고 https://를 권합니다. 사용 중인 네트워크 안의 주소에는 이 경고가 나타나지 않습니다.</div></details>
   </div>
 </section>
 

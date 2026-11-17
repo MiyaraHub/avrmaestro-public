@@ -134,7 +134,7 @@
       "description": "Koppel AVR Maestro aan Home Assistant of Hubitat en je Scènes worden native scripts die zonder je telefoon draaien. Spraakbesturing, live status en webhooks.",
       "image": "https://avrmaestro.com/screenshots/home-assistant.webp",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -180,7 +180,7 @@
       "name": "Valt de AI-assistent onder de betaalde ontgrendeling?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nee. De AI-assistent op het apparaat is gratis. Domotica - Home Assistant, Hubitat en uitgaande webhooks - is de enige betaalde ontgrendeling in AVR Maestro."
+        "text": "Nee. De AI-assistent op het apparaat is gratis. Domotica - Home Assistant, Hubitat, uitgaande webhooks en Multi AVR Scenes - is de enige betaalde ontgrendeling in AVR Maestro."
       }
     },
     {
@@ -197,6 +197,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Open Instellingen › Domotica (Pro) en tik onder de ontgrendelknop op Aankopen herstellen. Als je de ontgrendeling eerder met hetzelfde winkelaccount hebt gekocht, komt die terug zonder opnieuw te betalen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Waar worden mijn Home Assistant- en Hubitat-tokens bewaard?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In de beveiligde opslag van je apparaat: de Keystore op Android en de Keychain op iPhone, iPad en Mac, niet in de gewone instellingen van de app. App-gegevens resetten wist ze ook, en Android kopieert de gegevens van de app niet naar een back-up op Google Drive. Als je een hub- of webhookadres invoert dat op internet staat en met http:// begint, waarschuwt de app dat je token en gegevens onversleuteld over internet zouden gaan, en stelt https:// voor. Adressen op je eigen netwerk tonen de waarschuwing nooit."
       }
     }
   ]
@@ -337,11 +345,11 @@
 
     <div class="lockrow" style="margin-top:28px">
       <div>
-        <div class="eyebrow">Als je met een oudere build hebt gesynchroniseerd</div>
-        <h2>Je script-ID's veranderen één keer</h2>
-        <p>Scripts werden vroeger genoemd naar de scène <em>en</em> de receiver, dus als je een van beide hernoemde, bleef het oude script achter en ontstond er stilletjes een tweede. Nu worden ze genoemd naar de scène en het MAC-adres van de receiver, en daardoor werkt een hernoeming hetzelfde script bij in plaats van er een kopie van te maken.</p>
-        <p>De eerste synchronisatie na die wijziging vervangt de oude scripts door de nieuwe. <b>Alles wat je op de oude ID's hebt gebouwd moet één keer opnieuw worden gericht</b> - een dashboardknop, een automatisering, een spraakalias. Open het script in Home Assistant om de nieuwe entiteits-ID te vinden.</p>
-        <p>Entiteiten lezen nu ook van de receiver - <code>cinema30</code> in plaats van tweeëndertig tekens machine-ID - zodat de lijst leesbaar is en automatisch aanvullen ze vindt. ID's uit eerdere versies blijven werken.</p>
+        <div class="eyebrow">Script- en entiteit-ID's</div>
+        <h2>Namen die een hernoeming overleven</h2>
+        <p>Scripts worden genoemd naar de scène en het MAC-adres van de receiver, dus als je de scène of de receiver hernoemt, wordt hetzelfde script bijgewerkt in plaats van een tweede aan te maken.</p>
+        <p>Als een dashboardknop, een automatisering of een spraakalias een script aanroept dat alleen naar de scène en de receiver is genoemd, vervangt de volgende synchronisatie dat script door het script dat naar het MAC-adres is genoemd. <b>Verwijs het één keer opnieuw</b>: open het script in Home Assistant om de huidige entity-ID te vinden en gebruik die.</p>
+        <p>Entiteiten die van de receiver worden gelezen - <code>cinema30</code> in plaats van tweeëndertig tekens machine-identificatie - zodat de lijst leesbaar blijft en automatisch aanvullen ze vindt. Entity-ID's die je automatiseringen al gebruiken, blijven werken.</p>
       </div>
     </div>
   </div>
@@ -468,7 +476,8 @@
       <div>
         <div class="eyebrow">Wat betaald is en wat niet</div>
         <h2>Domotica is de enige ontgrendeling. De AI-assistent is gratis.</h2>
-        <p><b>Domotica (Pro)</b> - Home Assistant, Hubitat en uitgaande webhooks - is een eenmalige ontgrendeling. Al het andere in AVR Maestro, inclusief de AI-assistent op het apparaat, is in de app inbegrepen.</p>
+        <p><b>Domotica (Pro)</b> - Home Assistant, Hubitat, uitgaande webhooks en Multi AVR Scenes - is een eenmalige ontgrendeling. Al het andere in AVR Maestro, inclusief de AI-assistent op het apparaat, zit in de app.</p>
+        <p>Een <a href="/nl/guide/scenes/#multi-avr">Multi AVR Scene</a> stelt met één tik twee of meer receivers in, elk met een eigen scène. Scènes voor één receiver blijven gratis.</p>
         <p>Al gekocht, op dit apparaat of een ander met hetzelfde winkelaccount? Tik onder de ontgrendelknop op <b>Aankopen herstellen</b>.</p>
         <p>Spraakbesturing bereikt je receiver <em>via</em> Domotica, door middel van je hub. AVR Maestro draait geen eigen spraakherkenning.</p>
       </div>
@@ -484,9 +493,10 @@
     </div>
     <details open><summary>Moet mijn telefoon aan staan om spraakbesturing te laten werken?</summary><div class="body">Nee. AVR Maestro compileert je scènes tot native Home Assistant-scripts. Home Assistant praat rechtstreeks met de receiver op je lokale netwerk, dus je telefoon mag uit staan, slapen of in een ander land zijn.</div></details>
     <details><summary>Welke spraakassistenten kunnen mijn receiver bedienen?</summary><div class="body">Welke je al gebruikt. AVR Maestro voegt geen eigen spraaklaag toe - het publiceert scripts naar Home Assistant of Hubitat, en die worden door de hub die je al vertrouwt beschikbaar gesteld aan Alexa, Google Assistant of Siri Shortcuts.</div></details>
-    <details><summary>Valt de AI-assistent onder de betaalde ontgrendeling?</summary><div class="body">Nee. De AI-assistent op het apparaat is gratis. Domotica - Home Assistant, Hubitat en uitgaande webhooks - is de enige betaalde ontgrendeling in AVR Maestro.</div></details>
+    <details><summary>Valt de AI-assistent onder de betaalde ontgrendeling?</summary><div class="body">Nee. De AI-assistent op het apparaat is gratis. Domotica - Home Assistant, Hubitat, uitgaande webhooks en Multi AVR Scenes - is de enige betaalde ontgrendeling in AVR Maestro.</div></details>
     <details><summary>Verlaat er iets mijn thuisnetwerk?</summary><div class="body">Niet voor de besturing. De app praat met je receiver en met je hub via je eigen netwerk. Er loopt niets via een MiyaraHub-server. Een webhook gaat naar waar jij hem heen wijst, en dat is jouw keuze.</div></details>
     <details><summary>Domotica op een ander apparaat gekocht, of opnieuw geïnstalleerd?</summary><div class="body">Open <i>Instellingen &rsaquo; Domotica (Pro)</i> en tik onder de ontgrendelknop op <b>Aankopen herstellen</b>. Als je de ontgrendeling eerder met hetzelfde winkelaccount hebt gekocht, komt die terug zonder opnieuw te betalen.</div></details>
+    <details><summary>Waar worden mijn Home Assistant- en Hubitat-tokens bewaard?</summary><div class="body">In de beveiligde opslag van je apparaat: de Keystore op Android en de Keychain op iPhone, iPad en Mac, niet in de gewone instellingen van de app. App-gegevens resetten wist ze ook, en Android kopieert de gegevens van de app niet naar een back-up op Google Drive. Als je een hub- of webhookadres invoert dat op internet staat en met http:// begint, waarschuwt de app dat je token en gegevens onversleuteld over internet zouden gaan, en stelt https:// voor. Adressen op je eigen netwerk tonen de waarschuwing nooit.</div></details>
   </div>
 </section>
 

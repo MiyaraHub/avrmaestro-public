@@ -134,7 +134,7 @@
       "description": "Conectați AVR Maestro la Home Assistant sau Hubitat și Scenele dumneavoastră devin scripturi native care rulează fără telefon. Control vocal, stare în timp real și webhooks.",
       "image": "https://avrmaestro.com/screenshots/home-assistant.webp",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -180,7 +180,7 @@
       "name": "Face asistentul AI parte din deblocarea plătită?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nu. Asistentul AI de pe dispozitiv este gratuit. Automatizare Locuință - Home Assistant, Hubitat și webhooks de ieșire - este singura deblocare plătită din AVR Maestro."
+        "text": "Nu. Asistentul AI de pe dispozitiv este gratuit. Automatizarea Locuință - Home Assistant, Hubitat, webhookuri de ieșire și Multi AVR Scenes - este singura deblocare plătită din AVR Maestro."
       }
     },
     {
@@ -197,6 +197,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Deschideți Setări › Automatizare locuință (Pro) și atingeți Restaurează achizițiile, sub butonul de deblocare. Dacă ați cumpărat deblocarea anterior cu același cont de magazin, aceasta revine fără să plătiți din nou."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Unde sunt păstrate tokenurile mele Home Assistant și Hubitat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "În stocarea securizată a dispozitivului dvs.: Keystore pe Android și Keychain pe iPhone, iPad și Mac, nu în setările obișnuite ale aplicației. Resetarea datelor aplicației le șterge și pe acestea, iar Android nu copiază datele aplicației într-o copie de rezervă Google Drive. Dacă introduceți o adresă de hub sau webhook aflată pe internet care începe cu http://, aplicația avertizează că tokenul și datele dvs. ar traversa internetul necriptate și sugerează https://. Adresele din propria rețea nu afișează niciodată avertismentul."
       }
     }
   ]
@@ -337,11 +345,11 @@
 
     <div class="lockrow" style="margin-top:28px">
       <div>
-        <div class="eyebrow">Dacă ați sincronizat cu o versiune mai veche</div>
-        <h2>ID-urile scripturilor se schimbă o singură dată</h2>
-        <p>Scripturile erau denumite după scenă <em>și</em> după receiver, deci redenumirea oricăruia lăsa în urmă scriptul vechi și crea în tăcere un al doilea. Acum sunt denumite după scenă și după adresa MAC a receiverului, ceea ce face ca o redenumire să actualizeze același script în loc să îl dubleze.</p>
-        <p>Prima sincronizare după acea schimbare înlocuiește scripturile vechi cu cele noi. <b>Tot ce ați construit pe ID-urile vechi trebuie reîndreptat o singură dată</b> - un buton din panou, o automatizare, un alias vocal. Deschideți scriptul în Home Assistant pentru a găsi noul său ID de entitate.</p>
-        <p>Entitățile se citesc acum și de la receiver - <code>cinema30</code> în loc de treizeci și două de caractere de identificator de mașină - deci lista este lizibilă, iar completarea automată le găsește. ID-urile din versiunile anterioare continuă să funcționeze.</p>
+        <div class="eyebrow">ID-uri de scripturi și entități</div>
+        <h2>Nume care supraviețuiesc unei redenumiri</h2>
+        <p>Scripturile sunt denumite după scenă și după adresa MAC a receiverului, astfel încât redenumirea scenei sau a receiverului actualizează același script în loc să creeze unul al doilea.</p>
+        <p>Dacă un buton din dashboard, o automatizare sau un alias vocal apelează un script denumit după scenă și receiver, următoarea sincronizare înlocuiește acel script cu cel denumit după adresa MAC. <b>Redirecționați-l o singură dată</b>: deschideți scriptul în Home Assistant, aflați entity ID-ul curent și folosiți-l pe acesta.</p>
+        <p>Entități citite de la receiver - <code>cinema30</code> în loc de treizeci și două de caractere de identificator de mașină - pentru ca lista să fie lizibilă, iar completarea automată să le găsească. Entity ID-urile pe care automatizările le folosesc deja continuă să funcționeze.</p>
       </div>
     </div>
   </div>
@@ -468,7 +476,8 @@
       <div>
         <div class="eyebrow">Ce este plătit și ce nu</div>
         <h2>Automatizare Locuință este singura deblocare. Asistentul AI este gratuit.</h2>
-        <p><b>Automatizare Locuință (Pro)</b> - Home Assistant, Hubitat și webhooks de ieșire - este o deblocare unică. Tot restul din AVR Maestro, inclusiv asistentul AI de pe dispozitiv, este inclus în aplicație.</p>
+        <p><b>Automatizarea Locuință (Pro)</b> - Home Assistant, Hubitat, webhookuri de ieșire și Multi AVR Scenes - este o deblocare unică. Tot restul din AVR Maestro, inclusiv asistentul AI de pe dispozitiv, este inclus în aplicație.</p>
+        <p>O <a href="/ro/guide/scenes/#multi-avr">Multi AVR Scene</a> configurează două sau mai multe receivere dintr-o singură atingere, fiecare cu propria Scenă. Scenele pentru un singur receiver rămân gratuite.</p>
         <p>L-ați cumpărat deja, pe acest dispozitiv sau pe altul cu același cont de magazin? Atingeți <b>Restaurează achizițiile</b>, sub butonul de deblocare.</p>
         <p>Controlul vocal ajunge la receiverul dumneavoastră <em>prin</em> Automatizare Locuință, prin intermediul hubului dumneavoastră. AVR Maestro nu rulează propria recunoaștere vocală.</p>
       </div>
@@ -484,9 +493,10 @@
     </div>
     <details open><summary>Trebuie să fie telefonul meu pornit pentru ca controlul vocal să funcționeze?</summary><div class="body">Nu. AVR Maestro compilează scenele dumneavoastră în scripturi native Home Assistant. Home Assistant comunică direct cu receiverul în rețeaua dumneavoastră locală, deci telefonul poate fi oprit, în repaus sau în altă țară.</div></details>
     <details><summary>Care asistenți vocali pot controla receiverul meu?</summary><div class="body">Oricare dintre cei pe care îi folosiți deja. AVR Maestro nu adaugă propriul strat vocal - publică scripturi în Home Assistant sau Hubitat, iar acestea sunt expuse către Alexa, Google Assistant sau Siri Shortcuts de hubul în care aveți deja încredere.</div></details>
-    <details><summary>Face asistentul AI parte din deblocarea plătită?</summary><div class="body">Nu. Asistentul AI de pe dispozitiv este gratuit. Automatizare Locuință - Home Assistant, Hubitat și webhooks de ieșire - este singura deblocare plătită din AVR Maestro.</div></details>
+    <details><summary>Face asistentul AI parte din deblocarea plătită?</summary><div class="body">Nu. Asistentul AI de pe dispozitiv este gratuit. Automatizarea Locuință - Home Assistant, Hubitat, webhookuri de ieșire și Multi AVR Scenes - este singura deblocare plătită din AVR Maestro.</div></details>
     <details><summary>Părăsește ceva rețeaua mea de acasă?</summary><div class="body">Nu pentru control. Aplicația comunică cu receiverul și cu hubul dumneavoastră prin propria rețea. Nimic nu trece printr-un server MiyaraHub. Un webhook ajunge oriunde îl îndreptați, ceea ce este alegerea dumneavoastră.</div></details>
     <details><summary>Ați cumpărat Automatizarea locuinței pe alt dispozitiv sau ați reinstalat aplicația?</summary><div class="body">Deschideți <i>Setări &rsaquo; Automatizare locuință (Pro)</i> și atingeți <b>Restaurează achizițiile</b>, sub butonul de deblocare. Dacă ați cumpărat deblocarea anterior cu același cont de magazin, aceasta revine fără să plătiți din nou.</div></details>
+    <details><summary>Unde sunt păstrate tokenurile mele Home Assistant și Hubitat?</summary><div class="body">În stocarea securizată a dispozitivului dvs.: Keystore pe Android și Keychain pe iPhone, iPad și Mac, nu în setările obișnuite ale aplicației. Resetarea datelor aplicației le șterge și pe acestea, iar Android nu copiază datele aplicației într-o copie de rezervă Google Drive. Dacă introduceți o adresă de hub sau webhook aflată pe internet care începe cu http://, aplicația avertizează că tokenul și datele dvs. ar traversa internetul necriptate și sugerează https://. Adresele din propria rețea nu afișează niciodată avertismentul.</div></details>
   </div>
 </section>
 

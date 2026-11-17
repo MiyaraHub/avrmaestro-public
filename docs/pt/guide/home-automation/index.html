@@ -134,7 +134,7 @@
       "description": "Associe o AVR Maestro ao Home Assistant ou ao Hubitat e as suas Cenas passam a scripts nativos que funcionam sem o telemóvel. Controlo por voz, estado em direto e webhooks.",
       "image": "https://avrmaestro.com/screenshots/home-assistant.webp",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -180,7 +180,7 @@
       "name": "O assistente AI faz parte do desbloqueio pago?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Não. O assistente AI no dispositivo é gratuito. A Home Automation - Home Assistant, Hubitat e webhooks de saída - é o único desbloqueio pago do AVR Maestro."
+        "text": "Não. O assistente de IA no dispositivo é gratuito. A Automação residencial - Home Assistant, Hubitat, webhooks de saída e Multi AVR Scenes - é o único desbloqueio pago no AVR Maestro."
       }
     },
     {
@@ -197,6 +197,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Abra Definições › Automação residencial (Pro) e toque em Restaurar compras por baixo do botão de desbloqueio. Se já comprou o desbloqueio com a mesma conta da loja, ele regressa sem pagar de novo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Onde ficam guardados os meus tokens do Home Assistant e do Hubitat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No armazenamento seguro do seu dispositivo: o Keystore no Android e o Keychain no iPhone, iPad e Mac, e não nas definições normais da aplicação. Repor os dados da aplicação também os apaga, e o Android não copia os dados da aplicação para uma cópia de segurança no Google Drive. Se introduzir um endereço de hub ou webhook que esteja na internet e comece por http://, a aplicação avisa que o seu token e os seus dados atravessariam a internet sem encriptação e sugere https://. Os endereços na sua própria rede nunca mostram o aviso."
       }
     }
   ]
@@ -337,11 +345,11 @@
 
     <div class="lockrow" style="margin-top:28px">
       <div>
-        <div class="eyebrow">Se sincronizou com uma versão mais antiga</div>
-        <h2>Os IDs dos seus scripts mudam uma vez</h2>
-        <p>Os scripts tinham o nome da cena <em>e</em> do recetor, por isso mudar o nome de qualquer um deixava o script antigo para trás e criava discretamente um segundo. Agora têm o nome da cena e o endereço MAC do recetor, e é isso que faz com que mudar o nome atualize o mesmo script em vez de o duplicar.</p>
-        <p>A primeira sincronização após essa alteração substitui os scripts antigos pelos novos. <b>Tudo o que construiu sobre os IDs antigos tem de ser reapontado uma vez</b> - um botão do painel, uma automatização, um alias de voz. Abra o script no Home Assistant para encontrar o novo ID de entidade.</p>
-        <p>As entidades passam também a ler-se a partir do recetor - <code>cinema30</code> em vez de trinta e dois caracteres de identificador de máquina - por isso a lista é legível e o preenchimento automático encontra-as. Os IDs de versões anteriores continuam a funcionar.</p>
+        <div class="eyebrow">IDs de scripts e entidades</div>
+        <h2>Nomes que sobrevivem a uma mudança de nome</h2>
+        <p>Os scripts têm o nome da cena e o endereço MAC do recetor, por isso mudar o nome da cena ou do recetor atualiza o mesmo script em vez de criar um segundo.</p>
+        <p>Se um botão do painel, uma automatização ou um alias de voz chamar um script com o nome apenas da cena e do recetor, a sincronização seguinte substitui esse script pelo que tem o nome do endereço MAC. <b>Volte a apontá-lo uma só vez</b>: abra o script no Home Assistant para ver o respetivo ID da entidade atual e utilize-o.</p>
+        <p>Entidades lidas do recetor - <code>cinema30</code> em vez de trinta e dois carateres de identificador de máquina - para que a lista seja legível e o preenchimento automático as encontre. Os IDs de entidade que as suas automatizações já utilizam continuam a funcionar.</p>
       </div>
     </div>
   </div>
@@ -468,7 +476,8 @@
       <div>
         <div class="eyebrow">O que é pago e o que não é</div>
         <h2>A Home Automation é o único desbloqueio. O assistente AI é gratuito.</h2>
-        <p><b>Home Automation (Pro)</b> - Home Assistant, Hubitat e webhooks de saída - é um desbloqueio único. Tudo o resto no AVR Maestro, incluindo o assistente AI no dispositivo, está incluído na aplicação.</p>
+        <p><b>Automação residencial (Pro)</b> - Home Assistant, Hubitat, webhooks de saída e Multi AVR Scenes - é um desbloqueio único. Tudo o resto no AVR Maestro, incluindo o assistente de IA no dispositivo, está incluído na aplicação.</p>
+        <p>Uma <a href="/pt/guide/scenes/#multi-avr">Multi AVR Scene</a> configura dois ou mais recetores com um só toque, cada um com a sua própria Cena. As Cenas para um único recetor continuam gratuitas.</p>
         <p>Já comprou, neste dispositivo ou noutro com a mesma conta da loja? Toque em <b>Restaurar compras</b> por baixo do botão de desbloqueio.</p>
         <p>O controlo por voz chega ao seu recetor <em>através</em> da Home Automation, por intermédio do seu hub. O AVR Maestro não tem reconhecimento de voz próprio.</p>
       </div>
@@ -484,9 +493,10 @@
     </div>
     <details open><summary>O meu telemóvel tem de estar ligado para o controlo por voz funcionar?</summary><div class="body">Não. O AVR Maestro compila as suas cenas em scripts nativos do Home Assistant. O Home Assistant fala diretamente com o recetor na sua rede local, por isso o telemóvel pode estar desligado, em suspensão ou noutro país.</div></details>
     <details><summary>Que assistentes de voz podem controlar o meu recetor?</summary><div class="body">Aquele que já usa. O AVR Maestro não acrescenta uma camada de voz própria - publica scripts no Home Assistant ou no Hubitat, e esses são expostos ao Alexa, ao Google Assistant ou aos Siri Shortcuts pelo hub em que já confia.</div></details>
-    <details><summary>O assistente AI faz parte do desbloqueio pago?</summary><div class="body">Não. O assistente AI no dispositivo é gratuito. A Home Automation - Home Assistant, Hubitat e webhooks de saída - é o único desbloqueio pago do AVR Maestro.</div></details>
+    <details><summary>O assistente AI faz parte do desbloqueio pago?</summary><div class="body">Não. O assistente de IA no dispositivo é gratuito. A Automação residencial - Home Assistant, Hubitat, webhooks de saída e Multi AVR Scenes - é o único desbloqueio pago no AVR Maestro.</div></details>
     <details><summary>Alguma coisa sai da minha rede doméstica?</summary><div class="body">Não para o controlo. A aplicação fala com o recetor e com o hub pela sua própria rede. Nada passa por um servidor da MiyaraHub. Um webhook vai para onde o apontar, e isso é escolha sua.</div></details>
     <details><summary>Comprou a Automação residencial noutro dispositivo ou reinstalou a app?</summary><div class="body">Abra <i>Definições &rsaquo; Automação residencial (Pro)</i> e toque em <b>Restaurar compras</b> por baixo do botão de desbloqueio. Se já comprou o desbloqueio com a mesma conta da loja, ele regressa sem pagar de novo.</div></details>
+    <details><summary>Onde ficam guardados os meus tokens do Home Assistant e do Hubitat?</summary><div class="body">No armazenamento seguro do seu dispositivo: o Keystore no Android e o Keychain no iPhone, iPad e Mac, e não nas definições normais da aplicação. Repor os dados da aplicação também os apaga, e o Android não copia os dados da aplicação para uma cópia de segurança no Google Drive. Se introduzir um endereço de hub ou webhook que esteja na internet e comece por http://, a aplicação avisa que o seu token e os seus dados atravessariam a internet sem encriptação e sugere https://. Os endereços na sua própria rede nunca mostram o aviso.</div></details>
   </div>
 </section>
 

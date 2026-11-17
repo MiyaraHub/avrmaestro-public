@@ -134,7 +134,7 @@
       "description": "Màn hình chính AVR Maestro: thẻ trạng thái, bộ chuyển receiver và các tiện ích bạn có thể thêm và sắp xếp cho âm lượng, nguồn vào, chế độ âm thanh, tín hiệu, Cảnh, các vùng và HEOS.",
       "image": "https://avrmaestro.com/screenshots/dashboard.webp",
       "datePublished": "2026-07-03",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -334,6 +334,9 @@
         <tr><td>DRC</td><td>Nén dải động: Auto, Off, Low, Mid hoặc High.</td></tr>
         <tr><td>Bộ lọc Dirac Live</td><td>Vị trí Dirac Live trên Speaker Preset hiện tại, kèm liên kết trực tiếp. Chỉ có trên các receiver Dirac.</td></tr>
         <tr><td>Trạng thái Audyssey</td><td>Xem nhanh MultEQ, Dynamic EQ, Reference Level Offset, Dynamic Volume, LFC và Containment Amount. Chỉ có trên các receiver Audyssey.</td></tr>
+        <tr><td>Audyssey MultEQ</td><td>Chuyển MultEQ ngay từ Trang chủ mà không cần vào Âm thanh &rsaquo; Audyssey. Mặc định tắt: hãy thêm thẻ này khi bạn tùy chỉnh Trang chủ. Thẻ xuất hiện khi đầu thu đã báo cài đặt MultEQ của nó, cung cấp các lựa chọn giống trình tạo Cảnh, và nút được chọn luôn theo đúng những gì đầu thu báo.</td></tr>
+        <tr><td>Dynamic EQ</td><td>Bật hoặc tắt Dynamic EQ từ Trang chủ. Mặc định tắt, chỉ hiển thị khi đầu thu đã báo cài đặt này.</td></tr>
+        <tr><td>Dynamic Volume</td><td>Dynamic Volume từ Trang chủ, với các mức mà đầu thu của bạn cung cấp. Mặc định tắt, chỉ hiển thị khi đầu thu đã báo cài đặt này.</td></tr>
         <tr><td>Ảnh Chụp Nhanh Mức Kênh</td><td>Bảng đọc mọi mức kênh mà receiver báo về.</td></tr>
         <tr><td>Mức loa siêu trầm</td><td>Subwoofer Level Adjust với nút trừ và nút cộng. Hiển thị khi đã thiết lập loa siêu trầm và có tín hiệu âm thanh.</td></tr>
         <tr><td>Độ trễ âm thanh</td><td>Độ trễ đồng bộ hình và tiếng từ 0 đến 500 ms, khi đầu thu báo cáo giá trị này. Bộ chọn bước (từ 1 đến 10 ms) đặt mức thay đổi của các nút trừ và cộng.</td></tr>
@@ -360,6 +363,19 @@
 
 <section>
   <div class="wrap">
+    <div class="feat rev">
+      <div class="shots"><img alt="Các thẻ Audyssey MultEQ, Dynamic EQ và Dynamic Volume trên Trang chủ, bị khóa vì Dirac Live đang nắm giữ cài đặt sẵn của loa" srcset="/screenshots/home-audyssey-662.webp 662w, /screenshots/home-audyssey.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/home-audyssey.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <div class="eyebrow">Audyssey trên Trang chủ</div>
+        <h2>Các thẻ MultEQ, Dynamic EQ và Dynamic Volume</h2>
+        <p class="lead">Thêm ba thẻ Audyssey khi bạn tùy chỉnh Trang chủ và bật tắt chúng mà không cần vào Âm thanh &rsaquo; Audyssey. Khi Dirac Live đang nắm giữ cài đặt sẵn của loa, các thẻ vẫn nằm trên Trang chủ ở trạng thái mờ, kèm lý do bên dưới mỗi thẻ, và chạm vào chúng sẽ không gửi gì đến đầu thu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Điều khiển âm thanh</div>
       <h2>Công tắc nhanh trong Âm thanh</h2>
@@ -367,6 +383,7 @@
     <ul class="plain">
       <li><b>Graphic EQ:</b> công tắc bật/tắt nằm ngay trên trang Graphic EQ (Âm thanh &rsaquo; Graphic EQ), ở hàng tiêu đề cạnh Đặt lại và Sao chép. Chỉ chỉnh được các dải khi cả Dirac Live lẫn Audyssey đều không chạy chỉnh âm phòng; ứng dụng làm theo đúng quy tắc của chính receiver. Xem <a href="/vi/guide/graphic-eq/">hướng dẫn Graphic EQ</a>.</li>
       <li><b>Loa siêu trầm:</b> tắt tiếng hoặc bật loa siêu trầm từ Âm thanh &rsaquo; Vòm &rsaquo; Tính Năng Âm Thanh, mà không cần đi sâu vào phần thiết lập loa. Chỉ hiển thị trên các receiver báo và chấp nhận tính năng này.</li>
+      <li><b>Thẻ Audyssey và khóa:</b> các thẻ MultEQ, Dynamic EQ và Dynamic Volume bị khóa khi Dirac Live đang giữ cấu hình loa hoặc Audyssey chưa được hiệu chỉnh trên đó, và Dynamic EQ cùng Dynamic Volume còn bị khóa khi MultEQ đang tắt. Thẻ bị khóa vẫn nằm trên Trang chủ, bị mờ đi, nêu lý do và không gửi gì cả. Xem <a href="/vi/guide/locked-controls/">vì sao một điều khiển bị khóa</a>.</li>
       <li><b>Audio Restorer:</b> bộ khôi phục âm thanh nén của receiver - <b>Restorer</b> trên Denon, <b>M-DAX</b> trên Marantz - trong Âm thanh &rsaquo; Âm Sắc. Mang sự sống trở lại cho MP3 và các nguồn phát trực tuyến mà không cần vào menu trên màn hình.</li>
     </ul>
   </div>

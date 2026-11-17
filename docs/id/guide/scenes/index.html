@@ -134,7 +134,7 @@
       "description": "Buat Skenario satu ketukan untuk film, musik, gaming, atau larut malam: input, mode suara, Audyssey atau Dirac, level, dan zona pada Denon atau Marantz. Dapatkan AVR Maestro.",
       "image": "https://avrmaestro.com/screenshots/scenes-list.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -230,6 +230,14 @@
         "@type": "Answer",
         "text": "Smart Select (Marantz) dan Quick Select (Denon) adalah fitur receiver yang sama dengan dua nama: sejumlah slot yang tersimpan di dalam receiver, lima pada Marantz CINEMA 30. AVR Maestro menyebutnya dengan nama bawaan receiver Anda di seluruh aplikasi, memungkinkan Anda memanggilnya dari layar Beranda dan Remote, serta mengganti namanya. Skenario adalah milik AVR Maestro sendiri: hingga 20 per receiver, masing-masing dengan nama, ikon, dan warna, berisi persis pengaturan yang Anda pilih, dan dapat dipanggil dari widget layar utama atau dikirim ke Home Assistant atau Hubitat. Keduanya tidak pernah saling menimpa."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Bisakah satu Skenario menyiapkan beberapa receiver?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bisa, dengan Multi AVR Scene, bagian dari pembelian Otomasi Rumah. Dengan dua receiver atau lebih di aplikasi, ketuk Tambah Skenario, pilih Multi AVR Scene, beri nama, centang receiver, lalu atur Skenario masing-masing di halaman panduannya sendiri. Ketuk di daftar Grup receiver dan aplikasi menerapkan Skenario setiap receiver secara bergiliran, lalu menampilkan satu baris per receiver. Skenario untuk satu receiver tetap gratis."
+      }
     }
   ]
 }
@@ -313,6 +321,7 @@
         <ul>
           <li><b>Pembuat Skenario</b> menjawab beberapa pertanyaan bersama Anda dan hanya menawarkan apa yang didukung receiver Anda. Terbaik untuk Skenario pertama, atau saat Anda tahu apa yang diinginkan tetapi tidak tahu menu mana yang memuatnya.</li>
           <li><b>Buat dari Awal</b> merekam apa yang sedang dilakukan receiver Anda saat ini. Atur hingga terdengar pas, centang pengaturan yang ingin disimpan, lalu simpan.</li>
+          <li><b>Multi AVR Scene</b> menyiapkan beberapa receiver sekaligus. Opsi ini hanya tercantum bila aplikasi mengenal dua receiver atau lebih, dan merupakan bagian dari pembelian <a href="/id/guide/home-automation/">Otomasi Rumah</a>. Lihat <a href="#multi-avr">Multi AVR Scene</a> di bawah.</li>
         </ul>
         <div class="note">Belum ada apa pun di tab Skenario? Tab ini menyarankan beberapa titik awal yang cocok dengan receiver Anda, seperti Film dan TV atau Larut malam. Ketuk salah satunya dan Pembuat Skenario terbuka dengan pilihan itu sudah terpilih.</div>
       </div>
@@ -365,6 +374,44 @@
           <li><b>Tinjau dan simpan.</b> Halaman terakhir mencantumkan persis apa yang akan disimpan Skenario, dikelompokkan seperti bagian lain aplikasi. Ketuk <b>Simpan</b> dan Skenario masuk ke daftar Skenario Anda, siap kapan pun Anda mau.</li>
         </ol>
         <div class="note">Jumlah langkah bertambah sesuai yang Anda centang: setiap pengaturan yang dicentang mendapat halamannya sendiri, jadi Skenario dengan tiga pengaturan lebih singkat daripada yang berisi sepuluh pengaturan.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="multi-avr">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Beberapa receiver, satu ketukan</div>
+      <h2>Multi AVR Scene</h2>
+      <p class="lead">Multi AVR Scene menyimpan satu Skenario untuk setiap receiver yang Anda pilih dan menerapkannya bersamaan, sehingga satu ketukan dapat menyiapkan receiver ruang tamu dan receiver di ruang santai. Ini membutuhkan dua receiver atau lebih di aplikasi (receiver demo tidak dihitung) dan pembelian Otomasi Rumah. Tanpa pembelian, opsi ini menampilkan gembok, dan mengetuknya membuka halaman pembelian Otomasi Rumah.</p>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="Lembar Tambah Skenario dengan Pembuat Skenario, Buat dari Awal, dan Multi AVR Scene" srcset="/screenshots/scenes-add-multi-avr-662.webp 662w, /screenshots/scenes-add-multi-avr.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-add-multi-avr.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ol class="steps">
+          <li><b>Ketuk Tambah Skenario dan pilih Multi AVR Scene.</b></li>
+          <li><b>Beri nama grup</b> dan centang dua receiver atau lebih.</li>
+          <li><b>Ketuk Buat setiap skenario.</b> Halaman panduan terbuka sekali untuk setiap receiver yang Anda centang, sehingga masing-masing mendapat Skenario yang disusun dari kemampuan receiver itu. Setiap receiver yang dipilih membutuhkan Skenarionya sebelum grup dapat disimpan.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="feat rev">
+      <div class="shots"><img alt="Layar Multi AVR Scene dengan grup bernama Movie Night dan dua receiver yang dicentang" srcset="/screenshots/scenes-multi-avr-group-662.webp 662w, /screenshots/scenes-multi-avr-group.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-multi-avr-group.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Menerapkannya.</b> Grup Anda tercantum di bawah <b>Grup receiver</b> pada tab Skenario. Ketuk salah satunya dan aplikasi menelusuri receiver satu per satu: menunggu masing-masing menjawab, menerapkan Skenarionya, lalu mengembalikan receiver tempat Anda memulai. Jika aplikasi ditutup di tengah proses, peluncuran berikutnya mengembalikan receiver Anda.</li>
+          <li><b>Satu baris per receiver.</b> Setelah selesai, aplikasi menampilkan satu baris untuk setiap receiver: diterapkan dan dikonfirmasi, diterapkan dengan beberapa pengaturan terbaca berbeda, pengaturan ditolak, terkirim tetapi tidak dikonfirmasi, atau tidak menjawab. Receiver yang telah dihapus dari aplikasi, atau yang Skenarionya telah dihapus, juga disebutkan namanya, tidak pernah disembunyikan di balik satu "selesai".</li>
+        </ul>
+      </div>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="Tab Skenario dengan bagian Grup receiver yang mencantumkan Movie Night dengan tombol ganti nama dan hapus" srcset="/screenshots/scenes-multi-avr-list-662.webp 662w, /screenshots/scenes-multi-avr-list.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-multi-avr-list.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Ganti nama dan hapus.</b> Setiap grup di daftar Grup receiver punya tombol ganti nama dan tombol hapus. Mengganti nama mempertahankan receiver yang sama.</li>
+        </ul>
+        <div class="note">Skenario untuk satu receiver tetap gratis. Hanya pengelompokan beberapa receiver menjadi satu Skenario yang memerlukan pembelian Home Automation.</div>
       </div>
     </div>
   </div>
@@ -455,7 +502,7 @@
       <li><b>Level kanal diperiksa dan dikirim ulang sekali.</b> Receiver terkadang melewatkan satu kanal saat banyak data masuk sekaligus. Aplikasi membaca kembali apa yang masuk, mengirim ulang yang belum, dan memberi tahu kanal mana yang harus dicoba ulang.</li>
       <li><b>Kontrol yang terkunci tidak dapat diterapkan, oleh apa pun.</b> Jika preset speaker Anda dikuasai Dirac Live, receiver sendiri menolak perubahan Audyssey, dan Skenario yang membawanya ditolak dengan cara yang sama seperti kontrol di layar. Lihat <a href="/id/guide/locked-controls/">mengapa sebuah kontrol terkunci</a>.</li>
       <li><b>Hanya yang disimpan Skenario yang diubah.</b> Jika Skenario tidak mengubah sesuatu yang Anda harapkan, kemungkinan itu tidak dicentang. Tekan lama dan gunakan Edit Pengaturan yang Direkam daripada membuat Skenario kedua.</li>
-      <li><b>Skenario milik satu receiver.</b> Daftarnya adalah daftar untuk receiver yang sedang dipilih. Receiver lain memiliki daftarnya sendiri.</li>
+      <li><b>Skenario milik satu receiver.</b> Daftar ini adalah daftar untuk receiver yang sedang dipilih. Receiver lain punya daftarnya sendiri. Untuk menyiapkan beberapa receiver dengan satu ketukan, gunakan <a href="#multi-avr">Multi AVR Scene</a>.</li>
     </ul>
   </div>
 </section>
@@ -492,6 +539,7 @@
     <details><summary>Bisakah Skenario menyalakan receiver saya?</summary><div class="body">Bisa. Sertakan status daya dan menerapkan Skenario akan menyalakan (atau mematikan) zona utama lebih dulu, selama receiver mengaktifkan network standby sehingga aplikasi dapat menjangkaunya saat tidur.</div></details>
     <details><summary>Apa arti pesan berwarna setelah sebuah Skenario?</summary><div class="body">Hijau berarti semuanya berhasil diterapkan. Oranye berarti receiver memilih nilainya sendiri untuk pengaturan yang diingatnya per sinyal input, dan ini wajar; ketuk Skenario lagi untuk mencoba ulang. Biru berarti receiver tidak mengonfirmasi beberapa pengaturan, sehingga aplikasi tidak dapat memastikan apakah pengaturan itu berlaku. Merah berarti sebuah pengaturan terbaca berbeda atau receiver menolak beberapa level speaker; ketuk Skenario lagi. Pesan merah tetap ada sampai Anda menutupnya.</div></details>
     <details><summary>Apa perbedaan antara Skenario dan Smart Select atau Quick Select?</summary><div class="body">Smart Select (Marantz) dan Quick Select (Denon) adalah fitur receiver yang sama dengan dua nama: sejumlah slot yang tersimpan di dalam receiver, lima pada Marantz CINEMA 30. AVR Maestro menyebutnya dengan nama bawaan receiver Anda di seluruh aplikasi, memungkinkan Anda memanggilnya dari layar Beranda dan Remote, serta mengganti namanya. Skenario adalah milik AVR Maestro sendiri: hingga 20 per receiver, masing-masing dengan nama, ikon, dan warna, berisi persis pengaturan yang Anda pilih, dan dapat dipanggil dari widget layar utama atau dikirim ke Home Assistant atau Hubitat. Keduanya tidak pernah saling menimpa.</div></details>
+    <details><summary>Bisakah satu Skenario menyiapkan beberapa receiver?</summary><div class="body">Bisa, dengan Multi AVR Scene, bagian dari pembelian Otomasi Rumah. Dengan dua receiver atau lebih di aplikasi, ketuk Tambah Skenario, pilih Multi AVR Scene, beri nama, centang receiver, lalu atur Skenario masing-masing di halaman panduannya sendiri. Ketuk di daftar Grup receiver dan aplikasi menerapkan Skenario setiap receiver secara bergiliran, lalu menampilkan satu baris per receiver. Skenario untuk satu receiver tetap gratis.</div></details>
   </div>
 </section>
 

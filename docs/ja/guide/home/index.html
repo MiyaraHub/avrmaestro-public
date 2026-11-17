@@ -134,7 +134,7 @@
       "description": "AVR Maestroのホーム画面。ステータスカード、レシーバーの切り替え、そして音量、ソース、サウンドモード、信号、シーン、ゾーン、HEOS用に追加して並べ替えられるウィジェットがあります。",
       "image": "https://avrmaestro.com/screenshots/dashboard.webp",
       "datePublished": "2026-07-03",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -334,6 +334,9 @@
         <tr><td>DRC</td><td>ダイナミックレンジ圧縮: Auto、Off、Low、Mid、High。</td></tr>
         <tr><td>Dirac Liveフィルター</td><td>現在のスピーカープリセットのDirac Liveスロットで、ディープリンク付きです。Diracレシーバーのみ。</td></tr>
         <tr><td>Audysseyの状態</td><td>MultEQ、Dynamic EQ、Reference Level Offset、Dynamic Volume、LFC、Containment Amountをひと目で確認できます。Audysseyレシーバーのみ。</td></tr>
+        <tr><td>Audyssey MultEQ</td><td>サウンド &rsaquo; Audysseyを開かなくても、ホームからMultEQを切り替えられます。初期状態ではオフです。ホームをカスタマイズするときに追加してください。レシーバーがMultEQの設定を報告すると表示され、シーン作成画面と同じ選択肢を備え、選択中のチップはレシーバーが報告する内容に追従します。</td></tr>
+        <tr><td>Dynamic EQ</td><td>ホームからDynamic EQをオンまたはオフにします。初期状態ではオフで、レシーバーが報告すると表示されます。</td></tr>
+        <tr><td>Dynamic Volume</td><td>お使いのレシーバーが対応するレベルで、ホームからDynamic Volumeを操作します。初期状態ではオフで、レシーバーが報告すると表示されます。</td></tr>
         <tr><td>チャンネルレベルのスナップショット</td><td>レシーバーが報告するすべてのチャンネルレベルの読み出し。</td></tr>
         <tr><td>サブウーファーレベル</td><td>マイナスとプラスのボタンでサブウーファーレベルを調整します。サブウーファーが設定済みで、オーディオ信号があるときに表示されます。</td></tr>
         <tr><td>オーディオディレイ</td><td>レシーバーが報告する場合、0から500 msまでのリップシンク遅延を設定できます。ステップセレクター（1から10 ms）で、マイナスボタンとプラスボタンによる調整幅を設定します。</td></tr>
@@ -360,6 +363,19 @@
 
 <section>
   <div class="wrap">
+    <div class="feat rev">
+      <div class="shots"><img alt="ホームのAudyssey MultEQ、Dynamic EQ、Dynamic Volumeカード。Dirac Liveがスピーカープリセットを管理しているためロックされています" srcset="/screenshots/home-audyssey-662.webp 662w, /screenshots/home-audyssey.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/home-audyssey.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <div class="eyebrow">ホームのAudyssey</div>
+        <h2>MultEQ、Dynamic EQ、Dynamic Volumeカード</h2>
+        <p class="lead">ホームをカスタマイズするときに3枚のAudysseyカードを追加すれば、サウンド &rsaquo; Audysseyへ移動しなくても切り替えられます。Dirac Liveがスピーカープリセットを管理している間、カードはホームに残り、グレー表示になり、それぞれの下に理由が表示されます。タップしてもレシーバーには何も送信されません。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">サウンドコントロール</div>
       <h2>サウンドのクイックトグル</h2>
@@ -367,6 +383,7 @@
     <ul class="plain">
       <li><b>グラフィックEQ:</b>オン/オフスイッチは、グラフィックEQページ(サウンド &rsaquo; グラフィックEQ)内のヘッダー行、ResetとCopyの横にあります。バンドを編集できるのは、Dirac LiveもAudysseyも音場補正を実行していないときだけです。アプリはレシーバー自身のルールに合わせています。<a href="/ja/guide/graphic-eq/">グラフィックEQのガイド</a>をご覧ください。</li>
       <li><b>サブウーファー:</b>スピーカー設定に入らなくても、サウンド &rsaquo; サラウンド &rsaquo; オーディオ機能からサブウーファーをミュートまたは有効にできます。レシーバーが報告して受け付ける場合のみ表示されます。</li>
+      <li><b>Audysseyのカードとロック:</b>スピーカープリセットをDirac Liveが使用している間、またはそのプリセットでAudysseyがキャリブレーションされていない間は、MultEQ、Dynamic EQ、Dynamic Volumeのカードがロックされます。また、MultEQがオフの間は、Dynamic EQとDynamic Volumeもロックされます。ロックされたカードはホームに残り、グレーアウトして理由を表示し、何も送信しません。<a href="/ja/guide/locked-controls/">コントロールがロックされる理由</a>をご覧ください。</li>
       <li><b>オーディオリストアラー:</b>レシーバーの圧縮オーディオ用リストアラーで、Denonでは<b>Restorer</b>、Marantzでは<b>M-DAX</b>と呼ばれ、サウンド &rsaquo; トーンにあります。オンスクリーンメニューに行かなくても、MP3やストリーミングソースに活気を取り戻せます。</li>
     </ul>
   </div>

@@ -134,7 +134,7 @@
       "description": "Ogni sezione delle Impostazioni di AVR Maestro: Gestisci ricevitori, Aspetto (tema, Tema colore, dimensioni, lingua), Layout, Componenti aggiuntivi, Aiuto, Backup e Informazioni.",
       "image": "https://avrmaestro.com/screenshots/settings-tjmode.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -164,7 +164,7 @@
       "name": "Dove sono finite Impostazioni › Dispositivi e Impostazioni › Audio?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Dalla versione 5.3.0 entrambe si trovano per ricevitore. Apri Impostazioni › Gestisci ricevitori e tocca il tuo ricevitore: la sua pagina ha la sezione Audio (passo del volume, indicazione del volume, preset volume, pulsanti volume del dispositivo e Controlli del volume), Schermo e blocchi, Informazioni su questo ricevitore, e Rinomina, Cambia IP, Trova il mio ricevitore ed Elimina."
+        "text": "Entrambe si trovano per ricevitore. Apri Impostazioni › Gestisci ricevitori e tocca il tuo ricevitore: la sua pagina ha la sezione Audio (passo del volume, indicazione del volume, preset volume, pulsanti volume del dispositivo e Controlli del volume), Schermo e blocchi, Informazioni su questo ricevitore, e Rinomina, Cambia IP, Trova il mio ricevitore ed Elimina."
       }
     },
     {
@@ -213,6 +213,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Apri Impostazioni › Informazioni su AVR Maestro e tocca sette volte il numero di versione. Il menu di debug resta poi disponibile finché non lo rimuovi con Rimuovi menu di debug. È pensato per l'assistenza; per inviarci i log, usa Tutti i log rilevanti nella stessa pagina."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "AVR Maestro raccoglie dati analitici?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Solo se acconsenti. Dopo il primo avvio l'app lo chiede una volta e solo Condividi analisi attiva le analisi di utilizzo; No grazie le lascia disattivate. Puoi cambiarlo in qualsiasi momento in Impostazioni › Informazioni su AVR Maestro › Note legali, dove si trova anche l'interruttore Segnalazione crash. Nei report di crash indirizzi IP, indirizzi MAC e numeri di serie sono oscurati, e i log esportati li nascondono a meno che tu non scelga di includerli."
       }
     }
   ]
@@ -355,7 +363,7 @@
     <ul class="plain">
       <li><b>Backup e ripristino:</b> esporta ogni impostazione dell'app in un file, oppure ripristina da un backup. <a href="/it/guide/backup/">Guida al backup &rarr;</a></li>
       <li><b>Valuta AVR Maestro:</b> apre la scheda dello store per lasciare una valutazione.</li>
-      <li><b>Informazioni su AVR Maestro:</b> informazioni sulla versione, assistenza e licenze. Qui trovi la <b>Community Discord</b>, il <b>Gruppo di supporto Facebook</b> e <b>Tutti i log rilevanti</b>, che raccoglie i log di cui abbiamo bisogno quando qualcosa non va.</li>
+      <li><b>Informazioni su AVR Maestro:</b> informazioni sulla versione, supporto e licenze. Qui trovi la <b>Community Discord</b>, il <b>Gruppo di supporto Facebook</b> e <b>Tutti i log rilevanti</b>, che raccoglie i log che ci servono quando qualcosa non funziona. La sezione <b>Note legali</b> contiene gli interruttori per analisi e report di crash (vedi <a href="#privacy">Privacy</a> più sotto).</li>
       <li><b>Altro da MiyaraHub:</b> apre la pagina MiyaraHub nello store del tuo dispositivo, con le nostre altre app per l'home theater.</li>
     </ul>
   </div>
@@ -374,19 +382,41 @@
   </div>
 </section>
 
+<section id="privacy">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Impostazioni &rsaquo; Informazioni &rsaquo; Note legali</div>
+      <h2>Privacy: analisi, report di crash e log</h2>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="Informazioni e Note legali in Impostazioni, con l'interruttore Share usage analytics disattivato e l'interruttore Crash Reporting attivato" srcset="/screenshots/settings-legal-662.webp 662w, /screenshots/settings-legal.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/settings-legal.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Le analisi sono opt-in.</b> Dopo il primo avvio l'app chiede una volta <i>Aiutaci a migliorare AVR Maestro?</i>, con <b>Condividi analisi</b> e <b>No grazie</b>. Non viene inviato nulla se non dici di sì. Gli eventi di utilizzo sono collegati a un ID casuale creato per questa installazione e non contengono nomi o indirizzi di ricevitori. Cambia la risposta in qualsiasi momento con <b>Condividi analisi di utilizzo</b> in Informazioni &rsaquo; Note legali. Ripristinare un backup su un altro dispositivo lo chiede di nuovo.</li>
+          <li><b>I report di crash hanno un interruttore proprio.</b> <b>Segnalazione crash</b> si trova in Informazioni &rsaquo; Note legali. Quando è disattivata non viene inviato nulla e i report salvati dalle sessioni precedenti vengono scartati invece di essere inviati in seguito.</li>
+          <li><b>I report di crash non portano con sé i dettagli della tua rete.</b> Prima che un report lasci il dispositivo, indirizzi IP, indirizzi MAC, numeri di serie e nomi host vengono oscurati nell'errore e nei suoi dettagli.</li>
+          <li><b>I log chiedono prima di includere i dettagli del tuo ricevitore.</b> <b>Tutti i log rilevanti</b> spiega prima cosa contiene il pacchetto e dove lo invia Email. Indirizzo, indirizzo MAC e numero di serie del ricevitore restano nascosti a meno che tu non selezioni <i>Includi indirizzo, indirizzo MAC e numero di serie del mio ricevitore così l'assistenza può trovare il problema</i>.</li>
+          <li><b>I token degli hub restano nell'archivio sicuro.</b> I token di Home Assistant e Hubitat sono conservati nel Keystore su Android e nel Keychain sui dispositivi Apple, non insieme alle impostazioni ordinarie dell'app. Vedi <a href="/it/guide/home-automation/">Automazione domestica</a>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Domande frequenti</div>
       <h2>FAQ sulle Impostazioni</h2>
     </div>
-    <details open><summary>Dove sono finite Impostazioni &rsaquo; Dispositivi e Impostazioni &rsaquo; Audio?</summary><div class="body">Dalla versione 5.3.0 entrambe si trovano per ricevitore. Apri Impostazioni &rsaquo; Gestisci ricevitori e tocca il tuo ricevitore: la sua pagina ha la sezione Audio (passo del volume, indicazione del volume, preset volume, pulsanti volume del dispositivo e Controlli del volume), Schermo e blocchi, Informazioni su questo ricevitore, e Rinomina, Cambia IP, Trova il mio ricevitore ed Elimina.</div></details>
+    <details open><summary>Dove sono finite Impostazioni &rsaquo; Dispositivi e Impostazioni &rsaquo; Audio?</summary><div class="body">Entrambe si trovano per ricevitore. Apri Impostazioni &rsaquo; Gestisci ricevitori e tocca il tuo ricevitore: la sua pagina ha la sezione Audio (passo del volume, indicazione del volume, preset volume, pulsanti volume del dispositivo e Controlli del volume), Schermo e blocchi, Informazioni su questo ricevitore, e Rinomina, Cambia IP, Trova il mio ricevitore ed Elimina.</div></details>
     <details><summary>Posso cambiare il tema e i colori dell'app?</summary><div class="body">Sì. In Impostazioni &rsaquo; Aspetto, il Tema è Chiaro, Scuro o AMOLED (nero puro), e TJ Mode: Colore d'accento è Marchio o Tema colore. Tema colore ti permette di scegliere qualsiasi colore d'accento dal selettore o digitando un codice esadecimale come #FF8C00 o la sua forma abbreviata di tre caratteri. Un codice che l'app non riesce a leggere viene rifiutato con la motivazione, e un colore quasi nero viene rifiutato perché non si vedrebbe sul tema AMOLED.</div></details>
     <details><summary>I pulsanti del volume del mio telefono controllano il ricevitore?</summary><div class="body">Sì, su Android e su iPhone e iPad. Mentre l'app è aperta, i pulsanti del volume del dispositivo cambiano il volume del ricevitore. È attivo per impostazione predefinita e si imposta per ricevitore: Impostazioni &rsaquo; Gestisci ricevitori &rsaquo; il tuo ricevitore &rsaquo; Audio &rsaquo; Pulsanti volume del dispositivo.</div></details>
     <details><summary>Come recupero una scheda esplicativa che ho nascosto?</summary><div class="body">Apri Impostazioni &rsaquo; Aiuto. Ripristina schede nascoste elenca ogni scheda che hai nascosto con la pressione prolungata; tocca Ripristina su una, oppure Ripristina tutto. Mostra le schede esplicative le disattiva o le attiva tutte insieme.</div></details>
     <details><summary>Come rivedo la guida di benvenuto?</summary><div class="body">Apri Impostazioni &rsaquo; Aiuto &rsaquo; Benvenuto e guida alla configurazione. Riproduce l'introduzione e i consigli per la configurazione della rete. Manuale dell'app nella stessa sezione apre questa guida online.</div></details>
     <details><summary>Posso fare il backup della mia configurazione?</summary><div class="body">Sì. Impostazioni &rsaquo; Backup e ripristino esporta ogni impostazione dell'app in un file e ripristina da un backup. Vedi la guida Backup e ripristino per sapere cosa contiene il file.</div></details>
     <details><summary>Come apro il menu di debug nascosto?</summary><div class="body">Apri Impostazioni &rsaquo; Informazioni su AVR Maestro e tocca sette volte il numero di versione. Il menu di debug resta poi disponibile finché non lo rimuovi con Rimuovi menu di debug. È pensato per l'assistenza; per inviarci i log, usa Tutti i log rilevanti nella stessa pagina.</div></details>
+    <details><summary>AVR Maestro raccoglie dati analitici?</summary><div class="body">Solo se acconsenti. Dopo il primo avvio l'app lo chiede una volta e solo Condividi analisi attiva le analisi di utilizzo; No grazie le lascia disattivate. Puoi cambiarlo in qualsiasi momento in Impostazioni &rsaquo; Informazioni su AVR Maestro &rsaquo; Note legali, dove si trova anche l'interruttore Segnalazione crash. Nei report di crash indirizzi IP, indirizzi MAC e numeri di serie sono oscurati, e i log esportati li nascondono a meno che tu non scelga di includerli.</div></details>
   </div>
 </section>
 

@@ -134,7 +134,7 @@
       "description": "為電影、音樂、遊戲或深夜聆聽建立一鍵場景：在 Denon 或 Marantz 上設定輸入、音效模式、Audyssey 或 Dirac、電平與分區。立即取得 AVR Maestro。",
       "image": "https://avrmaestro.com/screenshots/scenes-list.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -230,6 +230,14 @@
         "@type": "Answer",
         "text": "Smart Select（Marantz）與 Quick Select（Denon）是同一項接收器功能的兩種名稱：儲存在接收器內的少數插槽，Marantz CINEMA 30 上有五個。AVR Maestro 在應用程式各處都使用您接收器自己的名稱，讓您從主畫面與遙控器觸發它們，也能重新命名。場景則是 AVR Maestro 自己的功能：每台接收器最多 20 個，各有名稱、圖示與顏色，只保存您選擇的設定，並且可以從主畫面小工具觸發，或傳送到 Home Assistant 或 Hubitat。兩者不會互相覆寫。"
       }
+    },
+    {
+      "@type": "Question",
+      "name": "一個場景可以設定多台接收器嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以，使用 Multi AVR Scene，它屬於居家自動化購買內容。應用程式中有兩台或更多接收器時，點一下「新增場景」，選擇 Multi AVR Scene，為其命名，勾選接收器，並在每台接收器各自的引導頁面上設定其場景。在「接收器群組」清單中點一下它，應用程式會依序套用每台接收器的場景，然後為每台接收器顯示一行結果。單台接收器的場景仍然免費。"
+      }
     }
   ]
 }
@@ -313,6 +321,7 @@
         <ul>
           <li><b>場景建立器</b>會與您一問一答，並且只提供您的接收器支援的選項。最適合建立第一個場景，或是您知道自己想要什麼，卻不知道設定在哪個選單時使用。</li>
           <li><b>從頭建立</b>會擷取接收器目前的狀態。先把聲音調好，勾選要保留的設定，然後儲存。</li>
+          <li><b>Multi AVR Scene</b> 可同時設定多台接收器。只有當應用程式已知兩台或更多接收器時才會列出，且屬於<a href="/zh-hant/guide/home-automation/">居家自動化</a>購買內容。請參閱下方的 <a href="#multi-avr">Multi AVR Scene</a>。</li>
         </ul>
         <div class="note">「場景」分頁還沒有任何內容嗎？它會根據您的接收器建議幾個起點，例如電影與電視或深夜。點選其中一個，場景建立器就會開啟，並且已經選好該項目。</div>
       </div>
@@ -365,6 +374,44 @@
           <li><b>檢閱並儲存。</b>最後一頁會精確列出場景將儲存的內容，分組方式與應用程式其他部分一致。點一下<b>儲存</b>，它就會出現在您的場景清單中，隨時待命。</li>
         </ol>
         <div class="note">步驟的數量會隨著您勾選的項目增加：每個勾選的設定都有自己的一頁，所以只有三項設定的場景，會比有十項設定的場景更短。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="multi-avr">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">多台接收器，一鍵搞定</div>
+      <h2>Multi AVR Scene</h2>
+      <p class="lead">Multi AVR Scene 為你選擇的每台接收器保存一個場景並一起套用，因此一次點按就能設定客廳的接收器和書房的接收器。它需要應用程式中有兩台或更多接收器（示範接收器不計入）以及居家自動化購買內容。未購買時，該選項顯示鎖頭圖示，點一下會開啟居家自動化購買頁面。</p>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="新增場景面板，包含場景建立器、從頭建立與 Multi AVR Scene" srcset="/screenshots/scenes-add-multi-avr-662.webp 662w, /screenshots/scenes-add-multi-avr.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-add-multi-avr.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ol class="steps">
+          <li><b>點一下「新增場景」，然後選擇 Multi AVR Scene。</b></li>
+          <li><b>為該群組命名</b>，並勾選兩台或更多接收器。</li>
+          <li><b>點一下「建立每個場景」。</b>引導頁面會為你勾選的每台接收器各開啟一次，使每台接收器都得到依其自身能力建立的場景。必須為每台所選接收器設定好場景，才能儲存該群組。</li>
+        </ol>
+      </div>
+    </div>
+    <div class="feat rev">
+      <div class="shots"><img alt="Multi AVR Scene 畫面，名為 Movie Night 的群組已勾選兩台接收器" srcset="/screenshots/scenes-multi-avr-group-662.webp 662w, /screenshots/scenes-multi-avr-group.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-multi-avr-group.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>套用方式。</b>你的群組列在「場景」分頁的<b>接收器群組</b>下。點一下其中一個，應用程式會逐台處理接收器：等待其回應，套用其場景，最後切回你開始時所用的接收器。如果應用程式在中途被關閉，下次啟動時會切回你的接收器。</li>
+          <li><b>每台接收器一行。</b>完成後，應用程式為每台接收器顯示一行結果：已套用並確認、已套用但部分設定回讀不同、設定被拒絕、已傳送但未確認，或未回應。已從應用程式中移除的接收器，或其場景已被刪除的接收器，也會被點名，絕不會隱藏在一個籠統的「完成」之後。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="場景分頁，其中接收器群組區段列出 Movie Night，並附有重新命名與刪除按鈕" srcset="/screenshots/scenes-multi-avr-list-662.webp 662w, /screenshots/scenes-multi-avr-list.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-multi-avr-list.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>重新命名與刪除。</b>「接收器群組」清單中的每個群組都有重新命名按鈕和刪除按鈕。重新命名會保留相同的接收器。</li>
+        </ul>
+        <div class="note">單一接收器的場景維持免費。只有將多台接收器群組成同一個場景，才需要購買居家自動化。</div>
       </div>
     </div>
   </div>
@@ -455,7 +502,7 @@
       <li><b>聲道電平會經過檢查並重新傳送一次。</b>一次收到大量指令時，接收器偶爾會漏掉某個聲道。應用程式會讀回實際生效的內容，重新傳送沒有生效的項目，並告訴您哪些聲道必須重試。</li>
       <li><b>被鎖定的控制項，無論如何都無法套用。</b>如果您的喇叭預設由 Dirac Live 掌控，接收器本身就會拒絕 Audyssey 的變更，包含這些變更的場景，也會和螢幕上的控制項一樣被拒絕。請參閱<a href="/zh-hant/guide/locked-controls/">控制項為何被鎖定</a>。</li>
       <li><b>只會變更場景所包含的內容。</b>如果場景沒有改變您預期的項目，很可能是當初沒有勾選。請長按它並使用「編輯已擷取的設定」，而不是另外建立第二個場景。</li>
-      <li><b>場景屬於單一接收器。</b>清單就是目前選取的接收器的清單。另一台接收器有它自己的清單。</li>
+      <li><b>場景屬於單台接收器。</b>清單是目前所選接收器的清單，其他接收器有各自的清單。若要一鍵設定多台接收器，請使用 <a href="#multi-avr">Multi AVR Scene</a>。</li>
     </ul>
   </div>
 </section>
@@ -492,6 +539,7 @@
     <details><summary>場景可以開啟我的接收器嗎？</summary><div class="body">可以。只要包含電源狀態，套用場景時就會先開啟（或關閉）主分區，前提是接收器已啟用網路待機，這樣應用程式才能在它休眠時連上它。</div></details>
     <details><summary>套用場景後出現的彩色訊息是什麼意思？</summary><div class="body">綠色表示一切都已套用。橙色表示接收器對某項依輸入訊號分別記憶的設定自行選擇了數值，這是正常現象；再點選一次場景即可重試。藍色表示接收器沒有確認部分設定，所以應用程式無法判斷它們是否生效。紅色表示某項設定讀回的數值不同，或接收器拒絕了部分喇叭電平；請再點選一次場景。紅色訊息會停留到您關閉為止。</div></details>
     <details><summary>場景與 Smart Select 或 Quick Select 有什麼不同？</summary><div class="body">Smart Select（Marantz）與 Quick Select（Denon）是同一項接收器功能的兩種名稱：儲存在接收器內的少數插槽，Marantz CINEMA 30 上有五個。AVR Maestro 在應用程式各處都使用您接收器自己的名稱，讓您從主畫面與遙控器觸發它們，也能重新命名。場景則是 AVR Maestro 自己的功能：每台接收器最多 20 個，各有名稱、圖示與顏色，只保存您選擇的設定，並且可以從主畫面小工具觸發，或傳送到 Home Assistant 或 Hubitat。兩者不會互相覆寫。</div></details>
+    <details><summary>一個場景可以設定多台接收器嗎？</summary><div class="body">可以，使用 Multi AVR Scene，它屬於居家自動化購買內容。應用程式中有兩台或更多接收器時，點一下「新增場景」，選擇 Multi AVR Scene，為其命名，勾選接收器，並在每台接收器各自的引導頁面上設定其場景。在「接收器群組」清單中點一下它，應用程式會依序套用每台接收器的場景，然後為每台接收器顯示一行結果。單台接收器的場景仍然免費。</div></details>
   </div>
 </section>
 

@@ -134,7 +134,7 @@
       "description": "Byg en Scene med ét tryk til film, musik, spil eller sen aften: indgang, lydtilstand, Audyssey eller Dirac, niveauer og zoner på Denon eller Marantz. Hent AVR Maestro.",
       "image": "https://avrmaestro.com/screenshots/scenes-list.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -230,6 +230,14 @@
         "@type": "Answer",
         "text": "Smart Select (Marantz) og Quick Select (Denon) er den samme receiverfunktion under to navne: en håndfuld pladser gemt inde i receiveren, fem på en Marantz CINEMA 30. AVR Maestro kalder dem ved din receivers eget navn overalt i appen, lader dig udløse dem fra Hjemmeskærmen og fjernbetjeningen og lader dig omdøbe dem. Scener er AVR Maestros egne: op til 20 pr. receiver, hver med navn, ikon og farve, der indeholder præcis de indstillinger, du vælger, og de kan udløses fra en widget på startskærmen eller sendes til Home Assistant eller Hubitat. De to overskriver aldrig hinanden."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan én Scene sætte flere receivere op?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, med en Multi AVR Scene, som er en del af købet af Hjemmeautomatisering. Når du har to eller flere receivere i appen, skal du trykke på Tilføj Scene, vælge Multi AVR Scene, give den et navn, markere receiverne og indstille hver receivers Scene på dens egne guidede sider. Tryk på den på listen Receivergrupper, og appen anvender hver receivers Scene efter tur og viser derefter én linje pr. receiver. Scener til én enkelt receiver forbliver gratis."
+      }
     }
   ]
 }
@@ -313,6 +321,7 @@
         <ul>
           <li><b>Scenebyggeren</b> stiller dig et par spørgsmål og tilbyder kun det, din receiver understøtter. Bedst til din første scene, eller når du ved, hvad du vil have, men ikke hvilken menu det ligger i.</li>
           <li><b>Opret fra bunden</b> fanger det, din receiver gør lige nu. Få den til at lyde rigtigt, sæt flueben ved de indstillinger, der skal gemmes, og gem.</li>
+          <li><b>Multi AVR Scene</b> sætter flere receivere op på én gang. Den vises kun, når appen kender to eller flere receivere, og den er en del af købet af <a href="/da/guide/home-automation/">Hjemmeautomatisering</a>. Se <a href="#multi-avr">Multi AVR Scene</a> nedenfor.</li>
         </ul>
         <div class="note">Ingen scener på fanen endnu? Så foreslår den et par udgangspunkter, der passer til din receiver, f.eks. Film og TV eller Sent om aftenen. Tryk på et, og Scenebyggeren åbner med det allerede valgt.</div>
       </div>
@@ -365,6 +374,44 @@
           <li><b>Gennemse og gem.</b> Den sidste side viser præcis, hvad scenen kommer til at gemme, grupperet som i resten af appen. Tryk på <b>Gem</b>, og den lander på din liste over scener, klar når du er.</li>
         </ol>
         <div class="note">Antallet af trin vokser med det, du sætter flueben ved: hver afkrydset indstilling får sin egen side, så en scene med tre indstillinger er kortere end en med ti.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="multi-avr">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Flere receivere, ét tryk</div>
+      <h2>Multi AVR Scene</h2>
+      <p class="lead">En Multi AVR Scene rummer én Scene for hver receiver, du vælger, og anvender dem sammen, så ét tryk kan sætte stuens receiver og receiveren i værelset op. Den kræver to eller flere receivere i appen (demoreceiveren tæller ikke med) og købet af Hjemmeautomatisering. Uden købet viser valget en lås, og et tryk på den åbner købssiden for Hjemmeautomatisering.</p>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="Arket Tilføj scene med Scenebygger, Opret fra bunden og Multi AVR Scene" srcset="/screenshots/scenes-add-multi-avr-662.webp 662w, /screenshots/scenes-add-multi-avr.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-add-multi-avr.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ol class="steps">
+          <li><b>Tryk på Tilføj Scene, og vælg Multi AVR Scene.</b></li>
+          <li><b>Giv gruppen et navn</b>, og markér to eller flere receivere.</li>
+          <li><b>Tryk på Opret hver scene.</b> De guidede sider åbner én gang for hver receiver, du har markeret, så hver får en Scene bygget ud fra det, den receiver kan. Hver valgt receiver skal have sin Scene, før gruppen kan gemmes.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="feat rev">
+      <div class="shots"><img alt="Skærmen Multi AVR Scene med gruppen Movie Night og to afkrydsede receivere" srcset="/screenshots/scenes-multi-avr-group-662.webp 662w, /screenshots/scenes-multi-avr-group.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-multi-avr-group.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Anvendelse.</b> Dine grupper vises under <b>Receivergrupper</b> på fanen Scener. Tryk på en, og appen går receiverne igennem én ad gangen: den venter på, at hver svarer, anvender dens Scene og sætter derefter den receiver tilbage, du startede på. Hvis appen lukkes midt i, sætter næste start din receiver tilbage.</li>
+          <li><b>Én linje pr. receiver.</b> Når den er færdig, viser appen en linje for hver receiver: anvendt og bekræftet, anvendt med nogle indstillinger, der aflæses anderledes, indstillinger afvist, sendt men ikke bekræftet, eller svarede ikke. En receiver, der er fjernet fra appen, eller hvis Scene er slettet, nævnes også ved navn og skjules aldrig bag ét enkelt "færdig".</li>
+        </ul>
+      </div>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="Fanen Scener med afsnittet Receivergrupper, der viser Movie Night med knapperne omdøb og slet" srcset="/screenshots/scenes-multi-avr-list-662.webp 662w, /screenshots/scenes-multi-avr-list.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-multi-avr-list.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Omdøb og slet.</b> Hver gruppe på listen Receivergrupper har en omdøbsknap og en sletteknap. Omdøbning beholder de samme receivere.</li>
+        </ul>
+        <div class="note">Scener til én receiver er stadig gratis. Kun gruppering af flere receivere i én scene kræver købet Hjemmeautomatisering.</div>
       </div>
     </div>
   </div>
@@ -455,7 +502,7 @@
       <li><b>Kanalniveauer kontrolleres og sendes igen én gang.</b> Receivere taber en enkelt kanal, når der kommer meget på én gang. Appen læser tilbage, hvad der landede, sender det igen, der ikke gjorde, og fortæller dig, hvilke kanaler den måtte prøve igen.</li>
       <li><b>En låst kontrol kan ikke anvendes af noget som helst.</b> Hvis din højttalerforudindstilling ejes af Dirac Live, afviser receiveren selv Audyssey-ændringer, og en scene, der indeholder dem, afvises på samme måde som kontrollen på skærmen. Se <a href="/da/guide/locked-controls/">hvorfor en kontrol er låst</a>.</li>
       <li><b>Kun det, scenen rummer, ændres.</b> Hvis en scene ikke ændrer noget, du forventede, var det sandsynligvis ikke afkrydset. Hold den nede, og brug Rediger fangede indstillinger i stedet for at lave en ekstra scene.</li>
-      <li><b>Scener hører til én receiver.</b> Listen er listen for den receiver, der er valgt lige nu. En anden receiver har sin egen.</li>
+      <li><b>Scener hører til én receiver.</b> Listen er listen for den receiver, der er valgt lige nu. En anden receiver har sin egen. Brug en <a href="#multi-avr">Multi AVR Scene</a> for at sætte flere receivere op med ét tryk.</li>
     </ul>
   </div>
 </section>
@@ -492,6 +539,7 @@
     <details><summary>Kan en scene tænde min receiver?</summary><div class="body">Ja. Tag strømtilstanden med, så tænder (eller slukker) scenen hovedzonen først, så længe receiveren har netværksstandby slået til, så appen kan få fat i den, mens den sover.</div></details>
     <details><summary>Hvad betyder den farvede meddelelse efter en Scene?</summary><div class="body">Grøn betyder, at alt blev sat. Orange betyder, at receiveren valgte sin egen værdi for en indstilling, den husker pr. indgangssignal, hvilket er forventet; tryk på Scenen igen for at prøve igen. Blå betyder, at receiveren ikke bekræftede nogle indstillinger, så appen kan ikke se, om de blev sat. Rød betyder, at en indstilling læses tilbage anderledes, eller at receiveren afviste nogle højttalerniveauer; tryk på Scenen igen. En rød meddelelse bliver, indtil du lukker den.</div></details>
     <details><summary>Hvad er forskellen på scener og Smart Select eller Quick Select?</summary><div class="body">Smart Select (Marantz) og Quick Select (Denon) er den samme receiverfunktion under to navne: en håndfuld pladser gemt inde i receiveren, fem på en Marantz CINEMA 30. AVR Maestro kalder dem ved din receivers eget navn overalt i appen, lader dig udløse dem fra Hjemmeskærmen og fjernbetjeningen og lader dig omdøbe dem. Scener er AVR Maestros egne: op til 20 pr. receiver, hver med navn, ikon og farve, der indeholder præcis de indstillinger, du vælger, og de kan udløses fra en widget på startskærmen eller sendes til Home Assistant eller Hubitat. De to overskriver aldrig hinanden.</div></details>
+    <details><summary>Kan én Scene sætte flere receivere op?</summary><div class="body">Ja, med en Multi AVR Scene, som er en del af købet af Hjemmeautomatisering. Når du har to eller flere receivere i appen, skal du trykke på Tilføj Scene, vælge Multi AVR Scene, give den et navn, markere receiverne og indstille hver receivers Scene på dens egne guidede sider. Tryk på den på listen Receivergrupper, og appen anvender hver receivers Scene efter tur og viser derefter én linje pr. receiver. Scener til én enkelt receiver forbliver gratis.</div></details>
   </div>
 </section>
 

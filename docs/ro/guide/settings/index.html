@@ -134,7 +134,7 @@
       "description": "Fiecare secțiune din Setările AVR Maestro: Gestionează receiverele, Aspect (temă, temă de culoare, dimensiuni, limbă), Dispunere, Suplimente, Ajutor, Copie de rezervă și Despre.",
       "image": "https://avrmaestro.com/screenshots/settings-tjmode.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -164,7 +164,7 @@
       "name": "Unde au dispărut Setări › Dispozitive și Setări › Audio?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Începând cu versiunea 5.3.0, ambele se găsesc per receiver. Deschideți Setări › Gestionează receiverele și atingeți receiverul dumneavoastră: pagina lui are secțiunea Audio (pasul de volum, afișarea volumului, presetările de volum, butoanele de volum ale dispozitivului și Comenzi de volum), Ecran și blocări, Despre acest receiver și Redenumește, Schimbă IP, Găsește-mi receiverul și Șterge."
+        "text": "Ambele se găsesc per receiver. Deschideți Setări › Gestionează receiverele și atingeți receiverul dumneavoastră: pagina lui are secțiunea Audio (pasul de volum, afișarea volumului, presetările de volum, butoanele de volum ale dispozitivului și Comenzi de volum), Ecran și blocări, Despre acest receiver și Redenumește, Schimbă IP, Găsește-mi receiverul și Șterge."
       }
     },
     {
@@ -213,6 +213,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Deschideți Setări › Despre AVR Maestro și atingeți de șapte ori numărul versiunii. Meniul de depanare rămâne apoi disponibil până îl eliminați cu Elimină meniul de depanare. Este destinat asistenței; pentru a ne trimite jurnale, folosiți Toate jurnalele relevante pe aceeași pagină."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Colectează AVR Maestro date analitice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Doar dacă sunteți de acord. După prima pornire, aplicația întreabă o singură dată, iar doar Distribuie date analitice activează analiza utilizării; Nu, mulțumesc le păstrează oprite. Puteți schimba oricând în Setări › Despre AVR Maestro › Informații legale, unde se află și comutatorul Raportare blocări. În rapoartele de blocare, adresele IP, adresele MAC și numerele de serie sunt mascate, iar jurnalele exportate le ascund dacă nu alegeți să le includeți."
       }
     }
   ]
@@ -355,7 +363,7 @@
     <ul class="plain">
       <li><b>Copie de rezervă și restaurare:</b> exportați toate setările aplicației într-un fișier sau restaurați dintr-o copie de rezervă. <a href="/ro/guide/backup/">Ghidul copiei de rezervă &rarr;</a></li>
       <li><b>Evaluează AVR Maestro:</b> deschide pagina din magazin pentru a lăsa o evaluare.</li>
-      <li><b>Despre AVR Maestro:</b> informații despre versiune, asistență și licențe. Aici găsiți <b>Comunitatea Discord</b>, <b>Grupul de suport Facebook</b> și <b>Toate jurnalele relevante</b>, care adună jurnalele de care avem nevoie când ceva nu funcționează corect.</li>
+      <li><b>Despre AVR Maestro:</b> informații despre versiune, asistență și licențe. Aici găsiți <b>Comunitatea Discord</b>, <b>Grupul de suport Facebook</b> și <b>Toate jurnalele relevante</b>, care adună jurnalele de care avem nevoie când ceva nu funcționează. Secțiunea <b>Informații legale</b> conține comutatoarele pentru date analitice și rapoarte de blocare (vedeți <a href="#privacy">Confidențialitate</a> mai jos).</li>
       <li><b>Mai multe de la MiyaraHub:</b> deschide pagina MiyaraHub din magazinul dispozitivului dumneavoastră, cu celelalte aplicații home-theater ale noastre.</li>
     </ul>
   </div>
@@ -374,19 +382,41 @@
   </div>
 </section>
 
+<section id="privacy">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Setări &rsaquo; Despre &rsaquo; Informații legale</div>
+      <h2>Confidențialitate: date analitice, rapoarte de blocare și jurnale</h2>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="Despre și Informații legale în Setări, cu comutatorul Share usage analytics dezactivat și comutatorul Crash Reporting activat" srcset="/screenshots/settings-legal-662.webp 662w, /screenshots/settings-legal.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/settings-legal.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Datele analitice sunt opționale.</b> După prima pornire, aplicația întreabă o singură dată, <i>Ajutați la îmbunătățirea AVR Maestro?</i>, cu <b>Distribuie date analitice</b> și <b>Nu, mulțumesc</b>. Nimic nu este trimis dacă nu acceptați. Evenimentele de utilizare sunt legate de un ID aleatoriu creat pentru această instalare și nu conțin nume sau adrese de receivere. Schimbați răspunsul oricând cu <b>Distribuie date analitice de utilizare</b> din Despre &rsaquo; Informații legale. Restaurarea unei copii de rezervă pe alt dispozitiv întreabă din nou.</li>
+          <li><b>Rapoartele de blocare au propriul comutator.</b> <b>Raportare blocări</b> se află în Despre &rsaquo; Informații legale. Când este oprită, nu se trimite nimic, iar rapoartele salvate din sesiuni anterioare sunt șterse în loc să fie trimise mai târziu.</li>
+          <li><b>Rapoartele de blocare nu conțin detaliile rețelei dumneavoastră.</b> Înainte ca un raport să părăsească dispozitivul, adresele IP, adresele MAC, numerele de serie și numele de gazdă sunt mascate în eroare și în detaliile ei.</li>
+          <li><b>Jurnalele cer acordul înainte de a include detaliile receiverului dumneavoastră.</b> <b>Toate jurnalele relevante</b> explică mai întâi ce conține pachetul și unde îl trimite E-mail. Adresa, adresa MAC și numărul de serie ale receiverului dumneavoastră sunt ascunse dacă nu bifați <i>Include adresa, adresa MAC și numărul de serie ale receiverului meu, ca asistența să poată găsi problema</i>.</li>
+          <li><b>Tokenurile hubului rămân în stocarea securizată.</b> Tokenurile Home Assistant și Hubitat sunt păstrate în Keystore pe Android și în Keychain pe dispozitivele Apple, nu împreună cu setările obișnuite ale aplicației. Vedeți <a href="/ro/guide/home-automation/">Automatizare Locuință</a>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Întrebări frecvente</div>
       <h2>Întrebări frecvente despre Setări</h2>
     </div>
-    <details open><summary>Unde au dispărut Setări &rsaquo; Dispozitive și Setări &rsaquo; Audio?</summary><div class="body">Începând cu versiunea 5.3.0, ambele se găsesc per receiver. Deschideți Setări &rsaquo; Gestionează receiverele și atingeți receiverul dumneavoastră: pagina lui are secțiunea Audio (pasul de volum, afișarea volumului, presetările de volum, butoanele de volum ale dispozitivului și Comenzi de volum), Ecran &amp; blocări, Despre acest receiver și Redenumește, Schimbă IP, Găsește-mi receiverul și Șterge.</div></details>
+    <details open><summary>Unde au dispărut Setări &rsaquo; Dispozitive și Setări &rsaquo; Audio?</summary><div class="body">Ambele se găsesc per receiver. Deschideți Setări &rsaquo; Gestionează receiverele și atingeți receiverul dumneavoastră: pagina lui are secțiunea Audio (pasul de volum, afișarea volumului, presetările de volum, butoanele de volum ale dispozitivului și Comenzi de volum), Ecran și blocări, Despre acest receiver și Redenumește, Schimbă IP, Găsește-mi receiverul și Șterge.</div></details>
     <details><summary>Pot schimba tema și culorile aplicației?</summary><div class="body">Da. În Setări &rsaquo; Aspect, Tema este Luminoasă, Întunecată sau AMOLED (negru real), iar Modul TJ: Culoare de accent este Brand sau Temă de culori. Tema de culori vă lasă să alegeți orice accent din selector sau să tastați un cod hexazecimal precum #FF8C00 ori forma sa scurtă din trei caractere. Un cod pe care aplicația nu îl poate citi este refuzat cu motivul, iar o culoare aproape neagră este refuzată pentru că nu s-ar vedea pe tema AMOLED.</div></details>
     <details><summary>Controlează butoanele de volum ale telefonului meu receiverul?</summary><div class="body">Da, pe Android și pe iPhone și iPad. Cât timp aplicația este deschisă, butoanele de volum ale dispozitivului schimbă volumul receiverului. Este activat implicit și setat per receiver: Setări &rsaquo; Gestionează receiverele &rsaquo; receiverul dumneavoastră &rsaquo; Audio &rsaquo; Butoanele de volum ale dispozitivului.</div></details>
     <details><summary>Cum readuc un card explicativ pe care l-am închis?</summary><div class="body">Deschideți Setări &rsaquo; Ajutor. Restaurează cardurile ascunse listează fiecare card pe care l-ați eliminat prin apăsare lungă; atingeți Restaurează pe unul sau Restaurează tot. Afișează cardurile explicative le dezactivează sau le activează pe toate deodată.</div></details>
     <details><summary>Cum văd din nou ghidul de bun venit?</summary><div class="body">Deschideți Setări &rsaquo; Ajutor &rsaquo; Bun venit &amp; ghid de configurare. Reia introducerea și sfaturile de configurare a rețelei. Manualul aplicației din aceeași secțiune deschide acest ghid online.</div></details>
     <details><summary>Pot face o copie de rezervă a configurației?</summary><div class="body">Da. Setări &rsaquo; Copie de rezervă &amp; restaurare exportă toate setările aplicației într-un fișier și restaurează dintr-o copie de rezervă. Vedeți ghidul Copie de rezervă și restaurare pentru ce conține fișierul.</div></details>
     <details><summary>Cum deschid meniul ascuns de depanare?</summary><div class="body">Deschideți Setări &rsaquo; Despre AVR Maestro și atingeți de șapte ori numărul versiunii. Meniul de depanare rămâne apoi disponibil până îl eliminați cu Elimină meniul de depanare. Este destinat asistenței; pentru a ne trimite jurnale, folosiți Toate jurnalele relevante pe aceeași pagină.</div></details>
+    <details><summary>Colectează AVR Maestro date analitice?</summary><div class="body">Doar dacă sunteți de acord. După prima pornire, aplicația întreabă o singură dată, iar doar Distribuie date analitice activează analiza utilizării; Nu, mulțumesc le păstrează oprite. Puteți schimba oricând în Setări &rsaquo; Despre AVR Maestro &rsaquo; Informații legale, unde se află și comutatorul Raportare blocări. În rapoartele de blocare, adresele IP, adresele MAC și numerele de serie sunt mascate, iar jurnalele exportate le ascund dacă nu alegeți să le includeți.</div></details>
   </div>
 </section>
 

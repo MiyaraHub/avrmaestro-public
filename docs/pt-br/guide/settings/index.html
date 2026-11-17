@@ -134,7 +134,7 @@
       "description": "Todas as seções das Configurações do AVR Maestro: Gerenciar Receptores, Aparência (tema, Tema de Cor, tamanhos, idioma), Layout, Complementos, Ajuda, Backup e Sobre.",
       "image": "https://avrmaestro.com/screenshots/settings-tjmode.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -164,7 +164,7 @@
       "name": "Para onde foram Configurações › Dispositivos e Configurações › Áudio?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Desde a versão 5.3.0 os dois ficam por receptor. Abra Configurações › Gerenciar Receptores e toque no seu receptor: a página dele tem a seção Áudio (incremento de volume, leitura do volume, predefinições de volume, botões de volume do dispositivo e Controles de Volume), Tela e Bloqueios, Sobre este receptor, e Renomear, Alterar IP, Localizar Meu Receptor e Excluir."
+        "text": "Os dois ficam por receptor. Abra Configurações › Gerenciar Receptores e toque no seu receptor: a página dele tem a seção Áudio (incremento de volume, leitura do volume, predefinições de volume, botões de volume do dispositivo e Controles de Volume), Tela e Bloqueios, Sobre este receptor, e Renomear, Alterar IP, Localizar Meu Receptor e Excluir."
       }
     },
     {
@@ -213,6 +213,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Abra Configurações › Sobre o AVR Maestro e toque no número da versão sete vezes. O menu de depuração então fica disponível até você removê-lo com Remover Menu de Depuração. Ele serve ao suporte; para nos enviar logs, use Todos os logs relevantes na mesma página."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O AVR Maestro coleta dados de análise?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Só se você concordar. Após a primeira abertura, o app pergunta uma vez, e só Compartilhar análises ativa a análise de uso; Não, obrigado a mantém desativada. Você pode mudar isso a qualquer momento em Configurações › Sobre o AVR Maestro › Jurídico, onde também fica a chave Relatório de Travamentos. Nos relatórios de travamento, endereços IP, endereços MAC e números de série são mascarados, e os registros exportados os ocultam, a menos que você escolha incluí-los."
       }
     }
   ]
@@ -355,7 +363,7 @@
     <ul class="plain">
       <li><b>Backup e restauração:</b> exporte todas as configurações do app para um arquivo, ou restaure a partir de um backup. <a href="/pt-br/guide/backup/">Guia de backup &rarr;</a></li>
       <li><b>Avaliar o AVR Maestro:</b> abre a página do app na loja para você deixar uma avaliação.</li>
-      <li><b>Sobre o AVR Maestro:</b> informações da versão, suporte e licenças. É onde ficam a <b>Comunidade no Discord</b>, o <b>Grupo de Suporte no Facebook</b> e <b>Todos os logs relevantes</b>, que reúne os logs de que precisamos quando algo se comporta mal.</li>
+      <li><b>Sobre o AVR Maestro:</b> informações da versão, suporte e licenças. É aqui que você encontra a <b>Comunidade no Discord</b>, o <b>Grupo de Suporte no Facebook</b> e <b>Todos os registros relevantes</b>, que reúne os registros de que precisamos quando algo dá errado. A seção <b>Jurídico</b> contém as chaves de análise e de relatórios de travamento (veja <a href="#privacy">Privacidade</a> mais abaixo).</li>
       <li><b>Mais da MiyaraHub:</b> abre a página da MiyaraHub na loja do seu dispositivo, com os nossos outros apps de home theater.</li>
     </ul>
   </div>
@@ -374,19 +382,41 @@
   </div>
 </section>
 
+<section id="privacy">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Configurações &rsaquo; Sobre &rsaquo; Jurídico</div>
+      <h2>Privacidade: análise, relatórios de travamento e registros</h2>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="Sobre e Legal em Configurações, com a chave Share usage analytics desligada e a chave Crash Reporting ligada" srcset="/screenshots/settings-legal-662.webp 662w, /screenshots/settings-legal.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/settings-legal.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>A análise é opcional.</b> Após a primeira abertura, o app pergunta uma vez, <i>Ajudar a melhorar o AVR Maestro?</i>, com <b>Compartilhar análises</b> e <b>Não, obrigado</b>. Nada é enviado a menos que você diga sim. Os eventos de uso são vinculados a um ID aleatório criado para esta instalação e não contêm nomes nem endereços de receptores. Mude sua resposta a qualquer momento em <b>Compartilhar análise de uso</b> em Sobre &rsaquo; Jurídico. Restaurar um backup em outro dispositivo pergunta de novo.</li>
+          <li><b>Os relatórios de travamento têm a sua própria chave.</b> <b>Relatório de Travamentos</b> fica em Sobre &rsaquo; Jurídico. Quando está desligada, nada é enviado, e os relatórios salvos de sessões anteriores são descartados em vez de enviados depois.</li>
+          <li><b>Os relatórios de travamento deixam para trás seus dados de rede.</b> Antes de um relatório sair do dispositivo, endereços IP, endereços MAC, números de série e nomes de host são mascarados no erro e nos seus detalhes.</li>
+          <li><b>Os registros pedem permissão antes de incluir os dados do seu receptor.</b> <b>Todos os registros relevantes</b> primeiro explica o que o pacote contém e para onde o E-mail o envia. O endereço, o endereço MAC e o número de série do seu receptor ficam ocultos, a menos que você marque <i>Incluir o endereço, o endereço MAC e o número de série do meu receptor para que o suporte possa encontrar o problema</i>.</li>
+          <li><b>Os tokens do hub ficam no armazenamento seguro.</b> Os tokens do Home Assistant e do Hubitat ficam guardados no Keystore no Android e no Keychain nos dispositivos Apple, e não junto das configurações comuns do app. Veja <a href="/pt-br/guide/home-automation/">Automação Residencial</a>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Perguntas frequentes</div>
       <h2>Perguntas frequentes sobre Configurações</h2>
     </div>
-    <details open><summary>Para onde foram Configurações &rsaquo; Dispositivos e Configurações &rsaquo; Áudio?</summary><div class="body">Desde a versão 5.3.0 os dois ficam por receptor. Abra Configurações &rsaquo; Gerenciar Receptores e toque no seu receptor: a página dele tem a seção Áudio (incremento de volume, leitura do volume, predefinições de volume, botões de volume do dispositivo e Controles de Volume), Tela &amp; Bloqueios, Sobre este receptor, e Renomear, Alterar IP, Localizar Meu Receptor e Excluir.</div></details>
+    <details open><summary>Para onde foram Configurações &rsaquo; Dispositivos e Configurações &rsaquo; Áudio?</summary><div class="body">Os dois ficam por receptor. Abra Configurações &rsaquo; Gerenciar Receptores e toque no seu receptor: a página dele tem a seção Áudio (incremento de volume, leitura do volume, predefinições de volume, botões de volume do dispositivo e Controles de Volume), Tela e Bloqueios, Sobre este receptor, e Renomear, Alterar IP, Localizar Meu Receptor e Excluir.</div></details>
     <details><summary>Posso mudar o tema e as cores do app?</summary><div class="body">Sim. Em Configurações &rsaquo; Aparência, o Tema é Claro, Escuro ou AMOLED (preto verdadeiro), e o Modo TJ: Cor de destaque é Marca ou Tema de cores. O Tema de cores permite escolher qualquer destaque no seletor ou digitar um código hexadecimal como #FF8C00 ou a sua forma abreviada de três caracteres. Um código que o app não consegue ler é recusado com o motivo, e uma cor quase preta é recusada porque não apareceria no tema AMOLED.</div></details>
     <details><summary>Os botões de volume do meu celular controlam o receptor?</summary><div class="body">Sim, no Android e no iPhone e iPad. Com o app aberto, os botões de volume do dispositivo alteram o volume do receptor. Vem ativado por padrão e é definido por receptor: Configurações &rsaquo; Gerenciar Receptores &rsaquo; seu receptor &rsaquo; Áudio &rsaquo; Botões de volume do dispositivo.</div></details>
     <details><summary>Como trago de volta um cartão explicativo que dispensei?</summary><div class="body">Abra Configurações &rsaquo; Ajuda. Restaurar cartões dispensados lista todos os cartões que você dispensou com toque longo; toque em Restaurar em um deles, ou em Restaurar todos. Mostrar cartões explicativos desliga ou liga todos de uma vez.</div></details>
     <details><summary>Como vejo o guia de boas-vindas de novo?</summary><div class="body">Abra Configurações &rsaquo; Ajuda &rsaquo; Boas-vindas &amp; Guia de Configuração. Ele reproduz de novo a introdução e as dicas de configuração da rede. Manual do App, na mesma seção, abre este guia online.</div></details>
     <details><summary>Posso fazer backup da minha configuração?</summary><div class="body">Sim. Configurações &rsaquo; Backup &amp; Restore exporta todas as configurações do app para um arquivo e restaura a partir de um backup. Veja o guia de Backup e restauração para saber o que o arquivo guarda.</div></details>
     <details><summary>Como abro o menu de depuração oculto?</summary><div class="body">Abra Configurações &rsaquo; Sobre o AVR Maestro e toque no número da versão sete vezes. O menu de depuração então fica disponível até você removê-lo com Remover Menu de Depuração. Ele serve ao suporte; para nos enviar logs, use Todos os logs relevantes na mesma página.</div></details>
+    <details><summary>O AVR Maestro coleta dados de análise?</summary><div class="body">Só se você concordar. Após a primeira abertura, o app pergunta uma vez, e só Compartilhar análises ativa a análise de uso; Não, obrigado a mantém desativada. Você pode mudar isso a qualquer momento em Configurações &rsaquo; Sobre o AVR Maestro &rsaquo; Jurídico, onde também fica a chave Relatório de Travamentos. Nos relatórios de travamento, endereços IP, endereços MAC e números de série são mascarados, e os registros exportados os ocultam, a menos que você escolha incluí-los.</div></details>
   </div>
 </section>
 

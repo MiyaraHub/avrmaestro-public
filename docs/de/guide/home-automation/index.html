@@ -134,7 +134,7 @@
       "description": "Verknüpfen Sie AVR Maestro mit Home Assistant oder Hubitat, und Ihre Szenen werden zu nativen Skripten, die ohne Ihr Handy laufen. Sprachsteuerung, Live-Status und Webhooks.",
       "image": "https://avrmaestro.com/screenshots/home-assistant.webp",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -180,7 +180,7 @@
       "name": "Gehört der KI-Assistent zur kostenpflichtigen Freischaltung?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nein. Der KI-Assistent auf dem Gerät ist kostenlos. Hausautomation - Home Assistant, Hubitat und ausgehende Webhooks - ist die einzige kostenpflichtige Freischaltung in AVR Maestro."
+        "text": "Nein. Der KI-Assistent auf dem Gerät ist kostenlos. Hausautomation - Home Assistant, Hubitat, ausgehende Webhooks und Multi AVR Scenes - ist die einzige kostenpflichtige Freischaltung in AVR Maestro."
       }
     },
     {
@@ -197,6 +197,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Öffnen Sie Einstellungen › Hausautomation (Pro) und tippen Sie unter der Freischalten-Schaltfläche auf Käufe wiederherstellen. Wenn Sie die Freischaltung zuvor mit demselben Store-Konto gekauft haben, kommt sie zurück, ohne erneut zu zahlen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wo werden meine Home-Assistant- und Hubitat-Token gespeichert?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Im sicheren Speicher Ihres Geräts: dem Keystore unter Android und der Keychain auf iPhone, iPad und Mac, nicht in den gewöhnlichen Einstellungen der App. App-Daten zurücksetzen löscht sie ebenfalls, und Android kopiert die Daten der App nicht in ein Google-Drive-Backup. Wenn Sie eine Hub- oder Webhook-Adresse eingeben, die im Internet liegt und mit http:// beginnt, warnt die App, dass Ihr Token und Ihre Daten unverschlüsselt durchs Internet gehen würden, und schlägt https:// vor. Adressen in Ihrem eigenen Netzwerk zeigen die Warnung nie."
       }
     }
   ]
@@ -337,11 +345,11 @@
 
     <div class="lockrow" style="margin-top:28px">
       <div>
-        <div class="eyebrow">Wenn Sie mit einer älteren Version synchronisiert haben</div>
-        <h2>Ihre Skript-IDs ändern sich einmal</h2>
-        <p>Skripte wurden früher nach der Szene <em>und</em> dem Receiver benannt, sodass das Umbenennen eines von beiden das alte Skript zurückließ und stillschweigend ein zweites anlegte. Jetzt sind sie nach der Szene und der MAC-Adresse des Receivers benannt, weshalb eine Umbenennung dasselbe Skript aktualisiert, statt es aufzuspalten.</p>
-        <p>Die erste Synchronisierung nach dieser Änderung ersetzt die alten Skripte durch die neuen. <b>Alles, was Sie auf den alten IDs gebaut haben, muss einmal neu verknüpft werden</b> - ein Dashboard-Button, eine Automatisierung, ein Sprachalias. Öffnen Sie das Skript in Home Assistant, um seine neue Entity-ID zu finden.</p>
-        <p>Entitäten werden jetzt ebenfalls vom Receiver gelesen - <code>cinema30</code> statt zweiunddreißig Zeichen Maschinenkennung - sodass die Liste lesbar ist und die Autovervollständigung sie findet. IDs aus früheren Versionen funktionieren weiterhin.</p>
+        <div class="eyebrow">Skript- und Entitäts-IDs</div>
+        <h2>Namen, die eine Umbenennung überstehen</h2>
+        <p>Skripte werden nach der Szene und der MAC-Adresse des Receivers benannt, sodass das Umbenennen der Szene oder des Receivers dasselbe Skript aktualisiert, statt ein zweites anzulegen.</p>
+        <p>Wenn eine Dashboard-Schaltfläche, eine Automatisierung oder ein Sprach-Alias ein Skript aufruft, das nur nach Szene und Receiver benannt ist, ersetzt die nächste Synchronisierung dieses Skript durch das nach der MAC-Adresse benannte. <b>Stellen Sie den Verweis einmal um</b>: Öffnen Sie das Skript in Home Assistant, um seine aktuelle Entitäts-ID zu finden, und verwenden Sie diese.</p>
+        <p>Entitäten, die vom Receiver gelesen werden - <code>cinema30</code> statt zweiunddreißig Zeichen Maschinenkennung - damit die Liste lesbar bleibt und die Autovervollständigung sie findet. Entitäts-IDs, die Ihre Automatisierungen bereits verwenden, funktionieren weiter.</p>
       </div>
     </div>
   </div>
@@ -468,7 +476,8 @@
       <div>
         <div class="eyebrow">Was kostenpflichtig ist und was nicht</div>
         <h2>Hausautomation ist die einzige Freischaltung. Der KI-Assistent ist kostenlos.</h2>
-        <p><b>Hausautomation (Pro)</b> - Home Assistant, Hubitat und ausgehende Webhooks - ist eine einmalige Freischaltung. Alles andere in AVR Maestro, einschließlich des KI-Assistenten auf dem Gerät, ist in der App enthalten.</p>
+        <p><b>Hausautomation (Pro)</b> - Home Assistant, Hubitat, ausgehende Webhooks und Multi AVR Scenes - ist eine einmalige Freischaltung. Alles andere in AVR Maestro, einschließlich des KI-Assistenten auf dem Gerät, ist in der App enthalten.</p>
+        <p>Eine <a href="/de/guide/scenes/#multi-avr">Multi AVR Scene</a> richtet zwei oder mehr Receiver mit einem Fingertipp ein, jeden mit seiner eigenen Szene. Szenen für einen einzelnen Receiver bleiben kostenlos.</p>
         <p>Bereits gekauft, auf diesem Gerät oder einem anderen mit demselben Store-Konto? Tippen Sie unter der Freischalten-Schaltfläche auf <b>Käufe wiederherstellen</b>.</p>
         <p>Die Sprachsteuerung erreicht Ihren Receiver <em>über</em> die Hausautomation, über Ihren Hub. AVR Maestro betreibt keine eigene Spracherkennung.</p>
       </div>
@@ -484,9 +493,10 @@
     </div>
     <details open><summary>Muss mein Handy eingeschaltet sein, damit die Sprachsteuerung funktioniert?</summary><div class="body">Nein. AVR Maestro kompiliert Ihre Szenen zu nativen Home-Assistant-Skripten. Home Assistant spricht in Ihrem lokalen Netzwerk direkt mit dem Receiver, Ihr Handy kann also aus sein, schlafen oder in einem anderen Land liegen.</div></details>
     <details><summary>Welche Sprachassistenten können meinen Receiver steuern?</summary><div class="body">Jeder, den Sie ohnehin nutzen. AVR Maestro bringt keine eigene Sprachebene mit - es veröffentlicht Skripte für Home Assistant oder Hubitat, und diese werden vom Hub Ihres Vertrauens für Alexa, Google Assistant oder Siri Shortcuts bereitgestellt.</div></details>
-    <details><summary>Gehört der KI-Assistent zur kostenpflichtigen Freischaltung?</summary><div class="body">Nein. Der KI-Assistent auf dem Gerät ist kostenlos. Hausautomation - Home Assistant, Hubitat und ausgehende Webhooks - ist die einzige kostenpflichtige Freischaltung in AVR Maestro.</div></details>
+    <details><summary>Gehört der KI-Assistent zur kostenpflichtigen Freischaltung?</summary><div class="body">Nein. Der KI-Assistent auf dem Gerät ist kostenlos. Hausautomation - Home Assistant, Hubitat, ausgehende Webhooks und Multi AVR Scenes - ist die einzige kostenpflichtige Freischaltung in AVR Maestro.</div></details>
     <details><summary>Verlässt irgendetwas mein Heimnetzwerk?</summary><div class="body">Nicht für die Steuerung. Die App spricht mit Ihrem Receiver und Ihrem Hub über Ihr eigenes Netzwerk. Nichts läuft über einen MiyaraHub-Server. Ein Webhook geht dorthin, wohin Sie ihn richten, das entscheiden Sie.</div></details>
     <details><summary>Hausautomation auf einem anderen Gerät gekauft oder neu installiert?</summary><div class="body">Öffnen Sie <i>Einstellungen &rsaquo; Hausautomation (Pro)</i> und tippen Sie unter der Freischalten-Schaltfläche auf <b>Käufe wiederherstellen</b>. Wenn Sie die Freischaltung zuvor mit demselben Store-Konto gekauft haben, kommt sie zurück, ohne erneut zu zahlen.</div></details>
+    <details><summary>Wo werden meine Home-Assistant- und Hubitat-Token gespeichert?</summary><div class="body">Im sicheren Speicher Ihres Geräts: dem Keystore unter Android und der Keychain auf iPhone, iPad und Mac, nicht in den gewöhnlichen Einstellungen der App. App-Daten zurücksetzen löscht sie ebenfalls, und Android kopiert die Daten der App nicht in ein Google-Drive-Backup. Wenn Sie eine Hub- oder Webhook-Adresse eingeben, die im Internet liegt und mit http:// beginnt, warnt die App, dass Ihr Token und Ihre Daten unverschlüsselt durchs Internet gehen würden, und schlägt https:// vor. Adressen in Ihrem eigenen Netzwerk zeigen die Warnung nie.</div></details>
   </div>
 </section>
 

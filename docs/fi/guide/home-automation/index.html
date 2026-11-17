@@ -134,7 +134,7 @@
       "description": "Yhdistä AVR Maestro Home Assistantiin tai Hubitatiin, niin tilanteistasi tulee natiiveja skriptejä, jotka toimivat ilman puhelintasi. Äänikomennot, reaaliaikainen tila ja webhookit.",
       "image": "https://avrmaestro.com/screenshots/home-assistant.webp",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -180,7 +180,7 @@
       "name": "Kuuluuko tekoälyavustaja maksulliseen avaukseen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ei. Laitteella toimiva tekoälyavustaja on ilmainen. Kodin automaatio - Home Assistant, Hubitat ja lähtevät webhookit - on AVR Maestron ainoa maksullinen avaus."
+        "text": "Ei. Laitteella toimiva tekoälyavustaja on ilmainen. Kodin automaatio - Home Assistant, Hubitat, lähtevät webhookit ja Multi AVR Scene - on ainoa maksullinen avaus sovelluksessa AVR Maestro."
       }
     },
     {
@@ -197,6 +197,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Avaa Asetukset › Kodin automaatio (Pro) ja napauta Palauta ostokset avauspainikkeen alla. Jos ostit avauksen aiemmin samalla kauppatilillä, se palautuu ilman uutta maksua."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Missä säilytetään tunnisteet (token), joita Home Assistant ja Hubitat käyttävät?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Laitteesi suojatussa tallennustilassa: Androidilla Keystoressa ja iPhonella, iPadilla ja Macilla Keychainissa, ei sovelluksen tavallisissa asetuksissa. Sovelluksen tietojen nollaus tyhjentää myös ne, eikä Android kopioi sovelluksen tietoja Google Drive -varmuuskopioon. Jos kirjoitat hubin tai webhookin osoitteen, joka on internetissä ja alkaa merkinnällä http://, sovellus varoittaa, että tunnuksesi ja tietosi kulkisivat internetin yli salaamattomina, ja ehdottaa osoitetta https://. Oman verkkosi osoitteista varoitusta ei koskaan näytetä."
       }
     }
   ]
@@ -337,11 +345,11 @@
 
     <div class="lockrow" style="margin-top:28px">
       <div>
-        <div class="eyebrow">Jos synkronoit vanhemmalla versiolla</div>
-        <h2>Skriptitunnuksesi vaihtuvat kerran</h2>
-        <p>Skriptit nimettiin ennen tilanteen <em>ja</em> vastaanottimen mukaan, joten kumman tahansa uudelleennimeäminen jätti vanhan skriptin paikoilleen ja loi hiljaa toisen. Nyt ne nimetään tilanteen ja vastaanottimen MAC-osoitteen mukaan, minkä ansiosta uudelleennimeäminen päivittää saman skriptin eikä luo kopiota.</p>
-        <p>Tämän muutoksen jälkeinen ensimmäinen synkronointi korvaa vanhat skriptit uusilla. <b>Kaikki vanhoihin tunnuksiin rakennettu on osoitettava uudelleen kerran</b> - kojelaudan painike, automaatio, ääniaputunnus. Avaa skripti Home Assistantissa nähdäksesi sen uuden entiteettitunnuksen.</p>
-        <p>Entiteetit luetaan nyt myös vastaanottimelta - <code>cinema30</code> kolmenkymmenenkahden koneentunnistemerkin sijaan - joten luettelo on luettava ja automaattinen täydennys löytää ne. Aiempien versioiden tunnukset toimivat edelleen.</p>
+        <div class="eyebrow">Skriptien ja entiteettien tunnukset</div>
+        <h2>Nimet, jotka säilyvät uudelleennimeämisessä</h2>
+        <p>Skriptit nimetään tilanteen ja vastaanottimen MAC-osoitteen mukaan, joten tilanteen tai vastaanottimen uudelleennimeäminen päivittää saman skriptin eikä luo toista.</p>
+        <p>Jos hallintapaneelin painike, automaatio tai äänialias kutsuu skriptiä, joka on nimetty vain tilanteen ja vastaanottimen mukaan, seuraava synkronointi korvaa kyseisen skriptin MAC-osoitteen mukaan nimetyllä skriptillä. <b>Osoita se uudelleen kerran</b>: avaa skripti Home Assistantissa nähdäksesi sen nykyisen entiteetin tunnuksen, ja käytä sitä.</p>
+        <p>Vastaanottimesta luetut entiteetit - <code>cinema30</code> kolmenkymmenenkahden merkin konetunnisteen sijaan - jotta luettelo on luettava ja automaattinen täydennys löytää ne. Entiteettien tunnukset, joita automaatiosi jo käyttävät, toimivat edelleen.</p>
       </div>
     </div>
   </div>
@@ -468,7 +476,8 @@
       <div>
         <div class="eyebrow">Mikä on maksullista ja mikä ei</div>
         <h2>Kodin automaatio on ainoa avaus. Tekoälyavustaja on ilmainen.</h2>
-        <p><b>Kodin automaatio (Pro)</b> - Home Assistant, Hubitat ja lähtevät webhookit - on kertaluonteinen avaus. Kaikki muu AVR Maestrossa, myös laitteella toimiva tekoälyavustaja, kuuluu sovellukseen.</p>
+        <p><b>Kodin automaatio (Pro)</b> - Home Assistant, Hubitat, lähtevät webhookit ja Multi AVR Scene - on kertaluonteinen avaus. Kaikki muu sovelluksessa AVR Maestro, laitteella toimiva tekoälyavustaja mukaan lukien, kuuluu sovellukseen.</p>
+        <p><a href="/fi/guide/scenes/#multi-avr">Multi AVR Scene</a> asettaa kaksi tai useampia vastaanottimia yhdellä napautuksella, kullekin oman tilanteensa. Yhden vastaanottimen tilanteet pysyvät ilmaisina.</p>
         <p>Oletko jo ostanut sen, tällä laitteella tai toisella samalla kauppatilillä? Napauta <b>Palauta ostokset</b> avauspainikkeen alla.</p>
         <p>Äänikomennot tavoittavat vastaanottimesi <em>Kodin automaation</em> kautta, keskusyksikkösi välityksellä. AVR Maestro ei suorita omaa puheentunnistustaan.</p>
       </div>
@@ -484,9 +493,10 @@
     </div>
     <details open><summary>Pitääkö puhelimeni olla päällä, jotta äänikomennot toimivat?</summary><div class="body">Ei. AVR Maestro kokoaa tilanteesi natiiveiksi Home Assistant -skripteiksi. Home Assistant puhuu vastaanottimelle suoraan paikallisverkossasi, joten puhelimesi voi olla sammutettuna, lepotilassa tai toisessa maassa.</div></details>
     <details><summary>Millä ääniavustajilla voin ohjata vastaanotintani?</summary><div class="body">Millä tahansa, jota jo käytät. AVR Maestro ei lisää omaa äänikerrostaan - se julkaisee skriptit Home Assistantiin tai Hubitatiin, ja jo luottamasi keskusyksikkö tarjoaa ne Alexalle, Google Assistantille tai Siri-oikoteille.</div></details>
-    <details><summary>Kuuluuko tekoälyavustaja maksulliseen avaukseen?</summary><div class="body">Ei. Laitteella toimiva tekoälyavustaja on ilmainen. Kodin automaatio - Home Assistant, Hubitat ja lähtevät webhookit - on AVR Maestron ainoa maksullinen avaus.</div></details>
+    <details><summary>Kuuluuko tekoälyavustaja maksulliseen avaukseen?</summary><div class="body">Ei. Laitteella toimiva tekoälyavustaja on ilmainen. Kodin automaatio - Home Assistant, Hubitat, lähtevät webhookit ja Multi AVR Scene - on ainoa maksullinen avaus sovelluksessa AVR Maestro.</div></details>
     <details><summary>Poistuuko mitään kotiverkostani?</summary><div class="body">Ei ohjauksen osalta. Sovellus puhuu vastaanottimellesi ja keskusyksikölle omassa verkossasi. Mitään ei reititetä MiyaraHubin palvelimen kautta. Webhook menee sinne, minne sen osoitat, ja se on sinun valintasi.</div></details>
     <details><summary>Ostitko Kodin automaation toisella laitteella tai asensitko sovelluksen uudelleen?</summary><div class="body">Avaa <i>Asetukset &rsaquo; Kodin automaatio (Pro)</i> ja napauta <b>Palauta ostokset</b> avauspainikkeen alla. Jos ostit avauksen aiemmin samalla kauppatilillä, se palautuu ilman uutta maksua.</div></details>
+    <details><summary>Missä säilytetään tunnisteet (token), joita Home Assistant ja Hubitat käyttävät?</summary><div class="body">Laitteesi suojatussa tallennustilassa: Androidilla Keystoressa ja iPhonella, iPadilla ja Macilla Keychainissa, ei sovelluksen tavallisissa asetuksissa. Sovelluksen tietojen nollaus tyhjentää myös ne, eikä Android kopioi sovelluksen tietoja Google Drive -varmuuskopioon. Jos kirjoitat hubin tai webhookin osoitteen, joka on internetissä ja alkaa merkinnällä http://, sovellus varoittaa, että tunnuksesi ja tietosi kulkisivat internetin yli salaamattomina, ja ehdottaa osoitetta https://. Oman verkkosi osoitteista varoitusta ei koskaan näytetä.</div></details>
   </div>
 </section>
 

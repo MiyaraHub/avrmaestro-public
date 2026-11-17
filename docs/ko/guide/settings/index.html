@@ -134,7 +134,7 @@
       "description": "AVR Maestro 설정의 모든 섹션: 리시버 관리, 디자인(테마, 색상 테마, 크기, 언어), 레이아웃, 부가 기능, 도움말, 백업, 정보.",
       "image": "https://avrmaestro.com/screenshots/settings-tjmode.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -164,7 +164,7 @@
       "name": "설정 › 기기와 설정 › 오디오는 어디로 갔나요?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "버전 5.3.0부터 두 항목 모두 리시버별로 옮겨졌습니다. 설정 › 리시버 관리를 열고 리시버를 탭하세요. 해당 페이지에 오디오 섹션(볼륨 단계, 볼륨 표시, 볼륨 프리셋, 기기 볼륨 버튼, 볼륨 제어), 화면 및 잠금, 이 리시버 정보, 그리고 이름 바꾸기, IP 변경, 리시버 찾기, 삭제가 있습니다."
+        "text": "두 항목 모두 리시버별로 있습니다. 설정 › 리시버 관리를 열고 리시버를 탭하세요. 해당 페이지에 오디오 섹션(볼륨 단계, 볼륨 표시, 볼륨 프리셋, 기기 볼륨 버튼, 볼륨 제어), 화면 및 잠금, 이 리시버 정보, 그리고 이름 바꾸기, IP 변경, 리시버 찾기, 삭제가 있습니다."
       }
     },
     {
@@ -213,6 +213,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "설정 › AVR Maestro 정보를 열고 버전 번호를 일곱 번 탭하세요. 그러면 디버그 메뉴 제거로 없앨 때까지 디버그 메뉴를 사용할 수 있습니다. 지원용 기능이며, 로그를 보내려면 같은 페이지의 관련 로그 모두를 사용하세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "AVR Maestro 앱은 분석 데이터를 수집하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "동의하는 경우에만 수집합니다. 처음 실행한 뒤 앱이 한 번 묻고, 분석 공유를 선택해야만 사용 분석이 켜지며, 아니요를 선택하면 꺼진 상태로 유지됩니다. 설정 › AVR Maestro 정보 › 법적 고지에서 언제든 바꿀 수 있고, 충돌 보고 스위치도 그곳에 있습니다. 충돌 보고서에서는 IP 주소, MAC 주소, 일련번호가 가려지며, 내보낸 로그에서도 포함하도록 선택하지 않으면 숨겨집니다."
       }
     }
   ]
@@ -355,7 +363,7 @@
     <ul class="plain">
       <li><b>백업 및 복원:</b> 모든 앱 설정을 파일로 내보내거나 백업에서 복원합니다. <a href="/ko/guide/backup/">백업 가이드 &rarr;</a></li>
       <li><b>AVR Maestro 평가:</b> 스토어 목록을 열어 평가를 남길 수 있습니다.</li>
-      <li><b>AVR Maestro 정보:</b> 버전 정보, 지원, 라이선스. 여기에서 <b>Discord 커뮤니티</b>, <b>Facebook 지원 그룹</b>, 문제가 생겼을 때 필요한 로그를 모아 주는 <b>관련 로그 모두</b>를 찾을 수 있습니다.</li>
+      <li><b>AVR Maestro 정보:</b> 버전 정보, 지원, 라이선스입니다. 여기에서 <b>Discord 커뮤니티</b>, <b>Facebook 지원 그룹</b>, 그리고 문제가 생겼을 때 필요한 로그를 한데 모으는 <b>관련 로그 모두</b>를 찾을 수 있습니다. <b>법적 고지</b> 섹션에는 분석과 충돌 보고 스위치가 있습니다(아래 <a href="#privacy">개인정보 보호</a> 참고).</li>
       <li><b>MiyaraHub의 다른 앱:</b> 기기 스토어에서 다른 홈시어터 앱이 있는 MiyaraHub 페이지를 엽니다.</li>
     </ul>
   </div>
@@ -374,19 +382,41 @@
   </div>
 </section>
 
+<section id="privacy">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">설정 &rsaquo; 정보 &rsaquo; 법적 고지</div>
+      <h2>개인정보 보호: 분석, 충돌 보고서, 로그</h2>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="설정의 정보와 법적 고지. Share usage analytics 스위치는 꺼져 있고 Crash Reporting 스위치는 켜져 있음" srcset="/screenshots/settings-legal-662.webp 662w, /screenshots/settings-legal.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/settings-legal.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>분석은 옵트인입니다.</b> 처음 실행한 뒤 앱이 <i>AVR Maestro 개선에 참여하시겠어요?</i>라고 한 번 묻고, <b>분석 공유</b>와 <b>아니요</b>가 표시됩니다. 예라고 답하지 않으면 아무것도 전송되지 않습니다. 사용 이벤트는 이 설치본을 위해 만든 임의의 ID에 연결되며 리시버 이름이나 주소는 포함하지 않습니다. 답변은 정보 &rsaquo; 법적 고지의 <b>사용 분석 공유</b>에서 언제든 바꿀 수 있습니다. 다른 기기에서 백업을 복원하면 다시 묻습니다.</li>
+          <li><b>충돌 보고서에는 자체 스위치가 있습니다.</b> <b>충돌 보고</b>는 정보 &rsaquo; 법적 고지에 있습니다. 꺼져 있으면 아무것도 전송되지 않으며, 이전 세션에서 저장된 보고서는 나중에 전송되지 않고 삭제됩니다.</li>
+          <li><b>충돌 보고서에는 네트워크 정보가 남지 않습니다.</b> 보고서가 기기를 떠나기 전에, 오류와 그 세부 정보에 들어 있는 IP 주소, MAC 주소, 일련번호, 호스트 이름이 가려집니다.</li>
+          <li><b>로그는 리시버 정보를 포함하기 전에 먼저 묻습니다.</b> <b>관련 로그 모두</b>는 먼저 번들에 무엇이 들어 있는지와 이메일이 어디로 보내는지를 설명합니다. <i>지원팀이 문제를 찾을 수 있도록 내 리시버의 주소, MAC 주소, 일련번호를 포함</i>을 체크하지 않으면 리시버의 주소, MAC 주소, 일련번호는 숨겨집니다.</li>
+          <li><b>허브 토큰은 보안 저장소에 보관됩니다.</b> Home Assistant와 Hubitat 토큰은 Android에서는 Keystore, Apple 기기에서는 Keychain에 보관되며, 앱의 일반 설정과는 따로 저장됩니다. <a href="/ko/guide/home-automation/">홈 오토메이션</a>을 참고하세요.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">자주 묻는 질문</div>
       <h2>설정 자주 묻는 질문</h2>
     </div>
-    <details open><summary>설정 &rsaquo; 기기와 설정 &rsaquo; 오디오는 어디로 갔나요?</summary><div class="body">버전 5.3.0부터 두 항목 모두 리시버별로 옮겨졌습니다. 설정 &rsaquo; 리시버 관리를 열고 리시버를 탭하세요. 해당 페이지에 오디오 섹션(볼륨 단계, 볼륨 표시, 볼륨 프리셋, 기기 볼륨 버튼, 볼륨 제어), 화면 &amp; 잠금, 이 리시버 정보, 그리고 이름 바꾸기, IP 변경, 리시버 찾기, 삭제가 있습니다.</div></details>
+    <details open><summary>설정 &rsaquo; 기기와 설정 &rsaquo; 오디오는 어디로 갔나요?</summary><div class="body">두 항목 모두 리시버별로 있습니다. 설정 &rsaquo; 리시버 관리를 열고 리시버를 탭하세요. 해당 페이지에 오디오 섹션(볼륨 단계, 볼륨 표시, 볼륨 프리셋, 기기 볼륨 버튼, 볼륨 제어), 화면 및 잠금, 이 리시버 정보, 그리고 이름 바꾸기, IP 변경, 리시버 찾기, 삭제가 있습니다.</div></details>
     <details><summary>앱의 테마와 색상을 바꿀 수 있나요?</summary><div class="body">네. 설정 &rsaquo; 디자인에서 테마는 라이트, 다크, AMOLED(완전한 검정) 중에서 고르고, TJ 모드: 강조 색은 브랜드 또는 컬러 테마입니다. 컬러 테마에서는 선택기에서 아무 강조 색이나 고르거나 #FF8C00 같은 16진수 코드 또는 세 자리 축약형을 입력할 수 있습니다. 앱이 읽을 수 없는 코드는 이유와 함께 거부되며, 거의 검은색에 가까운 색은 AMOLED 테마에서 보이지 않으므로 거부됩니다.</div></details>
     <details><summary>휴대폰의 볼륨 버튼으로 리시버를 제어할 수 있나요?</summary><div class="body">네. Android, iPhone, iPad에서 가능합니다. 앱이 열려 있는 동안 기기의 볼륨 버튼이 리시버의 볼륨을 바꿉니다. 기본적으로 켜져 있으며 리시버별로 설정합니다. 설정 &rsaquo; 리시버 관리 &rsaquo; 해당 리시버 &rsaquo; 오디오 &rsaquo; 기기 볼륨 버튼.</div></details>
     <details><summary>닫아 둔 설명 카드를 다시 표시하려면 어떻게 하나요?</summary><div class="body">설정 &rsaquo; 도움말을 여세요. 닫은 카드 복원에는 길게 눌러 없앤 모든 카드가 나열되며, 하나에서 복원을 탭하거나 모두 복원을 탭하세요. 설명 카드 표시를 사용하면 모든 카드를 한 번에 끄거나 켤 수 있습니다.</div></details>
     <details><summary>환영 안내를 다시 보려면 어떻게 하나요?</summary><div class="body">설정 &rsaquo; 도움말 &rsaquo; 환영 &amp; 설정 안내를 여세요. 소개와 네트워크 설정 팁을 다시 보여 줍니다. 같은 섹션의 앱 설명서는 이 온라인 가이드를 엽니다.</div></details>
     <details><summary>설정을 백업할 수 있나요?</summary><div class="body">네. 설정 &rsaquo; 백업 &amp; 복원에서 모든 앱 설정을 파일로 내보내고 백업에서 복원할 수 있습니다. 파일에 무엇이 담기는지는 백업 및 복원 가이드를 참조하세요.</div></details>
     <details><summary>숨겨진 디버그 메뉴는 어떻게 여나요?</summary><div class="body">설정 &rsaquo; AVR Maestro 정보를 열고 버전 번호를 일곱 번 탭하세요. 그러면 디버그 메뉴 제거로 없앨 때까지 디버그 메뉴를 사용할 수 있습니다. 지원용 기능이며, 로그를 보내려면 같은 페이지의 관련 로그 모두를 사용하세요.</div></details>
+    <details><summary>AVR Maestro 앱은 분석 데이터를 수집하나요?</summary><div class="body">동의하는 경우에만 수집합니다. 처음 실행한 뒤 앱이 한 번 묻고, 분석 공유를 선택해야만 사용 분석이 켜지며, 아니요를 선택하면 꺼진 상태로 유지됩니다. 설정 &rsaquo; AVR Maestro 정보 &rsaquo; 법적 고지에서 언제든 바꿀 수 있고, 충돌 보고 스위치도 그곳에 있습니다. 충돌 보고서에서는 IP 주소, MAC 주소, 일련번호가 가려지며, 내보낸 로그에서도 포함하도록 선택하지 않으면 숨겨집니다.</div></details>
   </div>
 </section>
 

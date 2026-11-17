@@ -134,7 +134,7 @@
       "description": "หน้าจอหลักของ AVR Maestro: การ์ดสถานะ ตัวสลับเครื่องรับ และวิดเจ็ตที่คุณเพิ่มและจัดลำดับได้สำหรับระดับเสียง แหล่งสัญญาณ โหมดเสียง สัญญาณ ฉาก โซน และ HEOS",
       "image": "https://avrmaestro.com/screenshots/dashboard.webp",
       "datePublished": "2026-07-03",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -334,6 +334,9 @@
         <tr><td>DRC</td><td>Dynamic Range Compression: Auto, Off, Low, Mid หรือ High</td></tr>
         <tr><td>ฟิลเตอร์ Dirac Live</td><td>สล็อต Dirac Live ของชุดตั้งค่าลำโพงปัจจุบัน พร้อมลิงก์ตรง มีเฉพาะบนเครื่องรับ Dirac</td></tr>
         <tr><td>สถานะ Audyssey</td><td>MultEQ, Dynamic EQ, Reference Level Offset, Dynamic Volume, LFC และ Containment Amount ในมุมมองเดียว มีเฉพาะบนเครื่องรับ Audyssey</td></tr>
+        <tr><td>Audyssey MultEQ</td><td>สลับ MultEQ จากหน้าหลักได้โดยไม่ต้องไปที่ เสียง &rsaquo; Audyssey ปิดอยู่เป็นค่าเริ่มต้น: เพิ่มเมื่อคุณปรับแต่งหน้าหลัก จะปรากฏหลังจากที่เครื่องรับรายงานการตั้งค่า MultEQ แล้ว มีตัวเลือกเดียวกับตัวสร้างฉาก และชิปที่เลือกจะเปลี่ยนตามสิ่งที่เครื่องรับรายงาน</td></tr>
+        <tr><td>Dynamic EQ</td><td>เปิดหรือปิด Dynamic EQ จากหน้าหลัก ปิดอยู่เป็นค่าเริ่มต้น และจะแสดงหลังจากที่เครื่องรับรายงานแล้ว</td></tr>
+        <tr><td>Dynamic Volume</td><td>ปรับ Dynamic Volume จากหน้าหลัก ด้วยระดับที่เครื่องรับของคุณมีให้ ปิดอยู่เป็นค่าเริ่มต้น และจะแสดงหลังจากที่เครื่องรับรายงานแล้ว</td></tr>
         <tr><td>สรุประดับช่องสัญญาณ</td><td>รายการระดับของทุกช่องสัญญาณที่เครื่องรับรายงาน</td></tr>
         <tr><td>ระดับซับวูฟเฟอร์</td><td>Subwoofer Level Adjust พร้อมปุ่มลบและบวก แสดงเมื่อตั้งค่าซับวูฟเฟอร์แล้วและมีสัญญาณเสียง</td></tr>
         <tr><td>ดีเลย์เสียง</td><td>หน่วงเวลาเสียง (ลิปซิงค์) ตั้งแต่ 0 ถึง 500 ms เมื่อเครื่องรับรายงานค่านี้ ตัวเลือกขั้น (1 ถึง 10 ms) กำหนดว่าปุ่มลบและปุ่มบวกจะปรับค่าครั้งละเท่าใด</td></tr>
@@ -360,6 +363,19 @@
 
 <section>
   <div class="wrap">
+    <div class="feat rev">
+      <div class="shots"><img alt="การ์ด Audyssey MultEQ, Dynamic EQ และ Dynamic Volume บนหน้าแรก ที่ถูกล็อกเพราะ Dirac Live ควบคุมชุดตั้งค่าลำโพงอยู่" srcset="/screenshots/home-audyssey-662.webp 662w, /screenshots/home-audyssey.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/home-audyssey.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <div class="eyebrow">Audyssey บนหน้าแรก</div>
+        <h2>การ์ด MultEQ, Dynamic EQ และ Dynamic Volume</h2>
+        <p class="lead">เพิ่มการ์ด Audyssey ทั้งสามใบเมื่อปรับแต่งหน้าแรก แล้วสลับใช้งานได้โดยไม่ต้องไปที่ เสียง &rsaquo; Audyssey ขณะที่ Dirac Live ควบคุมชุดตั้งค่าลำโพงอยู่ การ์ดจะยังอยู่บนหน้าแรกแต่จางลง พร้อมเหตุผลใต้การ์ดแต่ละใบ และการแตะการ์ดจะไม่ส่งอะไรไปยังเครื่องรับ</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">ตัวควบคุมเสียง</div>
       <h2>สวิตช์ด่วนในหน้าเสียง</h2>
@@ -367,6 +383,7 @@
     <ul class="plain">
       <li><b>Graphic EQ:</b> สวิตช์เปิด/ปิดอยู่ในหน้า Graphic EQ เอง (เสียง &rsaquo; Graphic EQ) ในแถวส่วนหัวข้างปุ่ม Reset และ Copy แก้ไขแบนด์ได้เมื่อไม่มีทั้ง Dirac Live และ Audyssey ทำการแก้ไขเสียงห้องอยู่เท่านั้น แอปทำตามกฎของเครื่องรับเอง ดู<a href="/th/guide/graphic-eq/">คู่มือ Graphic EQ</a></li>
       <li><b>ซับวูฟเฟอร์:</b> ปิดเสียงหรือเปิดใช้งานซับวูฟเฟอร์จาก เสียง &rsaquo; เซอร์ราวด์ &rsaquo; Audio Features โดยไม่ต้องลงลึกไปที่การตั้งค่าลำโพง แสดงเฉพาะบนเครื่องรับที่รายงานและรับค่านี้</li>
+      <li><b>การ์ดและการล็อกของ Audyssey:</b> การ์ด MultEQ, Dynamic EQ และ Dynamic Volume จะถูกล็อกขณะที่ Dirac Live เป็นเจ้าของพรีเซ็ตลำโพง หรือ Audyssey ยังไม่ได้ปรับเทียบบนพรีเซ็ตนั้น และ Dynamic EQ กับ Dynamic Volume จะถูกล็อกด้วยขณะที่ MultEQ ปิดอยู่ การ์ดที่ถูกล็อกจะยังอยู่ในหน้าหลัก จางลง บอกเหตุผล และไม่ส่งอะไรเลย ดู<a href="/th/guide/locked-controls/">เหตุใดตัวควบคุมจึงถูกล็อก</a></li>
       <li><b>ตัวฟื้นฟูสัญญาณเสียง:</b> ตัวฟื้นฟูเสียงที่ถูกบีบอัดของเครื่องรับ - <b>Restorer</b> บน Denon, <b>M-DAX</b> บน Marantz - ใต้ เสียง &rsaquo; โทนเสียง คืนความมีชีวิตชีวาให้ไฟล์ MP3 และแหล่งสตรีมโดยไม่ต้องเข้าเมนูบนหน้าจอ</li>
     </ul>
   </div>

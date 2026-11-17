@@ -134,7 +134,7 @@
       "description": "Link AVR Maestro to Home Assistant or Hubitat and your Scenes become native scripts that run without your phone. Voice control, live state and webhooks.",
       "image": "https://avrmaestro.com/screenshots/home-assistant.webp",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -180,7 +180,7 @@
       "name": "Is the AI assistant part of the paid unlock?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. The on-device AI assistant is free. Home Automation - Home Assistant, Hubitat and outbound webhooks - is the one paid unlock in AVR Maestro."
+        "text": "No. The on-device AI assistant is free. Home Automation - Home Assistant, Hubitat, outbound webhooks and Multi AVR Scenes - is the one paid unlock in AVR Maestro."
       }
     },
     {
@@ -197,6 +197,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Open Settings › Home Automation (Pro) and tap Restore Purchases under the unlock button. If you bought the unlock before with the same store account, it comes back without paying again."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where are my Home Assistant and Hubitat tokens kept?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In your device's secure storage: the Keystore on Android and the Keychain on iPhone, iPad and Mac, not in the app's ordinary settings. Reset App Data clears them too, and Android does not copy the app's data to a Google Drive backup. If you type a hub or webhook address that is on the internet and starts with http://, the app warns that your token and data would cross the internet unencrypted, and suggests https://. Addresses on your own network never show the warning."
       }
     }
   ]
@@ -337,11 +345,11 @@
 
     <div class="lockrow" style="margin-top:28px">
       <div>
-        <div class="eyebrow">If you synced with an older build</div>
-        <h2>Your script IDs change once</h2>
-        <p>Scripts used to be named after the scene <em>and</em> the receiver, so renaming either one left the old script behind and quietly created a second. They are now named after the scene and the receiver's MAC address, which is what makes a rename update the same script instead of forking it.</p>
-        <p>The first sync after that change replaces the old scripts with the new ones. <b>Anything you built on the old IDs needs repointing once</b> - a dashboard button, an automation, a voice alias. Open the script in Home Assistant to find its new entity ID.</p>
-        <p>Entities now read from the receiver too - <code>cinema30</code> rather than thirty-two characters of machine identifier - so the list is legible and autocomplete finds them. Ids from earlier versions keep working.</p>
+        <div class="eyebrow">Script and entity IDs</div>
+        <h2>Names that survive a rename</h2>
+        <p>Scripts are named after the scene and the receiver's MAC address, so renaming the scene or the receiver updates the same script instead of creating a second one.</p>
+        <p>If a dashboard button, an automation or a voice alias calls a script named after the scene and the receiver alone, the next sync replaces that script with the one named after the MAC address. <b>Repoint it once</b>: open the script in Home Assistant to find its current entity ID and use that.</p>
+        <p>Entities read from the receiver - <code>cinema30</code> rather than thirty-two characters of machine identifier - so the list is legible and autocomplete finds them. Entity IDs your automations already use keep working.</p>
       </div>
     </div>
   </div>
@@ -468,7 +476,8 @@
       <div>
         <div class="eyebrow">What is paid and what is not</div>
         <h2>Home Automation is the one unlock. The AI assistant is free.</h2>
-        <p><b>Home Automation (Pro)</b> - Home Assistant, Hubitat and outbound webhooks - is a one-time unlock. Everything else in AVR Maestro, including the on-device AI assistant, is included in the app.</p>
+        <p><b>Home Automation (Pro)</b> - Home Assistant, Hubitat, outbound webhooks and Multi AVR Scenes - is a one-time unlock. Everything else in AVR Maestro, including the on-device AI assistant, is included in the app.</p>
+        <p>A <a href="/guide/scenes/#multi-avr">Multi AVR Scene</a> sets up two or more receivers with one tap, each with its own Scene. Scenes for a single receiver stay free.</p>
         <p>Already bought it, on this device or another one with the same store account? Tap <b>Restore Purchases</b> under the unlock button.</p>
         <p>Voice control reaches your receiver <em>through</em> Home Automation, by way of your hub. AVR Maestro does not run its own voice recognition.</p>
       </div>
@@ -484,9 +493,10 @@
     </div>
     <details open><summary>Does my phone need to be on for voice control to work?</summary><div class="body">No. AVR Maestro compiles your scenes into native Home Assistant scripts. Home Assistant talks to the receiver on your local network directly, so your phone can be off, asleep or in another country.</div></details>
     <details><summary>Which voice assistants can control my receiver?</summary><div class="body">Whichever one you already use. AVR Maestro does not add its own voice layer - it publishes scripts to Home Assistant or Hubitat, and those are exposed to Alexa, Google Assistant or Siri Shortcuts by the hub you already trust.</div></details>
-    <details><summary>Is the AI assistant part of the paid unlock?</summary><div class="body">No. The on-device AI assistant is free. Home Automation - Home Assistant, Hubitat and outbound webhooks - is the one paid unlock in AVR Maestro.</div></details>
+    <details><summary>Is the AI assistant part of the paid unlock?</summary><div class="body">No. The on-device AI assistant is free. Home Automation - Home Assistant, Hubitat, outbound webhooks and Multi AVR Scenes - is the one paid unlock in AVR Maestro.</div></details>
     <details><summary>Does anything leave my home network?</summary><div class="body">Not for control. The app talks to your receiver and to your hub over your own network. Nothing is routed through a MiyaraHub server. A webhook goes wherever you point it, which is your choice.</div></details>
     <details><summary>Bought Home Automation on another device, or reinstalled?</summary><div class="body">Open <i>Settings &rsaquo; Home Automation (Pro)</i> and tap <b>Restore Purchases</b> under the unlock button. If you bought the unlock before with the same store account, it comes back without paying again.</div></details>
+    <details><summary>Where are my Home Assistant and Hubitat tokens kept?</summary><div class="body">In your device's secure storage: the Keystore on Android and the Keychain on iPhone, iPad and Mac, not in the app's ordinary settings. Reset App Data clears them too, and Android does not copy the app's data to a Google Drive backup. If you type a hub or webhook address that is on the internet and starts with http://, the app warns that your token and data would cross the internet unencrypted, and suggests https://. Addresses on your own network never show the warning.</div></details>
   </div>
 </section>
 

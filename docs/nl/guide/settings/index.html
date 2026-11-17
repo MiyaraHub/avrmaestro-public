@@ -134,7 +134,7 @@
       "description": "Elk onderdeel van de Instellingen van AVR Maestro: Receivers beheren, Uiterlijk (thema, Kleurthema, groottes, taal), Indeling, Extra's, Help, Back-up en Info.",
       "image": "https://avrmaestro.com/screenshots/settings-tjmode.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -164,7 +164,7 @@
       "name": "Waar zijn Instellingen › Apparaten en Instellingen › Audio gebleven?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sinds versie 5.3.0 staan beide per receiver. Open Instellingen › Receivers beheren en tik op je receiver: op de pagina staat het onderdeel Audio (volumestap, volumeweergave, volumepresets, volumeknoppen van het apparaat en Volumebediening), Scherm &amp; sloten, Over deze receiver, en Hernoemen, IP wijzigen, Mijn receiver zoeken en Verwijderen."
+        "text": "Beide staan per receiver. Open Instellingen › Receivers beheren en tik op je receiver: op de pagina staat het onderdeel Audio (volumestap, volumeweergave, volumepresets, volumeknoppen van het apparaat en Volumebediening), Scherm &amp; sloten, Over deze receiver, en Hernoemen, IP wijzigen, Mijn receiver zoeken en Verwijderen."
       }
     },
     {
@@ -213,6 +213,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Open Instellingen › Over AVR Maestro en tik zeven keer op het versienummer. Het foutopsporingsmenu blijft dan beschikbaar totdat je het verwijdert met Foutopsporingsmenu verwijderen. Het is bedoeld voor ondersteuning; om ons logboeken te sturen, gebruik je Alle relevante logboeken op dezelfde pagina."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Verzamelt AVR Maestro analysegegevens?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Alleen als je akkoord gaat. Na de eerste start vraagt de app het één keer, en alleen Analyse delen zet gebruiksanalyse aan; Nee bedankt houdt ze uit. Je kunt het op elk moment wijzigen onder Instellingen › Over AVR Maestro › Juridisch, waar ook de schakelaar Crashrapportage staat. In crashrapporten zijn IP-adressen, MAC-adressen en serienummers gemaskeerd, en geëxporteerde logs verbergen ze tenzij je ervoor kiest ze mee te nemen."
       }
     }
   ]
@@ -355,7 +363,7 @@
     <ul class="plain">
       <li><b>Back-up &amp; herstel:</b> exporteer elke app-instelling naar een bestand, of herstel vanuit een back-up. <a href="/nl/guide/backup/">Back-upgids &rarr;</a></li>
       <li><b>AVR Maestro beoordelen:</b> opent de winkelpagina zodat je een beoordeling kunt achterlaten.</li>
-      <li><b>Over AVR Maestro:</b> versie-informatie, ondersteuning en licenties. Hier vind je de <b>Discord-community</b>, de <b>Facebook-ondersteuningsgroep</b> en <b>Alle relevante logboeken</b>, die de logboeken verzamelt die wij nodig hebben als er iets misgaat.</li>
+      <li><b>Over AVR Maestro:</b> versie-informatie, ondersteuning en licenties. Hier vind je de <b>Discord-community</b>, de <b>Facebook-ondersteuningsgroep</b> en <b>Alle relevante logs</b>, die de logs verzamelt die we nodig hebben als er iets misgaat. Het onderdeel <b>Juridisch</b> bevat de schakelaars voor analyse en crashrapporten (zie <a href="#privacy">Privacy</a> hieronder).</li>
       <li><b>Meer van MiyaraHub:</b> opent de MiyaraHub-pagina in de winkel van je apparaat, met onze andere thuisbioscoop-apps.</li>
     </ul>
   </div>
@@ -374,19 +382,41 @@
   </div>
 </section>
 
+<section id="privacy">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Instellingen &rsaquo; Over &rsaquo; Juridisch</div>
+      <h2>Privacy: analyse, crashrapporten en logs</h2>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="Over en Juridisch in Instellingen, met de schakelaar Share usage analytics uit en de schakelaar Crash Reporting aan" srcset="/screenshots/settings-legal-662.webp 662w, /screenshots/settings-legal.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/settings-legal.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Analyse is opt-in.</b> Na de eerste start vraagt de app het één keer, <i>Help AVR Maestro te verbeteren?</i>, met <b>Analyse delen</b> en <b>Nee bedankt</b>. Er wordt niets verzonden tenzij je ja zegt. Gebruiksgebeurtenissen zijn gekoppeld aan een willekeurige id die voor deze installatie is gemaakt en bevatten geen receivernamen of adressen. Wijzig je antwoord op elk moment met <b>Gebruiksanalyse delen</b> onder Over &rsaquo; Juridisch. Een back-up terugzetten op een ander apparaat vraagt het opnieuw.</li>
+          <li><b>Crashrapporten hebben een eigen schakelaar.</b> <b>Crashrapportage</b> staat onder Over &rsaquo; Juridisch. Als die uit staat, wordt er niets verzonden en worden rapporten die uit eerdere sessies zijn opgeslagen weggegooid in plaats van later verzonden.</li>
+          <li><b>Crashrapporten laten je netwerkgegevens achter.</b> Voordat een rapport het apparaat verlaat, worden IP-adressen, MAC-adressen, serienummers en hostnamen in de fout en de details gemaskeerd.</li>
+          <li><b>Logs vragen toestemming voordat ze de gegevens van je receiver bevatten.</b> <b>Alle relevante logs</b> legt eerst uit wat het pakket bevat en waarheen E-mail het verstuurt. Het adres, MAC-adres en serienummer van je receiver worden verborgen tenzij je <i>Neem het adres, MAC-adres en serienummer van mijn receiver op zodat de ondersteuning het probleem kan vinden</i> aanvinkt.</li>
+          <li><b>Hubtokens blijven in de beveiligde opslag.</b> Home Assistant- en Hubitat-tokens worden bewaard in de Keystore op Android en de Keychain op Apple-apparaten, niet bij de gewone instellingen van de app. Zie <a href="/nl/guide/home-automation/">Domotica</a>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Veelgestelde vragen</div>
       <h2>Veelgestelde vragen over Instellingen</h2>
     </div>
-    <details open><summary>Waar zijn Instellingen &rsaquo; Apparaten en Instellingen &rsaquo; Audio gebleven?</summary><div class="body">Sinds versie 5.3.0 staan beide per receiver. Open Instellingen &rsaquo; Receivers beheren en tik op je receiver: op de pagina staat het onderdeel Audio (volumestap, volumeweergave, volumepresets, volumeknoppen van het apparaat en Volumebediening), Scherm &amp; sloten, Over deze receiver, en Hernoemen, IP wijzigen, Mijn receiver zoeken en Verwijderen.</div></details>
+    <details open><summary>Waar zijn Instellingen &rsaquo; Apparaten en Instellingen &rsaquo; Audio gebleven?</summary><div class="body">Beide staan per receiver. Open Instellingen &rsaquo; Receivers beheren en tik op je receiver: op de pagina staat het onderdeel Audio (volumestap, volumeweergave, volumepresets, volumeknoppen van het apparaat en Volumebediening), Scherm &amp;amp; sloten, Over deze receiver, en Hernoemen, IP wijzigen, Mijn receiver zoeken en Verwijderen.</div></details>
     <details><summary>Kan ik het thema en de kleuren van de app wijzigen?</summary><div class="body">Ja. In Instellingen &rsaquo; Uiterlijk is Thema Licht, Donker of AMOLED (echt zwart), en TJ-modus: Accentkleur is Merk of Kleurthema. Met Kleurthema kies je elk accent uit de kleurkiezer of typ je een hexcode zoals #FF8C00 of de korte vorm van drie tekens. Een code die de app niet kan lezen wordt geweigerd met de reden, en een kleur die bijna zwart is wordt geweigerd omdat die niet zichtbaar zou zijn op het AMOLED-thema.</div></details>
     <details><summary>Bedienen de volumeknoppen van mijn telefoon de receiver?</summary><div class="body">Ja, op Android en op iPhone en iPad. Zolang de app open is, wijzigen de volumeknoppen van het apparaat het volume van de receiver. Het staat standaard aan en wordt per receiver ingesteld: Instellingen &rsaquo; Receivers beheren &rsaquo; jouw receiver &rsaquo; Audio &rsaquo; Volumeknoppen van het apparaat.</div></details>
     <details><summary>Hoe haal ik een uitlegkaart terug die ik heb genegeerd?</summary><div class="body">Open Instellingen &rsaquo; Help. Genegeerde kaarten herstellen toont elke kaart die je hebt weggedrukt; tik op Herstellen bij een kaart, of op Alles herstellen. Uitlegkaarten tonen zet ze allemaal tegelijk uit of aan.</div></details>
     <details><summary>Hoe zie ik de welkomstgids opnieuw?</summary><div class="body">Open Instellingen &rsaquo; Help &rsaquo; Welkom en installatiehandleiding. Die speelt de intro en de tips voor de netwerkinstelling opnieuw af. Apphandleiding in hetzelfde onderdeel opent deze online gids.</div></details>
     <details><summary>Kan ik een back-up van mijn setup maken?</summary><div class="body">Ja. Instellingen &rsaquo; Back-up &amp; herstel exporteert elke app-instelling naar een bestand en herstelt vanuit een back-up. Zie de gids Back-up &amp; herstel voor wat het bestand bevat.</div></details>
     <details><summary>Hoe open ik het verborgen foutopsporingsmenu?</summary><div class="body">Open Instellingen &rsaquo; Over AVR Maestro en tik zeven keer op het versienummer. Het foutopsporingsmenu blijft dan beschikbaar totdat je het verwijdert met Foutopsporingsmenu verwijderen. Het is bedoeld voor ondersteuning; om ons logboeken te sturen, gebruik je Alle relevante logboeken op dezelfde pagina.</div></details>
+    <details><summary>Verzamelt AVR Maestro analysegegevens?</summary><div class="body">Alleen als je akkoord gaat. Na de eerste start vraagt de app het één keer, en alleen Analyse delen zet gebruiksanalyse aan; Nee bedankt houdt ze uit. Je kunt het op elk moment wijzigen onder Instellingen &rsaquo; Over AVR Maestro &rsaquo; Juridisch, waar ook de schakelaar Crashrapportage staat. In crashrapporten zijn IP-adressen, MAC-adressen en serienummers gemaskeerd, en geëxporteerde logs verbergen ze tenzij je ervoor kiest ze mee te nemen.</div></details>
   </div>
 </section>
 

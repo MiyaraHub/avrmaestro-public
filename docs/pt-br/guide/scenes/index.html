@@ -134,7 +134,7 @@
       "description": "Monte uma Cena de um toque para filmes, música, jogos ou madrugada: entrada, modo de som, Audyssey ou Dirac, níveis e zonas em Denon ou Marantz. Baixe o AVR Maestro.",
       "image": "https://avrmaestro.com/screenshots/scenes-list.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -230,6 +230,14 @@
         "@type": "Answer",
         "text": "Smart Select (Marantz) e Quick Select (Denon) são o mesmo recurso do receptor com dois nomes: alguns slots guardados dentro do receptor, cinco em um Marantz CINEMA 30. O AVR Maestro os chama pelo nome do próprio receptor em todo o app, permite acioná-los pela tela Início e pelo Controle remoto, e permite renomeá-los. As Cenas são do próprio AVR Maestro: até 20 por receptor, cada uma com nome, ícone e cor, guardando exatamente as configurações que você escolher, e podem ser acionadas por um widget da tela inicial ou enviadas ao Home Assistant ou ao Hubitat. Os dois nunca se sobrescrevem."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Uma Cena pode configurar vários receptores?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, com uma Multi AVR Scene, parte da compra de Automação Residencial. Com dois ou mais receptores no app, toque em Adicionar Cena, escolha Multi AVR Scene, dê um nome, marque os receptores e defina a Cena de cada um nas suas próprias páginas guiadas. Toque nela na lista Grupos de receptores e o app aplica a Cena de cada receptor em sequência, mostrando depois uma linha por receptor. Cenas para um único receptor continuam gratuitas."
+      }
     }
   ]
 }
@@ -313,6 +321,7 @@
         <ul>
           <li>O <b>Criador de Cenas</b> responde a algumas perguntas com você e oferece apenas o que o seu receptor suporta. Ideal para a primeira Cena, ou quando você sabe o que quer, mas não em qual menu está.</li>
           <li><b>Criar do Zero</b> captura o que o seu receptor está fazendo agora. Deixe o som do jeito certo, marque as configurações a manter e salve.</li>
+          <li>A <b>Multi AVR Scene</b> configura vários receptores de uma vez. Ela só aparece na lista quando o app conhece dois ou mais receptores, e faz parte da compra de <a href="/pt-br/guide/home-automation/">Automação Residencial</a>. Veja <a href="#multi-avr">Multi AVR Scene</a> mais abaixo.</li>
         </ul>
         <div class="note">Ainda não há nada na aba Cenas? Ela sugere alguns pontos de partida que combinam com o seu receptor, como Filmes e TV ou Noite tardia. Toque em um e o Criador de Cenas se abre com ele já escolhido.</div>
       </div>
@@ -365,6 +374,44 @@
           <li><b>Revise e salve.</b> A última página lista exatamente o que a Cena vai guardar, agrupado como no restante do app. Toque em <b>Salvar</b> e ela vai para a sua lista de Cenas, pronta para quando você quiser.</li>
         </ol>
         <div class="note">O número de passos cresce conforme o que você marca: cada configuração marcada ganha a sua própria página, então uma Cena com três configurações é mais curta do que uma com dez.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="multi-avr">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Vários receptores, um toque</div>
+      <h2>Multi AVR Scene</h2>
+      <p class="lead">Uma Multi AVR Scene guarda uma Cena para cada receptor que você escolher e as aplica juntas, de modo que um único toque pode configurar o receptor da sala e o do escritório. Ela exige dois ou mais receptores no app (o receptor de demonstração não conta) e a compra de Automação Residencial. Sem a compra, a opção mostra um cadeado e tocar nela abre a página de compra de Automação Residencial.</p>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="A folha Adicionar Cena com Criador de Cenas, Criar do Zero e Multi AVR Scene" srcset="/screenshots/scenes-add-multi-avr-662.webp 662w, /screenshots/scenes-add-multi-avr.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-add-multi-avr.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ol class="steps">
+          <li><b>Toque em Adicionar Cena e escolha Multi AVR Scene.</b></li>
+          <li><b>Dê um nome ao grupo</b> e marque dois ou mais receptores.</li>
+          <li><b>Toque em Criar cada cena.</b> As páginas guiadas abrem uma vez para cada receptor que você marcou, de modo que cada um recebe uma Cena montada a partir do que aquele receptor consegue fazer. Cada receptor escolhido precisa da sua Cena antes que o grupo possa ser salvo.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="feat rev">
+      <div class="shots"><img alt="A tela Multi AVR Scene com o grupo chamado Movie Night e dois receptores marcados" srcset="/screenshots/scenes-multi-avr-group-662.webp 662w, /screenshots/scenes-multi-avr-group.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-multi-avr-group.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Aplicando.</b> Seus grupos ficam listados em <b>Grupos de receptores</b> na aba Cenas. Toque em um e o app percorre os receptores um de cada vez: espera cada um responder, aplica a sua Cena e depois restaura o receptor em que você começou. Se o app for fechado no meio, a próxima abertura restaura o seu receptor.</li>
+          <li><b>Uma linha por receptor.</b> Quando termina, o app mostra uma linha para cada receptor: aplicada e confirmada, aplicada com algumas configurações lidas de volta de forma diferente, configurações recusadas, enviada mas não confirmada, ou sem resposta. Um receptor que foi removido do app, ou cuja Cena foi excluída, também é citado, nunca escondido atrás de um único "concluído".</li>
+        </ul>
+      </div>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="A aba Cenas com uma seção Grupos de receptores listando Movie Night com botões de renomear e excluir" srcset="/screenshots/scenes-multi-avr-list-662.webp 662w, /screenshots/scenes-multi-avr-list.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/scenes-multi-avr-list.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Renomear e excluir.</b> Cada grupo na lista Grupos de receptores tem um botão de renomear e um botão de excluir. Renomear mantém os mesmos receptores.</li>
+        </ul>
+        <div class="note">Cenas para um único receptor continuam gratuitas. Só agrupar vários receptores em uma Cena exige a compra de Automação Residencial.</div>
       </div>
     </div>
   </div>
@@ -455,7 +502,7 @@
       <li><b>Os níveis de canal são conferidos e reenviados uma vez.</b> Os receptores perdem um ou outro canal quando muita coisa chega de uma vez. O app lê de volta o que chegou, reenvia o que não chegou e informa quais canais precisou tentar de novo.</li>
       <li><b>Um controle bloqueado não pode ser aplicado, por nada.</b> Se a sua predefinição de alto-falantes pertence ao Dirac Live, o próprio receptor recusa alterações do Audyssey, e uma Cena que as contenha é recusada da mesma forma que o controle em tela. Veja <a href="/pt-br/guide/locked-controls/">por que um controle está bloqueado</a>.</li>
       <li><b>Somente o que a Cena guarda é alterado.</b> Se uma Cena não está alterando algo que você esperava, provavelmente esse item não foi marcado. Mantenha-a pressionada e use Editar Configurações Capturadas em vez de criar uma segunda Cena.</li>
-      <li><b>As Cenas pertencem a um receptor.</b> A lista é a do receptor selecionado no momento. Outro receptor tem a sua própria.</li>
+      <li><b>As Cenas pertencem a um receptor.</b> A lista é a do receptor selecionado no momento. Outro receptor tem a sua própria. Para configurar vários receptores com um toque, use uma <a href="#multi-avr">Multi AVR Scene</a>.</li>
     </ul>
   </div>
 </section>
@@ -492,6 +539,7 @@
     <details><summary>Uma Cena pode ligar o meu receptor?</summary><div class="body">Sim. Inclua o estado de energia e, ao aplicar a Cena, a zona principal é ligada (ou desligada) primeiro, desde que o receptor tenha o standby de rede ativado para que o app consiga alcançá-lo enquanto ele dorme.</div></details>
     <details><summary>O que significa a mensagem colorida depois de uma Cena?</summary><div class="body">Verde significa que tudo foi aplicado. Laranja significa que o receptor escolheu o próprio valor para uma configuração que ele lembra por sinal de entrada, o que é esperado; toque na Cena de novo para tentar outra vez. Azul significa que o receptor não confirmou algumas configurações, então o app não sabe dizer se foram aplicadas. Vermelho significa que uma configuração voltou diferente ou que o receptor recusou alguns níveis de alto-falantes; toque na Cena de novo. Uma mensagem vermelha fica até você fechá-la.</div></details>
     <details><summary>Qual é a diferença entre Cenas e Smart Select ou Quick Select?</summary><div class="body">Smart Select (Marantz) e Quick Select (Denon) são o mesmo recurso do receptor com dois nomes: alguns slots guardados dentro do receptor, cinco em um Marantz CINEMA 30. O AVR Maestro os chama pelo nome do próprio receptor em todo o app, permite acioná-los pela tela Início e pelo Controle remoto, e permite renomeá-los. As Cenas são do próprio AVR Maestro: até 20 por receptor, cada uma com nome, ícone e cor, guardando exatamente as configurações que você escolher, e podem ser acionadas por um widget da tela inicial ou enviadas ao Home Assistant ou ao Hubitat. Os dois nunca se sobrescrevem.</div></details>
+    <details><summary>Uma Cena pode configurar vários receptores?</summary><div class="body">Sim, com uma Multi AVR Scene, parte da compra de Automação Residencial. Com dois ou mais receptores no app, toque em Adicionar Cena, escolha Multi AVR Scene, dê um nome, marque os receptores e defina a Cena de cada um nas suas próprias páginas guiadas. Toque nela na lista Grupos de receptores e o app aplica a Cena de cada receptor em sequência, mostrando depois uma linha por receptor. Cenas para um único receptor continuam gratuitas.</div></details>
   </div>
 </section>
 

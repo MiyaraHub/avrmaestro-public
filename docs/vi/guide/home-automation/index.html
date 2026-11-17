@@ -134,7 +134,7 @@
       "description": "Liên kết AVR Maestro với Home Assistant hoặc Hubitat và các Cảnh của bạn trở thành tập lệnh gốc chạy mà không cần điện thoại. Điều khiển bằng giọng nói, trạng thái trực tiếp và webhook.",
       "image": "https://avrmaestro.com/screenshots/home-assistant.webp",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -180,7 +180,7 @@
       "name": "Trợ lý AI có nằm trong phần mở khóa trả phí không?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Không. Trợ lý AI chạy trên thiết bị là miễn phí. Home Automation - Home Assistant, Hubitat và webhook gửi đi - là tính năng mở khóa trả phí duy nhất trong AVR Maestro."
+        "text": "Không. Trợ lý AI chạy trên thiết bị là miễn phí. Home Automation - Home Assistant, Hubitat, webhook gửi đi và Multi AVR Scene - là lần mở khóa trả phí duy nhất trong AVR Maestro."
       }
     },
     {
@@ -197,6 +197,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Mở Cài đặt › Tự động hóa nhà (Pro) và chạm Khôi phục giao dịch mua dưới nút mở khóa. Nếu trước đây bạn đã mua bản mở khóa bằng cùng tài khoản cửa hàng, nó sẽ quay lại mà không phải trả tiền lần nữa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Token Home Assistant và Hubitat của tôi được lưu ở đâu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trong bộ nhớ bảo mật của thiết bị bạn: Keystore trên Android và Keychain trên iPhone, iPad và Mac, không nằm trong cài đặt thông thường của ứng dụng. Đặt lại dữ liệu ứng dụng cũng xóa chúng, và Android không sao chép dữ liệu của ứng dụng vào bản sao lưu Google Drive. Nếu bạn nhập địa chỉ hub hoặc webhook nằm trên internet và bắt đầu bằng http://, ứng dụng sẽ cảnh báo rằng token và dữ liệu của bạn sẽ đi qua internet mà không được mã hóa, đồng thời gợi ý https://. Địa chỉ trong mạng riêng của bạn không bao giờ hiện cảnh báo này."
       }
     }
   ]
@@ -337,11 +345,11 @@
 
     <div class="lockrow" style="margin-top:28px">
       <div>
-        <div class="eyebrow">Nếu bạn đã đồng bộ bằng bản cũ</div>
-        <h2>ID tập lệnh của bạn đổi một lần</h2>
-        <p>Trước đây tập lệnh được đặt tên theo Cảnh <em>và</em> receiver, nên đổi tên một trong hai sẽ để lại tập lệnh cũ và âm thầm tạo ra một bản thứ hai. Giờ chúng được đặt tên theo Cảnh và địa chỉ MAC của receiver, nhờ đó khi đổi tên, cùng một tập lệnh được cập nhật thay vì bị tách đôi.</p>
-        <p>Lần đồng bộ đầu tiên sau thay đổi đó sẽ thay các tập lệnh cũ bằng tập lệnh mới. <b>Mọi thứ bạn đã dựng trên các ID cũ cần được trỏ lại một lần</b> - một nút dashboard, một tự động hóa, một bí danh giọng nói. Hãy mở tập lệnh trong Home Assistant để tìm ID thực thể mới của nó.</p>
-        <p>Giờ các thực thể cũng đọc từ receiver - <code>cinema30</code> thay vì ba mươi hai ký tự mã định danh máy - nên danh sách dễ đọc và tính năng tự hoàn thành tìm thấy chúng. ID từ các phiên bản trước vẫn hoạt động.</p>
+        <div class="eyebrow">ID tập lệnh và thực thể</div>
+        <h2>Tên không mất đi khi đổi tên</h2>
+        <p>Tập lệnh được đặt tên theo Cảnh và địa chỉ MAC của receiver, nên đổi tên Cảnh hoặc receiver sẽ cập nhật chính tập lệnh đó thay vì tạo thêm bản thứ hai.</p>
+        <p>Nếu một nút trên bảng điều khiển, một tự động hóa hoặc một bí danh giọng nói gọi tập lệnh được đặt tên theo Cảnh và receiver, lần đồng bộ tiếp theo sẽ thay tập lệnh đó bằng tập lệnh được đặt tên theo địa chỉ MAC. <b>Chỉ cần trỏ lại một lần</b>: mở tập lệnh trong Home Assistant để xem entity ID hiện tại và dùng ID đó.</p>
+        <p>Các thực thể được đọc từ receiver - <code>cinema30</code> thay vì ba mươi hai ký tự định danh máy - để danh sách dễ đọc và tính năng tự động hoàn thành tìm thấy chúng. Các entity ID mà tự động hóa của bạn đang dùng vẫn hoạt động bình thường.</p>
       </div>
     </div>
   </div>
@@ -468,7 +476,8 @@
       <div>
         <div class="eyebrow">Cái gì trả phí và cái gì không</div>
         <h2>Home Automation là phần mở khóa duy nhất. Trợ lý AI thì miễn phí.</h2>
-        <p><b>Home Automation (Pro)</b> - Home Assistant, Hubitat và webhook gửi đi - là một lần mở khóa duy nhất. Mọi thứ khác trong AVR Maestro, kể cả trợ lý AI chạy trên thiết bị, đều có sẵn trong ứng dụng.</p>
+        <p><b>Home Automation (Pro)</b> - Home Assistant, Hubitat, webhook gửi đi và Multi AVR Scene - là lần mở khóa trả một lần. Mọi thứ còn lại trong AVR Maestro, kể cả trợ lý AI chạy trên thiết bị, đều có sẵn trong ứng dụng.</p>
+        <p><a href="/vi/guide/scenes/#multi-avr">Multi AVR Scene</a> thiết lập hai đầu thu trở lên chỉ bằng một chạm, mỗi đầu thu có Cảnh riêng. Cảnh cho một đầu thu vẫn miễn phí.</p>
         <p>Đã mua rồi, trên thiết bị này hoặc thiết bị khác dùng cùng tài khoản cửa hàng? Chạm <b>Khôi phục giao dịch mua</b> dưới nút mở khóa.</p>
         <p>Điều khiển bằng giọng nói đến được receiver của bạn <em>thông qua</em> Home Automation, qua hub của bạn. AVR Maestro không tự chạy nhận dạng giọng nói.</p>
       </div>
@@ -484,9 +493,10 @@
     </div>
     <details open><summary>Điện thoại của tôi có cần bật để điều khiển bằng giọng nói không?</summary><div class="body">Không. AVR Maestro biên dịch các Cảnh của bạn thành tập lệnh Home Assistant gốc. Home Assistant giao tiếp trực tiếp với receiver trong mạng nội bộ của bạn, nên điện thoại có thể tắt, ở chế độ ngủ hoặc đang ở một quốc gia khác.</div></details>
     <details><summary>Những trợ lý giọng nói nào có thể điều khiển receiver của tôi?</summary><div class="body">Bất kỳ trợ lý nào bạn đang dùng. AVR Maestro không tự thêm lớp giọng nói riêng - nó công bố các tập lệnh lên Home Assistant hoặc Hubitat, và hub mà bạn đã tin dùng sẽ chia sẻ chúng với Alexa, Google Assistant hoặc Siri Shortcuts.</div></details>
-    <details><summary>Trợ lý AI có nằm trong phần mở khóa trả phí không?</summary><div class="body">Không. Trợ lý AI chạy trên thiết bị là miễn phí. Home Automation - Home Assistant, Hubitat và webhook gửi đi - là tính năng mở khóa trả phí duy nhất trong AVR Maestro.</div></details>
+    <details><summary>Trợ lý AI có nằm trong phần mở khóa trả phí không?</summary><div class="body">Không. Trợ lý AI chạy trên thiết bị là miễn phí. Home Automation - Home Assistant, Hubitat, webhook gửi đi và Multi AVR Scene - là lần mở khóa trả phí duy nhất trong AVR Maestro.</div></details>
     <details><summary>Có dữ liệu nào rời khỏi mạng gia đình của tôi không?</summary><div class="body">Không phải để điều khiển. Ứng dụng giao tiếp với receiver và hub của bạn qua chính mạng của bạn. Không có gì được định tuyến qua máy chủ MiyaraHub. Webhook gửi đến bất cứ nơi nào bạn chỉ định, đó là lựa chọn của bạn.</div></details>
     <details><summary>Đã mua Home Automation trên thiết bị khác, hoặc đã cài lại ứng dụng?</summary><div class="body">Mở <i>Cài đặt &rsaquo; Tự động hóa nhà (Pro)</i> và chạm <b>Khôi phục giao dịch mua</b> dưới nút mở khóa. Nếu trước đây bạn đã mua bản mở khóa bằng cùng tài khoản cửa hàng, nó sẽ quay lại mà không phải trả tiền lần nữa.</div></details>
+    <details><summary>Token Home Assistant và Hubitat của tôi được lưu ở đâu?</summary><div class="body">Trong bộ nhớ bảo mật của thiết bị bạn: Keystore trên Android và Keychain trên iPhone, iPad và Mac, không nằm trong cài đặt thông thường của ứng dụng. Đặt lại dữ liệu ứng dụng cũng xóa chúng, và Android không sao chép dữ liệu của ứng dụng vào bản sao lưu Google Drive. Nếu bạn nhập địa chỉ hub hoặc webhook nằm trên internet và bắt đầu bằng http://, ứng dụng sẽ cảnh báo rằng token và dữ liệu của bạn sẽ đi qua internet mà không được mã hóa, đồng thời gợi ý https://. Địa chỉ trong mạng riêng của bạn không bao giờ hiện cảnh báo này.</div></details>
   </div>
 </section>
 

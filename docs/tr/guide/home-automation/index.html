@@ -134,7 +134,7 @@
       "description": "AVR Maestro'yu Home Assistant veya Hubitat'a bağlayın; Sahneleriniz telefonunuz olmadan çalışan yerel betiklere dönüşsün. Sesli kontrol, canlı durum ve webhook'lar.",
       "image": "https://avrmaestro.com/screenshots/home-assistant.webp",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -180,7 +180,7 @@
       "name": "Yapay zeka asistanı ücretli kilidin parçası mı?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Hayır. Cihaz üzerindeki yapay zeka asistanı ücretsizdir. Ev Otomasyonu - Home Assistant, Hubitat ve giden webhook'lar - AVR Maestro'daki tek ücretli kilittir."
+        "text": "Hayır. Cihaz üzerindeki yapay zekâ asistanı ücretsizdir. Ev Otomasyonu - Home Assistant, Hubitat, giden webhook'lar ve Multi AVR Scenes - AVR Maestro içindeki tek ücretli kilit açmadır."
       }
     },
     {
@@ -197,6 +197,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Ayarlar › Ev Otomasyonu (Pro)'yu açın ve kilit açma düğmesinin altındaki Satın Alımları Geri Yükle'ye dokunun. Kilidi daha önce aynı mağaza hesabıyla satın aldıysanız yeniden ödeme yapmadan geri gelir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Home Assistant ve Hubitat belirteçlerim nerede saklanıyor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cihazınızın güvenli depolamasında: Android'de Keystore, iPhone, iPad ve Mac'te Keychain; uygulamanın sıradan ayarlarında değil. Uygulama Verilerini Sıfırla bunları da siler ve Android, uygulamanın verilerini Google Drive yedeğine kopyalamaz. İnternet üzerinde olan ve http:// ile başlayan bir hub veya webhook adresi yazarsanız, uygulama belirtecinizin ve verilerinizin internet üzerinden şifrelenmeden geçeceği konusunda uyarır ve https:// önerir. Kendi ağınızdaki adresler uyarıyı hiç göstermez."
       }
     }
   ]
@@ -337,11 +345,11 @@
 
     <div class="lockrow" style="margin-top:28px">
       <div>
-        <div class="eyebrow">Eski bir sürümle eşitlediyseniz</div>
-        <h2>Betik kimlikleriniz bir kez değişir</h2>
-        <p>Betikler eskiden sahnenin <em>ve</em> alıcının adına göre adlandırılıyordu; bu yüzden ikisinden birini yeniden adlandırmak eski betiği geride bırakıyor ve sessizce ikincisini oluşturuyordu. Artık sahnenin adına ve alıcının MAC adresine göre adlandırılıyorlar; yeniden adlandırmanın betiği çatallamak yerine aynı betiği güncellemesini sağlayan budur.</p>
-        <p>Bu değişiklikten sonraki ilk eşitleme eski betiklerin yerine yenilerini koyar. <b>Eski kimlikler üzerine kurduğunuz her şey bir kez yeniden yönlendirilmelidir</b> - bir gösterge paneli düğmesi, bir otomasyon, bir sesli takma ad. Yeni varlık kimliğini bulmak için betiği Home Assistant'ta açın.</p>
-        <p>Varlıklar artık alıcıdan da okunuyor - otuz iki karakterlik makine tanımlayıcısı yerine <code>cinema30</code> - böylece liste okunabilir ve otomatik tamamlama onları bulur. Önceki sürümlerden kimlikler çalışmaya devam eder.</p>
+        <div class="eyebrow">Betik ve varlık kimlikleri</div>
+        <h2>Yeniden adlandırmadan etkilenmeyen adlar</h2>
+        <p>Betikler sahnenin adına ve alıcının MAC adresine göre adlandırılır; bu yüzden sahneyi veya alıcıyı yeniden adlandırmak ikinci bir betik oluşturmak yerine aynı betiği günceller.</p>
+        <p>Bir pano düğmesi, bir otomasyon veya bir sesli takma ad, yalnızca sahnenin ve alıcının adıyla adlandırılmış bir betiği çağırıyorsa, sonraki eşitleme o betiği MAC adresine göre adlandırılmış betikle değiştirir. <b>Bir kez yeniden yönlendirin</b>: betiği Home Assistant içinde açıp güncel entity ID'sini bulun ve onu kullanın.</p>
+        <p>Alıcıdan okunan varlıklar - otuz iki karakterlik makine kimliği yerine <code>cinema30</code> - böylece liste okunaklı olur ve otomatik tamamlama onları bulur. Otomasyonlarınızın zaten kullandığı entity ID'ler çalışmaya devam eder.</p>
       </div>
     </div>
   </div>
@@ -468,7 +476,8 @@
       <div>
         <div class="eyebrow">Neyin ücretli, neyin ücretsiz olduğu</div>
         <h2>Ev Otomasyonu tek kilittir. Yapay zeka asistanı ücretsizdir.</h2>
-        <p><b>Ev Otomasyonu (Pro)</b> - Home Assistant, Hubitat ve giden webhook'lar - tek seferlik bir kilittir. AVR Maestro'daki geri kalan her şey, cihaz üzerindeki yapay zeka asistanı dahil, uygulamaya dahildir.</p>
+        <p><b>Ev Otomasyonu (Pro)</b> - Home Assistant, Hubitat, giden webhook'lar ve Multi AVR Scenes - tek seferlik bir kilit açmadır. AVR Maestro içindeki diğer her şey, cihaz üzerindeki yapay zekâ asistanı dahil, uygulamaya dahildir.</p>
+        <p><a href="/tr/guide/scenes/#multi-avr">Multi AVR Scene</a> özelliği, her biri kendi Sahnesiyle iki veya daha fazla alıcıyı tek dokunuşla ayarlar. Tek bir alıcı için Sahneler ücretsiz kalır.</p>
         <p>Zaten mi satın aldınız, bu cihazda ya da aynı mağaza hesabına sahip başka bir cihazda? Kilit açma düğmesinin altındaki <b>Satın Alımları Geri Yükle</b>'ye dokunun.</p>
         <p>Sesli kontrol alıcınıza hub'ınız aracılığıyla, Ev Otomasyonu <em>üzerinden</em> ulaşır. AVR Maestro kendi ses tanımasını çalıştırmaz.</p>
       </div>
@@ -484,9 +493,10 @@
     </div>
     <details open><summary>Sesli kontrolün çalışması için telefonumun açık olması gerekir mi?</summary><div class="body">Hayır. AVR Maestro sahnelerinizi yerel Home Assistant betiklerine derler. Home Assistant alıcıyla yerel ağınızda doğrudan konuşur; telefonunuz kapalı, uykuda ya da başka bir ülkede olabilir.</div></details>
     <details><summary>Alıcımı hangi sesli asistanlar kontrol edebilir?</summary><div class="body">Zaten hangisini kullanıyorsanız. AVR Maestro kendi ses katmanını eklemez - betikleri Home Assistant veya Hubitat'a yayınlar, bunlar da güvendiğiniz hub tarafından Alexa, Google Assistant veya Siri Kestirmelerine sunulur.</div></details>
-    <details><summary>Yapay zeka asistanı ücretli kilidin parçası mı?</summary><div class="body">Hayır. Cihaz üzerindeki yapay zeka asistanı ücretsizdir. Ev Otomasyonu - Home Assistant, Hubitat ve giden webhook'lar - AVR Maestro'daki tek ücretli kilittir.</div></details>
+    <details><summary>Yapay zeka asistanı ücretli kilidin parçası mı?</summary><div class="body">Hayır. Cihaz üzerindeki yapay zekâ asistanı ücretsizdir. Ev Otomasyonu - Home Assistant, Hubitat, giden webhook'lar ve Multi AVR Scenes - AVR Maestro içindeki tek ücretli kilit açmadır.</div></details>
     <details><summary>Ev ağımdan dışarı bir şey çıkıyor mu?</summary><div class="body">Kontrol için hayır. Uygulama alıcınızla ve hub'ınızla kendi ağınız üzerinden konuşur. Hiçbir şey bir MiyaraHub sunucusu üzerinden geçmez. Bir webhook, işaret ettiğiniz yere gider; bu sizin tercihinizdir.</div></details>
     <details><summary>Ev Otomasyonu'nu başka bir cihazda mı satın aldınız ya da yeniden mi yüklediniz?</summary><div class="body"><i>Ayarlar &rsaquo; Ev Otomasyonu (Pro)</i>'yu açın ve kilit açma düğmesinin altındaki <b>Satın Alımları Geri Yükle</b>'ye dokunun. Kilidi daha önce aynı mağaza hesabıyla satın aldıysanız yeniden ödeme yapmadan geri gelir.</div></details>
+    <details><summary>Home Assistant ve Hubitat belirteçlerim nerede saklanıyor?</summary><div class="body">Cihazınızın güvenli depolamasında: Android'de Keystore, iPhone, iPad ve Mac'te Keychain; uygulamanın sıradan ayarlarında değil. Uygulama Verilerini Sıfırla bunları da siler ve Android, uygulamanın verilerini Google Drive yedeğine kopyalamaz. İnternet üzerinde olan ve http:// ile başlayan bir hub veya webhook adresi yazarsanız, uygulama belirtecinizin ve verilerinizin internet üzerinden şifrelenmeden geçeceği konusunda uyarır ve https:// önerir. Kendi ağınızdaki adresler uyarıyı hiç göstermez.</div></details>
   </div>
 </section>
 

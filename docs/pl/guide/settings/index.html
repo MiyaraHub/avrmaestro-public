@@ -134,7 +134,7 @@
       "description": "Każda sekcja Ustawień AVR Maestro: Zarządzaj amplitunerami, Wygląd (motyw, Motyw kolorystyczny, rozmiary, język), Układ, Dodatki, Pomoc, Kopia zapasowa i Informacje.",
       "image": "https://avrmaestro.com/screenshots/settings-tjmode.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -164,7 +164,7 @@
       "name": "Gdzie podziały się Ustawienia › Urządzenia i Ustawienia › Audio?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Od wersji 5.3.0 oba działają osobno dla każdego amplitunera. Otwórz Ustawienia › Zarządzaj amplitunerami i stuknij swój amplituner: jego strona zawiera sekcję Audio (krok głośności, wskazanie głośności, ustawienia wstępne głośności, przyciski głośności urządzenia i Sterowanie głośnością), Ekran i blokady, O TYM AMPLITUNERZE oraz Zmień nazwę, Zmień IP, Znajdź mój amplituner i Usuń."
+        "text": "Oba działają osobno dla każdego amplitunera. Otwórz Ustawienia › Zarządzaj amplitunerami i stuknij swój amplituner: jego strona zawiera sekcję Audio (krok głośności, wskazanie głośności, ustawienia wstępne głośności, przyciski głośności urządzenia i Sterowanie głośnością), Ekran i blokady, O TYM AMPLITUNERZE oraz Zmień nazwę, Zmień IP, Znajdź mój amplituner i Usuń."
       }
     },
     {
@@ -213,6 +213,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Otwórz Ustawienia › O AVR Maestro i stuknij numer wersji siedem razy. Menu debugowania pozostaje wtedy dostępne, dopóki go nie usuniesz przez Usuń menu debugowania. Jest przeznaczone dla pomocy technicznej; aby wysłać nam dzienniki, użyj Wszystkie istotne dzienniki na tej samej stronie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Czy AVR Maestro zbiera dane analityczne?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tylko jeśli się zgodzisz. Po pierwszym uruchomieniu aplikacja pyta raz i tylko Udostępniaj dane analityczne włącza analitykę użycia; Nie, dziękuję zostawia ją wyłączoną. Możesz to zmienić w dowolnej chwili w Ustawienia › O AVR Maestro › Informacje prawne, gdzie jest też przełącznik Zgłaszanie awarii. W raportach awarii adresy IP, adresy MAC i numery seryjne są zamaskowane, a wyeksportowane dzienniki ukrywają je, chyba że zdecydujesz się je dołączyć."
       }
     }
   ]
@@ -355,7 +363,7 @@
     <ul class="plain">
       <li><b>Kopia zapasowa i przywracanie:</b> wyeksportuj wszystkie ustawienia aplikacji do pliku lub przywróć je z kopii zapasowej. <a href="/pl/guide/backup/">Przewodnik po kopii zapasowej &rarr;</a></li>
       <li><b>Oceń AVR Maestro:</b> otwiera stronę w sklepie, abyś mógł zostawić ocenę.</li>
-      <li><b>O AVR Maestro:</b> informacje o wersji, pomoc techniczna i licencje. Tutaj znajdziesz <b>Społeczność Discord</b>, <b>Grupę wsparcia na Facebooku</b> i <b>Wszystkie istotne dzienniki</b>, które zbierają dzienniki potrzebne nam, gdy coś działa nieprawidłowo.</li>
+      <li><b>O AVR Maestro:</b> informacje o wersji, pomoc i licencje. Tu znajdziesz <b>Społeczność Discord</b>, <b>Grupę wsparcia na Facebooku</b> i <b>Wszystkie istotne dzienniki</b>, które zbierają dzienniki potrzebne nam, gdy coś działa nie tak. Sekcja <b>Informacje prawne</b> zawiera przełączniki analityki i raportów awarii (zobacz <a href="#privacy">Prywatność</a> poniżej).</li>
       <li><b>Więcej od MiyaraHub:</b> otwiera stronę MiyaraHub w sklepie Twojego urządzenia, z naszymi innymi aplikacjami do kina domowego.</li>
     </ul>
   </div>
@@ -374,19 +382,41 @@
   </div>
 </section>
 
+<section id="privacy">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Ustawienia &rsaquo; O aplikacji &rsaquo; Informacje prawne</div>
+      <h2>Prywatność: analityka, raporty awarii i dzienniki</h2>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="O aplikacji i Informacje prawne w Ustawieniach, z wyłączonym przełącznikiem Share usage analytics i włączonym przełącznikiem Crash Reporting" srcset="/screenshots/settings-legal-662.webp 662w, /screenshots/settings-legal.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/settings-legal.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Analityka jest opcjonalna.</b> Po pierwszym uruchomieniu aplikacja pyta raz, <i>Pomóc ulepszyć AVR Maestro?</i>, z opcjami <b>Udostępniaj dane analityczne</b> i <b>Nie, dziękuję</b>. Nic nie jest wysyłane, dopóki nie powiesz tak. Zdarzenia użycia są powiązane z losowym identyfikatorem utworzonym dla tej instalacji i nie zawierają nazw ani adresów amplitunerów. Zmień odpowiedź w dowolnej chwili za pomocą <b>Udostępniaj dane o użyciu</b> w O aplikacji &rsaquo; Informacje prawne. Przywrócenie kopii zapasowej na innym urządzeniu zapyta ponownie.</li>
+          <li><b>Raporty awarii mają własny przełącznik.</b> <b>Zgłaszanie awarii</b> znajduje się w O aplikacji &rsaquo; Informacje prawne. Gdy jest wyłączone, nic nie jest wysyłane, a raporty zapisane we wcześniejszych sesjach są odrzucane zamiast wysyłane później.</li>
+          <li><b>Raporty awarii nie zabierają danych Twojej sieci.</b> Zanim raport opuści urządzenie, adresy IP, adresy MAC, numery seryjne i nazwy hostów w błędzie i jego szczegółach są zamaskowane.</li>
+          <li><b>Dzienniki pytają, zanim dołączą dane Twojego amplitunera.</b> <b>Wszystkie istotne dzienniki</b> najpierw wyjaśniają, co zawiera paczka i dokąd wysyła ją E-mail. Adres, adres MAC i numer seryjny Twojego amplitunera są ukryte, chyba że zaznaczysz <i>Dołącz adres, adres MAC i numer seryjny mojego amplitunera, aby pomoc techniczna mogła znaleźć problem</i>.</li>
+          <li><b>Tokeny huba zostają w bezpiecznym magazynie.</b> Tokeny Home Assistant i Hubitat są przechowywane w Keystore na Androidzie i w Keychain na urządzeniach Apple, a nie wraz ze zwykłymi ustawieniami aplikacji. Zobacz <a href="/pl/guide/home-automation/">Automatyka domowa</a>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Częste pytania</div>
       <h2>Najczęstsze pytania o Ustawienia</h2>
     </div>
-    <details open><summary>Gdzie podziały się Ustawienia &rsaquo; Urządzenia i Ustawienia &rsaquo; Audio?</summary><div class="body">Od wersji 5.3.0 oba działają osobno dla każdego amplitunera. Otwórz Ustawienia &rsaquo; Zarządzaj amplitunerami i stuknij swój amplituner: jego strona zawiera sekcję Audio (krok głośności, wskazanie głośności, ustawienia wstępne głośności, przyciski głośności urządzenia i Sterowanie głośnością), Ekran i blokady, O TYM AMPLITUNERZE oraz Zmień nazwę, Zmień IP, Znajdź mój amplituner i Usuń.</div></details>
+    <details open><summary>Gdzie podziały się Ustawienia &rsaquo; Urządzenia i Ustawienia &rsaquo; Audio?</summary><div class="body">Oba działają osobno dla każdego amplitunera. Otwórz Ustawienia &rsaquo; Zarządzaj amplitunerami i stuknij swój amplituner: jego strona zawiera sekcję Audio (krok głośności, wskazanie głośności, ustawienia wstępne głośności, przyciski głośności urządzenia i Sterowanie głośnością), Ekran i blokady, O TYM AMPLITUNERZE oraz Zmień nazwę, Zmień IP, Znajdź mój amplituner i Usuń.</div></details>
     <details><summary>Czy mogę zmienić motyw i kolory aplikacji?</summary><div class="body">Tak. W Ustawienia &rsaquo; Wygląd Motyw to Jasny, Ciemny lub AMOLED (czysta czerń), a TJ Mode: Kolor akcentu to Marka lub Motyw kolorystyczny. Motyw kolorystyczny pozwala wybrać dowolny akcent z palety albo wpisać kod szesnastkowy, taki jak #FF8C00, lub jego trzyznakowy skrót. Kod, którego aplikacja nie potrafi odczytać, jest odrzucany z podaniem powodu, a kolor prawie czarny jest odrzucany, bo nie byłby widoczny w motywie AMOLED.</div></details>
     <details><summary>Czy przyciski głośności w moim telefonie sterują amplitunerem?</summary><div class="body">Tak, w Androidzie oraz w iPhonie i iPadzie. Gdy aplikacja jest otwarta, przyciski głośności urządzenia zmieniają głośność amplitunera. Jest to domyślnie włączone i ustawiane osobno dla każdego amplitunera: Ustawienia &rsaquo; Zarządzaj amplitunerami &rsaquo; Twój amplituner &rsaquo; Audio &rsaquo; Przyciski głośności urządzenia.</div></details>
     <details><summary>Jak przywrócić odrzuconą kartę z objaśnieniem?</summary><div class="body">Otwórz Ustawienia &rsaquo; Pomoc. Przywróć odrzucone karty wyświetla każdą kartę odrzuconą długim przytrzymaniem; stuknij Przywróć przy jednej lub Przywróć wszystko. Pokaż karty z objaśnieniami wyłącza lub włącza je wszystkie naraz.</div></details>
     <details><summary>Jak ponownie zobaczyć przewodnik powitalny?</summary><div class="body">Otwórz Ustawienia &rsaquo; Pomoc &rsaquo; Powitanie i przewodnik konfiguracji. Odtwarza wprowadzenie i wskazówki dotyczące konfiguracji sieci. Instrukcja aplikacji w tej samej sekcji otwiera ten przewodnik online.</div></details>
     <details><summary>Czy mogę zrobić kopię zapasową swojej konfiguracji?</summary><div class="body">Tak. Ustawienia &rsaquo; Kopia zapasowa i przywracanie eksportuje wszystkie ustawienia aplikacji do pliku i przywraca je z kopii zapasowej. Zobacz przewodnik Kopia zapasowa i przywracanie, aby dowiedzieć się, co zawiera plik.</div></details>
     <details><summary>Jak otworzyć ukryte menu debugowania?</summary><div class="body">Otwórz Ustawienia &rsaquo; O AVR Maestro i stuknij numer wersji siedem razy. Menu debugowania pozostaje wtedy dostępne, dopóki go nie usuniesz przez Usuń menu debugowania. Jest przeznaczone dla pomocy technicznej; aby wysłać nam dzienniki, użyj Wszystkie istotne dzienniki na tej samej stronie.</div></details>
+    <details><summary>Czy AVR Maestro zbiera dane analityczne?</summary><div class="body">Tylko jeśli się zgodzisz. Po pierwszym uruchomieniu aplikacja pyta raz i tylko Udostępniaj dane analityczne włącza analitykę użycia; Nie, dziękuję zostawia ją wyłączoną. Możesz to zmienić w dowolnej chwili w Ustawienia &rsaquo; O AVR Maestro &rsaquo; Informacje prawne, gdzie jest też przełącznik Zgłaszanie awarii. W raportach awarii adresy IP, adresy MAC i numery seryjne są zamaskowane, a wyeksportowane dzienniki ukrywają je, chyba że zdecydujesz się je dołączyć.</div></details>
   </div>
 </section>
 

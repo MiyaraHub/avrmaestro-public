@@ -134,7 +134,7 @@
       "description": "AVR Maestro 设置的每个部分：管理接收机、外观（主题、配色主题、大小、语言）、布局、扩展、帮助、备份与关于。",
       "image": "https://avrmaestro.com/screenshots/settings-tjmode.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -164,7 +164,7 @@
       "name": "设置 › 设备和设置 › 音频去哪了？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "自 5.3.0 版起，两者都按接收机存放。打开 设置 › 管理接收机 并轻点您的接收机：它的页面包含音频部分（音量步进、音量读数、音量预设、设备音量按钮和音量控制）、屏幕与锁定、关于此接收机，以及重命名、更改 IP、查找我的接收机和删除。"
+        "text": "两者都按接收机存放。打开 设置 › 管理接收机 并轻点您的接收机：它的页面包含音频部分（音量步进、音量读数、音量预设、设备音量按钮和音量控制）、屏幕与锁定、关于此接收机，以及重命名、更改 IP、查找我的接收机和删除。"
       }
     },
     {
@@ -213,6 +213,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "打开 设置 › 关于 AVR Maestro，并轻点版本号七次。此后调试菜单会一直可用，直到您用“移除调试菜单”将其移除。它是为支持而设；要向我们发送日志，请使用同一页面上的“所有相关日志”。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "AVR Maestro 会收集分析数据吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "仅在你同意时。首次启动后，应用会询问一次，只有“分享分析数据”才会开启使用情况分析；“不，谢谢”则保持关闭。你可以随时在 设置 › 关于 AVR Maestro › 法律信息 中更改，崩溃报告开关也在那里。崩溃报告会屏蔽 IP 地址、MAC 地址和序列号，导出的日志也会隐藏它们，除非你选择包含。"
       }
     }
   ]
@@ -355,7 +363,7 @@
     <ul class="plain">
       <li><b>备份与恢复：</b>把所有应用设置导出到文件，或从备份恢复。<a href="/zh-hans/guide/backup/">备份指南 &rarr;</a></li>
       <li><b>为 AVR Maestro 评分：</b>打开商店页面，您可以在那里留下评分。</li>
-      <li><b>关于 AVR Maestro：</b>版本信息、支持和许可证。您可以在这里找到 <b>Discord 社区</b>、<b>Facebook 支持小组</b>和<b>所有相关日志</b>，后者会收集出现问题时我们需要的日志。</li>
+      <li><b>关于 AVR Maestro：</b>版本信息、支持和许可。你可以在这里找到 <b>Discord 社区</b>、<b>Facebook 支持小组</b>和<b>所有相关日志</b>，后者会收集出现问题时我们所需的日志。其<b>法律信息</b>部分包含分析和崩溃报告开关（参见下方的<a href="#privacy">隐私</a>）。</li>
       <li><b>更多 MiyaraHub 应用：</b>在您设备的商店中打开 MiyaraHub 页面，查看我们其他的家庭影院应用。</li>
     </ul>
   </div>
@@ -374,19 +382,41 @@
   </div>
 </section>
 
+<section id="privacy">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">设置 &rsaquo; 关于 &rsaquo; 法律信息</div>
+      <h2>隐私：分析数据、崩溃报告和日志</h2>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="设置中的关于和法律信息，Share usage analytics 开关为关，Crash Reporting 开关为开" srcset="/screenshots/settings-legal-662.webp 662w, /screenshots/settings-legal.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/settings-legal.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>分析数据需主动选择加入。</b>首次启动后，应用会询问一次<i>帮助改进 AVR Maestro？</i>，选项为<b>分享分析数据</b>和<b>不，谢谢</b>。除非你同意，否则不会发送任何内容。使用事件关联的是为本次安装生成的随机 ID，不含接收机名称或地址。随时可通过 关于 &rsaquo; 法律信息 中的<b>分享使用情况分析</b>更改你的选择。在另一台设备上恢复备份时会再次询问。</li>
+          <li><b>崩溃报告有独立的开关。</b><b>崩溃报告</b>位于 关于 &rsaquo; 法律信息 下。关闭时不会发送任何内容，之前会话中保存的报告会被丢弃，而不是稍后发送。</li>
+          <li><b>崩溃报告不带走你的网络信息。</b>报告离开设备之前，其中错误及详情里的 IP 地址、MAC 地址、序列号和主机名都会被屏蔽。</li>
+          <li><b>日志在包含接收机信息前会先询问。</b><b>所有相关日志</b>会先说明数据包包含什么，以及电子邮件会把它发送到哪里。接收机的地址、MAC 地址和序列号默认隐藏，除非你勾选<i>包含我的接收机地址、MAC 地址和序列号，以便支持人员排查问题</i>。</li>
+          <li><b>中枢令牌保存在安全存储中。</b>Home Assistant 和 Hubitat 令牌在 Android 上保存在 Keystore，在 Apple 设备上保存在 Keychain，而不是与应用的普通设置放在一起。参见<a href="/zh-hans/guide/home-automation/">家庭自动化</a>。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">常见问题</div>
       <h2>设置常见问题解答</h2>
     </div>
-    <details open><summary>设置 &rsaquo; 设备和设置 &rsaquo; 音频去哪了？</summary><div class="body">自 5.3.0 版起，两者都按接收机存放。打开设置 &rsaquo; 管理接收机并轻点您的接收机：它的页面包含音频部分（音量步进、音量读数、音量预设、设备音量按钮和音量控制）、屏幕与锁定、关于此接收机，以及重命名、更改 IP、查找我的接收机和删除。</div></details>
+    <details open><summary>设置 &rsaquo; 设备和设置 &rsaquo; 音频去哪了？</summary><div class="body">两者都按接收机存放。打开 设置 &rsaquo; 管理接收机 并轻点您的接收机：它的页面包含音频部分（音量步进、音量读数、音量预设、设备音量按钮和音量控制）、屏幕与锁定、关于此接收机，以及重命名、更改 IP、查找我的接收机和删除。</div></details>
     <details><summary>我可以更改应用的主题和颜色吗？</summary><div class="body">可以。在设置 &rsaquo; 外观中，主题可选浅色、深色或 AMOLED（纯黑），TJ Mode：强调色可选品牌色或颜色主题。颜色主题让您从选择器中选取任意强调色，或输入十六进制代码，例如 #FF8C00，或其三位简写。应用无法读取的代码会被拒绝并给出原因，几乎全黑的颜色也会被拒绝，因为它在 AMOLED 主题上将无法显示。</div></details>
     <details><summary>我手机的音量键能控制接收机吗？</summary><div class="body">可以，在 Android 以及 iPhone 和 iPad 上都行。应用打开期间，设备的音量键会更改接收机的音量。它默认开启并按接收机设置：设置 &rsaquo; 管理接收机 &rsaquo; 您的接收机 &rsaquo; 音频 &rsaquo; 设备音量按钮。</div></details>
     <details><summary>如何找回我关闭的说明卡片？</summary><div class="body">打开设置 &rsaquo; 帮助。“恢复已关闭的卡片”会列出您长按关闭过的每张卡片；轻点其中一张的“恢复”，或轻点“全部恢复”。“显示说明卡片”可一次关闭或开启所有卡片。</div></details>
     <details><summary>如何再次查看欢迎指南？</summary><div class="body">打开设置 &rsaquo; 帮助 &rsaquo; 欢迎与设置指南。它会重放介绍和网络设置提示。同一部分中的“应用手册”会打开这份在线指南。</div></details>
     <details><summary>我可以备份我的设置吗？</summary><div class="body">可以。设置 &rsaquo; 备份与恢复会把所有应用设置导出到文件，并从备份恢复。关于文件包含什么，请参阅备份与恢复指南。</div></details>
     <details><summary>如何打开隐藏的调试菜单？</summary><div class="body">打开设置 &rsaquo; 关于 AVR Maestro，并轻点版本号七次。此后调试菜单会一直可用，直到您用“移除调试菜单”将其移除。它是为支持而设；要向我们发送日志，请使用同一页面上的“所有相关日志”。</div></details>
+    <details><summary>AVR Maestro 会收集分析数据吗？</summary><div class="body">仅在你同意时。首次启动后，应用会询问一次，只有“分享分析数据”才会开启使用情况分析；“不，谢谢”则保持关闭。你可以随时在 设置 &rsaquo; 关于 AVR Maestro &rsaquo; 法律信息 中更改，崩溃报告开关也在那里。崩溃报告会屏蔽 IP 地址、MAC 地址和序列号，导出的日志也会隐藏它们，除非你选择包含。</div></details>
   </div>
 </section>
 

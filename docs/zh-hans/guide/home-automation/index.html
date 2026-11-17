@@ -134,7 +134,7 @@
       "description": "将 AVR Maestro 关联到 Home Assistant 或 Hubitat，你的场景就会变成无需手机即可运行的原生脚本。支持语音控制、实时状态和 Webhook。",
       "image": "https://avrmaestro.com/screenshots/home-assistant.webp",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -180,7 +180,7 @@
       "name": "AI 助手属于付费解锁内容吗？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "不属于。设备端 AI 助手是免费的。家庭自动化，包括 Home Assistant、Hubitat 和出站 Webhook，是 AVR Maestro 中唯一的付费解锁项。"
+        "text": "不需要。设备端 AI 助手是免费的。家庭自动化（Home Assistant、Hubitat、出站 Webhook 和 Multi AVR Scene）是 AVR Maestro 中唯一的付费解锁项。"
       }
     },
     {
@@ -197,6 +197,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "打开 设置 › 家庭自动化（专业版），并轻点解锁按钮下方的“恢复购买”。如果您之前用同一个商店账户购买过解锁，它会直接恢复，无需再次付费。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "我的 Home Assistant 和 Hubitat 令牌保存在哪里？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "存放在您设备的安全存储中：Android 上是 Keystore，iPhone、iPad 和 Mac 上是 Keychain，而不是应用的普通设置。重置应用数据也会清除它们，并且 Android 不会把应用数据复制到 Google Drive 备份中。如果您输入的中枢或 webhook 地址位于互联网上且以 http:// 开头，应用会警告您的令牌和数据将以未加密方式经过互联网，并建议使用 https://。您自己网络中的地址永远不会显示该警告。"
       }
     }
   ]
@@ -337,11 +345,11 @@
 
     <div class="lockrow" style="margin-top:28px">
       <div>
-        <div class="eyebrow">如果你用旧版本同步过</div>
-        <h2>你的脚本 ID 会变一次</h2>
-        <p>脚本过去以场景<em>和</em>接收机来命名，因此重命名其中任何一个，都会留下旧脚本并悄悄创建出第二个。现在它们以场景和接收机的 MAC 地址命名，正是这一点让重命名能更新原有脚本，而不是另起一个。</p>
-        <p>这次变更之后的首次同步会用新脚本替换旧脚本。<b>凡是基于旧 ID 搭建的内容，都需要重新指向一次</b>，例如仪表盘按钮、自动化和语音别名。请在 Home Assistant 中打开该脚本，查看它的新实体 ID。</p>
-        <p>实体现在也以接收机命名，形如 <code>cinema30</code>，而不再是三十二个字符的机器标识符，所以列表清晰易读，自动补全也能找到它们。早期版本的 ID 仍可继续使用。</p>
+        <div class="eyebrow">脚本和实体 ID</div>
+        <h2>重命名后依然有效的名称</h2>
+        <p>脚本以场景和接收机的 MAC 地址命名，因此重命名场景或接收机时，会更新原有脚本，而不是创建第二个。</p>
+        <p>如果仪表板按钮、自动化或语音别名调用的是仅以场景和接收机命名的脚本，下次同步会将该脚本替换为以 MAC 地址命名的脚本。<b>只需重新指向一次</b>：在 Home Assistant 中打开该脚本，找到其当前的 entity ID 并改用它。</p>
+        <p>从接收机读取的实体 - 用 <code>cinema30</code> 代替 32 个字符的机器标识符 - 这样列表清晰易读，自动补全也能找到它们。自动化已在使用的 entity ID 仍然有效。</p>
       </div>
     </div>
   </div>
@@ -468,7 +476,8 @@
       <div>
         <div class="eyebrow">哪些付费，哪些不付费</div>
         <h2>家庭自动化是唯一的解锁项。AI 助手是免费的。</h2>
-        <p><b>家庭自动化（专业版）</b>，包括 Home Assistant、Hubitat 和出站 Webhook，是一次性解锁。AVR Maestro 中的其他所有功能，包括设备端 AI 助手，都已包含在应用内。</p>
+        <p><b>家庭自动化（Pro）</b>（Home Assistant、Hubitat、出站 Webhook 和 Multi AVR Scene）是一次性解锁。AVR Maestro 的其余所有功能，包括设备端 AI 助手，均已包含在应用中。</p>
+        <p><a href="/zh-hans/guide/scenes/#multi-avr">Multi AVR Scene</a> 一键设置两台或更多接收机，每台都有各自的场景。单台接收机的场景仍然免费。</p>
         <p>已经在这台设备或使用同一商店账户的另一台设备上购买过？轻点解锁按钮下方的<b>恢复购买</b>。</p>
         <p>语音控制是<em>通过</em>家庭自动化，经由你的中枢来控制接收机的。AVR Maestro 本身不运行语音识别。</p>
       </div>
@@ -484,9 +493,10 @@
     </div>
     <details open><summary>语音控制需要保持手机开机吗？</summary><div class="body">不需要。AVR Maestro 会把你的场景编译为原生 Home Assistant 脚本。Home Assistant 直接通过本地网络与接收机通信，所以你的手机可以关机、休眠，甚至身在另一个国家。</div></details>
     <details><summary>哪些语音助手可以控制我的接收机？</summary><div class="body">你已经在用的任何一个。AVR Maestro 不会添加自己的语音层，它只是把脚本发布到 Home Assistant 或 Hubitat，再由你信任的这个中枢开放给 Alexa、Google Assistant 或 Siri 快捷指令。</div></details>
-    <details><summary>AI 助手属于付费解锁内容吗？</summary><div class="body">不属于。设备端 AI 助手是免费的。家庭自动化，包括 Home Assistant、Hubitat 和出站 Webhook，是 AVR Maestro 中唯一的付费解锁项。</div></details>
+    <details><summary>AI 助手属于付费解锁内容吗？</summary><div class="body">不需要。设备端 AI 助手是免费的。家庭自动化（Home Assistant、Hubitat、出站 Webhook 和 Multi AVR Scene）是 AVR Maestro 中唯一的付费解锁项。</div></details>
     <details><summary>有任何内容会离开我的家庭网络吗？</summary><div class="body">控制不会。应用通过你自己的网络与接收机和中枢通信，任何内容都不会经过 MiyaraHub 的服务器。Webhook 会发往你指定的地址，这由你自己决定。</div></details>
     <details><summary>在另一台设备上购买过家庭自动化，或重新安装过应用？</summary><div class="body">打开<i>设置 &rsaquo; 家庭自动化（专业版）</i>，并轻点解锁按钮下方的<b>恢复购买</b>。如果您之前用同一个商店账户购买过解锁，它会直接恢复，无需再次付费。</div></details>
+    <details><summary>我的 Home Assistant 和 Hubitat 令牌保存在哪里？</summary><div class="body">存放在您设备的安全存储中：Android 上是 Keystore，iPhone、iPad 和 Mac 上是 Keychain，而不是应用的普通设置。重置应用数据也会清除它们，并且 Android 不会把应用数据复制到 Google Drive 备份中。如果您输入的中枢或 webhook 地址位于互联网上且以 http:// 开头，应用会警告您的令牌和数据将以未加密方式经过互联网，并建议使用 https://。您自己网络中的地址永远不会显示该警告。</div></details>
   </div>
 </section>
 

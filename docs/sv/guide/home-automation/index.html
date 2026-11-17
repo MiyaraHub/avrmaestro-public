@@ -134,7 +134,7 @@
       "description": "Länka AVR Maestro till Home Assistant eller Hubitat så blir dina scener inbyggda skript som körs utan din telefon. Röststyrning, livestatus och webhooks.",
       "image": "https://avrmaestro.com/screenshots/home-assistant.webp",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -180,7 +180,7 @@
       "name": "Ingår AI-assistenten i den betalda upplåsningen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nej. AI-assistenten på enheten är gratis. Hemautomation - Home Assistant, Hubitat och utgående webhooks - är den enda betalda upplåsningen i AVR Maestro."
+        "text": "Nej. AI-assistenten på enheten är gratis. Hemautomation - Home Assistant, Hubitat, utgående webhooks och Multi AVR Scenes - är den enda betalda upplåsningen i AVR Maestro."
       }
     },
     {
@@ -197,6 +197,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Öppna Inställningar › Hemautomation (Pro) och tryck på Återställ köp under upplåsningsknappen. Om du har köpt upplåsningen tidigare med samma butikskonto kommer den tillbaka utan att du betalar igen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Var förvaras mina Home Assistant- och Hubitat-tokens?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I enhetens säkra lagring: Keystore på Android och Keychain på iPhone, iPad och Mac, inte i appens vanliga inställningar. Återställ appdata rensar dem också, och Android kopierar inte appens data till en säkerhetskopia i Google Drive. Om du skriver en hubb- eller webhook-adress som finns på internet och börjar med http://, varnar appen för att din token och dina data skulle passera internet okrypterade och föreslår https://. Adresser i ditt eget nätverk visar aldrig varningen."
       }
     }
   ]
@@ -337,11 +345,11 @@
 
     <div class="lockrow" style="margin-top:28px">
       <div>
-        <div class="eyebrow">Om du synkade med en äldre version</div>
-        <h2>Dina skript-ID:n ändras en gång</h2>
-        <p>Skript brukade döpas efter scenen <em>och</em> mottagaren, så om du bytte namn på någon av dem lämnades det gamla skriptet kvar och ett andra skapades i det tysta. De döps nu efter scenen och mottagarens MAC-adress, vilket är det som gör att ett namnbyte uppdaterar samma skript i stället för att skapa en kopia.</p>
-        <p>Den första synkroniseringen efter den ändringen ersätter de gamla skripten med de nya. <b>Allt du har byggt på de gamla ID:n behöver pekas om en gång</b> - en dashboardknapp, en automation, ett röstalias. Öppna skriptet i Home Assistant för att hitta dess nya entitets-ID.</p>
-        <p>Entiteter läses nu också från mottagaren - <code>cinema30</code> i stället för trettiotvå tecken maskinidentifierare - så listan är läsbar och autokomplettering hittar dem. ID:n från tidigare versioner fortsätter att fungera.</p>
+        <div class="eyebrow">Skript- och entitets-ID:n</div>
+        <h2>Namn som överlever ett namnbyte</h2>
+        <p>Skript döps efter scenen och mottagarens MAC-adress, så ett namnbyte på scenen eller mottagaren uppdaterar samma skript i stället för att skapa ett andra.</p>
+        <p>Om en knapp på instrumentpanelen, en automation eller ett röstalias anropar ett skript som heter efter scenen och mottagaren, ersätter nästa synkronisering det skriptet med det som heter efter MAC-adressen. <b>Peka om det en gång</b>: öppna skriptet i Home Assistant för att hitta dess aktuella entity ID och använd det.</p>
+        <p>Entiteter som läses från mottagaren - <code>cinema30</code> i stället för trettiotvå tecken maskinidentifierare - så att listan är läsbar och autokomplettering hittar dem. Entity ID som dina automationer redan använder fortsätter att fungera.</p>
       </div>
     </div>
   </div>
@@ -468,7 +476,8 @@
       <div>
         <div class="eyebrow">Vad som är betalt och vad som inte är det</div>
         <h2>Hemautomation är den enda upplåsningen. AI-assistenten är gratis.</h2>
-        <p><b>Hemautomation (Pro)</b> - Home Assistant, Hubitat och utgående webhooks - är en engångsupplåsning. Allt annat i AVR Maestro, inklusive AI-assistenten på enheten, ingår i appen.</p>
+        <p><b>Hemautomation (Pro)</b> - Home Assistant, Hubitat, utgående webhooks och Multi AVR Scenes - är en engångsupplåsning. Allt annat i AVR Maestro, inklusive AI-assistenten på enheten, ingår i appen.</p>
+        <p>En <a href="/sv/guide/scenes/#multi-avr">Multi AVR Scene</a> ställer in två eller flera mottagare med ett tryck, var och en med sin egen scen. Scener för en enskild mottagare förblir gratis.</p>
         <p>Har du redan köpt det, på den här enheten eller en annan med samma butikskonto? Tryck på <b>Återställ köp</b> under upplåsningsknappen.</p>
         <p>Röststyrning når din mottagare <em>genom</em> Hemautomation, via din hubb. AVR Maestro kör ingen egen röstigenkänning.</p>
       </div>
@@ -484,9 +493,10 @@
     </div>
     <details open><summary>Måste min telefon vara på för att röststyrningen ska fungera?</summary><div class="body">Nej. AVR Maestro kompilerar dina scener till inbyggda Home Assistant-skript. Home Assistant pratar direkt med mottagaren på ditt lokala nätverk, så din telefon kan vara avstängd, i viloläge eller i ett annat land.</div></details>
     <details><summary>Vilka röstassistenter kan styra min mottagare?</summary><div class="body">Vilken du än redan använder. AVR Maestro lägger inte till något eget röstlager - den publicerar skript till Home Assistant eller Hubitat, och de görs tillgängliga för Alexa, Google Assistant eller Siri Shortcuts av den hubb du redan litar på.</div></details>
-    <details><summary>Ingår AI-assistenten i den betalda upplåsningen?</summary><div class="body">Nej. AI-assistenten på enheten är gratis. Hemautomation - Home Assistant, Hubitat och utgående webhooks - är den enda betalda upplåsningen i AVR Maestro.</div></details>
+    <details><summary>Ingår AI-assistenten i den betalda upplåsningen?</summary><div class="body">Nej. AI-assistenten på enheten är gratis. Hemautomation - Home Assistant, Hubitat, utgående webhooks och Multi AVR Scenes - är den enda betalda upplåsningen i AVR Maestro.</div></details>
     <details><summary>Lämnar något mitt hemnätverk?</summary><div class="body">Inte för styrning. Appen pratar med din mottagare och din hubb över ditt eget nätverk. Ingenting dirigeras via någon MiyaraHub-server. En webhook går dit du pekar den, och det är ditt val.</div></details>
     <details><summary>Köpt Hemautomation på en annan enhet, eller installerat om?</summary><div class="body">Öppna <i>Inställningar &rsaquo; Hemautomation (Pro)</i> och tryck på <b>Återställ köp</b> under upplåsningsknappen. Om du har köpt upplåsningen tidigare med samma butikskonto kommer den tillbaka utan att du betalar igen.</div></details>
+    <details><summary>Var förvaras mina Home Assistant- och Hubitat-tokens?</summary><div class="body">I enhetens säkra lagring: Keystore på Android och Keychain på iPhone, iPad och Mac, inte i appens vanliga inställningar. Återställ appdata rensar dem också, och Android kopierar inte appens data till en säkerhetskopia i Google Drive. Om du skriver en hubb- eller webhook-adress som finns på internet och börjar med http://, varnar appen för att din token och dina data skulle passera internet okrypterade och föreslår https://. Adresser i ditt eget nätverk visar aldrig varningen.</div></details>
   </div>
 </section>
 

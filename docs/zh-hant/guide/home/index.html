@@ -134,7 +134,7 @@
       "description": "AVR Maestro 主畫面：狀態卡片、接收器切換器，以及您可新增並重新排序的小工具，涵蓋音量、訊源、音效模式、訊號、場景、分區與 HEOS。",
       "image": "https://avrmaestro.com/screenshots/dashboard.webp",
       "datePublished": "2026-07-03",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -334,6 +334,9 @@
         <tr><td>DRC</td><td>動態範圍壓縮：Auto、Off、Low、Mid 或 High。</td></tr>
         <tr><td>Dirac Live 濾波器</td><td>目前喇叭預設上的 Dirac Live 插槽，附深層連結。僅限 Dirac 接收器。</td></tr>
         <tr><td>Audyssey 狀態</td><td>一眼看到 MultEQ、Dynamic EQ、參考電平偏移、Dynamic Volume、LFC 與抑制量。僅限 Audyssey 接收器。</td></tr>
+        <tr><td>Audyssey MultEQ</td><td>不必進入「聲音 &rsaquo; Audyssey」，直接在首頁切換 MultEQ。預設關閉：自訂首頁時再加入。接收器回報其 MultEQ 設定後才會出現，提供與場景建立器相同的選項，所選的選項會跟隨接收器回報的狀態。</td></tr>
+        <tr><td>Dynamic EQ</td><td>在首頁開啟或關閉 Dynamic EQ。預設關閉，接收器回報該設定後才會顯示。</td></tr>
+        <tr><td>Dynamic Volume</td><td>在首頁調整 Dynamic Volume，提供接收器支援的檔位。預設關閉，接收器回報該設定後才會顯示。</td></tr>
         <tr><td>聲道電平快照</td><td>顯示接收器回報的每個聲道電平。</td></tr>
         <tr><td>重低音電平</td><td>附減號與加號按鈕的重低音電平調整。在已設定重低音且有音訊訊號時顯示。</td></tr>
         <tr><td>音訊延遲</td><td>接收器有回報時，可設定 0 到 500 毫秒的音畫同步延遲。步進選擇器（1 到 10 毫秒）用於設定減號與加號按鈕每次調整的幅度。</td></tr>
@@ -360,6 +363,19 @@
 
 <section>
   <div class="wrap">
+    <div class="feat rev">
+      <div class="shots"><img alt="主畫面上的 Audyssey MultEQ、Dynamic EQ 與 Dynamic Volume 卡片，因喇叭預設由 Dirac Live 接管而被鎖定" srcset="/screenshots/home-audyssey-662.webp 662w, /screenshots/home-audyssey.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/home-audyssey.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <div class="eyebrow">主畫面上的 Audyssey</div>
+        <h2>MultEQ、Dynamic EQ 與 Dynamic Volume 卡片</h2>
+        <p class="lead">自訂主畫面時可加入這三張 Audyssey 卡片，不必進入 音效 &rsaquo; Audyssey 就能切換。當 Dirac Live 接管喇叭預設時，卡片會以灰階狀態留在主畫面上，每張下方註明原因，點選它們不會向接收器傳送任何內容。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">音效控制</div>
       <h2>音效中的快速切換</h2>
@@ -367,6 +383,7 @@
     <ul class="plain">
       <li><b>圖形等化器：</b>開關位於圖形等化器頁面本身（音效 &rsaquo; 圖形等化器），在標題列的「重設」與「複製」旁。只有在 Dirac Live 與 Audyssey 都沒有執行房間校正時才能編輯頻段；應用程式遵循接收器本身的規則。請參閱<a href="/zh-hant/guide/graphic-eq/">圖形等化器指南</a>。</li>
       <li><b>重低音：</b>從音效 &rsaquo; 環繞 &rsaquo; 音訊功能將重低音靜音或啟用，不必進入喇叭設定。僅在接收器回報並接受此設定時顯示。</li>
+      <li><b>Audyssey 卡片與鎖定：</b>當 Dirac Live 佔用喇叭預設，或 Audyssey 尚未在該預設上校準時，MultEQ、Dynamic EQ 和 Dynamic Volume 卡片會被鎖定；MultEQ 關閉時，Dynamic EQ 和 Dynamic Volume 也會被鎖定。被鎖定的卡片仍留在首頁，顯示為灰色，說明原因，並且不傳送任何指令。請參閱<a href="/zh-hant/guide/locked-controls/">控制項為何被鎖定</a>。</li>
       <li><b>音訊修復器：</b>接收器的壓縮音訊修復器，Denon 上稱為<b>修復器</b>，Marantz 上稱為 <b>M-DAX</b>，位於音效 &rsaquo; 音調之下。不必進入螢幕選單，就能讓 MP3 與串流訊源重新活起來。</li>
     </ul>
   </div>

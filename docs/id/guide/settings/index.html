@@ -134,7 +134,7 @@
       "description": "Setiap bagian Pengaturan AVR Maestro: Kelola Receiver, Tampilan dan Nuansa (tema, Color Theme, ukuran, bahasa), Tata Letak, Add-on, Bantuan, Cadangan, dan Tentang.",
       "image": "https://avrmaestro.com/screenshots/settings-tjmode.webp",
       "datePublished": "2026-06-20",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -164,7 +164,7 @@
       "name": "Ke mana Pengaturan › Perangkat dan Pengaturan › Audio pergi?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sejak versi 5.3.0 keduanya berada di tiap receiver. Buka Pengaturan › Kelola Receiver dan ketuk receiver Anda: halamannya memiliki bagian Audio (langkah volume, tampilan volume, preset volume, tombol volume perangkat, dan Kontrol Volume), Layar & Kunci, Tentang receiver ini, serta Ganti nama, Ubah IP, Temukan Receiver Saya, dan Hapus."
+        "text": "Keduanya berada di tiap receiver. Buka Pengaturan › Kelola Receiver dan ketuk receiver Anda: halamannya memiliki bagian Audio (langkah volume, tampilan volume, preset volume, tombol volume perangkat, dan Kontrol Volume), Layar & Kunci, Tentang receiver ini, serta Ganti nama, Ubah IP, Temukan Receiver Saya, dan Hapus."
       }
     },
     {
@@ -213,6 +213,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Buka Pengaturan › Tentang AVR Maestro dan ketuk nomor versi tujuh kali. Menu debug kemudian tetap tersedia sampai Anda menghapusnya dengan Hapus Menu Debug. Menu ini ditujukan untuk dukungan; untuk mengirim log kepada kami, gunakan Semua Log Relevan di halaman yang sama."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Apakah AVR Maestro mengumpulkan analitik?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hanya jika Anda setuju. Setelah peluncuran pertama, aplikasi bertanya sekali, dan hanya Bagikan analitik yang mengaktifkan analitik penggunaan; Tidak, terima kasih membiarkannya nonaktif. Anda dapat mengubahnya kapan saja di Pengaturan › Tentang AVR Maestro › Legal, tempat sakelar Pelaporan Crash juga berada. Laporan crash menyamarkan alamat IP, alamat MAC, dan nomor seri, dan log yang diekspor menyembunyikannya kecuali Anda memilih untuk menyertakannya."
       }
     }
   ]
@@ -355,7 +363,7 @@
     <ul class="plain">
       <li><b>Cadangkan &amp; Pulihkan:</b> ekspor setiap pengaturan aplikasi ke sebuah file, atau pulihkan dari cadangan. <a href="/id/guide/backup/">Panduan cadangan &rarr;</a></li>
       <li><b>Beri Peringkat AVR Maestro:</b> membuka listing toko agar Anda dapat memberi peringkat.</li>
-      <li><b>Tentang AVR Maestro:</b> informasi versi, dukungan, dan lisensi. Di sinilah Anda menemukan <b>Komunitas Discord</b>, <b>Grup Dukungan Facebook</b>, dan <b>Semua Log Relevan</b>, yang mengumpulkan log yang kami butuhkan saat ada yang tidak beres.</li>
+      <li><b>Tentang AVR Maestro:</b> informasi versi, dukungan, dan lisensi. Di sinilah Anda menemukan <b>Komunitas Discord</b>, <b>Grup Dukungan Facebook</b>, dan <b>Semua Log Relevan</b>, yang mengumpulkan log yang kami perlukan saat ada yang bermasalah. Bagian <b>Legal</b>-nya berisi sakelar analitik dan laporan crash (lihat <a href="#privacy">Privasi</a> di bawah).</li>
       <li><b>Lainnya dari MiyaraHub:</b> membuka halaman MiyaraHub di toko perangkat Anda, dengan aplikasi home theater kami yang lain.</li>
     </ul>
   </div>
@@ -374,19 +382,41 @@
   </div>
 </section>
 
+<section id="privacy">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pengaturan &rsaquo; Tentang &rsaquo; Legal</div>
+      <h2>Privasi: analitik, laporan crash, dan log</h2>
+    </div>
+    <div class="feat">
+      <div class="shots"><img alt="Tentang dan Legal di Setelan, dengan sakelar Share usage analytics mati dan sakelar Crash Reporting menyala" srcset="/screenshots/settings-legal-662.webp 662w, /screenshots/settings-legal.webp 1324w" sizes="(max-width: 700px) 70vw, 300px" src="/screenshots/settings-legal.webp" width="1324" height="2644" loading="lazy" decoding="async" /></div>
+      <div>
+        <ul class="plain">
+          <li><b>Analitik bersifat opt-in.</b> Setelah peluncuran pertama, aplikasi bertanya sekali, <i>Bantu tingkatkan AVR Maestro?</i>, dengan <b>Bagikan analitik</b> dan <b>Tidak, terima kasih</b>. Tidak ada yang dikirim kecuali Anda menjawab ya. Peristiwa penggunaan dikaitkan dengan ID acak yang dibuat untuk instalasi ini dan tidak memuat nama atau alamat receiver. Ubah jawaban Anda kapan saja dengan <b>Bagikan analitik penggunaan</b> di Tentang &rsaquo; Legal. Memulihkan cadangan di perangkat lain akan bertanya lagi.</li>
+          <li><b>Laporan crash punya sakelar sendiri.</b> <b>Pelaporan Crash</b> berada di Tentang &rsaquo; Legal. Saat nonaktif, tidak ada yang dikirim, dan laporan yang disimpan dari sesi sebelumnya dibuang, bukan dikirim belakangan.</li>
+          <li><b>Laporan crash tidak membawa detail jaringan Anda.</b> Sebelum laporan meninggalkan perangkat, alamat IP, alamat MAC, nomor seri, dan nama host disamarkan di dalam error dan detailnya.</li>
+          <li><b>Log bertanya dulu sebelum menyertakan detail receiver Anda.</b> <b>Semua Log Relevan</b> pertama-tama menjelaskan isi paket dan ke mana Email mengirimkannya. Alamat, alamat MAC, dan nomor seri receiver Anda disembunyikan kecuali Anda mencentang <i>Sertakan alamat, alamat MAC, dan nomor seri receiver saya agar dukungan dapat menemukan masalahnya</i>.</li>
+          <li><b>Token hub tetap di penyimpanan aman.</b> Token Home Assistant dan Hubitat disimpan di Keystore pada Android dan Keychain pada perangkat Apple, bukan bersama pengaturan biasa aplikasi. Lihat <a href="/id/guide/home-automation/">Otomasi Rumah</a>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Pertanyaan umum</div>
       <h2>FAQ Pengaturan</h2>
     </div>
-    <details open><summary>Ke mana Pengaturan &rsaquo; Perangkat dan Pengaturan &rsaquo; Audio pergi?</summary><div class="body">Sejak versi 5.3.0 keduanya berada di tiap receiver. Buka Pengaturan &rsaquo; Kelola Receiver dan ketuk receiver Anda: halamannya memiliki bagian Audio (langkah volume, tampilan volume, preset volume, tombol volume perangkat, dan Kontrol Volume), Layar &amp; Kunci, Tentang receiver ini, serta Ganti nama, Ubah IP, Temukan Receiver Saya, dan Hapus.</div></details>
+    <details open><summary>Ke mana Pengaturan &rsaquo; Perangkat dan Pengaturan &rsaquo; Audio pergi?</summary><div class="body">Keduanya berada di tiap receiver. Buka Pengaturan &rsaquo; Kelola Receiver dan ketuk receiver Anda: halamannya memiliki bagian Audio (langkah volume, tampilan volume, preset volume, tombol volume perangkat, dan Kontrol Volume), Layar &amp; Kunci, Tentang receiver ini, serta Ganti nama, Ubah IP, Temukan Receiver Saya, dan Hapus.</div></details>
     <details><summary>Bisakah saya mengubah tema dan warna aplikasi?</summary><div class="body">Ya. Di Pengaturan &rsaquo; Tampilan, Tema adalah Terang, Gelap, atau AMOLED (hitam pekat), dan TJ Mode: Warna Aksen adalah Merek atau Tema Warna. Tema Warna memungkinkan Anda memilih warna aksen apa pun dari pemilih atau dengan mengetik kode hex seperti #FF8C00 atau singkatannya yang terdiri dari tiga karakter. Kode yang tidak dapat dibaca aplikasi ditolak beserta alasannya, dan warna yang hampir hitam ditolak karena tidak akan terlihat pada tema AMOLED.</div></details>
     <details><summary>Apakah tombol volume ponsel saya mengendalikan receiver?</summary><div class="body">Ya, di Android serta di iPhone dan iPad. Selama aplikasi terbuka, tombol volume perangkat mengubah volume receiver. Fitur ini aktif secara default dan diatur per receiver: Pengaturan &rsaquo; Kelola Receiver &rsaquo; receiver Anda &rsaquo; Audio &rsaquo; Tombol volume perangkat.</div></details>
     <details><summary>Bagaimana cara mengembalikan kartu penjelasan yang telah saya tutup?</summary><div class="body">Buka Pengaturan &rsaquo; Bantuan. Pulihkan kartu yang disembunyikan mencantumkan setiap kartu yang Anda tekan lama untuk disingkirkan; ketuk Pulihkan pada salah satunya, atau Pulihkan semua. Tampilkan kartu penjelasan mematikan atau menyalakan semuanya sekaligus.</div></details>
     <details><summary>Bagaimana cara melihat panduan selamat datang lagi?</summary><div class="body">Buka Pengaturan &rsaquo; Bantuan &rsaquo; Panduan Selamat Datang &amp; Pengaturan. Panduan ini memutar ulang pengantar dan tips pengaturan jaringan. Manual Aplikasi di bagian yang sama membuka panduan online ini.</div></details>
     <details><summary>Bisakah saya mencadangkan setup saya?</summary><div class="body">Ya. Pengaturan &rsaquo; Cadangkan &amp; Pulihkan mengekspor setiap pengaturan aplikasi ke sebuah file dan memulihkan dari cadangan. Lihat panduan Cadangkan &amp; Pulihkan untuk mengetahui isi file tersebut.</div></details>
     <details><summary>Bagaimana cara membuka menu debug tersembunyi?</summary><div class="body">Buka Pengaturan &rsaquo; Tentang AVR Maestro dan ketuk nomor versi tujuh kali. Menu debug kemudian tetap tersedia sampai Anda menghapusnya dengan Hapus Menu Debug. Menu ini ditujukan untuk dukungan; untuk mengirim log kepada kami, gunakan Semua Log Relevan di halaman yang sama.</div></details>
+    <details><summary>Apakah AVR Maestro mengumpulkan analitik?</summary><div class="body">Hanya jika Anda setuju. Setelah peluncuran pertama, aplikasi bertanya sekali, dan hanya Bagikan analitik yang mengaktifkan analitik penggunaan; Tidak, terima kasih membiarkannya nonaktif. Anda dapat mengubahnya kapan saja di Pengaturan &rsaquo; Tentang AVR Maestro &rsaquo; Legal, tempat sakelar Pelaporan Crash juga berada. Laporan crash menyamarkan alamat IP, alamat MAC, dan nomor seri, dan log yang diekspor menyembunyikannya kecuali Anda memilih untuk menyertakannya.</div></details>
   </div>
 </section>
 

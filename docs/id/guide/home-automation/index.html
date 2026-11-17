@@ -134,7 +134,7 @@
       "description": "Hubungkan AVR Maestro ke Home Assistant atau Hubitat dan Skenario Anda menjadi skrip native yang berjalan tanpa ponsel Anda. Kontrol suara, status langsung, dan webhook.",
       "image": "https://avrmaestro.com/screenshots/home-assistant.webp",
       "datePublished": "2026-08-16",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-16",
       "author": {
         "@id": "https://avrmaestro.com/#organization"
       },
@@ -180,7 +180,7 @@
       "name": "Apakah asisten AI bagian dari fitur berbayar?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Tidak. Asisten AI di perangkat gratis. Otomasi Rumah - Home Assistant, Hubitat, dan webhook keluar - adalah satu-satunya fitur berbayar di AVR Maestro."
+        "text": "Tidak. Asisten AI di perangkat gratis. Otomasi Rumah - Home Assistant, Hubitat, webhook keluar, dan Multi AVR Scene - adalah satu-satunya pembukaan berbayar di AVR Maestro."
       }
     },
     {
@@ -197,6 +197,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Buka Pengaturan › Otomatisasi Rumah (Pro) dan ketuk Pulihkan Pembelian di bawah tombol buka kunci. Jika Anda pernah membeli kunci tersebut dengan akun toko yang sama, kunci akan kembali tanpa membayar lagi."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Di mana token Home Assistant dan Hubitat saya disimpan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Di penyimpanan aman perangkat Anda: Keystore di Android dan Keychain di iPhone, iPad, dan Mac, bukan di setelan biasa aplikasi. Reset Data Aplikasi juga menghapusnya, dan Android tidak menyalin data aplikasi ke cadangan Google Drive. Jika Anda mengetik alamat hub atau webhook yang berada di internet dan diawali http://, aplikasi memperingatkan bahwa token dan data Anda akan melintasi internet tanpa enkripsi, lalu menyarankan https://. Alamat di jaringan Anda sendiri tidak pernah menampilkan peringatan ini."
       }
     }
   ]
@@ -337,11 +345,11 @@
 
     <div class="lockrow" style="margin-top:28px">
       <div>
-        <div class="eyebrow">Jika Anda menyinkronkan dengan versi lama</div>
-        <h2>ID skrip Anda berubah satu kali</h2>
-        <p>Dulu skrip dinamai menurut skenario <em>dan</em> receiver, sehingga mengganti nama salah satunya meninggalkan skrip lama dan diam-diam membuat yang kedua. Kini skrip dinamai menurut skenario dan alamat MAC receiver, yang membuat penggantian nama memperbarui skrip yang sama, bukan menggandakannya.</p>
-        <p>Sinkronisasi pertama setelah perubahan itu menggantikan skrip lama dengan yang baru. <b>Apa pun yang Anda bangun di atas ID lama perlu diarahkan ulang satu kali</b> - tombol dasbor, otomasi, alias suara. Buka skrip di Home Assistant untuk menemukan entity ID barunya.</p>
-        <p>Entity kini juga terbaca dari receiver - <code>cinema30</code> alih-alih tiga puluh dua karakter pengenal mesin - sehingga daftarnya terbaca jelas dan pelengkapan otomatis dapat menemukannya. ID dari versi sebelumnya tetap berfungsi.</p>
+        <div class="eyebrow">ID skrip dan entitas</div>
+        <h2>Nama yang bertahan setelah diganti nama</h2>
+        <p>Skrip dinamai menurut skenario dan alamat MAC receiver, sehingga mengganti nama skenario atau receiver memperbarui skrip yang sama, bukan membuat yang kedua.</p>
+        <p>Jika tombol dasbor, otomasi, atau alias suara memanggil skrip yang dinamai menurut skenario dan receiver saja, sinkronisasi berikutnya akan mengganti skrip itu dengan skrip yang dinamai menurut alamat MAC. <b>Arahkan ulang sekali saja</b>: buka skrip di Home Assistant untuk melihat entity ID-nya saat ini, lalu gunakan itu.</p>
+        <p>Entitas yang dibaca dari receiver - <code>cinema30</code> alih-alih tiga puluh dua karakter pengenal mesin - agar daftarnya mudah dibaca dan pelengkapan otomatis dapat menemukannya. Entity ID yang sudah dipakai otomasi Anda tetap berfungsi.</p>
       </div>
     </div>
   </div>
@@ -468,7 +476,8 @@
       <div>
         <div class="eyebrow">Yang berbayar dan yang tidak</div>
         <h2>Otomasi Rumah adalah satu-satunya pembukaan. Asisten AI gratis.</h2>
-        <p><b>Otomasi Rumah (Pro)</b> - Home Assistant, Hubitat, dan webhook keluar - adalah pembukaan sekali bayar. Semua yang lain di AVR Maestro, termasuk asisten AI di perangkat, sudah termasuk dalam aplikasi.</p>
+        <p><b>Otomasi Rumah (Pro)</b> - Home Assistant, Hubitat, webhook keluar, dan Multi AVR Scene - adalah pembukaan sekali bayar. Semua yang lain di AVR Maestro, termasuk asisten AI di perangkat, sudah termasuk dalam aplikasi.</p>
+        <p><a href="/id/guide/scenes/#multi-avr">Multi AVR Scene</a> menyiapkan dua receiver atau lebih dengan satu ketukan, masing-masing dengan Skenarionya sendiri. Skenario untuk satu receiver tetap gratis.</p>
         <p>Sudah membelinya, di perangkat ini atau perangkat lain dengan akun toko yang sama? Ketuk <b>Pulihkan Pembelian</b> di bawah tombol buka kunci.</p>
         <p>Kontrol suara menjangkau receiver Anda <em>melalui</em> Otomasi Rumah, lewat hub Anda. AVR Maestro tidak menjalankan pengenalan suaranya sendiri.</p>
       </div>
@@ -484,9 +493,10 @@
     </div>
     <details open><summary>Apakah ponsel saya harus menyala agar kontrol suara berfungsi?</summary><div class="body">Tidak. AVR Maestro mengompilasi skenario Anda menjadi skrip Home Assistant native. Home Assistant berbicara langsung dengan receiver di jaringan lokal Anda, jadi ponsel Anda boleh mati, tidur, atau berada di negara lain.</div></details>
     <details><summary>Asisten suara mana yang bisa mengontrol receiver saya?</summary><div class="body">Yang mana pun yang sudah Anda pakai. AVR Maestro tidak menambahkan lapisan suara sendiri - aplikasi ini menerbitkan skrip ke Home Assistant atau Hubitat, dan skrip itu diteruskan ke Alexa, Google Assistant, atau Siri Shortcuts oleh hub yang sudah Anda percaya.</div></details>
-    <details><summary>Apakah asisten AI bagian dari fitur berbayar?</summary><div class="body">Tidak. Asisten AI di perangkat gratis. Otomasi Rumah - Home Assistant, Hubitat, dan webhook keluar - adalah satu-satunya fitur berbayar di AVR Maestro.</div></details>
+    <details><summary>Apakah asisten AI bagian dari fitur berbayar?</summary><div class="body">Tidak. Asisten AI di perangkat gratis. Otomasi Rumah - Home Assistant, Hubitat, webhook keluar, dan Multi AVR Scene - adalah satu-satunya pembukaan berbayar di AVR Maestro.</div></details>
     <details><summary>Apakah ada yang keluar dari jaringan rumah saya?</summary><div class="body">Tidak untuk kontrol. Aplikasi berbicara dengan receiver dan hub Anda melalui jaringan Anda sendiri. Tidak ada yang dialirkan melalui server MiyaraHub. Webhook pergi ke mana pun Anda arahkan, dan itu pilihan Anda.</div></details>
     <details><summary>Membeli Otomasi Rumah di perangkat lain, atau menginstal ulang?</summary><div class="body">Buka <i>Pengaturan &rsaquo; Otomatisasi Rumah (Pro)</i> dan ketuk <b>Pulihkan Pembelian</b> di bawah tombol buka kunci. Jika Anda pernah membeli kunci tersebut dengan akun toko yang sama, kunci akan kembali tanpa membayar lagi.</div></details>
+    <details><summary>Di mana token Home Assistant dan Hubitat saya disimpan?</summary><div class="body">Di penyimpanan aman perangkat Anda: Keystore di Android dan Keychain di iPhone, iPad, dan Mac, bukan di setelan biasa aplikasi. Reset Data Aplikasi juga menghapusnya, dan Android tidak menyalin data aplikasi ke cadangan Google Drive. Jika Anda mengetik alamat hub atau webhook yang berada di internet dan diawali http://, aplikasi memperingatkan bahwa token dan data Anda akan melintasi internet tanpa enkripsi, lalu menyarankan https://. Alamat di jaringan Anda sendiri tidak pernah menampilkan peringatan ini.</div></details>
   </div>
 </section>
 
