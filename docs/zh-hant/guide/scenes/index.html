@@ -446,6 +446,7 @@
       <div class="gcard"><div class="ic"><svg class="fi" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg></div><h3>分區</h3><p>分區 2 與分區 3 的電源、輸入與音量，以及全分區立體聲。</p></div>
       <div class="gcard"><div class="ic"><svg class="fi" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="8" width="20" height="13" rx="2"/><path d="m6 8 12-5"/><circle cx="16" cy="14.5" r="2.5"/><path d="M6 13h4M6 17h4"/></svg></div><h3>附加功能</h3><p>ECO、睡眠計時器（包括您的自訂欄位）、音訊延遲、亮度、HDMI 音訊輸出、調諧器電台、接收器的設定鎖定，甚至應用程式本身的色彩主題。</p></div>
     </div>
+    <p class="lead" style="margin-top:20px">場景還可以包含<b>擴大機指派</b>和<b>喇叭配置</b>，在快速擷取和引導精靈中都可以。列和選項來自接收器的喇叭配置頁面，當 Dirac Live 佔用該頁面時，場景會說明這一點。儲存包含其中任一設定的場景時會先詢問，用的是接收器說明書自己的措辭：擴大機指派會重設喇叭配置，而配置變更會關閉 Audyssey MultEQ XT32、Dynamic EQ 和 Dynamic Volume，直到再次執行 Audyssey 設定。從小工具啟動的場景會套用同樣受保護的寫入，但不會列出被略過的項目，Home Assistant 場景方案也不包含這兩項設定。</p>
     <p class="lead" style="margin-top:20px">實際會出現哪些項目，取決於您的接收器。應用程式只會列出您的機型回報的項目，所以您不會圍繞一個它根本沒有的設定來建立場景。</p>
   </div>
 </section>
@@ -501,6 +502,8 @@
       <li><b>電源優先，冷機的接收器會有時間啟動。</b>如果場景會開啟接收器，其他一切都會等它完成開機，因為仍在開機的接收器會忽略設定。</li>
       <li><b>聲道電平會經過檢查並重新傳送一次。</b>一次收到大量指令時，接收器偶爾會漏掉某個聲道。應用程式會讀回實際生效的內容，重新傳送沒有生效的項目，並告訴您哪些聲道必須重試。</li>
       <li><b>被鎖定的控制項，無論如何都無法套用。</b>如果您的喇叭預設由 Dirac Live 掌控，接收器本身就會拒絕 Audyssey 的變更，包含這些變更的場景，也會和螢幕上的控制項一樣被拒絕。請參閱<a href="/zh-hant/guide/locked-controls/">控制項為何被鎖定</a>。</li>
+      <li><b>擴大機指派優先，且每一列都會核對。</b>叫用時先設定擴大機指派，每一列寫入後都會核對。接收器此刻不允許變更的列保持原樣，並在應用程式中點名。配置先於 Audyssey 的值寫入，因此同時包含兩者的場景會保留自己的值。</li>
+      <li><b>儲存時顯示進度。</b>儲存場景時，應用程式讀取接收器期間會顯示進度，點一下無法將其關閉。</li>
       <li><b>只會變更場景所包含的內容。</b>如果場景沒有改變您預期的項目，很可能是當初沒有勾選。請長按它並使用「編輯已擷取的設定」，而不是另外建立第二個場景。</li>
       <li><b>場景屬於單台接收器。</b>清單是目前所選接收器的清單，其他接收器有各自的清單。若要一鍵設定多台接收器，請使用 <a href="#multi-avr">Multi AVR Scene</a>。</li>
     </ul>

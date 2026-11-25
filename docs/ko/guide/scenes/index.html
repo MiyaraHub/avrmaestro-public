@@ -446,6 +446,7 @@
       <div class="gcard"><div class="ic"><svg class="fi" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg></div><h3>존</h3><p>존 2와 존 3의 전원, 입력, 볼륨, 올 존 스테레오.</p></div>
       <div class="gcard"><div class="ic"><svg class="fi" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="8" width="20" height="13" rx="2"/><path d="m6 8 12-5"/><circle cx="16" cy="14.5" r="2.5"/><path d="M6 13h4M6 17h4"/></svg></div><h3>부가 기능</h3><p>에코, 취침 타이머(사용자 지정 슬롯 포함), 오디오 지연, 디머, HDMI 오디오 출력, 튜너 방송국, 리시버의 설정 잠금, 그리고 앱 자체의 색상 테마까지.</p></div>
     </div>
+    <p class="lead" style="margin-top:20px">씬에는 빠른 캡처와 가이드 마법사 모두에서 <b>Amp Assign</b>과 <b>Speaker Config</b>도 담을 수 있습니다. 행과 선택지는 리시버의 Speaker Layout 페이지에서 가져오며, Dirac Live가 그 페이지를 점유하는 동안에는 씬이 이를 알려 줍니다. 둘 중 하나를 담은 씬을 저장할 때는 먼저 리시버 설명서의 표현 그대로 확인을 요청합니다. Amp Assign은 스피커 레이아웃을 초기화하고, 레이아웃을 바꾸면 Audyssey Setup을 다시 실행할 때까지 Audyssey MultEQ XT32, Dynamic EQ, Dynamic Volume이 꺼집니다. 위젯에서 시작한 씬은 같은 보호된 쓰기를 적용하지만 건너뛴 항목을 나열하지 않으며, Home Assistant 씬 계획에서는 이 두 설정이 제외됩니다.</p>
     <p class="lead" style="margin-top:20px">이 중 어떤 항목이 나타날지는 리시버에 따라 다릅니다. 앱은 사용 중인 모델이 보고하는 항목만 나열하므로, 없는 설정을 중심으로 장면을 만들 일이 없습니다.</p>
   </div>
 </section>
@@ -501,6 +502,8 @@
       <li><b>전원이 먼저이며, 꺼져 있던 리시버에는 켜질 시간을 줍니다.</b> 장면이 리시버를 켜는 경우, 부팅 중인 리시버는 설정을 무시하므로 나머지는 리시버가 켜질 때까지 기다립니다.</li>
       <li><b>채널 레벨은 확인 후 한 번 다시 전송됩니다.</b> 리시버는 한꺼번에 많은 명령이 들어오면 가끔 채널 하나를 놓칩니다. 앱은 반영된 값을 다시 읽어 반영되지 않은 값을 다시 전송하고, 어떤 채널을 재시도했는지 알려 줍니다.</li>
       <li><b>잠긴 컨트롤은 무엇으로도 적용할 수 없습니다.</b> 스피커 프리셋이 Dirac Live에 속해 있으면 리시버 자체가 Audyssey 변경을 거부하며, 이를 담은 장면도 화면의 컨트롤과 똑같이 거부됩니다. <a href="/ko/guide/locked-controls/">컨트롤이 잠기는 이유</a>를 참고하세요.</li>
+      <li><b>Amp Assign이 먼저 적용되고, 모든 행을 확인합니다.</b> 호출 시 Amp Assign이 먼저 설정되고 각 행은 기록한 뒤에 확인됩니다. 그 시점에 리시버가 변경을 허용하지 않는 행은 그대로 두고 앱에서 이름을 알려 줍니다. 레이아웃은 Audyssey 값보다 먼저 기록되므로 둘을 모두 담은 씬은 자신의 값을 유지합니다.</li>
+      <li><b>저장 중에는 진행 상황이 표시됩니다.</b> 씬을 저장하는 동안 앱이 리시버를 읽는 진행 상황이 표시되며, 탭으로 닫을 수 없습니다.</li>
       <li><b>장면에 담긴 것만 바뀝니다.</b> 기대한 것이 장면에서 바뀌지 않는다면 아마 체크되지 않았을 것입니다. 장면을 새로 만들지 말고 길게 눌러 캡처된 설정 편집을 사용하세요.</li>
       <li><b>장면은 리시버 한 대에 속합니다.</b> 목록은 현재 선택한 리시버의 목록입니다. 다른 리시버에는 자체 목록이 있습니다. 여러 리시버를 한 번의 탭으로 설정하려면 <a href="#multi-avr">Multi AVR Scene</a>을 사용하세요.</li>
     </ul>

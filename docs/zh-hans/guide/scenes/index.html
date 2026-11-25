@@ -446,6 +446,7 @@
       <div class="gcard"><div class="ic"><svg class="fi" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg></div><h3>分区</h3><p>分区 2 和分区 3 的电源、输入源和音量，以及全分区立体声。</p></div>
       <div class="gcard"><div class="ic"><svg class="fi" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="8" width="20" height="13" rx="2"/><path d="m6 8 12-5"/><circle cx="16" cy="14.5" r="2.5"/><path d="M6 13h4M6 17h4"/></svg></div><h3>附加功能</h3><p>ECO、睡眠定时器（包括您的自定义槽位）、音频延迟、调光、HDMI 音频输出、调谐器电台、接收机的设置锁定，甚至应用自身的配色主题。</p></div>
     </div>
+    <p class="lead" style="margin-top:20px">场景还可以包含<b>功放分配</b>和<b>扬声器配置</b>，在快速捕获和引导向导中都可以。行和选项来自接收机的扬声器布局页面，当 Dirac Live 占用该页面时，场景会说明这一点。保存包含其中任一设置的场景时会先询问，用的是接收机说明书自己的措辞：功放分配会重置扬声器布局，而布局更改会关闭 Audyssey MultEQ XT32、Dynamic EQ 和 Dynamic Volume，直到再次运行 Audyssey 设置。从小组件启动的场景会应用同样受保护的写入，但不会列出被跳过的项目，Home Assistant 场景方案也不包含这两项设置。</p>
     <p class="lead" style="margin-top:20px">具体出现哪些选项取决于您的接收机。应用只列出您的机型报告的内容，因此您绝不会围绕一个它没有的设置去创建场景。</p>
   </div>
 </section>
@@ -501,6 +502,8 @@
       <li><b>电源最先，冷启动的接收机会获得唤醒的时间。</b>如果场景要打开接收机，其他一切都会等它启动完成，因为还在启动中的接收机会忽略设置。</li>
       <li><b>声道电平会被检查并重发一次。</b>一次收到大量内容时，接收机偶尔会漏掉某个声道。应用会读回实际生效的内容，重发没有生效的部分，并告诉您它重试了哪些声道。</li>
       <li><b>被锁定的控件无法被任何方式应用。</b>如果您的扬声器预设由 Dirac Live 掌管，接收机本身会拒绝 Audyssey 的更改，包含这些更改的场景也会像屏幕上的控件一样被拒绝。请参阅<a href="/zh-hans/guide/locked-controls/">控件为何被锁定</a>。</li>
+      <li><b>功放分配优先，且每一行都会核对。</b>调用时先设置功放分配，每一行写入后都会核对。接收机此刻不允许更改的行保持原样，并在应用中点名。布局先于 Audyssey 的值写入，因此同时包含两者的场景会保留自己的值。</li>
+      <li><b>保存时显示进度。</b>保存场景时，应用读取接收机期间会显示进度，点按无法将其关闭。</li>
       <li><b>只会更改场景包含的内容。</b>如果场景没有更改您预期的某项内容，多半是因为它没有被勾选。请长按它并使用“编辑已捕获的设置”，而不是再创建第二个场景。</li>
       <li><b>场景属于单台接收机。</b>列表是当前所选接收机的列表，其他接收机有各自的列表。要一键设置多台接收机，请使用 <a href="#multi-avr">Multi AVR Scene</a>。</li>
     </ul>
